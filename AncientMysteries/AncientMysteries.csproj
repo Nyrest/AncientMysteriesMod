@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AncientMysteries</RootNamespace>
+    <AssemblyName>AncientMysteries</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Game\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Game.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Graphics\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Graphics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AMLocalization.cs" />
+    <Compile Include="AmmoTypes\AT_Iridescence.cs" />
+    <Compile Include="AmmoTypes\AT_Color.cs" />
+    <Compile Include="AmmoTypes\AT_CubicBlast.cs" />
+    <Compile Include="AmmoTypes\AT_Dragon.cs" />
+    <Compile Include="AmmoTypes\AT_Electronic.cs" />
+    <Compile Include="AmmoTypes\AT_None.cs" />
+    <Compile Include="AmmoTypes\AT_Shadow.cs" />
+    <Compile Include="AmmoTypes\AT_Skull.cs" />
+    <Compile Include="Items\AMHelmet.cs" />
+    <Compile Include="Items\Developers\Hats\Thingy.cs" />
+    <Compile Include="Items\Developers\Hats\Boring3.cs" />
+    <Compile Include="Bullets\Bullet_CubicBlast.cs" />
+    <Compile Include="Bullets\Bullet_Electronic.cs" />
+    <Compile Include="Bullets\Bullet_Shadow.cs" />
+    <Compile Include="groupNames.cs" />
+    <Compile Include="GTool.cs" />
+    <Compile Include="Items\Rainbow\ChromaticStreamer.cs" />
+    <Compile Include="Items\Rainbow\Iridescence.cs" />
+    <Compile Include="Localization\Enums\AMLang.cs" />
+    <Compile Include="Localization\IAMLocalizable.cs" />
+    <Compile Include="Misc\TexHelper.cs" />
+    <Compile Include="Mod.cs" />
+    <Compile Include="Particles\CustomSpark.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RefectionCache.cs" />
+    <Compile Include="Items\AMGun.cs" />
+    <Compile Include="Items\AMHoldable.cs" />
+    <Compile Include="Items\AMMelee.cs" />
+    <Compile Include="Items\AMStaff.cs" />
+    <Compile Include="Items\Artifact\FallGuy.cs" />
+    <Compile Include="Items\Dark\Melee\DeathBringer.cs" />
+    <Compile Include="Items\Dark\Void Piercer.cs" />
+    <Compile Include="Items\Dark\Shadow Dance.cs" />
+    <Compile Include="Items\Dark\Dark Aurora.cs" />
+    <Compile Include="Items\Dragon\Molten Spitter.cs" />
+    <Compile Include="Items\Electronic\Thunderstorm.cs" />
+    <Compile Include="Items\Electronic\ElectronicImpacter.cs" />
+    <Compile Include="Items\Isekai\AssassinsCreed\SpearOfLeonidas.cs" />
+    <Compile Include="Utilities\Helper.cs" />
+    <Compile Include="Utilities\HSL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Armor\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="content\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AncientMysteries.csproj.user" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
