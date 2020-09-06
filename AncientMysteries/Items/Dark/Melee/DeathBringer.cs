@@ -1,4 +1,5 @@
 ﻿using AncientMysteries.AmmoTypes;
+using AncientMysteries.Bullets;
 using DuckGame;
 using static AncientMysteries.groupNames;
 
@@ -37,11 +38,11 @@ namespace AncientMysteries.Items.Dark.Melee
                 {
                     if (base.duck.offDir != 1)
                     {
-                        Level.Add(new Bullet(base.duck.x, base.duck.y, type, -180, base.duck, rbound: false, 300f));
+                        Level.Add(new Bullet_Skull(base.duck.x, base.duck.y, type, -180, true, base.duck, rbound: false, 300f));
                     }
                     else
                     {
-                        Level.Add(new Bullet(base.duck.x, base.duck.y, type, 0, base.duck, rbound: false, 300f));
+                        Level.Add(new Bullet_Skull(base.duck.x, base.duck.y, type, 0, false, base.duck, rbound: false, 300f));
                     }
                 }
             }
