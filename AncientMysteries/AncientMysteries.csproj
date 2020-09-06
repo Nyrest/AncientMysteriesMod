@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="AMLocalization.cs" />
     <Compile Include="AmmoTypes\AT_BloodyEyedrop.cs" />
+    <Compile Include="AmmoTypes\AT_Current.cs" />
     <Compile Include="AmmoTypes\AT_Iridescence.cs" />
     <Compile Include="AmmoTypes\AT_Color.cs" />
     <Compile Include="AmmoTypes\AT_CubicBlast.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="AmmoTypes\AT_None.cs" />
     <Compile Include="AmmoTypes\AT_Shadow.cs" />
     <Compile Include="AmmoTypes\AT_Skull.cs" />
+    <Compile Include="Bullets\Bullet_Current.cs" />
     <Compile Include="Bullets\Bullet_Skull.cs" />
     <Compile Include="Bullets\Bullet_Dragon.cs" />
     <Compile Include="Items\AMHelmet.cs" />
