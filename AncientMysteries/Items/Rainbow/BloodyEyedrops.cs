@@ -1,5 +1,6 @@
 ﻿using AncientMysteries.AmmoTypes;
 using AncientMysteries.Localization.Enums;
+using AncientMysteries.Utilities;
 using DuckGame;
 using System;
 using System.Collections.Generic;
@@ -59,22 +60,26 @@ namespace AncientMysteries.Items.Rainbow
         public override void Update()
         {
             base.Update();
-            if(_castTime > 0.3f)
+            Graphics.material = null;
+            if (_castTime > 0.3f)
             {
                 this._castSpeed = 0.005f;
             }
             else this._castSpeed = 0.01f;
             if (IsSpelling)
             {
-                if(_castTime > 0.3f)
+                if (_castTime > 0.3f)
                 {
                     Vec2 barrelPos = barrelPosition;
-                    for (int i = 0; i < 2; i++)
+                    int count = Rando.Int(0, 2);
+                    for (int i = 0; i < count; i++)
                     {
                         Bullet bullet = new Bullet(
                             barrelPos.x,
                             barrelPos.y, ammoType, 90 + Rando.Float(-10, 10));
+                        bullet.color = HSL.FromHslFloat(Rando.Float(1), Rando.Float(0.4f, 0.9f), Rando.Float(0.50f, 0.65f));
                         bullet.firedFrom = this;
+                        bullet.range = 2000;
                         firedBullets.Add(bullet);
                         Level.Add(bullet);
                     }
