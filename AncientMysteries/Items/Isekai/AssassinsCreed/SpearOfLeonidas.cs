@@ -30,7 +30,7 @@ namespace AncientMysteries.Items.Artifacts
 
         public SpearOfLeonidas(float xval, float yval) : base(xval, yval)
         {
-            this.ammo = 4;
+            this.ammo = 1000;
             this._ammoType = new AT9mm();
             this._type = "gun";
             this.ReadyToRunMap("SpearOfLeonidas.png");
