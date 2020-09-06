@@ -69,7 +69,7 @@ namespace AncientMysteries.Items.Rainbow
                 if(_castTime > 0.3f)
                 {
                     Vec2 barrelPos = barrelPosition;
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < 1; i++)
                     {
                         Bullet bullet = new Bullet(
                             barrelPos.x,
