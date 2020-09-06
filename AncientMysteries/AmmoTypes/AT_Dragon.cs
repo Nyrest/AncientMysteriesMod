@@ -13,17 +13,17 @@ namespace AncientMysteries.AmmoTypes
         {
             accuracy = 0.6f;
             range = 400f;
-            penetration = 1f;
+            penetration = 2f;
             rangeVariation = 10f;
             combustable = true;
-            //sprite = TexHelper.ModSprite("fireball.png");
+            sprite = TexHelper.ModSprite("fireball2.png");
             //sprite.CenterOrigin();
-            //bulletType = typeof(Bullet_Shadow);
+            bulletType = typeof(Bullet_Dragon);
         }
 
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
         {
-            this.bulletColor = Color.DarkRed;
+            this.bulletColor = Color.OrangeRed;
             return base.FireBullet(position, owner, angle, firedFrom);
         }
     }
