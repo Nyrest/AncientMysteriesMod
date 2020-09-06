@@ -1,16 +1,13 @@
-﻿using AncientMysteries.Particles;
+﻿using AncientMysteries.Bullets;
+using AncientMysteries.Particles;
 using DuckGame;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace AncientMysteries.AmmoTypes
 {
     public sealed class AT_Skull : AmmoType
     {
-        public SpriteMap _spriteMap;
-
         public AT_Skull()
         {
             accuracy = 0.9f;
@@ -18,24 +15,7 @@ namespace AncientMysteries.AmmoTypes
             penetration = 1f;
             bulletSpeed = 3f;
             bulletLength = 0;
-            sprite = _spriteMap = TexHelper.ModSpriteMap("Skull.png", 25, 14, true);
-            _spriteMap.AddAnimation("loop", 0.3f, true, 0, 1, 2, 3);
-            _spriteMap.SetAnimation("loop");
-            _spriteMap.CenterOrigin();
-        }
-
-        public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
-        {
-            bulletColor = Color.Transparent;
-            if (owner._offDir == -1)
-            {
-                sprite = _spriteMap = TexHelper.ModSpriteMap("Skull.png", 25, 14, true);
-            }
-            if (owner._offDir == 1)
-            {
-                sprite = _spriteMap = TexHelper.ModSpriteMap("SkullR.png", 25, 14, true);
-            }
-            return base.FireBullet(position, owner, angle, firedFrom);
+            bulletType = typeof(Bullet_Skull);
         }
 
         public override void OnHit(bool destroyed, Bullet b)
