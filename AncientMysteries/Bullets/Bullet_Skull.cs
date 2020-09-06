@@ -9,14 +9,26 @@ namespace AncientMysteries.Bullets
 {
     public sealed class Bullet_Skull : Bullet
     {
-        private SpriteMap _beem;
 
-        private float _thickness;
+        public SpriteMap _spriteMap;
 
-        public Bullet_Skull(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
+        public bool flyRight;
+
+        public Bullet_Skull(float xval, float yval, AmmoType type, float ang = -1, bool dir = true, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
-            _thickness = type.bulletThickness;
+            if (dir)
+            {
+                _spriteMap = TexHelper.ModSpriteMap("SkullR.png", 25, 14, true);
+            }
+            else
+            {
+                _spriteMap = TexHelper.ModSpriteMap("Skull.png", 25, 14, true);
+            }
+            _spriteMap.AddAnimation("loop", 0.3f, true, 0, 1, 2, 3);
+            _spriteMap.SetAnimation("loop");
+            _spriteMap.CenterOrigin();
         }
+
         public override void Update()
         {
             base.Update();
@@ -33,6 +45,14 @@ namespace AncientMysteries.Bullets
         {
             base.OnCollide(pos, t, willBeStopped);
             Level.Add(SmallFire.New(pos.x, pos.y, 0, 0));
+        }
+
+        public override void Draw()
+        {
+            base.Draw();
+            _spriteMap.depth = 1f;
+            _spriteMap.angleDegrees = 0f - Maths.PointDirection(Vec2.Zero, travelDirNormalized);
+            Graphics.Draw(_spriteMap, travelStart.x, travelStart.y);
         }
     }
 }
