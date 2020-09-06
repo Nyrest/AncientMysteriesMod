@@ -59,6 +59,7 @@
     <Compile Include="AmmoTypes\AT_None.cs" />
     <Compile Include="AmmoTypes\AT_Shadow.cs" />
     <Compile Include="AmmoTypes\AT_Skull.cs" />
+    <Compile Include="Bullets\Bullet_Skull.cs" />
     <Compile Include="Bullets\Bullet_Dragon.cs" />
     <Compile Include="Items\AMHelmet.cs" />
     <Compile Include="Items\Developers\Hats\Thingy.cs" />
@@ -230,6 +231,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\fireball2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\skullR.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
