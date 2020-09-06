@@ -2,12 +2,22 @@
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace AncientMysteries
 {
     public sealed class AncientMysteriesMod : Mod
     {
+        protected override void OnPreInitialize()
+        {
+            base.OnPreInitialize();
+            if(Debugger.IsAttached)
+            {
+                MonoMain.modDebugging = true;
+            }
+        }
+
         protected override void OnPostInitialize()
         {
             base.OnPostInitialize();
