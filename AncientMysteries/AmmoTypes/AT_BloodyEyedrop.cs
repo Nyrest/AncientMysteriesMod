@@ -17,7 +17,7 @@ namespace AncientMysteries.AmmoTypes
             bulletSpeed = 9f;
             rangeVariation = 0f;
             speedVariation = 0f;
-            range = 3000f;
+            range = 1000f;
 
             penetration = 2f;
             weight = 5f;
