@@ -52,7 +52,7 @@ namespace AncientMysteries.Bullets
             base.Draw();
             _spriteMap.depth = 1f;
             _spriteMap.angleDegrees = 0f - Maths.PointDirection(Vec2.Zero, travelDirNormalized);
-            Graphics.Draw(_spriteMap, travelStart.x, travelStart.y);
+            Graphics.Draw(_spriteMap, start.x, start.y);
         }
     }
 }
