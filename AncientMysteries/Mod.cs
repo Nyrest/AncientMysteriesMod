@@ -33,7 +33,7 @@ namespace AncientMysteries
                         g.Name = g.Name switch
                         {
                             "Artifact" => "|ORANGE|Artifact",
-                            "Dragon" => "Dargon",
+                            "Dragon" => "Dragon",
                             "Developers" => "|LIME|Developers",
                             "Electronic" => "|DGYELLOW|Electronic",
                             "Isekai" => "Isekai @PLANET@",

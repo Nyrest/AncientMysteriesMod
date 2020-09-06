@@ -16,9 +16,9 @@ namespace AncientMysteries.AmmoTypes
             accuracy = 0.9f;
             range = 5000f;
             penetration = 1f;
-            sprite = _spriteMap = TexHelper.ModSpriteMap("Skull.png", 25, 14, true);
             bulletSpeed = 3f;
             bulletLength = 0;
+            sprite = _spriteMap = TexHelper.ModSpriteMap("Skull.png", 25, 14, true);
             _spriteMap.AddAnimation("loop", 0.3f, true, 0, 1, 2, 3);
             _spriteMap.SetAnimation("loop");
             _spriteMap.CenterOrigin();
@@ -27,6 +27,14 @@ namespace AncientMysteries.AmmoTypes
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
         {
             bulletColor = Color.Transparent;
+            if (owner._offDir == -1)
+            {
+                sprite = _spriteMap = TexHelper.ModSpriteMap("Skull.png", 25, 14, true);
+            }
+            if (owner._offDir == 1)
+            {
+                sprite = _spriteMap = TexHelper.ModSpriteMap("SkullR.png", 25, 14, true);
+            }
             return base.FireBullet(position, owner, angle, firedFrom);
         }
 
