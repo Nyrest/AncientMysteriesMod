@@ -41,6 +41,13 @@ namespace AncientMysteries.Items.Artifacts
             _impactThreshold = 0.3f;
         }
 
+        public override void PressAction()
+        {
+            base.PressAction();
+            if (_targetPlayer != null)
+                _targetPlayer.Kill(new DTCrush(_targetPlayer));
+        }
+
         // TODO:
         public override void Update()
         {
