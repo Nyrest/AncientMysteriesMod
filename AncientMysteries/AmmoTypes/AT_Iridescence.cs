@@ -12,7 +12,7 @@ namespace AncientMysteries.AmmoTypes
     {
         public AT_Iridescence()
         {
-            accuracy = 0.93f;
+            accuracy = 1f;
             range = 800f;
             penetration = 2f;
             rangeVariation = 10f;
@@ -22,8 +22,9 @@ namespace AncientMysteries.AmmoTypes
 
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
         {
-            this.bulletColor = HSL.FromHslFloat(Rando.Float(1), Rando.Float(0.1f,0.9f), Rando.Float(0.45f, 0.65f));
-            return base.FireBullet(position, owner, angle, firedFrom);
+            var result = base.FireBullet(position, owner, angle, firedFrom);
+            result.color = HSL.FromHslFloat(Rando.Float(1), Rando.Float(0.1f, 0.9f), Rando.Float(0.45f, 0.65f));
+            return result;
         }
     }
 }
