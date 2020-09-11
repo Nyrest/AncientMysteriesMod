@@ -9,6 +9,7 @@ namespace AncientMysteries.Bullets
 {
     public sealed class Bullet_Skull : Bullet
     {
+        public MaterialGlitch glitch;
 
         public SpriteMap _spriteMap;
 
@@ -27,6 +28,7 @@ namespace AncientMysteries.Bullets
             _spriteMap.AddAnimation("loop", 0.3f, true, 0, 1, 2, 3);
             _spriteMap.SetAnimation("loop");
             _spriteMap.CenterOrigin();
+            glitch = new MaterialGlitch(this);
         }
 
         public override void Update()
@@ -50,9 +52,11 @@ namespace AncientMysteries.Bullets
         public override void Draw()
         {
             base.Draw();
+            material = glitch;
             _spriteMap.depth = 1f;
             _spriteMap.angleDegrees = 0f - Maths.PointDirection(Vec2.Zero, travelDirNormalized);
             Graphics.Draw(_spriteMap, start.x, start.y);
+            material = null;
         }
     }
 }
