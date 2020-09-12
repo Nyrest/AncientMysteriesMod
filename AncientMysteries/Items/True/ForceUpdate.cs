@@ -5,16 +5,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.True
 {
+    [EditorGroup(topAndSeries + "True")]
     public sealed class ForceUpdate : AMHoldable
     {
         public StateBinding _targetPlayerBinding = new StateBinding(nameof(_targetPlayer));
         public Duck _targetPlayer;
 
         public StateBinding _blindTimeBinding = new StateBinding(nameof(_blindTime));
-        public float _blindTime;
+        public int _blindTime;
 
         public bool IsTargetVaild => _targetPlayer?.dead == false;
 
@@ -22,11 +24,17 @@ namespace AncientMysteries.Items.True
 
         public ForceUpdate(float xpos, float ypos) : base(xpos, ypos)
         {
+            this.ReadyToRunMap("rainbowGun.png");
         }
 
         public override void Update()
         {
             base.Update();
+            if (_blindTime > 0)
+            {
+                _blindTime--;
+            }
+            else _blindTime = 0;
             if (duck != null)
             {
                 if (
@@ -53,14 +61,16 @@ namespace AncientMysteries.Items.True
         public override void PressAction()
         {
             base.PressAction();
+            if (IsTargetVaild)
+                _blindTime = 60 * 8;
         }
 
         public override void Draw()
         {
             base.Draw();
-            if (IsTargetVaild && (_targetPlayer?.profile.localPlayer == true))
+            if (IsTargetVaild && (_targetPlayer?.profile.localPlayer == true) && _blindTime > 0)
             {
-                
+                Graphics.DrawRect(Level.current.camera.rectangle, Color.White, 0.999f, true);
             }
         }
     }

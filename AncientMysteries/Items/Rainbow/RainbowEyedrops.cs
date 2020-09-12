@@ -11,7 +11,7 @@ using static AncientMysteries.groupNames;
 namespace AncientMysteries.Items.Rainbow
 {
     [EditorGroup(topAndSeries + "Rainbow")]
-    public class BloodyEyedrops : AMStaff
+    public class RainbowEyedrops : AMStaff
     {
         public StateBinding _animationFrameBinding = new StateBinding("animationFrame");
 
@@ -26,14 +26,14 @@ namespace AncientMysteries.Items.Rainbow
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            AMLang.schinese => "棱彩流光",
-            _ => "Chromatic Streamer",
+            AMLang.schinese => "棱彩之泪",
+            _ => "Chromatic Eyedrop",
         };
 
-        public BloodyEyedrops(float xval, float yval) : base(xval, yval)
+        public RainbowEyedrops(float xval, float yval) : base(xval, yval)
         {
             this.ammo = 500;
-            this._ammoType = new AT_BloodyEyedrop()
+            this._ammoType = new AT_RainbowEyedrops()
             {
 
             };
@@ -45,7 +45,7 @@ namespace AncientMysteries.Items.Rainbow
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             this._fireSound = "flameExplode";
-            this._fireWait = 0.6f;
+            this._fireWait = 0.5f;
             this._fireSoundPitch = 0.9f;
             this._kickForce = 0.25f;
             this._fullAuto = true;
@@ -71,7 +71,7 @@ namespace AncientMysteries.Items.Rainbow
                 if (_castTime > 0.3f)
                 {
                     Vec2 barrelPos = barrelPosition;
-                    int count = Rando.Int(0, 2);
+                    int count = Rando.Int(1, 2);
                     for (int i = 0; i < count; i++)
                     {
                         Bullet bullet = new Bullet(
@@ -83,7 +83,7 @@ namespace AncientMysteries.Items.Rainbow
                         firedBullets.Add(bullet);
                         Level.Add(bullet);
                     }
-                    bulletFireIndex += 20;
+                    bulletFireIndex += (byte)count;
                     if (Network.isActive)
                     {
                         NMFireGun gunEvent = new NMFireGun(this, firedBullets, bulletFireIndex, false, 4);
