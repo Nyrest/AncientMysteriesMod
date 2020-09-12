@@ -17,8 +17,11 @@ namespace AncientMysteries.Items.Snipers
         public ShadowDance(float xval, float yval) : base(xval, yval)
         {
             ammo = 999;
-            this._ammoType = new AT_Shadow();
-            this._ammoType.range = 2500;
+            this._ammoType = new AT_Shadow()
+            {
+                range = 1600
+            };
+
             this._type = "gun";
             this.ReadyToRunMap("shadowDance.png");
             _flare.color = Color.Black;

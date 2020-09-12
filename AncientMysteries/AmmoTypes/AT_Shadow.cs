@@ -12,7 +12,7 @@ namespace AncientMysteries.AmmoTypes
         public AT_Shadow()
         {
             accuracy = 0.9f;
-            range = 400f;
+            range = 600f;
             penetration = 2f;
             rangeVariation = 10f;
             combustable = true;
