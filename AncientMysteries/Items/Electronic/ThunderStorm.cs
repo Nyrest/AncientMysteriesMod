@@ -47,7 +47,7 @@ namespace AncientMysteries.Items.Electronic
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
-            int count = _castTime >= 0.95f ? Rando.Int(7, 9) : 1;
+            int count = _castTime >= 0.95f ? Rando.Int(3, 5) : 1;
             float speed = _castTime >= 0.95f ? 4 : 1.5f;
             if (_castTime >= 0.95f)
             {
