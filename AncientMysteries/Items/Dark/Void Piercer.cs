@@ -19,7 +19,7 @@ namespace AncientMysteries.Items.MachineGuns
             ammo = 999;
             this._ammoType = new AT_Shadow()
             {
-                range = 340f,
+                range = 360f,
                 accuracy = 0.7f,
                 penetration = 1f
             };

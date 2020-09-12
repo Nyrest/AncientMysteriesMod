@@ -1,4 +1,5 @@
-﻿using DuckGame;
+﻿using System.Runtime.CompilerServices;
+using DuckGame;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace AncientMysteries.Utilities
             return null;
         }
 
-        public static void SwitchTarget(ref Duck current, Duck ignore)
+        public static void SwitchTarget(ref Duck current, Duck ignore, bool playSound = true)
         {
             Duck[] ducks = Level.current.things[typeof(Duck)]
             .Cast<Duck>()
@@ -41,7 +42,8 @@ namespace AncientMysteries.Utilities
                 if (!target.dead && target != ignore)
                 {
                     current = target;
-                    SFX.Play("swipe", 1f, 0.8f);
+                    if (playSound)
+                        SFX.Play("swipe", 1f, 0.8f);
                     return;
                 }
             }
