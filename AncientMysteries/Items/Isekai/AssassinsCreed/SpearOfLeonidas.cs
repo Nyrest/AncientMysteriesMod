@@ -18,10 +18,8 @@ namespace AncientMysteries.Items.Artifacts
         //public StateBinding _targetPlayerBinding = new StateBinding("_targetPlayer");
         public Duck _targetPlayer;
 
-        public StateBinding _flyProgressBinding = new StateBinding("_flyProgress");
-        public float _flyProgress = -1;
-
-        public Vec2 _flyStartPos;
+        public StateBinding _flyProgressBinding = new StateBinding(nameof(_flying));
+        public bool _flying = false;
 
         public bool IsTargetVaild => _targetPlayer?.dead == false;
 
@@ -50,7 +48,9 @@ namespace AncientMysteries.Items.Artifacts
         {
             base.PressAction();
             if (_targetPlayer != null)
-                _targetPlayer.Kill(new DTCrush(_targetPlayer));
+            {
+
+            }
         }
 
         // TODO:
@@ -72,21 +72,16 @@ namespace AncientMysteries.Items.Artifacts
                 }
             }
             // TODO: do this network onwer only, if null then just fucking stop flying and fall
-            else if (_flyProgress >= 0)
+            else if (_flying)
             {
-                if (_flyProgress >= 1)
-                {
-                    // TODO: kill target
-                }
                 // what a stupid implementation. I should let it just move like a normal object
                 // but it can be teleported by teleporter. so just draw it no need modify it's real position.
                 // however this guy is too lazy
                 Vec2 anglevec = new Vec2(_targetPlayer.x - this.x, this.y - _targetPlayer.y);
                 float angle = (float)Math.Atan(anglevec.y / anglevec.x);
                 this.offDir = (sbyte)(anglevec.x < 0 ? -1 : 1);
-                Vec2 posOffset = _targetPlayer.position - _flyStartPos;
-                this.position = _flyStartPos + posOffset * _flyProgress;
-
+                this.position += anglevec;
+                
             }
             else
             {
