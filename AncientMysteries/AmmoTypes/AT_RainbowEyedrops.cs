@@ -8,15 +8,15 @@ using System.Text;
 
 namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_BloodyEyedrop : AmmoType
+    public sealed class AT_RainbowEyedrops : AmmoType
     {
-        public AT_BloodyEyedrop()
+        public AT_RainbowEyedrops()
         {
             accuracy = 0.93f;
 
             bulletSpeed = 9f;
             rangeVariation = 0f;
-            speedVariation = 0f;
+            speedVariation = 0.5f;
             range = 1500f;
 
             penetration = 2f;

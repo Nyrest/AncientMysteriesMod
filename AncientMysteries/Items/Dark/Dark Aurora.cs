@@ -23,7 +23,10 @@ namespace AncientMysteries.Items.Shotguns
         public DarkAurora(float xval, float yval) : base(xval, yval)
         {
             ammo = 999;
-            this._ammoType = new AT_Shadow();
+            this._ammoType = new AT_Shadow()
+            {
+                range = 380f,
+            };
             this._type = "gun";
             this.ReadyToRunMap("darkAurora.png");
             _flare.color = Color.Black;

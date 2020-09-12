@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AMLocalization.cs" />
-    <Compile Include="AmmoTypes\AT_BloodyEyedrop.cs" />
+    <Compile Include="AmmoTypes\AT_RainbowEyedrops.cs" />
     <Compile Include="AmmoTypes\AT_Iridescence.cs" />
     <Compile Include="AmmoTypes\AT_Color.cs" />
     <Compile Include="AmmoTypes\AT_CubicBlast.cs" />
@@ -70,7 +70,7 @@
     <Compile Include="groupNames.cs" />
     <Compile Include="GTool.cs" />
     <Compile Include="Items\Mortal\props\Dice.cs" />
-    <Compile Include="Items\Rainbow\BloodyEyedrops.cs" />
+    <Compile Include="Items\Rainbow\RainbowEyedrops.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
     <Compile Include="Items\True\ForceUpdate.cs" />
     <Compile Include="Localization\Enums\AMLang.cs" />
