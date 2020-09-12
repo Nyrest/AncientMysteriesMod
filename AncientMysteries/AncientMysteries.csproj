@@ -52,6 +52,7 @@
     <Compile Include="AMLocalization.cs" />
     <Compile Include="AmmoTypes\AT_BloodyEyedrop.cs" />
     <Compile Include="AmmoTypes\AT_Current.cs" />
+    <Compile Include="AmmoTypes\AT_FB.cs" />
     <Compile Include="AmmoTypes\AT_Iridescence.cs" />
     <Compile Include="AmmoTypes\AT_Color.cs" />
     <Compile Include="AmmoTypes\AT_CubicBlast.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="AmmoTypes\AT_Shadow.cs" />
     <Compile Include="AmmoTypes\AT_Skull.cs" />
     <Compile Include="Bullets\Bullet_Current.cs" />
+    <Compile Include="Bullets\Bullet_FB.cs" />
     <Compile Include="Bullets\Bullet_Skull.cs" />
     <Compile Include="Bullets\Bullet_Dragon.cs" />
     <Compile Include="Items\AMHelmet.cs" />
@@ -71,6 +73,7 @@
     <Compile Include="Bullets\Bullet_Shadow.cs" />
     <Compile Include="groupNames.cs" />
     <Compile Include="GTool.cs" />
+    <Compile Include="Items\Dragon\Eternal Flame.cs" />
     <Compile Include="Items\Rainbow\BloodyEyedrops.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
     <Compile Include="Localization\Enums\AMLang.cs" />
@@ -232,7 +235,13 @@
     <None Include="AncientMysteries.csproj.user" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content\eF.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="content\fireball2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\firebolt.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="content\skullR.png">

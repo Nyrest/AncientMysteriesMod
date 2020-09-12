@@ -13,7 +13,7 @@ namespace AncientMysteries.AmmoTypes
         {
             range = 400f;
             rangeVariation = 10f;
-            //sprite.CenterOrigin();
+            sprite.CenterOrigin();
             accuracy = 1f;
             penetration = 1f;
             bulletSpeed = 20f;
