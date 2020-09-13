@@ -17,6 +17,7 @@ namespace AncientMysteries.AmmoTypes
             rangeVariation = 10f;
             bulletSpeed = 15f;
             speedVariation = -10f;
+            rangeVariation = -50f;
             combustable = true;
             bulletLength = 0;
             sprite = TexHelper.ModSprite("firebolt.png");
