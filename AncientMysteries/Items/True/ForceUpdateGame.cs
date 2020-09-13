@@ -1,6 +1,7 @@
 ﻿using AncientMysteries.Localization.Enums;
 using AncientMysteries.Utilities;
 using DuckGame;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using static AncientMysteries.groupNames;
 namespace AncientMysteries.Items.True
 {
     [EditorGroup(topAndSeries + "True")]
-    public sealed class ForceUpdate : AMHoldable
+    public sealed class ForceUpdateGame : AMHoldable
     {
         public StateBinding _targetPlayerBinding = new StateBinding(nameof(_targetPlayer));
         public Duck _targetPlayer;
@@ -22,7 +23,7 @@ namespace AncientMysteries.Items.True
 
         public bool _quacked;
 
-        public ForceUpdate(float xpos, float ypos) : base(xpos, ypos)
+        public ForceUpdateGame(float xpos, float ypos) : base(xpos, ypos)
         {
             this.ReadyToRunMap("rainbowGun.png");
         }
@@ -70,7 +71,33 @@ namespace AncientMysteries.Items.True
             base.Draw();
             if (IsTargetVaild && (_targetPlayer?.profile.localPlayer == true) && _blindTime > 0)
             {
-                Graphics.DrawRect(Level.current.camera.rectangle, Color.White, 0.999f, true);
+                //Graphics.DrawRect(Level.current.camera.rectangle, Color.White, 0.999f, true);
+                doOverlayDraw = true;
+            }
+        }
+
+        static ForceUpdateGame()
+        {
+            Hooks.OnDraw += ForceUpdateDraw;
+        }
+        public static bool doOverlayDraw;
+
+
+        public static void ForceUpdateDraw()
+        {
+            if (doOverlayDraw)
+            {
+                Graphics.caseSensitiveStringDrawing = false;
+                Graphics.screen.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.Default, RasterizerState.CullNone, null);
+                Graphics.Clear(Color.Blue);
+                const string text = "Your Duck Game is updating...";
+                float width = Graphics.GetStringWidth(text);
+                Graphics.DrawString(text, new Vec2(Graphics.width / 2 - (width / 2)*4, 250), Color.White, default, null, 4);
+                float whiteSpaceX = 100;
+                Graphics.DrawRect(new Rectangle(whiteSpaceX, 300, Graphics.width - whiteSpaceX * 2, 40),
+                    Color.White);
+                Graphics.screen.End();
+                doOverlayDraw = false;
             }
         }
     }
