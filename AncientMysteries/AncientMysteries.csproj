@@ -32,6 +32,7 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553" />
     <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Game\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Game.dll</HintPath>
@@ -50,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AMLocalization.cs" />
+    <Compile Include="AmmoTypes\AT_Current.cs" />
     <Compile Include="AmmoTypes\AT_RainbowEyedrops.cs" />
     <Compile Include="AmmoTypes\AT_Iridescence.cs" />
     <Compile Include="AmmoTypes\AT_Color.cs" />
@@ -62,6 +64,7 @@
     <Compile Include="Bullets\Bullet_Current.cs" />
     <Compile Include="Bullets\Bullet_Skull.cs" />
     <Compile Include="Bullets\Bullet_Dragon.cs" />
+    <Compile Include="Hooks.cs" />
     <Compile Include="Items\AMHelmet.cs" />
     <Compile Include="Items\Developers\Hats\Thingy.cs" />
     <Compile Include="Items\Developers\Hats\Boring3.cs" />
@@ -73,7 +76,7 @@
     <Compile Include="Items\Mortal\props\Dice.cs" />
     <Compile Include="Items\Rainbow\RainbowEyedrops.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
-    <Compile Include="Items\True\ForceUpdate.cs" />
+    <Compile Include="Items\True\ForceUpdateGame.cs" />
     <Compile Include="Localization\Enums\AMLang.cs" />
     <Compile Include="Localization\IAMLocalizable.cs" />
     <Compile Include="Misc\TexHelper.cs" />

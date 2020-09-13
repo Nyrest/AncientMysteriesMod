@@ -12,6 +12,7 @@ namespace AncientMysteries
         protected override void OnPreInitialize()
         {
             base.OnPreInitialize();
+            Hooks.Initialize();
             if (Debugger.IsAttached)
             {
                 MonoMain.modDebugging = true;
