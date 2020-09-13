@@ -98,7 +98,7 @@ namespace AncientMysteries.Items.Dragon.Melee
                 {
                     for (int i = 0; i < 10; i++)
                     {
-                        Level.Add(new Bullet_FB(base.duck.x, base.duck.y, new AT_FB(), -180 + Rando.Float(-5, 5), this.owner, false, 300f));
+                        Level.Add(new Bullet_FB(base.duck.x, base.duck.y, new AT_FB(), -180 + Rando.Float(-5, 5), this.owner, false, 250f + Rando.Float(-75,75)));
                         cooldown3 = -10;
                     }
                 }
@@ -106,7 +106,7 @@ namespace AncientMysteries.Items.Dragon.Melee
                 {
                     for (int i = 0; i < 10; i++)
                     {
-                        Level.Add(new Bullet_FB(base.duck.x, base.duck.y, new AT_FB(), 0 + Rando.Float(-5, 5), this.owner, false, 300f));
+                        Level.Add(new Bullet_FB(base.duck.x, base.duck.y, new AT_FB(), 0 + Rando.Float(-5, 5), this.owner, false, 250f + Rando.Float(-75, 75)));
                         cooldown3 = -10;
                     }
                 }
