@@ -26,5 +26,8 @@ namespace AncientMysteries.AmmoTypes
             result.color = HSL.FromHslFloat(Rando.Float(1), Rando.Float(0.1f, 0.9f), Rando.Float(0.45f, 0.65f));
             return result;
         }
+
+        // TODO: FIX lost color after teleported
+        // Reason: Stupid Duck Game is not allow to override AmmoType.GetBullet
     }
 }

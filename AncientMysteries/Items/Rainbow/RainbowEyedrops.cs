@@ -32,7 +32,7 @@ namespace AncientMysteries.Items.Rainbow
 
         public RainbowEyedrops(float xval, float yval) : base(xval, yval)
         {
-            this.ammo = 500;
+            this.ammo = 500;           
             this._ammoType = new AT_RainbowEyedrops()
             {
 
@@ -75,8 +75,8 @@ namespace AncientMysteries.Items.Rainbow
                     for (int i = 0; i < count; i++)
                     {
                         Bullet bullet = new Bullet(
-                            barrelPos.x,
-                            barrelPos.y, ammoType, 90 + Rando.Float(-10, 10));
+                            barrelPos.x + Rando.Float(-3, 3),
+                            barrelPos.y + Rando.Float(-3, 3), ammoType, 90 + Rando.Float(-10, 10), duck);
                         bullet.color = HSL.FromHslFloat(Rando.Float(1), Rando.Float(0.4f, 0.9f), Rando.Float(0.50f, 0.65f));
                         bullet.firedFrom = this;
                         bullet.range = 2000;
