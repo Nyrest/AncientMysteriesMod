@@ -23,10 +23,13 @@ namespace AncientMysteries.Items.Mortal.props
         public override void OnPressAction()
         {
             base.OnPressAction();
-            boo = Rando.Int(0, 1);
-            foreach (Duck d in Level.current.things[typeof(Duck)].Cast<Duck>().Where(d => !d.dead))
+            var ducks = Level.current.things[typeof(Duck)].Cast<Duck>().Where(d => !d.dead);
+            boo = Rando.Int(0, ducks.Count());
+            int duckIndex = 0;
+            foreach (Duck d in ducks)
             {
-                if (Persona.Number(d.persona) == index && d.dead == false)
+                duckIndex++;
+                if (duckIndex == boo)
                 {
                     pos = d.position;
                     for (int i = 0; i < 10; i++)
