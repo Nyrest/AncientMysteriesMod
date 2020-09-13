@@ -76,7 +76,7 @@
     <Compile Include="groupNames.cs" />
     <Compile Include="GTool.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
-    <Compile Include="Items\True\ForceUpdate.cs" />
+    <Compile Include="Items\True\ForceUpdateGame.cs" />
     <Compile Include="Items\Dragon\Eternal Flame.cs" />
     <Compile Include="Localization\Enums\AMLang.cs" />
 	    <Compile Include="Items\Mortal\props\Dice.cs" />
