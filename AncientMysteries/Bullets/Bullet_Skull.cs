@@ -34,19 +34,12 @@ namespace AncientMysteries.Bullets
         public override void Update()
         {
             base.Update();
-            /*foreach (Thing t in Level.CheckCircleAll<Thing>(this.position,10))
-            {
-                if (t != Level.CheckCircleAll<Thing>(DuckNetwork.localConnection.profile.duck.position,20))
-                {
-                    Level.Add(SmallFire.New(t.x, t.y, 0, 0));
-                }
-            }*/
+
         }
 
         public override void OnCollide(Vec2 pos, Thing t, bool willBeStopped)
         {
             base.OnCollide(pos, t, willBeStopped);
-            Level.Add(SmallFire.New(pos.x, pos.y, 0, 0));
         }
 
         public override void Draw()
