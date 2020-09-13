@@ -42,14 +42,16 @@ namespace AncientMysteries.Items.Artifacts
             physicsMaterial = PhysicsMaterial.Metal;
             _bouncy = 0.5f;
             _impactThreshold = 0.3f;
+            weight = 0.9f;
         }
 
         public override void PressAction()
         {
-            base.PressAction();
             if (_targetPlayer != null)
             {
-
+                duck.ThrowItem(true);
+                _flying = true;
+                this.canPickUp = false;
             }
         }
 
@@ -80,13 +82,30 @@ namespace AncientMysteries.Items.Artifacts
                 Vec2 anglevec = new Vec2(_targetPlayer.x - this.x, this.y - _targetPlayer.y);
                 float angle = (float)Math.Atan(anglevec.y / anglevec.x);
                 this.offDir = (sbyte)(anglevec.x < 0 ? -1 : 1);
-                this.position += anglevec;
-                
+                this._angle = angle + 1.56f * offDir;
+                //this.position += anglevec * 0.1f;
+                this.hSpeed = Math.Min(anglevec.x, 5);
+                this.vSpeed = Math.Min(anglevec.y, 5) * -1;
+                this.canPickUp = false;
+                if(_targetPlayer.dead)
+                {
+                    _flying = false;
+                }
             }
             else
             {
+                this.canPickUp = true;
                 _targetPlayer = null;
                 _quacked = false;
+            }
+        }
+
+        public override void OnImpact(MaterialThing with, ImpactedFrom from)
+        {
+            base.OnImpact(with, from);
+            if (Math.Max(Math.Abs(hSpeed), Math.Abs(vSpeed)) > 2 && with is Duck duck)
+            {
+                duck.Kill(new DTImpact(this));
             }
         }
 
