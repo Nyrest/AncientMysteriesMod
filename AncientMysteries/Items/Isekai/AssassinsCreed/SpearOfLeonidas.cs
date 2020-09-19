@@ -5,15 +5,15 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Linq;
 using static AncientMysteries.groupNames;
+using static AncientMysteries.AMFonts;
 
 namespace AncientMysteries.Items.Artifacts
 {
-    [EditorGroup(groupNames.g_artifacts)
+    [EditorGroup(groupNames.g_artifacts)]
     public sealed class SpearOfLeonidas : AMGun
     {
         public static readonly Tex2D targetCircle = TexHelper.ModTex2D("targetCircle.png");
         public static readonly int tcWidth = targetCircle.w, tcHeight = targetCircle.h;
-        public static readonly BitmapFont _biosFont = new BitmapFont("biosFont", 8);
 
         //public StateBinding _targetPlayerBinding = new StateBinding("_targetPlayer");
         public Duck _targetPlayer;
@@ -21,7 +21,7 @@ namespace AncientMysteries.Items.Artifacts
         public StateBinding _flyProgressBinding = new StateBinding(nameof(_flying));
         public bool _flying = false;
 
-        public bool IsTargetVaild => _targetPlayer?.dead == false;
+        public bool IsTargetVaild => _targetPlayer?.dead == false && _targetPlayer?.ragdoll == null;
 
         public bool _quacked;
 

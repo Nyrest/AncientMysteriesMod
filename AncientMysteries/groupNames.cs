@@ -7,15 +7,15 @@ namespace AncientMysteries
 {
     public static class groupNames
     {
-        public const string topGroupName = "Ancient";
+        public const string topGroupName = "Ancient|";
 
         public const string seriesName = "Items";
 
         public const string topAndSeries = topGroupName + "|";
 
-        public const string guns = "Weapons|";
+        public const string guns = topGroupName + "Weapons|";
 
-        public const string equipments = "Equipments|";
+        public const string equipments = topGroupName + "Equipments|";
 
         public const string e_developer = equipments + "Developers";
 
