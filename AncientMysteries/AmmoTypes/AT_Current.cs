@@ -13,13 +13,14 @@ namespace AncientMysteries.AmmoTypes
         {
             range = 400f;
             rangeVariation = 10f;
-            sprite.CenterOrigin();
+            //sprite.CenterOrigin();
             accuracy = 1f;
             penetration = 1f;
-            bulletSpeed = 20f;
+            bulletSpeed = 5f;
             bulletThickness = 0.3f;
             rebound = true;
             bulletType = typeof(LaserBullet);
+            bulletColor = Color.Yellow;
         }
 
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
