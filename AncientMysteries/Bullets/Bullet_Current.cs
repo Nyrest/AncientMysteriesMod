@@ -7,7 +7,7 @@ using System.Text;
 
 namespace AncientMysteries.Bullets
 {
-    public sealed class Bullet_Current : Bullet
+    public sealed class Bullet_Current : LaserBullet
     {
         private Texture2D _beem;
 

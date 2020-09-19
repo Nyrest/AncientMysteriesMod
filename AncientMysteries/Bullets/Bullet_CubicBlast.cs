@@ -9,7 +9,7 @@ namespace AncientMysteries.Bullets
 {
     public class Bullet_CubicBlast : Bullet
     {
-
+        public static int count = 0;
         public Bullet_CubicBlast(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
 
@@ -18,18 +18,15 @@ namespace AncientMysteries.Bullets
         public override void Update()
         {
             base.Update();
-            /*
-            if()
             foreach (Duck d in Level.CheckCircleAll<Duck>(this.position, 50))
             {
-                if (Network.isActive && d != DuckNetwork.localConnection.profile.duck && count >= 15)
+                if (d != this.owner &&  count >= 15)
                 {
                     count = 0;
                     Level.Add(new Bullet_Current(this.x, this.y, new AT_Current(), Maths.PointDirection(this.position, d.position), this.owner, true, 400, false, true));
                 }
             }
             count++;
-            */
         }
     }
 }
