@@ -8,7 +8,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Artifacts
 {
-    [EditorGroup(topAndSeries + "Isekai|Assassins Creed")]
+    [EditorGroup(groupNames.g_artifacts)
     public sealed class SpearOfLeonidas : AMGun
     {
         public static readonly Tex2D targetCircle = TexHelper.ModTex2D("targetCircle.png");

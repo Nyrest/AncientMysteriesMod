@@ -5,7 +5,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Snipers
 {
-    [EditorGroup(topAndSeries + "Dark")]
+    [EditorGroup(g_snipers)]
     public sealed class ShadowDance : AMGun
     {
         public override string GetLocalizedName(AMLang lang) => lang switch

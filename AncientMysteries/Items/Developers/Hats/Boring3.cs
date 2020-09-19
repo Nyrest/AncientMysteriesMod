@@ -4,7 +4,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Armor.Developers.Hats
 {
-    [EditorGroup(topAndSeries + "Developers|Hats")]
+    [EditorGroup(e_developer)]
     public sealed class Boring3 : AMHelmet
     {
         public override string GetLocalizedName(AMLang lang) => lang switch

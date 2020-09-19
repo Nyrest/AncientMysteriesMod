@@ -8,7 +8,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Armor.Developers.Hats
 {
-    [EditorGroup(topAndSeries + "Developers|Hats")]
+    [EditorGroup(e_developer)]
     public sealed class Thingy : AMHelmet
     {
         public override string GetLocalizedName(AMLang lang) => lang switch

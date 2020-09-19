@@ -6,7 +6,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Dragon.Melee
 {
-    [EditorGroup(topAndSeries + "Dragon|Melee")]
+    [EditorGroup(g_melees)]
     public sealed class EternalFlame : AMMelee
     {
         public float cooldown = 0;

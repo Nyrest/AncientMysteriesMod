@@ -5,7 +5,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Dark.Melee
 {
-    [EditorGroup(topAndSeries + "Dark|Melee")]
+    [EditorGroup(g_melees)]
     public sealed class DeathBringer : AMMelee
     {
         public float cooldown = -2;

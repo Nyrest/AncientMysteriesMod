@@ -5,7 +5,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Shotguns
 {
-    [EditorGroup(topAndSeries + "Dark")]
+    [EditorGroup(g_shotguns)]
     public sealed class DarkAurora : AMGun
     {
         private float _loadProgress = 1f;

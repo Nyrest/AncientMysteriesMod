@@ -6,7 +6,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Electronic
 {
-    [EditorGroup(topAndSeries + "Electronic")]
+    [EditorGroup(g_rifles)]
 	public sealed class ElectronicImpacter : AMGun
 	{
 		public override string GetLocalizedName(AMLang lang) => lang switch

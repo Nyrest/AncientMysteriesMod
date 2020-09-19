@@ -10,7 +10,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.True
 {
-    [EditorGroup(topAndSeries + "True")]
+    [EditorGroup(g_misc)]
     public sealed class ForceUpdateGame : AMHoldable
     {
         public StateBinding _targetPlayerBinding = new StateBinding(nameof(_targetPlayer));
