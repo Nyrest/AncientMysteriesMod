@@ -7,7 +7,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Mortal.props
 {
-    [EditorGroup(topAndSeries + "Mortal|Props")]
+    [EditorGroup(g_misc)]
     public sealed class Dice : Holdable, IPlatform
     {
         public static int index = 0;

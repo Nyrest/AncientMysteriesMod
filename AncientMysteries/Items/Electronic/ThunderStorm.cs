@@ -6,7 +6,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Electronic
 {
-    [EditorGroup(topAndSeries + "Electronic")]
+    [EditorGroup(g_staffs)]
     public sealed class Thunderstorm : AMStaff
     {
         public StateBinding _animationFrameBinding = new StateBinding("animationFrame");

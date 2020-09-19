@@ -5,7 +5,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Dragon
 {
-    [EditorGroup(topAndSeries + "Dragon")]
+    [EditorGroup(g_machineGuns)]
     public sealed class MoltenSpitter : AMGun
     {
         public StateBinding _animationFrameBinding = new StateBinding("animationFrame");

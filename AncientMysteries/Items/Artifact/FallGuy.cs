@@ -7,7 +7,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Artifacts
 {
-    [EditorGroup(topAndSeries + "Artifact")]
+    [EditorGroup(g_artifacts)]
     public sealed class FallGuy : AMHoldable
     {
         public static readonly Tex2D mark = TexHelper.ModTex2D("FallGuyMark.png");

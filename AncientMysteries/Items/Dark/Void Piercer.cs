@@ -5,7 +5,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.MachineGuns
 {
-    [EditorGroup(topAndSeries + "Dark")]
+    [EditorGroup(g_machineGuns)]
     public sealed class VoidPiercer : AMGun
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
