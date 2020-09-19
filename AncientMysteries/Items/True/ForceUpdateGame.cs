@@ -19,7 +19,7 @@ namespace AncientMysteries.Items.True
         public StateBinding _blindTimeBinding = new StateBinding(nameof(_blindTime));
         public int _blindTime;
 
-        public bool IsTargetVaild => _targetPlayer?.dead == false;
+        public bool IsTargetVaild => _targetPlayer?.dead == false && _targetPlayer?.ragdoll == null;
 
         public bool _quacked;
 

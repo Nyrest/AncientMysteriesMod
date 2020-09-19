@@ -10,7 +10,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Rainbow
 {
-    [EditorGroup(g_rifles)]
+    [EditorGroup(g_staffs)]
     public class RainbowEyedrops : AMStaff
     {
         public StateBinding _animationFrameBinding = new StateBinding("animationFrame");

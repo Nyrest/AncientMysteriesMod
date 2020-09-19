@@ -23,7 +23,7 @@ namespace AncientMysteries.Items.Artifacts
 
         private bool _quacked;
 
-        public bool IsTargetVaild => _targetPlayer?.dead == false;
+        public bool IsTargetVaild => _targetPlayer?.dead == false && _targetPlayer?.ragdoll == null;
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {

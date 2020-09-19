@@ -50,6 +50,7 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AMFonts.cs" />
     <Compile Include="AMLocalization.cs" />
     <Compile Include="AmmoTypes\AT_RainbowEyedrops.cs" />
     <Compile Include="AmmoTypes\AT_FB.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Bullets\Bullet_Shadow.cs" />
     <Compile Include="groupNames.cs" />
     <Compile Include="GTool.cs" />
+    <Compile Include="Items\FutureTech\Grenades\TrackingGrenade.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
     <Compile Include="Items\Rainbow\RainbowEyedrops.cs" />
     <Compile Include="Items\True\ForceUpdateGame.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="Items\Isekai\AssassinsCreed\SpearOfLeonidas.cs" />
     <Compile Include="Utilities\Helper.cs" />
     <Compile Include="Utilities\HSL.cs" />
+    <Compile Include="Utilities\StupidMoving.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Armor\" />
