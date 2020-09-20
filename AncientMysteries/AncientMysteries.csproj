@@ -80,6 +80,7 @@
     <Compile Include="Bullets\Bullet_Shadow.cs" />
     <Compile Include="groupNames.cs" />
     <Compile Include="GTool.cs" />
+    <Compile Include="Items\FutureTech\Grenades\NanoMine.cs" />
     <Compile Include="Items\FutureTech\Grenades\TrackingGrenade.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
     <Compile Include="Items\Rainbow\RainbowEyedrops.cs" />

@@ -101,6 +101,38 @@ namespace AncientMysteries.Items
             {
                 base.handAngle = offDir * MathHelper.Lerp(_holdAngle, _fireAngle, _castTime);
             }
+            if(drawProgressBar)
+            UpdateProgressStyle();
         }
+
+        #region Progress Bar
+        public bool drawProgressBar = true;
+
+        public Color progressBgColor = Color.White;
+
+        public Color progressFillColor = Color.Red;
+
+        public Color progressBorderColor = Color.Black;
+
+        public float progressBorderWidth = 1f;
+
+        public float progressWidth = 15f;
+
+        public float progressHeight = 4f;
+
+        public override void DoDraw()
+        {
+            base.DoDraw();
+            if (drawProgressBar && duck?.profile.localPlayer == true)
+            {
+                GTool.DrawTopProgressCenterTop(duck.position, _castTime, progressBgColor, progressFillColor, progressBorderColor, progressBorderWidth, -13, progressWidth, progressHeight, 1);
+            }
+        }
+
+        public virtual void UpdateProgressStyle()
+        {
+            progressFillColor = _castTime >= 1 ? Color.Orange : new Color((byte)(_castTime * 255), (byte)0, (byte)0);
+        }
+        #endregion
     }
 }
