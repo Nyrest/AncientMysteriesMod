@@ -49,6 +49,7 @@ namespace AncientMysteries.Utilities
                         if (plat is MaterialThing t)
                         {
                             materialThing.clip.Add(t);
+                            /*
                             if (Level.CheckPoint<IPlatform>(
                                 t.topLeft + new Vec2(-2f, 2f)) is MaterialThing left && left is Block)
                             {
@@ -58,6 +59,17 @@ namespace AncientMysteries.Utilities
                                 t.topRight + new Vec2(2f, 2f)) is MaterialThing right && right is Block)
                             {
                                 materialThing.clip.Add(right);
+                            }
+                             */
+                            IPlatform left = Level.CheckPoint<IPlatform>(t.topLeft + new Vec2(-2f, 2f));
+                            if (left != null && left is MaterialThing && !(left is Block))
+                            {
+                                materialThing.clip.Add(left as MaterialThing);
+                            }
+                            IPlatform right = Level.CheckPoint<IPlatform>(t.topRight + new Vec2(2f, 2f));
+                            if (right != null && right is MaterialThing && !(right is Block))
+                            {
+                                materialThing.clip.Add(right as MaterialThing);
                             }
                             thing.vSpeed += 1;
                             thing.y += 2;
@@ -94,6 +106,7 @@ namespace AncientMysteries.Utilities
                         if (plat is MaterialThing t)
                         {
                             materialThing.clip.Add(t);
+                            /*
                             if (Level.CheckPoint<IPlatform>(
                                 t.topLeft + new Vec2(-2f, 2f)) is MaterialThing left && left !is Block)
                             {
@@ -103,6 +116,17 @@ namespace AncientMysteries.Utilities
                                 t.topRight + new Vec2(2f, 2f)) is MaterialThing right && right !is Block)
                             {
                                 materialThing.clip.Add(right);
+                            }
+                             */
+                            IPlatform left = Level.CheckPoint<IPlatform>(t.topLeft + new Vec2(-2f, 2f));
+                            if (left != null && left is MaterialThing && !(left is Block))
+                            {
+                                materialThing.clip.Add(left as MaterialThing);
+                            }
+                            IPlatform right = Level.CheckPoint<IPlatform>(t.topRight + new Vec2(2f, 2f));
+                            if (right != null && right is MaterialThing && !(right is Block))
+                            {
+                                materialThing.clip.Add(right as MaterialThing);
                             }
                             thing.vSpeed = 1;
                             thing.y += 2;
