@@ -22,14 +22,14 @@ namespace AncientMysteries.Bullets
         public override void DoTerminate()
         {
             base.DoTerminate();
-            NovaExp ins = new NovaExp(travelEnd.x, travelEnd.y, true);
-            ins.xscale *= 3f;
-            ins.yscale *= 3f;
-            Level.Add(ins);
+            NovaExp n = new NovaExp(travelEnd.x,travelEnd.y, true);
+            n.xscale *= 3f;
+            n.yscale *= 3f;
+            Level.Add(n);
             SFX.Play("explode", 0.8f, Rando.Float(-0.1f, 1f), 0f, false);
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
-                Level.Add(new Bullet_FB(travelEnd.x, travelEnd.y, new AT_FB(), Rando.Float(0, 360), owner, false, 275, false, true));
+                Level.Add(new Bullet_AN2(travelEnd.x, travelEnd.y, new AT_AN2(), Rando.Float(0, 360), owner, false, 275, false, true));
             }
         }
     }
