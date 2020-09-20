@@ -50,12 +50,12 @@ namespace AncientMysteries.Utilities
                         {
                             materialThing.clip.Add(t);
                             if (Level.CheckPoint<IPlatform>(
-                                t.topLeft + new Vec2(-2f, 2f)) is MaterialThing left && left is not Block)
+                                t.topLeft + new Vec2(-2f, 2f)) is MaterialThing left && left is Block)
                             {
                                 materialThing.clip.Add(left);
                             }
                             if (Level.CheckPoint<IPlatform>(
-                                t.topRight + new Vec2(2f, 2f)) is MaterialThing right && right is not Block)
+                                t.topRight + new Vec2(2f, 2f)) is MaterialThing right && right is Block)
                             {
                                 materialThing.clip.Add(right);
                             }
@@ -95,12 +95,12 @@ namespace AncientMysteries.Utilities
                         {
                             materialThing.clip.Add(t);
                             if (Level.CheckPoint<IPlatform>(
-                                t.topLeft + new Vec2(-2f, 2f)) is MaterialThing left && left is not Block)
+                                t.topLeft + new Vec2(-2f, 2f)) is MaterialThing left && left !is Block)
                             {
                                 materialThing.clip.Add(left);
                             }
                             if (Level.CheckPoint<IPlatform>(
-                                t.topRight + new Vec2(2f, 2f)) is MaterialThing right && right is not Block)
+                                t.topRight + new Vec2(2f, 2f)) is MaterialThing right && right !is Block)
                             {
                                 materialThing.clip.Add(right);
                             }
