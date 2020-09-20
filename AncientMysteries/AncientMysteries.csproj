@@ -81,6 +81,7 @@
     <Compile Include="Items\Rainbow\RainbowEyedrops.cs" />
     <Compile Include="Items\True\ForceUpdateGame.cs" />
     <Compile Include="Items\Dragon\Eternal Flame.cs" />
+    <Compile Include="Items\True\ArcaneNova.cs" />
     <Compile Include="Localization\Enums\AMLang.cs" />
     <Compile Include="Items\Mortal\props\Dice.cs" />
     <Compile Include="Localization\IAMLocalizable.cs" />
@@ -120,6 +121,9 @@
     <None Include="AncientMysteries.csproj.user" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content\arcaneNova.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="content\fireball2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
