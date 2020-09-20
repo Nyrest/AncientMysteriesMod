@@ -53,8 +53,8 @@ namespace AncientMysteries.Items.FutureTech.Grenades
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            AMLang.schinese => "追踪手雷",
-            _ => "Tracking Grenade",
+            AMLang.schinese => "纳米手雷",
+            _ => "Nano Grenade",
         };
 
         public TrackingGrenade(float xval, float yval)
@@ -68,7 +68,6 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             graphic = _sprite;
             base.bouncy = 0.4f;
             friction = 0.05f;
-            _editorName = "Tracking Grenade";
             this.scale = new Vec2(1.15f);
         }
 
