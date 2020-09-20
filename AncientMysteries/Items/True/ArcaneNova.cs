@@ -1,5 +1,6 @@
 ﻿using AncientMysteries.AmmoTypes;
 using AncientMysteries.Localization.Enums;
+using AncientMysteries.Bullets;
 using AncientMysteries.Utilities;
 using DuckGame;
 using System;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text;
 using static AncientMysteries.groupNames;
 
-namespace AncientMysteries.Items.Rainbow
+namespace AncientMysteries.Items.True
 {
     [EditorGroup(g_staffs)]
     public class ArcaneNova : AMStaff
@@ -32,7 +33,7 @@ namespace AncientMysteries.Items.Rainbow
 
         public ArcaneNova(float xval, float yval) : base(xval, yval)
         {
-            this.ammo = 500;           
+            this.ammo = 500;
             this._ammoType = new AT_RainbowEyedrops()
             {
 
@@ -41,7 +42,7 @@ namespace AncientMysteries.Items.Rainbow
             _spriteMap = this.ReadyToRunMap("arcaneNova.png", 14, 37);
             this.SetBox(14, 37);
             this._barrelOffsetTL = new Vec2(6f, 5f);
-            this._castSpeed = 0.01f;
+            this._castSpeed = 0.007f;
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             this._fireWait = 0.5f;
@@ -58,37 +59,21 @@ namespace AncientMysteries.Items.Rainbow
         public override void Update()
         {
             base.Update();
-            Graphics.material = null;
-            if (_castTime > 0.3f)
+        }
+        public override void OnReleaseSpell()
+        {
+            base.OnReleaseSpell();
+            var firePos = barrelPosition;
+            int count = (_castTime <= 3f && _castTime >= 0.9f) ? Rando.Int(3, 5) : 1;
+            if (_castTime >= 1f)
             {
-                this._castSpeed = 0.005f;
+                Level.Add(new Bullet_AN(firePos.x, firePos.y, new AT_AN(), owner.offDir == 1 ? 0 : 180, owner, false, 275));
             }
-            else this._castSpeed = 0.01f;
-            if (IsSpelling)
+            if (Network.isActive)
             {
-                if (_castTime > 0.3f)
-                {
-                    Vec2 barrelPos = barrelPosition;
-                    int count = Rando.Int(1, 2);
-                    for (int i = 0; i < count; i++)
-                    {
-                        Bullet bullet = new Bullet(
-                            barrelPos.x + Rando.Float(-3, 3),
-                            barrelPos.y + Rando.Float(-3, 3), ammoType, 90 + Rando.Float(-10, 10), duck);
-                        bullet.color = HSL.FromHslFloat(Rando.Float(1), Rando.Float(0.4f, 0.9f), Rando.Float(0.50f, 0.65f));
-                        bullet.firedFrom = this;
-                        bullet.range = 2000;
-                        firedBullets.Add(bullet);
-                        Level.Add(bullet);
-                    }
-                    bulletFireIndex += (byte)count;
-                    if (Network.isActive)
-                    {
-                        NMFireGun gunEvent = new NMFireGun(this, firedBullets, bulletFireIndex, false, 4);
-                        Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
-                        firedBullets.Clear();
-                    }
-                }
+                NMFireGun gunEvent = new NMFireGun(this, firedBullets, bulletFireIndex, rel: false, 4);
+                Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
+                firedBullets.Clear();
             }
         }
     }
