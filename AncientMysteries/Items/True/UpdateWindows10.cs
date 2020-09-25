@@ -11,7 +11,7 @@ using static AncientMysteries.groupNames;
 namespace AncientMysteries.Items.True
 {
     [EditorGroup(g_misc)]
-    public sealed class ForceUpdateGame : AMHoldable
+    public sealed class UpdateWindows10 : AMHoldable
     {
         public StateBinding _targetPlayerBinding = new StateBinding(nameof(_targetPlayer));
         public Duck _targetPlayer;
@@ -23,7 +23,7 @@ namespace AncientMysteries.Items.True
 
         public bool _quacked;
 
-        public ForceUpdateGame(float xpos, float ypos) : base(xpos, ypos)
+        public UpdateWindows10(float xpos, float ypos) : base(xpos, ypos)
         {
             this.ReadyToRunMap("rainbowGun.png");
         }
@@ -76,7 +76,7 @@ namespace AncientMysteries.Items.True
             }
         }
 
-        static ForceUpdateGame()
+        static UpdateWindows10()
         {
             Hooks.OnDraw += ForceUpdateDraw;
         }
