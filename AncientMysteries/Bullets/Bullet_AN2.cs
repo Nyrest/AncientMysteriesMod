@@ -22,15 +22,6 @@ namespace AncientMysteries.Bullets
         public override void DoTerminate()
         {
             base.DoTerminate();
-            NovaExp n = new NovaExp(travelEnd.x, travelEnd.y, true);
-            n.xscale *= 2.25f;
-            n.yscale *= 2.25f;
-            Level.Add(n);
-            SFX.Play("explode", 0.8f, Rando.Float(-0.1f, 1f), 0f, false);
-            for (int i = 0; i < 5; i++)
-            {
-                Level.Add(new Bullet_AN3(travelEnd.x, travelEnd.y, new AT_AN3(), Rando.Float(0, 360), owner, false, 80, false, true));
-            }
         }
     }
 }
