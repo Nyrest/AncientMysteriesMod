@@ -28,7 +28,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
-  
   <ItemGroup>
     <Content Include="content\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -87,7 +86,7 @@
     <Compile Include="Items\FutureTech\Grenades\TrackingGrenade.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
     <Compile Include="Items\Rainbow\RainbowEyedrops.cs" />
-    <Compile Include="Items\True\ForceUpdateGame.cs" />
+    <Compile Include="Items\True\UpdateWindows10.cs" />
     <Compile Include="Items\Dragon\Eternal Flame.cs" />
     <Compile Include="Items\True\ArcaneNova.cs" />
     <Compile Include="Localization\Enums\AMLang.cs" />
