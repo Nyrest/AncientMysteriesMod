@@ -29,7 +29,7 @@ namespace AncientMysteries.Bullets
             SFX.Play("explode", 0.8f, Rando.Float(-0.1f, 1f), 0f, false);
             for (int i = 0; i < 5; i++)
             {
-                Level.Add(new Bullet_AN2(travelEnd.x, travelEnd.y, new AT_AN2(), Rando.Float(0, 360), owner, false, 275, false, true));
+                Level.Add(new Bullet_AN2(travelEnd.x, travelEnd.y, new AT_AN2(), Rando.Float(0, 360), owner, false, 80, false, true));
             }
         }
     }
