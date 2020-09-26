@@ -43,7 +43,7 @@ namespace AncientMysteries.Items.Miscellaneous
             });
             this._sprite.SetAnimation("loop");
             this.graphic = this._sprite;
-            this._sprite.speed = 0.4f;
+            this._sprite.speed = 0.6f;
             base.xscale = 0.5f;
             base.yscale = base.xscale;
             this.center = new Vec2(18f, 18f);

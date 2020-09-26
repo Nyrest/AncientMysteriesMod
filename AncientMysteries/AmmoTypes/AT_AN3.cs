@@ -6,15 +6,16 @@ using System.Text;
 
 namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_AN2 : AmmoType
+    public sealed class AT_AN3 : AmmoType
     {
-        public SpriteMap _spriteMap = TexHelper.ModSpriteMap("novaFrm2.png", 25, 25, true);
+        public SpriteMap _spriteMap = TexHelper.ModSpriteMap("novaFrm3.png", 18, 18, true);
 
-        public AT_AN2()
+        public AT_AN3()
         {
             accuracy = 1f;
             range = 275f;
-            penetration = 200000f;
+            penetration = 20000000f;
+            rangeVariation = 10f;
             bulletSpeed = 6;
             this.speedVariation = 0.5f;
             bulletLength = 0;

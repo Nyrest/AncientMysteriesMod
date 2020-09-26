@@ -18,7 +18,7 @@ namespace AncientMysteries.AmmoTypes
             rangeVariation = 10f;
             bulletSpeed = 2;
             this.speedVariation = 0.5f;
-            bulletLength = 50;
+            bulletLength = 0;
             this.bulletColor = Color.LightYellow;
             bulletThickness = 2;
             this.sprite = _spriteMap;
