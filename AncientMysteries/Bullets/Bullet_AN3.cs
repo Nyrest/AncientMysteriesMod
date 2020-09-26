@@ -8,9 +8,9 @@ using AncientMysteries.Items.Miscellaneous;
 
 namespace AncientMysteries.Bullets
 {
-    public class Bullet_AN2 : Bullet
+    public class Bullet_AN3 : Bullet
     {
-        public Bullet_AN2(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
+        public Bullet_AN3(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
 
         }
@@ -22,12 +22,12 @@ namespace AncientMysteries.Bullets
         public override void DoTerminate()
         {
             base.DoTerminate();
-            NovaExp n = new NovaExp(travelEnd.x, travelEnd.y, true);
-            n.xscale *= 2.25f;
-            n.yscale *= 2.25f;
+            NovaExp n = new NovaExp(travelEnd.x,travelEnd.y, true);
+            n.xscale *= 1.5f;
+            n.yscale *= 1.5f;
             Level.Add(n);
             SFX.Play("explode", 0.8f, Rando.Float(-0.1f, 1f), 0f, false);
-            IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(travelEnd, 25f);
+            IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(travelEnd, 18f);
             foreach (MaterialThing t2 in things)
             {
                 if (t2 != owner)
@@ -37,7 +37,7 @@ namespace AncientMysteries.Bullets
             }
             for (int i = 0; i < 5; i++)
             {
-                Level.Add(new Bullet_AN3(travelEnd.x, travelEnd.y, new AT_AN3(), Rando.Float(0, 360), owner, false, 80, false, true));
+                Level.Add(new Bullet_AN4(travelEnd.x, travelEnd.y, new AT_AN4(), Rando.Float(0, 360), owner, false, 80, false, true));
             }
         }
     }
