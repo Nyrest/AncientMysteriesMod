@@ -185,7 +185,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                     {
                         StupidMoving.ThingMoveToVertically(this, _targetPlayer.position, 3f);
                     }
-                    if(onGround)
+                    if (onGround)
                     {
                         this.vSpeed = 0;
                     }
