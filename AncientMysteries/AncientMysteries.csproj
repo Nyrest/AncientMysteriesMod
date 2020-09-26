@@ -58,8 +58,6 @@
     <Compile Include="AmmoTypes\AT_AN3.cs" />
     <Compile Include="AmmoTypes\AT_AN2.cs" />
     <Compile Include="AmmoTypes\AT_AN.cs" />
-    <Compile Include="AmmoTypes\AT_Star2.cs" />
-    <Compile Include="AmmoTypes\AT_Star.cs" />
     <Compile Include="AmmoTypes\AT_RainbowEyedrops.cs" />
     <Compile Include="AmmoTypes\AT_FB.cs" />
     <Compile Include="AmmoTypes\AT_Current.cs" />
@@ -79,6 +77,7 @@
     <Compile Include="Bullets\Bullet_Star2.cs" />
     <Compile Include="Bullets\Bullet_Star.cs" />
     <Compile Include="Bullets\Bullet_FB.cs" />
+    <Compile Include="Bullets\Bullet_FerociousPredator.cs" />
     <Compile Include="Bullets\Bullet_Skull.cs" />
     <Compile Include="Bullets\Bullet_Dragon.cs" />
     <Compile Include="Hooks.cs" />
@@ -90,6 +89,7 @@
     <Compile Include="Bullets\Bullet_Shadow.cs" />
     <Compile Include="groupNames.cs" />
     <Compile Include="GTool.cs" />
+    <Compile Include="Items\Explosives\Ferocious Predator.cs" />
     <Compile Include="Items\FutureTech\Grenades\NanoMine.cs" />
     <Compile Include="Items\FutureTech\Grenades\TrackingGrenade.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
