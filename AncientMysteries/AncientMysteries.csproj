@@ -58,6 +58,7 @@
     <Compile Include="AmmoTypes\AT_AN3.cs" />
     <Compile Include="AmmoTypes\AT_AN2.cs" />
     <Compile Include="AmmoTypes\AT_AN.cs" />
+    <Compile Include="AmmoTypes\AT_FerociousPredator.cs" />
     <Compile Include="AmmoTypes\AT_RainbowEyedrops.cs" />
     <Compile Include="AmmoTypes\AT_FB.cs" />
     <Compile Include="AmmoTypes\AT_Current.cs" />
@@ -69,6 +70,8 @@
     <Compile Include="AmmoTypes\AT_None.cs" />
     <Compile Include="AmmoTypes\AT_Shadow.cs" />
     <Compile Include="AmmoTypes\AT_Skull.cs" />
+    <Compile Include="AmmoTypes\AT_Star.cs" />
+    <Compile Include="AmmoTypes\AT_Star2.cs" />
     <Compile Include="Bullets\Bullet_AN4.cs" />
     <Compile Include="Bullets\Bullet_AN3.cs" />
     <Compile Include="Bullets\Bullet_AN2.cs" />
