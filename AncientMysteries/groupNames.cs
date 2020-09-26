@@ -37,6 +37,8 @@ namespace AncientMysteries
 
         public const string g_snipers = guns + "|Snipers";
 
+        public const string g_explosives = guns + "|Explosives";
+
         public static class Series
         {
             public const string darkName = "Dark";
