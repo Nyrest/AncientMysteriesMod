@@ -58,6 +58,8 @@
     <Compile Include="AmmoTypes\AT_AN3.cs" />
     <Compile Include="AmmoTypes\AT_AN2.cs" />
     <Compile Include="AmmoTypes\AT_AN.cs" />
+    <Compile Include="AmmoTypes\AT_Star2.cs" />
+    <Compile Include="AmmoTypes\AT_Star.cs" />
     <Compile Include="AmmoTypes\AT_RainbowEyedrops.cs" />
     <Compile Include="AmmoTypes\AT_FB.cs" />
     <Compile Include="AmmoTypes\AT_Current.cs" />
@@ -74,6 +76,8 @@
     <Compile Include="Bullets\Bullet_AN2.cs" />
     <Compile Include="Bullets\Bullet_AN.cs" />
     <Compile Include="Bullets\Bullet_Current.cs" />
+    <Compile Include="Bullets\Bullet_Star2.cs" />
+    <Compile Include="Bullets\Bullet_Star.cs" />
     <Compile Include="Bullets\Bullet_FB.cs" />
     <Compile Include="Bullets\Bullet_Skull.cs" />
     <Compile Include="Bullets\Bullet_Dragon.cs" />
@@ -90,6 +94,7 @@
     <Compile Include="Items\FutureTech\Grenades\TrackingGrenade.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
     <Compile Include="Items\Rainbow\RainbowEyedrops.cs" />
+    <Compile Include="Items\True\HolyLight.cs" />
     <Compile Include="Items\True\UpdateWindows10.cs" />
     <Compile Include="Items\Dragon\Eternal Flame.cs" />
     <Compile Include="Items\True\ArcaneNova.cs" />
