@@ -7,19 +7,24 @@ using System.Text;
 
 namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_Star2 : AmmoType
+    public sealed class AT_BigFB : AmmoType
     {
-        public AT_Star2()
+        public SpriteMap _spriteMap = TexHelper.ModSpriteMap("firebally.png", 25, 12, true);
+        public AT_BigFB()
         {
-            accuracy = 1f;
-            range = 100f;
+            accuracy = 0.8f;
+            range = 300f;
             penetration = 1f;
-            rangeVariation = 0;
-            bulletSpeed = 2;
+            rangeVariation = 10f;
             combustable = true;
+            bulletSpeed = 2f;
             //sprite.CenterOrigin();
-            bulletType = typeof(Bullet_Star2);
-            sprite = TexHelper.ModSprite("holyLight2.png");
+            bulletType = typeof(Bullet_BigFB);
+            this.sprite = _spriteMap;
+            bulletThickness = 4f;
+            bulletLength = 5f;
+            _spriteMap.AddAnimation("loop", 0.4f, true, 0, 1, 2);
+            _spriteMap.SetAnimation("loop");
         }
 
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)

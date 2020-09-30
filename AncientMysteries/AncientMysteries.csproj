@@ -70,13 +70,17 @@
     <Compile Include="AmmoTypes\AT_None.cs" />
     <Compile Include="AmmoTypes\AT_Shadow.cs" />
     <Compile Include="AmmoTypes\AT_Skull.cs" />
+    <Compile Include="AmmoTypes\AT_BigFB.cs" />
     <Compile Include="AmmoTypes\AT_Star.cs" />
+    <Compile Include="AmmoTypes\AT_Lava.cs" />
     <Compile Include="AmmoTypes\AT_Star2.cs" />
     <Compile Include="Bullets\Bullet_AN4.cs" />
     <Compile Include="Bullets\Bullet_AN3.cs" />
     <Compile Include="Bullets\Bullet_AN2.cs" />
     <Compile Include="Bullets\Bullet_AN.cs" />
     <Compile Include="Bullets\Bullet_Current.cs" />
+    <Compile Include="Bullets\Bullet_BigFB.cs" />
+    <Compile Include="Bullets\Bullet_Lava.cs" />
     <Compile Include="Bullets\Bullet_Star2.cs" />
     <Compile Include="Bullets\Bullet_Star.cs" />
     <Compile Include="Bullets\Bullet_FB.cs" />
@@ -100,6 +104,7 @@
     <Compile Include="Items\IAMEquipment.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
     <Compile Include="Items\Rainbow\RainbowEyedrops.cs" />
+    <Compile Include="Items\True\PrimordialLibram.cs" />
     <Compile Include="Items\True\HolyLight.cs" />
     <Compile Include="Items\True\UpdateWindows10.cs" />
     <Compile Include="Items\Dragon\Eternal Flame.cs" />
@@ -107,6 +112,7 @@
     <Compile Include="Localization\Enums\AMLang.cs" />
     <Compile Include="Items\Mortal\props\Dice.cs" />
     <Compile Include="Localization\IAMLocalizable.cs" />
+    <Compile Include="Miscellaneous\TempFire.cs" />
     <Compile Include="Miscellaneous\NovaExp.cs" />
     <Compile Include="Misc\TexHelper.cs" />
     <Compile Include="Mod.cs" />
