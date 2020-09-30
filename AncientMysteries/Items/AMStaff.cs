@@ -26,6 +26,8 @@ namespace AncientMysteries.Items
 
         public float _castWait = 1f;
 
+        public bool _doPose = true;
+
         public bool IsSpelling
         {
             get
@@ -99,10 +101,12 @@ namespace AncientMysteries.Items
             }
             if (duck != null)
             {
-                base.handAngle = offDir * MathHelper.Lerp(_holdAngle, _fireAngle, _castTime);
+                if (_doPose)
+                    base.handAngle = offDir * MathHelper.Lerp(_holdAngle, _fireAngle, _castTime);
+                else handAngle = 0;
             }
-            if(drawProgressBar)
-            UpdateProgressStyle();
+            if (drawProgressBar)
+                UpdateProgressStyle();
         }
 
         #region Progress Bar
