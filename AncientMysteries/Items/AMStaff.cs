@@ -18,8 +18,14 @@ namespace AncientMysteries.Items
 
         public float _fireAngle = 1.1f;
 
+        /// <summary>
+        /// modify this
+        /// </summary>
         public float _castSpeed = 0.04f;
 
+        /// <summary>
+        /// 0-1
+        /// </summary>
         public float _castTime = 0f;
 
         public float _castWaitVal = 0f;
