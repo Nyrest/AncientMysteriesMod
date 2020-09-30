@@ -1,4 +1,5 @@
-﻿using AncientMysteries.Localization.Enums;
+﻿using AncientMysteries.AmmoTypes;
+using AncientMysteries.Localization.Enums;
 using DuckGame;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,7 @@ namespace AncientMysteries.Items.Explosives
         {
             get
             {
-                return base.angle + _aimAngle + 
+                return base.angle + _aimAngle +
                     (_fireAngle == 0 ? 0 :
                     Maths.DegToRad(Rando.Float(-1, 1) * (90 / _fireAngle)) * offDir);
             }
@@ -59,7 +60,7 @@ namespace AncientMysteries.Items.Explosives
             _fireSound = "pistol";
             _kickForce = 3f;
             _holdOffset = new Vec2(4f, 0f);
-            _ammoType = new ATGrenade();
+            _ammoType = new AT_FerociousPredator();
             _fireSound = "deepMachineGun";
             _bulletColor = Color.White;
         }
