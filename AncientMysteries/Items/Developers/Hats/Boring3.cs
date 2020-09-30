@@ -16,9 +16,11 @@ namespace AncientMysteries.Armor.Developers.Hats
         {
             _sprite = this.ModSpriteMap("HatBoring3.png", 32, 32, true);
             _pickupSprite = this.ReadyToRun("HatBoring3Pickup.png");
-            canCrush = false;
-            breakable = false;
-            equipmentHealth = 32767;
+            CanCrush = false;
+            Destroyable = false;
+            bulletThroughNotEquipped = false;
+            EquipmentMaxHitPoints = 32767;
+            EquipmentHitPoints = 32767;
             _isArmor = true;
             _equippedThickness = 1000;
         }

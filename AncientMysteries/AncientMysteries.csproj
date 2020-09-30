@@ -84,6 +84,8 @@
     <Compile Include="Bullets\Bullet_Skull.cs" />
     <Compile Include="Bullets\Bullet_Dragon.cs" />
     <Compile Include="Hooks.cs" />
+    <Compile Include="Items\AMBoots.cs" />
+    <Compile Include="Items\AMChestPlate.cs" />
     <Compile Include="Items\AMHelmet.cs" />
     <Compile Include="Items\Developers\Hats\Thingy.cs" />
     <Compile Include="Items\Developers\Hats\Boring3.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Items\Explosives\Ferocious Predator.cs" />
     <Compile Include="Items\FutureTech\Grenades\NanoMine.cs" />
     <Compile Include="Items\FutureTech\Grenades\TrackingGrenade.cs" />
+    <Compile Include="Items\IAMEquipment.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
     <Compile Include="Items\Rainbow\RainbowEyedrops.cs" />
     <Compile Include="Items\True\HolyLight.cs" />

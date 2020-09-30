@@ -20,9 +20,8 @@ namespace AncientMysteries.Armor.Developers.Hats
         {
             _sprite = this.ModSpriteMap("hatHatty.png", 32, 32, true);
             _pickupSprite = this.ReadyToRun("hatHattyPickup.png");
-            canCrush = false;
-            breakable = false;
-            equipmentHealth = 32767;
+            EquipmentMaxHitPoints = 32767;
+            EquipmentHitPoints = 32767;
             _isArmor = false;
             _equippedThickness = 1000;
         }
