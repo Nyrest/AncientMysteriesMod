@@ -1,20 +1,36 @@
-﻿using AncientMysteries.Items;
-using AncientMysteries.Localization;
+﻿using AncientMysteries.Localization;
 using AncientMysteries.Localization.Enums;
 using DuckGame;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 
-namespace AncientMysteries.Armor
+namespace AncientMysteries.Items
 {
-    public abstract class AMHelmet : Helmet, IAMEquipment, IAMLocalizable
+    public abstract class AMChestPlate : ChestPlate, IAMEquipment, IAMLocalizable
     {
         private static FieldInfo _fieldEquipmentHealth = typeof(Equipment).GetField("_equipmentHealth", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static FieldInfo _fieldSprite = typeof(ChestPlate).GetField("_sprite", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static FieldInfo _fieldSpriteOver = typeof(ChestPlate).GetField("_spriteOver", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static FieldInfo _fieldPickupSprite = typeof(ChestPlate).GetField("_pickupSprite", BindingFlags.Instance | BindingFlags.NonPublic);
 
-        protected AMHelmet(float xpos, float ypos) : base(xpos, ypos)
+        public SpriteMap _sprite
+        {
+            get => (SpriteMap)_fieldSprite.GetValue(this);
+            set => _fieldSprite.SetValue(this, value);
+        }
+
+        public SpriteMap _spriteOver
+        {
+            get => (SpriteMap)_fieldSpriteOver.GetValue(this);
+            set => _fieldSpriteOver.SetValue(this, value);
+        }
+
+        public Sprite _pickupSprite
+        {
+            get => (Sprite)_fieldPickupSprite.GetValue(this);
+            set => _fieldPickupSprite.SetValue(this, value);
+        }
+
+        protected AMChestPlate(float xpos, float ypos) : base(xpos, ypos)
         {
             _isArmor = true;
             _editorName = GetLocalizedName(AMLocalization.Current);
@@ -24,28 +40,6 @@ namespace AncientMysteries.Armor
         {
             _fieldEquipmentHealth.SetValue(this, float.PositiveInfinity);
             base.Update();
-        }
-
-        public override void Draw()
-        {
-            if (CanCrush)
-            {
-                int frm = _sprite.frame;
-                _sprite.frame = (crushed ? 1 : 0);
-                base.Draw();
-                _sprite.frame = frm;
-            }
-            else
-            {
-                _sprite.frame = 0;
-                base.Draw();
-            }
-        }
-
-        public override void Crush()
-        {
-            if (CanCrush)
-                base.Crush();
         }
 
         public override bool Destroy(DestroyType type = null)
@@ -102,7 +96,6 @@ namespace AncientMysteries.Armor
         }
 
         public abstract string GetLocalizedName(AMLang lang);
-
 
         public StateBinding _equipmentMaxHitPointsBinding = new StateBinding(nameof(_equipmentMaxHitPoints));
         public StateBinding _equipmentHitPointsBinding = new StateBinding(nameof(_equipmentHitPoints));

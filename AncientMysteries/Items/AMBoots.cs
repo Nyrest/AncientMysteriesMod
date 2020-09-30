@@ -1,20 +1,19 @@
-﻿using AncientMysteries.Items;
-using AncientMysteries.Localization;
+﻿using AncientMysteries.Localization;
 using AncientMysteries.Localization.Enums;
 using DuckGame;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 
-namespace AncientMysteries.Armor
+namespace AncientMysteries.Items
 {
-    public abstract class AMHelmet : Helmet, IAMEquipment, IAMLocalizable
+    public abstract class AMBoots : Boots, IAMEquipment, IAMLocalizable
     {
         private static FieldInfo _fieldEquipmentHealth = typeof(Equipment).GetField("_equipmentHealth", BindingFlags.Instance | BindingFlags.NonPublic);
 
-        protected AMHelmet(float xpos, float ypos) : base(xpos, ypos)
+        public new ref SpriteMap _sprite => ref base._sprite;
+
+        public new ref Sprite _pickupSprite => ref base._pickupSprite;
+
+        protected AMBoots(float xpos, float ypos) : base(xpos, ypos)
         {
             _isArmor = true;
             _editorName = GetLocalizedName(AMLocalization.Current);
@@ -24,28 +23,6 @@ namespace AncientMysteries.Armor
         {
             _fieldEquipmentHealth.SetValue(this, float.PositiveInfinity);
             base.Update();
-        }
-
-        public override void Draw()
-        {
-            if (CanCrush)
-            {
-                int frm = _sprite.frame;
-                _sprite.frame = (crushed ? 1 : 0);
-                base.Draw();
-                _sprite.frame = frm;
-            }
-            else
-            {
-                _sprite.frame = 0;
-                base.Draw();
-            }
-        }
-
-        public override void Crush()
-        {
-            if (CanCrush)
-                base.Crush();
         }
 
         public override bool Destroy(DestroyType type = null)
@@ -102,7 +79,6 @@ namespace AncientMysteries.Armor
         }
 
         public abstract string GetLocalizedName(AMLang lang);
-
 
         public StateBinding _equipmentMaxHitPointsBinding = new StateBinding(nameof(_equipmentMaxHitPoints));
         public StateBinding _equipmentHitPointsBinding = new StateBinding(nameof(_equipmentHitPoints));
