@@ -58,7 +58,7 @@ namespace AncientMysteries.Items.Dragon.Melee
                                 t2.Destroy(new DTShot(new Bullet_FB(owner.x, owner.y, new AT_FB(), -1, this.owner, false, 1)));
                             }
                         }
-                        owner.x -= 80;
+                        owner.hSpeed += -700;
                         cooldown2 = -15;
                     }
                     else
@@ -77,7 +77,7 @@ namespace AncientMysteries.Items.Dragon.Melee
                                 t2.Destroy(new DTShot(new Bullet_FB(owner.x, owner.y, new AT_FB(), -1, this.owner, false, 1)));
                             }
                         }
-                        owner.x += 80;
+                        owner.hSpeed += 700;
                         cooldown2 = -15;
                     }
                 }
