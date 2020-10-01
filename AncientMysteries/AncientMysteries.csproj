@@ -58,6 +58,7 @@
     <Compile Include="AmmoTypes\AT_AN3.cs" />
     <Compile Include="AmmoTypes\AT_AN2.cs" />
     <Compile Include="AmmoTypes\AT_AN.cs" />
+    <Compile Include="AmmoTypes\AT_Laser.cs" />
     <Compile Include="AmmoTypes\AT_FerociousPredator.cs" />
     <Compile Include="AmmoTypes\AT_RainbowEyedrops.cs" />
     <Compile Include="AmmoTypes\AT_FB.cs" />
@@ -80,6 +81,8 @@
     <Compile Include="Bullets\Bullet_AN.cs" />
     <Compile Include="Bullets\Bullet_Current.cs" />
     <Compile Include="Bullets\Bullet_BigFB.cs" />
+    <Compile Include="Bullets\Bullet_Laser.cs" />
+    <Compile Include="Bullets\Bullet_Icicle.cs" />
     <Compile Include="Bullets\Bullet_Lava.cs" />
     <Compile Include="Bullets\Bullet_Star2.cs" />
     <Compile Include="Bullets\Bullet_Star.cs" />
@@ -112,6 +115,8 @@
     <Compile Include="Localization\Enums\AMLang.cs" />
     <Compile Include="Items\Mortal\props\Dice.cs" />
     <Compile Include="Localization\IAMLocalizable.cs" />
+    <Compile Include="Miscellaneous\TempCrystal.cs" />
+    <Compile Include="Miscellaneous\TempIce.cs" />
     <Compile Include="Miscellaneous\TempFire.cs" />
     <Compile Include="Miscellaneous\NovaExp.cs" />
     <Compile Include="Misc\TexHelper.cs" />

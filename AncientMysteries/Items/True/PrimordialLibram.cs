@@ -19,6 +19,8 @@ namespace AncientMysteries.Items.True
 
         public SpriteMap _spriteMap;
 
+        public int rando = 0;
+
         public byte AnimationFrame
         {
             get => (byte)_spriteMap._frame;
@@ -39,10 +41,10 @@ namespace AncientMysteries.Items.True
 
             };
             this._type = "gun";
-            _spriteMap = this.ReadyToRunMap("priLibram..png", 21, 14);
+            _spriteMap = this.ReadyToRunMap("priLibram.png", 21, 14);
             this.SetBox(21, 14);
             this._barrelOffsetTL = new Vec2(6f, 5f);
-            this._castSpeed = 0.006f;
+            this._castSpeed = 0.007f;
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             this._fireWait = 0.5f;
@@ -52,8 +54,8 @@ namespace AncientMysteries.Items.True
             _spriteMap.AddAnimation("out", 200f, false, 0, 1);
             _spriteMap.AddAnimation("back", 200f, false, 1,0);
             _doPose = false;
-            progressBgColor = Color.Azure;
-            progressFillColor = Color.Gold;
+            progressBgColor = Color.DeepSkyBlue;
+            progressFillColor = Color.LightYellow;
             this._holdOffset = new Vec2(2,3);
         }
 
@@ -78,13 +80,30 @@ namespace AncientMysteries.Items.True
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
-            if (_castTime >= 1f)
+            rando = Rando.Int(0, 2);
+            if (_castTime >= 1f && rando == 0)
             {
-                TempFire t = new TempFire(this.owner.x, owner.y + 6f, true, owner);
+                TempFire t = new TempFire(this.owner.x, owner.y, true, owner);
                 t.alpha = 0f;
                 t.xscale *= 2f;
                 t.yscale *= 2f;
                 Level.Add(t);
+            }
+            if (_castTime >= 1f && rando == 1)
+            {
+                TempIce i = new TempIce(this.owner.x, owner.y, true, owner);
+                i.alpha = 0f;
+                i.xscale *= 2f;
+                i.yscale *= 2f;
+                Level.Add(i);
+            }
+            if (_castTime >= 1f && rando == 2)
+            {
+                TempCrystal c = new TempCrystal(this.owner.x, owner.y - 32f, true, owner);
+                c.alpha = 0f;
+                c.xscale *= 2f;
+                c.yscale *= 2f;
+                Level.Add(c);
             }
             if (Network.isActive)
             {
