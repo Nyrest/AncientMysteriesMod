@@ -16,7 +16,7 @@ namespace AncientMysteries.AmmoTypes
             penetration = 2f;
             rangeVariation = 10f;
             combustable = true;
-            this.bulletColor = Color.Red;
+            this.bulletColor = Color.Purple;
             //bulletType = typeof(Bullet_Shadow);
         }
 
