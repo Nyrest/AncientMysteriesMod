@@ -44,6 +44,11 @@ namespace AncientMysteries.Items
             smoke.color = Color.Transparent;
         }
 
+        /// <summary>
+        /// Use this when collisionSize different with frame size
+        /// </summary>
+        /// <param name="w"></param>
+        /// <param name="h"></param>
         public void SetBox(float w, float h)
         {
             collisionOffset = -(center = new Vec2(w / 2, h / 2));

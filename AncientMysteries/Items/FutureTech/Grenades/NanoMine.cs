@@ -27,6 +27,8 @@ namespace AncientMysteries.Items.FutureTech.Grenades
 
         public StateBinding _netPinPlayHBinding = new NetSoundBinding("_netPin");
 
+        public StateBinding _mineOwnerBinding = new StateBinding(nameof(_mineOwner));
+
         public NetSoundEffect _netPin = new NetSoundEffect("pullPin");
 
         private SpriteMap _sprite;
@@ -63,9 +65,9 @@ namespace AncientMysteries.Items.FutureTech.Grenades
 
         public Duck _targetPlayer;
 
-        public bool IsTargetVaild => _targetPlayer?.dead == false && _targetPlayer?.ragdoll == null;
+        public Duck _mineOwner;
 
-        public bool _quacked;
+        public bool IsTargetVaild => _targetPlayer?.dead == false && _targetPlayer?.ragdoll == null;
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
@@ -150,44 +152,35 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             }
         }
 
-        public override void Update()
+        public void FindTarget()
         {
-            if (duck != null)
+            _targetPlayer = null;
+            float shortest = float.MaxValue;
+            foreach (Duck target in Level.CheckCircleAll<Duck>(position, 100))
             {
-                //handOffset = new Vec2(0, -2);
-                //_holdOffset = new Vec2(-8, -6);
-                //handAngle = 1.3f * offDir;
-                if (
-                    (_quacked != duck.IsQuacking() && (_quacked = duck.IsQuacking())) ||
-                    _targetPlayer == null
-                    )
+                if (target != _mineOwner && !target.dead && Level.CheckLine<Block>(position, target.position) == null)
                 {
-                    //SwitchTarget();
-                    Helper.SwitchTarget(ref _targetPlayer, duck);
+                    if ((position - target.position).length < shortest)
+                    {
+                        shortest = (position - target.position).length;
+                        _targetPlayer = target;
+                    }
                 }
             }
-            else if (_pin)
-            {
-                _targetPlayer = null;
-                _quacked = false;
-            }
+        }
+
+        public override void Update()
+        {
             if (!_pin)
             {
-                _timer -= 0.007f;
-                if (IsTargetVaild)
+                FindTarget();
+                if (IsTargetVaild && grounded && _ducksOnMine.Count == 0)
                 {
                     bool onGround = grounded;
-                    if (Level.CheckLine<Block>(position, _targetPlayer.position) != null)
+                    StupidMoving.ThingMoveToVertically(this, _targetPlayer.position, 4f);
+                    if (onGround && vSpeed >= 0 && (position - _targetPlayer.position).length >= 8)
                     {
-                        StupidMoving.ThingMoveTo(this, _targetPlayer.position, 3f);
-                    }
-                    else
-                    {
-                        StupidMoving.ThingMoveToVertically(this, _targetPlayer.position, 3f);
-                    }
-                    if (onGround)
-                    {
-                        this.vSpeed = 0;
+                        vSpeed = -3;
                     }
                 }
             }
@@ -238,7 +231,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             {
                 canPickUp = false;
                 float holdWeight = addWeight;
-                IEnumerable<PhysicsObject> col = Level.CheckLineAll<PhysicsObject>(new Vec2(base.x - 6f, base.y - 3f), new Vec2(base.x + 6f, base.y - 3f));
+                IEnumerable<PhysicsObject> col = Level.CheckLineAll<PhysicsObject>(new Vec2(base.x - 7f, base.y - 4f), new Vec2(base.x + 7f, base.y - 4f));
                 List<Duck> ducks = new List<Duck>();
                 Duck stepDuck = null;
                 bool hadServerThing = false;
@@ -463,6 +456,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                 if (duckOwner != null)
                 {
                     _holdingWeight = 5f;
+                    _mineOwner = duckOwner;
                     duckOwner.doThrow = true;
                     _responsibleProfile = duckOwner.profile;
                 }
