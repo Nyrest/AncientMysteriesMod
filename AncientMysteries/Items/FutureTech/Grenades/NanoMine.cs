@@ -156,7 +156,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
         {
             _targetPlayer = null;
             float shortest = float.MaxValue;
-            foreach (Duck target in Level.CheckCircleAll<Duck>(position, 100))
+            foreach (Duck target in Level.CheckCircleAll<Duck>(position, 250))
             {
                 if (target != _mineOwner && !target.dead && Level.CheckLine<Block>(position, target.position) == null)
                 {
@@ -177,11 +177,12 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                 if (IsTargetVaild && grounded && _ducksOnMine.Count == 0)
                 {
                     bool onGround = grounded;
-                    StupidMoving.ThingMoveToVertically(this, _targetPlayer.position, 4f);
-                    if (onGround && vSpeed >= 0 && (position - _targetPlayer.position).length >= 8)
+                    StupidMoving.ThingMoveToVertically(this, _targetPlayer.position, 5f);
+                    if (onGround && vSpeed <= 0 && (position - _targetPlayer.position).length >= 10)
                     {
                         vSpeed = -3;
                     }
+                    else vSpeed = 0;
                 }
             }
 
