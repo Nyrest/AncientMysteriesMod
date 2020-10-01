@@ -69,7 +69,6 @@ namespace AncientMysteries.Items.Miscellaneous
                     ins.yscale *= 0.2f;
                     Level.Add(ins);
                 }
-                SFX.Play("goody", 0.4f, Rando.Float(0.2f, 0.4f));
                 timer = 0;
                 timer2++;
                 r += 4f;
