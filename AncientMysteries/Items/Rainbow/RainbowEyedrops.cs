@@ -13,7 +13,7 @@ namespace AncientMysteries.Items.Rainbow
     [EditorGroup(g_staffs)]
     public class RainbowEyedrops : AMStaff
     {
-        public StateBinding _animationFrameBinding = new StateBinding("animationFrame");
+        public StateBinding _animationFrameBinding = new StateBinding(nameof(AnimationFrame));
 
         public SpriteMap _spriteMap;
 

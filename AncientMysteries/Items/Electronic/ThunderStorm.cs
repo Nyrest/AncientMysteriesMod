@@ -9,7 +9,7 @@ namespace AncientMysteries.Items.Electronic
     [EditorGroup(g_staffs)]
     public sealed class Thunderstorm : AMStaff
     {
-        public StateBinding _animationFrameBinding = new StateBinding("animationFrame");
+        public StateBinding _animationFrameBinding = new StateBinding(nameof(AnimationFrame));
 
         public SpriteMap _spriteMap;
 
