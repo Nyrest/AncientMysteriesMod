@@ -13,7 +13,7 @@ namespace AncientMysteries.AmmoTypes
 
         public AT_Color(Color color)
         {
-            _color = color;
+            _color = bulletColor = color;
             accuracy = 0.9f;
             range = 500f;
             penetration = 2f;
