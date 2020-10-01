@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using static AncientMysteries.groupNames;
+using AncientMysteries.Items.Miscellaneous;
 
 namespace AncientMysteries.Items.True
 {
@@ -23,7 +24,6 @@ namespace AncientMysteries.Items.True
             get => (byte)_spriteMap._frame;
             set => _spriteMap._frame = value;
         }
-
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
@@ -80,9 +80,11 @@ namespace AncientMysteries.Items.True
             var firePos = barrelPosition;
             if (_castTime >= 1f)
             {
-                Bullet b = new Bullet_BigFB(firePos.x, firePos.y, new AT_BigFB(), owner.offDir == 1 ? 0 : 180, owner, false, 400);
-                b.color = Color.Orange;
-                Level.Add(b);
+                TempFire t = new TempFire(this.owner.x, owner.y + 6f, true, owner);
+                t.alpha = 0f;
+                t.xscale *= 2f;
+                t.yscale *= 2f;
+                Level.Add(t);
             }
             if (Network.isActive)
             {

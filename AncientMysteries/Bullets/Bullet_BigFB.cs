@@ -23,7 +23,7 @@ namespace AncientMysteries.Bullets
         {
             base.Update();
             n++;
-            if (n == 5)
+            if (n == 10)
             {
                 Bullet b = new Bullet_Lava(start.x, start.y, new AT_Lava(), Rando.Float(135, 45), owner, false, 200, false, true);
                 b.color = Color.DarkOrange;
