@@ -7,9 +7,9 @@ using System.Text;
 
 namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_Star2 : AmmoType
+    public sealed class AT_Lava : AmmoType
     {
-        public AT_Star2()
+        public AT_Lava()
         {
             accuracy = 1f;
             range = 100f;
@@ -17,15 +17,17 @@ namespace AncientMysteries.AmmoTypes
             rangeVariation = 0;
             bulletSpeed = 2;
             combustable = true;
+            affectedByGravity = true;;
             //sprite.CenterOrigin();
-            bulletType = typeof(Bullet_Star2);
-            sprite = TexHelper.ModSprite("holyLight2.png");
+            bulletType = typeof(Bullet_Lava);
         }
 
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
         {
             this.bulletColor = Color.DarkOrange;
-            return base.FireBullet(position, owner, angle, firedFrom);
+            var result = base.FireBullet(position, owner, angle, firedFrom);
+            result.color = Color.DarkOrange;
+            return result;
         }
     }
 }
