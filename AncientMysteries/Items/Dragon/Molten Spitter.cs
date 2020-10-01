@@ -8,7 +8,7 @@ namespace AncientMysteries.Items.Dragon
     [EditorGroup(g_machineGuns)]
     public sealed class MoltenSpitter : AMGun
     {
-        public StateBinding _animationFrameBinding = new StateBinding("animationFrame");
+        public StateBinding _animationFrameBinding = new StateBinding(nameof(AnimationFrame));
 
         public SpriteMap _spriteMap;
 

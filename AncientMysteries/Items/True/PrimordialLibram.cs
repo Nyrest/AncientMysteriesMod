@@ -15,7 +15,7 @@ namespace AncientMysteries.Items.True
     [EditorGroup(g_staffs)]
     public class PrimordialLibram : AMStaff
     {
-        public StateBinding _animationFrameBinding = new StateBinding("AnimationFrame");
+        public StateBinding _animationFrameBinding = new StateBinding(nameof(AnimationFrame));
 
         public SpriteMap _spriteMap;
 
