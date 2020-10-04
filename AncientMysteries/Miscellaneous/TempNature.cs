@@ -12,7 +12,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Miscellaneous
 {
-    public sealed class TempFire : Thing
+    public sealed class TempNature : Thing
     {
         public SpriteMap _sprite;
         public bool _smoked;
@@ -24,28 +24,23 @@ namespace AncientMysteries.Items.Miscellaneous
         public Thing t;
         public float progress = 0;
         public bool removing = false;
-        public TempFire(float xpos, float ypos, bool doWait = true, Thing tOwner = null) : base(xpos, ypos)
+        public float r = 0;
+        public TempNature(float xpos, float ypos, bool doWait = true, Thing tOwner = null) : base(xpos, ypos)
         {
-            _sprite = this.ReadyToRunMap("cross.png", 18, 29);
+            _sprite = this.ReadyToRunMap("crystal.png", 17, 36);
             this._sprite.AddAnimation("loop", 0.2f, true, new int[]
             {
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
+        0,
+        1,
+        2,
             });
             this._sprite.SetAnimation("loop");
             this.graphic = this._sprite;
             this._sprite.speed = 0.6f;
             base.xscale = 0.5f;
             base.yscale = base.xscale;
-            this.center = new Vec2(9f, 14.5f);
+            this.center = new Vec2(8.5f, 18f);
             base.depth = 1f;
-            fireAngle = tOwner._offDir == 1 ? 0 : 180;
             t = tOwner;
             if (!doWait)
             {
@@ -56,15 +51,29 @@ namespace AncientMysteries.Items.Miscellaneous
         public override void Update()
         {
             base.Update();
-            if (timer >= 22 && removing == false)
+            if (timer >= 5 && removing == false)
             {
-                Bullet b = new Bullet_BigFB(this.x, this.y, new AT_BigFB(), fireAngle, t, false, 400);
-                b.color = Color.Orange;
-                Level.Add(b);
+                for (int i = 0; i < 2; i++)
+                {
+                    Bullet b1 = new Bullet_LaserG(this.x, this.y, /*new AT9mm
+                {
+                    bulletSpeed = 2f,
+                    accuracy = 1f,
+                    penetration = 1f,
+                    bulletLength = 3,
+                }*/new AT_LaserG(), Rando.Float(100f + Convert.ToSingle(r/3.5f), Convert.ToSingle(80 - r/3.5f)), t, false, 400);
+                    b1.color = Color.Green;
+                    Level.Add(b1);
+                    ExplosionPart ins = new ExplosionPart(b1.travelStart.x, b1.travelStart.y, true);
+                    ins.xscale *= 0.2f;
+                    ins.yscale *= 0.2f;
+                    Level.Add(ins);
+                }
                 timer = 0;
                 timer2++;
+                r += 2f;
             }
-            if (timer2 == 8 && removing == false)
+            if (timer2 == 60 && removing == false)
             {
                 removing = true;
                 progress = 1;

@@ -17,7 +17,7 @@ namespace AncientMysteries.AmmoTypes
             penetration = 1f;
             rangeVariation = 10f;
             combustable = true;
-            bulletSpeed = 2f;
+            bulletSpeed = 0.5f;
             //sprite.CenterOrigin();
             bulletType = typeof(Bullet_BigFB);
             this.sprite = _spriteMap;

@@ -44,7 +44,7 @@ namespace AncientMysteries.Items.True
             _spriteMap = this.ReadyToRunMap("priLibram.png", 21, 14);
             this.SetBox(21, 14);
             this._barrelOffsetTL = new Vec2(6f, 5f);
-            this._castSpeed = 0.007f;
+            this._castSpeed = 0.006f;
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             this._fireWait = 0.5f;
@@ -80,7 +80,7 @@ namespace AncientMysteries.Items.True
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
-            rando = Rando.Int(0, 2);
+            rando = Rando.Int(0, 3);
             if (_castTime >= 1f && rando == 0)
             {
                 TempFire t = new TempFire(this.owner.x, owner.y, true, owner);
@@ -104,6 +104,14 @@ namespace AncientMysteries.Items.True
                 c.xscale *= 2f;
                 c.yscale *= 2f;
                 Level.Add(c);
+            }
+            if (_castTime >= 1f && rando == 3)
+            {
+                TempNature n = new TempNature(this.owner.x, owner.y - 32f, true, owner);
+                n.alpha = 0f;
+                n.xscale *= 2f;
+                n.yscale *= 2f;
+                Level.Add(n);
             }
             if (Network.isActive)
             {
