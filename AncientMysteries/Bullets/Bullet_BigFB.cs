@@ -31,6 +31,7 @@ namespace AncientMysteries.Bullets
                 SFX.Play("flameExplode", 0.7f, Rando.Float(-0.8f, -0.4f), 0f, false);
                 n = 0;
             }
+            this._bulletSpeed += 0.15f;
             /*foreach (Thing t in Level.CheckCircleAll<Thing>(this.position,10))
             {
                 if (t != Level.CheckCircleAll<Thing>(DuckNetwork.localConnection.profile.duck.position,20))
