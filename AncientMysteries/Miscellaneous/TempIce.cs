@@ -23,7 +23,10 @@ namespace AncientMysteries.Items.Miscellaneous
         public float fireAngle;
         public Thing t;
         public float progress = 0;
-        public bool removing = false; 
+        public bool removing = false;
+
+        public StateBinding _progressBinding = new StateBinding(nameof(progress));
+
         public TempIce(float xpos, float ypos, bool doWait = true, Thing tOwner = null) : base(xpos, ypos)
         {
             _sprite = this.ReadyToRunMap("icySpirit.png", 34, 34);
@@ -53,6 +56,7 @@ namespace AncientMysteries.Items.Miscellaneous
             base.Update();
             if (timer >= 5 && removing == false)
             {
+                List<Bullet> firedBullets = new List<Bullet>();
                 Bullet b1 = new Bullet_Icicle(this.x, this.y, new AT9mm
                 {
                     bulletSpeed = 2f,
@@ -89,9 +93,19 @@ namespace AncientMysteries.Items.Miscellaneous
                 Level.Add(b2);
                 Level.Add(b3);
                 Level.Add(b4);
+                firedBullets.Add(b1);
+                firedBullets.Add(b2);
+                firedBullets.Add(b3);
+                firedBullets.Add(b4);
                 SFX.Play("goody", 0.4f, Rando.Float(0.2f, 0.4f));
                 timer = 0;
                 timer2++;
+                if (Network.isActive)
+                {
+                    NMFireGun gunEvent = new NMFireGun(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
+                    Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
+                    firedBullets.Clear();
+                }
             }
             if (timer2 == 60 && removing == false)
             {

@@ -69,6 +69,7 @@ namespace AncientMysteries.Items.True
             {
                 Level.Add(new Bullet_Star(firePos.x, firePos.y, new AT_Star(), owner.offDir == 1 ? 0 : 180, owner, false, 275));
             }
+            bulletFireIndex += (byte)count;
             if (Network.isActive)
             {
                 NMFireGun gunEvent = new NMFireGun(this, firedBullets, bulletFireIndex, rel: false, 4);

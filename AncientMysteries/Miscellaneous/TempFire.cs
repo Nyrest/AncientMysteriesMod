@@ -24,6 +24,9 @@ namespace AncientMysteries.Items.Miscellaneous
         public Thing t;
         public float progress = 0;
         public bool removing = false;
+
+        public StateBinding _progressBinding = new StateBinding(nameof(progress));
+
         public TempFire(float xpos, float ypos, bool doWait = true, Thing tOwner = null) : base(xpos, ypos)
         {
             _sprite = this.ReadyToRunMap("cross.png", 18, 29);
@@ -58,9 +61,17 @@ namespace AncientMysteries.Items.Miscellaneous
             base.Update();
             if (timer >= 22 && removing == false)
             {
+                List<Bullet> firedBullets = new List<Bullet>();
                 Bullet b = new Bullet_BigFB(this.x, this.y, new AT_BigFB(), fireAngle, t, false, 400);
                 b.color = Color.Orange;
                 Level.Add(b);
+                firedBullets.Add(b);
+                if (Network.isActive)
+                {
+                    NMFireGun gunEvent = new NMFireGun(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
+                    Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
+                    firedBullets.Clear();
+                }
                 timer = 0;
                 timer2++;
             }
