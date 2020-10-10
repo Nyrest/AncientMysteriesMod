@@ -25,6 +25,9 @@ namespace AncientMysteries.Items.Miscellaneous
         public float progress = 0;
         public bool removing = false;
         public float r = 0;
+
+        public StateBinding _progressBinding = new StateBinding(nameof(progress));
+
         public TempNature(float xpos, float ypos, bool doWait = true, Thing tOwner = null) : base(xpos, ypos)
         {
             _sprite = this.ReadyToRunMap("crystal.png", 17, 36);
@@ -53,6 +56,7 @@ namespace AncientMysteries.Items.Miscellaneous
             base.Update();
             if (timer >= 5 && removing == false)
             {
+                List<Bullet> firedBullets = new List<Bullet>();
                 for (int i = 0; i < 2; i++)
                 {
                     Bullet b1 = new Bullet_LaserG(this.x, this.y, /*new AT9mm
@@ -61,13 +65,19 @@ namespace AncientMysteries.Items.Miscellaneous
                     accuracy = 1f,
                     penetration = 1f,
                     bulletLength = 3,
-                }*/new AT_LaserG(), Rando.Float(100f + Convert.ToSingle(r/3.5f), Convert.ToSingle(80 - r/3.5f)), t, false, 400);
+                }*/new AT_LaserG(), Rando.Float(100f + Convert.ToSingle(r / 3.5f), Convert.ToSingle(80 - r / 3.5f)), t, false, 400);
                     b1.color = Color.Green;
                     Level.Add(b1);
                     ExplosionPart ins = new ExplosionPart(b1.travelStart.x, b1.travelStart.y, true);
                     ins.xscale *= 0.2f;
                     ins.yscale *= 0.2f;
                     Level.Add(ins);
+                }
+                if (Network.isActive)
+                {
+                    NMFireGun gunEvent = new NMFireGun(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
+                    Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
+                    firedBullets.Clear();
                 }
                 timer = 0;
                 timer2++;

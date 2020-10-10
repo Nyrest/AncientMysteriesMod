@@ -22,7 +22,7 @@ namespace AncientMysteries.Bullets
         public override void DoTerminate()
         {
             base.DoTerminate();
-            NovaExp n = new NovaExp(travelEnd.x,travelEnd.y, true);
+            NovaExp n = new NovaExp(travelEnd.x, travelEnd.y, true);
             n.xscale *= 3f;
             n.yscale *= 3f;
             Level.Add(n);
@@ -35,9 +35,18 @@ namespace AncientMysteries.Bullets
                     t2.Destroy(new DTShot(this));
                 }
             }
+            var firedBullets = new List<Bullet>(5);
             for (int i = 0; i < 5; i++)
             {
-                Level.Add(new Bullet_AN2(travelEnd.x, travelEnd.y, new AT_AN2(), Rando.Float(0, 360), owner, false, 80, false, true));
+                var bullet = new Bullet_AN2(travelEnd.x, travelEnd.y, new AT_AN2(), Rando.Float(0, 360), owner, false, 80, false, true);
+                firedBullets.Add(bullet);
+                Level.Add(bullet);
+            }
+            if (Network.isActive && this.isLocal)
+            {
+                NMFireGun gunEvent = new NMFireGun(null, firedBullets, 0, rel: false, 4);
+                Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
+                firedBullets.Clear();
             }
         }
     }

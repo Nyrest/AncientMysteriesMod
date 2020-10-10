@@ -25,6 +25,9 @@ namespace AncientMysteries.Items.Miscellaneous
         public float progress = 0;
         public bool removing = false;
         public float r = 0;
+
+        public StateBinding _progressBinding = new StateBinding(nameof(progress));
+
         public TempCrystal(float xpos, float ypos, bool doWait = true, Thing tOwner = null) : base(xpos, ypos)
         {
             _sprite = this.ReadyToRunMap("crystal.png", 17, 36);
@@ -53,6 +56,7 @@ namespace AncientMysteries.Items.Miscellaneous
             base.Update();
             if (timer >= 5 && removing == false)
             {
+                List<Bullet> firedBullets = new List<Bullet>();
                 for (int i = 0; i < 2; i++)
                 {
                     Bullet b1 = new Bullet_Laser(this.x + Rando.Float(-r, r), this.y - 200f + Rando.Float(-r/2,r/2), /*new AT9mm
@@ -68,6 +72,12 @@ namespace AncientMysteries.Items.Miscellaneous
                     ins.xscale *= 0.2f;
                     ins.yscale *= 0.2f;
                     Level.Add(ins);
+                }
+                if (Network.isActive)
+                {
+                    NMFireGun gunEvent = new NMFireGun(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
+                    Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
+                    firedBullets.Clear();
                 }
                 timer = 0;
                 timer2++;
