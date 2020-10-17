@@ -35,9 +35,13 @@ namespace AncientMysteries.Bullets
                     t2.Destroy(new DTShot(this));
                 }
             }
+
+            var firedBullets = new List<Bullet>(5);
             for (int i = 0; i < 5; i++)
             {
-                Level.Add(new Bullet_AN3(travelEnd.x, travelEnd.y, new AT_AN3(), Rando.Float(0, 360), owner, false, 80, false, true));
+                var bullet = new Bullet_AN3(travelEnd.x, travelEnd.y, new AT_AN3(), Rando.Float(0, 360), owner, false, 80, false, true);
+                firedBullets.Add(bullet);
+                Level.Add(bullet);
             }
         }
     }

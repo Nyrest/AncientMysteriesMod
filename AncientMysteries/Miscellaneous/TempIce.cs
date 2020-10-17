@@ -56,7 +56,7 @@ namespace AncientMysteries.Items.Miscellaneous
             base.Update();
             if (timer >= 5 && removing == false)
             {
-                List<Bullet> firedBullets = new List<Bullet>();
+                var firedBullets = new List<Bullet>(1);
                 Bullet b1 = new Bullet_Icicle(this.x, this.y, new AT9mm
                 {
                     bulletSpeed = 2f,
@@ -89,14 +89,14 @@ namespace AncientMysteries.Items.Miscellaneous
                     sprite = this.ModSprite("icicle.png"),
                     bulletLength = 0,
                 }, fireAngle + 270, t, false, 400);
-                Level.Add(b1);
-                Level.Add(b2);
-                Level.Add(b3);
-                Level.Add(b4);
                 firedBullets.Add(b1);
                 firedBullets.Add(b2);
                 firedBullets.Add(b3);
                 firedBullets.Add(b4);
+                Level.Add(b1);
+                Level.Add(b2);
+                Level.Add(b3);
+                Level.Add(b4);
                 SFX.Play("goody", 0.4f, Rando.Float(0.2f, 0.4f));
                 timer = 0;
                 timer2++;

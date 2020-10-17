@@ -13,6 +13,9 @@ namespace AncientMysteries.Bullets
 
         public int n = 0;
 
+
+        public StateBinding _bulletSpeedBinding = new StateBinding(nameof(_bulletSpeed));
+
         public Bullet_BigFB(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
             _thickness = type.bulletThickness;
@@ -25,11 +28,13 @@ namespace AncientMysteries.Bullets
             n++;
             if (n == 10)
             {
-                Bullet b = new Bullet_Lava(start.x, start.y, new AT_Lava(), Rando.Float(135, 45), owner, false, 200, false, true);
-                b.color = Color.DarkOrange;
-                Level.Add(b);
+                var firedBullets = new List<Bullet>(1);
                 SFX.Play("flameExplode", 0.7f, Rando.Float(-0.8f, -0.4f), 0f, false);
                 n = 0;
+                var bullet = new Bullet_Lava(travelEnd.x, travelEnd.y, new AT_Lava(), Rando.Float(135, 45), owner, false, 200, false, true);
+                bullet.color = Color.DarkOrange;
+                firedBullets.Add(bullet);
+                Level.Add(bullet);
             }
             this._bulletSpeed += 0.15f;
             /*foreach (Thing t in Level.CheckCircleAll<Thing>(this.position,10))
@@ -56,12 +61,15 @@ namespace AncientMysteries.Bullets
                     t2.Destroy(new DTShot(this));
                 }
             }
-            for (int n = 0; n <7;n++)
+            var firedBullets = new List<Bullet>(7);
+            for (int i = 0; i < 7; i++)
             {
-                Bullet b = new Bullet_Lava(start.x, start.y, new AT_Lava(), Rando.Float(0, 360), owner, false, 200, false, true);
-                b.color = Color.DarkOrange;
-                Level.Add(b);
+                var bullet = new Bullet_Lava(travelEnd.x, travelEnd.y, new AT_Lava(), Rando.Float(0, 360), owner, false, 200, false, true);
+                bullet.color = Color.DarkOrange;
+                firedBullets.Add(bullet);
+                Level.Add(bullet);
             }
+
             SFX.Play("sizzle", 0.2f, Rando.Float(1, 4), 0f, false);
         }
     }
