@@ -56,7 +56,6 @@ namespace AncientMysteries.Items.Miscellaneous
             base.Update();
             if (timer >= 5 && removing == false)
             {
-                var firedBullets = new List<Bullet>(1);
                 Bullet b1 = new Bullet_Icicle(this.x, this.y, new AT9mm
                 {
                     bulletSpeed = 2f,
@@ -64,7 +63,7 @@ namespace AncientMysteries.Items.Miscellaneous
                     penetration = 1f,
                     sprite = this.ModSprite("icicle.png"),
                     bulletLength = 0,
-            }, fireAngle, t, false, 400);
+                }, fireAngle, t, false, 400);
                 Bullet b2 = new Bullet_Icicle(this.x, this.y, new AT9mm
                 {
                     bulletSpeed = 2f,
@@ -89,10 +88,6 @@ namespace AncientMysteries.Items.Miscellaneous
                     sprite = this.ModSprite("icicle.png"),
                     bulletLength = 0,
                 }, fireAngle + 270, t, false, 400);
-                firedBullets.Add(b1);
-                firedBullets.Add(b2);
-                firedBullets.Add(b3);
-                firedBullets.Add(b4);
                 Level.Add(b1);
                 Level.Add(b2);
                 Level.Add(b3);
@@ -102,9 +97,16 @@ namespace AncientMysteries.Items.Miscellaneous
                 timer2++;
                 if (Network.isActive)
                 {
-                    NMFireGun gunEvent = new NMFireGun(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
+                    var fireBullets2 = new List<Bullet>()
+                    {
+                        b1,
+                        b2,
+                        b3,
+                        b4
+                    };
+                    NMFireGun gunEvent = new NMFireGun(null, fireBullets2, (byte)fireBullets2.Count, rel: false, 4);
                     Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
-                    firedBullets.Clear();
+                    fireBullets2.Clear();
                 }
             }
             if (timer2 == 60 && removing == false)
@@ -126,7 +128,7 @@ namespace AncientMysteries.Items.Miscellaneous
             }
             this.alpha = progress;
             timer++;
-            fireAngle = Rando.Float(0,360);
+            fireAngle = Rando.Float(0, 360);
         }
 
         public override void Draw()
