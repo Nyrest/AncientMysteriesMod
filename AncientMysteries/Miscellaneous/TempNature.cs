@@ -56,7 +56,7 @@ namespace AncientMysteries.Items.Miscellaneous
             base.Update();
             if (timer >= 5 && removing == false)
             {
-                List<Bullet> firedBullets = new List<Bullet>();
+                var firedBullets = new List<Bullet>(1);
                 for (int i = 0; i < 2; i++)
                 {
                     Bullet b1 = new Bullet_LaserG(this.x, this.y, /*new AT9mm
@@ -67,6 +67,7 @@ namespace AncientMysteries.Items.Miscellaneous
                     bulletLength = 3,
                 }*/new AT_LaserG(), Rando.Float(100f + Convert.ToSingle(r / 3.5f), Convert.ToSingle(80 - r / 3.5f)), t, false, 400);
                     b1.color = Color.Green;
+                    firedBullets.Add(b1);
                     Level.Add(b1);
                     ExplosionPart ins = new ExplosionPart(b1.travelStart.x, b1.travelStart.y, true);
                     ins.xscale *= 0.2f;

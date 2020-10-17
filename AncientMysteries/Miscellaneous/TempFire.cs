@@ -61,11 +61,11 @@ namespace AncientMysteries.Items.Miscellaneous
             base.Update();
             if (timer >= 22 && removing == false)
             {
-                List<Bullet> firedBullets = new List<Bullet>();
+                var firedBullets = new List<Bullet>(1);
                 Bullet b = new Bullet_BigFB(this.x, this.y, new AT_BigFB(), fireAngle, t, false, 400);
                 b.color = Color.Orange;
-                Level.Add(b);
                 firedBullets.Add(b);
+                Level.Add(b);
                 if (Network.isActive)
                 {
                     NMFireGun gunEvent = new NMFireGun(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);

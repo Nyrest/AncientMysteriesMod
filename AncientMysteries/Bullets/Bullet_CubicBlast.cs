@@ -23,8 +23,15 @@ namespace AncientMysteries.Bullets
                 if (d != this.owner &&  count >= 15)
                 {
                     count = 0;
-                    Level.Add(new Bullet_Current(this.x, this.y, new AT_Current(), Maths.PointDirection(this.position, d.position), this.owner, true, 400, false, true));
+                    var firedBullets = new List<Bullet>(1);
+                    for (int i = 0; i < 7; i++)
+                    {
+                        var bullet = new Bullet_Current(this.x, this.y, new AT_Current(), Maths.PointDirection(this.position, d.position), this.owner, true, 400, false, true);
+                        firedBullets.Add(bullet);
+                        Level.Add(bullet);
+                    }
                 }
+
             }
             count++;
         }
