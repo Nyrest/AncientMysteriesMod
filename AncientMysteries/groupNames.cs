@@ -9,13 +9,8 @@ namespace AncientMysteries
     {
         public const string topGroupName = "Ancient";
 
-        public const string seriesName = "Items";
-
+        #region Guns
         public const string guns = topGroupName + "|Weapons";
-
-        public const string equipments = topGroupName + "|Equipments";
-
-        public const string e_developer = equipments + "|Developers";
 
         public const string g_rifles = guns + "|Rifles";
 
@@ -38,6 +33,19 @@ namespace AncientMysteries
         public const string g_snipers = guns + "|Snipers";
 
         public const string g_explosives = guns + "|Explosives";
+        #endregion
+
+        #region Equipments
+        public const string equipments = topGroupName + "|Equipments";
+
+        public const string e_developer = equipments + "|Developers";
+        #endregion
+
+        #region Stuffs
+        public const string stuffs = topGroupName + "|Stuffs";
+
+        public const string s_props = stuffs + "|Props";
+        #endregion
 
         public static class Series
         {
