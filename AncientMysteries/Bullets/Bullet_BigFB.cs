@@ -69,7 +69,12 @@ namespace AncientMysteries.Bullets
                 firedBullets.Add(bullet);
                 Level.Add(bullet);
             }
-
+            if (Network.isActive)
+            {
+                NMFireGun gunEvent = new NMFireGun(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
+                Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
+                firedBullets.Clear();
+            }
             SFX.Play("sizzle", 0.2f, Rando.Float(1, 4), 0f, false);
         }
     }
