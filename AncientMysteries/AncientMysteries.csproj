@@ -97,6 +97,7 @@
     <Compile Include="Hooks.cs" />
     <Compile Include="Items\AMBoots.cs" />
     <Compile Include="Items\AMChestPlate.cs" />
+    <Compile Include="Items\AMEquipment.cs" />
     <Compile Include="Items\AMHelmet.cs" />
     <Compile Include="Items\Developers\Hats\Thingy.cs" />
     <Compile Include="Items\Developers\Hats\Boring3.cs" />
@@ -109,6 +110,12 @@
     <Compile Include="Items\FutureTech\Grenades\NanoMine.cs" />
     <Compile Include="Items\FutureTech\Grenades\TrackingGrenade.cs" />
     <Compile Include="Items\IAMEquipment.cs" />
+    <Compile Include="Items\Isekai\RiskOfRain\CeremonialDagger.cs" />
+    <Compile Include="Items\Isekai\RiskOfRain\PersonalShieldGenerator.cs" />
+    <Compile Include="Items\Isekai\RiskOfRain\SoldiersSyringe.cs" />
+    <Compile Include="Items\Isekai\RiskOfRain\TougherTimes.cs" />
+    <Compile Include="Items\Isekai\RiskOfRain\BrilliantBehemoth.cs" />
+    <Compile Include="Items\Isekai\RiskOfRain\RoREquipmentBase.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
     <Compile Include="Items\Rainbow\RainbowEyedrops.cs" />
     <Compile Include="Items\Stuffs\Props\MeltingMeat.cs" />

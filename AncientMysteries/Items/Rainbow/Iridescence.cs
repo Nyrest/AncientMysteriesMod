@@ -26,11 +26,11 @@ namespace AncientMysteries.Items.MachineGuns
             this.ReadyToRunMap("rainbowGun.png");
             this._barrelOffsetTL = new Vec2(33f, 6f);
             BarrelSmoke.color = Color.White;
-            this._fireSound = "laserRifle";
-            this._fireWait = 0.6f;
-            this._fireSoundPitch = 0.9f;
-            this._kickForce = 0.25f;
-            this._fullAuto = true;
+            _fireSound = "laserRifle";
+            _fireWait = 0.6f;
+            _fireSoundPitch = 0.9f;
+            _kickForce = 0.25f;
+            _fullAuto = true;
             loseAccuracy = 0.01f;
             maxAccuracyLost = 0.02f;
             _holdOffset = new Vec2(-2.5f, 0.2f);
