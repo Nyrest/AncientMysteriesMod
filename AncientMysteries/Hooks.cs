@@ -11,6 +11,10 @@ namespace AncientMysteries
 {
     public static class Hooks
     {
+        private static FieldInfo QuadTreeObjectList_removeThings = typeof(QuadTreeObjectList).GetField("_removeThings", BindingFlags.NonPublic | BindingFlags.Instance);
+
+        public static List<Thing> removedThings = new List<Thing>(256);
+
         public static bool _initialized;
 
         public static void Initialize()
@@ -55,6 +59,15 @@ namespace AncientMysteries
             public void Update(GameTime gameTime)
             {
                 OnUpdate?.Invoke();
+                removedThings.Clear();
+                if (Level.current?.things is QuadTreeObjectList things)
+                {
+                    foreach (var item in things[typeof(Thing)])
+                    {
+                        if(item.removeFromLevel)
+                        removedThings.Add(item);
+                    }
+                }
             }
         }
     }

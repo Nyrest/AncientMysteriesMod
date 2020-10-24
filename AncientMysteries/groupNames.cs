@@ -9,6 +9,8 @@ namespace AncientMysteries
     {
         public const string topGroupName = "Ancient";
 
+        public const string relative_Isekai = "|Isekai";
+
         #region Guns
         public const string guns = topGroupName + "|Weapons";
 
@@ -26,7 +28,7 @@ namespace AncientMysteries
 
         public const string g_machineGuns = guns + "|Machine Guns";
 
-        public const string g_isekai = guns + "|Isekai";
+        public const string g_isekai = guns + relative_Isekai;
 
         public const string g_melees = guns + "|Melee";
 
@@ -39,6 +41,8 @@ namespace AncientMysteries
         public const string equipments = topGroupName + "|Equipments";
 
         public const string e_developer = equipments + "|Developers";
+
+        public const string e_isekai_ror = equipments + relative_Isekai + "|Risk of Rain";
         #endregion
 
         #region Stuffs
