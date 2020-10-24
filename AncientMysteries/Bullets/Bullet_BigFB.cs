@@ -26,9 +26,9 @@ namespace AncientMysteries.Bullets
         {
             base.Update();
             n++;
+            var firedBullets = new List<Bullet>(1);
             if (n == 10)
             {
-                var firedBullets = new List<Bullet>(1);
                 SFX.Play("flameExplode", 0.7f, Rando.Float(-0.8f, -0.4f), 0f, false);
                 n = 0;
                 var bullet = new Bullet_Lava(travelEnd.x, travelEnd.y, new AT_Lava(), Rando.Float(135, 45), owner, false, 200, false, true);
