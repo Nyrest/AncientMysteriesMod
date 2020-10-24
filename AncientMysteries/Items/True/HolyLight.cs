@@ -24,6 +24,7 @@ namespace AncientMysteries.Items.True
             set => _spriteMap._frame = value;
         }
 
+        public int r;
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
@@ -64,10 +65,14 @@ namespace AncientMysteries.Items.True
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
-            int count = _castTime >= 0.5 ? Rando.Int(3, 7) : 1;
+            r = Rando.Int(3, 7);
+            int count = _castTime >= 0.5 ? r : 1;
+            var firedBullets = new List<Bullet>(count);
             for (int i = 0; i < count; i++)
             {
-                Level.Add(new Bullet_Star(firePos.x, firePos.y, new AT_Star(), owner.offDir == 1 ? 0 : 180, owner, false, 275));
+                Bullet b = new Bullet_Star(firePos.x, firePos.y, new AT_Star(), owner.offDir == 1 ? 0 : 180, owner, false, 275);
+                firedBullets.Add(b);
+                Level.Add(b);
             }
             bulletFireIndex += (byte)count;
             if (Network.isActive)

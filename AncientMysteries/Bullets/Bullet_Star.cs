@@ -1,6 +1,7 @@
 ﻿using AncientMysteries.AmmoTypes;
 using DuckGame;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 
 namespace AncientMysteries.Bullets
 {
@@ -22,9 +23,12 @@ namespace AncientMysteries.Bullets
         {
             base.Update();
             n++;
+            var firedBullets = new List<Bullet>(1);
             if (n == 5)
             {
-                Level.Add(new Bullet_Star2(start.x, start.y, new AT_Star2(), _angle + 3.14f, owner, false, 80, false, true));
+                Bullet b = new Bullet_Star2(start.x, start.y, new AT_Star2(), _angle + 3.14f, owner, false, 80, false, true);
+                firedBullets.Add(b);
+                Level.Add(b);
                 n = 0;
             }
             /*foreach (Thing t in Level.CheckCircleAll<Thing>(this.position,10))

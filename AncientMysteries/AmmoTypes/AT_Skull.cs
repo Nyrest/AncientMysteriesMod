@@ -34,7 +34,7 @@ namespace AncientMysteries.AmmoTypes
                     generator = Rando.generator;
                     Rando.generator = new Random(NetRand.currentSeed);
                 }
-                List<Bullet> list = new List<Bullet>();
+                List<Bullet> list = new List<Bullet>(12);
                 for (int i = 0; i < 12; i++)
                 {
                     float num = (float)i * 30f + Rando.Float(10f);
