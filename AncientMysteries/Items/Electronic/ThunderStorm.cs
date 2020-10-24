@@ -27,6 +27,7 @@ namespace AncientMysteries.Items.Electronic
         };
 
 
+        public int r;
         public Thunderstorm(float xval, float yval) : base(xval, yval)
         {
             _ammoType = new AT_CubicBlast();
@@ -47,7 +48,8 @@ namespace AncientMysteries.Items.Electronic
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
-            int count = _castTime >= 0.95f ? Rando.Int(3, 5) : 1;
+            r = Rando.Int(3, 5);
+            int count = _castTime >= 0.95f ? r : 1;
             float speed = _castTime >= 0.95f ? 4 : 1.5f;
             if (_castTime >= 0.95f)
             {
@@ -57,6 +59,7 @@ namespace AncientMysteries.Items.Electronic
             {
                 SFX.Play("shotgunFire2", 0.7f, 0.9f);
             }
+            var firedBullets = new List<Bullet>(count);
             for (int i = 0; i < count; i++)
             {
                 ammoType.bulletSpeed = speed;

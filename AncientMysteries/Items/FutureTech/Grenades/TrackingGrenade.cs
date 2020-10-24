@@ -175,6 +175,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                         Graphics.FlashScreen();
                         if (base.isServerForObject)
                         {
+                            var firedBullets = new List<Bullet>(bulletCount);
                             for (int i = 0; i < bulletCount; i++)
                             {
                                 float dir = i * 18f - 5f + Rando.Float(10f);

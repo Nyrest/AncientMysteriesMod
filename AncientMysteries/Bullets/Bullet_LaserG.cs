@@ -17,10 +17,12 @@ namespace AncientMysteries.Bullets
         public override void OnCollide(Vec2 pos, Thing t, bool willBeStopped)
         {
             base.OnCollide(pos, t, willBeStopped);
+            var firedBullets = new List<Bullet>(1);
             if (willBeStopped)
             {
                 Bullet b = new Bullet_LaserG2(this.start.x, this.start.y, new AT_LaserG2(), Rando.Float(0, 360), this.owner, false, 100);
                 b.color = Color.LightGreen;
+                firedBullets.Add(b);
                 Level.Add(b);
             }
         }

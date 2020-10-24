@@ -1,6 +1,7 @@
 ﻿using AncientMysteries.AmmoTypes;
 using AncientMysteries.Bullets;
 using DuckGame;
+using System.Collections.Generic;
 using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Dark.Melee
@@ -36,13 +37,18 @@ namespace AncientMysteries.Items.Dark.Melee
                 cooldown = -2;
                 if ((_crouchStance && _jabStance && !_swinging) || (!_crouchStance && !_swinging && _swing < 0.1f))
                 {
+                    var firedBullets = new List<Bullet>(1);
                     if (base.duck.offDir != 1)
                     {
-                        Level.Add(new Bullet_Skull(base.duck.x, base.duck.y, type, -180, true, base.duck, rbound: false, 300f));
+                        Bullet b = new Bullet_Skull(base.duck.x, base.duck.y, type, -180, true, base.duck, rbound: false, 300f);
+                        firedBullets.Add(b);
+                        Level.Add(b);
                     }
                     else
                     {
-                        Level.Add(new Bullet_Skull(base.duck.x, base.duck.y, type, 0, false, base.duck, rbound: false, 300f));
+                        Bullet b = new Bullet_Skull(base.duck.x, base.duck.y, type, -180, true, base.duck, rbound: false, 300f);
+                        firedBullets.Add(b);
+                        Level.Add(b);
                     }
                 }
             }
