@@ -54,6 +54,7 @@ namespace AncientMysteries.Items.Miscellaneous
         public override void Update()
         {
             base.Update();
+            var firedBullets = new List<Bullet>(1);
             if (timer >= 5 && removing == false)
             {
                 Bullet b1 = new Bullet_Icicle(this.x, this.y, new AT9mm
@@ -88,6 +89,10 @@ namespace AncientMysteries.Items.Miscellaneous
                     sprite = this.ModSprite("icicle.png"),
                     bulletLength = 0,
                 }, fireAngle + 270, t, false, 400);
+                firedBullets.Add(b1);
+                firedBullets.Add(b2);
+                firedBullets.Add(b3);
+                firedBullets.Add(b4);
                 Level.Add(b1);
                 Level.Add(b2);
                 Level.Add(b3);
@@ -97,16 +102,9 @@ namespace AncientMysteries.Items.Miscellaneous
                 timer2++;
                 if (Network.isActive)
                 {
-                    var fireBullets2 = new List<Bullet>()
-                    {
-                        b1,
-                        b2,
-                        b3,
-                        b4
-                    };
-                    NMFireGun gunEvent = new NMFireGun(null, fireBullets2, (byte)fireBullets2.Count, rel: false, 4);
+                    NMFireGun gunEvent = new NMFireGun(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
                     Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
-                    fireBullets2.Clear();
+                    firedBullets.Clear();
                 }
             }
             if (timer2 == 60 && removing == false)

@@ -54,9 +54,9 @@ namespace AncientMysteries.Items.Miscellaneous
         public override void Update()
         {
             base.Update();
+            var firedBullets = new List<Bullet>(1);
             if (timer >= 5 && removing == false)
             {
-                var firedBullets = new List<Bullet>(1);
                 for (int i = 0; i < 2; i++)
                 {
                     Bullet b1 = new Bullet_Laser(this.x + Rando.Float(-r, r), this.y - 200f + Rando.Float(-r/2,r/2), /*new AT9mm

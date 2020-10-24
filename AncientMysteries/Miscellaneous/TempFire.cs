@@ -59,9 +59,9 @@ namespace AncientMysteries.Items.Miscellaneous
         public override void Update()
         {
             base.Update();
+            var firedBullets = new List<Bullet>(1);
             if (timer >= 22 && removing == false)
             {
-                var firedBullets = new List<Bullet>(1);
                 Bullet b = new Bullet_BigFB(this.x, this.y, new AT_BigFB(), fireAngle, t, false, 400);
                 b.color = Color.Orange;
                 firedBullets.Add(b);

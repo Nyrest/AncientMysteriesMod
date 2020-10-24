@@ -27,7 +27,7 @@ namespace AncientMysteries.Bullets
                 Level.Add(ins);
             }
             SFX.Play("explode");
-            List<Bullet> firedBullets = new List<Bullet>();
+            List<Bullet> firedBullets = new List<Bullet>(24);
             Vec2 bPos = pos;
             bPos -= travelDirNormalized;
             for (int i = 0; i < 24; i++)

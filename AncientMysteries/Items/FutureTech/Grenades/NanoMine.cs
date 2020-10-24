@@ -358,6 +358,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             }
             float cx = position.x;
             float cy = position.y;
+            var firedBullets = new List<Bullet>(20);
             for (int i = 0; i < 20; i++)
             {
                 float dir = (float)i * 18f - 5f + Rando.Float(10f);

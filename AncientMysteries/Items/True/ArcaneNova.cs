@@ -64,9 +64,12 @@ namespace AncientMysteries.Items.True
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
+            var firedBullets = new List<Bullet>(1);
             if (_castTime >= 1f)
             {
-                Level.Add(new Bullet_AN(firePos.x, firePos.y, new AT_AN(), owner.offDir == 1 ? 0 : 180, owner, false, 275));
+                Bullet b = new Bullet_AN(firePos.x, firePos.y, new AT_AN(), owner.offDir == 1 ? 0 : 180, owner, false, 275);
+                firedBullets.Add(b);
+                Level.Add(b);
                 bulletFireIndex += 1;
             }
             if (Network.isActive)
