@@ -17,7 +17,7 @@ namespace AncientMysteries.Items.MachineGuns
 
         public Iridescence(float xval, float yval) : base(xval, yval)
         {
-            this.ammo = 500;
+            this.ammo = 127;
             this._ammoType = new AT_Iridescence()
             {
 

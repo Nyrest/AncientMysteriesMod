@@ -31,8 +31,7 @@ namespace AncientMysteries.Items.Rainbow
         };
 
         public RainbowEyedrops(float xval, float yval) : base(xval, yval)
-        {
-            this.ammo = 500;           
+        {         
             this._ammoType = new AT_RainbowEyedrops()
             {
 
