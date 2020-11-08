@@ -16,6 +16,7 @@ namespace AncientMysteries.AmmoTypes
             penetration = 10f;
             rangeVariation = 20f;
             this.bulletThickness = 2f;
+            this.bulletColor = Color.Lime;
             //this.bulletType = typeof(Bullet_Electronic);
             //this.sprite = TexHelper.ModSprite("ElectronicStar.png");
             //this.sprite.CenterOrigin();
