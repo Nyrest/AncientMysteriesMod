@@ -34,7 +34,6 @@ namespace AncientMysteries.Items.True
 
         public HolyLight(float xval, float yval) : base(xval, yval)
         {
-            this.ammo = 500;
             this._ammoType = new AT_RainbowEyedrops()
             {
 
