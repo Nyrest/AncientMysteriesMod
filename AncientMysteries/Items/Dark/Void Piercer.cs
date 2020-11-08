@@ -16,7 +16,7 @@ namespace AncientMysteries.Items.MachineGuns
 
         public VoidPiercer(float xval, float yval) : base(xval, yval)
         {
-            ammo = 999;
+            ammo = sbyte.MaxValue;
             this._ammoType = new AT_Shadow()
             {
                 range = 360f,

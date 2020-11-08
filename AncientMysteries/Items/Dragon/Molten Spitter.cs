@@ -26,7 +26,7 @@ namespace AncientMysteries.Items.Dragon
 
         public MoltenSpitter(float xval, float yval) : base(xval, yval)
         {
-            this.ammo = 500;
+            this.ammo = 127;
             this._ammoType = new AT_Dragon()
             {
                 range = 400,
