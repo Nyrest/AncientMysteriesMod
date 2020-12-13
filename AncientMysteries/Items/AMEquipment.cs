@@ -55,11 +55,6 @@ namespace AncientMysteries.Items
                         Fondle(this, DuckNetwork.localConnection);
                     }
                 }
-                if (bullet.isLocal)
-                {
-                    duck.KnockOffEquipment(this, ting: true, bullet);
-                    Thing.Fondle(this, DuckNetwork.localConnection);
-                }
                 if (bullet.isLocal && Network.isActive)
                 {
                     NetSoundEffect.Play("equipmentTing");

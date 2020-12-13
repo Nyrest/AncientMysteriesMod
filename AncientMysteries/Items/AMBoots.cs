@@ -39,42 +39,6 @@ namespace AncientMysteries.Items
             return base.OnDestroy(type);
         }
 
-        public override bool Hit(Bullet bullet, Vec2 hitPos)
-        {
-            if (BulletThroughNotEquipped && (_equippedDuck == null || bullet.owner == base.duck || !bullet.isLocal))
-            {
-                return false;
-            }
-            if (_isArmor)
-            {
-                if (bullet.isLocal && duck != null)
-                {
-                    if (--EquipmentHitPoints <= 0 && KnockOffOnHit)
-                    {
-                        base.duck.KnockOffEquipment(this, ting: true, bullet);
-                        Fondle(this, DuckNetwork.localConnection);
-                    }
-                }
-                if (bullet.isLocal)
-                {
-                    duck.KnockOffEquipment(this, ting: true, bullet);
-                    Thing.Fondle(this, DuckNetwork.localConnection);
-                }
-                if (bullet.isLocal && Network.isActive)
-                {
-                    NetSoundEffect.Play("equipmentTing");
-                }
-                bullet.hitArmor = true;
-                Level.Add(MetalRebound.New(hitPos.x, hitPos.y, (bullet.travelDirNormalized.x > 0f) ? 1 : (-1)));
-                for (int i = 0; i < 6; i++)
-                {
-                    Level.Add(Spark.New(base.x, base.y, bullet.travelDirNormalized));
-                }
-                return thickness > bullet.ammo.penetration;
-            }
-            return base.Hit(bullet, hitPos);
-        }
-
         public abstract string GetLocalizedName(AMLang lang);
 
         public StateBinding _equipmentMaxHitPointsBinding = new StateBinding(nameof(_equipmentMaxHitPoints));
