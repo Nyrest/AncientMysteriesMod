@@ -55,23 +55,20 @@ namespace AncientMysteries.Items
                         Fondle(this, DuckNetwork.localConnection);
                     }
                 }
+                if (bullet.isLocal)
+                {
+                    duck.KnockOffEquipment(this, ting: true, bullet);
+                    Thing.Fondle(this, DuckNetwork.localConnection);
+                }
                 if (bullet.isLocal && Network.isActive)
                 {
-                    _netTing.Play();
+                    NetSoundEffect.Play("equipmentTing");
                 }
+                bullet.hitArmor = true;
                 Level.Add(MetalRebound.New(hitPos.x, hitPos.y, (bullet.travelDirNormalized.x > 0f) ? 1 : (-1)));
                 for (int i = 0; i < 6; i++)
                 {
                     Level.Add(Spark.New(base.x, base.y, bullet.travelDirNormalized));
-                }
-                if (physicsMaterial == PhysicsMaterial.Metal)
-                {
-                    Level.Add(MetalRebound.New(hitPos.x, hitPos.y, (bullet.travelDirNormalized.x > 0f) ? 1 : (-1)));
-                    hitPos -= bullet.travelDirNormalized;
-                    for (int i = 0; i < 3; i++)
-                    {
-                        Level.Add(Spark.New(hitPos.x, hitPos.y, bullet.travelDirNormalized));
-                    }
                 }
                 return thickness > bullet.ammo.penetration;
             }
