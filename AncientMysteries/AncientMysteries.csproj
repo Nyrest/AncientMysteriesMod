@@ -121,7 +121,6 @@
     <None Include="Items\Isekai\RiskOfRain\RoREquipmentBase.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
     <Compile Include="Items\Rainbow\RainbowEyedrops.cs" />
-    <Compile Include="Items\Stuffs\Props\MeltingMeat.cs" />
     <Compile Include="Items\True\PrimordialLibram.cs" />
     <Compile Include="Items\True\HolyLight.cs" />
     <Compile Include="Items\True\UpdateWindows10.cs" />
