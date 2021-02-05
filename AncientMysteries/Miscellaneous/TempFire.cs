@@ -26,6 +26,7 @@ namespace AncientMysteries.Items.Miscellaneous
         public bool removing = false;
 
         public StateBinding _progressBinding = new StateBinding(nameof(progress));
+        public StateBinding _duckBinding = new StateBinding(nameof(progress));
 
         public TempFire(float xpos, float ypos, bool doWait = true, Thing tOwner = null) : base(xpos, ypos)
         {
@@ -49,7 +50,7 @@ namespace AncientMysteries.Items.Miscellaneous
             this.center = new Vec2(9f, 14.5f);
             base.depth = 1f;
             fireAngle = tOwner._offDir == 1 ? 0 : 180;
-            t = tOwner;
+            tOwner = t.owner;
             if (!doWait)
             {
                 this._wait = 0f;
