@@ -12,6 +12,11 @@ namespace AncientMysteries.Items.Explosives
     [EditorGroup(g_explosives)]
     public sealed class FerociousPredator : AMGun
     {
+        public override string GetLocalizedName(AMLang lang) => lang switch
+        {
+            _ => "Nano Grenade",
+        };
+
         public StateBinding _fireAngleBinding = new StateBinding("_fireAngle");
 
         public StateBinding _aimAngleBinding = new StateBinding("_aimAngle");

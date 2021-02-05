@@ -13,6 +13,11 @@ namespace AncientMysteries.Items.FutureTech.Grenades
     [EditorGroup(guns)]
     public sealed class NanoMine : AMGun
     {
+        public override string GetLocalizedName(AMLang lang) => lang switch
+        {
+            _ => "Nano Mine",
+        };
+
         public StateBinding _pinBinding = new StateBinding("_pin");
 
         public StateBinding _armedBinding = new StateBinding("_armed");
@@ -68,12 +73,6 @@ namespace AncientMysteries.Items.FutureTech.Grenades
         public Duck _mineOwner;
 
         public bool IsTargetVaild => _targetPlayer?.dead == false && _targetPlayer?.ragdoll == null;
-
-        public override string GetLocalizedName(AMLang lang) => lang switch
-        {
-            AMLang.schinese => "纳米地雷",
-            _ => "Nano Mine",
-        };
 
         public NanoMine(float xval, float yval)
             : base(xval, yval)

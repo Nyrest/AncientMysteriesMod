@@ -10,7 +10,6 @@ namespace AncientMysteries.Items.Snipers
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            AMLang.schinese => "亡命舞步",
             _ => "Shadow Dance",
         };
 

@@ -10,7 +10,6 @@ namespace AncientMysteries.Items.MachineGuns
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            AMLang.schinese => "虚无渗透",
             _ => "Void Piercer",
         };
 

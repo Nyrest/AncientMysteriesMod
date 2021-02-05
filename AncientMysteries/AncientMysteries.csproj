@@ -110,6 +110,7 @@
     <Compile Include="groupNames.cs" />
     <Compile Include="GTool.cs" />
     <Compile Include="Items\Explosives\Ferocious Predator.cs" />
+    <Compile Include="Items\Explosives\HappyNewYear.cs" />
     <Compile Include="Items\FutureTech\Grenades\NanoMine.cs" />
     <Compile Include="Items\FutureTech\Grenades\TrackingGrenade.cs" />
     <Compile Include="Items\IAMEquipment.cs" />

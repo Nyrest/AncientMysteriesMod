@@ -16,7 +16,6 @@ namespace AncientMysteries.Items.Shotguns
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            AMLang.schinese => "夜影极光",
             _ => "Dark Aurora",
         };
 

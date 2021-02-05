@@ -11,7 +11,6 @@ namespace AncientMysteries.Items.Electronic
 	{
 		public override string GetLocalizedName(AMLang lang) => lang switch
 		{
-			AMLang.schinese => "电子冲击", // 
 			_ => "Electronic Impacter",
 		};
 
