@@ -3,17 +3,20 @@ using AncientMysteries.Utilities;
 using DuckGame;
 using System;
 using System.Collections.Generic;
-using static AncientMysteries.AMFonts;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using static AncientMysteries.groupNames;
+using static AncientMysteries.AMFonts;
 
-namespace AncientMysteries.Items.FutureTech.Grenades
+namespace AncientMysteries.Items.Explosives
 {
     [EditorGroup(guns)]
-    public sealed class TrackingGrenade : AMGun
+    public class HappyNewYear : AMGun
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            _ => "Nano Grenade",
+            _ => "Happy New Year",
         };
 
         public StateBinding _timerBinding = new StateBinding("_timer");
@@ -54,7 +57,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
 
         public bool _quacked;
 
-        public TrackingGrenade(float xval, float yval)
+        public HappyNewYear(float xval, float yval)
             : base(xval, yval)
         {
             ammo = 1;
@@ -65,6 +68,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             graphic = _sprite;
             base.bouncy = 0.4f;
             friction = 0.05f;
+            _editorName = "HappyNewYear";
             this.scale = new Vec2(1.15f);
         }
 

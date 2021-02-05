@@ -9,6 +9,11 @@ namespace AncientMysteries.Items.Electronic
     [EditorGroup(g_staffs)]
     public sealed class Thunderstorm : AMStaff
     {
+        public override string GetLocalizedName(AMLang lang) => lang switch
+        {
+            _ => "Thunderstorm",
+        };
+
         public StateBinding _animationFrameBinding = new StateBinding(nameof(AnimationFrame));
 
         public SpriteMap _spriteMap;
@@ -19,12 +24,6 @@ namespace AncientMysteries.Items.Electronic
             set => _spriteMap._frame = value;
         }
 
-
-        public override string GetLocalizedName(AMLang lang) => lang switch
-        {
-            AMLang.schinese => "雷爆", // 
-            _ => "Thunderstorm",
-        };
 
 
         public int r;
