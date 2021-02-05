@@ -17,6 +17,7 @@ namespace AncientMysteries.AmmoTypes
             rangeVariation = 10f;
             combustable = true;
             sprite = TexHelper.ModSprite("fireball2.png");
+            bulletColor = Color.OrangeRed;
             //sprite.CenterOrigin();
             bulletType = typeof(Bullet_Dragon);
         }
