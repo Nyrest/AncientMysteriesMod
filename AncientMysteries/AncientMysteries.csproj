@@ -98,6 +98,7 @@
     <Compile Include="Bullets\Bullet_FerociousPredator.cs" />
     <Compile Include="Bullets\Bullet_Skull.cs" />
     <Compile Include="Bullets\Bullet_Dragon.cs" />
+    <Compile Include="Caches\InstanceCache.cs" />
     <Compile Include="GlobalPool.cs" />
     <Compile Include="Helpers\FastNew.cs" />
     <Compile Include="Hooks.cs" />
@@ -113,7 +114,7 @@
     <Compile Include="groupNames.cs" />
     <Compile Include="GTool.cs" />
     <Compile Include="Items\Explosives\Ferocious Predator.cs" />
-    <Compile Include="Items\Explosives\HappyNewYear.cs" />
+    <Compile Include="Items\Explosives\FuriousNewYear.cs" />
     <Compile Include="Items\FutureTech\Grenades\NanoMine.cs" />
     <Compile Include="Items\FutureTech\Grenades\TrackingGrenade.cs" />
     <Compile Include="Items\IAMEquipment.cs" />
@@ -157,6 +158,7 @@
     <None Include="Items\Electronic\Thunderstorm.cs" />
     <Compile Include="Items\Electronic\ElectronicImpacter.cs" />
     <None Include="Items\Isekai\AssassinsCreed\SpearOfLeonidas.cs" />
+    <Compile Include="Utilities\AMath2.cs" />
     <Compile Include="Utilities\Helper.cs" />
     <Compile Include="Utilities\HSL.cs" />
     <Compile Include="Utilities\StupidMoving.cs" />
