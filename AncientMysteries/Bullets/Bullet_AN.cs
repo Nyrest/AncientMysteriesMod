@@ -18,6 +18,7 @@ namespace AncientMysteries.Bullets
         public override void Update()
         {
             base.Update();
+
         }
 
         protected override void OnHit(bool destroyed)
@@ -28,7 +29,7 @@ namespace AncientMysteries.Bullets
             n.xscale *= 3f;
             n.yscale *= 3f;
             Level.Add(n);
-            SFX.Play("explode", 0.8f, Rando.Float(-0.1f, 1f), 0f, false);
+            SFX.PlaySynchronized("explode", 0.8f, Rando.Float(-0.1f, 1f), 0f, false);
             IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(travelEnd, 32f);
             foreach (MaterialThing t2 in things)
             {
