@@ -14,7 +14,7 @@ namespace AncientMysteries.Items.Explosives
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            _ => "Nano Grenade",
+            _ => "Ferocious Predator",
         };
 
         public StateBinding _fireAngleBinding = new StateBinding("_fireAngle");
@@ -137,11 +137,5 @@ namespace AncientMysteries.Items.Explosives
                 _fireAngle = 0f;
             }
         }
-
-        public override string GetLocalizedName(AMLang lang) => lang switch
-        {
-            AMLang.schinese => "穷极猎手",
-            _ => "Ferocious Predator",
-        };
     }
 }
