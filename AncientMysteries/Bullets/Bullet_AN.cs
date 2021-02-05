@@ -19,9 +19,11 @@ namespace AncientMysteries.Bullets
         {
             base.Update();
         }
-        public override void DoTerminate()
+
+        protected override void OnHit(bool destroyed)
         {
-            base.DoTerminate();
+            base.OnHit(destroyed);
+            if (!destroyed) return;
             NovaExp n = new NovaExp(travelEnd.x, travelEnd.y, true);
             n.xscale *= 3f;
             n.yscale *= 3f;

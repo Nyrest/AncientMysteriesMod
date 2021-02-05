@@ -1,9 +1,16 @@
 ﻿using DuckGame;
+using System.Runtime.CompilerServices;
 
 namespace AncientMysteries.Utilities
 {
     public static class HSL
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Color RandomRGB()
+        {
+            return FromHslFloat(Rando.Float(0f, 1f), Rando.Float(0.7f, 1f), Rando.Float(0.45f, 0.65f));
+        }
+
         public static Color FromHslFloat(float h, float s, float l, float alpha = 1f)
         {
             if (l == 0)

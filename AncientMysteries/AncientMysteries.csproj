@@ -80,6 +80,7 @@
     <Compile Include="AmmoTypes\AT_Star.cs" />
     <Compile Include="AmmoTypes\AT_Lava.cs" />
     <Compile Include="AmmoTypes\AT_Star2.cs" />
+    <Compile Include="AmmoTypes\_ImplicitDefaultAmmoType.cs" />
     <Compile Include="Bullets\Bullet_AN4.cs" />
     <Compile Include="Bullets\Bullet_AN3.cs" />
     <Compile Include="Bullets\Bullet_AN2.cs" />
@@ -97,6 +98,8 @@
     <Compile Include="Bullets\Bullet_FerociousPredator.cs" />
     <Compile Include="Bullets\Bullet_Skull.cs" />
     <Compile Include="Bullets\Bullet_Dragon.cs" />
+    <Compile Include="GlobalPool.cs" />
+    <Compile Include="Helpers\FastNew.cs" />
     <Compile Include="Hooks.cs" />
     <Compile Include="Items\AMBoots.cs" />
     <Compile Include="Items\AMChestPlate.cs" />
@@ -137,6 +140,7 @@
     <Compile Include="Miscellaneous\NovaExp.cs" />
     <Compile Include="Misc\TexHelper.cs" />
     <Compile Include="Mod.cs" />
+    <Compile Include="NetHelper.cs" />
     <Compile Include="Particles\CustomSpark.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RefectionCache.cs" />

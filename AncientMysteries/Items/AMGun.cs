@@ -1,4 +1,5 @@
-﻿using AncientMysteries.Localization;
+﻿using AncientMysteries.AmmoTypes;
+using AncientMysteries.Localization;
 using AncientMysteries.Localization.Enums;
 using DuckGame;
 using System;
@@ -13,6 +14,8 @@ namespace AncientMysteries.Items
     {
         public static readonly FieldInfo _refBarrelSmoke = typeof(Gun).GetField("_barrelSmoke", BindingFlags.NonPublic | BindingFlags.Instance);
 
+        public static AmmoType DefaultAmmoType => _ImplicitDefaultAmmoType.Instance;
+
         private bool _fisrtUpdate;
 
         public SpriteMap BarrelSmoke
@@ -23,6 +26,7 @@ namespace AncientMysteries.Items
 
         protected AMGun(float xval, float yval) : base(xval, yval)
         {
+            _ammoType = DefaultAmmoType;
             _editorName = GetLocalizedName(AMLocalization.Current);
         }
 
