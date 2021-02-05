@@ -79,7 +79,7 @@ namespace AncientMysteries.Items.True
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
-            rando = new Random().Next(0,4);
+            rando = new Random().Next(0,0);
             if (_castTime >= 1f && rando == 0)
             {
                 TempFire t = new TempFire(this.owner.x, owner.y, true, owner);
