@@ -33,10 +33,6 @@ namespace AncientMysteries.Items.True
 
         public ArcaneNova(float xval, float yval) : base(xval, yval)
         {
-            this._ammoType = new AT_RainbowEyedrops()
-            {
-
-            };
             this._type = "gun";
             _spriteMap = this.ReadyToRunMap("arcaneNova.png", 14, 37);
             this.SetBox(14, 37);
@@ -59,24 +55,13 @@ namespace AncientMysteries.Items.True
         {
             base.Update();
         }
+
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
-            var firedBullets = new List<Bullet>(1);
             if (_castTime >= 1f)
-            {
-                Bullet b = new Bullet_AN(firePos.x, firePos.y, new AT_AN(), owner.offDir == 1 ? 0 : 180, owner, false, 275);
-                firedBullets.Add(b);
-                Level.Add(b);
-                bulletFireIndex += 1;
-            }
-            if (Network.isActive)
-            {
-                NMFireGun gunEvent = new NMFireGun(this, firedBullets, bulletFireIndex, rel: false, 4);
-                Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
-                firedBullets.Clear();
-            }
+                this.nmFireGun(new Bullet_AN(firePos.x, firePos.y, new AT_AN(), owner.offDir == 1 ? 0 : 180, owner, false, 275));
         }
     }
 }

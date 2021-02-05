@@ -18,6 +18,7 @@ namespace AncientMysteries.AmmoTypes
             rangeVariation = 10f;
             bulletLength = 3000;
             combustable = true;
+            bulletColor = Color.Red;
         }
 
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
