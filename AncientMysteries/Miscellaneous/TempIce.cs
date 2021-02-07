@@ -45,7 +45,6 @@ namespace AncientMysteries.Items.Miscellaneous
             this.center = new Vec2(17f, 17f);
             base.depth = 1f;
             t = tOwner;
-            gravity = 0;
             solid = false;
             if (!doWait)
             {

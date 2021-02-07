@@ -49,7 +49,7 @@ namespace AncientMysteries.Bullets
         public override void DoTerminate()
         {
             base.DoTerminate();
-            ExplosionPart ins = new ExplosionPart(start.x, start.y, true);
+            ExplosionPart ins = new ExplosionPart(travelEnd.x, travelEnd.y, true);
             Level.Add(ins);
             SFX.Play("explode", 0.7f, Rando.Float(-0.7f, -0.5f), 0f, false);
             Thing bulletOwner = this.owner;
@@ -64,7 +64,7 @@ namespace AncientMysteries.Bullets
             var firedBullets = new List<Bullet>(7);
             for (int i = 0; i < 7; i++)
             {
-                var bullet = new Bullet_Lava(start.x, start.y, new AT_Lava(), Rando.Float(0, 360), owner, false, 200, false, true);
+                var bullet = new Bullet_Lava(travelEnd.x, travelEnd.y, new AT_Lava(), Rando.Float(0, 360), owner, false, 200, false, true);
                 bullet.color = Color.DarkOrange;
                 firedBullets.Add(bullet);
                 Level.Add(bullet);

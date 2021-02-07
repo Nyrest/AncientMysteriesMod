@@ -50,8 +50,7 @@ namespace AncientMysteries.Items.Miscellaneous
             this.center = new Vec2(9f, 14.5f);
             base.depth = 1f;
             fireAngle = tOwner._offDir == 1 ? 0 : 180;
-            tOwner = t.owner;
-            gravity = 0;
+            t = tOwner;
             solid = false;
             if (!doWait)
             {
