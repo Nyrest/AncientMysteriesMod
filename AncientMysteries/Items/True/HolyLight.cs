@@ -28,7 +28,6 @@ namespace AncientMysteries.Items.True
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            AMLang.schinese => "神圣之光",
             _ => "Holy Light",
         };
 

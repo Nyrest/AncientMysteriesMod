@@ -20,7 +20,6 @@ namespace AncientMysteries.Items.Dragon
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            AMLang.schinese => "巨龙吐息", // 融化的呕吐者
             _ => "Molten Spitter",
         };
 

@@ -26,7 +26,6 @@ namespace AncientMysteries.Items.Rainbow
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            AMLang.schinese => "棱彩之泪",
             _ => "Chromatic Eyedrop",
         };
 

@@ -27,7 +27,6 @@ namespace AncientMysteries.Items.True
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            AMLang.schinese => "奥术新星",
             _ => "Arcane Nova",
         };
 

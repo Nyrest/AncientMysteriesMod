@@ -12,7 +12,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Miscellaneous
 {
-    public sealed class TempFire : Thing
+    public sealed class TempFire : PhysicsObject
     {
         public SpriteMap _sprite;
         public bool _smoked;
@@ -28,7 +28,7 @@ namespace AncientMysteries.Items.Miscellaneous
         public StateBinding _progressBinding = new StateBinding(nameof(progress));
         public StateBinding _duckBinding = new StateBinding(nameof(progress));
 
-        public TempFire(float xpos, float ypos, bool doWait = true, Thing tOwner = null) : base(xpos, ypos)
+        public TempFire(float xpos, float ypos,bool doWait = true,Thing tOwner = null) : base(xpos, ypos)
         {
             _sprite = this.ReadyToRunMap("cross.png", 18, 29);
             this._sprite.AddAnimation("loop", 0.2f, true, new int[]
@@ -51,6 +51,8 @@ namespace AncientMysteries.Items.Miscellaneous
             base.depth = 1f;
             fireAngle = tOwner._offDir == 1 ? 0 : 180;
             tOwner = t.owner;
+            gravity = 0;
+            solid = false;
             if (!doWait)
             {
                 this._wait = 0f;

@@ -29,7 +29,6 @@ namespace AncientMysteries.Items.True
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            AMLang.schinese => "原初圣典",
             _ => "Primordial Libram",
         };
 
