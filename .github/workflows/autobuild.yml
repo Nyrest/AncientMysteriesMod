@@ -20,20 +20,21 @@ jobs:
             - name: Setup MSBuild
               uses: microsoft/setup-msbuild@v1.0.2
 
+            # Setup 7-Zip
+            - name: Setup 7-Zip
+              run: curl https://www.7-zip.org/a/7z1900-x64.exe --output 7z.exe
+
             # Restore Nuget Packages
             - name: Restore Nuget Packages
               run: nuget restore "Ancient Mysteries.sln"
 
             # Build the Solution
             - name: Build the Solution
-              run: msbuild "Ancient Mysteries.sln" /p:Configuration=Release /p:OutputPath=bin
+              run: msbuild "Ancient Mysteries.sln" /p:Configuration=Release /p:OutputPath=buildOutput
 
             # Pack built files into single zip
             - name: Pack built files
-              uses: thedoctor0/zip-release@master
-              with:
-                  path: bin
-                  filename: "release.zip"
+              run: 7z a -tzip "release.zip" "buildOutput\*.*"
 
             # Create Release
             - name: Generate Release
