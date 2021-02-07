@@ -27,7 +27,6 @@ namespace AncientMysteries.Items.Artifacts
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            AMLang.schinese => "替罪",
             _ => "Fall Guy",
         };
 

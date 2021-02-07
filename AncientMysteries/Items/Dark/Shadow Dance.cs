@@ -18,7 +18,8 @@ namespace AncientMysteries.Items.Snipers
             ammo = sbyte.MaxValue;
             this._ammoType = new AT_Shadow()
             {
-                range = 1600
+                range = 1600,
+                penetration = 3.5f,
             };
 
             this._type = "gun";
@@ -34,7 +35,7 @@ namespace AncientMysteries.Items.Snipers
 
         public override void Update()
         {
-            ammo = 999;
+            ammo = sbyte.MaxValue;
             base.Update();
         }
     }

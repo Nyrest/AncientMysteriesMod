@@ -39,7 +39,7 @@ namespace AncientMysteries.Items.MachineGuns
 
         public override void Update()
         {
-            ammo = 999;
+            ammo = sbyte.MaxValue;
             base.Update();
         }
     }
