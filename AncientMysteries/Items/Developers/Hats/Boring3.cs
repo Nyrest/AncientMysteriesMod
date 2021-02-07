@@ -22,7 +22,16 @@ namespace AncientMysteries.Armor.Developers.Hats
             EquipmentMaxHitPoints = 32767;
             EquipmentHitPoints = 32767;
             _isArmor = true;
-            _equippedThickness = 1000;
+            _equippedThickness = float.MaxValue;
+        }
+
+        public override void Update()
+        {
+            base.Update();
+            willHeat = false;
+            heat = 0;
+            _onFire = false;
+            _equippedThickness = float.MaxValue;
         }
     }
 }

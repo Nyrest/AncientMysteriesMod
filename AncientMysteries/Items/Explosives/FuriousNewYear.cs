@@ -3,20 +3,20 @@ using AncientMysteries.Utilities;
 using DuckGame;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static AncientMysteries.groupNames;
+using System.Reflection;
 using static AncientMysteries.AMFonts;
+using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Explosives
 {
     [EditorGroup(guns)]
-    public class HappyNewYear : AMGun
+    public class FuriousNewYear : AMGun
     {
+        private static FieldInfo _firecrackerExplodeTimer = typeof(Firecracker).GetField("_explodeTimer", BindingFlags.Instance | BindingFlags.NonPublic);
+
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            _ => "Happy New Year",
+            _ => "Furious New Year",
         };
 
         public StateBinding _timerBinding = new StateBinding("_timer");
@@ -51,25 +51,17 @@ namespace AncientMysteries.Items.Explosives
 
         public float cookTimeOnThrow => _cookTimeOnThrow;
 
-        public Duck _targetPlayer;
-
-        public bool IsTargetVaild => _targetPlayer?.dead == false && _targetPlayer?.ragdoll == null;
-
         public bool _quacked;
 
-        public HappyNewYear(float xval, float yval)
+        public FuriousNewYear(float xval, float yval)
             : base(xval, yval)
         {
             ammo = 1;
-            _ammoType = new ATShrapnel();
-            _ammoType.penetration = 0.4f;
             _type = "gun";
-            _sprite = this.ReadyToRunMap("trackingGrenade.png", 8, 9);
+            _sprite = this.ReadyToRunMap("FuriousNewYear.png", 7, 15);
             graphic = _sprite;
             base.bouncy = 0.4f;
             friction = 0.05f;
-            _editorName = "HappyNewYear";
-            this.scale = new Vec2(1.15f);
         }
 
         public override void Initialize()
@@ -82,10 +74,6 @@ namespace AncientMysteries.Items.Explosives
         {
             _pin = false;
             _localDidExplode = true;
-            if (!_explosionCreated)
-            {
-                Graphics.FlashScreen();
-            }
             CreateExplosion(pos);
         }
 
@@ -93,6 +81,7 @@ namespace AncientMysteries.Items.Explosives
         {
             if (!_explosionCreated)
             {
+                /*
                 float cx = pos.x;
                 float cy = pos.y - 2f;
                 Level.Add(new ExplosionPart(cx, cy));
@@ -108,47 +97,18 @@ namespace AncientMysteries.Items.Explosives
                     ExplosionPart ins = new ExplosionPart(cx + (float)(Math.Cos(Maths.DegToRad(dir)) * dist), cy - (float)(Math.Sin(Maths.DegToRad(dir)) * dist));
                     Level.Add(ins);
                 }
+                */
                 _explosionCreated = true;
-                SFX.Play("explode");
+                SFX.Play("explode", 0.8f, -0.5f);
             }
         }
 
         public override void Update()
         {
             base.Update();
-            if (duck != null)
-            {
-                //handOffset = new Vec2(0, -2);
-                //_holdOffset = new Vec2(-8, -6);
-                //handAngle = 1.3f * offDir;
-                if (
-                    (_quacked != duck.IsQuacking() && (_quacked = duck.IsQuacking())) ||
-                    _targetPlayer == null
-                    )
-                {
-                    //SwitchTarget();
-                    Helper.SwitchTarget(ref _targetPlayer, duck);
-                }
-            }
-            else if (_pin)
-            {
-                _targetPlayer = null;
-                _quacked = false;
-            }
             if (!_pin)
             {
-                _timer -= 0.007f;
-                if (IsTargetVaild)
-                {
-                    if (Level.CheckLine<Block>(position, _targetPlayer.position) != null)
-                    {
-                        StupidMoving.ThingMoveTo(this, _targetPlayer.position, 3f);
-                    }
-                    else
-                    {
-                        StupidMoving.ThingMoveToVertically(this, _targetPlayer.position, 3f);
-                    }
-                }
+                _timer -= 0.014f;
             }
             if (_timer < 0.5f && owner == null && !_didBonus)
             {
@@ -170,37 +130,21 @@ namespace AncientMysteries.Items.Explosives
                     _explodeFrames--;
                     if (_explodeFrames == 0)
                     {
-                        const int bulletCount = 25;
+                        const int bulletCount = 24;
                         float cx = base.x;
                         float cy = base.y - 2f;
-                        Graphics.FlashScreen();
                         if (base.isServerForObject)
                         {
-                            var firedBullets = new List<Bullet>(bulletCount);
                             for (int i = 0; i < bulletCount; i++)
                             {
-                                float dir = i * 18f - 5f + Rando.Float(10f);
-                                ATShrapnel shrap = new ATShrapnel();
-                                shrap.range = 70f + Rando.Float(20f);
-                                Bullet bullet = new Bullet(cx + (float)(Math.Cos(Maths.DegToRad(dir)) * 6.0), cy - (float)(Math.Sin(Maths.DegToRad(dir)) * 6.0), shrap, dir);
-                                bullet.firedFrom = this;
-                                firedBullets.Add(bullet);
-                                Level.Add(bullet);
-                            }
-                            IEnumerable<Window> windows = Level.CheckCircleAll<Window>(position, 50f);
-                            foreach (Window w in windows)
-                            {
-                                if (Level.CheckLine<Block>(position, w.position, w) == null)
-                                {
-                                    w.Destroy(new DTImpact(this));
-                                }
-                            }
-                            bulletFireIndex += bulletCount;
-                            if (Network.isActive)
-                            {
-                                NMFireGun gunEvent = new NMFireGun(this, firedBullets, bulletFireIndex, rel: false, 4);
-                                Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
-                                firedBullets.Clear();
+                                float addSpeedX = this.hSpeed * 0.7f;
+                                float addSpeedY = this.vSpeed * 0.7f;
+                                Firecracker f = new Firecracker(cx + Rando.Float(-1f, 1f), cy + Rando.Float(-1f, 1f));
+                                _firecrackerExplodeTimer.SetValue(f, new ActionTimer(Rando.Float(0.02f, 0.022f)));
+                                f.spinAngle = 90f;
+                                f.hSpeed = Rando.Float(1.5f, 3f).RandomNegative() + addSpeedX;
+                                f.vSpeed = addSpeedY > 0 ? 0 : addSpeedY + Rando.Float(1.5f, 3f).RandomNegative();
+                                Level.Add(f);
                             }
                         }
                         Level.Remove(this);
@@ -235,19 +179,8 @@ namespace AncientMysteries.Items.Explosives
                 shell.hSpeed = -offDir * (1.5f + Rando.Float(0.5f));
                 shell.vSpeed = -2f;
                 Level.Add(shell);
-                SFX.Play("pullPin");
-            }
-        }
-
-        public override void Draw()
-        {
-            base.Draw();
-            if (IsTargetVaild && duck?.profile.localPlayer == true)
-            {
-                var start = this.topLeft + graphic.center * graphic.scale;
-                float fontWidth = _biosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
-                _biosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
-                Graphics.DrawLine(start, _targetPlayer.position, Color.White, duck is null ? 0.6f : 1f, 1);
+                //SFX.Play("pullPin");
+                SFX.PlaySynchronized("lightMatch", 0.8f, -0.6f + Rando.Float(0.2f));
             }
         }
     }
