@@ -29,7 +29,6 @@ namespace AncientMysteries.Items.True
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            AMLang.schinese => "原初圣典",
             _ => "Primordial Libram",
         };
 
@@ -82,32 +81,40 @@ namespace AncientMysteries.Items.True
             rando = new Random().Next(0,0);
             if (_castTime >= 1f && rando == 0)
             {
-                TempFire t = new TempFire(this.owner.x, owner.y, true, owner);
-                t.alpha = 0f;
+                TempFire t = new TempFire(this.owner.x, owner.y, true, owner)
+                {
+                    alpha = 0f
+                };
                 t.xscale *= 2f;
                 t.yscale *= 2f;
                 Level.Add(t);
             }
             if (_castTime >= 1f && rando == 1)
             {
-                TempIce i = new TempIce(this.owner.x, owner.y, true, owner);
-                i.alpha = 0f;
+                TempIce i = new TempIce(this.owner.x, owner.y, true, owner)
+                {
+                    alpha = 0f
+                };
                 i.xscale *= 2f;
                 i.yscale *= 2f;
                 Level.Add(i);
             }
             if (_castTime >= 1f && rando == 2)
             {
-                TempCrystal c = new TempCrystal(this.owner.x, owner.y - 32f, true, owner);
-                c.alpha = 0f;
+                TempCrystal c = new TempCrystal(this.owner.x, owner.y - 32f, true, owner)
+                {
+                    alpha = 0f
+                };
                 c.xscale *= 2f;
                 c.yscale *= 2f;
                 Level.Add(c);
             }
             if (_castTime >= 1f && rando == 3)
             {
-                TempNature n = new TempNature(this.owner.x, owner.y - 32f, true, owner);
-                n.alpha = 0f;
+                TempNature n = new TempNature(this.owner.x, owner.y - 32f, true, owner)
+                {
+                    alpha = 0f
+                };
                 n.xscale *= 2f;
                 n.yscale *= 2f;
                 Level.Add(n);
