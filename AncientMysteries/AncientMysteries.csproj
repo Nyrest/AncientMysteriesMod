@@ -129,10 +129,10 @@
     <None Include="Items\Isekai\RiskOfRain\BrilliantBehemoth.cs" />
     <None Include="Items\Isekai\RiskOfRain\RoREquipmentBase.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
-    <Compile Include="Items\Rainbow\RainbowEyedrops.cs" />
+    <Compile Include="Items\Rainbow\RainbowTears.cs" />
     <Compile Include="Items\True\PrimordialLibram.cs" />
     <Compile Include="Items\True\HolyLight.cs" />
-    <Compile Include="Items\True\UpdateWindows10.cs" />
+    <Compile Include="Items\True\UpdateDuckGame.cs" />
     <Compile Include="Items\Dragon\Eternal Flame.cs" />
     <Compile Include="Items\True\ArcaneNova.cs" />
     <Compile Include="Localization\Enums\AMLang.cs" />

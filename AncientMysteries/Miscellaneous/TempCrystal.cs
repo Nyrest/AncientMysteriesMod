@@ -59,14 +59,16 @@ namespace AncientMysteries.Items.Miscellaneous
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    Bullet b1 = new Bullet_Laser(this.x + Rando.Float(-r, r), this.y - 200f + Rando.Float(-r/2,r/2), /*new AT9mm
+                    Bullet b1 = new Bullet_Laser(this.x + Rando.Float(-r, r), this.y - 200f + Rando.Float(-r / 2, r / 2), /*new AT9mm
                 {
                     bulletSpeed = 2f,
                     accuracy = 1f,
                     penetration = 1f,
                     bulletLength = 3,
-                }*/new AT_Laser(), Rando.Float(-100f - Convert.ToSingle(r/3.5f), Convert.ToSingle(-80 + r/3.5f)), t, false, 400);
-                    b1.color = Color.Yellow;
+                }*/new AT_Laser(), Rando.Float(-100f - Convert.ToSingle(r / 3.5f), Convert.ToSingle(-80 + r / 3.5f)), t, false, 400)
+                    {
+                        color = Color.Yellow
+                    };
                     firedBullets.Add(b1);
                     Level.Add(b1);
                     ExplosionPart ins = new ExplosionPart(b1.travelStart.x, b1.travelStart.y, true);

@@ -361,10 +361,14 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             for (int i = 0; i < 20; i++)
             {
                 float dir = (float)i * 18f - 5f + Rando.Float(10f);
-                ATShrapnel shrap = new ATShrapnel();
-                shrap.range = 60f + Rando.Float(18f);
-                Bullet bullet = new Bullet(cx, cy, shrap, dir);
-                bullet.firedFrom = this;
+                ATShrapnel shrap = new ATShrapnel
+                {
+                    range = 60f + Rando.Float(18f)
+                };
+                Bullet bullet = new Bullet(cx, cy, shrap, dir)
+                {
+                    firedFrom = this
+                };
                 firedBullets.Add(bullet);
                 Level.Add(bullet);
             }

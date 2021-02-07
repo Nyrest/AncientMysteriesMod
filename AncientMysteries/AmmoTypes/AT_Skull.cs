@@ -38,11 +38,15 @@ namespace AncientMysteries.AmmoTypes
                 for (int i = 0; i < 12; i++)
                 {
                     float num = (float)i * 30f + Rando.Float(10f);
-                    aTMissileShrapnel = new ATMissileShrapnel();
-                    aTMissileShrapnel.range = 5f + Rando.Float(5f);
+                    aTMissileShrapnel = new ATMissileShrapnel
+                    {
+                        range = 5f + Rando.Float(5f)
+                    };
                     Vec2 value = new Vec2((float)Math.Cos(Maths.DegToRad(num)), (float)Math.Sin(Maths.DegToRad(num)));
-                    Bullet bullet = new Bullet(b.x + value.x * 8f, b.y - value.y * 8f, aTMissileShrapnel, num);
-                    bullet.firedFrom = b;
+                    Bullet bullet = new Bullet(b.x + value.x * 8f, b.y - value.y * 8f, aTMissileShrapnel, num)
+                    {
+                        firedFrom = b
+                    };
                     list.Add(bullet);
                     Level.Add(bullet);
                     Level.Add(CustomSpark.New(b.x + Rando.Float(-8f, 8f), b.y + Rando.Float(-8f, 8f), value + new Vec2(Rando.Float(-0.1f, 0.1f), Rando.Float(-0.1f, 0.1f)), Color.DarkGreen));

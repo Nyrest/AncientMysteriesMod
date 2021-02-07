@@ -12,6 +12,7 @@ namespace AncientMysteries
     {
         public static Dictionary<string, CachedTextureInfo> cache = new Dictionary<string, CachedTextureInfo>(10);
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static CachedTextureInfo GetInfo(string name)
         {
             if (cache.TryGetValue(name, out var result))
@@ -28,6 +29,7 @@ namespace AncientMysteries
         }
 
         #region
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static SpriteMap ModSpriteMap(string spriteMapName, bool centerOrigin = false)
         {
             var info = GetInfo(spriteMapName);
@@ -37,6 +39,7 @@ namespace AncientMysteries
             return result;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Sprite ModSprite(string spriteMapName, bool centerOrigin = false)
         {
             var info = GetInfo(spriteMapName);
@@ -46,6 +49,7 @@ namespace AncientMysteries
             return result;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static SpriteMap ModSpriteMap(string spriteMapName, int frameWidth = -1, int frameHeight = -1, bool centerOrigin = false)
         {
             var info = GetInfo(spriteMapName);
@@ -57,6 +61,7 @@ namespace AncientMysteries
         }
         #endregion
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static SpriteMap ModSpriteMap(this Thing thing, string spriteMapName, bool centerOrigin = false)
         {
             var info = GetInfo(spriteMapName);
@@ -66,6 +71,7 @@ namespace AncientMysteries
             return result;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Sprite ModSprite(this Thing thing, string spriteMapName, bool centerOrigin = false)
         {
             var info = GetInfo(spriteMapName);
@@ -75,6 +81,7 @@ namespace AncientMysteries
             return result;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static SpriteMap ModSpriteMap(this Thing thing, string spriteMapName, int frameWidth = -1, int frameHeight = -1, bool centerOrigin = false)
         {
             var info = GetInfo(spriteMapName);
@@ -85,6 +92,7 @@ namespace AncientMysteries
             return result;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Sprite ReadyToRun(this Thing thing, string spriteMapName)
         {
             var info = GetInfo(spriteMapName);
@@ -94,6 +102,7 @@ namespace AncientMysteries
             return thing.graphic = new Sprite(info.texture, w, h);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static SpriteMap ReadyToRunMap(this Thing thing, string spriteMapName, int frameWidth = -1, int frameHeight = -1)
         {
             var info = GetInfo(spriteMapName);
@@ -105,11 +114,13 @@ namespace AncientMysteries
             return result;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Tex2D ModTex2D(this Thing thing, string textureName)
         {
             return GetInfo(textureName).texture;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Tex2D ModTex2D(string textureName)
         {
             return GetInfo(textureName).texture;
@@ -117,11 +128,11 @@ namespace AncientMysteries
 
         public sealed class CachedTextureInfo
         {
-            public string fullName;
+            public readonly string fullName;
 
-            public int frameWidth, frameHeight;
+            public readonly int frameWidth, frameHeight;
 
-            public Tex2D texture;
+            public readonly Tex2D texture;
 
             public CachedTextureInfo(string fullName, int frameWidth, int frameHeight)
             {

@@ -12,7 +12,7 @@ using static AncientMysteries.AMFonts;
 namespace AncientMysteries.Items.True
 {
     [EditorGroup(g_misc)]
-    public sealed class UpdateWindows10 : AMHoldable
+    public sealed class UpdateDuckGame : AMHoldable
     {
         public StateBinding _targetPlayerBinding = new StateBinding(nameof(_targetPlayer));
         public Duck _targetPlayer;
@@ -31,7 +31,7 @@ namespace AncientMysteries.Items.True
 
         public bool _quacked;
 
-        public UpdateWindows10(float xpos, float ypos) : base(xpos, ypos)
+        public UpdateDuckGame(float xpos, float ypos) : base(xpos, ypos)
         {
             this.ReadyToRunMap("forceUpdate.png");
         }
@@ -84,7 +84,7 @@ namespace AncientMysteries.Items.True
             }
         }
 
-        static UpdateWindows10()
+        static UpdateDuckGame()
         {
             Hooks.OnDraw += ForceUpdateDraw;
         }
