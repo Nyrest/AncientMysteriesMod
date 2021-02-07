@@ -24,6 +24,15 @@ jobs:
             - name: Setup 7-Zip
               run: curl https://www.7-zip.org/a/7z1900-x64.exe --output 7z.exe
 
+            # Check Nuget Packages Cache
+            - uses: actions/cache@v2
+              with:
+                path: ~/.nuget/packages
+                # Look to see if there is a cache hit for the corresponding requirements file
+                key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+                restore-keys: |
+                  ${{ runner.os }}-nuget
+
             # Restore Nuget Packages
             - name: Restore Nuget Packages
               run: nuget restore "Ancient Mysteries.sln"
@@ -34,7 +43,7 @@ jobs:
 
             # Pack built files into single zip
             - name: Pack built files
-              run: ./7z.exe a -tzip "release.zip" "buildOutput\*.*"
+              run: .\7z.exe a -tzip ".\release.zip" ".\buildOutput\*.*"
 
             # Create Release
             - name: Generate Release
@@ -57,6 +66,6 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
                   upload_url: ${{ steps.create_release.outputs.upload_url }}
-                  asset_path: release.zip
+                  asset_path: .\release.zip
                   asset_name: AncientMysteriesMod_${{ github.ref }}.zip
                   asset_content_type: application/zip
