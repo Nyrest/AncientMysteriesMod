@@ -22,7 +22,6 @@ namespace AncientMysteries.Items.MachineGuns
                 accuracy = 0.7f,
                 penetration = 1f
             };
-            this._type = "gun";
             this.ReadyToRunMap("VoidPiercer.png");
             this._barrelOffsetTL = new Vec2(20f, 4f);
             _flare.color = Color.Black;
@@ -39,7 +38,7 @@ namespace AncientMysteries.Items.MachineGuns
 
         public override void Update()
         {
-            ammo = 999;
+            ammo = sbyte.MaxValue;
             base.Update();
         }
     }

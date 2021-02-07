@@ -24,9 +24,8 @@ namespace AncientMysteries.Items.Shotguns
             ammo = sbyte.MaxValue;
             this._ammoType = new AT_Shadow()
             {
-                range = 380f,
+                range = 400f,
             };
-            this._type = "gun";
             this.ReadyToRunMap("darkAurora.png");
             _flare.color = Color.Black;
             BarrelSmoke.color = Color.Black;
@@ -41,7 +40,7 @@ namespace AncientMysteries.Items.Shotguns
 
         public override void Update()
         {
-            ammo = 999;
+            ammo = sbyte.MaxValue;
             base.Update();
             if (_first)
             {
