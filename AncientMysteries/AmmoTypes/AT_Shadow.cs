@@ -26,6 +26,12 @@ namespace AncientMysteries.AmmoTypes
             {
                 this.color = Color.Purple;
             }
+
+            public override void Update()
+            {
+                base.Update();
+                this.color = Color.Purple;
+            }
         }
     }
 }
