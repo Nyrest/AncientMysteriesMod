@@ -63,7 +63,7 @@ namespace AncientMysteries.Items.True
         {
             base.PressAction();
             if (IsTargetVaild)
-                _blindTime = 60 * 8;
+                _blindTime = 60 * 5;
         }
 
         public override void Draw()
@@ -87,15 +87,17 @@ namespace AncientMysteries.Items.True
         {
             if (doOverlayDraw)
             {
+                
                 Graphics.caseSensitiveStringDrawing = false;
                 Graphics.screen.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.Default, RasterizerState.CullNone, null);
                 Graphics.Clear(Color.Blue);
                 const string text = "Your Duck Game is updating...";
                 float width = Graphics.GetStringWidth(text);
-                Graphics.DrawString(text, new Vec2(Graphics.width / 2 - (width / 2)*4, 250), Color.White, default, null, 4);
+                Graphics.DrawString(text, new Vec2(Graphics.width / 2 - (width / 2) * 4, 250), Color.White, default, null, 4);
                 float whiteSpaceX = 100;
                 Graphics.DrawRect(new Rectangle(whiteSpaceX, 300, Graphics.width - whiteSpaceX * 2, 40),
                     Color.White);
+                Graphics.DrawRect(new Rectangle(whiteSpaceX, 300, Graphics.width - whiteSpaceX * 2, 40), Color.White);
                 Graphics.screen.End();
                 doOverlayDraw = false;
             }

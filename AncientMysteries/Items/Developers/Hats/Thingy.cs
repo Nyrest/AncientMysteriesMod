@@ -61,7 +61,8 @@ namespace AncientMysteries.Armor.Developers.Hats
 
         public override void UnEquip()
         {
-            equippedDuck.gravMultiplier = 1f;
+            if (equippedDuck != null)
+                equippedDuck.gravMultiplier = 1f;
             base.UnEquip();
         }
     }
