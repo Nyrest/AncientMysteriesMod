@@ -34,7 +34,7 @@ jobs:
 
             # Pack built files into single zip
             - name: Pack built files
-              run: 7z a -tzip "release.zip" "buildOutput\*.*"
+              run: ./7z.exe a -tzip "release.zip" "buildOutput\*.*"
 
             # Create Release
             - name: Generate Release
