@@ -21,8 +21,6 @@ namespace AncientMysteries.Items.Snipers
                 range = 1600,
                 penetration = 3.5f,
             };
-
-            this._type = "gun";
             this.ReadyToRunMap("shadowDance.png");
             _flare.color = Color.Black;
             BarrelSmoke.color = Color.Black;
