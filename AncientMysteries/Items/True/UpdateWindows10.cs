@@ -55,7 +55,6 @@ namespace AncientMysteries.Items.True
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            AMLang.schinese => "强制更新",
             _ => "Force Update",
         };
 
