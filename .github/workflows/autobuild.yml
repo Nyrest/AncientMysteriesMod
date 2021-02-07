@@ -30,8 +30,6 @@ jobs:
 
       # Pack built files into single zip
       - name: Pack built files
-      - uses: actions/checkout@master
-      - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
           path: bin
