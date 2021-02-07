@@ -24,11 +24,16 @@ namespace AncientMysteries.Items.True
 
         public bool IsTargetVaild => _targetPlayer?.dead == false && _targetPlayer?.ragdoll == null;
 
+        public override string GetLocalizedName(AMLang lang) => lang switch
+        {
+            _ => "Force Update",
+        };
+
         public bool _quacked;
 
         public UpdateWindows10(float xpos, float ypos) : base(xpos, ypos)
         {
-            this.ReadyToRunMap("rainbowGun.png");
+            this.ReadyToRunMap("forceUpdate.png");
         }
 
         public override void Update()
@@ -56,11 +61,6 @@ namespace AncientMysteries.Items.True
             }
         }
 
-        public override string GetLocalizedName(AMLang lang) => lang switch
-        {
-            _ => "Force Update",
-        };
-
         public override void PressAction()
         {
             base.PressAction();
@@ -78,7 +78,7 @@ namespace AncientMysteries.Items.True
                 _biosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
                 Graphics.DrawLine(start, _targetPlayer.position, Color.White, duck is null ? 0.6f : 1f, 1);
             }
-            if (IsTargetVaild && (_targetPlayer?.profile.localPlayer == true) && _blindTime > 0 && _blindTime > totalBlinkTime)
+            if (IsTargetVaild && (_targetPlayer?.profile.localPlayer == true) && _blindTime > 0 && _blindTime > overlayDrawTime)
             {
                 overlayDrawTime = _blindTime;
             }
@@ -92,6 +92,10 @@ namespace AncientMysteries.Items.True
 
         public static void ForceUpdateDraw()
         {
+            if (overlayDrawTime > totalBlinkTime)
+            {
+                overlayDrawTime = 0;
+            }
             if (overlayDrawTime > 0)
             {
                 Graphics.caseSensitiveStringDrawing = false;
@@ -105,6 +109,7 @@ namespace AncientMysteries.Items.True
                     Color.DarkGray);
                 Graphics.DrawRect(new Rectangle(whiteSpaceX, 300, (Graphics.width - whiteSpaceX * 2) * (1f - (overlayDrawTime / (float)totalBlinkTime)), 40), Color.White);
                 Graphics.screen.End();
+                overlayDrawTime--;
             }
         }
     }
