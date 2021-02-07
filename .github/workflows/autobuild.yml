@@ -24,15 +24,6 @@ jobs:
             - name: Setup 7-Zip
               run: curl https://www.7-zip.org/a/7z1900-x64.exe --output 7z.exe
 
-            # Check Nuget Packages Cache
-            - uses: actions/cache@v2
-              with:
-                path: ~/.nuget/packages
-                # Look to see if there is a cache hit for the corresponding requirements file
-                key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-                restore-keys: |
-                  ${{ runner.os }}-nuget
-
             # Restore Nuget Packages
             - name: Restore Nuget Packages
               run: nuget restore "Ancient Mysteries.sln"
@@ -42,15 +33,15 @@ jobs:
               run: msbuild "Ancient Mysteries.sln" /p:Configuration=Release /p:OutputPath=buildOutput
 
             # Pack built files into single zip
-            - name: Pack built files
-              run: .\7z.exe a -tzip ".\release.zip" ".\buildOutput\*"
+            #- name: Pack built files
+            #  run: .\7z.exe a -tzip ".\release.zip" ".\buildOutput\*"
 
             # Create & Update Release
             - name: Upload binaries to release
               uses: svenstaro/upload-release-action@v2
               with:
                 repo_token: ${{ secrets.GITHUB_TOKEN }}
-                file: .\release.zip
+                file: buildOutput
                 asset_name: release_${{ github.runid }}.zip
                 tag: ${{ github.ref }}
                 overwrite: true
