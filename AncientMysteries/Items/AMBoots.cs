@@ -57,5 +57,6 @@ namespace AncientMysteries.Items
         public float EquipmentHitPoints { get => _equipmentHitPoints; set => _equipmentHitPoints = value; }
         public bool KnockOffOnHit { get => _knockOffOnHit; set => _knockOffOnHit = value; }
         public bool BulletThroughNotEquipped { get => bulletThroughNotEquipped; set => bulletThroughNotEquipped = value; }
+        public bool MakeDefaultHitEffects { get; set; }
     }
 }

@@ -44,6 +44,9 @@ namespace AncientMysteries.Items.True
             this._castSpeed = 0.012f;
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
+            this.castingParticlesEnabled = true;
+            this.castingParticlesColor = Color.Yellow;
+
             this._fireWait = 0.5f;
             this._fireSoundPitch = 0.9f;
             this._kickForce = 0.25f;
@@ -59,6 +62,7 @@ namespace AncientMysteries.Items.True
         {
             base.Update();
         }
+
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();

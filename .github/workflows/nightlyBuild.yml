@@ -1,4 +1,4 @@
-name: Auto Build
+name: Nightly Build
 
 on:
     push:
@@ -52,3 +52,7 @@ jobs:
                 prerelease: true
                 title: "Nightly Build"
                 files: AncientMysteriesMod.7z
+
+            # File Tree for action debugging
+            - name: File Tree for action debugging
+              run: tree

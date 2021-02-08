@@ -93,6 +93,15 @@ namespace AncientMysteries
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void ReadyToRunSizeOnly(this Thing thing, string spriteMapName)
+        {
+            var info = GetInfo(spriteMapName);
+            int w = info.frameWidth, h = info.frameHeight;
+            thing.collisionOffset = -(thing.center = new Vec2(w / 2, h / 2));
+            thing.collisionSize = new Vec2(w, h);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Sprite ReadyToRun(this Thing thing, string spriteMapName)
         {
             var info = GetInfo(spriteMapName);
