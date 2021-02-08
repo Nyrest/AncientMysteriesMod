@@ -51,9 +51,17 @@ jobs:
             - name: Build the Solution
               run: msbuild "Ancient Mysteries.sln" /p:Configuration=Release /p:OutputPath=buildOutput
 
+            # Debug Action
+            - name: Debug Action
+              run: dir
+
             # Pack built files into single zip
             - name: Pack built files
-              run: .\7z.exe a -tzip ".\release.zip" ".\buildOutput\*"
+              run: .\7z.exe a -y -mx9 -o ".\" -tzip ".\release.zip" ".\buildOutput\*"
+
+            # Debug Action
+            - name: Debug Action
+              run: dir
 
             - name: Upload built files
               uses: actions/upload-artifact@v2
