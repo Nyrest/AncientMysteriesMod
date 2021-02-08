@@ -39,20 +39,20 @@ jobs:
               run: mkdir buildOutput
 
             # Try to pull Textures Caches
-            - name: Try to pull Textures Caches
-              uses: actions/cache@v2
-              with:
-                path: ./buildOutput
-                key: buildTex
-                restore-keys: buildTex
+            #- name: Try to pull Textures Caches
+            #  uses: actions/cache@v2
+            #  with:
+            #    path: ./buildOutput
+            #    key: buildTex
+            #    restore-keys: buildTex
 
             # Try to pull Compiler Caches
-            - name: Try to pull Compiler Caches
-              uses: actions/cache@v2
-              with:
-                path: ./AncientMysteries/obj
-                key: compilerCache
-                restore-keys: compilerCache
+            #- name: Try to pull Compiler Caches
+            #  uses: actions/cache@v2
+            #  with:
+            #    path: ./AncientMysteries/obj
+            #    key: compilerCache
+            #    restore-keys: compilerCache
 
             # Build the Solution
             - name: Build the Solution
@@ -73,5 +73,5 @@ jobs:
                 files: AncientMysteriesMod.7z
 
             # File Tree for action debugging
-            - name: File Tree for action debugging
-              run: tree
+            #- name: File Tree for action debugging
+            #  run: tree

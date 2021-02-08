@@ -1,5 +1,6 @@
 ﻿using AncientMysteries.Localization.Enums;
 using AncientMysteries.Particles;
+using AncientMysteries.Utilities;
 using DuckGame;
 using System.Reflection;
 using static AncientMysteries.groupNames;
@@ -55,16 +56,7 @@ namespace AncientMysteries.Armor.Developers.Hats
                 _equippedCollisionSize = baseCollisionSize + new Vec2(2, 2); ;
             }
 
-            if (_equippedDuck != null)
-            {
-                _equippedDuck.heat = 0;
-                _equippedDuck.burnt = 0;
-                _equippedDuck.superNonFlammable = true;
-                
-                //_equippedDuck.onFire = false;
-            }
-
-            if(_equippedDuck != null && _equippedDuck.grounded)
+            if (_equippedDuck != null && _equippedDuck.grounded)
             {
                 if (_equippedDuck.hSpeed is >= 0.6f and <= 3)
                 {
@@ -93,7 +85,7 @@ namespace AncientMysteries.Armor.Developers.Hats
                                 feather.x,
                                 feather.y,
                                 () => particleEnd,
-                                Color.SkyBlue,
+                                HSL.RandomRGB(),
                                 0.2f));
                         }
                         Level.Remove(feather);
@@ -124,7 +116,11 @@ namespace AncientMysteries.Armor.Developers.Hats
                     hitPos.x + Rando.Float(-2f, 2f),
                     hitPos.y + Rando.Float(-2f, 2f),
                     () => particleEnd,
-                    Color.SkyBlue,
+                    bullet.color.Add(new Color(
+                        (byte)Rando.Int(-15, 15),
+                        (byte)Rando.Int(-15, 15),
+                        (byte)Rando.Int(-15, 15)
+                        )),
                     0.2f));
             }
 
