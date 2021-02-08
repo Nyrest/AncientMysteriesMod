@@ -51,24 +51,22 @@ jobs:
             - name: Build the Solution
               run: msbuild "Ancient Mysteries.sln" /p:Configuration=Release /p:OutputPath=..\buildOutput
 
-            # Debug Action
-            - name: Debug Action
-              run: dir
-
-            # Debug Action
-            - name: Debug Action
-              run: dir buildOutput
-
             # Pack built files into single zip
             - name: Pack built files
-              run: .\7z.exe a -y -mx9 -o ".\" -tzip ".\release.zip" ".\buildOutput\*"
+              run: .github\7za.exe a -y -mx9 -t7z ".\release.zip" ".\buildOutput\*"
 
-            # Debug Action
-            - name: Debug Action
-              run: dir
-
+            # Upload as artifact
             - name: Upload built files
               uses: actions/upload-artifact@v2
               with:
-                name: release_${{ github.run-id }}.zip
-                path: release.zip
+                name: release_${{ github.run-id }}.7z
+                path: release.7z
+
+            # Upload as release
+            - uses: "marvinpinto/action-automatic-releases@latest"
+              with:
+                repo_token: "${{ secrets.GITHUB_TOKEN }}"
+                automatic_release_tag: "latest"
+                prerelease: true
+                title: "Nightly Build"
+                files: release.zip
