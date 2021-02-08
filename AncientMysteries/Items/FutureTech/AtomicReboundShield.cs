@@ -1,8 +1,9 @@
 ﻿using AncientMysteries.Localization.Enums;
 using DuckGame;
+using System;
 using static AncientMysteries.groupNames;
 
-namespace AncientMysteries.Items.FutureTech.Grenades
+namespace AncientMysteries.Items.FutureTech
 {
     [EditorGroup(guns)]
     public class ReboundShield : AMGun, IPlatform
@@ -15,15 +16,29 @@ namespace AncientMysteries.Items.FutureTech.Grenades
         public ReboundShield(float xval, float yval) : base(xval, yval)
         {
             ammo = 1;
-            var _sprite = new SpriteMap("rock01", 16, 16);
-            graphic = _sprite;
-            center = new Vec2(8f, 8f);
-            collisionOffset = new Vec2(-8f, -5f);
-            collisionSize = new Vec2(16f, 12f);
+            this.ReadyToRunMap("reboundShield.png");
             thickness = 100f;
             weight = 10f;
             flammable = 0f;
             physicsMaterial = PhysicsMaterial.Metal;
+            _holdOffset = new Vec2(-5, 0);
+        }
+
+        public override void Update()
+        {
+            solid = true;
+            base.Update();
+        }
+
+        public override bool Hit(Bullet bullet, Vec2 hitPos)
+        {
+            if (bullet.ammo is null) return base.Hit(bullet, hitPos);
+            if (bullet.ammo.penetration < this.thickness)
+            {
+                SFX.Play("ting", 0.8f, Rando.Float(-0.4f, 0.4f));
+                bullet.ReverseTravel();
+            }
+            return base.Hit(bullet, hitPos);
         }
 
         public override void ApplyKick() { }

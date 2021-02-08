@@ -121,7 +121,7 @@
     <Compile Include="GTool.cs" />
     <Compile Include="Items\Explosives\Ferocious Predator.cs" />
     <Compile Include="Items\Explosives\FuriousNewYear.cs" />
-    <Compile Include="Items\FutureTech\Grenades\AtomicReboundShield.cs" />
+    <Compile Include="Items\FutureTech\AtomicReboundShield.cs" />
     <Compile Include="Items\FutureTech\Grenades\NanoMine.cs" />
     <Compile Include="Items\FutureTech\Grenades\TrackingGrenade.cs" />
     <Compile Include="Items\IAMEquipment.cs" />
@@ -150,6 +150,7 @@
     <Compile Include="Mod.cs" />
     <Compile Include="NetHelper.cs" />
     <Compile Include="Particles\CustomSpark.cs" />
+    <Compile Include="Particles\DotParticle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Items\AMGun.cs" />
     <Compile Include="Items\AMHoldable.cs" />

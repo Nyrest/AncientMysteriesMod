@@ -35,6 +35,7 @@ namespace AncientMysteries.Armor.Developers.Hats
                 equippedDuck.gravMultiplier = equipped.crouch ? 2f : 0.3f;
                 if (equippedDuck.gun != null)
                     equippedDuck.gun.infiniteAmmoVal = true;
+                
                 float amount = 0.5f;
                 if (!base.equippedDuck.sliding && !base.equippedDuck.immobilized && !base.equippedDuck.moveLock)
                 {
