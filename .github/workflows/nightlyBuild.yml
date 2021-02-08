@@ -20,8 +20,8 @@ jobs:
             - name: Setup MSBuild
               uses: microsoft/setup-msbuild@v1.0.2
 
-            # Check Nuget Packages Cache
-            - name: Check Nuget Packages Cache
+            # Try to pull Nuget Packages Caches
+            - name: Try to pull Nuget Packages Caches
               uses: actions/cache@v2
               id: cache-nugetPkgs
               with:
@@ -34,7 +34,26 @@ jobs:
               if: steps.cache-nugetPkgs.outputs.cache-hit != 'true'
               run: nuget restore "Ancient Mysteries.sln"
 
-            # TODO: Cache texture contents
+            # Create BuildOutput Folder
+            - name: Create BuildOutput Folder
+              run: mkdir buildOutput
+
+            # Try to pull Textures Caches
+            - name: Try to pull Textures Caches
+              uses: actions/cache@v2
+              with:
+                path: ./buildOutput
+                key: buildTex
+                restore-keys: buildTex
+
+            # Try to pull Compiler Caches
+            - name: Try to pull Compiler Caches
+              uses: actions/cache@v2
+              with:
+                path: ./AncientMysteries/obj
+                key: compilerCache
+                restore-keys: compilerCache
+
             # Build the Solution
             - name: Build the Solution
               run: msbuild "Ancient Mysteries.sln" /m /p:Configuration=Release /p:OutputPath=..\buildOutput
