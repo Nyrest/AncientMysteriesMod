@@ -20,19 +20,6 @@ jobs:
             - name: Setup MSBuild
               uses: microsoft/setup-msbuild@v1.0.2
 
-            # Check 7-Zip Cache
-            - name: Check 7-Zip Cache
-              id: cache-7zip
-              uses: actions/cache@v2
-              with:
-                path: 7z.exe
-                key: 7zExe
-
-            # Download 7-Zip If not cached
-            - name: Download 7-Zip If not cached
-              if: steps.cache-7zip.outputs.cache-hit != 'true'
-              run: curl https://www.7-zip.org/a/7z1900-x64.exe --output 7z.exe
-
             # Check Nuget Packages Cache
             - name: Check Nuget Packages Cache
               uses: actions/cache@v2
@@ -53,14 +40,14 @@ jobs:
 
             # Pack built files into single zip
             - name: Pack built files
-              run: .github\7za.exe a -y -mx9 -t7z ".\release.zip" ".\buildOutput\*"
+              run: .github\7za.exe a -y -mx9 -t7z ".\AncientMysteriesMod-${{ steps.date.outputs.date }}-${{ github.run-id }}.7z" ".\buildOutput\*"
 
             # Upload as artifact
             - name: Upload built files
               uses: actions/upload-artifact@v2
               with:
-                name: release_${{ github.run-id }}.7z
-                path: release.7z
+                name: AncientMysteriesMod-${{ steps.date.outputs.date }}-${{ github.run-id }}.7z
+                path: AncientMysteriesMod-${{ steps.date.outputs.date }}-${{ github.run-id }}.7z
 
             # Upload as release
             - uses: "marvinpinto/action-automatic-releases@latest"
@@ -68,5 +55,5 @@ jobs:
                 repo_token: "${{ secrets.GITHUB_TOKEN }}"
                 automatic_release_tag: "latest"
                 prerelease: true
-                title: "Nightly Build"
-                files: release.zip
+                title: "Nightly Build ${{ steps.date.outputs.date }}-${{ github.run-id }}"
+                files: AncientMysteriesMod-${{ steps.date.outputs.date }}-${{ github.run-id }}.7z
