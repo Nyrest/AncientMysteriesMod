@@ -26,7 +26,7 @@ jobs:
               uses: actions/cache@v2
               with:
                 path: 7z.exe
-                key: 7zExe-${{ hashFiles('7z.exe') }}
+                key: 7zExe
 
             # Download 7-Zip If not cached
             - name: Download 7-Zip If not cached
@@ -40,7 +40,7 @@ jobs:
               with:
                 path: ~/.nuget/packages
                 key: nuget-${{ hashFiles('**/packages.lock.json') }}
-                restore-keys: nuget-
+                restore-keys: nuget
 
             # Restore Nuget Packages If not cached
             - name: Restore Nuget Packages If not cached
@@ -49,11 +49,15 @@ jobs:
 
             # Build the Solution
             - name: Build the Solution
-              run: msbuild "Ancient Mysteries.sln" /p:Configuration=Release /p:OutputPath=buildOutput
+              run: msbuild "Ancient Mysteries.sln" /p:Configuration=Release /p:OutputPath=..\buildOutput
 
             # Debug Action
             - name: Debug Action
               run: dir
+
+            # Debug Action
+            - name: Debug Action
+              run: dir buildOutput
 
             # Pack built files into single zip
             - name: Pack built files
