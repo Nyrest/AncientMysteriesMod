@@ -148,7 +148,6 @@
     <Compile Include="NetHelper.cs" />
     <Compile Include="Particles\CustomSpark.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RefectionCache.cs" />
     <Compile Include="Items\AMGun.cs" />
     <Compile Include="Items\AMHoldable.cs" />
     <Compile Include="Items\AMMelee.cs" />
