@@ -1,13 +1,13 @@
-# AncientMysteriesMod
+# AncientMysteriesMod ![Auto Build Badge](https://github.com/BThree496/AncientMysteriesMod/workflows/Auto%20Build/badge.svg)
 A Duck Game Mod
 
-Download: [latest release](https://github.com/BThree496/AncientMysteriesMod/releases) (NOT AVAILABLE YET)
+Download: [latest pre-release](https://github.com/BThree496/AncientMysteriesMod/releases)
 
 Building
 -------
 Windows:
 - Install Visual Studio with the following components:
-  - Workload ".NET Desktop Development". This includes by default .NET Framework 4.0 SDK.
+  - Workload ".NET Desktop Development". And .NET Framework 4.5.2 SDK.
 - Clone AncientMysteriesMod repository using git.
 - Open Ancient Mysteries.sln in Visual Studio.
 - Add your DuckGame.exe to project references.
@@ -22,7 +22,7 @@ Steam:
 
 Manual:
 - Download Pre-Compiled Version or build it youself:
-  - https://github.com/BThree496/AncientMysteriesMod/releases (NOT AVAILABLE YET)
+  - https://github.com/BThree496/AncientMysteriesMod/releases
 - Move the compiled mod folder to Documents\DuckGame\Mods\
 - Run game and enable Ancient Mysteries in Manage Mods tab
 - Restart Game
