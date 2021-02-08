@@ -42,8 +42,17 @@ namespace AncientMysteries.Particles
             return spark;
         }
 
+        private SpriteMap _airFire;
+
+        private float _airFireScale;
+
+        private float _spinSpeed;
+
         private DotParticle()
         {
+            _airFire = new SpriteMap("airFire", 16, 16);
+            _airFire.AddAnimation("burn", 0.2f + Rando.Float(0.2f), true, 0, 1, 2, 1);
+            _airFire.center = new Vec2(8f, 8f);
         }
 
         private void Init(float xpos, float ypos, Func<Vec2> target, in Color color, float fadeSpeed)
@@ -57,6 +66,15 @@ namespace AncientMysteries.Particles
             life = 1f;
             this.color = color;
             _target = target;
+
+            _airFire.SetAnimation("burn");
+            _airFire.imageIndex = Rando.Int(2);
+            _airFire.color = Color.Orange * (0.8f + Rando.Float(0.2f));
+            _airFire.globalIndex = Thing.GetGlobalIndex();
+            _airFireScale = 0f;
+            _spinSpeed = 0.1f + Rando.Float(0.1f);
+
+
             base.alpha = 1f;
         }
 
@@ -82,6 +100,29 @@ namespace AncientMysteries.Particles
             {
                 base.alpha -= 0.08f;
             }
+            #region Air Fire
+            if (_airFireScale < 1.2f)
+            {
+                _airFireScale += 0.15f;
+            }
+            if (Rand.Bool())
+            {
+                _airFireScale -= 0.3f;
+                if (_airFireScale < 0.9f)
+                {
+                    _airFireScale = 0.9f;
+                }
+                _spinSpeed -= 0.01f;
+                if (_spinSpeed < 0.05f)
+                {
+                    _spinSpeed = 0.05f;
+                }
+            }
+
+            _airFire.depth = base.depth - 1;
+            _airFire.alpha = 0.5f;
+            _airFire.angle += hSpeed * _spinSpeed;
+            #endregion
             if (base.alpha < 0f)
             {
                 Level.Remove(this);
