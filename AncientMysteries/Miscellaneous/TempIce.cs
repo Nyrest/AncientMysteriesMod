@@ -1,14 +1,6 @@
-﻿using AncientMysteries.AmmoTypes;
-using AncientMysteries.Bullets;
-using AncientMysteries.Localization.Enums;
-using AncientMysteries.Utilities;
+﻿using AncientMysteries.Bullets;
 using DuckGame;
-using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Miscellaneous
 {
@@ -25,7 +17,7 @@ namespace AncientMysteries.Items.Miscellaneous
         public float progress = 0;
         public bool removing = false;
 
-        public StateBinding _progressBinding = new StateBinding(nameof(progress));
+        public StateBinding _progressBinding = new(nameof(progress));
 
         public TempIce(float xpos, float ypos, bool doWait = true, Thing tOwner = null) : base(xpos, ypos)
         {
@@ -103,7 +95,7 @@ namespace AncientMysteries.Items.Miscellaneous
                 timer2++;
                 if (Network.isActive)
                 {
-                    NMFireGun gunEvent = new NMFireGun(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
+                    NMFireGun gunEvent = new(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
                     Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
                     firedBullets.Clear();
                 }

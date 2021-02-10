@@ -26,7 +26,7 @@ namespace AncientMysteries.Items.Miscellaneous
         public bool removing = false;
         public float r = 0;
 
-        public StateBinding _progressBinding = new StateBinding(nameof(progress));
+        public StateBinding _progressBinding = new(nameof(progress));
 
         public TempNature(float xpos, float ypos, bool doWait = true, Thing tOwner = null) : base(xpos, ypos)
         {
@@ -72,14 +72,14 @@ namespace AncientMysteries.Items.Miscellaneous
                     };
                     firedBullets.Add(b1);
                     Level.Add(b1);
-                    ExplosionPart ins = new ExplosionPart(b1.travelStart.x, b1.travelStart.y, true);
+                    ExplosionPart ins = new(b1.travelStart.x, b1.travelStart.y, true);
                     ins.xscale *= 0.2f;
                     ins.yscale *= 0.2f;
                     Level.Add(ins);
                 }
                 if (Network.isActive)
                 {
-                    NMFireGun gunEvent = new NMFireGun(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
+                    NMFireGun gunEvent = new(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
                     Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
                     firedBullets.Clear();
                 }

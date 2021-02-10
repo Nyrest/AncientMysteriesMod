@@ -44,22 +44,18 @@ namespace AncientMysteries.Items
 
         public override bool Destroy(DestroyType type = null)
         {
-            if (EquipmentHitPoints > 0 || !Destroyable)
-                return false;
-            return base.Destroy(type);
+            return EquipmentHitPoints <= 0 && Destroyable && base.Destroy(type);
         }
 
         protected override bool OnDestroy(DestroyType type = null)
         {
-            if (EquipmentHitPoints > 0 || !Destroyable)
-                return false;
-            return base.OnDestroy(type);
+            return EquipmentHitPoints <= 0 && Destroyable && base.OnDestroy(type);
         }
 
         public abstract string GetLocalizedName(AMLang lang);
 
-        public StateBinding _equipmentMaxHitPointsBinding = new StateBinding(nameof(_equipmentMaxHitPoints));
-        public StateBinding _equipmentHitPointsBinding = new StateBinding(nameof(_equipmentHitPoints));
+        public StateBinding _equipmentMaxHitPointsBinding = new(nameof(_equipmentMaxHitPoints));
+        public StateBinding _equipmentHitPointsBinding = new(nameof(_equipmentHitPoints));
 
         protected bool _canCrush = true;
         protected bool _destroyable = true;

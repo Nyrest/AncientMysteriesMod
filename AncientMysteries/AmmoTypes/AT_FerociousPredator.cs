@@ -31,7 +31,7 @@ namespace AncientMysteries.AmmoTypes
 
 		public override void PopShell(float x, float y, int dir)
 		{
-            PistolShell shell = new PistolShell(x, y)
+            PistolShell shell = new(x, y)
             {
                 hSpeed = (float)dir * (1.5f + Rando.Float(1f))
             };

@@ -29,7 +29,7 @@ namespace AncientMysteries.Bullets
             base.OnCollide(pos, t, willBeStopped);
             if (willBeStopped)
             {
-                    ExplosionPart ins = new ExplosionPart(pos.x, pos.y, true);
+                    ExplosionPart ins = new(pos.x, pos.y, true);
                     ins.xscale *= 0.7f;
                     ins.yscale *= 0.7f;
                     Level.Add(ins);
@@ -49,7 +49,7 @@ namespace AncientMysteries.Bullets
         public override  void DoTerminate()
         {
             base.DoTerminate();
-            ExplosionPart ins = new ExplosionPart(travelEnd.x, travelEnd.y, true);
+            ExplosionPart ins = new(travelEnd.x, travelEnd.y, true);
             ins.xscale *= 0.7f;
             ins.yscale *= 0.7f;
             Level.Add(ins);

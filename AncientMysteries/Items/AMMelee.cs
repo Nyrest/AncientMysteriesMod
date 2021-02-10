@@ -6,27 +6,27 @@ namespace AncientMysteries.Items
 {
     public class AMMelee : Gun
     {
-        public StateBinding _swingBinding = new StateBinding(doLerp: true, "_swing");
+        public StateBinding _swingBinding = new(doLerp: true, "_swing");
 
-        public StateBinding _holdBinding = new StateBinding(doLerp: true, "_hold");
+        public StateBinding _holdBinding = new(doLerp: true, "_hold");
 
-        public StateBinding _jabStanceBinding = new StateBinding("_jabStance");
+        public StateBinding _jabStanceBinding = new("_jabStance");
 
-        public StateBinding _crouchStanceBinding = new StateBinding("_crouchStance");
+        public StateBinding _crouchStanceBinding = new("_crouchStance");
 
-        public StateBinding _slamStanceBinding = new StateBinding("_slamStance");
+        public StateBinding _slamStanceBinding = new("_slamStance");
 
-        public StateBinding _pullBackBinding = new StateBinding(doLerp: true, "_pullBack");
+        public StateBinding _pullBackBinding = new(doLerp: true, "_pullBack");
 
-        public StateBinding _swingingBinding = new StateBinding("_swinging");
+        public StateBinding _swingingBinding = new("_swinging");
 
-        public StateBinding _throwSpinBinding = new StateBinding(doLerp: true, "_throwSpin");
+        public StateBinding _throwSpinBinding = new(doLerp: true, "_throwSpin");
 
-        public StateBinding _volatileBinding = new StateBinding("_volatile");
+        public StateBinding _volatileBinding = new("_volatile");
 
-        public StateBinding _addOffsetXBinding = new StateBinding("_addOffsetX");
+        public StateBinding _addOffsetXBinding = new("_addOffsetX");
 
-        public StateBinding _addOffsetYBinding = new StateBinding("_addOffsetY");
+        public StateBinding _addOffsetYBinding = new("_addOffsetY");
 
         public float _swing;
 
@@ -74,9 +74,9 @@ namespace AncientMysteries.Items
 
         public bool _volatile;
 
-        public List<float> _lastAngles = new List<float>();
+        public List<float> _lastAngles = new();
 
-        public List<Vec2> _lastPositions = new List<Vec2>();
+        public List<Vec2> _lastPositions = new();
 
         public float _pitchOffset =0;
 
@@ -655,8 +655,8 @@ namespace AncientMysteries.Items
                         ignore = base.duck.GetEquipment(typeof(Helmet));
                     }
                     Vec2 barrel = base.barrelPosition + base.barrelVector * 3f;
-                    Vec2 p1 = new Vec2((position.x < barrel.x) ? position.x : barrel.x, (position.y < barrel.y) ? position.y : barrel.y);
-                    Vec2 p2 = new Vec2((position.x > barrel.x) ? position.x : barrel.x, (position.y > barrel.y) ? position.y : barrel.y);
+                    Vec2 p1 = new((position.x < barrel.x) ? position.x : barrel.x, (position.y < barrel.y) ? position.y : barrel.y);
+                    Vec2 p2 = new((position.x > barrel.x) ? position.x : barrel.x, (position.y > barrel.y) ? position.y : barrel.y);
                     QuadLaserBullet laserHit = Level.CheckRect<QuadLaserBullet>(p1, p2);
                     if (laserHit != null)
                     {

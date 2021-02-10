@@ -15,7 +15,7 @@ namespace AncientMysteries.Items.Artifacts
 
         //public StateBinding _targetPlayerBinding = new StateBinding("_targetPlayer");
 
-        public StateBinding _cdTimeBinding = new StateBinding("_cdTime");
+        public StateBinding _cdTimeBinding = new("_cdTime");
 
         public Duck _targetPlayer;
 
@@ -59,7 +59,7 @@ namespace AncientMysteries.Items.Artifacts
                 for (int i = 0; i < 8; i++)
                 {
                     const float flyMax = 3f;
-                    MusketSmoke smoke = new MusketSmoke(duck.x + Rando.Float(-5, 5), duck.y + Rando.Float(-10, 3))
+                    MusketSmoke smoke = new(duck.x + Rando.Float(-5, 5), duck.y + Rando.Float(-10, 3))
                     {
                         alpha = 0.9f,
                         depth = 0.9f + i * 0.001f,
@@ -67,7 +67,7 @@ namespace AncientMysteries.Items.Artifacts
                     };
                     if (i % 4 != 0)
                         smoke.move.x -= Rando.Float(-0.1f, 0.1f);
-                    MusketSmoke smoke2 = new MusketSmoke(_targetPlayer.x + Rando.Float(-5, 5), _targetPlayer.y + Rando.Float(-10, 3))
+                    MusketSmoke smoke2 = new(_targetPlayer.x + Rando.Float(-5, 5), _targetPlayer.y + Rando.Float(-10, 3))
                     {
                         alpha = 0.9f,
                         depth = 0.9f + i * 0.001f,

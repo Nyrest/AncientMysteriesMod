@@ -5,7 +5,7 @@ namespace AncientMysteries
 {
     public static class GTool
     {
-        public static readonly BitmapFont _biosFont = new BitmapFont("biosFont", 8);
+        public static readonly BitmapFont _biosFont = new("biosFont", 8);
 
         public static void DrawTopText(this Thing thing, string text, Color color, float yOffset, InputProfile inputProfile = null)
         {

@@ -15,7 +15,7 @@ namespace AncientMysteries.Items.True
     [EditorGroup(g_staffs)]
     public class PrimordialLibram : AMStaff
     {
-        public StateBinding _animationFrameBinding = new StateBinding(nameof(AnimationFrame));
+        public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
 
         public SpriteMap _spriteMap;
 
@@ -81,7 +81,7 @@ namespace AncientMysteries.Items.True
             rando = new Random().Next(0,0);
             if (_castTime >= 1f && rando == 0)
             {
-                TempFire t = new TempFire(this.owner.x, owner.y, true, owner)
+                TempFire t = new(this.owner.x, owner.y, true, owner)
                 {
                     alpha = 0f
                 };
@@ -91,7 +91,7 @@ namespace AncientMysteries.Items.True
             }
             if (_castTime >= 1f && rando == 1)
             {
-                TempIce i = new TempIce(this.owner.x, owner.y, true, owner)
+                TempIce i = new(this.owner.x, owner.y, true, owner)
                 {
                     alpha = 0f
                 };
@@ -101,7 +101,7 @@ namespace AncientMysteries.Items.True
             }
             if (_castTime >= 1f && rando == 2)
             {
-                TempCrystal c = new TempCrystal(this.owner.x, owner.y - 32f, true, owner)
+                TempCrystal c = new(this.owner.x, owner.y - 32f, true, owner)
                 {
                     alpha = 0f
                 };
@@ -111,7 +111,7 @@ namespace AncientMysteries.Items.True
             }
             if (_castTime >= 1f && rando == 3)
             {
-                TempNature n = new TempNature(this.owner.x, owner.y - 32f, true, owner)
+                TempNature n = new(this.owner.x, owner.y - 32f, true, owner)
                 {
                     alpha = 0f
                 };
@@ -121,7 +121,7 @@ namespace AncientMysteries.Items.True
             }
             if (Network.isActive)
             {
-                NMFireGun gunEvent = new NMFireGun(this, firedBullets, bulletFireIndex, rel: false, 4);
+                NMFireGun gunEvent = new(this, firedBullets, bulletFireIndex, rel: false, 4);
                 Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
                 firedBullets.Clear();
             }

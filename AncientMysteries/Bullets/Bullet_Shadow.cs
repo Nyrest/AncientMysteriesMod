@@ -51,7 +51,7 @@ namespace AncientMysteries.Bullets
         protected override void Rebound(Vec2 pos, float dir, float rng)
         {
             Bullet.isRebound = true;
-            Bullet_Shadow bullet = new Bullet_Shadow(pos.x, pos.y, ammo, dir, null, rebound, rng);
+            Bullet_Shadow bullet = new(pos.x, pos.y, ammo, dir, null, rebound, rng);
             Bullet.isRebound = false;
             bullet._teleporter = _teleporter;
             bullet.firedFrom = base.firedFrom;

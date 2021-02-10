@@ -10,7 +10,7 @@ namespace AncientMysteries
 {
     public static class TexHelper
     {
-        public static Dictionary<string, CachedTextureInfo> cache = new Dictionary<string, CachedTextureInfo>(10);
+        public static Dictionary<string, CachedTextureInfo> cache = new(10);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static CachedTextureInfo GetInfo(string name)
@@ -116,7 +116,7 @@ namespace AncientMysteries
         {
             var info = GetInfo(spriteMapName);
             int w = frameWidth == -1 ? info.frameWidth : frameWidth, h = frameHeight == -1 ? info.frameHeight : frameHeight;
-            SpriteMap result =  new SpriteMap(info.texture, w, h);
+            SpriteMap result =  new(info.texture, w, h);
             thing.graphic = result;
             thing.collisionOffset = -(thing.center = new Vec2(w / 2, h / 2));
             thing.collisionSize = new Vec2(w, h);
