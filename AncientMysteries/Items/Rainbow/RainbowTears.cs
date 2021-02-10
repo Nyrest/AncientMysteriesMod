@@ -13,7 +13,7 @@ namespace AncientMysteries.Items.Rainbow
     [EditorGroup(g_staffs)]
     public class RainbowTears : AMStaff
     {
-        public StateBinding _animationFrameBinding = new StateBinding(nameof(AnimationFrame));
+        public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
 
         public SpriteMap _spriteMap;
 
@@ -26,7 +26,7 @@ namespace AncientMysteries.Items.Rainbow
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            _ => "Chromatic Eyedrop",
+            _ => "Chromatic Tears",
         };
 
         public RainbowTears(float xval, float yval) : base(xval, yval)
@@ -72,7 +72,7 @@ namespace AncientMysteries.Items.Rainbow
                     int count = Rando.Int(1, 2);
                     for (int i = 0; i < count; i++)
                     {
-                        Bullet bullet = new Bullet(
+                        Bullet bullet = new(
                             barrelPos.x + Rando.Float(-3, 3),
                             barrelPos.y + Rando.Float(-3, 3), ammoType, 90 + Rando.Float(-10, 10), duck)
                         {
@@ -86,7 +86,7 @@ namespace AncientMysteries.Items.Rainbow
                     bulletFireIndex += (byte)count;
                     if (Network.isActive)
                     {
-                        NMFireGun gunEvent = new NMFireGun(this, firedBullets, bulletFireIndex, false, 4);
+                        NMFireGun gunEvent = new(this, firedBullets, bulletFireIndex, false, 4);
                         Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
                         firedBullets.Clear();
                     }

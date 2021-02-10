@@ -13,7 +13,7 @@ namespace AncientMysteries
     {
         private static FieldInfo QuadTreeObjectList_removeThings = typeof(QuadTreeObjectList).GetField("_removeThings", BindingFlags.NonPublic | BindingFlags.Instance);
 
-        public static List<Thing> removedThings = new List<Thing>(256);
+        public static List<Thing> removedThings = new(256);
 
         public static bool _initialized;
 

@@ -1,4 +1,4 @@
-# AncientMysteriesMod ![Auto Build Badge](https://github.com/BThree496/AncientMysteriesMod/workflows/Auto%20Build/badge.svg)
+# AncientMysteriesMod ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/BThree496/AncientMysteriesMod/Nightly%20Build?style=flat-square)
 A Duck Game Mod
 
 Download: [latest pre-release](https://github.com/BThree496/AncientMysteriesMod/releases)

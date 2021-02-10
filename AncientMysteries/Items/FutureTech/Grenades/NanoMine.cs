@@ -18,23 +18,23 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             _ => "Nano Mine",
         };
 
-        public StateBinding _pinBinding = new StateBinding("_pin");
+        public StateBinding _pinBinding = new("_pin");
 
-        public StateBinding _armedBinding = new StateBinding("_armed");
+        public StateBinding _armedBinding = new("_armed");
 
-        public StateBinding _clickedBinding = new StateBinding("_clicked");
+        public StateBinding _clickedBinding = new("_clicked");
 
-        public StateBinding _thrownBinding = new StateBinding("_thrown");
+        public StateBinding _thrownBinding = new("_thrown");
 
         public StateBinding _netDoubleBeepBinding = new NetSoundBinding("_netDoubleBeep");
 
-        public NetSoundEffect _netDoubleBeep = new NetSoundEffect("doubleBeep");
+        public NetSoundEffect _netDoubleBeep = new("doubleBeep");
 
         public StateBinding _netPinPlayHBinding = new NetSoundBinding("_netPin");
 
-        public StateBinding _mineOwnerBinding = new StateBinding(nameof(_mineOwner));
+        public StateBinding _mineOwnerBinding = new(nameof(_mineOwner));
 
-        public NetSoundEffect _netPin = new NetSoundEffect("pullPin");
+        public NetSoundEffect _netPin = new("pullPin");
 
         private SpriteMap _sprite;
 
@@ -58,9 +58,9 @@ namespace AncientMysteries.Items.FutureTech.Grenades
 
         private Sprite _mineFlash;
 
-        private Dictionary<Duck, float> _ducksOnMine = new Dictionary<Duck, float>();
+        private Dictionary<Duck, float> _ducksOnMine = new();
 
-        public List<PhysicsObject> previousThings = new List<PhysicsObject>();
+        public List<PhysicsObject> previousThings = new();
 
         private float prevAngle;
 
@@ -193,10 +193,10 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             base.Update();
             if (!pin && Math.Abs(prevAngle - angle) > 0.1f)
             {
-                Vec2 colSizeWide = new Vec2(14f, 3f);
-                Vec2 colOffsetWide = new Vec2(-7f, -2f);
-                Vec2 colSizeTall = new Vec2(4f, 14f);
-                Vec2 colOffsetTall = new Vec2(-2f, -7f);
+                Vec2 colSizeWide = new(14f, 3f);
+                Vec2 colOffsetWide = new(-7f, -2f);
+                Vec2 colSizeTall = new(4f, 14f);
+                Vec2 colOffsetTall = new(-2f, -7f);
                 float norm = (float)Math.Abs(Math.Sin(angle));
                 collisionSize = colSizeWide * (1f - norm) + colSizeTall * norm;
                 collisionOffset = colOffsetWide * (1f - norm) + colOffsetTall * norm;
@@ -232,7 +232,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                 canPickUp = false;
                 float holdWeight = addWeight;
                 IEnumerable<PhysicsObject> col = Level.CheckLineAll<PhysicsObject>(new Vec2(base.x - 7f, base.y - 4f), new Vec2(base.x + 7f, base.y - 4f));
-                List<Duck> ducks = new List<Duck>();
+                List<Duck> ducks = new();
                 Duck stepDuck = null;
                 bool hadServerThing = false;
                 foreach (PhysicsObject t in previousThings)
@@ -278,7 +278,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                         holdWeight += o.weight;
                     }
                 }
-                List<Duck> remove = new List<Duck>();
+                List<Duck> remove = new();
                 foreach (KeyValuePair<Duck, float> pair in _ducksOnMine)
                 {
                     if (!ducks.Contains(pair.Key))
@@ -361,11 +361,11 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             for (int i = 0; i < 20; i++)
             {
                 float dir = (float)i * 18f - 5f + Rando.Float(10f);
-                ATShrapnel shrap = new ATShrapnel
+                ATShrapnel shrap = new()
                 {
                     range = 60f + Rando.Float(18f)
                 };
-                Bullet bullet = new Bullet(cx, cy, shrap, dir)
+                Bullet bullet = new(cx, cy, shrap, dir)
                 {
                     firedFrom = this
                 };
@@ -375,7 +375,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             bulletFireIndex += 20;
             if (Network.isActive && base.isServerForObject)
             {
-                NMFireGun gunEvent = new NMFireGun(this, firedBullets, bulletFireIndex, rel: false, 4);
+                NMFireGun gunEvent = new(this, firedBullets, bulletFireIndex, rel: false, 4);
                 Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
                 firedBullets.Clear();
             }
@@ -405,7 +405,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                 {
                     float dir = (float)i * 60f + Rando.Float(-10f, 10f);
                     float dist = Rando.Float(12f, 20f);
-                    ExplosionPart ins = new ExplosionPart(cx + (float)(Math.Cos(Maths.DegToRad(dir)) * (double)dist), cy - (float)(Math.Sin(Maths.DegToRad(dir)) * (double)dist));
+                    ExplosionPart ins = new(cx + (float)(Math.Cos(Maths.DegToRad(dir)) * (double)dist), cy - (float)(Math.Sin(Maths.DegToRad(dir)) * (double)dist));
                     Level.Add(ins);
                 }
             }

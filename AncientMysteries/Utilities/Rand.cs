@@ -11,7 +11,7 @@ namespace AncientMysteries
 {
     public static class Rand
     {
-        private static readonly Random rand = new Random();
+        private static readonly Random rand = new();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Bool() =>

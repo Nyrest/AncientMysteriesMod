@@ -17,7 +17,7 @@ namespace AncientMysteries.Particles
 
         public float _killSpeed = 0.03f;
 
-        public StateBinding _colorBinding = new StateBinding(nameof(_color));
+        public StateBinding _colorBinding = new(nameof(_color));
 
         public Color _color;
 

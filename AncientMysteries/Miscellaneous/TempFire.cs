@@ -25,8 +25,8 @@ namespace AncientMysteries.Items.Miscellaneous
         public float progress = 0;
         public bool removing = false;
 
-        public StateBinding _progressBinding = new StateBinding(nameof(progress));
-        public StateBinding _duckBinding = new StateBinding(nameof(progress));
+        public StateBinding _progressBinding = new(nameof(progress));
+        public StateBinding _duckBinding = new(nameof(progress));
 
         public TempFire(float xpos, float ypos,bool doWait = true,Thing tOwner = null) : base(xpos, ypos)
         {
@@ -72,7 +72,7 @@ namespace AncientMysteries.Items.Miscellaneous
                 Level.Add(b);
                 if (Network.isActive)
                 {
-                    NMFireGun gunEvent = new NMFireGun(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
+                    NMFireGun gunEvent = new(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
                     Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
                     firedBullets.Clear();
                 }

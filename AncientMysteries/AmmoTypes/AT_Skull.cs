@@ -26,7 +26,7 @@ namespace AncientMysteries.AmmoTypes
             }
             if (destroyed)
             {
-                ATMissileShrapnel aTMissileShrapnel = new ATMissileShrapnel();
+                ATMissileShrapnel aTMissileShrapnel = new();
                 aTMissileShrapnel.MakeNetEffect(b.position);
                 Random generator = null;
                 if (Network.isActive && b.isLocal)
@@ -34,7 +34,7 @@ namespace AncientMysteries.AmmoTypes
                     generator = Rando.generator;
                     Rando.generator = new Random(NetRand.currentSeed);
                 }
-                List<Bullet> list = new List<Bullet>(12);
+                List<Bullet> list = new(12);
                 for (int i = 0; i < 12; i++)
                 {
                     float num = (float)i * 30f + Rando.Float(10f);
@@ -42,8 +42,8 @@ namespace AncientMysteries.AmmoTypes
                     {
                         range = 5f + Rando.Float(5f)
                     };
-                    Vec2 value = new Vec2((float)Math.Cos(Maths.DegToRad(num)), (float)Math.Sin(Maths.DegToRad(num)));
-                    Bullet bullet = new Bullet(b.x + value.x * 8f, b.y - value.y * 8f, aTMissileShrapnel, num)
+                    Vec2 value = new((float)Math.Cos(Maths.DegToRad(num)), (float)Math.Sin(Maths.DegToRad(num)));
+                    Bullet bullet = new(b.x + value.x * 8f, b.y - value.y * 8f, aTMissileShrapnel, num)
                     {
                         firedFrom = b
                     };
@@ -56,7 +56,7 @@ namespace AncientMysteries.AmmoTypes
                 }
                 if (Network.isActive && b.isLocal)
                 {
-                    NMFireGun msg = new NMFireGun(null, list, 0, rel: false, 4);
+                    NMFireGun msg = new(null, list, 0, rel: false, 4);
                     Send.Message(msg, NetMessagePriority.ReliableOrdered);
                     list.Clear();
                 }

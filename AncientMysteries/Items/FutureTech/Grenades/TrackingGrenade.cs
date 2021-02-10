@@ -16,9 +16,9 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             _ => "Nano Grenade",
         };
 
-        public StateBinding _timerBinding = new StateBinding("_timer");
+        public StateBinding _timerBinding = new("_timer");
 
-        public StateBinding _pinBinding = new StateBinding("_pin");
+        public StateBinding _pinBinding = new("_pin");
 
         private SpriteMap _sprite;
 
@@ -103,7 +103,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                 {
                     float dir = i * 60f + Rando.Float(-10f, 10f);
                     float dist = Rando.Float(12f, 20f);
-                    ExplosionPart ins = new ExplosionPart(cx + (float)(Math.Cos(Maths.DegToRad(dir)) * dist), cy - (float)(Math.Sin(Maths.DegToRad(dir)) * dist));
+                    ExplosionPart ins = new(cx + (float)(Math.Cos(Maths.DegToRad(dir)) * dist), cy - (float)(Math.Sin(Maths.DegToRad(dir)) * dist));
                     Level.Add(ins);
                 }
                 _explosionCreated = true;
@@ -178,11 +178,11 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                             for (int i = 0; i < bulletCount; i++)
                             {
                                 float dir = i * 18f - 5f + Rando.Float(10f);
-                                ATShrapnel shrap = new ATShrapnel
+                                ATShrapnel shrap = new()
                                 {
                                     range = 70f + Rando.Float(20f)
                                 };
-                                Bullet bullet = new Bullet(cx + (float)(Math.Cos(Maths.DegToRad(dir)) * 6.0), cy - (float)(Math.Sin(Maths.DegToRad(dir)) * 6.0), shrap, dir)
+                                Bullet bullet = new(cx + (float)(Math.Cos(Maths.DegToRad(dir)) * 6.0), cy - (float)(Math.Sin(Maths.DegToRad(dir)) * 6.0), shrap, dir)
                                 {
                                     firedFrom = this
                                 };
@@ -200,7 +200,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                             bulletFireIndex += bulletCount;
                             if (Network.isActive)
                             {
-                                NMFireGun gunEvent = new NMFireGun(this, firedBullets, bulletFireIndex, rel: false, 4);
+                                NMFireGun gunEvent = new(this, firedBullets, bulletFireIndex, rel: false, 4);
                                 Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
                                 firedBullets.Clear();
                             }
@@ -233,7 +233,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             if (_pin)
             {
                 _pin = false;
-                GrenadePin shell = new GrenadePin(base.x, base.y)
+                GrenadePin shell = new(base.x, base.y)
                 {
                     hSpeed = -offDir * (1.5f + Rando.Float(0.5f)),
                     vSpeed = -2f
