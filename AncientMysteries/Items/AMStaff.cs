@@ -10,9 +10,9 @@ namespace AncientMysteries.Items
 {
     public abstract class AMStaff : AMGun, IAMLocalizable
     {
-        public StateBinding _castTimeBinding = new StateBinding("_castTime");
+        public StateBinding _castTimeBinding = new("_castTime");
 
-        public StateBinding _castWaitValBinding = new StateBinding("_castWaitVal");
+        public StateBinding _castWaitValBinding = new("_castWaitVal");
 
         public float _holdAngle = 0.8f;
 

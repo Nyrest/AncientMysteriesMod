@@ -44,7 +44,7 @@ namespace AncientMysteries.Items.Dragon.Melee
                 {
                     if (this.owner._offDir == -1)
                     {
-                        ExplosionPart ins = new ExplosionPart(owner.x, owner.y, true);
+                        ExplosionPart ins = new(owner.x, owner.y, true);
                         ins.xscale *= 0.7f;
                         ins.yscale *= 0.7f;
                         Level.Add(ins);
@@ -63,7 +63,7 @@ namespace AncientMysteries.Items.Dragon.Melee
                     }
                     else
                     {
-                        ExplosionPart ins = new ExplosionPart(owner.x, owner.y, true);
+                        ExplosionPart ins = new(owner.x, owner.y, true);
                         ins.xscale *= 0.7f;
                         ins.yscale *= 0.7f;
                         Level.Add(ins);

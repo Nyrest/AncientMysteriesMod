@@ -24,7 +24,7 @@ namespace AncientMysteries
                 gun.bulletFireIndex++;
             if (Network.isActive)
             {
-                NMFireGun gunEvent = new NMFireGun(gun, firedBullets, gun.bulletFireIndex, rel: false, 4);
+                NMFireGun gunEvent = new(gun, firedBullets, gun.bulletFireIndex, rel: false, 4);
                 Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
             }
             firedBullets.Clear();
@@ -44,7 +44,7 @@ namespace AncientMysteries
             gun.bulletFireIndex++;
             if (Network.isActive)
             {
-                NMFireGun gunEvent = new NMFireGun(gun, firedBullets, gun.bulletFireIndex, rel: false, 4);
+                NMFireGun gunEvent = new(gun, firedBullets, gun.bulletFireIndex, rel: false, 4);
                 Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
             }
             firedBullets.Clear();

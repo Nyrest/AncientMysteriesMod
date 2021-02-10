@@ -41,8 +41,8 @@ namespace AncientMysteries.Items
 
         public abstract string GetLocalizedName(AMLang lang);
 
-        public StateBinding _equipmentMaxHitPointsBinding = new StateBinding(nameof(_equipmentMaxHitPoints));
-        public StateBinding _equipmentHitPointsBinding = new StateBinding(nameof(_equipmentHitPoints));
+        public StateBinding _equipmentMaxHitPointsBinding = new(nameof(_equipmentMaxHitPoints));
+        public StateBinding _equipmentHitPointsBinding = new(nameof(_equipmentHitPoints));
 
         protected bool _canCrush = true;
         protected bool _destroyable = true;

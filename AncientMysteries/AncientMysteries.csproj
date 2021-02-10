@@ -38,10 +38,9 @@
     <Content Include="content\**" Visible="false">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Compile Include="_Generated\**" />
     <AdditionalFiles Include="content\**" Visible="false">
-
     </AdditionalFiles>
+    <Compile Include="_Generated\**" />
     <AdditionalFiles Include="_projLocator" Visible="false" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +184,7 @@
     <Folder Include="Armor\" />
     <Folder Include="Extensions\" />
     <Folder Include="Items\Sucks\" />
+    <Folder Include="_Generated\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AncientMysteries.csproj.user" />

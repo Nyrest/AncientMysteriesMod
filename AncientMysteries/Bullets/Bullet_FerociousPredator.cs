@@ -17,7 +17,7 @@ namespace AncientMysteries.Bullets
         {
             for (int repeat = 0; repeat < 6; repeat++)
             {
-                ExplosionPart ins = new ExplosionPart(pos.x - 8f + Rando.Float(32f), pos.y - 8f + Rando.Float(32f))
+                ExplosionPart ins = new(pos.x - 8f + Rando.Float(32f), pos.y - 8f + Rando.Float(32f))
                 {
                     xscale = 3f,
                     yscale = 3f
@@ -34,11 +34,11 @@ namespace AncientMysteries.Bullets
                     for (int i = 0; i < 24; i++)
                     {
                         float dir = (float)i * 30f - 10f + Rando.Float(20f);
-                        ATGrenadeLauncherShrapnel shrap = new ATGrenadeLauncherShrapnel
+                        ATGrenadeLauncherShrapnel shrap = new()
                         {
                             range = 100f + Rando.Float(20f)
                         };
-                        Bullet bullet = new Bullet(bPos.x, bPos.y, shrap, dir)
+                        Bullet bullet = new(bPos.x, bPos.y, shrap, dir)
                         {
                             firedFrom = this
                         };

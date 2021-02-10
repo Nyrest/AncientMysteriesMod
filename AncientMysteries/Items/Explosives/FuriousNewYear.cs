@@ -19,9 +19,9 @@ namespace AncientMysteries.Items.Explosives
             _ => "Furious New Year",
         };
 
-        public StateBinding _timerBinding = new StateBinding("_timer");
+        public StateBinding _timerBinding = new("_timer");
 
-        public StateBinding _pinBinding = new StateBinding("_pin");
+        public StateBinding _pinBinding = new("_pin");
 
         private SpriteMap _sprite;
 
@@ -139,7 +139,7 @@ namespace AncientMysteries.Items.Explosives
                             {
                                 float addSpeedX = this.hSpeed * 0.7f;
                                 float addSpeedY = this.vSpeed * 0.7f;
-                                Firecracker f = new Firecracker(cx + Rando.Float(-1f, 1f), cy + Rando.Float(-1f, 1f));
+                                Firecracker f = new(cx + Rando.Float(-1f, 1f), cy + Rando.Float(-1f, 1f));
                                 _firecrackerExplodeTimer.SetValue(f, new ActionTimer(Rando.Float(0.02f, 0.022f)));
                                 f.spinAngle = 90f;
                                 f.hSpeed = Rando.Float(1.5f, 3f).RandomNegative() + addSpeedX;
@@ -175,7 +175,7 @@ namespace AncientMysteries.Items.Explosives
             if (_pin)
             {
                 _pin = false;
-                GrenadePin shell = new GrenadePin(base.x, base.y)
+                GrenadePin shell = new(base.x, base.y)
                 {
                     hSpeed = -offDir * (1.5f + Rando.Float(0.5f)),
                     vSpeed = -2f

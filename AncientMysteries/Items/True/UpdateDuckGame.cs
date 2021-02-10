@@ -14,10 +14,10 @@ namespace AncientMysteries.Items.True
     [EditorGroup(g_misc)]
     public sealed class UpdateDuckGame : AMHoldable
     {
-        public StateBinding _targetPlayerBinding = new StateBinding(nameof(_targetPlayer));
+        public StateBinding _targetPlayerBinding = new(nameof(_targetPlayer));
         public Duck _targetPlayer;
 
-        public StateBinding _blindTimeBinding = new StateBinding(nameof(_blindTime));
+        public StateBinding _blindTimeBinding = new(nameof(_blindTime));
         public int _blindTime;
 
         public const int totalBlinkTime = 60 * 5; // 5sec
