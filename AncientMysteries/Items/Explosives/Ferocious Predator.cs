@@ -60,7 +60,7 @@ namespace AncientMysteries.Items.Explosives
         {
             ammo = 6;
             _type = "gun";
-            this.ReadyToRunMap("ferociousPredator.png", 32, 16);
+            this.ReadyToRunMap(Texs.FerociousPredator, 32, 16);
             _barrelOffsetTL = new Vec2(32f, 7f);
             _fireSound = "pistol";
             _kickForce = 3f;
