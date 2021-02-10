@@ -14,7 +14,7 @@ namespace AncientMysteries.Bullets
         public int n = 0;
 
 
-        public StateBinding _bulletSpeedBinding = new StateBinding(nameof(_bulletSpeed));
+        public StateBinding _bulletSpeedBinding = new(nameof(_bulletSpeed));
 
         public Bullet_BigFB(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
@@ -51,7 +51,7 @@ namespace AncientMysteries.Bullets
         public override void DoTerminate()
         {
             base.DoTerminate();
-            ExplosionPart ins = new ExplosionPart(start.x, start.y, true);
+            ExplosionPart ins = new(start.x, start.y, true);
             Level.Add(ins);
             SFX.Play("explode", 0.7f, Rando.Float(-0.7f, -0.5f), 0f, false);
             Thing bulletOwner = this.owner;
@@ -75,7 +75,7 @@ namespace AncientMysteries.Bullets
             }
             if (Network.isActive)
             {
-                NMFireGun gunEvent = new NMFireGun(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
+                NMFireGun gunEvent = new(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
                 Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
                 firedBullets.Clear();
             }

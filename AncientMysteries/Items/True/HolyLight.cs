@@ -14,7 +14,7 @@ namespace AncientMysteries.Items.True
     [EditorGroup(g_staffs)]
     public class HolyLight : AMStaff
     {
-        public StateBinding _animationFrameBinding = new StateBinding(nameof(AnimationFrame));
+        public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
 
         public SpriteMap _spriteMap;
 
@@ -79,7 +79,7 @@ namespace AncientMysteries.Items.True
             bulletFireIndex += (byte)count;
             if (Network.isActive)
             {
-                NMFireGun gunEvent = new NMFireGun(this, firedBullets, bulletFireIndex, rel: false, 4);
+                NMFireGun gunEvent = new(this, firedBullets, bulletFireIndex, rel: false, 4);
                 Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
                 firedBullets.Clear();
             }

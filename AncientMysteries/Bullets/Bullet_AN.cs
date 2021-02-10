@@ -25,7 +25,7 @@ namespace AncientMysteries.Bullets
         {
             base.OnHit(destroyed);
             if (!destroyed) return;
-            NovaExp n = new NovaExp(travelEnd.x, travelEnd.y, true);
+            NovaExp n = new(travelEnd.x, travelEnd.y, true);
             n.xscale *= 3f;
             n.yscale *= 3f;
             Level.Add(n);
@@ -47,7 +47,7 @@ namespace AncientMysteries.Bullets
             }
             if (Network.isActive && this.isLocal)
             {
-                NMFireGun gunEvent = new NMFireGun(null, firedBullets, 0, rel: false, 4);
+                NMFireGun gunEvent = new(null, firedBullets, 0, rel: false, 4);
                 Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
                 firedBullets.Clear();
             }

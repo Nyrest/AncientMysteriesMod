@@ -17,17 +17,17 @@ namespace AncientMysteries.Items.Explosives
             _ => "Ferocious Predator",
         };
 
-        public StateBinding _fireAngleBinding = new StateBinding("_fireAngle");
+        public StateBinding _fireAngleBinding = new("_fireAngle");
 
-        public StateBinding _aimAngleBinding = new StateBinding("_aimAngle");
+        public StateBinding _aimAngleBinding = new("_aimAngle");
 
-        public StateBinding _aimAngleShakeBinding = new StateBinding("_aimAngle");
+        public StateBinding _aimAngleShakeBinding = new("_aimAngle");
 
-        public StateBinding _aimWaitBinding = new StateBinding("_aimWait");
+        public StateBinding _aimWaitBinding = new("_aimWait");
 
-        public StateBinding _aimingBinding = new StateBinding("_aiming");
+        public StateBinding _aimingBinding = new("_aiming");
 
-        public StateBinding _cooldownBinding = new StateBinding("_cooldown");
+        public StateBinding _cooldownBinding = new("_cooldown");
 
         public float _fireAngle;
 
