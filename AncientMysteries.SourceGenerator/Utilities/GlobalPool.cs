@@ -38,7 +38,7 @@ namespace AncientMysteries.SourceGenerator
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static StringBuilder RentMini()
         {
-            lock (_lockObj)
+            lock (_lockObjMini)
             {
                 if (_stackMini.Count != 0)
                     return _stackMini.Pop();
@@ -55,7 +55,7 @@ namespace AncientMysteries.SourceGenerator
                 return;
             }
             value.Clear();
-            lock (_lockObj)
+            lock (_lockObjMini)
             {
                 _stack.Push(value);
             }

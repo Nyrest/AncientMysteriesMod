@@ -38,7 +38,11 @@
     <Content Include="content\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <AdditionalFiles Include="content\**" GenType="png" />
+    <Compile Include="_Generated\**" />
+    <AdditionalFiles Include="content\**">
+      <GenType>png</GenType>
+    </AdditionalFiles>
+    <AdditionalFiles Include="_projLocator" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DuckGame, Version=1.1.7706.16085, Culture=neutral, processorArchitecture=x86">
@@ -181,7 +185,6 @@
     <Folder Include="Armor\" />
     <Folder Include="Extensions\" />
     <Folder Include="Items\Sucks\" />
-    <Folder Include="_Generated\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AncientMysteries.csproj.user" />
