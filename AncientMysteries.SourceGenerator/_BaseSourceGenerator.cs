@@ -14,8 +14,7 @@ namespace AncientMysteries.SourceGenerator
         {
             var contentBuilder = SBPool.Rent();
             Generate(context, contentBuilder);
-            string source = @$"
-{_CompileSettings.DefaultUsing}
+            string source = @$"{_CompileSettings.DefaultUsing}
 namespace {_CompileSettings.Namespace}
 {{
     {contentBuilder.ToString()}

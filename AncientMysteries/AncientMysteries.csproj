@@ -35,11 +35,11 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="content\**">
+    <Content Include="content\**" Visible="false">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Compile Include="_Generated\**" />
-    <AdditionalFiles Include="content\**">
+    <AdditionalFiles Include="content\**" Visible="false">
       <GenType>png</GenType>
     </AdditionalFiles>
     <AdditionalFiles Include="_projLocator" />
