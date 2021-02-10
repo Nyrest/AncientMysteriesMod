@@ -66,8 +66,10 @@ namespace AncientMysteries.Items.Miscellaneous
                     accuracy = 1f,
                     penetration = 1f,
                     bulletLength = 3,
-                }*/new AT_LaserG(), Rando.Float(100f + Convert.ToSingle(r / 3.5f), Convert.ToSingle(80 - r / 3.5f)), t, false, 400);
-                    b1.color = Color.Green;
+                }*/new AT_LaserG(), Rando.Float(100f + Convert.ToSingle(r / 3.5f), Convert.ToSingle(80 - r / 3.5f)), t, false, 400)
+                    {
+                        color = Color.Green
+                    };
                     firedBullets.Add(b1);
                     Level.Add(b1);
                     ExplosionPart ins = new ExplosionPart(b1.travelStart.x, b1.travelStart.y, true);

@@ -20,7 +20,8 @@ namespace AncientMysteries
                     Level.Add(item);
                 }
             }
-            gun.bulletFireIndex++;
+            if (gun != null)
+                gun.bulletFireIndex++;
             if (Network.isActive)
             {
                 NMFireGun gunEvent = new NMFireGun(gun, firedBullets, gun.bulletFireIndex, rel: false, 4);

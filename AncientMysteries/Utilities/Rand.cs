@@ -13,6 +13,10 @@ namespace AncientMysteries
     {
         private static readonly Random rand = new Random();
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool Bool() =>
+        (rand.Next() & 1) == 0;
+
         /// <summary>
         /// Negative value if random generated number is odd
         /// </summary>
@@ -21,5 +25,8 @@ namespace AncientMysteries
         (rand.Next() & 1) == 0
             ? value
             : -value;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float FloatRN(float min, float max) => Rando.Float(min, max).RandomNegative();
     }
 }

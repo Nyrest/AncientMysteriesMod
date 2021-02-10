@@ -58,10 +58,12 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             : base(xval, yval)
         {
             ammo = 1;
-            _ammoType = new ATShrapnel();
-            _ammoType.penetration = 0.4f;
+            _ammoType = new ATShrapnel
+            {
+                penetration = 0.4f
+            };
             _type = "gun";
-            _sprite = this.ReadyToRunMap("trackingGrenade.png", 8, 9);
+            _sprite = this.ReadyToRunMap(Texs.TrackingGrenade, 8, 9);
             graphic = _sprite;
             base.bouncy = 0.4f;
             friction = 0.05f;
@@ -176,10 +178,14 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                             for (int i = 0; i < bulletCount; i++)
                             {
                                 float dir = i * 18f - 5f + Rando.Float(10f);
-                                ATShrapnel shrap = new ATShrapnel();
-                                shrap.range = 70f + Rando.Float(20f);
-                                Bullet bullet = new Bullet(cx + (float)(Math.Cos(Maths.DegToRad(dir)) * 6.0), cy - (float)(Math.Sin(Maths.DegToRad(dir)) * 6.0), shrap, dir);
-                                bullet.firedFrom = this;
+                                ATShrapnel shrap = new ATShrapnel
+                                {
+                                    range = 70f + Rando.Float(20f)
+                                };
+                                Bullet bullet = new Bullet(cx + (float)(Math.Cos(Maths.DegToRad(dir)) * 6.0), cy - (float)(Math.Sin(Maths.DegToRad(dir)) * 6.0), shrap, dir)
+                                {
+                                    firedFrom = this
+                                };
                                 firedBullets.Add(bullet);
                                 Level.Add(bullet);
                             }
@@ -227,9 +233,11 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             if (_pin)
             {
                 _pin = false;
-                GrenadePin shell = new GrenadePin(base.x, base.y);
-                shell.hSpeed = -offDir * (1.5f + Rando.Float(0.5f));
-                shell.vSpeed = -2f;
+                GrenadePin shell = new GrenadePin(base.x, base.y)
+                {
+                    hSpeed = -offDir * (1.5f + Rando.Float(0.5f)),
+                    vSpeed = -2f
+                };
                 Level.Add(shell);
                 SFX.Play("pullPin");
             }
