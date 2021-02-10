@@ -175,9 +175,11 @@ namespace AncientMysteries.Items.Explosives
             if (_pin)
             {
                 _pin = false;
-                GrenadePin shell = new GrenadePin(base.x, base.y);
-                shell.hSpeed = -offDir * (1.5f + Rando.Float(0.5f));
-                shell.vSpeed = -2f;
+                GrenadePin shell = new GrenadePin(base.x, base.y)
+                {
+                    hSpeed = -offDir * (1.5f + Rando.Float(0.5f)),
+                    vSpeed = -2f
+                };
                 Level.Add(shell);
                 //SFX.Play("pullPin");
                 SFX.PlaySynchronized("lightMatch", 0.8f, -0.6f + Rando.Float(0.2f));

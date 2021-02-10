@@ -21,6 +21,7 @@ namespace AncientMysteries
 
         protected override void OnPostInitialize()
         {
+            
             base.OnPostInitialize();
             (typeof(Game).GetField("updateableComponents", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(MonoMain.instance) as List<IUpdateable>).Add(new updateObject(x =>
             {

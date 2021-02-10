@@ -9,14 +9,19 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AncientMysteries</RootNamespace>
     <AssemblyName>AncientMysteries</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <LangVersion>preview</LangVersion>
+    <LangVersion>9.0</LangVersion>
     <PlatformTarget>x86</PlatformTarget>
     <WarningLevel>4</WarningLevel>
     <TargetFrameworkProfile />
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false">
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -30,9 +35,14 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="content\**">
+    <Content Include="content\**" Visible="false">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Compile Include="_Generated\**" />
+    <AdditionalFiles Include="content\**" Visible="false">
+
+    </AdditionalFiles>
+    <AdditionalFiles Include="_projLocator" Visible="false" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DuckGame, Version=1.1.7706.16085, Culture=neutral, processorArchitecture=x86">
@@ -43,14 +53,17 @@
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Microsoft.Xna.Framework.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Microsoft.Xna.Framework.Game.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Microsoft.Xna.Framework.Graphics.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -101,7 +114,7 @@
     <Compile Include="Bullets\Bullet_FerociousPredator.cs" />
     <Compile Include="Bullets\Bullet_Skull.cs" />
     <Compile Include="Bullets\Bullet_Dragon.cs" />
-    <Compile Include="Caches\InstanceCache.cs" />
+    <AdditionalFiles Include="Caches\InstanceCache.cs" />
     <Compile Include="GlobalPool.cs" />
     <Compile Include="Helpers\FastNew.cs" />
     <Compile Include="Hooks.cs" />
@@ -118,7 +131,7 @@
     <Compile Include="GTool.cs" />
     <Compile Include="Items\Explosives\Ferocious Predator.cs" />
     <Compile Include="Items\Explosives\FuriousNewYear.cs" />
-    <Compile Include="Items\FutureTech\Grenades\AtomicReboundShield.cs" />
+    <Compile Include="Items\FutureTech\AtomicReboundShield.cs" />
     <Compile Include="Items\FutureTech\Grenades\NanoMine.cs" />
     <Compile Include="Items\FutureTech\Grenades\TrackingGrenade.cs" />
     <Compile Include="Items\IAMEquipment.cs" />
@@ -129,10 +142,10 @@
     <None Include="Items\Isekai\RiskOfRain\BrilliantBehemoth.cs" />
     <None Include="Items\Isekai\RiskOfRain\RoREquipmentBase.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
-    <Compile Include="Items\Rainbow\RainbowEyedrops.cs" />
+    <Compile Include="Items\Rainbow\RainbowTears.cs" />
     <Compile Include="Items\True\PrimordialLibram.cs" />
     <Compile Include="Items\True\HolyLight.cs" />
-    <Compile Include="Items\True\UpdateWindows10.cs" />
+    <Compile Include="Items\True\UpdateDuckGame.cs" />
     <Compile Include="Items\Dragon\Eternal Flame.cs" />
     <Compile Include="Items\True\ArcaneNova.cs" />
     <Compile Include="Localization\Enums\AMLang.cs" />
@@ -147,8 +160,8 @@
     <Compile Include="Mod.cs" />
     <Compile Include="NetHelper.cs" />
     <Compile Include="Particles\CustomSpark.cs" />
+    <Compile Include="Particles\DotParticle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RefectionCache.cs" />
     <Compile Include="Items\AMGun.cs" />
     <Compile Include="Items\AMHoldable.cs" />
     <Compile Include="Items\AMMelee.cs" />
@@ -162,6 +175,7 @@
     <None Include="Items\Electronic\Thunderstorm.cs" />
     <Compile Include="Items\Electronic\ElectronicImpacter.cs" />
     <None Include="Items\Isekai\AssassinsCreed\SpearOfLeonidas.cs" />
+    <Compile Include="Utilities\ExtensionMethods.cs" />
     <Compile Include="Utilities\Rand.cs" />
     <Compile Include="Utilities\Helper.cs" />
     <Compile Include="Utilities\HSL.cs" />

@@ -64,8 +64,10 @@ namespace AncientMysteries.Items.Miscellaneous
             var firedBullets = new List<Bullet>(1);
             if (timer >= 22 && removing == false)
             {
-                Bullet b = new Bullet_BigFB(this.x, this.y, new AT_BigFB(), fireAngle, t, false, 400);
-                b.color = Color.Orange;
+                Bullet b = new Bullet_BigFB(this.x, this.y, new AT_BigFB(), fireAngle, t, false, 400)
+                {
+                    color = Color.Orange
+                };
                 firedBullets.Add(b);
                 Level.Add(b);
                 if (Network.isActive)

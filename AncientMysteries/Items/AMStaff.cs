@@ -111,8 +111,17 @@ namespace AncientMysteries.Items
                     base.handAngle = offDir * MathHelper.Lerp(_holdAngle, _fireAngle, _castTime);
                 else handAngle = 0;
             }
+            if(castingParticlesEnabled)
+            {
+                DoCastingParticles();
+            }
             if (drawProgressBar)
                 UpdateProgressStyle();
+        }
+
+        public virtual void DoCastingParticles()
+        {
+
         }
 
         #region Progress Bar
@@ -123,6 +132,12 @@ namespace AncientMysteries.Items
         public Color progressFillColor = Color.Red;
 
         public Color progressBorderColor = Color.Black;
+
+        public bool castingParticlesEnabled = false;
+
+        public Color castingParticlesColor = Color.Black;
+
+        public Vec2 castingParticlesOffset = default;
 
         public float progressBorderWidth = 1f;
 

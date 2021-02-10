@@ -11,7 +11,7 @@ using static AncientMysteries.groupNames;
 namespace AncientMysteries.Items.Rainbow
 {
     [EditorGroup(g_staffs)]
-    public class RainbowEyedrops : AMStaff
+    public class RainbowTears : AMStaff
     {
         public StateBinding _animationFrameBinding = new StateBinding(nameof(AnimationFrame));
 
@@ -29,7 +29,7 @@ namespace AncientMysteries.Items.Rainbow
             _ => "Chromatic Eyedrop",
         };
 
-        public RainbowEyedrops(float xval, float yval) : base(xval, yval)
+        public RainbowTears(float xval, float yval) : base(xval, yval)
         {         
             this._ammoType = new AT_RainbowEyedrops()
             {
@@ -74,10 +74,12 @@ namespace AncientMysteries.Items.Rainbow
                     {
                         Bullet bullet = new Bullet(
                             barrelPos.x + Rando.Float(-3, 3),
-                            barrelPos.y + Rando.Float(-3, 3), ammoType, 90 + Rando.Float(-10, 10), duck);
-                        bullet.color = HSL.FromHslFloat(Rando.Float(0f, 1f), Rando.Float(0.7f, 1f), Rando.Float(0.45f, 0.65f));
-                        bullet.firedFrom = this;
-                        bullet.range = 2000;
+                            barrelPos.y + Rando.Float(-3, 3), ammoType, 90 + Rando.Float(-10, 10), duck)
+                        {
+                            color = HSL.FromHslFloat(Rando.Float(0f, 1f), Rando.Float(0.7f, 1f), Rando.Float(0.45f, 0.65f)),
+                            firedFrom = this,
+                            range = 2000
+                        };
                         firedBullets.Add(bullet);
                         Level.Add(bullet);
                     }
