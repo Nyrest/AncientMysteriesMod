@@ -63,7 +63,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                 penetration = 0.4f
             };
             _type = "gun";
-            _sprite = this.ReadyToRunMap("trackingGrenade.png", 8, 9);
+            _sprite = this.ReadyToRunMap(AMTexs.TrackingGrenade, 8, 9);
             graphic = _sprite;
             base.bouncy = 0.4f;
             friction = 0.05f;

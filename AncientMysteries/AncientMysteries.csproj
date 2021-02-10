@@ -9,14 +9,19 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AncientMysteries</RootNamespace>
     <AssemblyName>AncientMysteries</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <LangVersion>preview</LangVersion>
+    <LangVersion>9.0</LangVersion>
     <PlatformTarget>x86</PlatformTarget>
     <WarningLevel>4</WarningLevel>
     <TargetFrameworkProfile />
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false">
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -33,6 +38,7 @@
     <Content Include="content\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <AdditionalFiles Include="content\**" GenType="png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DuckGame, Version=1.1.7706.16085, Culture=neutral, processorArchitecture=x86">
@@ -104,7 +110,7 @@
     <Compile Include="Bullets\Bullet_FerociousPredator.cs" />
     <Compile Include="Bullets\Bullet_Skull.cs" />
     <Compile Include="Bullets\Bullet_Dragon.cs" />
-    <Compile Include="Caches\InstanceCache.cs" />
+    <AdditionalFiles Include="Caches\InstanceCache.cs" />
     <Compile Include="GlobalPool.cs" />
     <Compile Include="Helpers\FastNew.cs" />
     <Compile Include="Hooks.cs" />
@@ -175,6 +181,7 @@
     <Folder Include="Armor\" />
     <Folder Include="Extensions\" />
     <Folder Include="Items\Sucks\" />
+    <Folder Include="_Generated\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AncientMysteries.csproj.user" />
