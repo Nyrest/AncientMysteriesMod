@@ -26,7 +26,7 @@ jobs:
               id: cache-nugetPkgs
               with:
                 path: ~/.nuget/packages
-                key: nuget-${{ hashFiles('**/packages.lock.json') }}
+                key: nuget-${{ hashFiles('**/*.csproj') }}
                 restore-keys: nuget
 
             # Restore Nuget Packages If not cached
