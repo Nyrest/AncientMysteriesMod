@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -18,7 +19,6 @@ namespace AncientMysteries.SourceGenerator
         {
             using var texturesHashsStream = new FileStream(context.GetProjectLocaltion() + "/../.textureHashes", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read);
             var toProcessList = ReadList(texturesHashsStream, in context, out bool needRefresh);
-            Debugger.Break();
             if (toProcessList.Count > 0)
             {
                 DoProcess(context.GetProjectLocaltion() + "/../Tools/oxipng.exe", toProcessList);
@@ -31,6 +31,7 @@ namespace AncientMysteries.SourceGenerator
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static List<string> ReadList(Stream stream, in GeneratorExecutionContext context, out bool needRefresh)
         {
             stream.Position = 0;

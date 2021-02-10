@@ -26,7 +26,7 @@ namespace AncientMysteries.Items.Rainbow
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            _ => "Chromatic Eyedrop",
+            _ => "Chromatic Tears",
         };
 
         public RainbowTears(float xval, float yval) : base(xval, yval)

@@ -67,7 +67,7 @@ namespace AncientMysteries.SourceGenerator.Utilities
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryReadBytes([NotNullWhen(true)] out byte[] value)
+        public bool TryReadBytes(out byte[] value)
         {
             if (TryReadInt(out int length) && (uint)length <= Remainder)
             {
@@ -91,7 +91,7 @@ namespace AncientMysteries.SourceGenerator.Utilities
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryReadString([NotNullWhen(true)] out string value)
+        public bool TryReadString(out string value)
         {
             if (TryReadBytes(out byte[]? bytes))
             {
@@ -102,14 +102,6 @@ namespace AncientMysteries.SourceGenerator.Utilities
             return false;
         }
         #endregion
-
-        public void WriteToOne(string name, byte[] hash)
-        {
-            byte[] encodedName = encoding.GetBytes(name);
-            WriteInt(encodedName.Length + hash.Length);
-            stream.Write(encodedName, 0, encodedName.Length);
-            stream.Write(hash, 0, hash.Length);
-        }
 
         public void MarkHereAsEnd()
         {
