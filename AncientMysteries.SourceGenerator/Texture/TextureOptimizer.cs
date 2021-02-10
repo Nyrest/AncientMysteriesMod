@@ -2,7 +2,6 @@
 using Microsoft.CodeAnalysis;
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Diagnostics;
 using System.IO;
 using System.Security.Cryptography;
@@ -89,7 +88,7 @@ namespace AncientMysteries.SourceGenerator
             }
             using var process = Process.Start(new ProcessStartInfo(exe, "-o max -i 0 --strip all " + sbMini.ToString())
             {
-
+                
             });
             sbMini.ReturnMini();
             process.WaitForExit();

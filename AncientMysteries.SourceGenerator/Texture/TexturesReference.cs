@@ -13,7 +13,7 @@ namespace AncientMysteries.SourceGenerator
 
         public override void Generate(GeneratorExecutionContext context, StringBuilder sb)
         {
-            sb.AppendLine("public static partial class AMTexs");
+            sb.AppendLine("public static partial class Texs");
             sb.Append(TabLevel(1));
             sb.AppendLine("{");
             foreach (var file in context.AdditionalFiles)

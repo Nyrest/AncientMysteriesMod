@@ -16,7 +16,7 @@ namespace AncientMysteries.Items.FutureTech
         public ReboundShield(float xval, float yval) : base(xval, yval)
         {
             ammo = 1;
-            this.ReadyToRunMap("reboundShield.png");
+            this.ReadyToRunMap(Texs.ReboundShield);
             thickness = 100f;
             weight = 10f;
             flammable = 0f;
