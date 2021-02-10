@@ -22,7 +22,7 @@ namespace AncientMysteries
             }
             if (gun != null)
                 gun.bulletFireIndex++;
-            if (Network.isActive)
+            if (gun != null && Network.isActive)
             {
                 NMFireGun gunEvent = new(gun, firedBullets, gun.bulletFireIndex, rel: false, 4);
                 Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
