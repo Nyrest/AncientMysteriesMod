@@ -40,9 +40,9 @@
     </Content>
     <Compile Include="_Generated\**" />
     <AdditionalFiles Include="content\**" Visible="false">
-      <GenType>png</GenType>
+
     </AdditionalFiles>
-    <AdditionalFiles Include="_projLocator" />
+    <AdditionalFiles Include="_projLocator" Visible="false" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DuckGame, Version=1.1.7706.16085, Culture=neutral, processorArchitecture=x86">
