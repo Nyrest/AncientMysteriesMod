@@ -12,7 +12,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Miscellaneous
 {
-    public sealed class TempCrystal : PhysicsObject
+    public sealed class TempCrystal : PhysicsObject 
     {
         public SpriteMap _sprite;
         public bool _smoked;
