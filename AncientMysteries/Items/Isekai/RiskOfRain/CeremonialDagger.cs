@@ -17,7 +17,6 @@ namespace AncientMysteries.Items.Isekai.RiskOfRain
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            AMLang.schinese => "Ceremonial Dagger",
             _ => "仪式用匕首",
         };
     }

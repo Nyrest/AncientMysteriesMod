@@ -18,7 +18,6 @@ namespace AncientMysteries.Items.Isekai.RiskOfRain
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            AMLang.schinese => "个人护盾生成器",
             _ => "Personal Shield Generator",
         };
     }

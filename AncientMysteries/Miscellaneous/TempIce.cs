@@ -12,7 +12,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Miscellaneous
 {
-    public sealed class TempIce : Thing
+    public sealed class TempIce : PhysicsObject
     {
         public SpriteMap _sprite;
         public bool _smoked;
@@ -45,6 +45,7 @@ namespace AncientMysteries.Items.Miscellaneous
             this.center = new Vec2(17f, 17f);
             base.depth = 1f;
             t = tOwner;
+            solid = false;
             if (!doWait)
             {
                 this._wait = 0f;
