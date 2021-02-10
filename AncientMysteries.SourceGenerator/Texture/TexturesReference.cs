@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Linq;
 
 namespace AncientMysteries.SourceGenerator
 {
@@ -16,7 +17,7 @@ namespace AncientMysteries.SourceGenerator
             sb.AppendLine("public static partial class Texs");
             sb.Append(TabLevel(1));
             sb.AppendLine("{");
-            foreach (var file in context.AdditionalFiles)
+            foreach (var file in context.AdditionalFiles.OrderBy(x => Path.GetFileName(x.Path)))
             {
                 if (Path.GetExtension(file.Path).Equals(".png", StringComparison.OrdinalIgnoreCase))
                 {

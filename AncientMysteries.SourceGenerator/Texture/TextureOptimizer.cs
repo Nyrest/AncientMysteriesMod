@@ -7,6 +7,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.Linq;
 
 namespace AncientMysteries.SourceGenerator
 {
@@ -44,7 +45,7 @@ namespace AncientMysteries.SourceGenerator
             }
             List<string> result = new List<string>();
             int totalFileCount = 0;
-            foreach (var file in context.AdditionalFiles)
+            foreach (var file in context.AdditionalFiles.OrderBy(x => Path.GetFileName(x.Path)))
             {
                 if (Path.GetExtension(file.Path).Equals(".png", StringComparison.OrdinalIgnoreCase))
                 {
@@ -67,7 +68,7 @@ namespace AncientMysteries.SourceGenerator
         {
             stream.Position = 0;
             BinFlow flow = new(stream);
-            foreach (var file in context.AdditionalFiles)
+            foreach (var file in context.AdditionalFiles.OrderBy(x => Path.GetFileName(x.Path)))
             {
                 if (Path.GetExtension(file.Path).Equals(".png", StringComparison.OrdinalIgnoreCase))
                 {
