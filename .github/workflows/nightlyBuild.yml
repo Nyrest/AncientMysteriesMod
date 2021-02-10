@@ -21,22 +21,22 @@ jobs:
               uses: microsoft/setup-msbuild@v1.0.2
 
             # Try to pull Nuget Packages Caches
-            - name: Try to pull Nuget Packages Caches
-              uses: actions/cache@v2
-              id: cache-nugetPkgs
-              with:
-                path: ~/.nuget/packages
-                key: nuget-${{ hashFiles('**/*.csproj') }}
-                restore-keys: nuget
+            #- name: Try to pull Nuget Packages Caches
+            #  uses: actions/cache@v2
+            #  id: cache-nugetPkgs
+            #  with:
+            #    path: ~/.nuget/packages
+            #    key: nuget-${{ hashFiles('**/*.csproj') }}
+            #    restore-keys: nuget
 
-            # Restore Nuget Packages If not cached
-            - name: Restore Nuget Packages If not cached
-              if: steps.cache-nugetPkgs.outputs.cache-hit != 'true'
+            # Restore Nuget Packages
+            - name: Restore Nuget Packages
+              #if: steps.cache-nugetPkgs.outputs.cache-hit != 'true'
               run: nuget restore "Ancient Mysteries.sln"
 
             # Create BuildOutput Folder
-            - name: Create BuildOutput Folder
-              run: mkdir buildOutput
+            #- name: Create BuildOutput Folder
+            #  run: mkdir buildOutput
 
             # Try to pull Textures Caches
             #- name: Try to pull Textures Caches
@@ -60,17 +60,17 @@ jobs:
 
             # Pack built files into single zip
             - name: Pack built files
-              run: .github\7za.exe a -y -mx9 -t7z ".\AncientMysteriesMod.7z" ".\buildOutput\*"
+              run: Compress-Archive -Path ".\buildOutput\*" -CompressionLevel Optimal -DestinationPath ".\AncientMysteriesMod.zip"
 
             # Upload as nightly-build
             - name: Upload as nightly-build
               uses: "marvinpinto/action-automatic-releases@latest"
               with:
                 repo_token: "${{ secrets.GITHUB_TOKEN }}"
-                automatic_release_tag: "latest"
+                automatic_release_tag: "latest-nightly"
                 prerelease: true
                 title: "Nightly Build"
-                files: AncientMysteriesMod.7z
+                files: AncientMysteriesMod.zip
 
             # File Tree for action debugging
             #- name: File Tree for action debugging
