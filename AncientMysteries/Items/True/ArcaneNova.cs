@@ -60,7 +60,7 @@ namespace AncientMysteries.Items.True
             base.OnReleaseSpell();
             var firePos = barrelPosition;
             if (_castTime >= 1f)
-                this.nmFireGun(new Bullet_AN(firePos.x, firePos.y, new AT_AN(), owner.offDir == 1 ? 0 : 180, owner, false, 275));
+                this.NmFireGun(new Bullet_AN(firePos.x, firePos.y, new AT_AN(), owner.offDir == 1 ? 0 : 180, owner, false, 275));
         }
     }
 }
