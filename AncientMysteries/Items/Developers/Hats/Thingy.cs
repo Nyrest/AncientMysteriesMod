@@ -3,6 +3,7 @@ using DuckGame;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using static AncientMysteries.groupNames;
 
@@ -11,6 +12,8 @@ namespace AncientMysteries.Armor.Developers.Hats
     [EditorGroup(e_developer)]
     public sealed class Thingy : AMHelmet
     {
+        private static readonly FieldInfo fieldAmmoType = typeof(Gun).GetField("_ammoType", BindingFlags.Instance | BindingFlags.NonPublic);
+
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
             _ => "Devastator",
@@ -29,27 +32,56 @@ namespace AncientMysteries.Armor.Developers.Hats
         public override void Update()
         {
             base.Update();
-            var equipped = equippedDuck;
-            if (base.equippedDuck != null)
+            var d = equippedDuck;
+            if (d != null)
             {
-                equippedDuck.gravMultiplier = equipped.crouch ? 2f : 0.3f;
-                if (equippedDuck.gun != null)
-                    equippedDuck.gun.infiniteAmmoVal = true;
-                
+                d.gravMultiplier = d.crouch ? 2f : 0.3f;
+                if (d.gun != null)
+                {
+                    d.gun.infiniteAmmoVal = true;
+                    if (d.gun._fireWait > 0.05f)
+                        d.gun._fireWait = 0.05f;
+                    // TODO: make full auto later
+                    if (d.gun is TampingWeapon tampingWeapon)
+                    {
+                        tampingWeapon._tamped = true;
+                    }
+                    if (d.gun.ammoType is not ATMissile)
+                    {
+                        var oriAt = d.gun.ammoType;
+                        fieldAmmoType.SetValue(d.gun, new ATMissile
+                        {
+                            range = oriAt.range,
+                            rangeVariation = oriAt.rangeVariation,
+                            rebound = oriAt.rebound,
+                            accuracy = oriAt.accuracy,
+                            airFrictionMultiplier = oriAt.airFrictionMultiplier,
+                            canTeleport = oriAt.canTeleport,
+                            canBeReflected = oriAt.canBeReflected,
+                            speedVariation = oriAt.speedVariation,
+                            barrelAngleDegrees = oriAt.barrelAngleDegrees,
+                            bulletSpeed = oriAt.bulletSpeed,
+                            bulletThickness = oriAt.bulletThickness,
+                            bulletLength = oriAt.bulletLength,
+                            bulletColor = oriAt.bulletColor,
+                        });
+                    }
+                }
+
                 float amount = 0.5f;
-                if (!base.equippedDuck.sliding && !base.equippedDuck.immobilized && !base.equippedDuck.moveLock)
+                if (!d.sliding && !d.immobilized && !d.moveLock)
                 {
                     if (!base.equippedDuck.grounded)
                     {
                         amount = 0.25f;
                     }
-                    if (base.equippedDuck.inputProfile.Down("RIGHT") && base.equippedDuck.hSpeed < 9f)
+                    if (d.inputProfile.Down("RIGHT") && d.hSpeed < 9f)
                     {
-                        base.equippedDuck.hSpeed = MathHelper.Lerp(base.equippedDuck.hSpeed, 9f, amount);
+                        d.hSpeed = MathHelper.Lerp(d.hSpeed, 9f, amount);
                     }
-                    if (base.equippedDuck.inputProfile.Down("LEFT") && base.equippedDuck.hSpeed > -9f)
+                    if (d.inputProfile.Down("LEFT") && base.equippedDuck.hSpeed > -9f)
                     {
-                        base.equippedDuck.hSpeed = MathHelper.Lerp(base.equippedDuck.hSpeed, -9f, amount);
+                        d.hSpeed = MathHelper.Lerp(d.hSpeed, -9f, amount);
                     }
                 }
             }

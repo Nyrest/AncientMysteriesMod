@@ -29,7 +29,7 @@ namespace AncientMysteries.Bullets
             bPos -= travelDirNormalized;
             if (isLocal)
             {
-                NetHelper.nmFireGun(null, list =>
+                NetHelper.NmFireGun(null, list =>
                 {
                     for (int i = 0; i < 24; i++)
                     {

@@ -140,7 +140,7 @@ namespace AncientMysteries.Items.Explosives
                                 float addSpeedX = this.hSpeed * 0.7f;
                                 float addSpeedY = this.vSpeed * 0.7f;
                                 Firecracker f = new(cx + Rando.Float(-1f, 1f), cy + Rando.Float(-1f, 1f));
-                                _firecrackerExplodeTimer.SetValue(f, new ActionTimer(Rando.Float(0.02f, 0.022f)));
+                                _firecrackerExplodeTimer.SetValue(f, new ActionTimer(Rando.Float(0.018f, 0.024f)));
                                 f.spinAngle = 90f;
                                 f.hSpeed = Rando.Float(1.5f, 3f).RandomNegative() + addSpeedX;
                                 f.vSpeed = addSpeedY > 0 ? 0 : addSpeedY + Rando.Float(1.5f, 3f).RandomNegative();

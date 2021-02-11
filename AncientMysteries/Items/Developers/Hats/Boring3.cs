@@ -56,18 +56,6 @@ namespace AncientMysteries.Armor.Developers.Hats
                 _equippedCollisionSize = baseCollisionSize + new Vec2(2, 2); ;
             }
 
-            if (_equippedDuck != null && _equippedDuck.grounded)
-            {
-                if (_equippedDuck.hSpeed is >= 0.6f and <= 3)
-                {
-                    _equippedDuck.hSpeed = 0.6f;
-                }
-                else if (_equippedDuck.hSpeed is <= -0.6f and >= -3)
-                {
-                    _equippedDuck.hSpeed = -0.6f;
-                }
-            }
-
             if (_equippedDuck != null)
             {
                 var equippedDuckFeather = _equippedDuck.persona.featherSprite.texture;

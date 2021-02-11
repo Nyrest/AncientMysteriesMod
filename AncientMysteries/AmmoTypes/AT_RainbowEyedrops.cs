@@ -23,15 +23,23 @@ namespace AncientMysteries.AmmoTypes
             weight = 5f;
 
             bulletLength = 3000;
-            this.affectedByGravity = true;
+            affectedByGravity = true;
 
+            bulletType = typeof(AT_RainbowEyedrops_Bullet);
         }
 
-        public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
+        public class AT_RainbowEyedrops_Bullet : Bullet
         {
-            var result = base.FireBullet(position, owner, angle, firedFrom);
-            result.color = bulletColor = HSL.FromHslFloat(Rando.Float(0f, 1f), Rando.Float(0.7f, 1f), Rando.Float(0.45f, 0.65f));
-            return result;
+            public AT_RainbowEyedrops_Bullet(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network) { }
+
+            public override void Update()
+            {
+                base.Update();
+                if (color == Color.White)
+                {
+                    color = HSL.FromHslFloat(Rando.Float(0f, 1f), Rando.Float(0.7f, 1f), Rando.Float(0.45f, 0.65f));
+                }
+            }
         }
     }
 }

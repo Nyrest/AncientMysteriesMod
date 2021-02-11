@@ -8,7 +8,7 @@ namespace AncientMysteries
     public static class NetHelper
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void nmFireGun(this Gun gun, Action<List<Bullet>> value, bool alsoAddThemToWorld = true)
+        public static void NmFireGun(this Gun gun, Action<List<Bullet>> value, bool alsoAddThemToWorld = true)
         {
             var firedBullets = GlobalPool<List<Bullet>>.Rent();
             firedBullets.Clear();
@@ -32,7 +32,7 @@ namespace AncientMysteries
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void nmFireGun(this Gun gun, Bullet value, bool alsoAddThemToWorld = true)
+        public static void NmFireGun(this Gun gun, Bullet value, bool alsoAddThemToWorld = true)
         {
             var firedBullets = GlobalPool<List<Bullet>>.Rent();
             firedBullets.Clear();
