@@ -33,7 +33,7 @@ namespace AncientMysteries.Armor.Developers.Hats
         {
             base.Update();
             var d = equippedDuck;
-            if (d != null)
+            if (d is not null)
             {
                 d.gravMultiplier = d.crouch ? 2f : 0.3f;
                 if (d.gun != null)
