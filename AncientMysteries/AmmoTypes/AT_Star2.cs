@@ -15,8 +15,10 @@ namespace AncientMysteries.AmmoTypes
             range = 100f;
             penetration = 1f;
             rangeVariation = 0;
-            bulletSpeed = 2;
+            bulletSpeed = 0.02f;
+            bulletLength = 0;
             combustable = true;
+            speedVariation = 0f;
             //sprite.CenterOrigin();
             bulletType = typeof(Bullet_Star2);
             sprite = TexHelper.ModSprite("holyLight2.png");

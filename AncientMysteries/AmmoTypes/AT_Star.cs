@@ -18,6 +18,7 @@ namespace AncientMysteries.AmmoTypes
             combustable = true;
             bulletSpeed = 5f;
             sprite = TexHelper.ModSprite("holyStar.png");
+            bulletLength = 0;
             //sprite.CenterOrigin();
             bulletType = typeof(Bullet_Star);
         }

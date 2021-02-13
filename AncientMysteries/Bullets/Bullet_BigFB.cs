@@ -13,8 +13,11 @@ namespace AncientMysteries.Bullets
 
         public int n = 0;
 
+        public Vec2 pos;
 
         public StateBinding _bulletSpeedBinding = new(nameof(_bulletSpeed));
+        public StateBinding _bulletPosBinding = new(nameof(start));
+        public StateBinding _posBinding = new(nameof(pos));
 
         public Bullet_BigFB(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
@@ -31,7 +34,7 @@ namespace AncientMysteries.Bullets
             {
                 SFX.Play("flameExplode", 0.7f, Rando.Float(-0.8f, -0.4f), 0f, false);
                 n = 0;
-                var bullet = new Bullet_Lava(start.x, start.y, new AT_Lava(), Rando.Float(135, 45), owner, false, 200, false, true)
+                var bullet = new Bullet_Lava(pos.x + this.travelDirNormalized.x * bulletSpeed, pos.y + travelDirNormalized.y * bulletSpeed, new AT_Lava(), Rando.Float(135, 45), owner, false, 200, false, true)
                 {
                     color = Color.DarkOrange
                 };
@@ -39,6 +42,7 @@ namespace AncientMysteries.Bullets
                 Level.Add(bullet);
             }
             this._bulletSpeed += 0.15f;
+            pos = start;
             /*foreach (Thing t in Level.CheckCircleAll<Thing>(this.position,10))
             {
                 if (t != Level.CheckCircleAll<Thing>(DuckNetwork.localConnection.profile.duck.position,20))
@@ -51,7 +55,7 @@ namespace AncientMysteries.Bullets
         public override void DoTerminate()
         {
             base.DoTerminate();
-            ExplosionPart ins = new(start.x, start.y, true);
+            ExplosionPart ins = new(travelEnd.x, travelEnd.y, true);
             Level.Add(ins);
             SFX.Play("explode", 0.7f, Rando.Float(-0.7f, -0.5f), 0f, false);
             Thing bulletOwner = this.owner;
@@ -66,7 +70,7 @@ namespace AncientMysteries.Bullets
             var firedBullets = new List<Bullet>(7);
             for (int i = 0; i < 7; i++)
             {
-                var bullet = new Bullet_Lava(start.x, start.y, new AT_Lava(), Rando.Float(0, 360), owner, false, 200, false, true)
+                var bullet = new Bullet_Lava(travelEnd.x, travelEnd.y, new AT_Lava(), Rando.Float(0, 360), owner, false, 200, false, true)
                 {
                     color = Color.DarkOrange
                 };
