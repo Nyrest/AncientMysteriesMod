@@ -116,7 +116,20 @@ namespace AncientMysteries
         {
             var info = GetInfo(spriteMapName);
             int w = frameWidth == -1 ? info.frameWidth : frameWidth, h = frameHeight == -1 ? info.frameHeight : frameHeight;
-            SpriteMap result =  new(info.texture, w, h);
+            SpriteMap result = new(info.texture, w, h);
+            thing.graphic = result;
+            thing.collisionOffset = -(thing.center = new Vec2(w / 2, h / 2));
+            thing.collisionSize = new Vec2(w, h);
+            return result;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static SpriteMap ReadyToRunMap(this Thing thing, string spriteMapName, Vec2 scale, int frameWidth = -1, int frameHeight = -1)
+        {
+            var info = GetInfo(spriteMapName);
+            int w = (int)Math.Ceiling((frameWidth == -1 ? info.frameWidth : frameWidth) * scale.x);
+            int h = (int)Math.Ceiling((frameHeight == -1 ? info.frameHeight : frameHeight) * scale.y);
+            SpriteMap result = new(info.texture, w, h);
             thing.graphic = result;
             thing.collisionOffset = -(thing.center = new Vec2(w / 2, h / 2));
             thing.collisionSize = new Vec2(w, h);
