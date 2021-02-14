@@ -5,7 +5,7 @@ using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Common
 {
-    [EditorGroup(guns)]
+    [EditorGroup(g_commons)]
     public class Umbrella : AMNotGun, IPlatform
     {
         //public StateBinding _openedBinding = new StateBinding("_opened");
@@ -37,7 +37,8 @@ namespace AncientMysteries.Items.Common
                     this.ReadyToRunMap(Texs.Umbrella_open);
                 }
                 this.handAngle = 0;
-                if (duck.crouch || this._triggerHeld)
+
+                if (d.crouch || this._triggerHeld)
                 {
                     this.handAngle = -1.56f * -this.offDir;
                     _holdOffset = new Vec2(-10 , -5);
@@ -45,6 +46,18 @@ namespace AncientMysteries.Items.Common
                 }
                 else
                 {
+                    if (d._hovering)
+                    {
+                        this.handAngle = -1.56f * -this.offDir;
+                    }
+                    if (d.vSpeed >= 0f)
+                    {
+                        if (d.vSpeed > 0.4f)
+                        {
+                            d.vSpeed = 0.4f;
+                        }
+                        d.vSpeed -= 0.15f;
+                    }
                     _holdOffset = new Vec2(-4, -7);
                     handOffset = Vec2.Zero;
                 }
@@ -57,6 +70,11 @@ namespace AncientMysteries.Items.Common
                     this.ReadyToRunMap(Texs.Umbrella_closed);
                 }
             }
+        }
+
+        public override bool Hit(Bullet bullet, Vec2 hitPos)
+        {
+            return false;
         }
     }
 }
