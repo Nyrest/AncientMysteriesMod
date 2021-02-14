@@ -58,6 +58,24 @@ namespace AncientMysteries.Armor.Developers.Hats
 
             if (_equippedDuck != null)
             {
+                var rect = _equippedDuck.rectangle;
+                bool foundFire = false;
+                foreach (SmallFire item in Level.current.things[typeof(SmallFire)])
+                {
+                    if (item.stick == _equippedDuck)
+                    {
+                        item.stick = null;
+                    }
+                    if (Collision.Rect(rect, item.rectangle))
+                    {
+                        foundFire = true;
+                    }
+                }
+                if (!foundFire)
+                {
+                    _equippedDuck.burnt = 0;
+                    _equippedDuck.onFire = false;
+                }
                 var equippedDuckFeather = _equippedDuck.persona.featherSprite.texture;
                 var equppedDuckColor = _equippedDuck.persona.colorUsable;
                 foreach (var feather in Level.CheckCircleAll<Feather>(_equippedDuck.position, 50))
@@ -111,6 +129,7 @@ namespace AncientMysteries.Armor.Developers.Hats
                         )),
                     0.2f));
             }
+            SFX.Play("scimiSurge", 0.8f, Rando.Float(-0.2f, 0.2f));
 
             /*
             SmallSmoke smoke = SmallSmoke.New(hitPos.x, hitPos.y,0.8f,3);
