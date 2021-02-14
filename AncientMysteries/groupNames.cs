@@ -14,6 +14,8 @@ namespace AncientMysteries
         #region Guns
         public const string guns = topGroupName + "|Weapons";
 
+        public const string g_commons = guns + "|Commons";
+
         public const string g_rifles = guns + "|Rifles";
 
         public const string g_shotguns = guns + "|Shotguns";
