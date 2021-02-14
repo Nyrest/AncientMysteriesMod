@@ -115,6 +115,10 @@ namespace AncientMysteries
         public static SpriteMap ReadyToRunMap(this Thing thing, string spriteMapName, int frameWidth = -1, int frameHeight = -1)
         {
             var info = GetInfo(spriteMapName);
+            if(thing.graphic is SpriteMap spriteMap && spriteMap.texture == info.texture)
+            {
+                return spriteMap;
+            }
             int w = frameWidth == -1 ? info.frameWidth : frameWidth, h = frameHeight == -1 ? info.frameHeight : frameHeight;
             SpriteMap result = new(info.texture, w, h);
             thing.graphic = result;
