@@ -129,17 +129,5 @@ namespace AncientMysteries.Items.Artifacts
                 Graphics.DrawLine(start, _targetPlayer.position, Color.White, 1f, 1);
             }
         }
-
-        public void Shing()
-        {
-            SFX.Play("swordClash", Rando.Float(0.6f, 0.7f), Rando.Float(-0.1f, 0.1f), Rando.Float(-0.1f, 0.1f));
-            Vec2 vec = (position - base.barrelPosition).normalized;
-            Vec2 start = base.barrelPosition;
-            for (int i = 0; i < 6; i++)
-            {
-                Level.Add(Spark.New(start.x, start.y, new Vec2(Rando.Float(-1f, 1f), Rando.Float(-1f, 1f))));
-                start += vec * 4f;
-            }
-        }
     }
 }
