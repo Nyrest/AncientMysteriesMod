@@ -13,6 +13,7 @@ namespace AncientMysteries.Armor.Developers.Hats
     public sealed class Thingy : AMHelmet
     {
         private static readonly FieldInfo fieldAmmoType = typeof(Gun).GetField("_ammoType", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static readonly FieldInfo fieldFullAuto = typeof(Gun).GetField("_fullAuto", BindingFlags.Instance | BindingFlags.NonPublic);
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
@@ -25,8 +26,8 @@ namespace AncientMysteries.Armor.Developers.Hats
             _pickupSprite = this.ReadyToRun("hatHattyPickup.png");
             EquipmentMaxHitPoints = 32767;
             EquipmentHitPoints = 32767;
-            _isArmor = false;
-            _equippedThickness = 1000;
+            _isArmor = true;
+            _equippedThickness = int.MaxValue;
         }
 
         public override void Update()
@@ -36,20 +37,29 @@ namespace AncientMysteries.Armor.Developers.Hats
             if (d is not null)
             {
                 d.gravMultiplier = d.crouch ? 2f : 0.3f;
-                if (d.gun != null)
+                if (d.gun is Gun gun)
                 {
-                    d.gun.infiniteAmmoVal = true;
-                    if (d.gun._fireWait > 0.05f)
-                        d.gun._fireWait = 0.05f;
-                    // TODO: make full auto later
-                    if (d.gun is TampingWeapon tampingWeapon)
+                    gun.infiniteAmmoVal = true;
+                    gun.loaded = true;
+                    
+                    if (gun._wait > 0.05f)
+                        gun._wait = 0.05f;
+                    if (gun is TampingWeapon tampingWeapon)
                     {
                         tampingWeapon._tamped = true;
                     }
-                    if (d.gun.ammoType is not ATMissile)
+                    if (!gun.fullAuto)
                     {
-                        var oriAt = d.gun.ammoType;
-                        fieldAmmoType.SetValue(d.gun, new ATMissile
+                        fieldFullAuto.SetValue(gun, true);
+                    }
+                    if (gun is OldPistol oldPistol)
+                    {
+                        oldPistol._loadState = -1;
+                    }
+                    if (gun.ammoType is not ATMissile)
+                    {
+                        var oriAt = gun.ammoType;
+                        fieldAmmoType.SetValue(gun, new ATMissile
                         {
                             range = oriAt.range,
                             rangeVariation = oriAt.rangeVariation,
