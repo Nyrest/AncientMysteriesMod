@@ -45,7 +45,7 @@
     <Compile Include="Items\AMNotGun.cs" />
     <Compile Include="Items\Common\Umbrella.cs" />
     <Compile Include="Items\True\Arcane Nova.cs" />
-    <Compile Include="_Generated\**" />
+    <None Include="_Generated\TexturesReference.cs" />
     <AdditionalFiles Include="_projLocator" Visible="false" />
   </ItemGroup>
   <ItemGroup>

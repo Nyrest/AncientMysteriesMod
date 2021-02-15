@@ -39,7 +39,7 @@ namespace AncientMysteries.SourceGenerator
             needRefresh = false;
             Dictionary<string, byte[]> hashDict = new Dictionary<string, byte[]>(100);
             BinFlow flow = new(stream);
-            while (flow.TryReadString(out string? name) && flow.TryReadBytes(out byte[]? hash))
+            while (flow.TryReadString(out string name) && flow.TryReadBytes(out byte[] hash))
             {
                 hashDict.Add(name, hash);
             }
