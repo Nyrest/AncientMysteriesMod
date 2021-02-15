@@ -145,7 +145,7 @@
     <None Include="Items\Isekai\RiskOfRain\RoREquipmentBase.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
     <Compile Include="Items\Rainbow\RainbowTears.cs" />
-    <Compile Include="Items\True\PrimordialLibram.cs" />
+    <None Include="Items\True\PrimordialLibram.cs" />
     <Compile Include="Items\True\HolyLight.cs" />
     <Compile Include="Items\True\UpdateDuckGame.cs" />
     <Compile Include="Items\Dragon\Eternal Flame.cs" />
@@ -169,14 +169,14 @@
     <Compile Include="Items\AMMelee.cs" />
     <Compile Include="Items\AMStaff.cs" />
     <Compile Include="Items\Artifact\FallGuy.cs" />
-    <None Include="Items\Dark\Melee\DeathBringer.cs" />
+    <Compile Include="Items\Dark\Melee\DeathBringer.cs" />
     <Compile Include="Items\Dark\Void Piercer.cs" />
     <Compile Include="Items\Dark\Shadow Dance.cs" />
     <Compile Include="Items\Dark\Dark Aurora.cs" />
     <Compile Include="Items\Dragon\Molten Spitter.cs" />
     <None Include="Items\Electronic\Thunderstorm.cs" />
     <Compile Include="Items\Electronic\ElectronicImpacter.cs" />
-    <None Include="Items\Isekai\AssassinsCreed\SpearOfLeonidas.cs" />
+    <Compile Include="Items\Isekai\AssassinsCreed\SpearOfLeonidas.cs" />
     <Compile Include="Utilities\ExtensionMethods.cs" />
     <Compile Include="Utilities\Rand.cs" />
     <Compile Include="Utilities\Helper.cs" />

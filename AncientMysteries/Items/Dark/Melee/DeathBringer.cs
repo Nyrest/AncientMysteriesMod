@@ -1,5 +1,6 @@
 ﻿using AncientMysteries.AmmoTypes;
 using AncientMysteries.Bullets;
+using AncientMysteries.Localization.Enums;
 using DuckGame;
 using System.Collections.Generic;
 using static AncientMysteries.groupNames;
@@ -9,13 +10,17 @@ namespace AncientMysteries.Items.Dark.Melee
     [EditorGroup(g_melees)]
     public sealed class DeathBringer : AMMelee
     {
+        public override string GetLocalizedName(AMLang lang) => lang switch
+        {
+            _ => "Death Bringer",
+        };
+
         public float cooldown = -2;
 
         public DeathBringer(float xval, float yval)
             : base(xval, yval)
         {
             this.ReadyToRunMap("DeathBringer.png", 26, 32);
-            _pitchOffset = -0.7f;
         }
 
         public override void Update()
@@ -30,8 +35,9 @@ namespace AncientMysteries.Items.Dark.Melee
 
         public override void OnPressAction()
         {
-            AT_Skull type = new AT_Skull();
             base.OnPressAction();
+            /*
+            AT_Skull type = new AT_Skull();
             if (duck != null && cooldown == 0)
             {
                 cooldown = -2;
@@ -52,6 +58,7 @@ namespace AncientMysteries.Items.Dark.Melee
                     }
                 }
             }
+            */
         }
     }
 }

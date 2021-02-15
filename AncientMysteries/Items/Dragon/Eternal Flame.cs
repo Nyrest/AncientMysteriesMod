@@ -2,6 +2,7 @@
 using AncientMysteries.Bullets;
 using DuckGame;
 using System.Collections.Generic;
+using AncientMysteries.Localization.Enums;
 using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Dragon.Melee
@@ -14,10 +15,14 @@ namespace AncientMysteries.Items.Dragon.Melee
         public float cooldown3 = 0;
         public bool _quacked;
 
+        public override string GetLocalizedName(AMLang lang) => lang switch
+        {
+            _ => "Spear Of Leonidas",
+        };
+
         public EternalFlame(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRunMap("eF.png", 9, 25);
-            _pitchOffset = -0.7f;
         }
 
         public override void Update()
@@ -40,7 +45,7 @@ namespace AncientMysteries.Items.Dragon.Melee
             else cooldown3 = 0;
             if (duck != null && cooldown2 == 0)
             {
-                if ( _quacked != duck.IsQuacking() && (_quacked = duck.IsQuacking()))
+                if (_quacked != duck.IsQuacking() && (_quacked = duck.IsQuacking()))
                 {
                     if (this.owner._offDir == -1)
                     {
