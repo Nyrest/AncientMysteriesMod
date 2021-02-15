@@ -20,6 +20,7 @@ namespace AncientMysteries.Items.Dark.Melee
         public DeathBringer(float xval, float yval)
             : base(xval, yval)
         {
+
             this.ReadyToRunMap("DeathBringer.png", 26, 32);
         }
 

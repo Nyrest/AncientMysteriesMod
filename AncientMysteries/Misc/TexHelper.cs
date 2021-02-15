@@ -30,7 +30,7 @@ namespace AncientMysteries
 
         #region
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static SpriteMap ModSpriteMap(string spriteMapName, bool centerOrigin = false)
+        public static SpriteMap ModSpriteMap(this string spriteMapName, bool centerOrigin = false)
         {
             var info = GetInfo(spriteMapName);
             var result = new SpriteMap(info.texture, info.frameWidth, info.frameHeight);
@@ -40,7 +40,7 @@ namespace AncientMysteries
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Sprite ModSprite(string spriteMapName, bool centerOrigin = false)
+        public static Sprite ModSprite(this string spriteMapName, bool centerOrigin = false)
         {
             var info = GetInfo(spriteMapName);
             var result = new Sprite(info.texture, info.frameWidth, info.frameHeight);
@@ -50,7 +50,7 @@ namespace AncientMysteries
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static SpriteMap ModSpriteMap(string spriteMapName, int frameWidth = -1, int frameHeight = -1, bool centerOrigin = false)
+        public static SpriteMap ModSpriteMap(this string spriteMapName, int frameWidth = -1, int frameHeight = -1, bool centerOrigin = false)
         {
             var info = GetInfo(spriteMapName);
             var result = new SpriteMap(info.texture, frameWidth == -1 ? info.frameWidth : frameWidth, frameHeight == -1 ? info.frameHeight : frameHeight);
