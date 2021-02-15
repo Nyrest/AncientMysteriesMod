@@ -21,7 +21,6 @@ namespace AncientMysteries.Items.Dark.Melee
             : base(xval, yval)
         {
             this.ReadyToRunMap("DeathBringer.png", 26, 32);
-            _pitchOffset = -0.7f;
         }
 
         public override void Update()

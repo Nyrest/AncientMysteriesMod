@@ -23,7 +23,6 @@ namespace AncientMysteries.Items.Dragon.Melee
         public EternalFlame(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRunMap("eF.png", 9, 25);
-            _pitchOffset = -0.7f;
         }
 
         public override void Update()
