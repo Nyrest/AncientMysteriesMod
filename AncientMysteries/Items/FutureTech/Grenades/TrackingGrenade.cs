@@ -249,8 +249,19 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             if (IsTargetVaild && duck?.profile.localPlayer == true)
             {
                 var start = this.topLeft + graphic.center * graphic.scale;
-                float fontWidth = _biosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
-                _biosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
+                float fontWidth;
+                fontWidth = _biosFont.GetWidth("@QUACK@", false, duck.inputProfile);
+                _biosFont.Draw("@QUACK@", duck.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
+                if (_pin)
+                {
+                    fontWidth = _biosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
+                    _biosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
+                }
+                else
+                {
+                    fontWidth = _biosFont.GetWidth("@GRAB@", false, duck.inputProfile);
+                    _biosFont.Draw("@GRAB@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
+                }
                 Graphics.DrawLine(start, _targetPlayer.position, Color.White, duck is null ? 0.6f : 1f, 1);
             }
         }
