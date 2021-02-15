@@ -19,8 +19,8 @@ namespace AncientMysteries
             Graphics.DrawRect(new Rectangle(position.x - width / 2, position.y + yOffset, width, height), bgColor, depth, true);
             Graphics.DrawRect(
                 new Rectangle(position.x - width / 2, position.y + yOffset, width * Math.Min(progress, 1), height)
-                , fillColor, depth+1, true);
-            Graphics.DrawRect(new Rectangle(position.x - width / 2, position.y + yOffset, width, height), border, depth+2, false, borderWidth);
+                , fillColor, depth + 1, true);
+            Graphics.DrawRect(new Rectangle(position.x - width / 2, position.y + yOffset, width, height), border, depth + 2, false, borderWidth);
         }
     }
 }
