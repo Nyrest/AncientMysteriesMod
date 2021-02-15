@@ -26,7 +26,11 @@ namespace AncientMysteries.SourceGenerator.Utilities
             set => stream.SetLength(value);
         }
 
-        public readonly long Remainder => stream.Length - stream.Position;
+        public readonly long Remainder
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => stream.Length - stream.Position;
+        }
 
         public BinFlow(Stream stream)
         {
@@ -40,8 +44,6 @@ namespace AncientMysteries.SourceGenerator.Utilities
         {
             Unsafe.CopyBlock(ref buffer4[0], ref Unsafe.As<int, byte>(ref value), 4);
             stream.Write(buffer4, 0, 4);
-            //var rawValue = BitConverter.GetBytes(value);
-            //stream.Write(rawValue, 0, rawValue.Length);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -54,6 +56,49 @@ namespace AncientMysteries.SourceGenerator.Utilities
             }
             stream.Read(buffer4, 0, 4);
             value = Unsafe.ReadUnaligned<int>(ref buffer4[0]);
+            return true;
+        }
+        #endregion
+
+        #region Unmanaged
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void WriteUnmanaged<T>(T value) where T : unmanaged
+        {
+            Unsafe.CopyBlock(ref buffer4[0], ref Unsafe.As<T, byte>(ref value), (uint)Unsafe.SizeOf<T>());
+            stream.Write(buffer4, 0, Unsafe.SizeOf<T>());
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryReadUnmanaged<T>(out T value) where T : unmanaged
+        {
+            if (Remainder < Unsafe.SizeOf<T>())
+            {
+                value = default;
+                return false;
+            }
+            byte[] buffer = new byte[Unsafe.SizeOf<T>()];
+            stream.Read(buffer, 0, Unsafe.SizeOf<T>());
+            value = Unsafe.ReadUnaligned<T>(ref buffer[0]);
+            return true;
+        }
+        #endregion
+
+        #region Byte
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void WriteByte(byte value)
+        {
+            stream.WriteByte(value);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryReadByte(out byte value)
+        {
+            if (Remainder == 0)
+            {
+                value = default;
+                return false;
+            }
+            value = (byte)stream.ReadByte();
             return true;
         }
         #endregion
@@ -93,7 +138,7 @@ namespace AncientMysteries.SourceGenerator.Utilities
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool TryReadString(out string value)
         {
-            if (TryReadBytes(out byte[]? bytes))
+            if (TryReadBytes(out byte[] bytes))
             {
                 value = encoding.GetString(bytes);
                 return true;
