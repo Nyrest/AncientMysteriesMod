@@ -41,7 +41,7 @@ namespace AncientMysteries.Armor.Developers.Hats
                 {
                     gun.infiniteAmmoVal = true;
                     gun.loaded = true;
-                    
+
                     if (gun._wait > 0.05f)
                         gun._wait = 0.05f;
                     if (gun is TampingWeapon tampingWeapon)
@@ -85,11 +85,11 @@ namespace AncientMysteries.Armor.Developers.Hats
                     {
                         amount = 0.25f;
                     }
-                    if (d.inputProfile.Down("RIGHT") && d.hSpeed < 9f)
+                    if (d.inputProfile.Down("RIGHT") && d.hSpeed is > 1f and < 9f)
                     {
                         d.hSpeed = MathHelper.Lerp(d.hSpeed, 9f, amount);
                     }
-                    if (d.inputProfile.Down("LEFT") && base.equippedDuck.hSpeed > -9f)
+                    if (d.inputProfile.Down("LEFT") && d.hSpeed is < -1f and > -9f)
                     {
                         d.hSpeed = MathHelper.Lerp(d.hSpeed, -9f, amount);
                     }
