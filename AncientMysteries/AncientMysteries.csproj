@@ -168,7 +168,7 @@
     <Compile Include="Items\AMMelee.cs" />
     <Compile Include="Items\AMStaff.cs" />
     <Compile Include="Items\Artifact\FallGuy.cs" />
-    <None Include="Items\Dark\Melee\DeathBringer.cs" />
+    <Compile Include="Items\Dark\Melee\DeathBringer.cs" />
     <Compile Include="Items\Dark\Void Piercer.cs" />
     <Compile Include="Items\Dark\Shadow Dance.cs" />
     <Compile Include="Items\Dark\Dark Aurora.cs" />
