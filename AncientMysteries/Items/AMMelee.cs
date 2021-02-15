@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AncientMysteries.Items
 {
-    public class AMMelee : Gun
+    public abstract class AMMelee : AMGun
     {
         public StateBinding _swingBinding = new(doLerp: true, "_swing");
 
@@ -78,7 +78,7 @@ namespace AncientMysteries.Items
 
         public List<Vec2> _lastPositions = new();
 
-        public float _pitchOffset =0;
+        public float _pitchOffset = 0;
 
         public override float angle
         {

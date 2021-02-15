@@ -175,7 +175,7 @@
     <Compile Include="Items\Dragon\Molten Spitter.cs" />
     <None Include="Items\Electronic\Thunderstorm.cs" />
     <Compile Include="Items\Electronic\ElectronicImpacter.cs" />
-    <None Include="Items\Isekai\AssassinsCreed\SpearOfLeonidas.cs" />
+    <Compile Include="Items\Isekai\AssassinsCreed\SpearOfLeonidas.cs" />
     <Compile Include="Utilities\ExtensionMethods.cs" />
     <Compile Include="Utilities\Rand.cs" />
     <Compile Include="Utilities\Helper.cs" />

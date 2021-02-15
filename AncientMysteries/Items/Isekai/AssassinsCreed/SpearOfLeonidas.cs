@@ -10,7 +10,7 @@ using static AncientMysteries.AMFonts;
 namespace AncientMysteries.Items.Artifacts
 {
     [EditorGroup(groupNames.g_artifacts)]
-    public sealed class SpearOfLeonidas : AMGun
+    public sealed class SpearOfLeonidas : AMMelee
     {
         public static readonly Tex2D targetCircle = TexHelper.ModTex2D("targetCircle.png");
         public static readonly int tcWidth = targetCircle.w, tcHeight = targetCircle.h;
@@ -32,9 +32,6 @@ namespace AncientMysteries.Items.Artifacts
 
         public SpearOfLeonidas(float xval, float yval) : base(xval, yval)
         {
-            this.ammo = 10;
-            this._ammoType = new AT9mm();
-            this._type = "gun";
             this.ReadyToRunMap("SpearOfLeonidas.png");
             this._barrelOffsetTL = new Vec2(20f, 4f);
             this._fireSound = "smg";
@@ -64,12 +61,13 @@ namespace AncientMysteries.Items.Artifacts
                 _holdOffset = new Vec2(-8, -6);
                 handAngle = 1.3f * offDir;
                 if (
-                    (_quacked != duck.IsQuacking() && (_quacked = duck.IsQuacking())) ||
-                    _targetPlayer == null
+                    (_quacked != duck.IsQuacking() && (_quacked = duck.IsQuacking()))
+                    || _targetPlayer == null
+                    || (_targetPlayer.position - duck.position).length > 250
                     )
                 {
                     //SwitchTarget();
-                    Helper.SwitchTarget(ref _targetPlayer, duck);
+                    Helper.SwitchTargetCircle(ref _targetPlayer, duck, this.position, 250);
                 }
             }
             // TODO: do this network onwer only, if null then just fucking stop flying and fall
@@ -86,7 +84,7 @@ namespace AncientMysteries.Items.Artifacts
                 this.hSpeed = Math.Min(anglevec.x, 5);
                 this.vSpeed = Math.Min(anglevec.y, 5) * -1;
                 this.canPickUp = false;
-                if(_targetPlayer.dead)
+                if (_targetPlayer.dead)
                 {
                     _flying = false;
                 }
@@ -96,15 +94,6 @@ namespace AncientMysteries.Items.Artifacts
                 this.canPickUp = true;
                 _targetPlayer = null;
                 _quacked = false;
-            }
-        }
-
-        public override void OnImpact(MaterialThing with, ImpactedFrom from)
-        {
-            base.OnImpact(with, from);
-            if (Math.Max(Math.Abs(hSpeed), Math.Abs(vSpeed)) > 2 && with is Duck duck)
-            {
-                duck.Kill(new DTImpact(this));
             }
         }
 
@@ -132,12 +121,11 @@ namespace AncientMysteries.Items.Artifacts
             base.Draw();
             if (IsTargetVaild && duck?.profile.localPlayer == true)
             {
-                var start = this.topLeft + graphic.center * graphic.scale;
+                var start = duck.position;
                 var end = _targetPlayer.position - new Vec2(0, 13);
                 //Graphics.DrawLine(start, end, Color.White, 1f, 1);
                 float fontWidth = _biosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
                 _biosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
-                Graphics.Draw(targetCircle, _targetPlayer.position, null, Color.Orange, 0, new Vec2(tcWidth / 2, tcHeight / 2), new Vec2(0.5f), SpriteEffects.None, 1);
                 Graphics.DrawLine(start, _targetPlayer.position, Color.White, 1f, 1);
             }
         }

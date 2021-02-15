@@ -46,5 +46,26 @@ namespace AncientMysteries.Utilities
             }
             current = null;
         }
+
+        public static void SwitchTargetCircle(ref Duck current, Duck ignore, Vec2 pos, float radius, bool playSound = true)
+        {
+            Duck[] ducks = Level.CheckCircleAll<Duck>(pos, radius)
+            .OrderBy(x => x.persona is null ? 0 : Persona.Number(x.persona))
+            .ToArray();
+            int startIndex = Array.IndexOf(ducks, current) + 1;
+            if (startIndex >= ducks.Length) startIndex = 0;
+            for (; startIndex < ducks.Length; startIndex++)
+            {
+                var target = ducks[startIndex];
+                if (!target.dead && target != ignore)
+                {
+                    current = target;
+                    if (playSound)
+                        SFX.Play("swipe", 1f, 0.8f);
+                    return;
+                }
+            }
+            current = null;
+        }
     }
 }
