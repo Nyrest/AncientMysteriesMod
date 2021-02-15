@@ -144,7 +144,7 @@
     <None Include="Items\Isekai\RiskOfRain\RoREquipmentBase.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
     <Compile Include="Items\Rainbow\RainbowTears.cs" />
-    <Compile Include="Items\True\PrimordialLibram.cs" />
+    <None Include="Items\True\PrimordialLibram.cs" />
     <Compile Include="Items\True\HolyLight.cs" />
     <Compile Include="Items\True\UpdateDuckGame.cs" />
     <Compile Include="Items\Dragon\Eternal Flame.cs" />

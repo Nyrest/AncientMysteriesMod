@@ -20,7 +20,12 @@ namespace AncientMysteries.Items.True
         public StateBinding _blindTimeBinding = new(nameof(_blindTime));
         public int _blindTime;
 
+        public StateBinding _cdBinding = new(nameof(_cd));
+        public int _cd;
+
         public const int totalBlinkTime = 60 * 5; // 5sec
+
+        public const int totalCD = totalBlinkTime * 2;
 
         public bool IsTargetVaild => _targetPlayer?.dead == false && _targetPlayer?.ragdoll == null;
 
@@ -44,11 +49,17 @@ namespace AncientMysteries.Items.True
                 _blindTime--;
             }
             else _blindTime = 0;
+            if (_cd > 0)
+            {
+                _cd--;
+            }
+            else _cd = 0;
             if (duck != null)
             {
                 if (
-                    (_quacked != duck.IsQuacking() && (_quacked = duck.IsQuacking())) ||
-                    _targetPlayer == null
+                    ((_quacked != duck.IsQuacking() && (_quacked = duck.IsQuacking()))
+                    || _targetPlayer == null)
+                    && _blindTime == 0
                     )
                 {
                     Helper.SwitchTarget(ref _targetPlayer, duck);
@@ -65,12 +76,19 @@ namespace AncientMysteries.Items.True
         {
             base.PressAction();
             if (IsTargetVaild)
+            {
                 _blindTime = totalBlinkTime;
+                _cd = totalCD;
+            }
         }
 
         public override void Draw()
         {
             base.Draw();
+            if (_cd != 0 && duck != null)
+            {
+                GTool.DrawTopProgressCenterTop(duck.position, _cd / totalCD, Color.White, Color.OrangeRed, Color.Black, 1, -13, 20, 7, this.depth);
+            }
             if (IsTargetVaild && duck?.profile.localPlayer == true)
             {
                 var start = this.topLeft + graphic.center * graphic.scale;
