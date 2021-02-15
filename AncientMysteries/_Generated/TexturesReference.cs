@@ -62,6 +62,8 @@ namespace AncientMysteries
         public const string NovaFrm3 = "novaFrm3.png";
         public const string OceansRage = "oceansRage.png";
         public const string Overgrowth = "overgrowth.png";
+        public const string OvergrowthBig = "overgrowthBig.png";
+        public const string OvergrowthSmall = "overgrowthSmall.png";
         public const string PriLibram = "priLibram.png";
         public const string RainbowGun = "rainbowGun.png";
         public const string ReboundShield = "reboundShield.png";

@@ -40,6 +40,8 @@
     </Content>
     <AdditionalFiles Include="content\**" Visible="false">
     </AdditionalFiles>
+    <Compile Include="Bullets\Bullet_OGS.cs" />
+    <Compile Include="Bullets\Bullet_OGB.cs" />
     <Compile Include="Items\AMNotGun.cs" />
     <Compile Include="Items\Common\Umbrella.cs" />
     <Compile Include="Items\True\Arcane Nova.cs" />
