@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using static AncientMysteries.groupNames;
@@ -34,6 +35,32 @@ namespace AncientMysteries.Items._DEBUG
             fuck.SetValue(this, probPairs);
             base.Update();
             contains = amTypes[Rando.Int(amTypes.Length - 1)];
+        }
+
+        public override void SpawnItem()
+        {
+            _spawnWait = 0f;
+            if (Network.isActive && base.isServerForObject)
+            {
+                Send.Message(new NMItemSpawned(this));
+            }
+            IReadOnlyPropertyBag containsBag = ContentProperties.GetBag(contains);
+            var fuckingType = amTypes[Rando.Int(amTypes.Length - 1)];
+            PhysicsObject newThing = (PhysicsObject)Editor.CreateThing(fuckingType);
+            if (newThing != null)
+            {
+                newThing.x = base.x;
+                newThing.y = base.top + (newThing.y - newThing.bottom) - 6f;
+                newThing.vSpeed = -2f;
+                newThing.spawnAnimation = true;
+                newThing.isSpawned = true;
+                newThing.offDir = offDir;
+                Level.Add(newThing);
+                if (_seated)
+                {
+                    SetHoverItem(newThing as Holdable);
+                }
+            }
         }
     }
 }
