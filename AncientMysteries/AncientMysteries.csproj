@@ -40,6 +40,7 @@
     </Content>
     <AdditionalFiles Include="content\**" Visible="false">
     </AdditionalFiles>
+    <Compile Include="AmmoTypes\AT_Overgrowth.cs" />
     <Compile Include="Bullets\Bullet_OGS.cs" />
     <Compile Include="Bullets\Bullet_OGB.cs" />
     <Compile Include="Items\AMNotGun.cs" />

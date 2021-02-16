@@ -22,18 +22,28 @@ namespace AncientMysteries.Items.True
             set => _spriteMap._frame = value;
         }
 
-
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
             _ => "Overgrowth",
         };
 
+        public AT_Overgrowth ammoTypeSmall = new(false);
+
+        public AT_Overgrowth ammoTypeBig = new(true);
+
+        public AT_Overgrowth ammoTypeSmall2 = new(false) 
+        {
+            bulletSpeed = 1f,
+            accuracy = 1f,
+            speedVariation = 0f,
+            rangeVariation = 0f
+        };
+
         public Overgrowth(float xval, float yval) : base(xval, yval)
         {
             this._type = "gun";
-            _spriteMap = this.ReadyToRunMap(Texs.Overgrowth, 21, 34);
-            _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2, 3);
-            _spriteMap.SetAnimation("loop");
+            _ammoType = ammoTypeSmall;
+            _spriteMap = this.ReadyToRunMap("overgrowth.png", 19, 34);
             this.SetBox(19, 34);
             this._barrelOffsetTL = new Vec2(6f, 5f);
             this._castSpeed = 0.0035f;
@@ -44,7 +54,7 @@ namespace AncientMysteries.Items.True
             this._kickForce = 0.25f;
             this._fullAuto = true;
         }
-        
+
         public override void OnSpelling()
         {
             base.OnSpelling();
@@ -63,63 +73,29 @@ namespace AncientMysteries.Items.True
             {
                 for (int i = -1; i < Math.Ceiling(Convert.ToDecimal(times / 2)); i++)
                 {
-                    this.NmFireGun(new Bullet_OGB(firePos.x, firePos.y, new AT_FB()
-                    {
-                        sprite = TexHelper.ModSprite("overgrowthBig.png"),
-                        bulletSpeed = 4f,
-                        accuracy = 0.4f,
-                        speedVariation = 3f,
-                        rangeVariation = 50f
-                    }, owner.offDir == 1 ? 0 : 180, owner, false, 170 + Rando.Float(-50,50))) ;
+                    this.NmFireGun(new Bullet_OGB(firePos.x, firePos.y, ammoTypeSmall, owner.offDir == 1 ? 0 : 180, owner, false, 170 + Rando.Float(-50, 50)));
                 }
                 for (int i = -1; i < times * 2; i++)
                 {
-                    this.NmFireGun(new Bullet_OGS(firePos.x, firePos.y, new AT_Star2() 
-                    {
-                        sprite = TexHelper.ModSprite("overgrowthSmall.png"),
-                        bulletSpeed = 5f,
-                        accuracy = 0.3f,
-                        speedVariation = 2.5f,
-                        rangeVariation = 50f
-                    }, owner.offDir == 1 ? 0 : 180, owner, false, 245 + Rando.Float(-80, 80)));
+                    this.NmFireGun(new Bullet_OGS(firePos.x, firePos.y, ammoTypeBig, owner.offDir == 1 ? 0 : 180, owner, false, 245 + Rando.Float(-80, 80)));
                 }
             }
             if (times < 10 && _castTime >= 1f)
             {
                 times += 1;
-                SFX.Play("scoreDing",0.5f,Convert.ToSingle(-0.3 + times * 0.03f),0,false);
+                SFX.Play("scoreDing", 0.5f, Convert.ToSingle(-0.3 + times * 0.03f), 0, false);
             }
             if (times == 10)
             {
                 SFX.Play("scoreDing", 0.7f, 0.1f, 0, false);
-                foreach (Duck d in Level.CheckCircleAll<Duck>(owner.position,999))
+                foreach (Duck d in Level.CheckCircleAll<Duck>(owner.position, 999))
                 {
                     if (d != owner)
                     {
-                        this.NmFireGun(new Bullet_OGS(d.x - 40, d.y - 40, new AT_Star2()
-                        {
-                            sprite = TexHelper.ModSprite("overgrowthSmall.png"),
-                            bulletSpeed = 1f,
-                            accuracy = 1f,
-                        }, Maths.PointDirection(d.x - 40, d.y - 40, d.x, d.y), owner, false, 60));
-                        this.NmFireGun(new Bullet_OGS(d.x + 40, d.y - 40, new AT_Star2()
-                        {
-                            sprite = TexHelper.ModSprite("overgrowthSmall.png"),
-                            bulletSpeed = 1f,
-                            accuracy = 1f,
-                        }, Maths.PointDirection(d.x + 40, d.y - 40, d.x, d.y), owner, false, 60));
-                        this.NmFireGun(new Bullet_OGS(d.x - 40, d.y + 40, new AT_Star2()
-                        {
-                            sprite = TexHelper.ModSprite("overgrowthSmall.png"),
-                            bulletSpeed = 1f,
-                            accuracy = 1f,
-                        }, Maths.PointDirection(d.x - 40, d.y + 40, d.x, d.y), owner, false, 60));
-                        this.NmFireGun(new Bullet_OGS(d.x + 40, d.y + 40, new AT_Star2()
-                        {
-                            sprite = TexHelper.ModSprite("overgrowthSmall.png"),
-                            bulletSpeed = 1f,
-                            accuracy = 1f,
-                        }, Maths.PointDirection(d.x + 40, d.y + 40, d.x, d.y), owner, false, 60));
+                        this.NmFireGun(new Bullet_OGS(d.x - 40, d.y - 40, ammoTypeSmall2, Maths.PointDirection(d.x - 40, d.y - 40, d.x, d.y), owner, false, 60));
+                        this.NmFireGun(new Bullet_OGS(d.x + 40, d.y - 40, ammoTypeSmall2, Maths.PointDirection(d.x + 40, d.y - 40, d.x, d.y), owner, false, 60));
+                        this.NmFireGun(new Bullet_OGS(d.x - 40, d.y + 40, ammoTypeSmall2, Maths.PointDirection(d.x - 40, d.y + 40, d.x, d.y), owner, false, 60));
+                        this.NmFireGun(new Bullet_OGS(d.x + 40, d.y + 40, ammoTypeSmall2, Maths.PointDirection(d.x + 40, d.y + 40, d.x, d.y), owner, false, 60));
                     }
                 }
             }
