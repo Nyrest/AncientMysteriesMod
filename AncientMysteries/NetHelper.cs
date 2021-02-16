@@ -21,34 +21,37 @@ namespace AncientMysteries
                 }
             }
             if (gun != null)
-                gun.bulletFireIndex++;
-            if (gun != null && Network.isActive)
             {
-                NMFireGun gunEvent = new(gun, firedBullets, gun.bulletFireIndex, rel: false, 4);
-                Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
+                gun.bulletFireIndex++;
+                if (Network.isActive)
+                {
+                    NMFireGun gunEvent = new(gun, firedBullets, gun.bulletFireIndex, rel: false, 4);
+                    Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
+                }
             }
             firedBullets.Clear();
             GlobalPool<List<Bullet>>.Return(firedBullets);
         }
 
+
+        [Obsolete("Use gun.NmFireGun(list => { list.Add(new Bullet()); })")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void NmFireGun(this Gun gun, Bullet value, bool alsoAddThemToWorld = true)
         {
-            var firedBullets = GlobalPool<List<Bullet>>.Rent();
-            firedBullets.Clear();
-            firedBullets.Add(value);
+            var firedBullets = new List<Bullet>(1);
             if (alsoAddThemToWorld)
             {
                 Level.Add(value);
             }
-            gun.bulletFireIndex++;
-            if (Network.isActive)
+            if (gun != null)
             {
-                NMFireGun gunEvent = new(gun, firedBullets, gun.bulletFireIndex, rel: false, 4);
-                Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
+                gun.bulletFireIndex++;
+                if (Network.isActive)
+                {
+                    NMFireGun gunEvent = new(gun, firedBullets, gun.bulletFireIndex, rel: false, 4);
+                    Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
+                }
             }
-            firedBullets.Clear();
-            GlobalPool<List<Bullet>>.Return(firedBullets);
         }
     }
 }
