@@ -17,6 +17,7 @@ namespace AncientMysteries.Items._DEBUG
 
         public DebugItemBox(float xpos, float ypos, Type c = null) : base(xpos, ypos, c)
         {
+            _editorName = "|DGPURPLE|Debug Item Box";
             randomSpawn = true;
         }
 
