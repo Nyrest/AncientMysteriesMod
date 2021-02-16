@@ -19,9 +19,8 @@ namespace AncientMysteries.Bullets
         {
             base.Update();
         }
-        public override void DoTerminate()
+        public override void Removed()
         {
-            base.DoTerminate();
             NovaExp n = new(travelEnd.x,travelEnd.y, true);
             n.xscale *= 1.5f;
             n.yscale *= 1.5f;
@@ -48,6 +47,7 @@ namespace AncientMysteries.Bullets
                 Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
                 firedBullets.Clear();
             }
+            base.Removed();
         }
     }
 }
