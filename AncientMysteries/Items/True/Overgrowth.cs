@@ -31,12 +31,13 @@ namespace AncientMysteries.Items.True
 
         public AT_Overgrowth ammoTypeBig = new(true);
 
-        public AT_Overgrowth ammoTypeSmall2 = new(false) 
+        public AT_Overgrowth ammoTypeSmall2 = new(false)
         {
             bulletSpeed = 1f,
             accuracy = 1f,
             speedVariation = 0f,
-            rangeVariation = 0f
+            rangeVariation = 0f,
+            penetration = 2147483647f
         };
 
         public Overgrowth(float xval, float yval) : base(xval, yval)
