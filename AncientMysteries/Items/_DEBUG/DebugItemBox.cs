@@ -12,8 +12,7 @@ namespace AncientMysteries.Items._DEBUG
     [EditorGroup(_debugGroup)]
     public class DebugItemBox : ItemSpawner
     {
-        private static readonly Assembly amAssembly = Assembly.GetExecutingAssembly();
-        public static Type[] amTypes;
+        public static Type[] amTypes = Assembly.GetExecutingAssembly().GetTypes().Where(x => typeof(Holdable).IsAssignableFrom(x)).ToArray();
 
         public DebugItemBox(float xpos, float ypos, Type c = null) : base(xpos, ypos, c)
         {
@@ -24,10 +23,6 @@ namespace AncientMysteries.Items._DEBUG
         public override void Update()
         {
             base.Update();
-            if (amTypes is null)
-            {
-                amTypes = Editor.Placeables.AllTypes.Where(x => x.Assembly == amAssembly).ToArray();
-            }
             contains = amTypes[Rando.Int(amTypes.Length - 1)];
         }
     }
