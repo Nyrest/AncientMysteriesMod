@@ -31,7 +31,9 @@ namespace AncientMysteries.Items.True
         public Overgrowth(float xval, float yval) : base(xval, yval)
         {
             this._type = "gun";
-            _spriteMap = this.ReadyToRunMap("overgrowth.png", 19, 34);
+            _spriteMap = this.ReadyToRunMap(Texs.Overgrowth, 21, 34);
+            _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2, 3);
+            _spriteMap.SetAnimation("loop");
             this.SetBox(19, 34);
             this._barrelOffsetTL = new Vec2(6f, 5f);
             this._castSpeed = 0.0035f;
@@ -42,7 +44,7 @@ namespace AncientMysteries.Items.True
             this._kickForce = 0.25f;
             this._fullAuto = true;
         }
-
+        
         public override void OnSpelling()
         {
             base.OnSpelling();
