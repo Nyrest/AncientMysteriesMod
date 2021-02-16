@@ -50,7 +50,6 @@ namespace AncientMysteries
                             "Electronic" => "|DGYELLOW|Electronic",
                             "Isekai" => "Isekai @PLANET@",
                             "Hats" => "|PINK|Hats",
-                            "Debug" => "|DGPURPLE|Debug",
                             _ => g.Name.Replace('%', '|'),
                         };
                         ReplaceAllSub(g);
