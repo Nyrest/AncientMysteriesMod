@@ -43,8 +43,10 @@ namespace AncientMysteries.Items.True
         {
             this._type = "gun";
             _ammoType = ammoTypeSmall;
-            _spriteMap = this.ReadyToRunMap("overgrowth.png", 19, 34);
-            this.SetBox(19, 34);
+            _spriteMap = this.ReadyToRunMap(Texs.Overgrowth, 21, 34);
+            _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2, 3);
+            _spriteMap.SetAnimation("loop");
+            this.SetBox(21, 34);
             this._barrelOffsetTL = new Vec2(6f, 5f);
             this._castSpeed = 0.0035f;
             BarrelSmokeFuckOff();
