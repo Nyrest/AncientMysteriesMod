@@ -11,6 +11,8 @@ namespace AncientMysteries
 
         public const string relative_Isekai = "|Isekai";
 
+        public const string _debugGroup = topGroupName + "||DGRED|Debug";
+
         #region Guns
         public const string guns = topGroupName + "|Weapons";
 

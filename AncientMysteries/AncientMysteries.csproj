@@ -153,6 +153,7 @@
     <Compile Include="Items\True\UpdateDuckGame.cs" />
     <Compile Include="Items\Dragon\Eternal Flame.cs" />
     <Compile Include="Items\True\Overgrowth.cs" />
+    <Compile Include="Items\_DEBUG\DebugItemBox.cs" />
     <Compile Include="Localization\Enums\AMLang.cs" />
     <None Include="Items\Mortal\props\Dice.cs" />
     <Compile Include="Localization\IAMLocalizable.cs" />
