@@ -184,6 +184,7 @@
     <Compile Include="Utilities\Rand.cs" />
     <Compile Include="Utilities\Helper.cs" />
     <Compile Include="Utilities\HSL.cs" />
+    <Compile Include="Utilities\OnRemoveListener.cs" />
     <Compile Include="Utilities\StupidMoving.cs" />
   </ItemGroup>
   <ItemGroup>
