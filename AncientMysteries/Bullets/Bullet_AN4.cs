@@ -14,14 +14,5 @@ namespace AncientMysteries.Bullets
         {
 
         }
-
-        public override void Update()
-        {
-            base.Update();
-        }
-        public override void DoTerminate()
-        {
-            base.DoTerminate();
-        }
     }
 }
