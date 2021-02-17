@@ -25,7 +25,7 @@ namespace AncientMysteries.Items._DEBUG
             base.Initialize();
             if (Level.current is Editor || (Network.isActive && !this.isServerForObject)) return;
             var fuckingType = amTypes[Rando.Int(amTypes.Length - 1)];
-            if (Editor.CreateThing(fuckingType) is PhysicsObject newThing)
+            if (Activator.CreateInstance(fuckingType, Editor.GetConstructorParameters(fuckingType)) is PhysicsObject newThing)
             {
                 newThing.x = base.x;
                 newThing.y = this.y;
