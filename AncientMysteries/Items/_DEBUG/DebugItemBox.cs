@@ -13,26 +13,20 @@ namespace AncientMysteries.Items._DEBUG
     [EditorGroup(_debugGroup)]
     public class DebugItemBox : ItemSpawner
     {
-        public static Type[] amTypes = Assembly.GetExecutingAssembly().GetTypes().Where(x => typeof(Holdable).IsAssignableFrom(x)).ToArray();
-        public static List<TypeProbPair> probPairs = new List<TypeProbPair>(amTypes.Select(x => new TypeProbPair() { probability = 1, type = x }));
-        public static FieldInfo fuck = typeof(ItemSpawner).GetField("_possible", BindingFlags.NonPublic | BindingFlags.Instance);
+        public static Type[] amTypes = Assembly.GetExecutingAssembly().GetTypes().Where(x => !x.IsAbstract && typeof(Holdable).IsAssignableFrom(x)).ToArray();
 
         public DebugItemBox(float xpos, float ypos, Type c = null) : base(xpos, ypos, c)
         {
             _editorName = "|DGPURPLE|Debug Item Box";
             randomSpawn = true;
-            fuck.SetValue(this, probPairs);
         }
         public override void DoInitialize()
         {
-            fuck.SetValue(this, probPairs);
             base.DoInitialize();
-            fuck.SetValue(this, probPairs);
         }
 
         public override void Update()
         {
-            fuck.SetValue(this, probPairs);
             base.Update();
             contains = amTypes[Rando.Int(amTypes.Length - 1)];
         }
@@ -44,7 +38,6 @@ namespace AncientMysteries.Items._DEBUG
             {
                 Send.Message(new NMItemSpawned(this));
             }
-            IReadOnlyPropertyBag containsBag = ContentProperties.GetBag(contains);
             var fuckingType = amTypes[Rando.Int(amTypes.Length - 1)];
             PhysicsObject newThing = (PhysicsObject)Editor.CreateThing(fuckingType);
             if (newThing != null)
