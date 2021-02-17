@@ -59,8 +59,16 @@ namespace AncientMysteries.Items.True
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
-            if (_castTime >= 1f)
-                this.NmFireGun(new Bullet_AN(firePos.x, firePos.y, new AT_AN(), owner.offDir == 1 ? 0 : 180, owner, false, 275));
+            var firedBullets = new List<Bullet>(1);
+            for (int i = 0; i < 1; i++)
+            {
+                if (_castTime >= 1f)
+                {
+                    Bullet b = new Bullet_AN(firePos.x, firePos.y, new AT_AN(), owner.offDir == 1 ? 0 : 180, owner, false, 275);
+                    firedBullets.Add(b);
+                    Level.Add(b);
+                }
+            }
         }
     }
 }
