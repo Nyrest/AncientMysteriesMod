@@ -46,9 +46,9 @@ namespace AncientMysteries.Bullets
             }
         }
 
-        public override  void DoTerminate()
+        public override  void Removed()
         {
-            base.DoTerminate();
+            base.Removed();
             ExplosionPart ins = new(travelEnd.x, travelEnd.y, true);
             ins.xscale *= 0.7f;
             ins.yscale *= 0.7f;
