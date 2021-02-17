@@ -37,7 +37,7 @@ namespace AncientMysteries.Items
             set
             {
                 _value = value;
-                Sword obj = _thing as Sword;
+                AMMelee obj = _thing as AMMelee;
                 obj._jabStance = (_value & 0x10) != 0;
                 obj._crouchStance = (_value & 8) != 0;
                 obj._slamStance = (_value & 4) != 0;
