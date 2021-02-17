@@ -20,14 +20,11 @@ namespace AncientMysteries.Items._DEBUG
             _editorName = "|DGPURPLE|Debug Item Box";
             randomSpawn = true;
         }
-        public override void DoInitialize()
-        {
-            base.DoInitialize();
-        }
 
         public override void Update()
         {
             base.Update();
+            if (Network.isActive && !Network.isServer) return;
             contains = amTypes[Rando.Int(amTypes.Length - 1)];
         }
 
@@ -38,6 +35,7 @@ namespace AncientMysteries.Items._DEBUG
             {
                 Send.Message(new NMItemSpawned(this));
             }
+            if (Network.isActive && !Network.isServer) return;
             var fuckingType = amTypes[Rando.Int(amTypes.Length - 1)];
             PhysicsObject newThing = (PhysicsObject)Editor.CreateThing(fuckingType);
             if (newThing != null)
