@@ -83,7 +83,7 @@ namespace AncientMysteries.Items.True
                     this.NmFireGun(new Bullet_OGS(firePos.x, firePos.y, ammoTypeSmall, owner.offDir == 1 ? 0 : 180, owner, false, 245 + Rando.Float(-80, 80)));
                 }
             }
-            if (times == 10)
+            if (times == 10 && _castTime >= 1f)
             {
                 SFX.Play("scoreDing", 0.7f, 0.1f, 0, false);
                 foreach (Duck d in Level.CheckCircleAll<Duck>(owner.position, 999))
