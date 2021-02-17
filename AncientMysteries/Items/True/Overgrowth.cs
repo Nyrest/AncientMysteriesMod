@@ -27,9 +27,15 @@ namespace AncientMysteries.Items.True
             _ => "Overgrowth",
         };
 
-        public AT_Overgrowth ammoTypeSmall = new(false);
+        public AT_Overgrowth ammoTypeSmall = new(false)
+        {
+            penetration = 1f 
+        };
 
-        public AT_Overgrowth ammoTypeBig = new(true);
+        public AT_Overgrowth ammoTypeBig = new(true)
+        {
+            penetration = 1f
+        };
 
         public AT_Overgrowth ammoTypeSmall2 = new(false)
         {
