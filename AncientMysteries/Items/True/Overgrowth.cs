@@ -29,7 +29,7 @@ namespace AncientMysteries.Items.True
 
         public AT_Overgrowth ammoTypeSmall = new(false)
         {
-            penetration = 1f 
+            penetration = 1f
         };
 
         public AT_Overgrowth ammoTypeBig = new(true)
@@ -80,33 +80,40 @@ namespace AncientMysteries.Items.True
             var firePos = barrelPosition;
             if (_castTime >= 1f)
             {
-                for (int i = -1; i < Math.Ceiling(Convert.ToDecimal(times / 2)); i++)
+                this.NmFireGun(list =>
                 {
-                    this.NmFireGun(new Bullet_OGB(firePos.x, firePos.y, ammoTypeBig, owner.offDir == 1 ? 0 : 180, owner, false, 170 + Rando.Float(-50, 50)));
-                }
-                for (int i = -1; i < times * 2; i++)
-                {
-                    this.NmFireGun(new Bullet_OGS(firePos.x, firePos.y, ammoTypeSmall, owner.offDir == 1 ? 0 : 180, owner, false, 245 + Rando.Float(-80, 80)));
-                }
+                    for (int i = -1; i < Math.Ceiling(Convert.ToDecimal(times / 2)); i++)
+                    {
+
+                        list.Add(new Bullet_OGB(firePos.x, firePos.y, ammoTypeBig, owner.offDir == 1 ? 0 : 180, owner, false, 170 + Rando.Float(-50, 50)));
+                    }
+                    for (int i = -1; i < times * 2; i++)
+                    {
+                        list.Add(new Bullet_OGS(firePos.x, firePos.y, ammoTypeSmall, owner.offDir == 1 ? 0 : 180, owner, false, 245 + Rando.Float(-80, 80)));
+                    }
+                });
             }
             if (times == 10 && _castTime >= 1f)
             {
-                SFX.Play("scoreDing", 0.7f, 0.1f, 0, false);
+                SFX.PlaySynchronized("scoreDing", 0.7f, 0.1f, 0, false);
                 foreach (Duck d in Level.CheckCircleAll<Duck>(owner.position, 999))
                 {
                     if (d != owner)
                     {
-                        this.NmFireGun(new Bullet_OGS(d.x - 40, d.y - 40, ammoTypeSmall2, Maths.PointDirection(d.x - 40, d.y - 40, d.x, d.y), owner, false, 60));
-                        this.NmFireGun(new Bullet_OGS(d.x + 40, d.y - 40, ammoTypeSmall2, Maths.PointDirection(d.x + 40, d.y - 40, d.x, d.y), owner, false, 60));
-                        this.NmFireGun(new Bullet_OGS(d.x - 40, d.y + 40, ammoTypeSmall2, Maths.PointDirection(d.x - 40, d.y + 40, d.x, d.y), owner, false, 60));
-                        this.NmFireGun(new Bullet_OGS(d.x + 40, d.y + 40, ammoTypeSmall2, Maths.PointDirection(d.x + 40, d.y + 40, d.x, d.y), owner, false, 60));
+                        this.NmFireGun(list =>
+                        {
+                            list.Add(new Bullet_OGS(d.x - 40, d.y - 40, ammoTypeSmall2, Maths.PointDirection(d.x - 40, d.y - 40, d.x, d.y), owner, false, 60));
+                            list.Add(new Bullet_OGS(d.x - 40, d.y - 40, ammoTypeSmall2, Maths.PointDirection(d.x + 40, d.y - 40, d.x, d.y), owner, false, 60));
+                            list.Add(new Bullet_OGS(d.x - 40, d.y - 40, ammoTypeSmall2, Maths.PointDirection(d.x - 40, d.y + 40, d.x, d.y), owner, false, 60));
+                            list.Add(new Bullet_OGS(d.x - 40, d.y - 40, ammoTypeSmall2, Maths.PointDirection(d.x + 40, d.y + 40, d.x, d.y), owner, false, 60));
+                        });
                     }
                 }
             }
             if (times < 10 && _castTime >= 1f)
             {
                 times += 1;
-                SFX.Play("scoreDing", 0.5f, Convert.ToSingle(-0.3 + times * 0.03f), 0, false);
+                SFX.PlaySynchronized("scoreDing", 0.5f, Convert.ToSingle(-0.3 + times * 0.03f), 0, false);
             }
             _castSpeed = Convert.ToSingle(0.0035f + 0.0008 * times);
         }

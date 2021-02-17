@@ -34,7 +34,7 @@ namespace AncientMysteries
         }
 
 
-        [Obsolete("Use gun.NmFireGun(list => { list.Add(new Bullet()); })")]
+        [Obsolete("Use gun.NmFireGun(list => { list.Add(new Bullet()); })", true)]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void NmFireGun(this Gun gun, Bullet value, bool alsoAddThemToWorld = true)
         {
