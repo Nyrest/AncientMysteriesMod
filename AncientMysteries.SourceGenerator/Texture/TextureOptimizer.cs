@@ -38,7 +38,7 @@ namespace AncientMysteries.SourceGenerator
             stream.Position = 0;
             needRefresh = false;
             Dictionary<string, byte[]> hashDict = new Dictionary<string, byte[]>(100);
-            BinFlow flow = new(stream);
+            ByteFlow flow = new(stream);
             while (flow.TryReadString(out string name) && flow.TryReadBytes(out byte[] hash))
             {
                 hashDict.Add(name, hash);
@@ -67,15 +67,12 @@ namespace AncientMysteries.SourceGenerator
         public static void WriteList(Stream stream, in GeneratorExecutionContext context)
         {
             stream.Position = 0;
-            BinFlow flow = new(stream);
-            foreach (var file in context.AdditionalFiles.OrderBy(x => Path.GetFileName(x.Path)))
+            ByteFlow flow = new(stream);
+            foreach (var fullname in Directory.GetFiles(context.GetProjectLocaltion() + "/content", "*.png"))
             {
-                if (Path.GetExtension(file.Path).Equals(".png", StringComparison.OrdinalIgnoreCase))
-                {
-                    flow.WriteString(Path.GetFileName(file.Path));
-                    var md5 = _md5Provider.ComputeHash(File.ReadAllBytes(file.Path));
-                    flow.WriteBytes(md5);
-                }
+                flow.WriteString(Path.GetFileName(fullname));
+                var md5 = _md5Provider.ComputeHash(File.ReadAllBytes(fullname));
+                flow.WriteBytes(md5);
             }
             flow.MarkHereAsEnd();
         }
@@ -90,7 +87,7 @@ namespace AncientMysteries.SourceGenerator
             }
             using var process = Process.Start(new ProcessStartInfo(exe, "-o max -i 0 --strip all " + sbMini.ToString())
             {
-                
+
             });
             sbMini.ReturnMini();
             process.WaitForExit();

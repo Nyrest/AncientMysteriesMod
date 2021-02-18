@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace AncientMysteries.SourceGenerator.Utilities
 {
-    public readonly ref struct BinFlow
+    public unsafe readonly ref struct ByteFlow
     {
         private static readonly Encoding encoding = Encoding.UTF8;
 
@@ -32,17 +32,17 @@ namespace AncientMysteries.SourceGenerator.Utilities
             get => stream.Length - stream.Position;
         }
 
-        public BinFlow(Stream stream)
+        public ByteFlow(Stream stream)
         {
             this.stream = stream;
-            this.buffer4 = new byte[4];
+            buffer4 = new byte[4];
         }
 
         #region Int
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void WriteInt(int value)
+        public readonly void WriteInt(int value)
         {
-            Unsafe.CopyBlock(ref buffer4[0], ref Unsafe.As<int, byte>(ref value), 4);
+            Unsafe.CopyBlock(ref buffer4[0], ref Unsafe.As<int, byte>(ref value), sizeof(int));
             stream.Write(buffer4, 0, 4);
         }
 
@@ -54,7 +54,7 @@ namespace AncientMysteries.SourceGenerator.Utilities
                 value = 0;
                 return false;
             }
-            stream.Read(buffer4, 0, 4);
+            stream.Read(buffer4, 0, sizeof(int));
             value = Unsafe.ReadUnaligned<int>(ref buffer4[0]);
             return true;
         }
@@ -62,30 +62,47 @@ namespace AncientMysteries.SourceGenerator.Utilities
 
         #region Unmanaged
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void WriteUnmanaged<T>(T value) where T : unmanaged
+        public readonly void WriteUnmanaged<T>(T value) where T : unmanaged
         {
-            Unsafe.CopyBlock(ref buffer4[0], ref Unsafe.As<T, byte>(ref value), (uint)Unsafe.SizeOf<T>());
-            stream.Write(buffer4, 0, Unsafe.SizeOf<T>());
+            if (sizeof(T) > 4)
+            {
+                byte[] buffer = new byte[sizeof(T)];
+                Unsafe.CopyBlock(ref buffer[0], ref Unsafe.As<T, byte>(ref value), (uint)sizeof(T));
+                stream.Write(buffer, 0, sizeof(T));
+            }
+            else
+            {
+                Unsafe.CopyBlock(ref buffer4[0], ref Unsafe.As<T, byte>(ref value), (uint)sizeof(T));
+                stream.Write(buffer4, 0, sizeof(T));
+            }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public readonly bool TryReadUnmanaged<T>(out T value) where T : unmanaged
         {
-            if (Remainder < Unsafe.SizeOf<T>())
+            if (Remainder < sizeof(T))
             {
                 value = default;
                 return false;
             }
-            byte[] buffer = new byte[Unsafe.SizeOf<T>()];
-            stream.Read(buffer, 0, Unsafe.SizeOf<T>());
-            value = Unsafe.ReadUnaligned<T>(ref buffer[0]);
+            if (sizeof(T) > 4)
+            {
+                byte[] buffer = new byte[sizeof(T)];
+                stream.Read(buffer, 0, sizeof(T));
+                value = Unsafe.ReadUnaligned<T>(ref buffer[0]);
+            }
+            else
+            {
+                stream.Read(buffer4, 0, sizeof(T));
+                value = Unsafe.ReadUnaligned<T>(ref buffer4[0]);
+            }
             return true;
         }
         #endregion
 
         #region Byte
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void WriteByte(byte value)
+        public readonly void WriteByte(byte value)
         {
             stream.WriteByte(value);
         }
@@ -105,14 +122,14 @@ namespace AncientMysteries.SourceGenerator.Utilities
 
         #region Bytes
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void WriteBytes(byte[] value)
+        public readonly void WriteBytes(byte[] value)
         {
             WriteInt(value.Length);
             stream.Write(value, 0, value.Length);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryReadBytes(out byte[] value)
+        public readonly bool TryReadBytes(out byte[] value)
         {
             if (TryReadInt(out int length) && (uint)length <= Remainder)
             {
@@ -130,13 +147,13 @@ namespace AncientMysteries.SourceGenerator.Utilities
 
         #region String
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void WriteString(string value)
+        public readonly void WriteString(string value)
         {
             WriteBytes(encoding.GetBytes(value));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryReadString(out string value)
+        public readonly bool TryReadString(out string value)
         {
             if (TryReadBytes(out byte[] bytes))
             {
@@ -148,7 +165,7 @@ namespace AncientMysteries.SourceGenerator.Utilities
         }
         #endregion
 
-        public void MarkHereAsEnd()
+        public readonly void MarkHereAsEnd()
         {
             Length = Position;
         }

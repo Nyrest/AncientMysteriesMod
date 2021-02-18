@@ -17,12 +17,12 @@ namespace AncientMysteries.SourceGenerator
             sb.AppendLine("public static partial class Texs");
             sb.Append(TabLevel(1));
             sb.AppendLine("{");
-            foreach (var file in context.AdditionalFiles.OrderBy(x => Path.GetFileName(x.Path)))
+            foreach (var fullname in Directory.GetFiles(context.GetProjectLocaltion() + "/content", "*.png").OrderBy(x => Path.GetFileName(x)))
             {
-                if (Path.GetExtension(file.Path).Equals(".png", StringComparison.OrdinalIgnoreCase))
+                if (Path.GetExtension(fullname).Equals(".png", StringComparison.OrdinalIgnoreCase))
                 {
-                    string filename = Path.GetFileName(file.Path);
-                    string filenameNoExt = Path.GetFileNameWithoutExtension(file.Path);
+                    string filename = Path.GetFileName(fullname);
+                    string filenameNoExt = Path.GetFileNameWithoutExtension(fullname);
                     string fieldName = char.ToUpperInvariant(filenameNoExt[0]) + filenameNoExt.Substring(1).Replace(" ", null);
                     if (char.IsNumber(fieldName[0]))
                         fieldName = "_" + fieldName;
