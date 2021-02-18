@@ -25,10 +25,8 @@ namespace AncientMysteries
             base.OnPostInitialize();
             (typeof(Game).GetField("updateableComponents", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(MonoMain.instance) as List<IUpdateable>).Add(new updateObject(x =>
             {
-                var allTopGroups = Editor.Placeables.SubGroups;
-                for (int i = allTopGroups.Count - 1; i >= 0; i--)
+                foreach (var modTopGroup in Editor.Placeables.SubGroups)
                 {
-                    EditorGroup modTopGroup = allTopGroups[i];
                     if (modTopGroup.Name.Equals("Ancient"))
                     {
                         modTopGroup.Name = "@HOSTCROWN@|DGORANGE|Ancient";
@@ -50,6 +48,7 @@ namespace AncientMysteries
                             "Electronic" => "|DGYELLOW|Electronic",
                             "Isekai" => "Isekai @PLANET@",
                             "Hats" => "|PINK|Hats",
+                            "Debug" => "|DGRED|Debug",
                             _ => g.Name.Replace('%', '|'),
                         };
                         ReplaceAllSub(g);
