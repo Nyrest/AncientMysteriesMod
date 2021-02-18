@@ -14,7 +14,7 @@ namespace AncientMysteries.AmmoTypes
         {
             accuracy = 1f;
             range = 275f;
-            penetration = 20000000f;
+            penetration = 1f;
             rangeVariation = 10f;
             bulletSpeed = 2;
             this.speedVariation = 0.5f;

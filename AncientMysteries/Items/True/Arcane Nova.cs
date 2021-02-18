@@ -59,6 +59,7 @@ namespace AncientMysteries.Items.True
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
+            SFX.PlaySynchronized("laserBlast",5,-0.2f);
             if (_castTime >= 1f)
             {
                 this.NmFireGun(list =>

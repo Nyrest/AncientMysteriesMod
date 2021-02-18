@@ -2,7 +2,7 @@
 
 namespace AncientMysteries.Items.Miscellaneous
 {
-    public sealed class NovaExp : Thing
+    public sealed class NovaExp : ExplosionPart
     {
         public SpriteMap _sprite;
         public bool _smoked;
