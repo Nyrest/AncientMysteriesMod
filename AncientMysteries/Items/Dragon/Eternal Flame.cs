@@ -17,7 +17,7 @@ namespace AncientMysteries.Items.Dragon.Melee
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            _ => "Spear Of Leonidas",
+            _ => "Eternal Flame",
         };
 
         public EternalFlame(float xval, float yval) : base(xval, yval)
