@@ -38,6 +38,8 @@
   <ItemGroup>
     <Compile Include="Utilities\Collections\DictSlim.cs" />
     <Compile Include="Utilities\Waiter.cs" />
+    <Compile Include="_FuckNetFX\CompilerServices\Attributes\ModuleInitializerAttribute.cs" />
+    <Compile Include="_FuckNetFX\CompilerServices\IsExternalInit.cs" />
     <Content Include="content\**" Visible="false">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
