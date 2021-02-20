@@ -58,11 +58,6 @@ namespace AncientMysteries.Items.True
             base.OnSpelling();
         }
 
-        public override void Update()
-        {
-            base.Update();
-        }
-
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();

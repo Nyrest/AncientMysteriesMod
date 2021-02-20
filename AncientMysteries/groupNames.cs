@@ -54,10 +54,5 @@ namespace AncientMysteries
 
         public const string s_props = stuffs + "|Props";
         #endregion
-
-        public static class Series
-        {
-            public const string darkName = "Dark";
-        }
     }
 }
