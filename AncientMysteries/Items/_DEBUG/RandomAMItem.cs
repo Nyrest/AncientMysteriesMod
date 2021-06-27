@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace AncientMysteries.Items._DEBUG
+﻿namespace AncientMysteries.Items._DEBUG
 {
     [EditorGroup(_debugGroup)]
     public class RandomAMItem : Holdable

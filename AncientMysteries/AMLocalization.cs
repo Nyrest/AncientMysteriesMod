@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-
-namespace AncientMysteries
+﻿namespace AncientMysteries
 {
     /// <summary>
     /// Prepare for Duck Game Localization Update

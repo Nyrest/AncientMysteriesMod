@@ -1,7 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-using System.Reflection;
-
-namespace AncientMysteries.Armor.Developers.Hats
+﻿namespace AncientMysteries.Armor.Developers.Hats
 {
     [EditorGroup(e_developer)]
     public sealed class Thingy : AMHelmet

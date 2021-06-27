@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-
-namespace AncientMysteries.Items.Dark.Melee
+﻿namespace AncientMysteries.Items.Dark.Melee
 {
     [EditorGroup(g_melees)]
     public sealed class DeathBringer : AMMelee

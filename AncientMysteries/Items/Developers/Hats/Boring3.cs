@@ -1,7 +1,5 @@
-﻿using AncientMysteries.Localization.Enums;
-using AncientMysteries.Particles;
+﻿using AncientMysteries.Particles;
 using AncientMysteries.Utilities;
-using System.Reflection;
 
 namespace AncientMysteries.Armor.Developers.Hats
 {

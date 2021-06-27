@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-
-namespace AncientMysteries.Items.MachineGuns
+﻿namespace AncientMysteries.Items.MachineGuns
 {
     [EditorGroup(g_machineGuns)]
     public sealed class VoidPiercer : AMGun

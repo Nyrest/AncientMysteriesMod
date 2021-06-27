@@ -1,5 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-using AncientMysteries.Utilities;
+﻿using AncientMysteries.Utilities;
 using static AncientMysteries.AMFonts;
 
 namespace AncientMysteries.Items.Artifacts

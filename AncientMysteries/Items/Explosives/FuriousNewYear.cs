@@ -1,7 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-using System.Reflection;
-
-namespace AncientMysteries.Items.Explosives
+﻿namespace AncientMysteries.Items.Explosives
 {
     [EditorGroup(guns)]
     public class FuriousNewYear : AMGun

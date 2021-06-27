@@ -1,7 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-using AncientMysteries.Bullets;
-
-namespace AncientMysteries.Items.True
+﻿namespace AncientMysteries.Items.True
 {
     [EditorGroup(g_staffs)]
     public class ArcaneNova : AMStaff

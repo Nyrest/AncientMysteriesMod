@@ -1,7 +1,4 @@
-﻿using AncientMysteries.Bullets;
-using AncientMysteries.Localization.Enums;
-
-namespace AncientMysteries.Items.True
+﻿namespace AncientMysteries.Items.True
 {
     [EditorGroup(g_staffs)]
     public class Overgrowth : AMStaff

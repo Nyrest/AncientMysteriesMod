@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-
-namespace AncientMysteries.Items.FutureTech
+﻿namespace AncientMysteries.Items.FutureTech
 {
     [EditorGroup(guns)]
     public class ReboundShield : AMGun, IPlatform
