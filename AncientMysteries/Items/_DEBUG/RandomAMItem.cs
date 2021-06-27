@@ -7,7 +7,7 @@
 
         public RandomAMItem()
         {
-            this.ReadyToRun(Texs.HatBoring3Pickup);
+            this.ReadyToRun(Rand.Bool() ? Texs.HatBoring3Pickup : Texs.HatHattyPickup);
             _editorName = "|DGPURPLE|Random";
         }
 
@@ -27,6 +27,11 @@
                 Level.Add(newThing);
             }
             Level.Remove(this);
+        }
+
+        public override void Draw()
+        {
+            base.Draw();
         }
     }
 }
