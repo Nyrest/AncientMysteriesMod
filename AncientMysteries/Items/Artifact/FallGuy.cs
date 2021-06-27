@@ -1,9 +1,5 @@
 ﻿using AncientMysteries.Localization.Enums;
 using AncientMysteries.Utilities;
-using DuckGame;
-using System;
-using System.Linq;
-using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Artifacts
 {

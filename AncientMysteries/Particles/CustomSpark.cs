@@ -1,11 +1,4 @@
-﻿using DuckGame;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-
-namespace AncientMysteries.Particles
+﻿namespace AncientMysteries.Particles
 {
     public sealed class CustomSpark : PhysicsParticle, IFactory
     {

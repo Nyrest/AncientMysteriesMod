@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace AncientMysteries.Localization.Enums
+﻿namespace AncientMysteries.Localization.Enums
 {
     /// <summary>
     /// <para>Steamworks Localization Code</para>

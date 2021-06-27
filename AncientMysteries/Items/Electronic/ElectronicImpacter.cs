@@ -1,13 +1,10 @@
-﻿using AncientMysteries.AmmoTypes;
-using AncientMysteries.Localization.Enums;
-using DuckGame;
-using static AncientMysteries.groupNames;
+﻿using AncientMysteries.Localization.Enums;
 
 
 namespace AncientMysteries.Items.Electronic
 {
     //[EditorGroup(g_rifles)]
-	public sealed class ElectronicImpacter : AMGun
+    public sealed class ElectronicImpacter : AMGun
 	{
 		public override string GetLocalizedName(AMLang lang) => lang switch
 		{

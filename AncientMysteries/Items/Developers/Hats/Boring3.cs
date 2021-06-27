@@ -1,9 +1,7 @@
 ﻿using AncientMysteries.Localization.Enums;
 using AncientMysteries.Particles;
 using AncientMysteries.Utilities;
-using DuckGame;
 using System.Reflection;
-using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Armor.Developers.Hats
 {

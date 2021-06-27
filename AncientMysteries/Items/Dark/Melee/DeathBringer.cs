@@ -1,9 +1,4 @@
-﻿using AncientMysteries.AmmoTypes;
-using AncientMysteries.Bullets;
-using AncientMysteries.Localization.Enums;
-using DuckGame;
-using System.Collections.Generic;
-using static AncientMysteries.groupNames;
+﻿using AncientMysteries.Localization.Enums;
 
 namespace AncientMysteries.Items.Dark.Melee
 {

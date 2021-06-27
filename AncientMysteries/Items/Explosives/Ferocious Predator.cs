@@ -1,11 +1,4 @@
-﻿using AncientMysteries.AmmoTypes;
-using AncientMysteries.Localization.Enums;
-using DuckGame;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using static AncientMysteries.groupNames;
+﻿using AncientMysteries.Localization.Enums;
 
 namespace AncientMysteries.Items.Explosives
 {

@@ -1,6 +1,4 @@
-﻿using DuckGame;
-
-namespace AncientMysteries.AmmoTypes
+﻿namespace AncientMysteries.AmmoTypes
 {
     public sealed class AT_Shadow : AmmoType
     {

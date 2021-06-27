@@ -1,9 +1,6 @@
-﻿using AncientMysteries.AmmoTypes;
-using AncientMysteries.Bullets;
-using DuckGame;
+﻿using AncientMysteries.Bullets;
 using System.Collections.Generic;
 using AncientMysteries.Localization.Enums;
-using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Dragon.Melee
 {

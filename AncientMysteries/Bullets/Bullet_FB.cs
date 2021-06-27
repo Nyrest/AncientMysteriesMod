@@ -1,9 +1,5 @@
-﻿using DuckGame;
-using Microsoft.Xna.Framework.Graphics;
-using System;
+﻿using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace AncientMysteries.Bullets
 {

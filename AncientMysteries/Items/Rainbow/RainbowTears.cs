@@ -1,12 +1,5 @@
-﻿using AncientMysteries.AmmoTypes;
-using AncientMysteries.Localization.Enums;
+﻿using AncientMysteries.Localization.Enums;
 using AncientMysteries.Utilities;
-using DuckGame;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Rainbow
 {
