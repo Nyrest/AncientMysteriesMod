@@ -1,5 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-using AncientMysteries.Utilities;
+﻿using AncientMysteries.Utilities;
 using Microsoft.Xna.Framework.Graphics;
 using static AncientMysteries.AMFonts;
 

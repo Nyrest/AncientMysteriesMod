@@ -1,5 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-using AncientMysteries.Utilities;
+﻿using AncientMysteries.Utilities;
 using System.Collections.Generic;
 using static AncientMysteries.AMFonts;
 

@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-
-namespace AncientMysteries.Items.Explosives
+﻿namespace AncientMysteries.Items.Explosives
 {
     [EditorGroup(g_explosives)]
     public sealed class FerociousPredator : AMGun

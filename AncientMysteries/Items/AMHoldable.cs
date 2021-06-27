@@ -1,7 +1,4 @@
-﻿using AncientMysteries.Localization;
-using AncientMysteries.Localization.Enums;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     public abstract class AMHoldable : Holdable, IAMLocalizable
     {

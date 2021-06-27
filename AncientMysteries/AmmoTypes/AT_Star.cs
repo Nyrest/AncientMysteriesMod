@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Bullets;
-
-namespace AncientMysteries.AmmoTypes
+﻿namespace AncientMysteries.AmmoTypes
 {
     public sealed class AT_Star : AmmoType
     {

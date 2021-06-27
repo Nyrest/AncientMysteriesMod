@@ -1,8 +1,4 @@
-﻿using AncientMysteries.Localization;
-using AncientMysteries.Localization.Enums;
-using System.Reflection;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     public abstract class AMBoots : Boots, IAMEquipment, IAMLocalizable
     {

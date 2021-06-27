@@ -1,8 +1,4 @@
-﻿using AncientMysteries.Localization;
-using AncientMysteries.Localization.Enums;
-using System.Reflection;
-
-namespace AncientMysteries.Armor
+﻿namespace AncientMysteries.Armor
 {
     public abstract class AMHelmet : Helmet, IAMEquipment, IAMLocalizable
     {

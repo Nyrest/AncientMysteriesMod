@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Bullets;
-
-namespace AncientMysteries.AmmoTypes
+﻿namespace AncientMysteries.AmmoTypes
 {
     public class AT_FerociousPredator : AmmoType
     {

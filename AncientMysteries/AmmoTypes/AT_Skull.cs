@@ -1,5 +1,4 @@
-﻿using AncientMysteries.Bullets;
-using AncientMysteries.Particles;
+﻿using AncientMysteries.Particles;
 using System.Collections.Generic;
 
 namespace AncientMysteries.AmmoTypes

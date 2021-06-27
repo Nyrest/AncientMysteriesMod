@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-
-namespace AncientMysteries.Items.Shotguns
+﻿namespace AncientMysteries.Items.Shotguns
 {
     [EditorGroup(g_shotguns)]
     public sealed class DarkAurora : AMGun

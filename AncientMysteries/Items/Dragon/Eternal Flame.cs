@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Bullets;
-using System.Collections.Generic;
-using AncientMysteries.Localization.Enums;
+﻿using System.Collections.Generic;
 
 namespace AncientMysteries.Items.Dragon.Melee
 {

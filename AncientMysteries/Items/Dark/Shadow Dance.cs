@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-
-namespace AncientMysteries.Items.Snipers
+﻿namespace AncientMysteries.Items.Snipers
 {
     [EditorGroup(g_snipers)]
     public sealed class ShadowDance : AMGun

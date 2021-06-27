@@ -1,7 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-
-
-namespace AncientMysteries.Items.Electronic
+﻿namespace AncientMysteries.Items.Electronic
 {
     //[EditorGroup(g_rifles)]
     public sealed class ElectronicImpacter : AMGun

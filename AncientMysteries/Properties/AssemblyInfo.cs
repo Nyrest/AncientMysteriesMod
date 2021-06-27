@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("Ancient Mysteries")]
 [assembly: AssemblyCompany("Boring3 | Devastator | Nameless")]

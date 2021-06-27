@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Localization;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     public abstract class AMStaff : AMGun, IAMLocalizable
     {

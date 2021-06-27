@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-
-namespace AncientMysteries.Items.Common
+﻿namespace AncientMysteries.Items.Common
 {
     [EditorGroup(g_commons)]
     public class Umbrella : AMNotGun, IPlatform

@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-
-namespace AncientMysteries.Items.Dragon
+﻿namespace AncientMysteries.Items.Dragon
 {
     [EditorGroup(g_machineGuns)]
     public sealed class MoltenSpitter : AMGun

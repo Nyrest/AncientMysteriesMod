@@ -1,5 +1,4 @@
-﻿using AncientMysteries.Localization.Enums;
-using AncientMysteries.Utilities;
+﻿using AncientMysteries.Utilities;
 
 namespace AncientMysteries.Items.Artifacts
 {
