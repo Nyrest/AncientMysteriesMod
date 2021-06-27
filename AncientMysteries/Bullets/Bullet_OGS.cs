@@ -13,6 +13,7 @@ namespace AncientMysteries.Bullets
         {
             this.collisionSize = new Vec2(5, 3);
             _bulletLength = 0f;
+            this.color = Color.Transparent;
         }
     }
 }

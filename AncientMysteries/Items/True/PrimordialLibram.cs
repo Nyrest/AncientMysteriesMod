@@ -21,6 +21,10 @@ namespace AncientMysteries.Items.True
 
         public int rando = 0;
 
+        public Vec2 castPos;
+
+        public int timer = 23;
+
         public byte AnimationFrame
         {
             get => (byte)_spriteMap._frame;
@@ -73,6 +77,7 @@ namespace AncientMysteries.Items.True
             {
                 _spriteMap.SetAnimation("back");
             }
+            castPos = owner.position;
         }
         public override void OnReleaseSpell()
         {
@@ -81,43 +86,62 @@ namespace AncientMysteries.Items.True
             rando = new Random().Next(0,0);
             if (_castTime >= 1f && rando == 0)
             {
-                TempFire t = new(this.owner.x, owner.y, true, owner)
+                /*TempFire t = new(this.owner.x, owner.y, true, owner)
                 {
                     alpha = 0f
                 };
                 t.xscale *= 2f;
                 t.yscale *= 2f;
-                Level.Add(t);
+                Level.Add(t);*/
+                if (timer >= 22 && removing == false)
+                {
+                    this.NmFireGun(list =>
+                    {
+                        Bullet b = new Bullet_BigFB(castPos.x, castPos.y, new AT_BigFB(), fireAngle, t, false, 400)
+                        {
+                            color = Color.Orange
+                        };
+                        list.Add(b);
+                    });
+                    timer = 0;
+                    timer2++;
+                }
+                if (timer2 == 8 && removing == false)
+                {
+                    removing = true;
+                    progress = 1;
+                }
+                timer++;
             }
             if (_castTime >= 1f && rando == 1)
             {
-                TempIce i = new(this.owner.x, owner.y, true, owner)
+                /*TempIce i = new(this.owner.x, owner.y, true, owner)
                 {
                     alpha = 0f
                 };
                 i.xscale *= 2f;
                 i.yscale *= 2f;
-                Level.Add(i);
+                Level.Add(i);*/
             }
             if (_castTime >= 1f && rando == 2)
             {
-                TempCrystal c = new(this.owner.x, owner.y - 32f, true, owner)
+                /*TempCrystal c = new(this.owner.x, owner.y - 32f, true, owner)
                 {
                     alpha = 0f
                 };
                 c.xscale *= 2f;
                 c.yscale *= 2f;
-                Level.Add(c);
+                Level.Add(c);*/
             }
             if (_castTime >= 1f && rando == 3)
             {
-                TempNature n = new(this.owner.x, owner.y - 32f, true, owner)
+                /*TempNature n = new(this.owner.x, owner.y - 32f, true, owner)
                 {
                     alpha = 0f
                 };
                 n.xscale *= 2f;
                 n.yscale *= 2f;
-                Level.Add(n);
+                Level.Add(n);*/
             }
             if (Network.isActive)
             {
