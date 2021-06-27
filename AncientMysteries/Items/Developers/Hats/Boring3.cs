@@ -103,7 +103,7 @@ namespace AncientMysteries.Armor.Developers.Hats
 
         public override bool Hit(Bullet bullet, Vec2 hitPos)
         {
-            if (_equippedDuck == null || bullet.owner == base.duck || !bullet.isLocal)
+            if (_equippedDuck == null || bullet.owner == duck || !bullet.isLocal)
                 return false;
 
             var particleEnd =

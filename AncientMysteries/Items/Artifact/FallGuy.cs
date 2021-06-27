@@ -27,6 +27,7 @@ namespace AncientMysteries.Items.Artifacts
 
         public FallGuy(float xpos, float ypos) : base(xpos, ypos)
         {
+            
             this._type = "gun";
             this.ReadyToRunMap("FallGuy.png");
             physicsMaterial = PhysicsMaterial.Metal;

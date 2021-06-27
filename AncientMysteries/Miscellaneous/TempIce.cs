@@ -30,10 +30,10 @@ namespace AncientMysteries.Items.Miscellaneous
             this._sprite.SetAnimation("loop");
             this.graphic = this._sprite;
             this._sprite.speed = 0.6f;
-            base.xscale = 0.5f;
-            base.yscale = base.xscale;
+            xscale = 0.5f;
+            yscale = xscale;
             this.center = new Vec2(17f, 17f);
-            base.depth = 1f;
+            depth = 1f;
             t = tOwner;
             solid = false;
             if (!doWait)

@@ -31,7 +31,7 @@
             _lastActiveWagCharge = (_lastActiveWagCharge + 1) % kMaxWagCharge;
             spark.ResetProperties();
             spark.Init(xpos, ypos, target, color, lifeFadeSpeed);
-            spark.globalIndex = Thing.GetGlobalIndex();
+            spark.globalIndex = GetGlobalIndex();
             return spark;
         }
 
@@ -55,7 +55,7 @@
             position.x = xpos;
             position.y = ypos;
             this.lifeFadeSpeed = fadeSpeed;
-            base.depth = 0.9f;
+            depth = 0.9f;
             life = 1f;
             this.color = color;
             _target = target;
@@ -63,12 +63,12 @@
             _airFire.SetAnimation("burn");
             _airFire.imageIndex = Rando.Int(2);
             _airFire.color = Color.Orange * (0.8f + Rando.Float(0.2f));
-            _airFire.globalIndex = Thing.GetGlobalIndex();
+            _airFire.globalIndex = GetGlobalIndex();
             _airFireScale = 0f;
             _spinSpeed = 0.1f + Rando.Float(0.1f);
 
 
-            base.alpha = 1f;
+            alpha = 1f;
         }
 
         public override void Update()
@@ -78,7 +78,7 @@
             float len = travel.lengthSq;
             if (len < 64f || len > 4096f)
             {
-                base.alpha -= 0.08f;
+                alpha -= 0.08f;
             }
             hSpeed = Lerp.Float(hSpeed, (0f - travel.x) * 0.7f, 0.15f);
             vSpeed = Lerp.Float(vSpeed, (0f - travel.y) * 0.7f, 0.15f);
@@ -91,7 +91,7 @@
             life -= lifeFadeSpeed;
             if (life < 0f)
             {
-                base.alpha -= 0.08f;
+                alpha -= 0.08f;
             }
             #region Air Fire
             if (_airFireScale < 1.2f)
@@ -112,11 +112,11 @@
                 }
             }
 
-            _airFire.depth = base.depth - 1;
+            _airFire.depth = depth - 1;
             _airFire.alpha = 0.5f;
             _airFire.angle += hSpeed * _spinSpeed;
             #endregion
-            if (base.alpha < 0f)
+            if (alpha < 0f)
             {
                 Level.Remove(this);
             }
@@ -125,10 +125,10 @@
 
         public override void Draw()
         {
-            Vec2 dir = base.velocity.normalized;
-            float speed = base.velocity.length * 2f;
+            Vec2 dir = velocity.normalized;
+            float speed = velocity.length * 2f;
             Vec2 end = position + dir * speed;
-            Graphics.DrawLine(col: color * base.alpha, p1: position, p2: end, width: 1f, depth: base.depth);
+            Graphics.DrawLine(col: color * alpha, p1: position, p2: end, width: 1f, depth: depth);
         }
     }
 }

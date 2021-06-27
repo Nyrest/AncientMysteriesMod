@@ -32,7 +32,7 @@
 
         public override bool Hit(Bullet bullet, Vec2 hitPos)
         {
-            if (BulletThroughNotEquipped && (_equippedDuck == null || bullet.owner == base.duck || !bullet.isLocal))
+            if (BulletThroughNotEquipped && (_equippedDuck == null || bullet.owner == duck || !bullet.isLocal))
             {
                 return false;
             }
@@ -42,7 +42,7 @@
                 {
                     if (--EquipmentHitPoints <= 0 && KnockOffOnHit)
                     {
-                        base.duck.KnockOffEquipment(this, ting: true, bullet);
+                        duck.KnockOffEquipment(this, ting: true, bullet);
                         Fondle(this, DuckNetwork.localConnection);
                     }
                 }
@@ -54,7 +54,7 @@
                 Level.Add(MetalRebound.New(hitPos.x, hitPos.y, (bullet.travelDirNormalized.x > 0f) ? 1 : (-1)));
                 for (int i = 0; i < 6; i++)
                 {
-                    Level.Add(Spark.New(base.x, base.y, bullet.travelDirNormalized));
+                    Level.Add(Spark.New(x, y, bullet.travelDirNormalized));
                 }
                 return thickness > bullet.ammo.penetration;
             }

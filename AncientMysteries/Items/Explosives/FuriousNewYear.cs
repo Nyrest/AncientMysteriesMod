@@ -51,7 +51,7 @@
             _type = "gun";
             _sprite = this.ReadyToRunMap("FuriousNewYear.png", 7, 15);
             graphic = _sprite;
-            base.bouncy = 0.4f;
+            bouncy = 0.4f;
             friction = 0.05f;
         }
 
@@ -122,9 +122,9 @@
                     if (_explodeFrames == 0)
                     {
                         const int bulletCount = 24;
-                        float cx = base.x;
-                        float cy = base.y - 2f;
-                        if (base.isServerForObject)
+                        float cx = x;
+                        float cy = y - 2f;
+                        if (isServerForObject)
                         {
                             for (int i = 0; i < bulletCount; i++)
                             {
@@ -139,14 +139,14 @@
                             }
                         }
                         Level.Remove(this);
-                        base._destroyed = true;
+                        _destroyed = true;
                         _explodeFrames = -1;
                     }
                 }
             }
-            if (base.prevOwner != null && _cookThrower == null)
+            if (prevOwner != null && _cookThrower == null)
             {
-                _cookThrower = (base.prevOwner as Duck);
+                _cookThrower = (prevOwner as Duck);
                 _cookTimeOnThrow = _timer;
             }
             _sprite.frame = ((!_pin) ? 1 : 0);
@@ -166,7 +166,7 @@
             if (_pin)
             {
                 _pin = false;
-                GrenadePin shell = new(base.x, base.y)
+                GrenadePin shell = new(x, y)
                 {
                     hSpeed = -offDir * (1.5f + Rando.Float(0.5f)),
                     vSpeed = -2f

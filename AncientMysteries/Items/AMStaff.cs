@@ -69,7 +69,7 @@
             base.OnReleaseAction();
             if (_castWaitVal == 0)
             {
-                bool flag = base.duck != null;
+                bool flag = duck != null;
                 if (flag)
                 {
                     this.OnReleaseSpell();
@@ -100,7 +100,7 @@
             if (duck != null)
             {
                 if (_doPose)
-                    base.handAngle = offDir * MathHelper.Lerp(_holdAngle, _fireAngle, _castTime);
+                    handAngle = offDir * MathHelper.Lerp(_holdAngle, _fireAngle, _castTime);
                 else handAngle = 0;
             }
             if(castingParticlesEnabled)
