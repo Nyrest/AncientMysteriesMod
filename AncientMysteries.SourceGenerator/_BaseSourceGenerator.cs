@@ -10,12 +10,14 @@ namespace AncientMysteries.SourceGenerator
 {
     public abstract class _BaseSourceGenerator : _BaseGenerator
     {
+        public virtual string Using => _CompileSettings.DefaultUsing + "\n";
+
         public override void Execute(GeneratorExecutionContext context)
         {
+            
             var contentBuilder = SBPool.Rent();
             Generate(context, contentBuilder);
-            string source = @$"{_CompileSettings.DefaultUsing}
-namespace {_CompileSettings.Namespace}
+            string source = @$"{Using}namespace {_CompileSettings.Namespace}
 {{
     {contentBuilder.ToString()}
 }}
