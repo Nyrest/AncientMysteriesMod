@@ -1,12 +1,6 @@
 ﻿using AncientMysteries.Localization.Enums;
 using AncientMysteries.Utilities;
-using DuckGame;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using static AncientMysteries.groupNames;
 using static AncientMysteries.AMFonts;
 
 namespace AncientMysteries.Items.True

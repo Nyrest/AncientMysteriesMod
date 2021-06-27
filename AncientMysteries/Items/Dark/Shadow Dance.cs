@@ -1,7 +1,4 @@
-﻿using AncientMysteries.AmmoTypes;
-using AncientMysteries.Localization.Enums;
-using DuckGame;
-using static AncientMysteries.groupNames;
+﻿using AncientMysteries.Localization.Enums;
 
 namespace AncientMysteries.Items.Snipers
 {

@@ -1,11 +1,6 @@
-using System.Runtime.CompilerServices;
-using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Threading;
-using DuckGame;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace AncientMysteries
 {

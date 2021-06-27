@@ -1,6 +1,4 @@
-﻿using DuckGame;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace AncientMysteries.Items
 {

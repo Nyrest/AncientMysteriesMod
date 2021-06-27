@@ -1,11 +1,5 @@
 ﻿using AncientMysteries.Localization.Enums;
-using AncientMysteries.Utilities;
-using DuckGame;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
-using static AncientMysteries.AMFonts;
-using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Explosives
 {

@@ -16,6 +16,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>preview</LangVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <ItemGroup>
@@ -36,6 +37,7 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="_Imports.cs" />
     <Compile Include="Utilities\Collections\DictSlim.cs" />
     <Compile Include="Utilities\Waiter.cs" />
     <Compile Include="_FuckNetFX\CompilerServices\Attributes\ModuleInitializerAttribute.cs" />

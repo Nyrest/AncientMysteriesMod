@@ -1,10 +1,4 @@
-﻿using AncientMysteries.AmmoTypes;
-using AncientMysteries.Localization;
-using DuckGame;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using AncientMysteries.Localization;
 
 namespace AncientMysteries.Items
 {

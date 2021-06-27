@@ -1,7 +1,4 @@
-﻿using DuckGame;
-using System;
-
-namespace AncientMysteries
+﻿namespace AncientMysteries
 {
     public static class GTool
     {

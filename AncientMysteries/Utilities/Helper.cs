@@ -1,8 +1,4 @@
-﻿using DuckGame;
-using System;
-using System.Linq;
-
-namespace AncientMysteries.Utilities
+﻿namespace AncientMysteries.Utilities
 {
     public static class Helper
     {

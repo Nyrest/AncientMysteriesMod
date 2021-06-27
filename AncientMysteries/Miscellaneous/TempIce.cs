@@ -1,5 +1,4 @@
 ﻿using AncientMysteries.Bullets;
-using DuckGame;
 using System.Collections.Generic;
 
 namespace AncientMysteries.Items.Miscellaneous

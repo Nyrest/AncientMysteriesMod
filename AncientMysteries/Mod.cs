@@ -1,6 +1,4 @@
-﻿using DuckGame;
-using Microsoft.Xna.Framework;
-using System;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;

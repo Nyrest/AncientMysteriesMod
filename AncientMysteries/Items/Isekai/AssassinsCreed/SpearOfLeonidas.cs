@@ -1,10 +1,5 @@
 ﻿using AncientMysteries.Localization.Enums;
 using AncientMysteries.Utilities;
-using DuckGame;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Linq;
-using static AncientMysteries.groupNames;
 using static AncientMysteries.AMFonts;
 
 namespace AncientMysteries.Items.Artifacts

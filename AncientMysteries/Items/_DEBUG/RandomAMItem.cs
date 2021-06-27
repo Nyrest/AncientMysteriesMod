@@ -1,11 +1,4 @@
-﻿using DuckGame;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using static AncientMysteries.groupNames;
+﻿using System.Reflection;
 
 namespace AncientMysteries.Items._DEBUG
 {

@@ -1,10 +1,4 @@
-﻿using AncientMysteries.Bullets;
-using AncientMysteries.Utilities;
-using DuckGame;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using AncientMysteries.Utilities;
 
 namespace AncientMysteries.AmmoTypes
 {

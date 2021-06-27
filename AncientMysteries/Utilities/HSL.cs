@@ -1,5 +1,4 @@
-﻿using DuckGame;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 
 namespace AncientMysteries.Utilities
 {

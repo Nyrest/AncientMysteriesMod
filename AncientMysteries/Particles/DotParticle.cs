@@ -1,11 +1,4 @@
-﻿using DuckGame;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Particles
+﻿namespace AncientMysteries.Particles
 {
     public class DotParticle : Thing, IFactory
     {

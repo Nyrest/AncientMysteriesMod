@@ -1,14 +1,5 @@
-﻿using AncientMysteries.AmmoTypes;
-using AncientMysteries.Bullets;
-using AncientMysteries.Localization.Enums;
-using AncientMysteries.Utilities;
-using DuckGame;
-using Microsoft.Xna.Framework.Graphics;
-using System;
+﻿using AncientMysteries.Bullets;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.Miscellaneous
 {

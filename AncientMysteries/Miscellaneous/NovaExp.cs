@@ -1,6 +1,4 @@
-﻿using DuckGame;
-
-namespace AncientMysteries.Items.Miscellaneous
+﻿namespace AncientMysteries.Items.Miscellaneous
 {
     public sealed class NovaExp : ExplosionPart
     {

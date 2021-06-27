@@ -1,8 +1,5 @@
-﻿using AncientMysteries.AmmoTypes;
-using AncientMysteries.Localization.Enums;
+﻿using AncientMysteries.Localization.Enums;
 using AncientMysteries.Utilities;
-using DuckGame;
-using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.MachineGuns
 {

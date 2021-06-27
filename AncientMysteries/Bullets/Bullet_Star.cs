@@ -1,6 +1,4 @@
-﻿using AncientMysteries.AmmoTypes;
-using DuckGame;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 
 namespace AncientMysteries.Bullets

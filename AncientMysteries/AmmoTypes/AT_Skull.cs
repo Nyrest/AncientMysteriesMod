@@ -1,7 +1,5 @@
 ﻿using AncientMysteries.Bullets;
 using AncientMysteries.Particles;
-using DuckGame;
-using System;
 using System.Collections.Generic;
 
 namespace AncientMysteries.AmmoTypes

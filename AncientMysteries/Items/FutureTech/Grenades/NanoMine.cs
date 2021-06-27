@@ -1,10 +1,7 @@
 ﻿using AncientMysteries.Localization.Enums;
 using AncientMysteries.Utilities;
-using DuckGame;
-using System;
 using System.Collections.Generic;
 using static AncientMysteries.AMFonts;
-using static AncientMysteries.groupNames;
 
 namespace AncientMysteries.Items.FutureTech.Grenades
 {

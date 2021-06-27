@@ -1,6 +1,5 @@
 ﻿using AncientMysteries.Localization;
 using AncientMysteries.Localization.Enums;
-using DuckGame;
 using System.Reflection;
 
 namespace AncientMysteries.Items
