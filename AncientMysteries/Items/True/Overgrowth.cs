@@ -103,9 +103,9 @@ namespace AncientMysteries.Items.True
                         this.NmFireGun(list =>
                         {
                             list.Add(new Bullet_OGS(d.x - 40, d.y - 40, ammoTypeSmall2, Maths.PointDirection(d.x - 40, d.y - 40, d.x, d.y), owner, false, 60));
-                            list.Add(new Bullet_OGS(d.x - 40, d.y - 40, ammoTypeSmall2, Maths.PointDirection(d.x + 40, d.y - 40, d.x, d.y), owner, false, 60));
-                            list.Add(new Bullet_OGS(d.x - 40, d.y - 40, ammoTypeSmall2, Maths.PointDirection(d.x - 40, d.y + 40, d.x, d.y), owner, false, 60));
-                            list.Add(new Bullet_OGS(d.x - 40, d.y - 40, ammoTypeSmall2, Maths.PointDirection(d.x + 40, d.y + 40, d.x, d.y), owner, false, 60));
+                            list.Add(new Bullet_OGS(d.x + 40, d.y - 40, ammoTypeSmall2, Maths.PointDirection(d.x + 40, d.y - 40, d.x, d.y), owner, false, 60));
+                            list.Add(new Bullet_OGS(d.x - 40, d.y + 40, ammoTypeSmall2, Maths.PointDirection(d.x - 40, d.y + 40, d.x, d.y), owner, false, 60));
+                            list.Add(new Bullet_OGS(d.x + 40, d.y + 40, ammoTypeSmall2, Maths.PointDirection(d.x + 40, d.y + 40, d.x, d.y), owner, false, 60));
                         });
                     }
                 }
@@ -115,7 +115,7 @@ namespace AncientMysteries.Items.True
                 times += 1;
                 SFX.PlaySynchronized("scoreDing", 0.5f, Convert.ToSingle(-0.3 + times * 0.03f), 0, false);
             }
-            _castSpeed = Convert.ToSingle(0.0035f + 0.0008 * times);
+            _castSpeed = Convert.ToSingle(0.0035f + 0.008 * times);
         }
     }
 }

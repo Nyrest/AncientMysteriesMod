@@ -13,6 +13,7 @@ namespace AncientMysteries.Bullets
         {
             this.collisionSize = new Vec2(10, 10);
             _bulletLength = 0f;
+            this.color = Color.Transparent;
         }
 
         public override void OnCollide(Vec2 pos, Thing t, bool willBeStopped)
