@@ -43,7 +43,7 @@
         {
             this._type = "gun";
             _ammoType = ammoTypeSmall;
-            _spriteMap = this.ReadyToRunMap(Texs.Overgrowth, 21, 34);
+            _spriteMap = this.ReadyToRunMap(t_Overgrowth, 21, 34);
             _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2, 3);
             _spriteMap.SetAnimation("loop");
             this.SetBox(21, 34);

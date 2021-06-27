@@ -95,11 +95,11 @@ namespace AncientMysteries.Items.Dragon.Melee
             if (duck != null && cooldown3 == 0)
             {
                 var firedBullets = new List<Bullet>(10);
-                if (base.duck.offDir != 1)
+                if (duck.offDir != 1)
                 {
                     for (int i = 0; i < 10; i++)
                     {
-                        Bullet b = new Bullet_FB(base.duck.x, base.duck.y, new AT_FB(), -180 + Rando.Float(-5, 5), this.owner, false, 250f + Rando.Float(-75, 75));
+                        Bullet b = new Bullet_FB(duck.x, duck.y, new AT_FB(), -180 + Rando.Float(-5, 5), this.owner, false, 250f + Rando.Float(-75, 75));
                         firedBullets.Add(b);
                         Level.Add(b);
                         cooldown3 = -10;
@@ -109,7 +109,7 @@ namespace AncientMysteries.Items.Dragon.Melee
                 {
                     for (int i = 0; i < 10; i++)
                     {
-                        Bullet b = new Bullet_FB(base.duck.x, base.duck.y, new AT_FB(), 0 + Rando.Float(-5, 5), this.owner, false, 250f + Rando.Float(-75, 75));
+                        Bullet b = new Bullet_FB(duck.x, duck.y, new AT_FB(), 0 + Rando.Float(-5, 5), this.owner, false, 250f + Rando.Float(-75, 75));
                         firedBullets.Add(b);
                         Level.Add(b);
                         cooldown3 = -10;

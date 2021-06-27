@@ -72,7 +72,7 @@
                 float amount = 0.5f;
                 if (!d.sliding && !d.immobilized && !d.moveLock)
                 {
-                    if (!base.equippedDuck.grounded)
+                    if (!equippedDuck.grounded)
                     {
                         amount = 0.25f;
                     }

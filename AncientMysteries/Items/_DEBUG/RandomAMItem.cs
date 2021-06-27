@@ -7,7 +7,7 @@
 
         public RandomAMItem()
         {
-            this.ReadyToRun(Rand.Bool() ? Texs.HatBoring3Pickup : Texs.HatHattyPickup);
+            this.ReadyToRun(Rand.Bool() ? t_HatBoring3Pickup : t_HatHattyPickup);
             _editorName = "|DGPURPLE|Random";
         }
 
@@ -18,7 +18,7 @@
             var fuckingType = amTypes[Rando.Int(amTypes.Length - 1)];
             if (Activator.CreateInstance(fuckingType, Editor.GetConstructorParameters(fuckingType)) is PhysicsObject newThing)
             {
-                newThing.x = base.x;
+                newThing.x = x;
                 newThing.y = this.y;
                 newThing.vSpeed = -2f;
                 newThing.spawnAnimation = true;

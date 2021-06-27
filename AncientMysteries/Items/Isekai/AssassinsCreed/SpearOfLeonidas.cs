@@ -3,7 +3,7 @@ using static AncientMysteries.AMFonts;
 
 namespace AncientMysteries.Items.Artifacts
 {
-    [EditorGroup(groupNames.g_artifacts)]
+    [EditorGroup(g_artifacts)]
     public sealed class SpearOfLeonidas : AMMelee
     {
         public static readonly Tex2D targetCircle = TexHelper.ModTex2D("targetCircle.png");

@@ -29,7 +29,7 @@
             _lastActiveSpark = (_lastActiveSpark + 1) % kMaxSparks;
             spark.ResetProperties();
             spark.Init(xpos, ypos, hitAngle, color, killSpeed);
-            spark.globalIndex = Thing.GetGlobalIndex();
+            spark.globalIndex = GetGlobalIndex();
             return spark;
         }
 
@@ -50,14 +50,14 @@
             hSpeed = (0f - hitAngle.x) * 2f * (Rando.Float(1f) + 0.3f);
             vSpeed = (0f - hitAngle.y) * 2f * (Rando.Float(1f) + 0.3f) - Rando.Float(2f);
             _bounceEfficiency = 0.6f;
-            base.depth = 0.9f;
+            depth = 0.9f;
             _killSpeed = killSpeed;
         }
 
         public override void Update()
         {
-            base.alpha -= _killSpeed;
-            if (base.alpha < 0f)
+            alpha -= _killSpeed;
+            if (alpha < 0f)
             {
                 Level.Remove(this);
             }
@@ -66,12 +66,12 @@
 
         public override void Draw()
         {
-            Vec2 dir = base.velocity.normalized;
-            float speed = base.velocity.length * 2f;
+            Vec2 dir = velocity.normalized;
+            float speed = velocity.length * 2f;
             Vec2 end = position + dir * speed;
             Vec2 intersect;
             Block touch = Level.CheckLine<Block>(position, end, out intersect);
-            Graphics.DrawLine(position, (touch != null) ? intersect : end, _color * base.alpha, 0.5f, base.depth);
+            Graphics.DrawLine(position, (touch != null) ? intersect : end, _color * alpha, 0.5f, depth);
         }
     }
 }

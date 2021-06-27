@@ -186,13 +186,13 @@ namespace AncientMysteries.Items
             {
                 if (owner == null)
                 {
-                    return position - (Offset(base.barrelOffset) - position).normalized * 6f;
+                    return position - (Offset(barrelOffset) - position).normalized * 6f;
                 }
                 if (_slamStance)
                 {
-                    return position + (Offset(base.barrelOffset) - position).normalized * 12f;
+                    return position + (Offset(barrelOffset) - position).normalized * 12f;
                 }
-                return position + (Offset(base.barrelOffset) - position).normalized * 2f;
+                return position + (Offset(barrelOffset) - position).normalized * 2f;
             }
         }
 
@@ -200,9 +200,9 @@ namespace AncientMysteries.Items
         {
             get
             {
-                if (base.tapedCompatriot is Gun)
+                if (tapedCompatriot is Gun)
                 {
-                    return (base.tapedCompatriot as Gun).barrelOffset + new Vec2(-14f, 2f);
+                    return (tapedCompatriot as Gun).barrelOffset + new Vec2(-14f, 2f);
                 }
                 return new Vec2(-6f, -3f);
             }
@@ -212,7 +212,7 @@ namespace AncientMysteries.Items
         {
             get
             {
-                if (base.duck != null && base.duck.holdObject == this)
+                if (duck != null && duck.holdObject == this)
                 {
                     return true;
                 }
@@ -263,13 +263,13 @@ namespace AncientMysteries.Items
         {
             if (pTaped.gun1 != null && pTaped.gun2 != null)
             {
-                base.angleDegrees = pTaped.angleDegrees - (float)(90 * offDir);
+                angleDegrees = pTaped.angleDegrees - (float)(90 * offDir);
             }
-            if (base.tapedCompatriot is Gun)
+            if (tapedCompatriot is Gun)
             {
-                (base.tapedCompatriot as Gun).addVerticalTapeOffset = false;
-                tape._holdOffset = (base.tapedCompatriot as Gun)._holdOffset;
-                tape.handOffset = (base.tapedCompatriot as Gun).handOffset;
+                (tapedCompatriot as Gun).addVerticalTapeOffset = false;
+                tape._holdOffset = (tapedCompatriot as Gun)._holdOffset;
+                tape.handOffset = (tapedCompatriot as Gun).handOffset;
             }
             collisionOffset = new Vec2(-4f, 0f);
             collisionSize = new Vec2(4f, 4f);
@@ -311,17 +311,17 @@ namespace AncientMysteries.Items
                 _playedShing = true;
                 SFX.Play("swordClash", Rando.Float(0.6f, 0.7f), Rando.Float(-0.1f, 0.1f), Rando.Float(-0.1f, 0.1f));
             }
-            Vec2 vec = (position - base.barrelPosition).normalized;
-            Vec2 start = base.barrelPosition;
+            Vec2 vec = (position - barrelPosition).normalized;
+            Vec2 start = barrelPosition;
             for (int i = 0; i < 6; i++)
             {
                 Spark s = Spark.New(start.x, start.y, new Vec2(Rando.Float(-1f, 1f), Rando.Float(-1f, 1f)));
                 Level.Add(s);
                 start += vec * 4f;
             }
-            if (base.duck != null)
+            if (duck != null)
             {
-                RumbleManager.AddRumbleEvent(base.duck.profile, new RumbleEvent(RumbleIntensity.Light, RumbleDuration.Pulse, RumbleFalloff.None));
+                RumbleManager.AddRumbleEvent(duck.profile, new RumbleEvent(RumbleIntensity.Light, RumbleDuration.Pulse, RumbleFalloff.None));
             }
             _swung = false;
             _swordSwing.speed = 0f;
@@ -329,11 +329,11 @@ namespace AncientMysteries.Items
 
         public override bool Hit(Bullet bullet, Vec2 hitPos)
         {
-            if (base.duck != null)
+            if (duck != null)
             {
                 if (blocked == 0)
                 {
-                    base.duck.AddCoolness(1);
+                    duck.AddCoolness(1);
                 }
                 else
                 {
@@ -341,10 +341,10 @@ namespace AncientMysteries.Items
                     if (blocked > 4)
                     {
                         blocked = 1;
-                        base.duck.AddCoolness(1);
+                        duck.AddCoolness(1);
                     }
                 }
-                RumbleManager.AddRumbleEvent(base.duck.profile, new RumbleEvent(RumbleIntensity.Kick, RumbleDuration.Pulse, RumbleFalloff.None));
+                RumbleManager.AddRumbleEvent(duck.profile, new RumbleEvent(RumbleIntensity.Kick, RumbleDuration.Pulse, RumbleFalloff.None));
                 SFX.Play("ting");
                 return base.Hit(bullet, hitPos);
             }
@@ -468,17 +468,17 @@ namespace AncientMysteries.Items
         public override void Update()
         {
             bayonetLethal = false;
-            if (tape != null && base.tapedCompatriot != null)
+            if (tape != null && tapedCompatriot != null)
             {
-                if (base.tapedCompatriot != null && (Math.Abs(_prevAngle - base.angleDegrees) > 1f || (_prevPos - position).length > 2f))
+                if (tapedCompatriot != null && (Math.Abs(_prevAngle - angleDegrees) > 1f || (_prevPos - position).length > 2f))
                 {
                     bayonetLethal = true;
                 }
-                if (base.isServerForObject && bayonetLethal)
+                if (isServerForObject && bayonetLethal)
                 {
-                    foreach (IAmADuck d2 in Level.CheckLineAll<IAmADuck>(Offset(new Vec2(4f, 10f) - center + _extraOffset), base.barrelPosition))
+                    foreach (IAmADuck d2 in Level.CheckLineAll<IAmADuck>(Offset(new Vec2(4f, 10f) - center + _extraOffset), barrelPosition))
                     {
-                        if (d2 == base.duck)
+                        if (d2 == duck)
                         {
                             continue;
                         }
@@ -487,8 +487,8 @@ namespace AncientMysteries.Items
                         {
                             continue;
                         }
-                        bool isntPrevOwner = realThing3 != base.prevOwner;
-                        if (isntPrevOwner && realThing3 is RagdollPart && (realThing3 as RagdollPart).doll != null && (realThing3 as RagdollPart).doll.captureDuck == base.prevOwner)
+                        bool isntPrevOwner = realThing3 != prevOwner;
+                        if (isntPrevOwner && realThing3 is RagdollPart && (realThing3 as RagdollPart).doll != null && (realThing3 as RagdollPart).doll.captureDuck == prevOwner)
                         {
                             isntPrevOwner = false;
                         }
@@ -509,7 +509,7 @@ namespace AncientMysteries.Items
                 }
                 _prevOffdir = offDir;
                 _prevPos = position;
-                _prevAngle = base.angleDegrees;
+                _prevAngle = angleDegrees;
                 return;
             }
             _tapeOffset = Vec2.Zero;
@@ -556,14 +556,14 @@ namespace AncientMysteries.Items
                 {
                     if (enablePhysics)
                     {
-                        base.angleDegrees = 90f + _throwSpin;
+                        angleDegrees = 90f + _throwSpin;
                     }
                     center = centerUnheld;
-                    if (base.duck != null || owner is Holster)
+                    if (duck != null || owner is Holster)
                     {
                         _hold = 0f;
                         _swing = 0f;
-                        base.angleDegrees = 0f;
+                        angleDegrees = 0f;
                         _throwSpin = 0f;
                         return;
                     }
@@ -571,9 +571,9 @@ namespace AncientMysteries.Items
                 _volatile = _stayVolatile;
                 bool spinning = false;
                 bool againstWall = false;
-                if (Math.Abs(hSpeed) + Math.Abs(vSpeed) > 2f || !base.grounded)
+                if (Math.Abs(hSpeed) + Math.Abs(vSpeed) > 2f || !grounded)
                 {
-                    if (!base.grounded && Level.CheckRect<Block>(position + new Vec2(-6f, -6f), position + new Vec2(6f, -2f)) != null)
+                    if (!grounded && Level.CheckRect<Block>(position + new Vec2(-6f, -6f), position + new Vec2(6f, -2f)) != null)
                     {
                         againstWall = true;
                         if (vSpeed > 4f)
@@ -624,12 +624,12 @@ namespace AncientMysteries.Items
                 }
                 if (_volatile && _hitWait == 0)
                 {
-                    (Offset(base.barrelOffset) - position).Normalize();
-                    Offset(base.barrelOffset);
+                    (Offset(barrelOffset) - position).Normalize();
+                    Offset(barrelOffset);
                     bool rebound = false;
                     foreach (AMMelee s3 in Level.current.things[typeof(AMMelee)])
                     {
-                        if (s3 != this && s3.owner != null && s3._crouchStance && !s3._jabStance && !s3._jabStance && ((hSpeed > 0f && s3.x > base.x - 4f) || (hSpeed < 0f && s3.x < base.x + 4f)) && Collision.LineIntersect(barrelStartPos, base.barrelPosition, s3.barrelStartPos, s3.barrelPosition))
+                        if (s3 != this && s3.owner != null && s3._crouchStance && !s3._jabStance && !s3._jabStance && ((hSpeed > 0f && s3.x > x - 4f) || (hSpeed < 0f && s3.x < x + 4f)) && Collision.LineIntersect(barrelStartPos, barrelPosition, s3.barrelStartPos, s3.barrelPosition))
                         {
                             Shing();
                             s3.Shing();
@@ -649,7 +649,7 @@ namespace AncientMysteries.Items
                     {
                         foreach (Chainsaw s2 in Level.current.things[typeof(Chainsaw)])
                         {
-                            if (s2.owner != null && s2.throttle && Collision.LineIntersect(barrelStartPos, base.barrelPosition, s2.barrelStartPos, s2.barrelPosition))
+                            if (s2.owner != null && s2.throttle && Collision.LineIntersect(barrelStartPos, barrelPosition, s2.barrelStartPos, s2.barrelPosition))
                             {
                                 Shing();
                                 s2.Shing(this);
@@ -666,8 +666,8 @@ namespace AncientMysteries.Items
                         }
                         if (!rebound)
                         {
-                            Helmet helmetHit2 = Level.CheckLine<Helmet>(barrelStartPos, base.barrelPosition, null);
-                            if (helmetHit2 != null && helmetHit2.equippedDuck != null && (helmetHit2.owner != base.prevOwner || _framesSinceThrown > waitFrames3))
+                            Helmet helmetHit2 = Level.CheckLine<Helmet>(barrelStartPos, barrelPosition, null);
+                            if (helmetHit2 != null && helmetHit2.equippedDuck != null && (helmetHit2.owner != prevOwner || _framesSinceThrown > waitFrames3))
                             {
                                 hSpeed = (0f - hSpeed) * 0.6f;
                                 Shing();
@@ -676,8 +676,8 @@ namespace AncientMysteries.Items
                             }
                             else
                             {
-                                ChestPlate chestHit2 = Level.CheckLine<ChestPlate>(barrelStartPos, base.barrelPosition, null);
-                                if (chestHit2 != null && chestHit2.equippedDuck != null && (chestHit2.owner != base.prevOwner || _framesSinceThrown > waitFrames3))
+                                ChestPlate chestHit2 = Level.CheckLine<ChestPlate>(barrelStartPos, barrelPosition, null);
+                                if (chestHit2 != null && chestHit2.equippedDuck != null && (chestHit2.owner != prevOwner || _framesSinceThrown > waitFrames3))
                                 {
                                     hSpeed = (0f - hSpeed) * 0.6f;
                                     Shing();
@@ -687,11 +687,11 @@ namespace AncientMysteries.Items
                             }
                         }
                     }
-                    if (!rebound && base.isServerForObject)
+                    if (!rebound && isServerForObject)
                     {
-                        foreach (IAmADuck d5 in Level.CheckLineAll<IAmADuck>(barrelStartPos, base.barrelPosition))
+                        foreach (IAmADuck d5 in Level.CheckLineAll<IAmADuck>(barrelStartPos, barrelPosition))
                         {
-                            if (d5 == base.duck)
+                            if (d5 == duck)
                             {
                                 continue;
                             }
@@ -700,8 +700,8 @@ namespace AncientMysteries.Items
                             {
                                 continue;
                             }
-                            bool isntPrevOwner3 = realThing5 != base.prevOwner;
-                            if (isntPrevOwner3 && realThing5 is RagdollPart && (realThing5 as RagdollPart).doll != null && (realThing5 as RagdollPart).doll.captureDuck == base.prevOwner)
+                            bool isntPrevOwner3 = realThing5 != prevOwner;
+                            if (isntPrevOwner3 && realThing5 is RagdollPart && (realThing5 as RagdollPart).doll != null && (realThing5 as RagdollPart).doll.captureDuck == prevOwner)
                             {
                                 isntPrevOwner3 = false;
                             }
@@ -717,12 +717,12 @@ namespace AncientMysteries.Items
                     }
                 }
             }
-            if (_stayVolatile && base.isServerForObject)
+            if (_stayVolatile && isServerForObject)
             {
                 int waitFrames2 = 28;
-                foreach (IAmADuck d4 in Level.CheckLineAll<IAmADuck>(barrelStartPos, base.barrelPosition))
+                foreach (IAmADuck d4 in Level.CheckLineAll<IAmADuck>(barrelStartPos, barrelPosition))
                 {
-                    if (d4 == base.duck)
+                    if (d4 == duck)
                     {
                         continue;
                     }
@@ -731,8 +731,8 @@ namespace AncientMysteries.Items
                     {
                         continue;
                     }
-                    bool isntPrevOwner2 = realThing4 != base.prevOwner;
-                    if (isntPrevOwner2 && realThing4 is RagdollPart && (realThing4 as RagdollPart).doll != null && (realThing4 as RagdollPart).doll.captureDuck == base.prevOwner)
+                    bool isntPrevOwner2 = realThing4 != prevOwner;
+                    if (isntPrevOwner2 && realThing4 is RagdollPart && (realThing4 as RagdollPart).doll != null && (realThing4 as RagdollPart).doll.captureDuck == prevOwner)
                     {
                         isntPrevOwner2 = false;
                     }
@@ -760,7 +760,7 @@ namespace AncientMysteries.Items
                 _unslam = 0;
             }
             _afterSwingCounter += Maths.IncFrameTimer();
-            if (base.isServerForObject)
+            if (isServerForObject)
             {
                 if (_unslam > 1)
                 {
@@ -774,7 +774,7 @@ namespace AncientMysteries.Items
                 }
                 if (_pullBack)
                 {
-                    if (base.duck != null)
+                    if (duck != null)
                     {
                         if (_jabStance)
                         {
@@ -798,7 +798,7 @@ namespace AncientMysteries.Items
                             _swinging = false;
                         }
                     }
-                    else if (base.raised)
+                    else if (raised)
                     {
                         _swing = MathHelper.Lerp(_swing, -2.8f, 0.2f);
                         if (_swing < -2.4f && !action)
@@ -853,7 +853,7 @@ namespace AncientMysteries.Items
                     }
                 }
             }
-            if (base.duck != null)
+            if (duck != null)
             {
                 RestoreCollisionSize(pHeld: true);
                 _swingPress = false;
@@ -861,9 +861,9 @@ namespace AncientMysteries.Items
                 {
                     _crouchStance = false;
                     _jabStance = false;
-                    if (base.duck.crouch)
+                    if (duck.crouch)
                     {
-                        if (!_pullBack && !_swinging && base.duck.inputProfile.Down((offDir > 0) ? "LEFT" : "RIGHT"))
+                        if (!_pullBack && !_swinging && duck.inputProfile.Down((offDir > 0) ? "LEFT" : "RIGHT"))
                         {
                             _jabStance = true;
                         }
@@ -883,18 +883,18 @@ namespace AncientMysteries.Items
             }
             if ((_swung || _swinging) && !_shing)
             {
-                (Offset(base.barrelOffset) - position).Normalize();
-                Offset(base.barrelOffset);
-                IEnumerable<IAmADuck> hit = Level.CheckLineAll<IAmADuck>(barrelStartPos, base.barrelPosition);
-                Block wallHit = Level.CheckLine<Block>(barrelStartPos, base.barrelPosition);
-                Level.CheckRect<Icicles>(barrelStartPos, base.barrelPosition)?.Hurt(100f);
+                (Offset(barrelOffset) - position).Normalize();
+                Offset(barrelOffset);
+                IEnumerable<IAmADuck> hit = Level.CheckLineAll<IAmADuck>(barrelStartPos, barrelPosition);
+                Block wallHit = Level.CheckLine<Block>(barrelStartPos, barrelPosition);
+                Level.CheckRect<Icicles>(barrelStartPos, barrelPosition)?.Hurt(100f);
                 if (wallHit != null && !_slamStance)
                 {
-                    if (offDir < 0 && wallHit.x > base.x)
+                    if (offDir < 0 && wallHit.x > x)
                     {
                         wallHit = null;
                     }
-                    else if (offDir > 0 && wallHit.x < base.x)
+                    else if (offDir > 0 && wallHit.x < x)
                     {
                         wallHit = null;
                     }
@@ -917,14 +917,14 @@ namespace AncientMysteries.Items
                         wallHit.Destroy(new DTImpact(this));
                     }
                 }
-                else if (!_jabStance && !_slamStance && base.isServerForObject)
+                else if (!_jabStance && !_slamStance && isServerForObject)
                 {
                     Thing ignore = null;
-                    if (base.duck != null)
+                    if (duck != null)
                     {
-                        ignore = base.duck.GetEquipment(typeof(Helmet));
+                        ignore = duck.GetEquipment(typeof(Helmet));
                     }
-                    Vec2 barrel = base.barrelPosition + base.barrelVector * 3f;
+                    Vec2 barrel = barrelPosition + barrelVector * 3f;
                     Vec2 p3 = new Vec2((position.x < barrel.x) ? position.x : barrel.x, (position.y < barrel.y) ? position.y : barrel.y);
                     Vec2 p2 = new Vec2((position.x > barrel.x) ? position.x : barrel.x, (position.y > barrel.y) ? position.y : barrel.y);
                     QuadLaserBullet laserHit = Level.CheckRect<QuadLaserBullet>(p3, p2);
@@ -933,7 +933,7 @@ namespace AncientMysteries.Items
                         Shing();
                         Fondle(laserHit);
                         laserHit.safeFrames = 8;
-                        laserHit.safeDuck = base.duck;
+                        laserHit.safeDuck = duck;
                         float mag = laserHit.travel.length;
                         float mul = 1.5f;
                         Vec2 travel = (laserHit.travel = ((offDir > 0) ? new Vec2(mag * mul, 0f) : new Vec2((0f - mag) * mul, 0f)));
@@ -941,7 +941,7 @@ namespace AncientMysteries.Items
                     }
                     else
                     {
-                        Helmet helmetHit = Level.CheckLine<Helmet>(barrelStartPos, base.barrelPosition, ignore);
+                        Helmet helmetHit = Level.CheckLine<Helmet>(barrelStartPos, barrelPosition, ignore);
                         if (helmetHit != null && helmetHit.equippedDuck != null && helmetHit.owner != null)
                         {
                             Shing();
@@ -956,11 +956,11 @@ namespace AncientMysteries.Items
                         }
                         else
                         {
-                            if (base.duck != null)
+                            if (duck != null)
                             {
-                                ignore = base.duck.GetEquipment(typeof(ChestPlate));
+                                ignore = duck.GetEquipment(typeof(ChestPlate));
                             }
-                            ChestPlate chestHit = Level.CheckLine<ChestPlate>(barrelStartPos, base.barrelPosition, ignore);
+                            ChestPlate chestHit = Level.CheckLine<ChestPlate>(barrelStartPos, barrelPosition, ignore);
                             if (chestHit != null && chestHit.equippedDuck != null && chestHit.owner != null)
                             {
                                 Shing();
@@ -976,11 +976,11 @@ namespace AncientMysteries.Items
                         }
                     }
                 }
-                if (!clashed && base.isServerForObject)
+                if (!clashed && isServerForObject)
                 {
                     foreach (AMMelee s in Level.current.things[typeof(AMMelee)])
                     {
-                        if (s == this || !s.held || _jabStance || s._jabStance || base.duck == null || !Collision.LineIntersect(barrelStartPos, base.barrelPosition, s.barrelStartPos, s.barrelPosition))
+                        if (s == this || !s.held || _jabStance || s._jabStance || duck == null || !Collision.LineIntersect(barrelStartPos, barrelPosition, s.barrelStartPos, s.barrelPosition))
                         {
                             continue;
                         }
@@ -988,23 +988,23 @@ namespace AncientMysteries.Items
                         s.Shing();
                         s.owner.hSpeed += (float)offDir * 3f;
                         s.owner.vSpeed -= 2f;
-                        base.duck.hSpeed += (float)(-offDir) * 3f;
-                        base.duck.vSpeed -= 2f;
-                        if (s.duck != null && base.duck != null)
+                        duck.hSpeed += (float)(-offDir) * 3f;
+                        duck.vSpeed -= 2f;
+                        if (s.duck != null && duck != null)
                         {
                             s.duck.crippleTimer = 1f;
-                            base.duck.crippleTimer = 1f;
+                            duck.crippleTimer = 1f;
                             clashed = true;
                         }
                     }
                 }
-                if (clashed || !base.isServerForObject)
+                if (clashed || !isServerForObject)
                 {
                     return;
                 }
                 foreach (IAmADuck d3 in hit)
                 {
-                    if (d3 == base.duck || d3 == base.prevOwner)
+                    if (d3 == duck || d3 == prevOwner)
                     {
                         continue;
                     }
@@ -1012,9 +1012,9 @@ namespace AncientMysteries.Items
                     if (realThing2 != null)
                     {
                         Duck realDuck3 = realThing2 as Duck;
-                        if (realDuck3 != null && !realDuck3.destroyed && base.duck != null)
+                        if (realDuck3 != null && !realDuck3.destroyed && duck != null)
                         {
-                            RumbleManager.AddRumbleEvent(base.duck.profile, new RumbleEvent(RumbleIntensity.Light, RumbleDuration.Pulse, RumbleFalloff.Short));
+                            RumbleManager.AddRumbleEvent(duck.profile, new RumbleEvent(RumbleIntensity.Light, RumbleDuration.Pulse, RumbleFalloff.Short));
                             Global.data.swordKills.valueInt++;
                         }
                         realThing2.Destroy(destroyType);
@@ -1023,13 +1023,13 @@ namespace AncientMysteries.Items
             }
             else
             {
-                if (!_crouchStance || base.duck == null)
+                if (!_crouchStance || duck == null)
                 {
                     return;
                 }
-                foreach (IAmADuck d in Level.CheckLineAll<IAmADuck>(barrelStartPos, base.barrelPosition))
+                foreach (IAmADuck d in Level.CheckLineAll<IAmADuck>(barrelStartPos, barrelPosition))
                 {
-                    if (d == base.duck)
+                    if (d == duck)
                     {
                         continue;
                     }
@@ -1038,19 +1038,19 @@ namespace AncientMysteries.Items
                     {
                         continue;
                     }
-                    if (realThing.vSpeed > 0.5f && realThing.bottom < position.y - 8f && realThing.left < base.barrelPosition.x && realThing.right > base.barrelPosition.x)
+                    if (realThing.vSpeed > 0.5f && realThing.bottom < position.y - 8f && realThing.left < barrelPosition.x && realThing.right > barrelPosition.x)
                     {
                         Duck realDuck2 = realThing as Duck;
                         if (realDuck2 != null && !realDuck2.destroyed)
                         {
-                            RumbleManager.AddRumbleEvent(base.duck.profile, new RumbleEvent(RumbleIntensity.Light, RumbleDuration.Pulse, RumbleFalloff.Short));
+                            RumbleManager.AddRumbleEvent(duck.profile, new RumbleEvent(RumbleIntensity.Light, RumbleDuration.Pulse, RumbleFalloff.Short));
                             Global.data.swordKills.valueInt++;
                         }
                         realThing.Destroy(destroyType);
                     }
                     else
                     {
-                        if (_jabStance || realThing.destroyed || ((offDir <= 0 || !(realThing.x > base.duck.x)) && (offDir >= 0 || !(realThing.x < base.duck.x))))
+                        if (_jabStance || realThing.destroyed || ((offDir <= 0 || !(realThing.x > duck.x)) && (offDir >= 0 || !(realThing.x < duck.x))))
                         {
                             continue;
                         }
@@ -1058,12 +1058,12 @@ namespace AncientMysteries.Items
                         {
                             (realThing as Duck).crippleTimer = 1f;
                         }
-                        else if ((base.duck.x > realThing.x && realThing.hSpeed > 1.5f) || (base.duck.x < realThing.x && realThing.hSpeed < -1.5f))
+                        else if ((duck.x > realThing.x && realThing.hSpeed > 1.5f) || (duck.x < realThing.x && realThing.hSpeed < -1.5f))
                         {
                             Duck realDuck = realThing as Duck;
                             if (realDuck != null && !realDuck.destroyed)
                             {
-                                RumbleManager.AddRumbleEvent(base.duck.profile, new RumbleEvent(RumbleIntensity.Light, RumbleDuration.Pulse, RumbleFalloff.Short));
+                                RumbleManager.AddRumbleEvent(duck.profile, new RumbleEvent(RumbleIntensity.Light, RumbleDuration.Pulse, RumbleFalloff.Short));
                                 Global.data.swordKills.valueInt++;
                             }
                             realThing.Destroy(destroyType);
@@ -1122,26 +1122,26 @@ namespace AncientMysteries.Items
             }
             if (DevConsole.showCollision)
             {
-                Graphics.DrawLine(barrelStartPos, base.barrelPosition, Color.Red, 1f, 1f);
+                Graphics.DrawLine(barrelStartPos, barrelPosition, Color.Red, 1f, 1f);
             }
             if (_swordSwing.speed > 0f)
             {
-                if (base.duck != null)
+                if (duck != null)
                 {
-                    _swordSwing.flipH = ((base.duck.offDir <= 0) ? true : false);
+                    _swordSwing.flipH = ((duck.offDir <= 0) ? true : false);
                 }
                 _swordSwing.alpha = 0.4f;
                 _swordSwing.position = position;
-                _swordSwing.depth = base.depth + 1;
+                _swordSwing.depth = depth + 1;
                 _swordSwing.Draw();
             }
             Vec2 pos = position;
-            Depth d = base.depth;
+            Depth d = depth;
             graphic.color = Color.White;
-            if ((owner == null && base.velocity.length > 1f) || _swing != 0f || (tape != null && bayonetLethal))
+            if ((owner == null && velocity.length > 1f) || _swing != 0f || (tape != null && bayonetLethal))
             {
-                float al = base.alpha;
-                base.alpha = 1f;
+                float al = alpha;
+                alpha = 1f;
                 float rlAngle = angle;
                 _drawing = true;
                 float a = _angle;
@@ -1156,15 +1156,15 @@ namespace AncientMysteries.Items
                     int idx = historyIndex(i);
                     _angle = _lastAngles[idx];
                     position = _lastPositions[idx];
-                    base.depth -= 2;
-                    base.alpha -= 0.15f;
+                    depth -= 2;
+                    alpha -= 0.15f;
                     graphic.color = Color.Red;
                 }
                 position = pos;
-                base.depth = d;
-                base.alpha = al;
+                depth = d;
+                alpha = al;
                 _angle = a;
-                base.xscale = 1f;
+                xscale = 1f;
                 _drawing = false;
             }
             else
@@ -1201,7 +1201,7 @@ namespace AncientMysteries.Items
                     }
                 }
             }
-            else if (_crouchStance && !_jabStance && base.duck != null && !base.duck.grounded)
+            else if (_crouchStance && !_jabStance && duck != null && !duck.grounded)
             {
                 _slamStance = true;
             }

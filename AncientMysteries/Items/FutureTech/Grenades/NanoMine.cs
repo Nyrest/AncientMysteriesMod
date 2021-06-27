@@ -87,7 +87,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             _mineFlash = new Sprite("mineFlash");
             _mineFlash.CenterOrigin();
             _mineFlash.alpha = 0f;
-            base.bouncy = 0f;
+            bouncy = 0f;
             friction = 0.2f;
         }
 
@@ -99,7 +99,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             }
             _holdingWeight = 0f;
             _armed = true;
-            if (base.isServerForObject)
+            if (isServerForObject)
             {
                 if (Network.isActive)
                 {
@@ -130,7 +130,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                 _sprite.SetAnimation("idle");
                 collisionOffset = new Vec2(-6f, -2f);
                 collisionSize = new Vec2(12f, 3f);
-                base.depth = 0.8f;
+                depth = 0.8f;
                 _hasOldDepth = false;
                 thickness = 1f;
                 center = new Vec2(9f, 14f);
@@ -214,7 +214,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                 _thrown = false;
                 if (Math.Abs(hSpeed) + Math.Abs(vSpeed) > 0.4f)
                 {
-                    base.angleDegrees = 180f;
+                    angleDegrees = 180f;
                 }
             }
             if (_armed)
@@ -225,7 +225,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             {
                 canPickUp = false;
                 float holdWeight = addWeight;
-                IEnumerable<PhysicsObject> col = Level.CheckLineAll<PhysicsObject>(new Vec2(base.x - 7f, base.y - 4f), new Vec2(base.x + 7f, base.y - 4f));
+                IEnumerable<PhysicsObject> col = Level.CheckLineAll<PhysicsObject>(new Vec2(x - 7f, y - 4f), new Vec2(x + 7f, y - 4f));
                 List<Duck> ducks = new();
                 Duck stepDuck = null;
                 bool hadServerThing = false;
@@ -290,7 +290,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                 }
                 if (holdWeight < _holdingWeight && hadServerThing)
                 {
-                    Thing.Fondle(this, DuckNetwork.localConnection);
+                    Fondle(this, DuckNetwork.localConnection);
                     if (!_armed)
                     {
                         Arm();
@@ -318,7 +318,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                 }
                 _holdingWeight = holdWeight;
             }
-            if (_timer < 0f && base.isServerForObject)
+            if (_timer < 0f && isServerForObject)
             {
                 _timer = 1f;
                 BlowUp();
@@ -367,7 +367,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                 Level.Add(bullet);
             }
             bulletFireIndex += 20;
-            if (Network.isActive && base.isServerForObject)
+            if (Network.isActive && isServerForObject)
             {
                 NMFireGun gunEvent = new(this, firedBullets, bulletFireIndex, rel: false, 4);
                 Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
@@ -415,7 +415,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
         {
             if (bullet.isLocal && owner == null && !canPickUp && _timer > 0f)
             {
-                Thing.Fondle(this, DuckNetwork.localConnection);
+                Fondle(this, DuckNetwork.localConnection);
                 BlowUp();
             }
             return false;
@@ -425,7 +425,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
         {
             if (_mineFlash.alpha > 0.01f)
             {
-                Graphics.Draw(_mineFlash, base.x, base.y - 3f);
+                Graphics.Draw(_mineFlash, x, y - 3f);
             }
             base.Draw();
             if (IsTargetVaild && duck?.profile.localPlayer == true)

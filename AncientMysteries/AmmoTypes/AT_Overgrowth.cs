@@ -4,7 +4,7 @@
     {
         public AT_Overgrowth()
         {
-            sprite = Texs.OvergrowthSmall.ModSprite();
+            sprite = t_OvergrowthSmall.ModSprite();
             bulletSpeed = 5f;
             accuracy = 0.3f;
             speedVariation = 2.5f;
@@ -14,14 +14,14 @@
         {
             if (isBig)
             {
-                sprite = Texs.OvergrowthBig.ModSprite();
+                sprite = t_OvergrowthBig.ModSprite();
                 bulletSpeed = 4f;
                 accuracy = 0.4f;
                 speedVariation = 3f;
             }
             else
             {
-                sprite = Texs.OvergrowthSmall.ModSprite();
+                sprite = t_OvergrowthSmall.ModSprite();
                 bulletSpeed = 5f;
                 accuracy = 0.3f;
                 speedVariation = 2.5f;

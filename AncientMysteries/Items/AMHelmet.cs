@@ -54,17 +54,17 @@
 
         public override bool Hit(Bullet bullet, Vec2 hitPos)
         {
-            if (_equippedDuck == null || bullet.owner == base.duck || !bullet.isLocal)
+            if (_equippedDuck == null || bullet.owner == duck || !bullet.isLocal)
             {
                 return false;
             }
-            if (_isArmor && base.duck != null)
+            if (_isArmor && duck != null)
             {
                 EquipmentHitPoints--;
                 if (bullet.isLocal && EquipmentHitPoints <= 0)
                 {
-                    base.duck.KnockOffEquipment(this, ting: true, bullet);
-                    Thing.Fondle(this, DuckNetwork.localConnection);
+                    duck.KnockOffEquipment(this, ting: true, bullet);
+                    Fondle(this, DuckNetwork.localConnection);
                 }
                 if (MakeDefaultHitEffects)
                 {
@@ -76,7 +76,7 @@
                     Level.Add(MetalRebound.New(hitPos.x, hitPos.y, (bullet.travelDirNormalized.x > 0f) ? 1 : (-1)));
                     for (int i = 0; i < 6; i++)
                     {
-                        Level.Add(Spark.New(base.x, base.y, bullet.travelDirNormalized));
+                        Level.Add(Spark.New(x, y, bullet.travelDirNormalized));
                     }
                 }
                 return BaseBaseHit();
