@@ -55,7 +55,6 @@
     <Compile Include="Items\_DEBUG\RandomAMItem.cs" />
     <Compile Include="Items\True\Arcane Nova.cs" />
     <None Include="packages.config" />
-    <None Include="_Generated\TexturesReference.cs" />
     <AdditionalFiles Include="_projLocator" Visible="false" />
   </ItemGroup>
   <ItemGroup>
