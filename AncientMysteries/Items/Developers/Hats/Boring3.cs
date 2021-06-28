@@ -126,31 +126,7 @@ namespace AncientMysteries.Armor.Developers.Hats
                     0.2f));
             }
             SFX.Play("scimiSurge", 0.8f, Rando.Float(-0.2f, 0.2f));
-
-            /*
-            SmallSmoke smoke = SmallSmoke.New(hitPos.x, hitPos.y,0.8f,3);
-            var speed = bullet.travelDirNormalized * bullet.bulletSpeed * 0.1f;
-            smoke.vSpeed = speed.y;
-            smoke.hSpeed = speed.x;
-            Level.Add(smoke);
-            */
             return true;
-        }
-
-        public override void OnImpact(MaterialThing with, ImpactedFrom from)
-        {
-            base.OnImpact(with, from);
-        }
-
-        public override void Draw()
-        {
-            base.Draw();
-            return;
-            if (equippedDuck != null)
-            {
-                Graphics.DrawRect(equippedDuck.rectangle, Color.Blue, 2, false, 2);
-            }
-            Graphics.DrawRect(new Rectangle(left, top, right - left, bottom - top), Color.Red, 2, false);
         }
 
         public override void Equip(Duck d)

@@ -31,7 +31,7 @@ namespace AncientMysteries.SourceGenerator
                     if (char.IsNumber(fieldName[0]))
                         fieldName = "_" + fieldName;
                     sb.AppendLine(TabLevel(2) + $"public const string t_{fieldName} = \"{filename}\";");
-                    allTexturesBuilder.Append($"\n{TabLevel(2)}{fieldName},");
+                    allTexturesBuilder.Append($"\n{TabLevel(2)}t_{fieldName},");
                 }
             }
             allTexturesBuilder.AppendLine($"\n{TabLevel(2)}}};");
