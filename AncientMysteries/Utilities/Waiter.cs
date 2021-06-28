@@ -7,6 +7,7 @@ namespace AncientMysteries.Utilities
     {
         public static DictSlim<string, int> dict = new DictSlim<string, int>();
 
+        [Obsolete]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool WaitUnique<T>(
             this T obj,
@@ -15,7 +16,7 @@ namespace AncientMysteries.Utilities
             [CallerMemberName] string member = null,
             [CallerLineNumber] int line = -1)
         {
-            ref int currentFrame = ref dict.GetOrAddValueRef(string.Concat(obj.GetHashCode(), path, member, line.ToString()));
+            ref int currentFrame = ref dict.GetOrAddValueRef(string.Concat(obj.GetHashCode().ToString(), path, member, line.ToString()));
             return currentFrame++ >= totalFramesToWait;
         }
     }
