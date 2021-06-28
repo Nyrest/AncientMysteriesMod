@@ -1,5 +1,4 @@
 ﻿using AncientMysteries.Utilities.Collections;
-using System.Runtime.CompilerServices;
 
 namespace AncientMysteries.Utilities
 {
