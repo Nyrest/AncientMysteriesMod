@@ -2,6 +2,8 @@
 global using DuckGame;
 global using System.Linq;
 global using System.Reflection;
+global using System.Runtime.CompilerServices;
+global using System.Runtime.InteropServices;
 global using AncientMysteries.Items;
 global using AncientMysteries.AmmoTypes;
 global using AncientMysteries.Bullets;

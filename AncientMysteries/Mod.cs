@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 
 namespace AncientMysteries
 {
@@ -15,12 +14,6 @@ namespace AncientMysteries
             {
                 MonoMain.modDebugging = true;
             }
-            test(233);
-        }
-
-        public static void test<T>(T obj, [CallerArgumentExpression("obj")] string? callerArgumentExpression = null)
-        {
-            ;
         }
 
         protected override void OnPostInitialize()
