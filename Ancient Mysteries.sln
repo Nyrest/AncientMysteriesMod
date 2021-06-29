@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30404.54
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31423.177
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncientMysteries", "AncientMysteries\AncientMysteries.csproj", "{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncientMysteries.SourceGenerator", "AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj", "{CBF7DCD6-E760-484D-96F6-258854C145B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AncientMysteries.SourceGenerator", "AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj", "{CBF7DCD6-E760-484D-96F6-258854C145B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{653F5D7F-2738-47E4-87CB-F75AE49AEDEC}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

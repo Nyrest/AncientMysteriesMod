@@ -18,11 +18,12 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>preview</LangVersion>
     <TargetFrameworkProfile />
-    <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false">
       <Private>False</Private>
+      <Project>{CBF7DCD6-E760-484D-96F6-258854C145B0}</Project>
+      <Name>AncientMysteries.SourceGenerator</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -38,6 +39,13 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Items\Explosives\ViscousAcidLiquor.AmmoType.cs">
+      <DependentUpon>ViscousAcidLiquor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\Explosives\ViscousAcidLiquor.Bullet.cs">
+      <DependentUpon>ViscousAcidLiquor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\Explosives\ViscousAcidLiquor.cs" />
     <Compile Include="_FuckNetFX\CompilerServices\Attributes\CallerArgumentExpressionAttribute.cs" />
     <Compile Include="_Imports.cs" />
     <Compile Include="Utilities\Collections\DictSlim.cs" />
@@ -56,6 +64,9 @@
     <Compile Include="Items\Common\Umbrella.cs" />
     <Compile Include="Items\_DEBUG\RandomAMItem.cs" />
     <Compile Include="Items\True\Arcane Nova.cs" />
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="packages.config" />
     <AdditionalFiles Include="_projLocator" Visible="false" />
   </ItemGroup>

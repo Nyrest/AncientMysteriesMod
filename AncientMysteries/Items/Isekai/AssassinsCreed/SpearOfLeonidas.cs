@@ -12,7 +12,7 @@ namespace AncientMysteries.Items.Artifacts
         //public StateBinding _targetPlayerBinding = new StateBinding("_targetPlayer");
         public Duck _targetPlayer;
 
-        public StateBinding _flyProgressBinding = new StateBinding(nameof(_flying));
+        public StateBinding _flyProgressBinding = new(nameof(_flying));
         public bool _flying = false;
 
         public bool IsTargetVaild => _targetPlayer?.dead == false && _targetPlayer?.ragdoll == null;
@@ -70,7 +70,7 @@ namespace AncientMysteries.Items.Artifacts
                 // what a stupid implementation. I should let it just move like a normal object
                 // but it can be teleported by teleporter. so just draw it no need modify it's real position.
                 // however this guy is too lazy
-                Vec2 anglevec = new Vec2(_targetPlayer.x - this.x, this.y - _targetPlayer.y);
+                Vec2 anglevec = new(_targetPlayer.x - this.x, this.y - _targetPlayer.y);
                 float angle = (float)Math.Atan(anglevec.y / anglevec.x);
                 this.offDir = (sbyte)(anglevec.x < 0 ? -1 : 1);
                 this._angle = angle + 1.56f * offDir;
