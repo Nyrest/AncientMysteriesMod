@@ -38,6 +38,7 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Bullets\Bullet_Flower.cs" />
     <Compile Include="_FuckNetFX\CompilerServices\Attributes\CallerArgumentExpressionAttribute.cs" />
     <Compile Include="_Imports.cs" />
     <Compile Include="Utilities\Collections\DictSlim.cs" />
@@ -171,7 +172,7 @@
     <None Include="Items\Isekai\RiskOfRain\RoREquipmentBase.cs" />
     <Compile Include="Items\Rainbow\Iridescence.cs" />
     <Compile Include="Items\Rainbow\RainbowTears.cs" />
-    <None Include="Items\True\PrimordialLibram.cs" />
+    <Compile Include="Items\True\PrimordialLibram.cs" />
     <Compile Include="Items\True\HolyLight.cs" />
     <Compile Include="Items\True\UpdateDuckGame.cs" />
     <Compile Include="Items\Dragon\Eternal Flame.cs" />
