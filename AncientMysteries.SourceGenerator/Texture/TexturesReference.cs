@@ -19,8 +19,8 @@ namespace AncientMysteries.SourceGenerator
             sb.AppendLine("public static partial class Texs");
             sb.Append(TabLevel(1));
             sb.AppendLine("{");
-            StringBuilder allTexturesBuilder = new StringBuilder($"{TabLevel(2)}public static readonly string[] _AllTextures = new string[]\n{TabLevel(2)}{{");
-            List<string> fieldNameList = new List<string>(Directory.GetFiles(context.GetProjectLocaltion() + "/content", "*.png").Length);
+            StringBuilder allTexturesBuilder = new($"{TabLevel(2)}public static readonly string[] _AllTextures = new string[]\n{TabLevel(2)}{{");
+            List<string> fieldNameList = new(Directory.GetFiles(context.GetProjectLocaltion() + "/content", "*.png").Length);
             foreach (var fullname in Directory.GetFiles(context.GetProjectLocaltion() + "/content", "*.png").OrderBy(x => Path.GetFileName(x)))
             {
                 if (Path.GetExtension(fullname).Equals(".png", StringComparison.OrdinalIgnoreCase))

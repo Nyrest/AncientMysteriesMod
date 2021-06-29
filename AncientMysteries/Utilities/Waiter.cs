@@ -4,7 +4,7 @@ namespace AncientMysteries.Utilities
 {
     public static class Waiter
     {
-        public static DictSlim<string, int> dict = new DictSlim<string, int>();
+        public static DictSlim<string, int> dict = new();
 
         [Obsolete]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
