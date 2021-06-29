@@ -65,7 +65,7 @@ namespace AncientMysteries.Items.Artifacts
                 }
             }
             // TODO: do this network onwer only, if null then just fucking stop flying and fall
-            else if (_flying)
+            else if (_flying && _targetPlayer is not null)
             {
                 // what a stupid implementation. I should let it just move like a normal object
                 // but it can be teleported by teleporter. so just draw it no need modify it's real position.
