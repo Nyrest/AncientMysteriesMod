@@ -23,8 +23,31 @@ namespace AncientMysteries.Items.True
 
         public Vec2 castPos;
 
-        public int timer = 23;
+        public int interval = 0;
 
+        //public int greenInterval = 3;
+
+        public bool start = false;
+
+        //public bool greenStart = false;
+
+        public int timer = 0;
+
+        //public int greenTimer = 0;
+
+        public int limiter = 0;
+
+        public Bullet b;
+
+        public int fireAngle = 90;
+
+        public Vec2 pos = new Vec2();
+
+        public float r = 0;
+
+        //public int greenCount = 5;
+
+        //public float nearest = 0f;
         public byte AnimationFrame
         {
             get => (byte)_spriteMap._frame;
@@ -46,7 +69,7 @@ namespace AncientMysteries.Items.True
             _spriteMap = this.ReadyToRunMap("priLibram.png", 21, 14);
             this.SetBox(21, 14);
             this._barrelOffsetTL = new Vec2(6f, 5f);
-            this._castSpeed = 0.006f;
+            this._castSpeed = 1f;//0.006
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             this._fireWait = 0.5f;
@@ -77,13 +100,96 @@ namespace AncientMysteries.Items.True
             {
                 _spriteMap.SetAnimation("back");
             }
-            castPos = owner.position;
+            if (owner != null)
+            {
+                castPos = owner.position;
+            }
+            if (start)
+            {
+                timer++;
+                limiter++;
+                if (rando == 0 && timer == interval)
+                {
+                    this.NmFireGun(list =>
+                    {
+                        b = new Bullet_BigFB(castPos.x, castPos.y, new AT_BigFB(), fireAngle + Rando.Float(-5, 5), owner, false, 400)
+                        {
+                            color = Color.Orange
+                        };
+                        list.Add(b);
+                        timer = 0;
+                    });
+                }
+                if (rando == 1 && timer == interval)
+                {
+                    this.NmFireGun(list =>
+                    {
+                        for (int i = 0; i < 4; i++)
+                        {
+                            b = new Bullet_Icicle(pos.x, pos.y, new AT9mm()
+                            {
+                                bulletLength = 0f,
+                                bulletColor = Color.White,
+                                sprite = TexHelper.ModSprite("icicle.png"),
+                                bulletSpeed = 1f,
+                                speedVariation = 0f
+                            }, Rando.Float(0, 360), owner, false, 250)
+                            {
+                                color = Color.White
+                            };
+                            list.Add(b);
+                        }
+                        timer = 0;
+                        SFX.Play("goody", 0.4f, Rando.Float(0.2f, 0.4f));
+                    });
+                }
+                if (rando == 2 && timer == interval)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        this.NmFireGun(list =>
+                    {
+                        b = new Bullet_Laser(pos.x + Rando.Float(-r, r), pos.y - 200f + Rando.Float(-r / 2, r / 2), /*new AT9mm
+                {
+                    bulletSpeed = 2f,
+                    accuracy = 1f,
+                    penetration = 1f,
+                    bulletLength = 3,
+                }*/new AT_Laser(), Rando.Float(-100f - Convert.ToSingle(r / 3.5f), Convert.ToSingle(-80 + r / 3.5f)), owner, false, 400)
+                        {
+                            color = Color.Yellow
+                        };
+                        ExplosionPart ins = new(b.travelStart.x, b.travelStart.y, true);
+                        ins.xscale *= 0.2f;
+                        ins.yscale *= 0.2f;
+                        Level.Add(ins);
+                        list.Add(b);
+                        timer = 0;
+                    });
+                    }
+                }
+            }
+            if (limiter == 180)
+            {
+                start = false;
+                limiter = 0;
+                timer = 0;
+            }
+            if (owner != null && owner._offDir == 1)
+            {
+                fireAngle = 0;
+            }
+            else
+            {
+                fireAngle = 180;
+            }
+            r += 0.8f;
         }
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
-            rando = new Random().Next(0,0);
+            rando = new Random().Next(3,4);
             if (_castTime >= 1f && rando == 0)
             {
                 /*TempFire t = new(this.owner.x, owner.y, true, owner)
@@ -93,17 +199,20 @@ namespace AncientMysteries.Items.True
                 t.xscale *= 2f;
                 t.yscale *= 2f;
                 Level.Add(t);*/
-                if (timer >= 22 && removing == false)
-                {
+                /*if (timer >= 22 && removing == false)
+                {*/
                     this.NmFireGun(list =>
                     {
-                        Bullet b = new Bullet_BigFB(castPos.x, castPos.y, new AT_BigFB(), fireAngle, t, false, 400)
+                        b = new Bullet_BigFB(castPos.x, castPos.y, new AT_BigFB(), fireAngle + Rando.Float(-5,5), owner, false, 400)
                         {
                             color = Color.Orange
                         };
                         list.Add(b);
+                        start = true;
+                        interval = 25;
+                        limiter = 0;
                     });
-                    timer = 0;
+                    /*timer = 0;
                     timer2++;
                 }
                 if (timer2 == 8 && removing == false)
@@ -111,7 +220,7 @@ namespace AncientMysteries.Items.True
                     removing = true;
                     progress = 1;
                 }
-                timer++;
+                timer++;*/
             }
             if (_castTime >= 1f && rando == 1)
             {
@@ -122,6 +231,26 @@ namespace AncientMysteries.Items.True
                 i.xscale *= 2f;
                 i.yscale *= 2f;
                 Level.Add(i);*/
+                pos = owner.position;
+                this.NmFireGun(list =>
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        b = new Bullet_Icicle(pos.x, pos.y, new AT9mm()
+                        {
+                            bulletLength = 0f,
+                            bulletColor = Color.Transparent
+                        }, Rando.Float(0, 360), owner, false, 250)
+                        {
+                            color = Color.Orange
+                        };
+                        list.Add(b);
+                    }
+                    start = true;
+                    interval = 7;
+                    limiter = 0;
+                    SFX.Play("goody", 0.4f, Rando.Float(0.2f, 0.4f));
+                });
             }
             if (_castTime >= 1f && rando == 2)
             {
@@ -132,6 +261,33 @@ namespace AncientMysteries.Items.True
                 c.xscale *= 2f;
                 c.yscale *= 2f;
                 Level.Add(c);*/
+                pos = owner.position;
+                r = 0f;
+                for (int i = 0; i < 2; i++)
+                {
+                    this.NmFireGun(list =>
+                    {
+
+                    b = new Bullet_Laser(pos.x + Rando.Float(-r, r), pos.y - 200f + Rando.Float(-r / 2, r / 2), /*new AT9mm
+                {
+                    bulletSpeed = 2f,
+                    accuracy = 1f,
+                    penetration = 1f,
+                    bulletLength = 3,
+                }*/new AT_Laser(), Rando.Float(-100f - Convert.ToSingle(r / 3.5f), Convert.ToSingle(-80 + r / 3.5f)), owner, false, 400)
+                    {
+                        color = Color.Yellow
+                    };
+                    ExplosionPart ins = new(b.travelStart.x, b.travelStart.y, true);
+                    ins.xscale *= 0.2f;
+                    ins.yscale *= 0.2f;
+                    Level.Add(ins);
+
+                    });
+                }
+                start = true;
+                interval = 5;
+                limiter = 0;
             }
             if (_castTime >= 1f && rando == 3)
             {
@@ -142,6 +298,25 @@ namespace AncientMysteries.Items.True
                 n.xscale *= 2f;
                 n.yscale *= 2f;
                 Level.Add(n);*/
+                for (int i = 0; i < 5; i++)
+                {
+                    this.NmFireGun(list =>
+                    {
+                        b = new Bullet_Flower(castPos.x, castPos.y, new AT9mm()
+                        {
+                            bulletLength = 0f,
+                            bulletColor = Color.White,
+                            sprite = TexHelper.ModSprite("flower.png"),
+                            bulletSpeed = 4f,
+                            speedVariation = 3f,
+                            accuracy = 1f
+                        }, fireAngle + Rando.Float(-15f,15f), owner, false, 250)
+                        {
+                            color = Color.White
+                        };
+                        list.Add(b);
+                    });
+                }
             }
             if (Network.isActive)
             {
