@@ -52,19 +52,19 @@ namespace AncientMysteries.Items
 
     public abstract class AMMelee : AMGun
     {
-        public StateBinding _swingBinding = new StateBinding(doLerp: true, "_swing");
+        public StateBinding _swingBinding = new(doLerp: true, "_swing");
 
-        public StateBinding _holdBinding = new StateBinding(doLerp: true, "_hold");
+        public StateBinding _holdBinding = new(doLerp: true, "_hold");
 
         public StateBinding _stanceBinding = new AMMeleeFlagBinding();
 
-        public StateBinding _pullBackBinding = new StateBinding(doLerp: true, "_pullBack");
+        public StateBinding _pullBackBinding = new(doLerp: true, "_pullBack");
 
-        public StateBinding _throwSpinBinding = new StateBinding(doLerp: true, "_throwSpin");
+        public StateBinding _throwSpinBinding = new(doLerp: true, "_throwSpin");
 
-        public StateBinding _addOffsetXBinding = new StateBinding("_addOffsetX");
+        public StateBinding _addOffsetXBinding = new("_addOffsetX");
 
-        public StateBinding _addOffsetYBinding = new StateBinding("_addOffsetY");
+        public StateBinding _addOffsetYBinding = new("_addOffsetY");
 
         public float _swing;
 
@@ -128,9 +128,9 @@ namespace AncientMysteries.Items
 
         public bool _volatile;
 
-        public Vec2 centerHeld = new Vec2(4f, 21f);
+        public Vec2 centerHeld = new(4f, 21f);
 
-        public Vec2 centerUnheld = new Vec2(4f, 11f);
+        public Vec2 centerUnheld = new(4f, 11f);
 
         public bool _stayVolatile;
 
@@ -925,8 +925,8 @@ namespace AncientMysteries.Items
                         ignore = duck.GetEquipment(typeof(Helmet));
                     }
                     Vec2 barrel = barrelPosition + barrelVector * 3f;
-                    Vec2 p3 = new Vec2((position.x < barrel.x) ? position.x : barrel.x, (position.y < barrel.y) ? position.y : barrel.y);
-                    Vec2 p2 = new Vec2((position.x > barrel.x) ? position.x : barrel.x, (position.y > barrel.y) ? position.y : barrel.y);
+                    Vec2 p3 = new((position.x < barrel.x) ? position.x : barrel.x, (position.y < barrel.y) ? position.y : barrel.y);
+                    Vec2 p2 = new((position.x > barrel.x) ? position.x : barrel.x, (position.y > barrel.y) ? position.y : barrel.y);
                     QuadLaserBullet laserHit = Level.CheckRect<QuadLaserBullet>(p3, p2);
                     if (laserHit != null)
                     {

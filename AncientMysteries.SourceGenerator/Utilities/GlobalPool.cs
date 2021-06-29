@@ -6,13 +6,13 @@ namespace AncientMysteries.SourceGenerator
 {
     public static class SBPool
     {
-        private static readonly Stack<StringBuilder> _stack = new Stack<StringBuilder>();
+        private static readonly Stack<StringBuilder> _stack = new();
 
-        private static readonly object _lockObj = new object();
+        private static readonly object _lockObj = new();
 
-        private static readonly Stack<StringBuilder> _stackMini = new Stack<StringBuilder>();
+        private static readonly Stack<StringBuilder> _stackMini = new();
 
-        private static readonly object _lockObjMini = new object();
+        private static readonly object _lockObjMini = new();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static StringBuilder Rent()
