@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("Ancient Mysteries")]
-[assembly: AssemblyCompany("Boring3 | Devastator | Nameless")]
+[assembly: AssemblyCompany("Boring3 | Devastator | Nameless | test")]
 [assembly: AssemblyDescription("Mysteries from the Ancient Civilization")]
 [assembly: AssemblyCopyright("Copyright AncientMysteries 2021")]
 [assembly: AssemblyVersion("1.0.0.0")]
