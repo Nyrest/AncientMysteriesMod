@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace AncientMysteries.Bullets
 {
-    public sealed class Bullet_Flower : Bullet
+    public sealed class Bullet_Flowerr : Bullet
     {
         private Texture2D _beem;
 
         private float _thickness;
 
-        public Bullet_Flower(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
+        public Bullet_Flowerr(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
             _thickness = type.bulletThickness;
             _beem = this.ModTex2D("flower.png");
@@ -42,7 +42,7 @@ namespace AncientMysteries.Bullets
                     bulletSpeed = 2f,
                     speedVariation = 0.1f,
                     sprite = TexHelper.ModSprite("leaf.png")
-            }, Rando.Float(0, 360), owner, false, 20, false, true);
+                }, Rando.Float(0, 360), owner, false, 20, false, true);
                 firedBullets.Add(bullet);
                 Level.Add(bullet);
             }
