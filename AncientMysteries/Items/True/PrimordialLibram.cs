@@ -69,7 +69,7 @@ namespace AncientMysteries.Items.True
             _spriteMap = this.ReadyToRunMap("priLibram.png", 21, 14);
             this.SetBox(21, 14);
             this._barrelOffsetTL = new Vec2(6f, 5f);
-            this._castSpeed = 1f;//0.006
+            this._castSpeed = 0.006f;//0.006
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             this._fireWait = 0.5f;
@@ -169,7 +169,7 @@ namespace AncientMysteries.Items.True
                     }
                 }
             }
-            if (limiter == 180)
+            if (limiter == 160)
             {
                 start = false;
                 limiter = 0;
@@ -189,7 +189,7 @@ namespace AncientMysteries.Items.True
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
-            rando = new Random().Next(3,4);
+            rando = new Random().Next(0,4);
             if (_castTime >= 1f && rando == 0)
             {
                 /*TempFire t = new(this.owner.x, owner.y, true, owner)
@@ -302,7 +302,7 @@ namespace AncientMysteries.Items.True
                 {
                     this.NmFireGun(list =>
                     {
-                        b = new Bullet_Flower(castPos.x, castPos.y, new AT9mm()
+                        b = new Bullet_Flowerr(castPos.x, castPos.y, new AT9mm()
                         {
                             bulletLength = 0f,
                             bulletColor = Color.White,
