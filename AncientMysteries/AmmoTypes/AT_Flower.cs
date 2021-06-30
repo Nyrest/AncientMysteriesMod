@@ -9,11 +9,11 @@
             penetration = 1f;
             bulletSpeed = 4f;
             speedVariation = 3f;
-            rangeVariation = 20f;
+            rangeVariation = 60f;
             combustable = true;
             bulletLength = 0;
             sprite = TexHelper.ModSprite(t_Flower);
-            //sprite.CenterOrigin();
+            sprite.CenterOrigin();
             bulletType = typeof(Bullet_Flowerr);
         }
 

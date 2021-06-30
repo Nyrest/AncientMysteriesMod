@@ -13,13 +13,12 @@ namespace AncientMysteries.Bullets
         {
             _thickness = type.bulletThickness;
             _beem = this.ModTex2D("flower.png");
-            alpha = 0f;
+            alphaSub = 0f;
         }
 
         public override void Update()
         {
             base.Update();
-            alpha += 0.02f;
             if (this.graphic != null)
             {
                 this.graphic._angle++;
