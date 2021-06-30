@@ -49,5 +49,11 @@ namespace AncientMysteries.Bullets
                 }
             }
         }
+
+        public override void Update()
+        {
+            base.Update();
+            color = Color.Yellow;
+        }
     }
 }
