@@ -1,18 +1,20 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_Dragon : AmmoType
+    public sealed class AT_Icicle : AmmoType
     {
-        public AT_Dragon()
+        public AT_Icicle()
         {
-            accuracy = 0.6f;
-            range = 400f;
-            penetration = 2f;
+            accuracy = 1f;
+            range = 250f;
+            penetration = 1f;
             rangeVariation = 10f;
+            bulletSpeed = 1f;
+            speedVariation = 0f;
             combustable = true;
-            sprite = TexHelper.ModSprite("fireball2.png");
-            bulletColor = Color.OrangeRed;
-            sprite.CenterOrigin();
-            bulletType = typeof(Bullet_Dragon);
+            bulletLength = 0;
+            sprite = TexHelper.ModSprite(t_Icicle);
+            //sprite.CenterOrigin();
+            bulletType = typeof(Bullet_Icicle);
         }
 
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)

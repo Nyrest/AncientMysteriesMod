@@ -12,6 +12,11 @@ namespace AncientMysteries.Bullets
         {
             _thickness = type.bulletThickness;
             _beem = this.ModTex2D("fireball2.png");
+            collisionSize = new Vec2(15, 6);
+            _collisionSize = new Vec2(15, 6);
+            _center = new Vec2(7.5f, 3f);
+            center = new Vec2(7.5f, 3f);
+            collisionCenter = new Vec2(7.5f, 3f);
         }
 
         public override void Update()

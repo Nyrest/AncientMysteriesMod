@@ -12,6 +12,9 @@ namespace AncientMysteries.Bullets
         {
             _thickness = type.bulletThickness;
             _beem = this.ModTex2D("holyLight2.png");
+            this.collisionSize = new Vec2(11, 11);
+            centerx = 5.5f;
+            centery = 5.5f;
         }
 
         public override void Update()

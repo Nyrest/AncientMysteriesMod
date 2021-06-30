@@ -39,6 +39,10 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AmmoTypes\AT_LaserY.cs" />
+    <Compile Include="AmmoTypes\AT_Leaf.cs" />
+    <Compile Include="AmmoTypes\AT_Flower.cs" />
+    <Compile Include="AmmoTypes\AT_Icicle.cs" />
     <Compile Include="Bullets\Bullet_Flowerr.cs" />
     <Compile Include="Items\Explosives\ViscousAcidLiquor.AmmoType.cs">
       <DependentUpon>ViscousAcidLiquor.cs</DependentUpon>

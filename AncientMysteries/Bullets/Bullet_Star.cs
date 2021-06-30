@@ -15,6 +15,12 @@ namespace AncientMysteries.Bullets
         {
             _thickness = type.bulletThickness;
             _beem = this.ModTex2D("holyStar.png");
+            collisionSize = new Vec2(17, 17);
+            center = new Vec2(8.5f, 8.5f);
+            _center = new Vec2(8.5f, 8.5f);
+            collisionCenter = new Vec2(8.5f, 8.5f);
+            _collisionSize = new Vec2(17, 17);
+            color = Color.Gold;
         }
 
         public override void Update()
@@ -24,7 +30,8 @@ namespace AncientMysteries.Bullets
             var firedBullets = new List<Bullet>(1);
             if (n == 5)
             {
-                Bullet b = new Bullet_Star2(this.start.x, start.y, new AT_Star2(), _angle + 180, owner, false, 1, false, true);
+                //Bullet b = new Bullet_Star2(this.start.x, start.y, new AT_Star2(), _angle + 180, owner, false, 1, false, true);
+                Bullet b = new Bullet_Star2(start.x, start.y, new AT_Star2(), _angle + 180, owner, false, 1, false, true);//range = 1
                 firedBullets.Add(b);
                 Level.Add(b);
                 n = 0;

@@ -22,12 +22,16 @@
 
         public AT_Overgrowth ammoTypeSmall = new(false)
         {
-            penetration = 1f
+            penetration = 1f,
+            bulletLength = 0f,
+            bulletColor = Color.Transparent
         };
 
         public AT_Overgrowth ammoTypeBig = new(true)
         {
-            penetration = 1f
+            penetration = 1f,
+            bulletLength = 0f,
+            bulletColor = Color.Transparent
         };
 
         public AT_Overgrowth ammoTypeSmall2 = new(false)
@@ -36,7 +40,9 @@
             accuracy = 1f,
             speedVariation = 0f,
             rangeVariation = 0f,
-            penetration = 2147483647f
+            penetration = 2147483647f,
+            bulletLength = 0f,
+            bulletColor = Color.Transparent
         };
 
         public Overgrowth(float xval, float yval) : base(xval, yval)
@@ -108,7 +114,7 @@
                 times += 1;
                 SFX.PlaySynchronized("scoreDing", 0.5f, Convert.ToSingle(-0.3 + times * 0.03f), 0, false);
             }
-            _castSpeed = Convert.ToSingle(0.0035f + 0.008 * times);
+            _castSpeed = Convert.ToSingle(0.0045f + 0.0008 * times);
         }
     }
 }

@@ -18,6 +18,7 @@
                 bulletSpeed = 4f;
                 accuracy = 0.4f;
                 speedVariation = 3f;
+                bulletLength = 0f;
             }
             else
             {
@@ -25,6 +26,7 @@
                 bulletSpeed = 5f;
                 accuracy = 0.3f;
                 speedVariation = 2.5f;
+                bulletLength = 0f;
             }
             rangeVariation = 50f;
         }
