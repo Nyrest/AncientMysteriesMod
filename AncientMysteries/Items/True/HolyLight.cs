@@ -55,20 +55,11 @@ namespace AncientMysteries.Items.True
             var firePos = barrelPosition;
             r = Rando.Int(3, 7);
             int count = _castTime >= 0.5 ? r : 1;
-            var firedBullets = new List<Bullet>(count);
-            for (int i = 0; i < count; i++)
+            this.NmFireGun(firedBullets =>
             {
                 Bullet b = new Bullet_Star(firePos.x, firePos.y, new AT_Star(), owner.offDir == 1 ? 0 : 180, owner, false, 275);
                 firedBullets.Add(b);
-                Level.Add(b);
-            }
-            bulletFireIndex += (byte)count;
-            if (Network.isActive)
-            {
-                NMFireGun gunEvent = new(this, firedBullets, bulletFireIndex, rel: false, 4);
-                Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
-                firedBullets.Clear();
-            }
+            });
         }
     }
 }
