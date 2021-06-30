@@ -135,7 +135,7 @@ namespace AncientMysteries.Items.True
                                 list.Add(b);
                             }
                             timer = 0;
-                            SFX.Play("goody", 0.4f, Rando.Float(0.2f, 0.4f));
+                            SFX.PlaySynchronized("goody", 0.4f, Rando.Float(0.2f, 0.4f));
                         });
                     }
                     if (rando == 2 && timer == interval)
