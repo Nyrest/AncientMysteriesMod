@@ -13,11 +13,13 @@ namespace AncientMysteries.Bullets
         {
             _thickness = type.bulletThickness;
             _beem = this.ModTex2D("flower.png");
+            alpha = 0f;
         }
 
         public override void Update()
         {
             base.Update();
+            alpha += 0.02f;
             if (this.graphic != null)
             {
                 this.graphic._angle++;
@@ -36,13 +38,7 @@ namespace AncientMysteries.Bullets
             var firedBullets = new List<Bullet>(5);
             for (int i = 0; i < 3; i++)
             {
-                var bullet = new Bullet_Icicle(travelEnd.x, travelEnd.y, new AT_FB()
-                {
-                    penetration = 999f,
-                    bulletSpeed = 2f,
-                    speedVariation = 0.1f,
-                    sprite = TexHelper.ModSprite("leaf.png")
-                }, Rando.Float(0, 360), owner, false, 20, false, true);
+                var bullet = new Bullet_Icicle(travelEnd.x, travelEnd.y, new AT_Leaf(), Rando.Float(0, 360), owner, false, 20, false, true);
                 firedBullets.Add(bullet);
                 Level.Add(bullet);
             }

@@ -12,9 +12,9 @@
             bulletLength = 0;
             combustable = true;
             speedVariation = 0f;
-            //sprite.CenterOrigin();
             bulletType = typeof(Bullet_Star2);
             sprite = TexHelper.ModSprite("holyLight2.png");
+            sprite.CenterOrigin();
         }
 
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)

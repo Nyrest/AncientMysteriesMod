@@ -8,7 +8,6 @@ namespace AncientMysteries.Bullets
         public Bullet_AN(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
             this.collisionSize = new Vec2(32, 32);
-            _collisionSize = new Vec2(32, 32);
         }
 
         public override void Update()

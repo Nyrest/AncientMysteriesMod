@@ -69,7 +69,7 @@ namespace AncientMysteries.Items.True
             _spriteMap = this.ReadyToRunMap("priLibram.png", 21, 14);
             this.SetBox(21, 14);
             this._barrelOffsetTL = new Vec2(6f, 5f);
-            this._castSpeed = 0.006f;//0.006
+            this._castSpeed = 1f;//0.006
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             this._fireWait = 0.5f;
@@ -108,64 +108,57 @@ namespace AncientMysteries.Items.True
             {
                 timer++;
                 limiter++;
-                if (rando == 0 && timer == interval)
+                if (owner != null)
                 {
-                    this.NmFireGun(list =>
-                    {
-                        b = new Bullet_BigFB(castPos.x, castPos.y, new AT_BigFB(), fireAngle + Rando.Float(-5, 5), owner, false, 400)
-                        {
-                            color = Color.Orange
-                        };
-                        list.Add(b);
-                        timer = 0;
-                    });
-                }
-                if (rando == 1 && timer == interval)
-                {
-                    this.NmFireGun(list =>
-                    {
-                        for (int i = 0; i < 4; i++)
-                        {
-                            b = new Bullet_Icicle(pos.x, pos.y, new AT9mm()
-                            {
-                                bulletLength = 0f,
-                                bulletColor = Color.White,
-                                sprite = TexHelper.ModSprite("icicle.png"),
-                                bulletSpeed = 1f,
-                                speedVariation = 0f
-                            }, Rando.Float(0, 360), owner, false, 250)
-                            {
-                                color = Color.White
-                            };
-                            list.Add(b);
-                        }
-                        timer = 0;
-                        SFX.Play("goody", 0.4f, Rando.Float(0.2f, 0.4f));
-                    });
-                }
-                if (rando == 2 && timer == interval)
-                {
-                    for (int i = 0; i < 2; i++)
+                    if (rando == 0 && timer == interval)
                     {
                         this.NmFireGun(list =>
-                    {
-                        b = new Bullet_Laser(pos.x + Rando.Float(-r, r), pos.y - 200f + Rando.Float(-r / 2, r / 2), /*new AT9mm
-                {
-                    bulletSpeed = 2f,
-                    accuracy = 1f,
-                    penetration = 1f,
-                    bulletLength = 3,
-                }*/new AT_Laser(), Rando.Float(-100f - Convert.ToSingle(r / 3.5f), Convert.ToSingle(-80 + r / 3.5f)), owner, false, 400)
                         {
-                            color = Color.Yellow
-                        };
-                        ExplosionPart ins = new(b.travelStart.x, b.travelStart.y, true);
-                        ins.xscale *= 0.2f;
-                        ins.yscale *= 0.2f;
-                        Level.Add(ins);
-                        list.Add(b);
-                        timer = 0;
-                    });
+                            b = new Bullet_BigFB(castPos.x, castPos.y, new AT_BigFB(), fireAngle + Rando.Float(-5, 5), owner, false, 400)
+                            {
+                                color = Color.Orange
+                            };
+                            list.Add(b);
+                            timer = 0;
+                        });
+                    }
+                    if (rando == 1 && timer == interval)
+                    {
+                        this.NmFireGun(list =>
+                        {
+                            for (int i = 0; i < 4; i++)
+                            {
+                                b = new Bullet_Icicle(pos.x, pos.y, new AT_Icicle(), Rando.Float(0, 360), owner, false, 250)
+                                {
+                                    color = Color.White
+                                };
+                                list.Add(b);
+                            }
+                            timer = 0;
+                            SFX.Play("goody", 0.4f, Rando.Float(0.2f, 0.4f));
+                        });
+                    }
+                    if (rando == 2 && timer == interval)
+                    {
+                        for (int i = 0; i < 2; i++)
+                        {
+                            this.NmFireGun(list =>
+                        {
+                            b = new Bullet_Laser(pos.x + Rando.Float(-r, r), pos.y - 200f + Rando.Float(-r / 2, r / 2), /*new AT9mm
+                            {
+                            bulletSpeed = 2f,
+                            accuracy = 1f,
+                            penetration = 1f,
+                            bulletLength = 3,
+                            }*/new AT_LaserY(), Rando.Float(-100f - Convert.ToSingle(r / 3.5f), Convert.ToSingle(-80 + r / 3.5f)), owner, false, 400);
+                            ExplosionPart ins = new(b.travelStart.x, b.travelStart.y, true);
+                            ins.xscale *= 0.2f;
+                            ins.yscale *= 0.2f;
+                            Level.Add(ins);
+                            list.Add(b);
+                            timer = 0;
+                        });
+                        }
                     }
                 }
             }
@@ -232,25 +225,9 @@ namespace AncientMysteries.Items.True
                 i.yscale *= 2f;
                 Level.Add(i);*/
                 pos = owner.position;
-                this.NmFireGun(list =>
-                {
-                    for (int i = 0; i < 5; i++)
-                    {
-                        b = new Bullet_Icicle(pos.x, pos.y, new AT9mm()
-                        {
-                            bulletLength = 0f,
-                            bulletColor = Color.Transparent
-                        }, Rando.Float(0, 360), owner, false, 250)
-                        {
-                            color = Color.Orange
-                        };
-                        list.Add(b);
-                    }
-                    start = true;
-                    interval = 7;
-                    limiter = 0;
-                    SFX.Play("goody", 0.4f, Rando.Float(0.2f, 0.4f));
-                });
+                start = true;
+                interval = 7;
+                limiter = 0;
             }
             if (_castTime >= 1f && rando == 2)
             {
@@ -268,16 +245,13 @@ namespace AncientMysteries.Items.True
                     this.NmFireGun(list =>
                     {
 
-                    b = new Bullet_Laser(pos.x + Rando.Float(-r, r), pos.y - 200f + Rando.Float(-r / 2, r / 2), /*new AT9mm
+                        b = new Bullet_Laser(pos.x + Rando.Float(-r, r), pos.y - 200f + Rando.Float(-r / 2, r / 2), /*new AT9mm
                 {
                     bulletSpeed = 2f,
                     accuracy = 1f,
                     penetration = 1f,
                     bulletLength = 3,
-                }*/new AT_Laser(), Rando.Float(-100f - Convert.ToSingle(r / 3.5f), Convert.ToSingle(-80 + r / 3.5f)), owner, false, 400)
-                    {
-                        color = Color.Yellow
-                    };
+                }*/new AT_LaserY(), Rando.Float(-100f - Convert.ToSingle(r / 3.5f), Convert.ToSingle(-80 + r / 3.5f)), owner, false, 400);
                     ExplosionPart ins = new(b.travelStart.x, b.travelStart.y, true);
                     ins.xscale *= 0.2f;
                     ins.yscale *= 0.2f;
@@ -302,15 +276,7 @@ namespace AncientMysteries.Items.True
                 {
                     this.NmFireGun(list =>
                     {
-                        b = new Bullet_Flowerr(castPos.x, castPos.y, new AT9mm()
-                        {
-                            bulletLength = 0f,
-                            bulletColor = Color.White,
-                            sprite = TexHelper.ModSprite("flower.png"),
-                            bulletSpeed = 4f,
-                            speedVariation = 3f,
-                            accuracy = 1f
-                        }, fireAngle + Rando.Float(-15f,15f), owner, false, 250)
+                        b = new Bullet_Flowerr(castPos.x, castPos.y, new AT_Flower(), fireAngle + Rando.Float(-15f,15f), owner, false, 250)
                         {
                             color = Color.White
                         };
