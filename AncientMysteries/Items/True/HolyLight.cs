@@ -57,8 +57,11 @@ namespace AncientMysteries.Items.True
             int count = _castTime >= 0.5 ? r : 1;
             this.NmFireGun(firedBullets =>
             {
-                Bullet b = new Bullet_Star(firePos.x, firePos.y, new AT_Star(), owner.offDir == 1 ? 0 : 180, owner, false, 275);
-                firedBullets.Add(b);
+                for (int i = 0; i < count; i++)
+                {
+                    Bullet b = new Bullet_Star(firePos.x, firePos.y, new AT_Star(), owner.offDir == 1 ? 0 : 180, owner, false, 275);
+                    firedBullets.Add(b);
+                }
             });
         }
     }
