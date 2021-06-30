@@ -23,15 +23,11 @@
         public AT_Overgrowth ammoTypeSmall = new(false)
         {
             penetration = 1f,
-            bulletLength = 0f,
-            bulletColor = Color.Transparent
         };
 
         public AT_Overgrowth ammoTypeBig = new(true)
         {
             penetration = 1f,
-            bulletLength = 0f,
-            bulletColor = Color.Transparent
         };
 
         public AT_Overgrowth ammoTypeSmall2 = new(false)
@@ -41,8 +37,6 @@
             speedVariation = 0f,
             rangeVariation = 0f,
             penetration = 2147483647f,
-            bulletLength = 0f,
-            bulletColor = Color.Transparent
         };
 
         public Overgrowth(float xval, float yval) : base(xval, yval)
@@ -61,16 +55,6 @@
             this._fireSoundPitch = 0.9f;
             this._kickForce = 0.25f;
             this._fullAuto = true;
-        }
-
-        public override void OnSpelling()
-        {
-            base.OnSpelling();
-        }
-
-        public override void Update()
-        {
-            base.Update();
         }
 
         public override void OnReleaseSpell()

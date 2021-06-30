@@ -4,6 +4,8 @@
     {
         public AT_Overgrowth()
         {
+            bulletColor = Color.Transparent;
+            bulletLength = 0f;
             sprite = t_OvergrowthSmall.ModSprite();
             bulletSpeed = 5f;
             accuracy = 0.3f;
