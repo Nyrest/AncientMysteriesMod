@@ -202,8 +202,7 @@ r += 0.8f;
                     cast_Icicle = true; break;
                 default:
                     // Debug so always fire ball
-                    icicle_pos = position;
-                    cast_Icicle = true; break;
+                    goto case 1;
             }
         }
     }
