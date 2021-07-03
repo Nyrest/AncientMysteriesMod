@@ -5,27 +5,37 @@ namespace AncientMysteries
 {
     public static class GlobalPool<T>
     {
-        private static readonly Stack<T> _stack = new();
+        public static T[] _array = new T[30];
 
-        private static readonly object _lockObj = new();
+        public static int _size;
 
         public static T Rent()
         {
-            if (_stack.Count == 0) goto returnNew;
-            lock (_lockObj)
+            int index = _size - 1;
+            if ((uint)index < (uint)_array.Length)
             {
-                if (_stack.Count != 0)
-                    return _stack.Pop();
+                T result = _array[_size = index];
+                _array[index] = default!;
+                return result;
             }
-returnNew:
             return FastNew<T>.CreateInstance();
         }
 
-        public static void Return(T value)
+        public static void Return(T item)
         {
-            lock (_lockObj)
+            if ((uint)_size < (uint)_array.Length)
             {
-                _stack.Push(value);
+                _array[_size++] = item;
+            }
+            else
+            {
+                ResizeThenReturn(item);
+            }
+            [MethodImpl(MethodImplOptions.NoInlining)]
+            static void ResizeThenReturn(T item)
+            {
+                Array.Resize(ref _array, 2 * _array.Length);
+                _array[_size++] = item;
             }
         }
     }
