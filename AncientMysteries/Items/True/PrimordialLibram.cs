@@ -60,7 +60,6 @@
         public bool cast_FireBall = false;
         public int currentFireBallCount = 0;
         public Waiter fireBallWaiter = new(25);
-        public AT_BigFB at_fb = new();
 
         public void FireBallUpdate()
         {
