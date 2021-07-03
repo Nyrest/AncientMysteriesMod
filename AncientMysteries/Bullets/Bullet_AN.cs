@@ -10,11 +10,6 @@ namespace AncientMysteries.Bullets
             this.collisionSize = new Vec2(32, 32);
         }
 
-        public override void Update()
-        {
-            base.Update();
-        }
-
         public override void Removed()
         {
             NovaExp n = new(travelEnd.x, travelEnd.y, true);
@@ -30,19 +25,14 @@ namespace AncientMysteries.Bullets
                     t2.Destroy(new DTShot(this));
                 }
             }
-            var firedBullets = new List<Bullet>(5);
-            for (int i = 0; i < 5; i++)
+            NetHelper.NmFireGun(null, list =>
             {
-                var bullet = new Bullet_AN2(travelEnd.x, travelEnd.y, new AT_AN2(), Rando.Float(0, 360), owner, false, 80, false, true);
-                firedBullets.Add(bullet);
-                Level.Add(bullet);
-            }
-            if (Network.isActive && this.isLocal)
-            {
-                NMFireGun gunEvent = new(null, firedBullets, 0, rel: false, 4);
-                Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
-                firedBullets.Clear();
-            }
+                for (int i = 0; i < 5; i++)
+                {
+                    var bullet = new Bullet_AN2(travelEnd.x, travelEnd.y, new AT_AN2(), Rando.Float(0, 360), owner, false, 80, false, true);
+                    list.Add(bullet);
+                }
+            });
             base.Removed();
         }
     }
