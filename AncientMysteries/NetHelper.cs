@@ -65,25 +65,5 @@ collect:
             firedBullets.Clear();
             GlobalPool<List<Bullet>>.Return(firedBullets);
         }
-
-        [Obsolete("Use gun.NmFireGun(list => { list.Add(new Bullet()); })", true)]
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void NmFireGun(this Gun gun, Bullet value, bool alsoAddThemToWorld = true)
-        {
-            var firedBullets = new List<Bullet>(1);
-            if (alsoAddThemToWorld)
-            {
-                Level.Add(value);
-            }
-            if (gun != null)
-            {
-                gun.bulletFireIndex++;
-                if (Network.isActive)
-                {
-                    NMFireGun gunEvent = new(gun, firedBullets, gun.bulletFireIndex, rel: false, 4);
-                    Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
-                }
-            }
-        }
     }
 }
