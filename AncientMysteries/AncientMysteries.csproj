@@ -52,6 +52,7 @@
       <DependentUpon>ViscousAcidLiquor.cs</DependentUpon>
     </Compile>
     <Compile Include="Items\Explosives\ViscousAcidLiquor.cs" />
+    <Compile Include="Utilities\Ticker.cs" />
     <Compile Include="_FuckNetFX\CompilerServices\Attributes\CallerArgumentExpressionAttribute.cs" />
     <Compile Include="_Imports.cs" />
     <Compile Include="Utilities\Collections\DictSlim.cs" />
