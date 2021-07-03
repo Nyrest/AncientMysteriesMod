@@ -156,7 +156,6 @@
     <Compile Include="Bullets\Bullet_LaserG2.cs" />
     <Compile Include="Bullets\Bullet_LaserG.cs" />
     <Compile Include="Bullets\Bullet_Laser.cs" />
-    <Compile Include="Bullets\Bullet_Icicle.cs" />
     <Compile Include="Bullets\Bullet_Lava.cs" />
     <Compile Include="Bullets\Bullet_Star2.cs" />
     <Compile Include="Bullets\Bullet_Star.cs" />

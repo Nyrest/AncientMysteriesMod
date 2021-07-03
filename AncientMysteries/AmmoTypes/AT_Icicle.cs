@@ -10,11 +10,9 @@
             rangeVariation = 10f;
             bulletSpeed = 2f;
             speedVariation = 0f;
-            combustable = true;
             bulletLength = 0;
             sprite = TexHelper.ModSprite(t_Icicle);
             sprite.CenterOrigin();
-            bulletType = typeof(Bullet_Icicle);
         }
     }
 }
