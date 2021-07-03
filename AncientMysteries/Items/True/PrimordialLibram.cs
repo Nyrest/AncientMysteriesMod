@@ -156,6 +156,7 @@
                             list.Add(b);
                         });
                     }
+                    SFX.PlaySynchronized("explode", 0.4f, Rando.Float(0.2f, 0.4f));
                 }
                 else
                 {

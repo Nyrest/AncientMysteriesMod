@@ -5,7 +5,7 @@
         public AT_Leaf()
         {
             accuracy = 1f;
-            range = 10f;
+            range = 60f;
             penetration = 999f;
             bulletSpeed = 1f;
             speedVariation = 0.1f;
