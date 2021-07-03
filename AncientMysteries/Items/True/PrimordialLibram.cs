@@ -59,7 +59,7 @@
         public const int totalFireBallCount = 6;
         public bool cast_FireBall = false;
         public int currentFireBallCount = 0;
-        public Waiter fireBallWaiter = new Waiter(25);
+        public Waiter fireBallWaiter = new(25);
         public AT_BigFB at_fb = new();
 
         public void FireBallUpdate()
@@ -88,7 +88,7 @@
         public bool cast_Icicle = false;
         public int currentIcicleCount = 0;
         public Vec2 icicle_pos;
-        public Waiter icicleWaiter = new Waiter(6);
+        public Waiter icicleWaiter = new(6);
 
         public void IcicleUpdate()
         {
@@ -122,7 +122,7 @@
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    var b = Make.Bullet<AT_Flower>(pos, owner, owner._offDir == 1 ? 0 : 180 + Rando.Float(-15,15), this);
+                    var b = Make.Bullet<AT_Flower>(pos, owner, owner._offDir == 1 ? 0 : 180 + Rando.Float(-15, 15), this);
                     list.Add(b);
                 }
             });
@@ -130,25 +130,31 @@
         #endregion
 
         #region Lightning
-        public const int totalLCount = 25;
-        public bool cast_L = false;
-        public int currentLCount = 0;
-        public Vec2 l_pos;
-        public Waiter lWaiter = new Waiter(6);
+        public const int totalLightningCount = 25;
+        public bool cast_Lightning = false;
+        public int currentLightningCount = 0;
+        public Vec2 lightning_pos;
+        public Waiter lightningWaiter = new(6);
 
         public void LightningUpdate()
         {
-            if (cast_L == false) return;
-            if (lWaiter.Tick())
+            if (cast_Lightning == false) return;
+            if (lightningWaiter.Tick())
             {
-                if (currentLCount++ < totalLCount)
+                if (currentLightningCount++ < totalLightningCount)
                 {
                     for (int i = 0; i < 2; i++)
                     {
                         this.NmFireGun(list =>
                         {
-                            var b = Make.Bullet<AT_LaserY>(new Vec2(l_pos.x + Rando.Float(-r, r), l_pos.y - 200f + Rando.Float(-r / 2, r / 2)),owner,
-                            Rando.Float(Convert.ToSingle(80f - r / 3.5f), Convert.ToSingle(100 + r / 3.5f)),this);
+                            var b = Make.Bullet<AT_LaserY>(
+                                new Vec2(
+                                    lightning_pos.x + Rando.Float(-r, r),
+                                    lightning_pos.y - 200f + Rando.Float(-r / 2, r / 2)),
+                                owner,
+                                Rando.Float(
+                                    Convert.ToSingle(80f - r / 3.5f),
+                                    Convert.ToSingle(100 + r / 3.5f)), this);
                             ExplosionPart ins = new(b.travelStart.x, b.travelStart.y, true);
                             ins.xscale *= 0.2f;
                             ins.yscale *= 0.2f;
@@ -160,8 +166,8 @@
                 }
                 else
                 {
-                    cast_L = false;
-                    currentLCount = 0;
+                    cast_Lightning = false;
+                    currentLightningCount = 0;
                 }
             }
         }
@@ -183,66 +189,6 @@
             IcicleUpdate();
             LightningUpdate();
             r += 0.8f;
-            /*
-            if (owner != null)
-            {
-                _spriteMap.SetAnimation("out");
-                castPos = owner.position;
-            }
-            else
-            {
-                _spriteMap.SetAnimation("back");
-                waiter.Reset();
-                waiter.Pause();
-            }
-                if (owner != null)
-                {
-                    if (rando == 0 && waiter.Tick())
-                    {
-
-                    }
-                    if (rando == 1 && waiter.Tick())
-                    {
-                        this.NmFireGun(list =>
-                        {
-                            for (int i = 0; i < 4; i++)
-                            {
-                                b = new Bullet_Icicle(pos.x, pos.y, new AT_Icicle(), Rando.Float(0, 360), owner, false, 250)
-                                {
-                                    color = Color.White
-                                };
-                                list.Add(b);
-                            }
-                            SFX.PlaySynchronized("goody", 0.4f, Rando.Float(0.2f, 0.4f));
-                        });
-                    }
-                    if (rando == 2)
-                    {
-                        for (int i = 0; i < 2; i++)
-                        {
-                            this.NmFireGun(list =>
-                        {
-                            b = new Bullet_Laser(pos.x + Rando.Float(-r, r), pos.y - 200f + Rando.Float(-r / 2, r / 2), 
-            new AT_LaserY(), Rando.Float(-100f - Convert.ToSingle(r / 3.5f), Convert.ToSingle(-80 + r / 3.5f)), owner, false, 400);
-            ExplosionPart ins = new(b.travelStart.x, b.travelStart.y, true);
-            ins.xscale *= 0.2f;
-            ins.yscale *= 0.2f;
-            Level.Add(ins);
-            list.Add(b);
-        });
-                        }
-}
-                }
-            if (owner != null && owner._offDir == 1)
-{
-    fireAngle = 0;
-}
-else
-{
-    fireAngle = 180;
-}
-*/
-
         }
         public override void OnReleaseSpell()
         {
@@ -257,9 +203,9 @@ else
                 case 2:
                     GreenFire(position); break;
                 case 3:
-                    l_pos = position;
+                    lightning_pos = position;
                     r = 0f;
-                    cast_L = true; break;
+                    cast_Lightning = true; break;
                 default:
                     // Debug so always fire ball
                     goto case 3;

@@ -47,7 +47,7 @@ namespace AncientMysteries.Items.Explosives
                 p.sleeping = false;
                 p.vSpeed = -2f;
             }
-            HashSet<ushort> idx = new HashSet<ushort>();
+            HashSet<ushort> idx = new();
             foreach (BlockGroup block2 in Level.CheckCircleAll<BlockGroup>(pPosition, pRadius))
             {
                 if (block2 == null)
