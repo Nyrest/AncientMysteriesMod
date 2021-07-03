@@ -1,20 +1,21 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_Leaf : AmmoType
+    public sealed class AT_Flower : AmmoType
     {
-        public AT_Leaf()
+        public AT_Flower()
         {
             accuracy = 1f;
-            range = 10f;
-            penetration = 999f;
-            bulletSpeed = 1f;
-            speedVariation = 0.1f;
+            range = 250f;
+            penetration = 1f;
+            bulletSpeed = 4f;
+            speedVariation = 3f;
             combustable = true;
             bulletLength = 0;
-            sprite = TexHelper.ModSprite(t_Leaf);
+            sprite = TexHelper.ModSprite(t_Flower);
             sprite.CenterOrigin();
-            bulletType = typeof(Bullet_Star2);
+            bulletType = typeof(Bullet_Flowerr);
             this.bulletColor = Color.OrangeRed;
+            rangeVariation = 60f;
         }
 
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
