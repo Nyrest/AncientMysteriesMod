@@ -50,6 +50,12 @@
       <DependentUpon>ViscousAcidLiquor.cs</DependentUpon>
     </Compile>
     <Compile Include="Items\Explosives\ViscousAcidLiquor.cs" />
+    <Compile Include="Items\Rainbow\Iridescence.AmmoType.cs">
+      <DependentUpon>Iridescence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\Rainbow\Iridescence.Bullet.cs">
+      <DependentUpon>Iridescence.cs</DependentUpon>
+    </Compile>
     <Compile Include="Items\Sucks\CosmicDisruption.AmmoType.cs">
       <DependentUpon>CosmicDisruption.cs</DependentUpon>
     </Compile>
@@ -133,8 +139,6 @@
     <Compile Include="AmmoTypes\AT_RainbowEyedrops.cs" />
     <Compile Include="AmmoTypes\AT_FB.cs" />
     <Compile Include="AmmoTypes\AT_Current.cs" />
-    <Compile Include="AmmoTypes\AT_Iridescence.cs" />
-    <Compile Include="AmmoTypes\AT_Color.cs" />
     <Compile Include="AmmoTypes\AT_CubicBlast.cs" />
     <Compile Include="AmmoTypes\AT_Dragon.cs" />
     <Compile Include="AmmoTypes\AT_Electronic.cs" />

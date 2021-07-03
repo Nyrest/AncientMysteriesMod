@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Utilities;
-
-namespace AncientMysteries.Items.MachineGuns
+﻿namespace AncientMysteries.Items.Rainbow
 {
     [EditorGroup(g_rifles)]
     public sealed class Iridescence : AMGun
@@ -13,10 +11,7 @@ namespace AncientMysteries.Items.MachineGuns
         public Iridescence(float xval, float yval) : base(xval, yval)
         {
             this.ammo = 127;
-            this._ammoType = new AT_Iridescence()
-            {
-
-            };
+            this._ammoType = new Iridescence_AmmoType();
             this._type = "gun";
             this.ReadyToRunMap("rainbowGun.png");
             this._barrelOffsetTL = new Vec2(33f, 6f);
