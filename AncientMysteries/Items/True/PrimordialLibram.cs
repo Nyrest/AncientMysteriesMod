@@ -1,16 +1,4 @@
-﻿using AncientMysteries.AmmoTypes;
-using AncientMysteries.Localization.Enums;
-using AncientMysteries.Bullets;
-using AncientMysteries.Utilities;
-using DuckGame;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using static AncientMysteries.groupNames;
-using AncientMysteries.Items.Miscellaneous;
-
-namespace AncientMysteries.Items.True
+﻿namespace AncientMysteries.Items.True
 {
     [EditorGroup(g_staffs)]
     public class PrimordialLibram : AMStaff
@@ -19,25 +7,10 @@ namespace AncientMysteries.Items.True
 
         public SpriteMap _spriteMap;
 
-        public int rando = 0;
-
         public Vec2 ownerPos;
-
-        public int interval;
-
-        public Bullet b;
 
         public int fireAngle = 90;
 
-        public Vec2 pos = new Vec2();
-
-        public float r = 0;
-
-        public WaiterShitty waiter = new WaiterShitty(1, 1);
-
-        //public int greenCount = 5;
-
-        //public float nearest = 0f;
         public byte AnimationFrame
         {
             get => (byte)_spriteMap._frame;
@@ -59,7 +32,8 @@ namespace AncientMysteries.Items.True
             _spriteMap = this.ReadyToRunMap("priLibram.png", 21, 14);
             this.SetBox(21, 14);
             this._barrelOffsetTL = new Vec2(6f, 5f);
-            this._castSpeed = 0.006f;//0.006
+            //this._castSpeed = 0.006f;//0.006
+            this._castSpeed = 0.01f;
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             this._fireWait = 0.5f;
@@ -90,14 +64,11 @@ namespace AncientMysteries.Items.True
             if (cast_FireBall == false) return;
             if (fireBallWaiter.Tick())
             {
-                if(currentFireBallCount++ < totalFireBallCount)
+                if (currentFireBallCount++ < totalFireBallCount)
                 {
                     this.NmFireGun(list =>
                     {
-                        var fireball = new Bullet_BigFB(ownerPos.x, ownerPos.y, new AT_BigFB(), (owner._offDir == 1 ? 0 : 180) + Rando.Float(-5, 5), owner, false, 400)
-                        {
-                            color = Color.Orange
-                        };
+                        var fireball = new Bullet_BigFB(ownerPos.x, ownerPos.y, new AT_BigFB(), (owner._offDir == 1 ? 0 : 180) + Rando.Float(-5, 5), owner, false, 400);
                         list.Add(fireball);
                     });
                 }
@@ -105,6 +76,39 @@ namespace AncientMysteries.Items.True
                 {
                     cast_FireBall = false;
                     currentFireBallCount = 0;
+                }
+            }
+        }
+        #endregion
+
+        #region Fire
+        public const int totalIcicleCount = 25;
+        public bool cast_Icicle = false;
+        public int currentIcicleCount = 0;
+        public Vec2 icicle_pos;
+        public Waiter icicleWaiter = new Waiter(6);
+
+        public void IcicleUpdate()
+        {
+            if (cast_Icicle == false) return;
+            if (icicleWaiter.Tick())
+            {
+                if (currentIcicleCount++ < totalIcicleCount)
+                {
+                    this.NmFireGun(list =>
+                    {
+                        for (int i = 0; i < 4; i++)
+                        {
+                            var b = new Bullet_Icicle(icicle_pos.x, icicle_pos.y, new AT_Icicle(), Rando.Float(0, 360), owner, false, 250);
+                            list.Add(b);
+                        }
+                        SFX.PlaySynchronized("goody", 0.4f, Rando.Float(0.2f, 0.4f));
+                    });
+                }
+                else
+                {
+                    cast_Icicle = false;
+                    currentIcicleCount = 0;
                 }
             }
         }
@@ -123,6 +127,7 @@ namespace AncientMysteries.Items.True
                 _spriteMap.SetAnimation("back");
             }
             FireBallUpdate();
+            IcicleUpdate();
             /*
             if (owner != null)
             {
@@ -192,9 +197,13 @@ r += 0.8f;
             {
                 case 0:
                     cast_FireBall = true; break;
+                case 1:
+                    icicle_pos = position;
+                    cast_Icicle = true; break;
                 default:
                     // Debug so always fire ball
-                    cast_FireBall = true; break;
+                    icicle_pos = position;
+                    cast_Icicle = true; break;
             }
         }
     }
