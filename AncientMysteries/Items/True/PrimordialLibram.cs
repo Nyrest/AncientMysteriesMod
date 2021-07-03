@@ -23,19 +23,7 @@ namespace AncientMysteries.Items.True
 
         public Vec2 castPos;
 
-        public int interval = 0;
-
-        //public int greenInterval = 3;
-
-        public bool start = false;
-
-        //public bool greenStart = false;
-
-        public int timer = 0;
-
-        //public int greenTimer = 0;
-
-        public int limiter = 0;
+        public int interval;
 
         public Bullet b;
 
@@ -44,6 +32,8 @@ namespace AncientMysteries.Items.True
         public Vec2 pos = new Vec2();
 
         public float r = 0;
+
+        public WaiterShitty waiter = new WaiterShitty(1,1);
 
         //public int greenCount = 5;
 
@@ -95,22 +85,17 @@ namespace AncientMysteries.Items.True
             if (owner != null)
             {
                 _spriteMap.SetAnimation("out");
+                castPos = owner.position;
             }
             else
             {
                 _spriteMap.SetAnimation("back");
+                waiter.Reset();
+                waiter.Pause();
             }
-            if (owner != null)
-            {
-                castPos = owner.position;
-            }
-            if (start)
-            {
-                timer++;
-                limiter++;
                 if (owner != null)
                 {
-                    if (rando == 0 && timer == interval)
+                    if (rando == 0 && waiter.Tick())
                     {
                         this.NmFireGun(list =>
                         {
@@ -119,10 +104,9 @@ namespace AncientMysteries.Items.True
                                 color = Color.Orange
                             };
                             list.Add(b);
-                            timer = 0;
                         });
                     }
-                    if (rando == 1 && timer == interval)
+                    if (rando == 1 && waiter.Tick())
                     {
                         this.NmFireGun(list =>
                         {
@@ -134,11 +118,10 @@ namespace AncientMysteries.Items.True
                                 };
                                 list.Add(b);
                             }
-                            timer = 0;
                             SFX.PlaySynchronized("goody", 0.4f, Rando.Float(0.2f, 0.4f));
                         });
                     }
-                    if (rando == 2 && timer == interval)
+                    if (rando == 2)
                     {
                         for (int i = 0; i < 2; i++)
                         {
@@ -156,18 +139,10 @@ namespace AncientMysteries.Items.True
                             ins.yscale *= 0.2f;
                             Level.Add(ins);
                             list.Add(b);
-                            timer = 0;
                         });
                         }
                     }
                 }
-            }
-            if (limiter == 160)
-            {
-                start = false;
-                limiter = 0;
-                timer = 0;
-            }
             if (owner != null && owner._offDir == 1)
             {
                 fireAngle = 0;
@@ -182,18 +157,9 @@ namespace AncientMysteries.Items.True
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
-            rando = new Random().Next(2,3);
+            rando = new Random().Next(0,1);
             if (_castTime >= 1f && rando == 0)
             {
-                /*TempFire t = new(this.owner.x, owner.y, true, owner)
-                {
-                    alpha = 0f
-                };
-                t.xscale *= 2f;
-                t.yscale *= 2f;
-                Level.Add(t);*/
-                /*if (timer >= 22 && removing == false)
-                {*/
                     this.NmFireGun(list =>
                     {
                         b = new Bullet_BigFB(castPos.x, castPos.y, new AT_BigFB(), fireAngle + Rando.Float(-5,5), owner, false, 400)
@@ -201,19 +167,9 @@ namespace AncientMysteries.Items.True
                             color = Color.Orange
                         };
                         list.Add(b);
-                        start = true;
-                        interval = 25;
-                        limiter = 0;
                     });
-                    /*timer = 0;
-                    timer2++;
-                }
-                if (timer2 == 8 && removing == false)
-                {
-                    removing = true;
-                    progress = 1;
-                }
-                timer++;*/
+                waiter = new WaiterShitty(25, 6);
+                waiter.Resume();
             }
             if (_castTime >= 1f && rando == 1)
             {
@@ -225,9 +181,7 @@ namespace AncientMysteries.Items.True
                 i.yscale *= 2f;
                 Level.Add(i);*/
                 pos = owner.position;
-                start = true;
-                interval = 7;
-                limiter = 0;
+                //_interval = 7;
             }
             if (_castTime >= 1f && rando == 2)
             {
@@ -259,9 +213,7 @@ namespace AncientMysteries.Items.True
 
                     });
                 }
-                start = true;
-                interval = 5;
-                limiter = 0;
+                //_interval = 5;
             }
             if (_castTime >= 1f && rando == 3)
             {
