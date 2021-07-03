@@ -52,6 +52,10 @@
       <DependentUpon>ViscousAcidLiquor.cs</DependentUpon>
     </Compile>
     <Compile Include="Items\Explosives\ViscousAcidLiquor.cs" />
+    <Compile Include="Items\Sucks\CosmicDisruption.AmmoType.cs">
+      <DependentUpon>CosmicDisruption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\Sucks\CosmicDisruption.cs" />
     <Compile Include="Utilities\Waiter.cs" />
     <Compile Include="_FuckNetFX\CompilerServices\Attributes\CallerArgumentExpressionAttribute.cs" />
     <Compile Include="_Imports.cs" />
@@ -229,7 +233,6 @@
   <ItemGroup>
     <Folder Include="Armor\" />
     <Folder Include="Extensions\" />
-    <Folder Include="Items\Sucks\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AncientMysteries.csproj.user" />

@@ -46,6 +46,7 @@ namespace AncientMysteries
                             "Isekai" => "Isekai @PLANET@",
                             "Hats" => "|PINK|Hats",
                             "Debug" => "|DGRED|Debug",
+                            "WTF" => "|DGRED|WTF?!",
                             _ => g.Name.Replace('%', '|'),
                         };
                         ReplaceAllSub(g);

@@ -4,9 +4,11 @@
     {
         public const string topGroupName = "Ancient";
 
-        public const string relative_Isekai = "|Isekai";
-
         public const string _debugGroup = topGroupName + "|Debug";
+
+        #region relative
+        public const string relative_Isekai = "|Isekai";
+        #endregion
 
         #region Guns
         public const string guns = topGroupName + "|Weapons";
@@ -34,6 +36,8 @@
         public const string g_snipers = guns + "|Snipers";
 
         public const string g_explosives = guns + "|Explosives";
+
+        public const string g_wtf = guns + "|WTF";
         #endregion
 
         #region Equipments
