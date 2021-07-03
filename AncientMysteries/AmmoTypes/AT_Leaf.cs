@@ -5,7 +5,7 @@
         public AT_Leaf()
         {
             accuracy = 1f;
-            range = 20f;
+            range = 250f;
             penetration = 999f;
             bulletSpeed = 2f;
             speedVariation = 0.1f;
@@ -14,11 +14,11 @@
             sprite = TexHelper.ModSprite(t_Leaf);
             sprite.CenterOrigin();
             bulletType = typeof(Bullet_FB);
+            this.bulletColor = Color.OrangeRed;
         }
 
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
         {
-            this.bulletColor = Color.OrangeRed;
             return base.FireBullet(position, owner, angle, firedFrom);
         }
     }
