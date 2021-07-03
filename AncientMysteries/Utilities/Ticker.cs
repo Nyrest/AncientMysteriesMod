@@ -10,6 +10,7 @@
             this.totalUpdateCount = totalUpdateCount;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Tick()
         {
             if (currentUpdateCount++ == totalUpdateCount)
