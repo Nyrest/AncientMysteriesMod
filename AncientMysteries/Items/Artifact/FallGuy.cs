@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Utilities;
-
-namespace AncientMysteries.Items.Artifacts
+﻿namespace AncientMysteries.Items.Artifacts
 {
     [EditorGroup(g_artifacts)]
     public sealed class FallGuy : AMHoldable

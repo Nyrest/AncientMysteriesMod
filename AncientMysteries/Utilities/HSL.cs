@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace AncientMysteries.Utilities
+﻿namespace AncientMysteries.Utilities
 {
     public static class HSL
     {

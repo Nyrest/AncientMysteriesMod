@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Utilities;
-
-namespace AncientMysteries.AmmoTypes
+﻿namespace AncientMysteries.AmmoTypes
 {
     public sealed class AT_RainbowEyedrops : AmmoType
     {

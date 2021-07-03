@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AncientMysteries.Items.True
+﻿namespace AncientMysteries.Items.True
 {
     [EditorGroup(g_staffs)]
     public class HolyLight : AMStaff

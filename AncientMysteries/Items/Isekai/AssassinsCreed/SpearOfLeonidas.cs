@@ -1,5 +1,4 @@
-﻿using AncientMysteries.Utilities;
-using static AncientMysteries.AMFonts;
+﻿using static AncientMysteries.AMFonts;
 
 namespace AncientMysteries.Items.Artifacts
 {
