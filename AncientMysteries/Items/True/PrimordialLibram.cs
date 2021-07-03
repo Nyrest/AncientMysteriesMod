@@ -33,7 +33,7 @@
             this.SetBox(21, 14);
             this._barrelOffsetTL = new Vec2(6f, 5f);
             //this._castSpeed = 0.006f;//0.006
-            this._castSpeed = 0.01f;
+            this._castSpeed = 1f;
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             this._fireWait = 0.5f;
@@ -58,6 +58,7 @@
         public bool cast_FireBall = false;
         public int currentFireBallCount = 0;
         public Waiter fireBallWaiter = new Waiter(25);
+        public AT_BigFB at_fb = new();
 
         public void FireBallUpdate()
         {
@@ -68,8 +69,7 @@
                 {
                     this.NmFireGun(list =>
                     {
-                        var fireball = new Bullet_BigFB(ownerPos.x, ownerPos.y, new AT_BigFB(), (owner._offDir == 1 ? 0 : 180) + Rando.Float(-5, 5), owner, false, 400);
-                        list.Add(fireball);
+                        list.Add(Make.Bullet<AT_BigFB>(ownerPos, owner, (owner._offDir == 1 ? 0 : 180) + Rando.Float(-5, 5), this));
                     });
                 }
                 else
@@ -81,7 +81,7 @@
         }
         #endregion
 
-        #region Fire
+        #region Icicle
         public const int totalIcicleCount = 25;
         public bool cast_Icicle = false;
         public int currentIcicleCount = 0;
@@ -99,8 +99,7 @@
                     {
                         for (int i = 0; i < 4; i++)
                         {
-                            var b = new Bullet_Icicle(icicle_pos.x, icicle_pos.y, new AT_Icicle(), Rando.Float(0, 360), owner, false, 250);
-                            list.Add(b);
+                            list.Add(Make.Bullet<AT_Icicle>(icicle_pos, base.owner, Rando.Float(0, 360), this));
                         }
                         SFX.PlaySynchronized("goody", 0.4f, Rando.Float(0.2f, 0.4f));
                     });
@@ -111,6 +110,20 @@
                     currentIcicleCount = 0;
                 }
             }
+        }
+        #endregion
+
+        #region Green
+        public void GreenFire(Vec2 pos)
+        {
+            this.NmFireGun(list =>
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    var b = Make.Bullet<AT_Leaf>(pos, owner, Rando.Float(0, 360), this);
+                    list.Add(b);
+                }
+            });
         }
         #endregion
 
@@ -201,10 +214,11 @@ r += 0.8f;
                     icicle_pos = position;
                     cast_Icicle = true; break;
                 case 2:
+                    GreenFire(position); break;
                 case 3:
                 default:
                     // Debug so always fire ball
-                    goto case 1;
+                    goto case 2;
             }
         }
     }
