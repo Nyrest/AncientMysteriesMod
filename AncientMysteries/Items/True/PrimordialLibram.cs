@@ -11,6 +11,8 @@
 
         public int fireAngle = 90;
 
+        public float r = 0;
+
         public byte AnimationFrame
         {
             get => (byte)_spriteMap._frame;
@@ -120,10 +122,47 @@
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    var b = Make.Bullet<AT_Leaf>(pos, owner, Rando.Float(0, 360), this);
+                    var b = Make.Bullet<AT_Flower>(pos, owner, owner._offDir == 1 ? 0 : 180 + Rando.Float(-10,10), this);
                     list.Add(b);
                 }
             });
+        }
+        #endregion
+
+        #region Lightning
+        public const int totalLCount = 25;
+        public bool cast_L = false;
+        public int currentLCount = 0;
+        public Vec2 l_pos;
+        public Waiter lWaiter = new Waiter(6);
+
+        public void LightningUpdate()
+        {
+            if (cast_L == false) return;
+            if (lWaiter.Tick())
+            {
+                if (currentLCount++ < totalLCount)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        this.NmFireGun(list =>
+                        {
+                            var b = Make.Bullet<AT_LaserY>(new Vec2(l_pos.x + Rando.Float(-r, r), l_pos.y - 200f + Rando.Float(-r / 2, r / 2)),owner,
+                            Rando.Float(Convert.ToSingle(80f - r / 3.5f), Convert.ToSingle(100 + r / 3.5f)),this);
+                            ExplosionPart ins = new(b.travelStart.x, b.travelStart.y, true);
+                            ins.xscale *= 0.2f;
+                            ins.yscale *= 0.2f;
+                            Level.Add(ins);
+                            list.Add(b);
+                        });
+                    }
+                }
+                else
+                {
+                    cast_L = false;
+                    currentLCount = 0;
+                }
+            }
         }
         #endregion
 
@@ -141,6 +180,8 @@
             }
             FireBallUpdate();
             IcicleUpdate();
+            LightningUpdate();
+            r += 0.8f;
             /*
             if (owner != null)
             {
@@ -199,7 +240,6 @@ else
 {
     fireAngle = 180;
 }
-r += 0.8f;
 */
 
         }
@@ -216,9 +256,12 @@ r += 0.8f;
                 case 2:
                     GreenFire(position); break;
                 case 3:
+                    l_pos = position;
+                    r = 0f;
+                    cast_L = true; break;
                 default:
                     // Debug so always fire ball
-                    goto case 2;
+                    goto case 3;
             }
         }
     }
