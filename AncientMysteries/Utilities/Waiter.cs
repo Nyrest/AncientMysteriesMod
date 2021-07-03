@@ -2,23 +2,40 @@
 {
     public sealed class Waiter
     {
-        public readonly uint totalUpdateCount;
-        public uint currentUpdateCount;
+        public uint FramesToWait { get; init; }
+        public uint CurrentFrame { get; private set; }
+        public bool Paused { get; private set; }
 
-        public Waiter(uint totalUpdateCount)
+        public Waiter(uint framesToWait)
         {
-            this.totalUpdateCount = totalUpdateCount;
+            FramesToWait = framesToWait;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Tick()
         {
-            if (currentUpdateCount++ == totalUpdateCount)
+            if (Paused) return false;
+            if (CurrentFrame++ == FramesToWait)
             {
-                currentUpdateCount = 0;
+                CurrentFrame = 0;
                 return true;
             }
             return false;
+        }
+
+        public void Pause()
+        {
+            Paused = true;
+        }
+
+        public void Resume()
+        {
+            Paused = false;
+        }
+
+        public void Reset()
+        {
+            CurrentFrame = 0;
         }
     }
 }
