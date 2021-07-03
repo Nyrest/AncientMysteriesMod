@@ -80,24 +80,32 @@ namespace AncientMysteries.Items.True
         }
 
         #region Fire
-        public bool cast_FireBall = false;
         public const int totalFireBallCount = 6;
+        public bool cast_FireBall = false;
         public int currentFireBallCount = 0;
         public Waiter fireBallWaiter = new Waiter(25);
 
         public void FireBallUpdate()
         {
             if (cast_FireBall == false) return;
-            if (fireBallWaiter.Tick() && currentFireBallCount++ < totalFireBallCount)
+            if (fireBallWaiter.Tick())
             {
-                this.NmFireGun(list =>
+                if(currentFireBallCount++ < totalFireBallCount)
                 {
-                    var fireball = new Bullet_BigFB(ownerPos.x, ownerPos.y, new AT_BigFB(), (owner._offDir == 1 ? 0 : 180) + Rando.Float(-5, 5), owner, false, 400)
+                    this.NmFireGun(list =>
                     {
-                        color = Color.Orange
-                    };
-                    list.Add(fireball);
-                });
+                        var fireball = new Bullet_BigFB(ownerPos.x, ownerPos.y, new AT_BigFB(), (owner._offDir == 1 ? 0 : 180) + Rando.Float(-5, 5), owner, false, 400)
+                        {
+                            color = Color.Orange
+                        };
+                        list.Add(fireball);
+                    });
+                }
+                else
+                {
+                    cast_FireBall = false;
+                    currentFireBallCount = 0;
+                }
             }
         }
         #endregion
