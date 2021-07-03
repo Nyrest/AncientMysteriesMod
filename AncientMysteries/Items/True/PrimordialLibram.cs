@@ -92,7 +92,7 @@ namespace AncientMysteries.Items.True
             {
                 this.NmFireGun(list =>
                 {
-                    var fireball = new Bullet_BigFB(ownerPos.x, ownerPos.y, new AT_BigFB(), fireAngle + Rando.Float(-5, 5), owner, false, 400)
+                    var fireball = new Bullet_BigFB(ownerPos.x, ownerPos.y, new AT_BigFB(), (owner._offDir == 1 ? 0 : 180) + Rando.Float(-5, 5), owner, false, 400)
                     {
                         color = Color.Orange
                     };
