@@ -5,7 +5,7 @@ namespace AncientMysteries
 {
     public static class GlobalPool<T>
     {
-        public static T[] _array = new T[30];
+        public static T[] _array = new T[4];
 
         public static int _size;
 
