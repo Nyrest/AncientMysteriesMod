@@ -1,22 +1,24 @@
-﻿using AncientMysteries.Utilities.Collections;
-
-namespace AncientMysteries.Utilities
+﻿namespace AncientMysteries.Utilities
 {
-    public static class Waiter
+    public sealed class Waiter
     {
-        public static DictSlim<string, int> dict = new();
+        public readonly uint totalUpdateCount;
+        public uint currentUpdateCount;
 
-        [Obsolete]
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool WaitUnique<T>(
-            this T obj,
-            int totalFramesToWait,
-            [CallerFilePath] string path = null,
-            [CallerMemberName] string member = null,
-            [CallerLineNumber] int line = -1)
+        public Waiter(uint totalUpdateCount)
         {
-            ref int currentFrame = ref dict.GetOrAddValueRef(string.Concat(obj.GetHashCode().ToString(), path, member, line.ToString()));
-            return currentFrame++ >= totalFramesToWait;
+            this.totalUpdateCount = totalUpdateCount;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Tick()
+        {
+            if (currentUpdateCount++ == totalUpdateCount)
+            {
+                currentUpdateCount = 0;
+                return true;
+            }
+            return false;
         }
     }
 }
