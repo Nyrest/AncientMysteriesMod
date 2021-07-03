@@ -26,16 +26,13 @@
 
         public PrimordialLibram(float xval, float yval) : base(xval, yval)
         {
-            this._ammoType = new AT_RainbowEyedrops()
-            {
-
-            };
+            _ammoType = new AT_None();
             this._type = "gun";
             _spriteMap = this.ReadyToRunMap("priLibram.png", 21, 14);
             this.SetBox(21, 14);
             this._barrelOffsetTL = new Vec2(6f, 5f);
             //this._castSpeed = 0.006f;//0.006
-            this._castSpeed = 1f;
+            this._castSpeed = 1f;// for debug
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             this._fireWait = 0.5f;
@@ -142,25 +139,25 @@
             {
                 if (currentLightningCount++ < totalLightningCount)
                 {
-                    for (int i = 0; i < 2; i++)
+                    this.NmFireGun(list =>
                     {
-                        this.NmFireGun(list =>
+                        for (int i = 0; i < 2; i++)
                         {
                             var b = Make.Bullet<AT_LaserY>(
-                                new Vec2(
-                                    lightning_pos.x + Rando.Float(-r, r),
-                                    lightning_pos.y - 200f + Rando.Float(-r / 2, r / 2)),
-                                owner,
-                                Rando.Float(
-                                    Convert.ToSingle(80f - r / 3.5f),
-                                    Convert.ToSingle(100 + r / 3.5f)), this);
+                                    new Vec2(
+                                        lightning_pos.x + Rando.Float(-r, r),
+                                        lightning_pos.y - 200f + Rando.Float(-r / 2, r / 2)),
+                                    owner,
+                                    Rando.Float(
+                                        Convert.ToSingle(80f - r / 3.5f),
+                                        Convert.ToSingle(100 + r / 3.5f)), this);
                             ExplosionPart ins = new(b.travelStart.x, b.travelStart.y, true);
                             ins.xscale *= 0.2f;
                             ins.yscale *= 0.2f;
                             Level.Add(ins);
                             list.Add(b);
-                        });
-                    }
+                        }
+                    });
                     SFX.PlaySynchronized("explode", 0.4f, Rando.Float(0.2f, 0.4f));
                 }
                 else
