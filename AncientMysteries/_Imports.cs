@@ -8,6 +8,7 @@ global using AncientMysteries.Items;
 global using AncientMysteries.Utilities;
 global using AncientMysteries.AmmoTypes;
 global using AncientMysteries.Bullets;
+global using AncientMysteries.Particles;
 global using AncientMysteries.Localization;
 global using AncientMysteries.Localization.Enums;
 global using static AncientMysteries.groupNames;
