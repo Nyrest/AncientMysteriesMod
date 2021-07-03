@@ -15,6 +15,7 @@
         public bool Tick()
         {
             if (Paused) return false;
+
             if (CurrentFrame++ == FramesToWait)
             {
                 CurrentFrame = 0;
