@@ -21,7 +21,7 @@ namespace AncientMysteries.Items.True
 
         public int rando = 0;
 
-        public Vec2 castPos;
+        public Vec2 ownerPos;
 
         public int interval;
 
@@ -92,7 +92,7 @@ namespace AncientMysteries.Items.True
             {
                 this.NmFireGun(list =>
                 {
-                    var fireball = new Bullet_BigFB(castPos.x, castPos.y, new AT_BigFB(), fireAngle + Rando.Float(-5, 5), owner, false, 400)
+                    var fireball = new Bullet_BigFB(ownerPos.x, ownerPos.y, new AT_BigFB(), fireAngle + Rando.Float(-5, 5), owner, false, 400)
                     {
                         color = Color.Orange
                     };
@@ -105,6 +105,15 @@ namespace AncientMysteries.Items.True
         public override void Update()
         {
             base.Update();
+            if (owner != null)
+            {
+                _spriteMap.SetAnimation("out");
+                ownerPos = owner.position;
+            }
+            else
+            {
+                _spriteMap.SetAnimation("back");
+            }
             FireBallUpdate();
             /*
             if (owner != null)
