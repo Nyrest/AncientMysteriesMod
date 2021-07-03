@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace AncientMysteries
+﻿namespace AncientMysteries
 {
     public static class Rand
     {

@@ -5,20 +5,12 @@ namespace AncientMysteries.Bullets
 {
     public sealed class Bullet_FB : Bullet
     {
-        private Texture2D _beem;
-
-        private float _thickness;
 
         public Bullet_FB(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
-            _thickness = type.bulletThickness;
-            _beem = this.ModTex2D("firebolt.png");
+
         }
 
-        public override void Update()
-        {
-            base.Update();
-        }
 
         public override void OnCollide(Vec2 pos, Thing t, bool willBeStopped)
         {

@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Particles;
-
-namespace AncientMysteries.Armor.Developers.Hats
+﻿namespace AncientMysteries.Armor.Developers.Hats
 {
     [EditorGroup(e_developer)]
     public sealed class Boring3 : AMHelmet, IPlatform

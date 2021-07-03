@@ -1,5 +1,4 @@
-﻿using AncientMysteries.Utilities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using static AncientMysteries.AMFonts;
 
 namespace AncientMysteries.Items.FutureTech.Grenades

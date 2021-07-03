@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Helpers;
-
-namespace AncientMysteries.Utilities
+﻿namespace AncientMysteries.Utilities
 {
     public static class Make
     {

@@ -15,9 +15,10 @@ namespace AncientMysteries
 
             if (alsoAddThemToWorld)
             {
+                var currentLevel = Level.current;
                 foreach (var item in firedBullets)
                 {
-                    Level.Add(item);
+                    currentLevel.AddThing(item);
                 }
             }
 

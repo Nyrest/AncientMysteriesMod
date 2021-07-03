@@ -1,5 +1,4 @@
 ﻿using AncientMysteries.Helpers;
-using System.Collections.Generic;
 
 namespace AncientMysteries
 {

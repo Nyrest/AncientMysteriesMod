@@ -1,5 +1,4 @@
-﻿using AncientMysteries.Utilities;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using static AncientMysteries.AMFonts;
 
 namespace AncientMysteries.Items.True
