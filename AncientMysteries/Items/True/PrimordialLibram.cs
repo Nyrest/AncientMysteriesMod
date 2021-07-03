@@ -200,6 +200,8 @@ r += 0.8f;
                 case 1:
                     icicle_pos = position;
                     cast_Icicle = true; break;
+                case 2:
+                case 3:
                 default:
                     // Debug so always fire ball
                     goto case 1;
