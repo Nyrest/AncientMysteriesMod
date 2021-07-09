@@ -168,7 +168,7 @@ namespace AncientMysteries.Items
                 {
                     return _angle;
                 }
-                return base.angle + (_swing + _hold) * (float)offDir;
+                return base.angle + (_swing + _hold) * offDir;
             }
             set
             {
@@ -263,7 +263,7 @@ namespace AncientMysteries.Items
         {
             if (pTaped.gun1 != null && pTaped.gun2 != null)
             {
-                angleDegrees = pTaped.angleDegrees - (float)(90 * offDir);
+                angleDegrees = pTaped.angleDegrees - 90 * offDir;
             }
             if (tapedCompatriot is Gun)
             {
@@ -635,7 +635,7 @@ namespace AncientMysteries.Items
                             s3.Shing();
                             rebound = true;
                             _hitWait = 4;
-                            s3.owner.hSpeed += (float)offDir * 1f;
+                            s3.owner.hSpeed += offDir * 1f;
                             s3.owner.vSpeed -= 1f;
                             hSpeed = (0f - hSpeed) * 0.6f;
                         }
@@ -653,7 +653,7 @@ namespace AncientMysteries.Items
                             {
                                 Shing();
                                 s2.Shing(this);
-                                s2.owner.hSpeed += (float)offDir * 1f;
+                                s2.owner.hSpeed += offDir * 1f;
                                 s2.owner.vSpeed -= 1f;
                                 rebound = true;
                                 hSpeed = (0f - hSpeed) * 0.6f;
@@ -945,7 +945,7 @@ namespace AncientMysteries.Items
                         if (helmetHit != null && helmetHit.equippedDuck != null && helmetHit.owner != null)
                         {
                             Shing();
-                            helmetHit.owner.hSpeed += (float)offDir * 3f;
+                            helmetHit.owner.hSpeed += offDir * 3f;
                             helmetHit.owner.vSpeed -= 2f;
                             if (helmetHit.duck != null)
                             {
@@ -964,7 +964,7 @@ namespace AncientMysteries.Items
                             if (chestHit != null && chestHit.equippedDuck != null && chestHit.owner != null)
                             {
                                 Shing();
-                                chestHit.owner.hSpeed += (float)offDir * 3f;
+                                chestHit.owner.hSpeed += offDir * 3f;
                                 chestHit.owner.vSpeed -= 2f;
                                 if (chestHit.duck != null)
                                 {
@@ -986,9 +986,9 @@ namespace AncientMysteries.Items
                         }
                         Shing();
                         s.Shing();
-                        s.owner.hSpeed += (float)offDir * 3f;
+                        s.owner.hSpeed += offDir * 3f;
                         s.owner.vSpeed -= 2f;
-                        duck.hSpeed += (float)(-offDir) * 3f;
+                        duck.hSpeed += -offDir * 3f;
                         duck.vSpeed -= 2f;
                         if (s.duck != null && duck != null)
                         {
@@ -1069,7 +1069,7 @@ namespace AncientMysteries.Items
                             realThing.Destroy(destroyType);
                         }
                         Fondle(realThing);
-                        realThing.hSpeed = (float)offDir * 3f;
+                        realThing.hSpeed = offDir * 3f;
                         realThing.vSpeed = -2f;
                     }
                 }

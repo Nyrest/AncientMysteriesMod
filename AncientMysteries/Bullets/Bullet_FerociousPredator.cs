@@ -29,7 +29,7 @@ namespace AncientMysteries.Bullets
                 {
                     for (int i = 0; i < 24; i++)
                     {
-                        float dir = (float)i * 30f - 10f + Rando.Float(20f);
+                        float dir = i * 30f - 10f + Rando.Float(20f);
                         ATGrenadeLauncherShrapnel shrap = new()
                         {
                             range = 100f + Rando.Float(20f)

@@ -33,7 +33,7 @@ namespace AncientMysteries.AmmoTypes
                 List<Bullet> list = new(12);
                 for (int i = 0; i < 12; i++)
                 {
-                    float num = (float)i * 30f + Rando.Float(10f);
+                    float num = i * 30f + Rando.Float(10f);
                     aTMissileShrapnel = new ATMissileShrapnel
                     {
                         range = 5f + Rando.Float(5f)

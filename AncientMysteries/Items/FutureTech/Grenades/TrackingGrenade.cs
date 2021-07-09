@@ -15,7 +15,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
 
         public StateBinding _pinBinding = new("_pin");
 
-        private SpriteMap _sprite;
+        private readonly SpriteMap _sprite;
 
         public bool _pin = true;
 
