@@ -353,7 +353,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             var firedBullets = new List<Bullet>(20);
             for (int i = 0; i < 20; i++)
             {
-                float dir = (float)i * 18f - 5f + Rando.Float(10f);
+                float dir = i * 18f - 5f + Rando.Float(10f);
                 ATShrapnel shrap = new()
                 {
                     range = 60f + Rando.Float(18f)
@@ -396,9 +396,9 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                 }
                 for (int i = 0; i < num; i++)
                 {
-                    float dir = (float)i * 60f + Rando.Float(-10f, 10f);
+                    float dir = i * 60f + Rando.Float(-10f, 10f);
                     float dist = Rando.Float(12f, 20f);
-                    ExplosionPart ins = new(cx + (float)(Math.Cos(Maths.DegToRad(dir)) * (double)dist), cy - (float)(Math.Sin(Maths.DegToRad(dir)) * (double)dist));
+                    ExplosionPart ins = new(cx + (float)(Math.Cos(Maths.DegToRad(dir)) * dist), cy - (float)(Math.Sin(Maths.DegToRad(dir)) * dist));
                     Level.Add(ins);
                 }
             }
