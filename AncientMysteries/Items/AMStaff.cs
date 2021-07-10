@@ -30,20 +30,20 @@
         {
             get
             {
-                return this._castTime != 0f;
+                return _castTime != 0f;
             }
         }
 
         public AMStaff(float xval, float yval) : base(xval, yval)
         {
-            this._ammoType = new AT_None();
-            this._type = "gun";
-            this.ammo = 4;
+            _ammoType = new AT_None();
+            _type = "gun";
+            ammo = 4;
             _flare.color = Color.Transparent;
-            this._holdOffset = new Vec2(-5, -3);
+            _holdOffset = new Vec2(-5, -3);
             BarrelSmokeFuckOff();
-            this._fireSound = "laserRifle";
-            this._fireSoundPitch = 0.9f;
+            _fireSound = "laserRifle";
+            _fireSoundPitch = 0.9f;
             _fullAuto = true;
             _editorName = GetLocalizedName(AMLocalization.Current);
         }
@@ -72,11 +72,11 @@
                 bool flag = duck != null;
                 if (flag)
                 {
-                    this.OnReleaseSpell();
-                    this.EndSpelling();
+                    OnReleaseSpell();
+                    EndSpelling();
                     _castWaitVal = _castWait;
                 }
-                this._castTime = 0f;
+                _castTime = 0f;
             }
         }
 

@@ -10,7 +10,7 @@
             rangeVariation = 10f;
             bulletLength = 3000;
             combustable = true;
-            this.bulletType = typeof(Iridescence_Bullet);
+            bulletType = typeof(Iridescence_Bullet);
             bulletColor = Color.White;
         }
     }

@@ -21,22 +21,22 @@
 
         public RainbowTears(float xval, float yval) : base(xval, yval)
         {         
-            this._ammoType = new AT_RainbowEyedrops()
+            _ammoType = new AT_RainbowEyedrops()
             {
 
             };
-            this._type = "gun";
+            _type = "gun";
             _spriteMap = this.ReadyToRunMap("judgement.png", 13, 39);
-            this.SetBox(13, 39);
-            this._barrelOffsetTL = new Vec2(6f, 5f);
-            this._castSpeed = 0.01f;
+            SetBox(13, 39);
+            _barrelOffsetTL = new Vec2(6f, 5f);
+            _castSpeed = 0.01f;
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
-            this._fireSound = "flameExplode";
-            this._fireWait = 0.5f;
-            this._fireSoundPitch = 0.9f;
-            this._kickForce = 0.25f;
-            this._fullAuto = true;
+            _fireSound = "flameExplode";
+            _fireWait = 0.5f;
+            _fireSoundPitch = 0.9f;
+            _kickForce = 0.25f;
+            _fullAuto = true;
             _spriteMap.AddAnimation("loop", 0.04f, true, 0, 1, 2, 1);
         }
 
@@ -51,9 +51,9 @@
             Graphics.material = null;
             if (_castTime > 0.3f)
             {
-                this._castSpeed = 0.005f;
+                _castSpeed = 0.005f;
             }
-            else this._castSpeed = 0.01f;
+            else _castSpeed = 0.01f;
             if (IsSpelling)
             {
                 if (_castTime > 0.3f)

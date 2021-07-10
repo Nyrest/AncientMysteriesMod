@@ -20,7 +20,7 @@
 
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
         {
-            this.bulletColor = Color.OrangeRed;
+            bulletColor = Color.OrangeRed;
             return base.FireBullet(position, owner, angle, firedFrom);
         }
     }

@@ -6,7 +6,7 @@ namespace AncientMysteries.Bullets
     {
         public Bullet_Laser(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
-            this._bulletSpeed = 30f;
+            _bulletSpeed = 30f;
             color = Color.Yellow;
         }
         public override void OnCollide(Vec2 pos, Thing t, bool willBeStopped)
@@ -19,7 +19,7 @@ namespace AncientMysteries.Bullets
                 ins.yscale *= 0.7f;
                 Level.Add(ins);
                 SFX.Play("explode", 0.7f, Rando.Float(0.1f, 0.3f), 0f, false);
-                Thing bulletOwner = this.owner;
+                Thing bulletOwner = owner;
                 IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(pos, 14f);
                 foreach (MaterialThing t2 in things)
                 {
@@ -39,7 +39,7 @@ namespace AncientMysteries.Bullets
             ins.yscale *= 0.7f;
             Level.Add(ins);
             SFX.Play("explode", 0.7f, Rando.Float(0.1f, 0.3f), 0f, false);
-            Thing bulletOwner = this.owner;
+            Thing bulletOwner = owner;
             IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(travelEnd, 14f);
             foreach (MaterialThing t2 in things)
             {

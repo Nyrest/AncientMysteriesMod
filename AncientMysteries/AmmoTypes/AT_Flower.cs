@@ -14,7 +14,7 @@
             sprite = TexHelper.ModSprite(t_Flower);
             sprite.CenterOrigin();
             bulletType = typeof(Bullet_Flowerr);
-            this.bulletColor = Color.OrangeRed;
+            bulletColor = Color.OrangeRed;
             rangeVariation = 60f;
         }
 

@@ -13,7 +13,7 @@
             bulletSpeed = 0.5f;
             //sprite.CenterOrigin();
             bulletType = typeof(Bullet_BigFB);
-            this.sprite = _spriteMap;
+            sprite = _spriteMap;
             bulletThickness = 4f;
             bulletLength = 5f;
             bulletColor = Color.Orange;

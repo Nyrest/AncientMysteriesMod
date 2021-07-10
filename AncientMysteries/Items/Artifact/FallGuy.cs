@@ -26,10 +26,10 @@
         public FallGuy(float xpos, float ypos) : base(xpos, ypos)
         {
             
-            this._type = "gun";
+            _type = "gun";
             this.ReadyToRunMap("FallGuy.png");
             physicsMaterial = PhysicsMaterial.Metal;
-            this.material = new MaterialGlitch(this);
+            material = new MaterialGlitch(this);
         }
 
         public override void PressAction()
@@ -128,9 +128,9 @@
             base.Draw();
             if (IsTargetVaild && duck?.profile.localPlayer == true)
             {
-                var start = this.topLeft + graphic.center * graphic.scale;
+                var start = topLeft + graphic.center * graphic.scale;
                 var end = _targetPlayer.position - new Vec2(0, 13);
-                var cache = this.material;
+                var cache = material;
                 Graphics.material = null;
                 if (_cdTime == 0)
                 {

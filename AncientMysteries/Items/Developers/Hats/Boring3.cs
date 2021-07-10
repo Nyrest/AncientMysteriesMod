@@ -38,7 +38,7 @@
 
             if (_equippedDuck != null && !destroyed)
             {
-                _equippedCollisionOffset = duck.topLeft - this.position + new Vec2(-1.5f, -1.5f);
+                _equippedCollisionOffset = duck.topLeft - position + new Vec2(-1.5f, -1.5f);
                 if (duck.offDir == -1)
                     _equippedCollisionOffset.x -= duck.collisionOffset.x;
                 _equippedCollisionSize = _equippedDuck.collisionSize + new Vec2(3, 3);

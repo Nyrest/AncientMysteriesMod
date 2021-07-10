@@ -31,11 +31,11 @@
                     _opened = true;
                     this.ReadyToRunMap(t_Umbrella_open);
                 }
-                this.handAngle = 0;
+                handAngle = 0;
 
-                if (d.crouch || this._triggerHeld)
+                if (d.crouch || _triggerHeld)
                 {
-                    this.handAngle = -1.56f * -this.offDir;
+                    handAngle = -1.56f * -offDir;
                     _holdOffset = new Vec2(-10 , -5);
                     handOffset = new Vec2(0, -4);
                 }
@@ -43,7 +43,7 @@
                 {
                     if (d._hovering)
                     {
-                        this.handAngle = -1.56f * -this.offDir;
+                        handAngle = -1.56f * -offDir;
                     }
                     if (d.vSpeed >= 0f)
                     {

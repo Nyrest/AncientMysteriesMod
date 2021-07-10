@@ -10,21 +10,21 @@
 
 		public ElectronicImpacter(float xval, float yval) : base(xval, yval)
 		{
-			this.ammo = 80;
-			this._ammoType = new AT_Electronic()
+			ammo = 80;
+			_ammoType = new AT_Electronic()
 			{
 				
 			};
-			this._type = "gun";
+			_type = "gun";
 			this.ReadyToRunMap("ElectronicImpacter.png");
 			_flare.color = Color.Transparent;
 			BarrelSmokeFuckOff();
-			this._barrelOffsetTL = new Vec2(24f, 5f);
-			this._fireSound = "laserRifle";
-			this._fireSoundPitch = 0.9f;
-			this._fireWait = 0.9f;
-			this._kickForce = 0f;
-			this._fullAuto = true;
+			_barrelOffsetTL = new Vec2(24f, 5f);
+			_fireSound = "laserRifle";
+			_fireSoundPitch = 0.9f;
+			_fireWait = 0.9f;
+			_kickForce = 0f;
+			_fullAuto = true;
 		}
     }
 }

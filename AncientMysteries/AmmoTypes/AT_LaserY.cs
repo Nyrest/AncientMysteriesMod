@@ -8,8 +8,8 @@
             range = 400f;
             penetration = 1f;
             rangeVariation = 20f;
-            this.bulletThickness = 2f;
-            this.bulletSpeed = 30f;
+            bulletThickness = 2f;
+            bulletSpeed = 30f;
             bulletColor = Color.Yellow;
             //this.bulletType = typeof(Bullet_Electronic);
             //this.sprite = TexHelper.ModSprite("ElectronicStar.png");
@@ -19,7 +19,7 @@
 
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
         {
-            this.bulletColor = Color.Yellow;
+            bulletColor = Color.Yellow;
             return base.FireBullet(position, owner, angle, firedFrom);
         }
         public class AT_LaserY_Bullet : Bullet

@@ -1,6 +1,4 @@
-﻿using Microsoft.CodeAnalysis;
-using System;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.CompilerServices;
 
 namespace AncientMysteries.SourceGenerator

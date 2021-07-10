@@ -22,24 +22,24 @@
 
         public HolyLight(float xval, float yval) : base(xval, yval)
         {
-            this._ammoType = new AT_RainbowEyedrops()
+            _ammoType = new AT_RainbowEyedrops()
             {
 
             };
-            this._type = "gun";
+            _type = "gun";
             _spriteMap = this.ReadyToRunMap("holyLight.png", 15, 37);
-            this.SetBox(15, 37);
-            this._barrelOffsetTL = new Vec2(6f, 5f);
-            this._castSpeed = 0.012f;
+            SetBox(15, 37);
+            _barrelOffsetTL = new Vec2(6f, 5f);
+            _castSpeed = 0.012f;
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
-            this.castingParticlesEnabled = true;
-            this.castingParticlesColor = Color.Yellow;
+            castingParticlesEnabled = true;
+            castingParticlesColor = Color.Yellow;
 
-            this._fireWait = 0.5f;
-            this._fireSoundPitch = 0.9f;
-            this._kickForce = 0.25f;
-            this._fullAuto = true;
+            _fireWait = 0.5f;
+            _fireSoundPitch = 0.9f;
+            _kickForce = 0.25f;
+            _fullAuto = true;
         }
 
         public override void OnSpelling()

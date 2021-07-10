@@ -1,8 +1,4 @@
-﻿using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.Text;
-using System.Text;
-
-namespace AncientMysteries.SourceGenerator
+﻿namespace AncientMysteries.SourceGenerator
 {
     public abstract class _BaseSourceGenerator : _BaseGenerator
     {

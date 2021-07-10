@@ -16,7 +16,7 @@
 
         protected AMGun(float xval, float yval) : base(xval, yval)
         {
-            this._type = "gun";
+            _type = "gun";
             _ammoType = DefaultAmmoType;
             _editorName = GetLocalizedName(AMLocalization.Current);
         }

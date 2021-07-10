@@ -9,7 +9,7 @@
         public NovaExp(float xpos, float ypos, bool doWait = true) : base(xpos, ypos)
         {
             _sprite = this.ReadyToRunMap("crystalExplosionP.png", 36, 36);
-            this._sprite.AddAnimation("loop", 1f, false, new int[]
+            _sprite.AddAnimation("loop", 1f, false, new int[]
             {
         0,
         1,
@@ -31,16 +31,16 @@
         17,
         18,
             });
-            this._sprite.SetAnimation("loop");
-            this.graphic = this._sprite;
-            this._sprite.speed = 0.6f;
+            _sprite.SetAnimation("loop");
+            graphic = _sprite;
+            _sprite.speed = 0.6f;
             xscale = 0.5f;
             yscale = xscale;
-            this.center = new Vec2(18f, 18f);
+            center = new Vec2(18f, 18f);
             depth = 1f;
             if (!doWait)
             {
-                this._wait = 0f;
+                _wait = 0f;
             }
         }
 

@@ -42,20 +42,20 @@ namespace AncientMysteries.Items.Dragon.Melee
             {
                 if (_quacked != duck.IsQuacking() && (_quacked = duck.IsQuacking()))
                 {
-                    if (this.owner._offDir == -1)
+                    if (owner._offDir == -1)
                     {
                         ExplosionPart ins = new(owner.x, owner.y, true);
                         ins.xscale *= 0.7f;
                         ins.yscale *= 0.7f;
                         Level.Add(ins);
                         SFX.Play("explode", 0.7f, Rando.Float(-0.7f, -0.5f), 0f, false);
-                        Thing bulletOwner = this.owner;
+                        Thing bulletOwner = owner;
                         IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(owner.position, 14f);
                         foreach (MaterialThing t2 in things)
                         {
                             if (t2 != bulletOwner)
                             {
-                                t2.Destroy(new DTShot(new Bullet_FB(owner.x, owner.y, new AT_FB(), -1, this.owner, false, 1)));
+                                t2.Destroy(new DTShot(new Bullet_FB(owner.x, owner.y, new AT_FB(), -1, owner, false, 1)));
                             }
                         }
                         owner.hSpeed += -700;
@@ -68,13 +68,13 @@ namespace AncientMysteries.Items.Dragon.Melee
                         ins.yscale *= 0.7f;
                         Level.Add(ins);
                         SFX.Play("explode", 0.7f, Rando.Float(-0.7f, -0.5f), 0f, false);
-                        Thing bulletOwner = this.owner;
+                        Thing bulletOwner = owner;
                         IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(owner.position, 14f);
                         foreach (MaterialThing t2 in things)
                         {
                             if (t2 != bulletOwner)
                             {
-                                t2.Destroy(new DTShot(new Bullet_FB(owner.x, owner.y, new AT_FB(), -1, this.owner, false, 1)));
+                                t2.Destroy(new DTShot(new Bullet_FB(owner.x, owner.y, new AT_FB(), -1, owner, false, 1)));
                             }
                         }
                         owner.hSpeed += 700;
@@ -99,7 +99,7 @@ namespace AncientMysteries.Items.Dragon.Melee
                 {
                     for (int i = 0; i < 10; i++)
                     {
-                        Bullet b = new Bullet_FB(duck.x, duck.y, new AT_FB(), -180 + Rando.Float(-5, 5), this.owner, false, 250f + Rando.Float(-75, 75));
+                        Bullet b = new Bullet_FB(duck.x, duck.y, new AT_FB(), -180 + Rando.Float(-5, 5), owner, false, 250f + Rando.Float(-75, 75));
                         firedBullets.Add(b);
                         Level.Add(b);
                         cooldown3 = -10;
@@ -109,7 +109,7 @@ namespace AncientMysteries.Items.Dragon.Melee
                 {
                     for (int i = 0; i < 10; i++)
                     {
-                        Bullet b = new Bullet_FB(duck.x, duck.y, new AT_FB(), 0 + Rando.Float(-5, 5), this.owner, false, 250f + Rando.Float(-75, 75));
+                        Bullet b = new Bullet_FB(duck.x, duck.y, new AT_FB(), 0 + Rando.Float(-5, 5), owner, false, 250f + Rando.Float(-75, 75));
                         firedBullets.Add(b);
                         Level.Add(b);
                         cooldown3 = -10;

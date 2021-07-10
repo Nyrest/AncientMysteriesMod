@@ -14,12 +14,12 @@
         public override void Initialize()
         {
             base.Initialize();
-            if (Level.current is Editor || (Network.isActive && !this.isServerForObject)) return;
+            if (Level.current is Editor || (Network.isActive && !isServerForObject)) return;
             var fuckingType = amTypes[Rando.Int(amTypes.Length - 1)];
             if (Activator.CreateInstance(fuckingType, Editor.GetConstructorParameters(fuckingType)) is PhysicsObject newThing)
             {
                 newThing.x = x;
-                newThing.y = this.y;
+                newThing.y = y;
                 newThing.vSpeed = -2f;
                 newThing.spawnAnimation = true;
                 newThing.isSpawned = true;

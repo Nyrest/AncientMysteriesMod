@@ -41,20 +41,20 @@
 
         public Overgrowth(float xval, float yval) : base(xval, yval)
         {
-            this._type = "gun";
+            _type = "gun";
             _ammoType = ammoTypeSmall;
             _spriteMap = this.ReadyToRunMap(t_Overgrowth, 21, 34);
             _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2, 3);
             _spriteMap.SetAnimation("loop");
-            this.SetBox(21, 34);
-            this._barrelOffsetTL = new Vec2(6f, 5f);
-            this._castSpeed = 0.0035f;
+            SetBox(21, 34);
+            _barrelOffsetTL = new Vec2(6f, 5f);
+            _castSpeed = 0.0035f;
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
-            this._fireWait = 0.5f;
-            this._fireSoundPitch = 0.9f;
-            this._kickForce = 0.25f;
-            this._fullAuto = true;
+            _fireWait = 0.5f;
+            _fireSoundPitch = 0.9f;
+            _kickForce = 0.25f;
+            _fullAuto = true;
         }
 
         public override void OnReleaseSpell()

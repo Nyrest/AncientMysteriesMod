@@ -62,7 +62,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             graphic = _sprite;
             bouncy = 0.4f;
             friction = 0.05f;
-            this.scale = new Vec2(1.15f);
+            scale = new Vec2(1.15f);
         }
 
         public override void Initialize()
@@ -243,7 +243,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             base.Draw();
             if (IsTargetVaild && duck?.profile.localPlayer == true)
             {
-                var start = this.topLeft + graphic.center * graphic.scale;
+                var start = topLeft + graphic.center * graphic.scale;
                 float fontWidth;
                 fontWidth = _biosFont.GetWidth("@QUACK@", false, duck.inputProfile);
                 _biosFont.Draw("@QUACK@", duck.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);

@@ -11,11 +11,11 @@
             penetration = 1f;
             rangeVariation = 10f;
             bulletSpeed = 2;
-            this.speedVariation = 0.5f;
+            speedVariation = 0.5f;
             bulletLength = 0;
-            this.bulletColor = Color.LightYellow;
+            bulletColor = Color.LightYellow;
             bulletThickness = 2;
-            this.sprite = _spriteMap;
+            sprite = _spriteMap;
             _spriteMap.AddAnimation("loop", 0.15f, true, 0, 1, 2, 3);
             _spriteMap.SetAnimation("loop");
             _spriteMap.CenterOrigin();

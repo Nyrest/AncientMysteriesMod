@@ -26,8 +26,8 @@ namespace AncientMysteries.Items.Artifacts
         public SpearOfLeonidas(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRunMap("SpearOfLeonidas.png");
-            this._barrelOffsetTL = new Vec2(20f, 4f);
-            this._fireSound = "smg";
+            _barrelOffsetTL = new Vec2(20f, 4f);
+            _fireSound = "smg";
             physicsMaterial = PhysicsMaterial.Metal;
             _bouncy = 0.5f;
             _impactThreshold = 0.3f;
@@ -40,7 +40,7 @@ namespace AncientMysteries.Items.Artifacts
             {
                 duck.ThrowItem(true);
                 _flying = true;
-                this.canPickUp = false;
+                canPickUp = false;
             }
         }
 
@@ -60,7 +60,7 @@ namespace AncientMysteries.Items.Artifacts
                     )
                 {
                     //SwitchTarget();
-                    Helper.SwitchTargetCircle(ref _targetPlayer, duck, this.position, 250);
+                    Helper.SwitchTargetCircle(ref _targetPlayer, duck, position, 250);
                 }
             }
             // TODO: do this network onwer only, if null then just fucking stop flying and fall
@@ -69,14 +69,14 @@ namespace AncientMysteries.Items.Artifacts
                 // what a stupid implementation. I should let it just move like a normal object
                 // but it can be teleported by teleporter. so just draw it no need modify it's real position.
                 // however this guy is too lazy
-                Vec2 anglevec = new(_targetPlayer.x - this.x, this.y - _targetPlayer.y);
+                Vec2 anglevec = new(_targetPlayer.x - x, y - _targetPlayer.y);
                 float angle = (float)Math.Atan(anglevec.y / anglevec.x);
-                this.offDir = (sbyte)(anglevec.x < 0 ? -1 : 1);
-                this._angle = angle + 1.56f * offDir;
+                offDir = (sbyte)(anglevec.x < 0 ? -1 : 1);
+                _angle = angle + 1.56f * offDir;
                 //this.position += anglevec * 0.1f;
-                this.hSpeed = Math.Min(anglevec.x, 5);
-                this.vSpeed = Math.Min(anglevec.y, 5) * -1;
-                this.canPickUp = false;
+                hSpeed = Math.Min(anglevec.x, 5);
+                vSpeed = Math.Min(anglevec.y, 5) * -1;
+                canPickUp = false;
                 if (_targetPlayer.dead)
                 {
                     _flying = false;
@@ -84,7 +84,7 @@ namespace AncientMysteries.Items.Artifacts
             }
             else
             {
-                this.canPickUp = true;
+                canPickUp = true;
                 _targetPlayer = null;
                 _quacked = false;
             }

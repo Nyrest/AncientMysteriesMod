@@ -1,11 +1,7 @@
-﻿using Microsoft.CodeAnalysis;
-using System;
-using System.IO;
-using System.Text;
-using System.Linq;
+﻿using System.IO;
 using System.Collections.Generic;
 
-namespace AncientMysteries.SourceGenerator
+namespace AncientMysteries.SourceGenerator.Generatorsh
 {
     [Generator]
     public class TexturesReference : _BaseSourceGenerator

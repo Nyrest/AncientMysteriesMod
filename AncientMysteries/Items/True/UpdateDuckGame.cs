@@ -79,11 +79,11 @@ namespace AncientMysteries.Items.True
             base.Draw();
             if (_cd != 0 && duck != null)
             {
-                GTool.DrawTopProgressCenterTop(duck.position, _cd / totalCD, Color.White, Color.OrangeRed, Color.Black, 1, -13, 20, 7, this.depth);
+                GTool.DrawTopProgressCenterTop(duck.position, _cd / totalCD, Color.White, Color.OrangeRed, Color.Black, 1, -13, 20, 7, depth);
             }
             if (IsTargetVaild && duck?.profile.localPlayer == true)
             {
-                var start = this.topLeft + graphic.center * graphic.scale;
+                var start = topLeft + graphic.center * graphic.scale;
                 float fontWidth = _biosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
                 _biosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
                 Graphics.DrawLine(start, _targetPlayer.position, Color.White, duck is null ? 0.6f : 1f, 1);

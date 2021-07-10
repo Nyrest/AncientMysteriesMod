@@ -2,7 +2,7 @@
 {
     public abstract class AMEquipment : Equipment, IAMEquipment, IAMLocalizable
     {
-        private static FieldInfo _fieldEquipmentHealth = typeof(Equipment).GetField("_equipmentHealth", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static readonly FieldInfo _fieldEquipmentHealth = typeof(Equipment).GetField("_equipmentHealth", BindingFlags.Instance | BindingFlags.NonPublic);
 
         protected AMEquipment(float xpos, float ypos) : base(xpos, ypos)
         {
@@ -18,16 +18,12 @@
 
         public override bool Destroy(DestroyType type = null)
         {
-            if (EquipmentHitPoints > 0 || !Destroyable)
-                return false;
-            return base.Destroy(type);
+            return EquipmentHitPoints <= 0 && Destroyable && base.Destroy(type);
         }
 
         protected override bool OnDestroy(DestroyType type = null)
         {
-            if (EquipmentHitPoints > 0 || !Destroyable)
-                return false;
-            return base.OnDestroy(type);
+            return EquipmentHitPoints <= 0 && Destroyable && base.OnDestroy(type);
         }
 
         public override bool Hit(Bullet bullet, Vec2 hitPos)

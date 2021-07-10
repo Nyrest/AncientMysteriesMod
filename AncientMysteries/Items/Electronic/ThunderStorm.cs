@@ -1,8 +1,4 @@
-﻿using AncientMysteries.AmmoTypes;
-using AncientMysteries.Bullets;
-using AncientMysteries.Localization.Enums;
-using DuckGame;
-using static AncientMysteries.groupNames;
+﻿using System.Collections.Generic;
 
 namespace AncientMysteries.Items.Electronic
 {
@@ -24,14 +20,12 @@ namespace AncientMysteries.Items.Electronic
             set => _spriteMap._frame = value;
         }
 
-
-
         public int r;
         public Thunderstorm(float xval, float yval) : base(xval, yval)
         {
             _ammoType = new AT_CubicBlast();
             _spriteMap = this.ReadyToRunMap("ThunderStorm.png", 13, 36);
-            this._barrelOffsetTL = new Vec2(6, 3);
+            _barrelOffsetTL = new Vec2(6, 3);
             _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2);
             _spriteMap.SetAnimation("loop");
         }
