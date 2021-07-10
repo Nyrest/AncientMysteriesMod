@@ -54,7 +54,7 @@
             vSpeed = Rando.Float(-1f, 1f);
             position.x = xpos;
             position.y = ypos;
-            this.lifeFadeSpeed = fadeSpeed;
+            lifeFadeSpeed = fadeSpeed;
             depth = 0.9f;
             life = 1f;
             this.color = color;

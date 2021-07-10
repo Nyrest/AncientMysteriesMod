@@ -11,11 +11,11 @@
             penetration = 20000000f;
             rangeVariation = 10f;
             bulletSpeed = 6;
-            this.speedVariation = 0.5f;
+            speedVariation = 0.5f;
             bulletLength = 0;
-            this.bulletColor = Color.LightYellow;
+            bulletColor = Color.LightYellow;
             bulletThickness = 2;
-            this.sprite = _spriteMap;
+            sprite = _spriteMap;
             _spriteMap.CenterOrigin();
         }
 

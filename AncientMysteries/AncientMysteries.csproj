@@ -1,25 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--Project Info-->
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AncientMysteries</RootNamespace>
     <AssemblyName>AncientMysteries</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <TargetFramework>net461</TargetFramework>
     <LangVersion>9.0</LangVersion>
     <PlatformTarget>x86</PlatformTarget>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>preview</LangVersion>
-    <TargetFrameworkProfile />
-    <RuntimeIdentifiers>win-x86</RuntimeIdentifiers>
+    <PackageId>Ancient Mysteries</PackageId>
+    <Title>Ancient Mysteries</Title>
+    <Description>Mysteries from the Ancient Civilization?</Description>
+    <Company>Boring3 | Devastator | GUDZH</Company>
+    <Authors>Boring3 | Devastator | GUDZH</Authors>
+    <Product>Ancient Mysteries</Product>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Platforms>x86</Platforms>
   </PropertyGroup>
+
+  <!--Source Generator Reference-->
   <ItemGroup>
     <ProjectReference Include="..\AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false">
       <Private>False</Private>
@@ -27,218 +31,68 @@
       <Name>AncientMysteries.SourceGenerator</Name>
     </ProjectReference>
   </ItemGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+
+  <!--Debug-->
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+
+  <!--Release-->
+  <PropertyGroup Condition="'$(Configuration)' == 'Release' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
+
+  <!--Items-->
   <ItemGroup>
-    <Compile Include="AmmoTypes\AT_LaserY.cs" />
-    <Compile Include="AmmoTypes\AT_Flower.cs" />
-    <Compile Include="AmmoTypes\AT_Leaf.cs" />
-    <Compile Include="AmmoTypes\AT_Icicle.cs" />
-    <Compile Include="Bullets\Bullet_Flowerr.cs" />
-    <Compile Include="Bullets\Bullet_Leaf.cs" />
-    <Compile Include="Items\Explosives\ViscousAcidLiquor.AmmoType.cs">
-      <DependentUpon>ViscousAcidLiquor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Items\Explosives\ViscousAcidLiquor.Bullet.cs">
-      <DependentUpon>ViscousAcidLiquor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Items\Explosives\ViscousAcidLiquor.cs" />
-    <Compile Include="Items\Rainbow\Iridescence.AmmoType.cs">
-      <DependentUpon>Iridescence.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Items\Rainbow\Iridescence.Bullet.cs">
-      <DependentUpon>Iridescence.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Items\Sucks\CosmicDisruption.AmmoType.cs">
-      <DependentUpon>CosmicDisruption.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Items\Sucks\CosmicDisruption.cs" />
-    <Compile Include="Utilities\Make.cs" />
-    <Compile Include="Utilities\WaiterShitty.cs" />
-    <Compile Include="Utilities\Waiter.cs" />
-    <Compile Include="_FuckNetFX\CompilerServices\Attributes\CallerArgumentExpressionAttribute.cs" />
-    <Compile Include="_Imports.cs" />
-    <Compile Include="Utilities\Collections\DictSlim.cs" />
-    <Compile Include="_FuckNetFX\CompilerServices\Attributes\ModuleInitializerAttribute.cs" />
-    <Compile Include="_FuckNetFX\CompilerServices\IsExternalInit.cs" />
     <Content Include="content\**" Visible="false">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <AdditionalFiles Include="content\**" Visible="false">
     </AdditionalFiles>
-    <Compile Include="AmmoTypes\AT_Overgrowth.cs" />
-    <Compile Include="Bullets\Bullet_OGS.cs" />
-    <Compile Include="Bullets\Bullet_OGB.cs" />
-    <Compile Include="Items\AMNotGun.cs" />
-    <Compile Include="Items\Common\Umbrella.cs" />
-    <Compile Include="Items\_DEBUG\RandomAMItem.cs" />
-    <Compile Include="Items\True\Arcane Nova.cs" />
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
-    <None Include="packages.config" />
     <AdditionalFiles Include="_projLocator" Visible="false" />
+
+    <None Include="Items\Explosives\ViscousAcidLiquor.AmmoType.cs">
+      <DependentUpon>ViscousAcidLiquor.cs</DependentUpon>
+    </None>
   </ItemGroup>
+
+  <!--Nuget Packages-->
   <ItemGroup>
-    <Reference Include="DuckGame, Version=1.1.7706.16085, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
+    <PackageReference Include="System.Memory" Version="4.5.4">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <!--Duck Game References-->
+  <ItemGroup>
+    <Reference Include="DuckGame">
       <HintPath>..\References\DuckGame.exe</HintPath>
-      <Private>False</Private>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Microsoft.Xna.Framework">
       <HintPath>..\References\Microsoft.Xna.Framework.dll</HintPath>
-      <Private>False</Private>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Microsoft.Xna.Framework.Game">
       <HintPath>..\References\Microsoft.Xna.Framework.Game.dll</HintPath>
-      <Private>False</Private>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Microsoft.Xna.Framework.Graphics">
       <HintPath>..\References\Microsoft.Xna.Framework.Graphics.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Core" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>false</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AMFonts.cs" />
-    <Compile Include="AMLocalization.cs" />
-    <Compile Include="AmmoTypes\AT_AN4.cs" />
-    <Compile Include="AmmoTypes\AT_AN3.cs" />
-    <Compile Include="AmmoTypes\AT_AN2.cs" />
-    <Compile Include="AmmoTypes\AT_AN.cs" />
-    <Compile Include="AmmoTypes\AT_LaserG2.cs" />
-    <Compile Include="AmmoTypes\AT_LaserG.cs" />
-    <Compile Include="AmmoTypes\AT_Laser.cs" />
-    <Compile Include="AmmoTypes\AT_FerociousPredator.cs" />
-    <Compile Include="AmmoTypes\AT_RainbowEyedrops.cs" />
-    <Compile Include="AmmoTypes\AT_FB.cs" />
-    <Compile Include="AmmoTypes\AT_Current.cs" />
-    <Compile Include="AmmoTypes\AT_CubicBlast.cs" />
-    <Compile Include="AmmoTypes\AT_Dragon.cs" />
-    <Compile Include="AmmoTypes\AT_Electronic.cs" />
-    <Compile Include="AmmoTypes\AT_None.cs" />
-    <Compile Include="AmmoTypes\AT_Shadow.cs" />
-    <Compile Include="AmmoTypes\AT_Skull.cs" />
-    <Compile Include="AmmoTypes\AT_BigFB.cs" />
-    <Compile Include="AmmoTypes\AT_Star.cs" />
-    <Compile Include="AmmoTypes\AT_Lava.cs" />
-    <Compile Include="AmmoTypes\AT_Star2.cs" />
-    <Compile Include="AmmoTypes\_ImplicitDefaultAmmoType.cs" />
-    <Compile Include="Bullets\Bullet_AN4.cs" />
-    <Compile Include="Bullets\Bullet_AN3.cs" />
-    <Compile Include="Bullets\Bullet_AN2.cs" />
-    <Compile Include="Bullets\Bullet_AN.cs" />
-    <Compile Include="Bullets\Bullet_Current.cs" />
-    <Compile Include="Bullets\Bullet_BigFB.cs" />
-    <Compile Include="Bullets\Bullet_LaserG2.cs" />
-    <Compile Include="Bullets\Bullet_LaserG.cs" />
-    <Compile Include="Bullets\Bullet_Laser.cs" />
-    <Compile Include="Bullets\Bullet_Lava.cs" />
-    <Compile Include="Bullets\Bullet_Star2.cs" />
-    <Compile Include="Bullets\Bullet_Star.cs" />
-    <Compile Include="Bullets\Bullet_FB.cs" />
-    <Compile Include="Bullets\Bullet_FerociousPredator.cs" />
-    <Compile Include="Bullets\Bullet_Skull.cs" />
-    <Compile Include="Bullets\Bullet_Dragon.cs" />
-    <Compile Include="Caches\InstanceOf.cs" />
-    <Compile Include="GlobalPool.cs" />
-    <Compile Include="Helpers\FastNew.cs" />
-    <Compile Include="Hooks.cs" />
-    <Compile Include="Items\AMBoots.cs" />
-    <Compile Include="Items\AMChestPlate.cs" />
-    <Compile Include="Items\AMEquipment.cs" />
-    <Compile Include="Items\AMHelmet.cs" />
-    <Compile Include="Items\Developers\Hats\Thingy.cs" />
-    <Compile Include="Items\Developers\Hats\Boring3.cs" />
-    <Compile Include="Bullets\Bullet_CubicBlast.cs" />
-    <Compile Include="Bullets\Bullet_Electronic.cs" />
-    <Compile Include="Bullets\Bullet_Shadow.cs" />
-    <Compile Include="groupNames.cs" />
-    <Compile Include="GTool.cs" />
-    <Compile Include="Items\Explosives\Ferocious Predator.cs" />
-    <Compile Include="Items\Explosives\FuriousNewYear.cs" />
-    <Compile Include="Items\FutureTech\AtomicReboundShield.cs" />
-    <Compile Include="Items\FutureTech\Grenades\NanoMine.cs" />
-    <Compile Include="Items\FutureTech\Grenades\TrackingGrenade.cs" />
-    <Compile Include="Items\IAMEquipment.cs" />
-    <None Include="Items\Isekai\RiskOfRain\CeremonialDagger.cs" />
-    <None Include="Items\Isekai\RiskOfRain\PersonalShieldGenerator.cs" />
-    <None Include="Items\Isekai\RiskOfRain\SoldiersSyringe.cs" />
-    <None Include="Items\Isekai\RiskOfRain\TougherTimes.cs" />
-    <None Include="Items\Isekai\RiskOfRain\BrilliantBehemoth.cs" />
-    <None Include="Items\Isekai\RiskOfRain\RoREquipmentBase.cs" />
-    <Compile Include="Items\Rainbow\Iridescence.cs" />
-    <Compile Include="Items\Rainbow\RainbowTears.cs" />
-    <Compile Include="Items\True\PrimordialLibram.cs" />
-    <Compile Include="Items\True\HolyLight.cs" />
-    <Compile Include="Items\True\UpdateDuckGame.cs" />
-    <Compile Include="Items\Dragon\Eternal Flame.cs" />
-    <Compile Include="Items\True\Overgrowth.cs" />
-    <Compile Include="Localization\Enums\AMLang.cs" />
-    <None Include="Items\Mortal\props\Dice.cs" />
-    <Compile Include="Localization\IAMLocalizable.cs" />
-    <Compile Include="Miscellaneous\TempNature.cs" />
-    <Compile Include="Miscellaneous\TempCrystal.cs" />
-    <None Include="Miscellaneous\TempIce.cs" />
-    <Compile Include="Miscellaneous\TempFire.cs" />
-    <Compile Include="Miscellaneous\NovaExp.cs" />
-    <Compile Include="Misc\TexHelper.cs" />
-    <Compile Include="Mod.cs" />
-    <Compile Include="NetHelper.cs" />
-    <Compile Include="Particles\CustomSpark.cs" />
-    <Compile Include="Particles\DotParticle.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Items\AMGun.cs" />
-    <Compile Include="Items\AMHoldable.cs" />
-    <Compile Include="Items\AMMelee.cs" />
-    <Compile Include="Items\AMStaff.cs" />
-    <Compile Include="Items\Artifact\FallGuy.cs" />
-    <Compile Include="Items\Dark\Melee\DeathBringer.cs" />
-    <Compile Include="Items\Dark\Void Piercer.cs" />
-    <Compile Include="Items\Dark\Shadow Dance.cs" />
-    <Compile Include="Items\Dark\Dark Aurora.cs" />
-    <Compile Include="Items\Dragon\Molten Spitter.cs" />
-    <None Include="Items\Electronic\Thunderstorm.cs" />
-    <Compile Include="Items\Electronic\ElectronicImpacter.cs" />
-    <Compile Include="Items\Isekai\AssassinsCreed\SpearOfLeonidas.cs" />
-    <Compile Include="Utilities\ExtensionMethods.cs" />
-    <Compile Include="Utilities\Rand.cs" />
-    <Compile Include="Utilities\Helper.cs" />
-    <Compile Include="Utilities\HSL.cs" />
-    <Compile Include="Utilities\StupidMoving.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Armor\" />
-    <Folder Include="Extensions\" />
-  </ItemGroup>
+  
   <ItemGroup>
     <None Include="AncientMysteries.csproj.user" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -128,8 +128,8 @@
                         {
                             for (int i = 0; i < bulletCount; i++)
                             {
-                                float addSpeedX = this.hSpeed * 0.7f;
-                                float addSpeedY = this.vSpeed * 0.7f;
+                                float addSpeedX = hSpeed * 0.7f;
+                                float addSpeedY = vSpeed * 0.7f;
                                 Firecracker f = new(cx + Rando.Float(-1f, 1f), cy + Rando.Float(-1f, 1f));
                                 _firecrackerExplodeTimer.SetValue(f, new ActionTimer(Rando.Float(0.018f, 0.024f)));
                                 f.spinAngle = 90f;

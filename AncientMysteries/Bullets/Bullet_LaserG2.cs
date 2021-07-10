@@ -18,7 +18,7 @@ namespace AncientMysteries.Bullets
                 ins.yscale *= 0.7f;
                 Level.Add(ins);
                 SFX.Play("explode", 0.7f, Rando.Float(0.1f, 0.3f), 0f, false);
-                Thing bulletOwner = this.owner;
+                Thing bulletOwner = owner;
                 IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(pos, 14f);
                 foreach (MaterialThing t2 in things)
                 {
@@ -52,7 +52,7 @@ namespace AncientMysteries.Bullets
         public override void Update()
         {
             base.Update();
-            this._bulletSpeed -= 0.02f;
+            _bulletSpeed -= 0.02f;
         }
     }
 }

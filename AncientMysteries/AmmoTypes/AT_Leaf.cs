@@ -14,7 +14,7 @@
             sprite = TexHelper.ModSprite(t_Leaf);
             sprite.CenterOrigin();
             bulletType = typeof(Bullet_Star2);
-            this.bulletColor = Color.OrangeRed;
+            bulletColor = Color.OrangeRed;
         }
 
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)

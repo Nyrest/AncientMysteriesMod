@@ -27,24 +27,24 @@
         public PrimordialLibram(float xval, float yval) : base(xval, yval)
         {
             _ammoType = new AT_None();
-            this._type = "gun";
+            _type = "gun";
             _spriteMap = this.ReadyToRunMap("priLibram.png", 21, 14);
-            this.SetBox(21, 14);
-            this._barrelOffsetTL = new Vec2(6f, 5f);
+            SetBox(21, 14);
+            _barrelOffsetTL = new Vec2(6f, 5f);
             //this._castSpeed = 0.006f;//0.006
-            this._castSpeed = 1f;// for debug
+            _castSpeed = 1f;// for debug
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
-            this._fireWait = 0.5f;
-            this._fireSoundPitch = 0.9f;
-            this._kickForce = 0.25f;
-            this._fullAuto = true;
+            _fireWait = 0.5f;
+            _fireSoundPitch = 0.9f;
+            _kickForce = 0.25f;
+            _fullAuto = true;
             _spriteMap.AddAnimation("out", 200f, false, 0, 1);
             _spriteMap.AddAnimation("back", 200f, false, 1, 0);
             _doPose = false;
             progressBgColor = Color.DeepSkyBlue;
             progressFillColor = Color.LightYellow;
-            this._holdOffset = new Vec2(2, 3);
+            _holdOffset = new Vec2(2, 3);
         }
 
         public override void OnSpelling()

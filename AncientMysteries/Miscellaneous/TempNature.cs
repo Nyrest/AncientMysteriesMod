@@ -21,24 +21,24 @@ namespace AncientMysteries.Items.Miscellaneous
         public TempNature(float xpos, float ypos, bool doWait = true, Thing tOwner = null) : base(xpos, ypos)
         {
             _sprite = this.ReadyToRunMap("crystal.png", 17, 36);
-            this._sprite.AddAnimation("loop", 0.2f, true, new int[]
+            _sprite.AddAnimation("loop", 0.2f, true, new int[]
             {
         0,
         1,
         2,
             });
-            this._sprite.SetAnimation("loop");
-            this.graphic = this._sprite;
-            this._sprite.speed = 0.6f;
+            _sprite.SetAnimation("loop");
+            graphic = _sprite;
+            _sprite.speed = 0.6f;
             xscale = 0.5f;
             yscale = xscale;
-            this.center = new Vec2(8.5f, 18f);
+            center = new Vec2(8.5f, 18f);
             depth = 1f;
             t = tOwner;
             solid = false;
             if (!doWait)
             {
-                this._wait = 0f;
+                _wait = 0f;
             }
         }
 
@@ -50,7 +50,7 @@ namespace AncientMysteries.Items.Miscellaneous
                 var firedBullets = new List<Bullet>(1);
                 for (int i = 0; i < 2; i++)
                 {
-                    Bullet b1 = new Bullet_LaserG(this.x, this.y, /*new AT9mm
+                    Bullet b1 = new Bullet_LaserG(x, y, /*new AT9mm
                 {
                     bulletSpeed = 2f,
                     accuracy = 1f,
@@ -92,9 +92,9 @@ namespace AncientMysteries.Items.Miscellaneous
             }
             if (progress < 0f)
             {
-                this.Removed();
+                Removed();
             }
-            this.alpha = progress;
+            alpha = progress;
             timer++;
         }
 

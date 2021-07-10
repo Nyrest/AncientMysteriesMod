@@ -28,7 +28,7 @@
         public override bool Hit(Bullet bullet, Vec2 hitPos)
         {
             if (bullet.ammo is null) return base.Hit(bullet, hitPos);
-            if (bullet.ammo.penetration < this.thickness)
+            if (bullet.ammo.penetration < thickness)
             {
                 SFX.Play("ting", 0.8f, Rando.Float(-0.4f, 0.4f));
                 bullet.ReverseTravel();

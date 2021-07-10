@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-
-namespace AncientMysteries.Bullets
+﻿namespace AncientMysteries.Bullets
 {
     public sealed class Bullet_Leaf : Bullet
     {

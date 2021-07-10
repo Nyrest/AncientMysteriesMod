@@ -17,19 +17,19 @@
         public DarkAurora(float xval, float yval) : base(xval, yval)
         {
             ammo = sbyte.MaxValue;
-            this._ammoType = new AT_Shadow()
+            _ammoType = new AT_Shadow()
             {
                 range = 400f,
             };
             this.ReadyToRunMap("darkAurora.png");
             _flare.color = Color.Black;
             BarrelSmoke.color = Color.Black;
-            this._barrelOffsetTL = new Vec2(28f, 4f);
-            this._fireSound = "laserBlast";
-            this._fireSoundPitch = -0.9f;
-            this._kickForce = 2f;
-            this._numBulletsPerFire = 8;
-            this._manualLoad = true;
+            _barrelOffsetTL = new Vec2(28f, 4f);
+            _fireSound = "laserBlast";
+            _fireSoundPitch = -0.9f;
+            _kickForce = 2f;
+            _numBulletsPerFire = 8;
+            _manualLoad = true;
             _holdOffset = new Vec2(2.5f, 0f);
         }
 

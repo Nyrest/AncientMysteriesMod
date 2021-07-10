@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace AncientMysteries.Bullets
 {
@@ -27,14 +26,14 @@ namespace AncientMysteries.Bullets
             {
                 SFX.Play("flameExplode", 0.7f, Rando.Float(-0.8f, -0.4f), 0f, false);
                 n = 0;
-                var bullet = new Bullet_Lava(pos.x + this.travelDirNormalized.x * bulletSpeed, pos.y + travelDirNormalized.y * bulletSpeed, new AT_Lava(), Rando.Float(135, 45), owner, false, 200, false, true)
+                var bullet = new Bullet_Lava(pos.x + travelDirNormalized.x * bulletSpeed, pos.y + travelDirNormalized.y * bulletSpeed, new AT_Lava(), Rando.Float(135, 45), owner, false, 200, false, true)
                 {
                     color = Color.DarkOrange
                 };
                 firedBullets.Add(bullet);
                 Level.Add(bullet);
             }
-            this._bulletSpeed += 0.15f;
+            _bulletSpeed += 0.15f;
             pos = start;
             /*foreach (Thing t in Level.CheckCircleAll<Thing>(this.position,10))
             {
@@ -51,7 +50,7 @@ namespace AncientMysteries.Bullets
             ExplosionPart ins = new(travelEnd.x, travelEnd.y, true);
             Level.Add(ins);
             SFX.Play("explode", 0.7f, Rando.Float(-0.7f, -0.5f), 0f, false);
-            Thing bulletOwner = this.owner;
+            Thing bulletOwner = owner;
             IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(travelEnd, 16f);
             foreach (MaterialThing t2 in things)
             {

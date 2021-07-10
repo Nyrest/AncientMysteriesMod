@@ -13,15 +13,15 @@ namespace AncientMysteries.Bullets
         public override void Update()
         {
             base.Update();
-            foreach (Duck d in Level.CheckCircleAll<Duck>(this.position, 50))
+            foreach (Duck d in Level.CheckCircleAll<Duck>(position, 50))
             {
-                if (d != this.owner &&  count >= 15)
+                if (d != owner &&  count >= 15)
                 {
                     count = 0;
                     var firedBullets = new List<Bullet>(1);
                     for (int i = 0; i < 7; i++)
                     {
-                        var bullet = new Bullet_Current(this.x, this.y, new AT_Current(), Maths.PointDirection(this.position, d.position), this.owner, true, 400, false, true);
+                        var bullet = new Bullet_Current(x, y, new AT_Current(), Maths.PointDirection(position, d.position), owner, true, 400, false, true);
                         firedBullets.Add(bullet);
                         Level.Add(bullet);
                     }

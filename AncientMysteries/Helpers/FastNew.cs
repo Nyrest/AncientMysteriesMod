@@ -9,6 +9,11 @@ namespace AncientMysteries.Helpers
             ? Expression.Lambda<Func<T>>(Expression.New(typeof(T).GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, Type.EmptyTypes, null)))
             : Expression.Lambda<Func<T>>(Expression.New(typeof(T)));
 
-        public static readonly Func<T> CreateInstance = SourceExpression.Compile();
+        public static readonly Func<T> _compiled = SourceExpression.Compile();
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static T CreateInstance() => typeof(T).IsValueType
+            ? default
+            : _compiled();
     }
 }

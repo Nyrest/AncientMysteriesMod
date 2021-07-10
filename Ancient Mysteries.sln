@@ -3,14 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31423.177
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncientMysteries", "AncientMysteries\AncientMysteries.csproj", "{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AncientMysteries", "AncientMysteries\AncientMysteries.csproj", "{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AncientMysteries.SourceGenerator", "AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj", "{CBF7DCD6-E760-484D-96F6-258854C145B0}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{653F5D7F-2738-47E4-87CB-F75AE49AEDEC}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AncientMysteries.SourceGenerator", "AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj", "{A3B38EB8-4906-4B9F-9354-F09CC5154041}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,25 +15,27 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}.Debug|x86.ActiveCfg = Debug|x86
 		{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}.Debug|x86.Build.0 = Debug|x86
-		{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}.Release|Any CPU.ActiveCfg = Release|x86
+		{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}.Release|x86.ActiveCfg = Release|x86
 		{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}.Release|x86.Build.0 = Release|x86
-		{CBF7DCD6-E760-484D-96F6-258854C145B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CBF7DCD6-E760-484D-96F6-258854C145B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CBF7DCD6-E760-484D-96F6-258854C145B0}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CBF7DCD6-E760-484D-96F6-258854C145B0}.Debug|x86.Build.0 = Debug|Any CPU
-		{CBF7DCD6-E760-484D-96F6-258854C145B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CBF7DCD6-E760-484D-96F6-258854C145B0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CBF7DCD6-E760-484D-96F6-258854C145B0}.Release|x86.ActiveCfg = Release|Any CPU
-		{CBF7DCD6-E760-484D-96F6-258854C145B0}.Release|x86.Build.0 = Release|Any CPU
+		{A3B38EB8-4906-4B9F-9354-F09CC5154041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3B38EB8-4906-4B9F-9354-F09CC5154041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3B38EB8-4906-4B9F-9354-F09CC5154041}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A3B38EB8-4906-4B9F-9354-F09CC5154041}.Debug|x86.Build.0 = Debug|Any CPU
+		{A3B38EB8-4906-4B9F-9354-F09CC5154041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3B38EB8-4906-4B9F-9354-F09CC5154041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3B38EB8-4906-4B9F-9354-F09CC5154041}.Release|x86.ActiveCfg = Release|Any CPU
+		{A3B38EB8-4906-4B9F-9354-F09CC5154041}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {5365D632-C149-4FAD-AAA7-D20F095BDE1A}
+		SolutionGuid = {46F79605-2897-4C1E-867D-7A5AD80C101E}
 	EndGlobalSection
 EndGlobal

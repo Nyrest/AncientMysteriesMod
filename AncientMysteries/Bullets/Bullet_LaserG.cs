@@ -14,7 +14,7 @@ namespace AncientMysteries.Bullets
             var firedBullets = new List<Bullet>(1);
             if (willBeStopped)
             {
-                Bullet b = new Bullet_LaserG2(this.start.x, this.start.y, new AT_LaserG2(), Rando.Float(0, 360), this.owner, false, 100)
+                Bullet b = new Bullet_LaserG2(start.x, start.y, new AT_LaserG2(), Rando.Float(0, 360), owner, false, 100)
                 {
                     color = Color.LightGreen
                 };
@@ -40,7 +40,7 @@ namespace AncientMysteries.Bullets
                     t2.Destroy(new DTShot(this));
                 }
             }*/
-            Bullet b = new Bullet_LaserG2(this.start.x, this.start.y, new AT_LaserG2(), Rando.Float(0, 360), this.owner, false, 100)
+            Bullet b = new Bullet_LaserG2(start.x, start.y, new AT_LaserG2(), Rando.Float(0, 360), owner, false, 100)
             {
                 color = Color.LightGreen
             };

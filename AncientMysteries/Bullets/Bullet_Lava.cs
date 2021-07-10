@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace AncientMysteries.Bullets
 {
@@ -31,7 +30,7 @@ namespace AncientMysteries.Bullets
                 ins.yscale *= 0.5f;
                 Level.Add(ins);
                 SFX.Play("explode", 0.7f, Rando.Float(-0.4f, -0.1f), 0f, false);
-                Thing bulletOwner = this.owner;
+                Thing bulletOwner = owner;
                 IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(pos, 8f);
                 foreach (MaterialThing t2 in things)
                 {
