@@ -22,17 +22,9 @@ jobs:
             - name: Setup NuGet
               uses: NuGet/setup-nuget@v1.0.5
 
-            # Setup MSBuild
-            - name: Setup MSBuild
-              uses: microsoft/setup-msbuild@v1.0.2
-
-            # Restore Nuget Packages
-            - name: Restore Nuget Packages
-              run: nuget restore "Ancient Mysteries.sln"
-
             # Build the Solution
             - name: Build the Solution
-              run: msbuild "Ancient Mysteries.sln" /m /p:Configuration=Release /p:OutputPath=..\buildOutput
+              run: dotnet build /c Release /o "..\buildOutput" --nologo
 
             # Pack built files into single zip
             - name: Pack built files
