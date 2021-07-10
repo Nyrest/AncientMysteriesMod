@@ -12,6 +12,12 @@ jobs:
         steps:
             - uses: actions/checkout@v2
 
+            - name: Setup .NET SDK
+              uses: actions/setup-dotnet@v1
+              with:
+                dotnet-version: '6.0.x'
+                include-prerelease: true
+
             # Setup Nuget
             - name: Setup NuGet
               uses: NuGet/setup-nuget@v1.0.5
@@ -20,39 +26,9 @@ jobs:
             - name: Setup MSBuild
               uses: microsoft/setup-msbuild@v1.0.2
 
-            # Try to pull Nuget Packages Caches
-            #- name: Try to pull Nuget Packages Caches
-            #  uses: actions/cache@v2
-            #  id: cache-nugetPkgs
-            #  with:
-            #    path: ~/.nuget/packages
-            #    key: nuget-${{ hashFiles('**/*.csproj') }}
-            #    restore-keys: nuget
-
             # Restore Nuget Packages
             - name: Restore Nuget Packages
-              #if: steps.cache-nugetPkgs.outputs.cache-hit != 'true'
               run: nuget restore "Ancient Mysteries.sln"
-
-            # Create BuildOutput Folder
-            #- name: Create BuildOutput Folder
-            #  run: mkdir buildOutput
-
-            # Try to pull Textures Caches
-            #- name: Try to pull Textures Caches
-            #  uses: actions/cache@v2
-            #  with:
-            #    path: ./buildOutput
-            #    key: buildTex
-            #    restore-keys: buildTex
-
-            # Try to pull Compiler Caches
-            #- name: Try to pull Compiler Caches
-            #  uses: actions/cache@v2
-            #  with:
-            #    path: ./AncientMysteries/obj
-            #    key: compilerCache
-            #    restore-keys: compilerCache
 
             # Build the Solution
             - name: Build the Solution
