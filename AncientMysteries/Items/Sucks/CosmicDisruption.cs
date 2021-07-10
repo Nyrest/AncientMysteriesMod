@@ -13,13 +13,13 @@
             ammo = byte.MaxValue;
             _ammoType = new CosmicDisruption_AmmoType();
             _type = "gun";
-            this.ReadyToRunMap("rainbowGun.png");
-            _barrelOffsetTL = new Vec2(33f, 6f);
+            this.ReadyToRunMap(t_CosmicDisruption);
+            _barrelOffsetTL = new Vec2(40f, 7f);
             BarrelSmoke.color = Color.White;
             _fireSound = "laserRifle";
             _fireWait = 0f;
             _fireSoundPitch = 0.9f;
-            _kickForce = 0f;
+            _kickForce = 0.2f;
             _fullAuto = true;
             loseAccuracy = 1f;
             maxAccuracyLost = 1f;

@@ -59,10 +59,6 @@
       <Link>.editorconfig</Link>
     </None>
     <AdditionalFiles Include="_projLocator" Visible="false" />
-
-    <None Include="Items\Explosives\ViscousAcidLiquor.AmmoType.cs">
-      <DependentUpon>ViscousAcidLiquor.cs</DependentUpon>
-    </None>
   </ItemGroup>
 
   <!--Nuget Packages-->

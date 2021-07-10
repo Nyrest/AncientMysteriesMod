@@ -27,7 +27,7 @@
                 accuracy = 0.6f,
             };
             _type = "gun";
-            _spriteMap = this.ReadyToRunMap("MoltenSpitter.png", 39, 15);
+            _spriteMap = this.ReadyToRunMap(t_MoltenSpitter, 39, 15);
             SetBox(39, 13);
             BarrelSmokeFuckOff();
             _fireSound = "smg";
