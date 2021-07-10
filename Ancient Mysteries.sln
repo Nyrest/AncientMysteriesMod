@@ -7,6 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AncientMysteries", "Ancient
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AncientMysteries.SourceGenerator", "AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj", "{A3B38EB8-4906-4B9F-9354-F09CC5154041}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{E8FE0C4E-9D0D-4159-86C8-D0C9370670F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{B42B6BDD-7A17-462C-A0EF-47E8BFCF565D}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\nightlyBuild.yml = .github\workflows\nightlyBuild.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +41,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B42B6BDD-7A17-462C-A0EF-47E8BFCF565D} = {E8FE0C4E-9D0D-4159-86C8-D0C9370670F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {46F79605-2897-4C1E-867D-7A5AD80C101E}
