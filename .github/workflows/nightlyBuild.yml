@@ -20,7 +20,7 @@ jobs:
 
             # Build the Solution
             - name: Build the Solution
-              run: dotnet build -c Release -o "..\buildOutput" --nologo
+              run: dotnet build -c Release -o ".\buildOutput" --nologo
 
             # Pack built files into single zip
             - name: Pack built files

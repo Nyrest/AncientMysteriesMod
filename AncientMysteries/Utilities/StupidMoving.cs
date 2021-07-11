@@ -58,12 +58,12 @@ namespace AncientMysteries.Utilities
                             }
                              */
                             IPlatform left = Level.CheckPoint<IPlatform>(t.topLeft + new Vec2(-2f, 2f));
-                            if (left != null && left is MaterialThing && !(left is Block))
+                            if (left is not null and MaterialThing and not Block)
                             {
                                 materialThing.clip.Add(left as MaterialThing);
                             }
                             IPlatform right = Level.CheckPoint<IPlatform>(t.topRight + new Vec2(2f, 2f));
-                            if (right != null && right is MaterialThing && !(right is Block))
+                            if (right is not null and MaterialThing and not Block)
                             {
                                 materialThing.clip.Add(right as MaterialThing);
                             }
@@ -115,12 +115,12 @@ namespace AncientMysteries.Utilities
                             }
                              */
                             IPlatform left = Level.CheckPoint<IPlatform>(t.topLeft + new Vec2(-2f, 2f));
-                            if (left != null && left is MaterialThing && !(left is Block))
+                            if (left is not null and MaterialThing and not Block)
                             {
                                 materialThing.clip.Add(left as MaterialThing);
                             }
                             IPlatform right = Level.CheckPoint<IPlatform>(t.topRight + new Vec2(2f, 2f));
-                            if (right != null && right is MaterialThing && !(right is Block))
+                            if (right is not null and MaterialThing and not Block)
                             {
                                 materialThing.clip.Add(right as MaterialThing);
                             }
