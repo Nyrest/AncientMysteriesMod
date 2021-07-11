@@ -10,25 +10,24 @@
     <TargetFramework>net461</TargetFramework>
     <LangVersion>preview</LangVersion>
     <PlatformTarget>x86</PlatformTarget>
-    <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>preview</LangVersion>
-    <PackageId>Ancient Mysteries</PackageId>
+    <Platforms>x86</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <Title>Ancient Mysteries</Title>
     <Description>Mysteries from the Ancient Civilization?</Description>
     <Company>Boring3 | Devastator | GUDZH</Company>
     <Authors>Boring3 | Devastator | GUDZH</Authors>
     <Product>Ancient Mysteries</Product>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Platforms>x86</Platforms>
   </PropertyGroup>
-
+  
   <!--Source Generator Reference-->
   <ItemGroup>
     <ProjectReference Include="..\AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false">
-      <Private>False</Private>
-      <Project>{CBF7DCD6-E760-484D-96F6-258854C145B0}</Project>
-      <Name>AncientMysteries.SourceGenerator</Name>
+
     </ProjectReference>
   </ItemGroup>
 
@@ -85,7 +84,7 @@
       <Private>false</Private>
     </Reference>
   </ItemGroup>
-  
+
   <ItemGroup>
     <None Include="AncientMysteries.csproj.user" />
   </ItemGroup>
