@@ -8,37 +8,17 @@ namespace AncientMysteries.Bullets
         {
             _bulletSpeed = 30f;
             color = Color.Yellow;
-        }
-        public override void OnCollide(Vec2 pos, Thing t, bool willBeStopped)
-        {
-            base.OnCollide(pos, t, willBeStopped);
-            if (willBeStopped)
-            {
-                ExplosionPart ins = new(pos.x, pos.y, true);
-                ins.xscale *= 0.7f;
-                ins.yscale *= 0.7f;
-                Level.Add(ins);
-                SFX.Play("explode", 0.7f, Rando.Float(0.1f, 0.3f), 0f, false);
-                Thing bulletOwner = owner;
-                IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(pos, 14f);
-                foreach (MaterialThing t2 in things)
-                {
-                    if (t2 != bulletOwner)
-                    {
-                        t2.Destroy(new DTShot(this));
-                    }
-                }
-            }
+
         }
 
-        public override void DoTerminate()
+        public override void Removed()
         {
-            base.DoTerminate();
+            base.Removed();
             ExplosionPart ins = new(travelEnd.x, travelEnd.y, true);
             ins.xscale *= 0.7f;
             ins.yscale *= 0.7f;
             Level.Add(ins);
-            SFX.Play("explode", 0.7f, Rando.Float(0.1f, 0.3f), 0f, false);
+            SFX.PlaySynchronized("explode", 0.7f, Rando.Float(0.1f, 0.3f), 0f, false);
             Thing bulletOwner = owner;
             IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(travelEnd, 14f);
             foreach (MaterialThing t2 in things)

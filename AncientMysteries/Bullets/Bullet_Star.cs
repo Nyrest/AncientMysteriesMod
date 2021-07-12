@@ -15,11 +15,6 @@ namespace AncientMysteries.Bullets
         {
             _thickness = type.bulletThickness;
             _beem = this.ModTex2D("holyStar.png");
-            collisionSize = new Vec2(17, 17);
-            center = new Vec2(8.5f, 8.5f);
-            _center = new Vec2(8.5f, 8.5f);
-            collisionCenter = new Vec2(8.5f, 8.5f);
-            _collisionSize = new Vec2(17, 17);
             color = Color.Gold;
         }
 

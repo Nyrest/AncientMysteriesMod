@@ -5,6 +5,9 @@ namespace AncientMysteries.Bullets
 {
     public class Bullet_AN3 : Bullet
     {
+        public NovaExp n;
+
+        public StateBinding novaBinding = new(nameof(n));
         public Bullet_AN3(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
             collisionSize = new Vec2(18, 18);
@@ -17,11 +20,11 @@ namespace AncientMysteries.Bullets
         }
         public override void Removed()
         {
-            NovaExp n = new(travelEnd.x,travelEnd.y, true);
+            n = new(travelEnd.x,travelEnd.y, true);
             n.xscale *= 1.5f;
             n.yscale *= 1.5f;
             Level.Add(n);
-            SFX.Play("explode", 0.8f, Rando.Float(-0.1f, 1f), 0f, false);
+            SFX.PlaySynchronized("explode", 0.8f, Rando.Float(-0.1f, 1f), 0f, false);
             IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(travelEnd, 18f);
             foreach (MaterialThing t2 in things)
             {

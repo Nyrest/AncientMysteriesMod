@@ -21,7 +21,7 @@
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            _ => "Primordial Libram",
+            _ => "Primordial Spellbook",
         };
 
         public PrimordialLibram(float xval, float yval) : base(xval, yval)
@@ -63,12 +63,20 @@
             if (cast_FireBall == false) return;
             if (fireBallWaiter.Tick())
             {
-                if (currentFireBallCount++ < totalFireBallCount)
+                if (owner != null)
                 {
-                    this.NmFireGun(list =>
+                    if (currentFireBallCount++ < totalFireBallCount)
                     {
-                        list.Add(Make.Bullet<AT_BigFB>(ownerPos, owner, (owner._offDir == 1 ? 0 : 180) + Rando.Float(-5, 5), this));
-                    });
+                        this.NmFireGun(list =>
+                        {
+                            list.Add(Make.Bullet<AT_BigFB>(ownerPos, owner, (owner._offDir == 1 ? 0 : 180) + Rando.Float(-5, 5), this));
+                        });
+                    }
+                    else
+                    {
+                        cast_FireBall = false;
+                        currentFireBallCount = 0;
+                    }
                 }
                 else
                 {
@@ -91,16 +99,24 @@
             if (cast_Icicle == false) return;
             if (icicleWaiter.Tick())
             {
-                if (currentIcicleCount++ < totalIcicleCount)
+                if (owner != null)
                 {
-                    this.NmFireGun(list =>
+                    if (currentIcicleCount++ < totalIcicleCount)
                     {
-                        for (int i = 0; i < 4; i++)
+                        this.NmFireGun(list =>
                         {
-                            list.Add(Make.Bullet<AT_Icicle>(icicle_pos, base.owner, Rando.Float(0, 360), this));
-                        }
-                        SFX.PlaySynchronized("goody", 0.4f, Rando.Float(0.2f, 0.4f));
-                    });
+                            for (int i = 0; i < 4; i++)
+                            {
+                                list.Add(Make.Bullet<AT_Icicle>(icicle_pos, base.owner, Rando.Float(0, 360), this));
+                            }
+                            SFX.PlaySynchronized("goody", 0.4f, Rando.Float(0.2f, 0.4f));
+                        });
+                    }
+                    else
+                    {
+                        cast_Icicle = false;
+                        currentIcicleCount = 0;
+                    }
                 }
                 else
                 {
@@ -137,28 +153,36 @@
             if (cast_Lightning == false) return;
             if (lightningWaiter.Tick())
             {
-                if (currentLightningCount++ < totalLightningCount)
+                if (owner != null)
                 {
-                    this.NmFireGun(list =>
+                    if (currentLightningCount++ < totalLightningCount)
                     {
-                        for (int i = 0; i < 2; i++)
+                        this.NmFireGun(list =>
                         {
-                            var b = Make.Bullet<AT_LaserY>(
-                                    new Vec2(
-                                        lightning_pos.x + Rando.Float(-r, r),
-                                        lightning_pos.y - 200f + Rando.Float(-r / 2, r / 2)),
-                                    owner,
-                                    Rando.Float(
-                                        Convert.ToSingle(80f - r / 3.5f),
-                                        Convert.ToSingle(100 + r / 3.5f)), this);
-                            ExplosionPart ins = new(b.travelStart.x, b.travelStart.y, true);
-                            ins.xscale *= 0.2f;
-                            ins.yscale *= 0.2f;
-                            Level.Add(ins);
-                            list.Add(b);
-                        }
-                    });
-                    SFX.PlaySynchronized("explode", 0.4f, Rando.Float(0.2f, 0.4f));
+                            for (int i = 0; i < 2; i++)
+                            {
+                                var b = Make.Bullet<AT_LaserY>(
+                                        new Vec2(
+                                            lightning_pos.x + Rando.Float(-r, r),
+                                            lightning_pos.y - 200f + Rando.Float(-r / 2, r / 2)),
+                                        owner,
+                                        Rando.Float(
+                                            Convert.ToSingle(80f - r / 3.5f),
+                                            Convert.ToSingle(100 + r / 3.5f)), this);
+                                ExplosionPart ins = new(b.travelStart.x, b.travelStart.y, true);
+                                ins.xscale *= 0.2f;
+                                ins.yscale *= 0.2f;
+                                Level.Add(ins);
+                                list.Add(b);
+                            }
+                        });
+                        SFX.PlaySynchronized("explode", 0.4f, Rando.Float(0.2f, 0.4f));
+                    }
+                    else
+                    {
+                        cast_Lightning = false;
+                        currentLightningCount = 0;
+                    }
                 }
                 else
                 {
