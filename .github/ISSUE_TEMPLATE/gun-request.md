@@ -3,7 +3,7 @@ name: Gun Request
 about: Request to add a new gun
 title: "[Gun Request] %Name%"
 labels: Gun, New-Items
-assignees: ''
+assignees: Erstori, Ghogm4
 
 ---
 
