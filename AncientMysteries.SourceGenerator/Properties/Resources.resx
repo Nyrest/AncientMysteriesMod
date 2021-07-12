@@ -117,7 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CFTitle_UseTextureRef" xml:space="preserve">
-    <value>Use Texture Reference</value>
+  <data name="Analyzer_UseTextureRef_Description" xml:space="preserve">
+    <value>Use Texture Reference Desc.</value>
+  </data>
+  <data name="Analyzer_UseTextureRef_MessageFormat" xml:space="preserve">
+    <value>Replace to {0}</value>
+  </data>
+  <data name="Analyzer_UseTextureRef_Title" xml:space="preserve">
+    <value>AM0001</value>
+  </data>
+  <data name="CodeFix_UseTextureRef_Title" xml:space="preserve">
+    <value>AM0001</value>
   </data>
 </root>
