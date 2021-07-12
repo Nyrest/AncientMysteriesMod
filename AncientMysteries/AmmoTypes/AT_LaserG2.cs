@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_LaserG2 : AmmoType
+    public sealed class AT_LaserG2 : AMAmmoType
     {
         public AT_LaserG2()
         {
