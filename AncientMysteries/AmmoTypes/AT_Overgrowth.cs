@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public class AT_Overgrowth : AmmoType
+    public class AT_Overgrowth : AMAmmoType
     {
         public AT_Overgrowth()
         {

@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_Icicle : AmmoType
+    public sealed class AT_Icicle : AMAmmoType
     {
         public AT_Icicle()
         {

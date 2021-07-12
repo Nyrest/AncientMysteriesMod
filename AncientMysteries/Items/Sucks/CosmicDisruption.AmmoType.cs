@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.Items.Sucks
 {
-    public class CosmicDisruption_AmmoType : AmmoType
+    public class CosmicDisruption_AmmoType : AMAmmoType
     {
         public CosmicDisruption_AmmoType()
         {

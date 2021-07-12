@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_Current : AmmoType
+    public sealed class AT_Current : AMAmmoType
     {
         public AT_Current()
         {

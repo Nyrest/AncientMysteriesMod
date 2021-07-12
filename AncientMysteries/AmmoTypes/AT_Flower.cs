@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_Flower : AmmoType
+    public sealed class AT_Flower : AMAmmoType
     {
         public AT_Flower()
         {

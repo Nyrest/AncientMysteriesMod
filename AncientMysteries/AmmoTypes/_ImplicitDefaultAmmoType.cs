@@ -2,7 +2,7 @@
 
 namespace AncientMysteries.AmmoTypes
 {
-    public class _ImplicitDefaultAmmoType : AmmoType
+    public class _ImplicitDefaultAmmoType : AMAmmoType
     {
         public static readonly _ImplicitDefaultAmmoType Instance = new();
 
