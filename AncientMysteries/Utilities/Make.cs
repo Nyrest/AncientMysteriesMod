@@ -5,7 +5,7 @@
         #region Bullet
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Bullet Bullet<TAmmoType>(Vec2 position, Thing owner = null, float angleDegress = 0, Thing firedFrom = null) 
-            where TAmmoType : AMAmmoType, new()
+            where TAmmoType : AmmoType, new()
         {
             //var ammoType = FastNew<TAmmoType>.CreateInstance();
             var ammoType = InstanceOf<TAmmoType>.instance;
