@@ -8,7 +8,7 @@ namespace AncientMysteries.SourceGenerator.Generators
     {
         public override string Using => string.Empty;
 
-        public override string UniqueName => "TexturesReference";
+        public override string UniqueName => "TextureReferences";
 
         public override void Generate(GeneratorExecutionContext context, StringBuilder sb)
         {

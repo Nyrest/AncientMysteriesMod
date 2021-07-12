@@ -3,6 +3,7 @@ using System.Composition;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using AncientMysteries.SourceGenerator.Generators;
 using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
@@ -23,7 +24,6 @@ namespace AncientMysteries.SourceGenerator.Analyzers
 
         public sealed override async Task RegisterCodeFixesAsync(CodeFixContext context)
         {
-            Debugger.Launch();
             var root = await context.Document.GetSyntaxRootAsync(context.CancellationToken).ConfigureAwait(false);
 
             // TODO: Replace the following code with your own analysis, generating a CodeAction for each fix to suggest
@@ -46,11 +46,8 @@ namespace AncientMysteries.SourceGenerator.Analyzers
     LiteralExpressionSyntax literalExpressionSyntax,
     CancellationToken cancellationToken)
         {
-            Debugger.Launch();
             var token = literalExpressionSyntax.Token;
-            var updatedText = token.Text.Replace("myword", "anotherword");
-            var valueText = token.ValueText.Replace("myword", "anotherword");
-            var newToken = SyntaxFactory.Literal(token.LeadingTrivia, updatedText, valueText, token.TrailingTrivia);
+            var newToken = SyntaxFactory.Identifier(TexturesReference.GetFieldName(token.ValueText));
 
             var sourceText = await literalExpressionSyntax.SyntaxTree.GetTextAsync(cancellationToken);
             // Return document with transformed tree.
