@@ -10,7 +10,7 @@
             rangeVariation = 10f;//10
             combustable = true;
             bulletSpeed = 4f;//4
-            sprite = TexHelper.ModSprite("holyStar.png");
+            sprite = TexHelper.ModSprite(t_HolyStar);
             bulletLength = 1000;//0
             sprite.CenterOrigin();
             bulletType = typeof(Bullet_Star);

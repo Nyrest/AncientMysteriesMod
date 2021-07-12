@@ -20,7 +20,7 @@ namespace AncientMysteries.Items.Miscellaneous
 
         public TempFire(float xpos, float ypos,bool doWait = true,Thing tOwner = null) : base(xpos, ypos)
         {
-            _sprite = this.ReadyToRunMap("cross.png", 18, 29);
+            _sprite = this.ReadyToRunMap(t_Cross, 18, 29);
             _sprite.AddAnimation("loop", 0.2f, true, new int[]
             {
                 0,

@@ -13,8 +13,8 @@
 
         public Thingy(float xpos, float ypos) : base(xpos, ypos)
         {
-            _sprite = this.ModSpriteMap("hatHatty.png", 32, 32, true);
-            _pickupSprite = this.ReadyToRun("hatHattyPickup.png");
+            _sprite = this.ModSpriteMap(t_HatHatty, 32, 32, true);
+            _pickupSprite = this.ReadyToRun(t_HatHattyPickup);
             EquipmentMaxHitPoints = 32767;
             EquipmentHitPoints = 32767;
             _isArmor = true;

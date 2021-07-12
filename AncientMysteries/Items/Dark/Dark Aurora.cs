@@ -21,7 +21,7 @@
             {
                 range = 400f,
             };
-            this.ReadyToRunMap("darkAurora.png");
+            this.ReadyToRunMap(t_DarkAurora);
             _flare.color = Color.Black;
             BarrelSmoke.color = Color.Black;
             _barrelOffsetTL = new Vec2(28f, 4f);

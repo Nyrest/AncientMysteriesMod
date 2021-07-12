@@ -28,7 +28,7 @@
         {
             _ammoType = new AT_None();
             _type = "gun";
-            _spriteMap = this.ReadyToRunMap("priLibram.png", 21, 14);
+            _spriteMap = this.ReadyToRunMap(t_PriLibram, 21, 14);
             SetBox(21, 14);
             _barrelOffsetTL = new Vec2(6f, 5f);
             //this._castSpeed = 0.006f;//0.006

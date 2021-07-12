@@ -16,7 +16,7 @@
 				
 			};
 			_type = "gun";
-			this.ReadyToRunMap("ElectronicImpacter.png");
+			this.ReadyToRunMap(t_ElectronicImpacter);
 			_flare.color = Color.Transparent;
 			BarrelSmokeFuckOff();
 			_barrelOffsetTL = new Vec2(24f, 5f);

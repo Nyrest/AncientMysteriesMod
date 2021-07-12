@@ -2,7 +2,7 @@
 {
     public sealed class AT_CubicBlast : AmmoType
     {
-        public SpriteMap _spriteMap = TexHelper.ModSpriteMap("CubicBlast.png", 8, 8, true);
+        public SpriteMap _spriteMap = TexHelper.ModSpriteMap(t_CubicBlast, 8, 8, true);
 
         public AT_CubicBlast()
         {

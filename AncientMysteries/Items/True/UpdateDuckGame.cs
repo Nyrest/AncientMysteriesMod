@@ -30,7 +30,7 @@ namespace AncientMysteries.Items.True
 
         public UpdateDuckGame(float xpos, float ypos) : base(xpos, ypos)
         {
-            this.ReadyToRunMap("forceUpdate.png");
+            this.ReadyToRunMap(t_ForceUpdate);
         }
 
         public override void Update()
