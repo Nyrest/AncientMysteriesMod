@@ -14,8 +14,8 @@
 
         public Boring3(float xpos, float ypos) : base(xpos, ypos)
         {
-            _sprite = this.ModSpriteMap("HatBoring3.png", 32, 32, true);
-            _pickupSprite = this.ReadyToRun("HatBoring3Pickup.png");
+            _sprite = this.ModSpriteMap(t_HatBoring3, 32, 32, true);
+            _pickupSprite = this.ReadyToRun(t_HatBoring3Pickup);
             baseCollisionOffset = _collisionOffset;
             baseCollisionSize = _collisionSize;
             _equippedCollisionOffset = baseCollisionOffset - new Vec2(1, 1);

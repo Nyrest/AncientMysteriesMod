@@ -20,7 +20,7 @@ namespace AncientMysteries.Items.Miscellaneous
 
         public TempCrystal(float xpos, float ypos, bool doWait = true, Thing tOwner = null) : base(xpos, ypos)
         {
-            _sprite = this.ReadyToRunMap("crystal.png", 17, 36);
+            _sprite = this.ReadyToRunMap(t_Crystal, 17, 36);
             _sprite.AddAnimation("loop", 0.2f, true, new int[]
             {
         0,

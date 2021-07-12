@@ -5,7 +5,7 @@ namespace AncientMysteries.Items.Artifacts
     [EditorGroup(g_artifacts)]
     public sealed class SpearOfLeonidas : AMMelee
     {
-        public static readonly Tex2D targetCircle = TexHelper.ModTex2D("targetCircle.png");
+        public static readonly Tex2D targetCircle = TexHelper.ModTex2D(t_TargetCircle);
         public static readonly int tcWidth = targetCircle.w, tcHeight = targetCircle.h;
 
         //public StateBinding _targetPlayerBinding = new StateBinding("_targetPlayer");
@@ -25,7 +25,7 @@ namespace AncientMysteries.Items.Artifacts
 
         public SpearOfLeonidas(float xval, float yval) : base(xval, yval)
         {
-            this.ReadyToRunMap("SpearOfLeonidas.png");
+            this.ReadyToRunMap(t_SpearOfLeonidas);
             _barrelOffsetTL = new Vec2(20f, 4f);
             _fireSound = "smg";
             physicsMaterial = PhysicsMaterial.Metal;

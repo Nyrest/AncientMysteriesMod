@@ -2,7 +2,7 @@
 {
     public sealed class AT_BigFB : AmmoType
     {
-        public SpriteMap _spriteMap = TexHelper.ModSpriteMap("firebally.png", 25, 12, true);
+        public SpriteMap _spriteMap = TexHelper.ModSpriteMap(t_Firebally, 25, 12, true);
         public AT_BigFB()
         {
             accuracy = 0.8f;

@@ -12,11 +12,11 @@
         {
             if (dir)
             {
-                _spriteMap = TexHelper.ModSpriteMap("SkullR.png", 25, 14, true);
+                _spriteMap = TexHelper.ModSpriteMap(t_SkullR, 25, 14, true);
             }
             else
             {
-                _spriteMap = TexHelper.ModSpriteMap("Skull.png", 25, 14, true);
+                _spriteMap = TexHelper.ModSpriteMap(t_Skull, 25, 14, true);
             }
             _spriteMap.AddAnimation("loop", 0.3f, true, 0, 1, 2, 3);
             _spriteMap.SetAnimation("loop");

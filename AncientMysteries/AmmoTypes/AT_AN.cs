@@ -2,7 +2,7 @@
 {
     public sealed class AT_AN : AmmoType
     {
-        public SpriteMap _spriteMap = TexHelper.ModSpriteMap("novaFrm.png", 32, 32, true);
+        public SpriteMap _spriteMap = TexHelper.ModSpriteMap(t_NovaFrm, 32, 32, true);
 
         public AT_AN()
         {

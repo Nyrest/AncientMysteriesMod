@@ -73,7 +73,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             ammo = 1;
             _ammoType = new ATShrapnel();
             _type = "gun";
-            _sprite = this.ReadyToRunMap("nanoMine.png", 18, 16);
+            _sprite = this.ReadyToRunMap(t_NanoMine, 18, 16);
             SpriteMap sprite = _sprite;
             int[] frames = new int[1];
             sprite.AddAnimation("pickup", 1f, looping: true, frames);

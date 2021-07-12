@@ -11,7 +11,7 @@ namespace AncientMysteries.Bullets
         public Bullet_Shadow(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
             _thickness = type.bulletThickness;
-            _beem = this.ModTex2D("shadowBullet.png");
+            _beem = this.ModTex2D(t_ShadowBullet);
         }
 
         public override void Draw()

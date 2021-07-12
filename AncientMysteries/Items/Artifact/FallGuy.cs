@@ -3,7 +3,7 @@
     [EditorGroup(g_artifacts)]
     public sealed class FallGuy : AMHoldable
     {
-        public static readonly Tex2D mark = TexHelper.ModTex2D("FallGuyMark.png");
+        public static readonly Tex2D mark = TexHelper.ModTex2D(t_FallGuyMark);
         public static readonly int markWidth = mark.w, markHeight = mark.h;
 
         //public StateBinding _targetPlayerBinding = new StateBinding("_targetPlayer");
@@ -27,7 +27,7 @@
         {
             
             _type = "gun";
-            this.ReadyToRunMap("FallGuy.png");
+            this.ReadyToRunMap(t_FallGuy);
             physicsMaterial = PhysicsMaterial.Metal;
             material = new MaterialGlitch(this);
         }

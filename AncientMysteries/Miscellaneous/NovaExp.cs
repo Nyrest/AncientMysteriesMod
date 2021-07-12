@@ -8,7 +8,7 @@
         public float _wait;
         public NovaExp(float xpos, float ypos, bool doWait = true) : base(xpos, ypos)
         {
-            _sprite = this.ReadyToRunMap("crystalExplosionP.png", 36, 36);
+            _sprite = this.ReadyToRunMap(t_CrystalExplosionP, 36, 36);
             _sprite.AddAnimation("loop", 1f, false, new int[]
             {
         0,
