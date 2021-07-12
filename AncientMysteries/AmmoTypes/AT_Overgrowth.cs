@@ -10,6 +10,7 @@
             bulletSpeed = 5f;
             accuracy = 0.3f;
             speedVariation = 2.5f;
+            sprite.CenterOrigin();
         }
 
         public AT_Overgrowth(bool isBig)

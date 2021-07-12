@@ -11,6 +11,7 @@
             bulletThickness = 2f;
             bulletSpeed = 30f;
             bulletColor = Color.Yellow;
+            bulletType = typeof(Bullet_Laser);
             //this.bulletType = typeof(Bullet_Electronic);
             //this.sprite = TexHelper.ModSprite("ElectronicStar.png");
             //this.sprite.CenterOrigin();
