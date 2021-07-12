@@ -61,11 +61,38 @@ namespace AncientMysteries.SourceGenerator.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use Texture Reference.
+        ///   Looks up a localized string similar to Use Texture Reference Desc..
         /// </summary>
-        internal static string CFTitle_UseTextureRef {
+        internal static string Analyzer_UseTextureRef_Description {
             get {
-                return ResourceManager.GetString("CFTitle_UseTextureRef", resourceCulture);
+                return ResourceManager.GetString("Analyzer_UseTextureRef_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Replace to {0}.
+        /// </summary>
+        internal static string Analyzer_UseTextureRef_MessageFormat {
+            get {
+                return ResourceManager.GetString("Analyzer_UseTextureRef_MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AM0001.
+        /// </summary>
+        internal static string Analyzer_UseTextureRef_Title {
+            get {
+                return ResourceManager.GetString("Analyzer_UseTextureRef_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AM0001.
+        /// </summary>
+        internal static string CodeFix_UseTextureRef_Title {
+            get {
+                return ResourceManager.GetString("CodeFix_UseTextureRef_Title", resourceCulture);
             }
         }
     }
