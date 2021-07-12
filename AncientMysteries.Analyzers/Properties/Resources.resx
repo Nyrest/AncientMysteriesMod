@@ -129,7 +129,4 @@
   <data name="CodeFix_UseTextureRef_Title" xml:space="preserve">
     <value>Use Texture Reference</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value />
-  </data>
 </root>

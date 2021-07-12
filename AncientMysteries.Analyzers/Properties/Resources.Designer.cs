@@ -95,14 +95,5 @@ namespace AncientMysteries.Analyzers.Properties {
                 return ResourceManager.GetString("CodeFix_UseTextureRef_Title", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string String1 {
-            get {
-                return ResourceManager.GetString("String1", resourceCulture);
-            }
-        }
     }
 }
