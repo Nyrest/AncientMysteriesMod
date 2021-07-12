@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Analyzer_UseTextureRef_Description" xml:space="preserve">
-    <value>Use texture reference to avoid bugs caused by rename</value>
+    <value>Use texture reference to avoid bugs caused by rename.</value>
   </data>
   <data name="Analyzer_UseTextureRef_MessageFormat" xml:space="preserve">
     <value>Replace to {0}</value>

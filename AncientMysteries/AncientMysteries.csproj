@@ -58,11 +58,6 @@
   </ItemGroup>
 
   <!--Nuget Packages-->
-  <ItemGroup>
-    <PackageReference Include="System.Memory" Version="4.5.4">
-      <ExcludeAssets>runtime</ExcludeAssets>
-    </PackageReference>
-  </ItemGroup>
 
   <!--Duck Game References-->
   <ItemGroup>
