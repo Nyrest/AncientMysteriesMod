@@ -1,12 +1,6 @@
-﻿using System.Collections.Immutable;
-using System.Diagnostics;
-using System.IO;
-using AncientMysteries.SourceGenerator.Generators;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.Diagnostics;
+﻿using AncientMysteries.SourceGenerator.Generators;
 
-namespace AncientMysteries.SourceGenerator.Analyzers
+namespace AncientMysteries.Analyzers.UseTextureRef
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class UseTextureRefAnalyzer : DiagnosticAnalyzer
@@ -18,7 +12,7 @@ namespace AncientMysteries.SourceGenerator.Analyzers
         private static readonly LocalizableString Description = new LocalizableResourceString(nameof(Res.Analyzer_UseTextureRef_Description), Res.ResourceManager, typeof(Res));
         private const string Category = "Usage";
 
-        private static DiagnosticDescriptor Rule = new(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Warning, isEnabledByDefault: true, description: Description);
+        private static readonly DiagnosticDescriptor Rule = new(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Warning, isEnabledByDefault: true, description: Description);
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get { return ImmutableArray.Create(Rule); } }
 

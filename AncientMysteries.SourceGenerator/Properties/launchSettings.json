@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AncientMysteries.SourceGenerator": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "..\\AncientMysteries\\AncientMysteries.csproj"
+    }
+  }
+}
