@@ -9,7 +9,7 @@
             penetration = float.PositiveInfinity;
             bulletSpeed = 100f;
             combustable = true;
-            bulletLength = 2000;
+            bulletLength = 20002f;
             rangeVariation = 0;
             speedVariation = 0;
         }
