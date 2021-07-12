@@ -4,14 +4,14 @@ namespace AncientMysteries
 {
     public static class TexHelper
     {
-        public static Dictionary<string, CachedTextureInfo> cache = new(10);
+        public static Dictionary<string, CachedTextureInfo> cache = new(ModTextureCount);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static CachedTextureInfo GetInfo(string name)
         {
-            if (cache.TryGetValue(name, out var result))
-                return result;
-            else
+            return cache.TryGetValue(name, out var result) ? result : LoadInfo();
+            [MethodImpl(MethodImplOptions.NoInlining)]
+            CachedTextureInfo LoadInfo()
             {
                 string fullName = Mod.GetPath<AncientMysteriesMod>(name);
                 using (System.Drawing.Image image = System.Drawing.Image.FromFile(fullName))
