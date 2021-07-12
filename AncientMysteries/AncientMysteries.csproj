@@ -4,7 +4,6 @@
   <PropertyGroup>
     <ProjectGuid>{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AncientMysteries</RootNamespace>
     <AssemblyName>AncientMysteries</AssemblyName>
     <TargetFramework>net461</TargetFramework>
