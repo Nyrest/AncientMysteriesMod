@@ -1,0 +1,41 @@
+name: Nightly Build
+
+on:
+    push:
+        branches: [master]
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: windows-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Setup .NET SDK
+              uses: actions/setup-dotnet@v1
+              with:
+                dotnet-version: '6.0.x'
+                include-prerelease: true
+
+            # Build the Solution
+            - name: Build the Solution
+              run: dotnet build -c Release -o ".\buildOutput" --nologo
+
+            # Pack built files into single zip
+            - name: Pack built files
+              run: Compress-Archive -Path ".\buildOutput\*" -CompressionLevel Optimal -DestinationPath ".\AncientMysteriesMod.zip"
+
+            # Upload as nightly-build
+            - name: Upload as nightly-build
+              uses: "marvinpinto/action-automatic-releases@latest"
+              with:
+                repo_token: "${{ secrets.GITHUB_TOKEN }}"
+                automatic_release_tag: "latest-nightly"
+                prerelease: true
+                title: "Nightly Build"
+                files: AncientMysteriesMod.zip
+
+            # File Tree for action debugging
+            #- name: File Tree for action debugging
+            #  run: tree

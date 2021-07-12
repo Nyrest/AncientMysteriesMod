@@ -17,18 +17,18 @@ namespace AncientMysteries.SourceGenerator.Generators
             sb.AppendLine("{");
             StringBuilder allTexturesBuilder = new($"{TabLevel(2)}public static readonly string[] _AllTextures = new string[]\n{TabLevel(2)}{{");
             List<string> fieldNameList = new(Directory.GetFiles(context.GetProjectLocaltion() + "/content", "*.png").Length);
+            int count = 0;
             foreach (var fullname in Directory.GetFiles(context.GetProjectLocaltion() + "/content", "*.png").OrderBy(x => Path.GetFileName(x)))
             {
-                if (Path.GetExtension(fullname).Equals(".png", StringComparison.OrdinalIgnoreCase))
-                {
-                    string filename = Path.GetFileName(fullname);
-                    string fieldName = GetFieldName(filename);
-                    sb.AppendLine(TabLevel(2) + $"public const string {fieldName} = \"{filename}\";");
-                    allTexturesBuilder.Append($"\n{TabLevel(2)}{fieldName},");
-                }
+                count++;
+                string filename = Path.GetFileName(fullname);
+                string fieldName = GetFieldName(filename);
+                sb.AppendLine(TabLevel(2) + $"public const string {fieldName} = \"{filename}\";");
+                allTexturesBuilder.Append($"\n{TabLevel(2)}{fieldName},");
             }
             allTexturesBuilder.AppendLine($"\n{TabLevel(2)}}};");
             sb.Append(allTexturesBuilder);
+            sb.AppendLine($"{TabLevel(2)}public const int ModTextureCount = {count.ToString()};");
             sb.Append(TabLevel(1));
             sb.AppendLine("}");
         }

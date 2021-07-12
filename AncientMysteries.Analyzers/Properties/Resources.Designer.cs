@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AncientMysteries.SourceGenerator.Properties {
+namespace AncientMysteries.Analyzers.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace AncientMysteries.SourceGenerator.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AncientMysteries.SourceGenerator.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AncientMysteries.Analyzers.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,51 @@ namespace AncientMysteries.SourceGenerator.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use texture reference to avoid bugs caused by rename..
+        /// </summary>
+        internal static string Analyzer_UseTextureRef_Description {
+            get {
+                return ResourceManager.GetString("Analyzer_UseTextureRef_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Replace to {0}.
+        /// </summary>
+        internal static string Analyzer_UseTextureRef_MessageFormat {
+            get {
+                return ResourceManager.GetString("Analyzer_UseTextureRef_MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AM0001.
+        /// </summary>
+        internal static string Analyzer_UseTextureRef_Title {
+            get {
+                return ResourceManager.GetString("Analyzer_UseTextureRef_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Texture Reference.
+        /// </summary>
+        internal static string CodeFix_UseTextureRef_Title {
+            get {
+                return ResourceManager.GetString("CodeFix_UseTextureRef_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
     }

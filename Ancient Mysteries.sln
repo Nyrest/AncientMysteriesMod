@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\nightlyBuild.yml = .github\workflows\nightlyBuild.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncientMysteries.Analyzers", "AncientMysteries.Analyzers\AncientMysteries.Analyzers.csproj", "{C7DD519A-3F3A-483C-9C85-639D1C45CFFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,14 @@ Global
 		{A3B38EB8-4906-4B9F-9354-F09CC5154041}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A3B38EB8-4906-4B9F-9354-F09CC5154041}.Release|x86.ActiveCfg = Release|Any CPU
 		{A3B38EB8-4906-4B9F-9354-F09CC5154041}.Release|x86.Build.0 = Release|Any CPU
+		{C7DD519A-3F3A-483C-9C85-639D1C45CFFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7DD519A-3F3A-483C-9C85-639D1C45CFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7DD519A-3F3A-483C-9C85-639D1C45CFFB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C7DD519A-3F3A-483C-9C85-639D1C45CFFB}.Debug|x86.Build.0 = Debug|Any CPU
+		{C7DD519A-3F3A-483C-9C85-639D1C45CFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7DD519A-3F3A-483C-9C85-639D1C45CFFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7DD519A-3F3A-483C-9C85-639D1C45CFFB}.Release|x86.ActiveCfg = Release|Any CPU
+		{C7DD519A-3F3A-483C-9C85-639D1C45CFFB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

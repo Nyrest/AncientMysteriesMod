@@ -24,11 +24,10 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
   
-  <!--Source Generator Reference-->
+  <!--Source Generator And Analyzers-->
   <ItemGroup>
-    <ProjectReference Include="..\AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false">
-
-    </ProjectReference>
+    <ProjectReference Include="..\AncientMysteries.Analyzers\AncientMysteries.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
   </ItemGroup>
 
   <!--Debug-->
