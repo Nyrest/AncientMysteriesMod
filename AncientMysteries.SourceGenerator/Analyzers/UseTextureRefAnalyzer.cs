@@ -1,5 +1,6 @@
 ﻿using System.Collections.Immutable;
 using System.Diagnostics;
+using System.IO;
 using AncientMysteries.SourceGenerator.Generators;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -30,12 +31,13 @@ namespace AncientMysteries.SourceGenerator.Analyzers
 
         private void AnalyzeNode(SyntaxNodeAnalysisContext context)
         {
-            var syntax = (LiteralExpressionSyntax)context.Node;
-            var a = syntax.GetText();
-            string text = a.ToString(new TextSpan(a.Length - 5, 5));
-            if (text.Equals(".png\"", StringComparison.OrdinalIgnoreCase))
+            var sourceText = ((LiteralExpressionSyntax)context.Node).GetText();
+            if (sourceText.Length < 6) return;
+            string text = sourceText.ToString(new TextSpan(sourceText.Length - 5, 4));
+            if (text.Equals(".png", StringComparison.OrdinalIgnoreCase))
             {
-                context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), TexturesReference.GetFieldName(a.ToString(new TextSpan(1, a.Length - 2)))));
+                if (Path.GetFileName(context.Node.SyntaxTree.FilePath) == "TextureReferences.cs") return;
+                context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), TexturesReference.GetFieldName(sourceText.ToString(new TextSpan(1, sourceText.Length - 2)))));
             }
         }
     }

@@ -61,7 +61,7 @@ namespace AncientMysteries.SourceGenerator.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use Texture Reference Desc..
+        ///   Looks up a localized string similar to Use texture reference to avoid bugs caused by rename.
         /// </summary>
         internal static string Analyzer_UseTextureRef_Description {
             get {
@@ -88,7 +88,7 @@ namespace AncientMysteries.SourceGenerator.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AM0001.
+        ///   Looks up a localized string similar to Use Texture Reference.
         /// </summary>
         internal static string CodeFix_UseTextureRef_Title {
             get {
