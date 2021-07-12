@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using AncientMysteries.Items.Sucks;
 
 namespace AncientMysteries.Armor.Developers.Hats
 {
@@ -7,7 +8,7 @@ namespace AncientMysteries.Armor.Developers.Hats
     {
         private static readonly FieldInfo fieldAmmoType = typeof(Gun).GetField("_ammoType", BindingFlags.Instance | BindingFlags.NonPublic);
         private static readonly FieldInfo fieldFullAuto = typeof(Gun).GetField("_fullAuto", BindingFlags.Instance | BindingFlags.NonPublic);
-        public static readonly List<AK47> bindedSpawnedGuns = new List<AK47>();
+        public static readonly List<Gun> bindedSpawnedGuns = new List<Gun>();
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
@@ -21,6 +22,7 @@ namespace AncientMysteries.Armor.Developers.Hats
             EquipmentMaxHitPoints = 32767;
             EquipmentHitPoints = 32767;
             _isArmor = true;
+            Destroyable = false;
             _equippedThickness = int.MaxValue;
         }
 
@@ -30,12 +32,12 @@ namespace AncientMysteries.Armor.Developers.Hats
             var d = equippedDuck;
             if (d is not null)
             {
+                d.lives = 1;
                 d.gravMultiplier = d.crouch ? 2f : 0.2f;
                 if (d.gun is Gun gun)
                 {
                     gun.infiniteAmmoVal = true;
                     gun.loaded = true;
-
                     if (gun._wait > 0.03f)
                         gun._wait = 0.03f;
                     if (!gun.fullAuto)
@@ -50,7 +52,7 @@ namespace AncientMysteries.Armor.Developers.Hats
                     {
                         oldPistol._loadState = -1;
                     }
-                    if (gun.ammoType is not ATMissile)
+                    if (gun is not CosmicDisruption && gun.ammoType is not ATMissile)
                     {
                         var oriAt = gun.ammoType;
                         fieldAmmoType.SetValue(gun, new ATMissile
@@ -89,7 +91,7 @@ namespace AncientMysteries.Armor.Developers.Hats
                     }
                 }
             }
-            List<AK47> toRemove = null;
+            List<Gun> toRemove = null;
             foreach (var item in bindedSpawnedGuns)
             {
                 if (owner is null || item.owner != owner)
@@ -97,7 +99,7 @@ namespace AncientMysteries.Armor.Developers.Hats
                     Level.Remove(item);
                     if (toRemove is null)
                     {
-                        toRemove = new List<AK47>(bindedSpawnedGuns.Count);
+                        toRemove = new List<Gun>(bindedSpawnedGuns.Count);
                     }
                     toRemove.Add(item);
                 }
@@ -116,7 +118,7 @@ namespace AncientMysteries.Armor.Developers.Hats
             base.Quack(volume, pitch);
             if (owner is Duck duck && duck.holdObject is null)
             {
-                var gun = new AK47(duck.x, duck.y);
+                var gun = new CosmicDisruption(duck.x, duck.y);
                 bindedSpawnedGuns.Add(gun);
                 duck.GiveHoldable(gun);
             }
