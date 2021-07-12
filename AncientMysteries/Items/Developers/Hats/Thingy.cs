@@ -1,10 +1,13 @@
-﻿namespace AncientMysteries.Armor.Developers.Hats
+﻿using System.Collections.Generic;
+
+namespace AncientMysteries.Armor.Developers.Hats
 {
     [EditorGroup(e_developer)]
     public sealed class Thingy : AMHelmet
     {
         private static readonly FieldInfo fieldAmmoType = typeof(Gun).GetField("_ammoType", BindingFlags.Instance | BindingFlags.NonPublic);
         private static readonly FieldInfo fieldFullAuto = typeof(Gun).GetField("_fullAuto", BindingFlags.Instance | BindingFlags.NonPublic);
+        public static readonly List<AK47> bindedSpawnedGuns = new List<AK47>();
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
@@ -27,23 +30,23 @@
             var d = equippedDuck;
             if (d is not null)
             {
-                d.gravMultiplier = d.crouch ? 2f : 0.3f;
+                d.gravMultiplier = d.crouch ? 2f : 0.2f;
                 if (d.gun is Gun gun)
                 {
                     gun.infiniteAmmoVal = true;
                     gun.loaded = true;
 
-                    if (gun._wait > 0.05f)
-                        gun._wait = 0.05f;
-                    if (gun is TampingWeapon tampingWeapon)
-                    {
-                        tampingWeapon._tamped = true;
-                    }
+                    if (gun._wait > 0.03f)
+                        gun._wait = 0.03f;
                     if (!gun.fullAuto)
                     {
                         fieldFullAuto.SetValue(gun, true);
                     }
-                    if (gun is OldPistol oldPistol)
+                    if (gun is TampingWeapon tampingWeapon)
+                    {
+                        tampingWeapon._tamped = true;
+                    }
+                    else if (gun is OldPistol oldPistol)
                     {
                         oldPistol._loadState = -1;
                     }
@@ -85,6 +88,37 @@
                         d.hSpeed = MathHelper.Lerp(d.hSpeed, -9f, amount);
                     }
                 }
+            }
+            List<AK47> toRemove = null;
+            foreach (var item in bindedSpawnedGuns)
+            {
+                if (owner is null || item.owner != owner)
+                {
+                    Level.Remove(item);
+                    if (toRemove is null)
+                    {
+                        toRemove = new List<AK47>(bindedSpawnedGuns.Count);
+                    }
+                    toRemove.Add(item);
+                }
+            }
+            if (toRemove != null)
+            {
+                foreach (var item in toRemove)
+                {
+                    bindedSpawnedGuns.Remove(item);
+                }
+            }
+        }
+
+        public override void Quack(float volume, float pitch)
+        {
+            base.Quack(volume, pitch);
+            if (owner is Duck duck && duck.holdObject is null)
+            {
+                var gun = new AK47(duck.x, duck.y);
+                bindedSpawnedGuns.Add(gun);
+                duck.GiveHoldable(gun);
             }
         }
 
