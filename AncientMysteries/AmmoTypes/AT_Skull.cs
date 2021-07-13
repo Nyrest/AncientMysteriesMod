@@ -2,7 +2,7 @@
 
 namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_Skull : AMAmmoType
+    public sealed class AT_Skull : AmmoType
     {
         public AT_Skull()
         {

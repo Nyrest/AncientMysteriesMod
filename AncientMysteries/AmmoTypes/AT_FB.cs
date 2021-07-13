@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_FB : AMAmmoType
+    public sealed class AT_FB : AmmoType
     {
         public AT_FB()
         {

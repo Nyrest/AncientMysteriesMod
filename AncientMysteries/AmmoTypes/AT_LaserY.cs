@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_LaserY : AMAmmoType
+    public sealed class AT_LaserY : AmmoType
     {
         public AT_LaserY()
         {

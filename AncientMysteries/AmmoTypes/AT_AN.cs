@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_AN : AMAmmoType
+    public sealed class AT_AN : AmmoType
     {
         public SpriteMap _spriteMap = TexHelper.ModSpriteMap(t_NovaFrm, 32, 32, true);
 

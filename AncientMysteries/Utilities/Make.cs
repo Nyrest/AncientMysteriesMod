@@ -65,16 +65,6 @@ namespace AncientMysteries.Utilities
             where TAmmoType : AmmoType, new()
         {
             return InstanceOf<TAmmoType>.instance;
-            /*
-            var a = FastNew<TAmmoType>.CreateInstance();
-            if (a is null)
-            {
-                Debugger.Launch();
-                Debugger.Break();
-                ;
-            }
-            return a;
-            */
         }
         #endregion
     }

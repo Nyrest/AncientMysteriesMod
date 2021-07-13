@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_Leaf : AMAmmoType
+    public sealed class AT_Leaf : AmmoType
     {
         public AT_Leaf()
         {

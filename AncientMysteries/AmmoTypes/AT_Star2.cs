@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_Star2 : AMAmmoType
+    public sealed class AT_Star2 : AmmoType
     {
         public AT_Star2()
         {

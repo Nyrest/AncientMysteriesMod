@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.Items.Rainbow
 {
-    public sealed class Iridescence_AmmoType : AMAmmoType
+    public sealed class Iridescence_AmmoType : AmmoType
     {
         public Iridescence_AmmoType()
         {
