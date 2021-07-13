@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.Items.True
 {
-    public class Overgrowth_AmmoType_Big : AmmoType
+    public class Overgrowth_AmmoType_Big : AMAmmoType
     {
         public Overgrowth_AmmoType_Big()
         {
