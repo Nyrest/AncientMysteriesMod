@@ -9,7 +9,7 @@
 
         public SpriteMap _spriteMap;
 
-        public int times = 0;
+        public int times = 1;
 
         public byte AnimationFrame
         {
@@ -36,6 +36,12 @@
             _fireSoundPitch = 0.9f;
             _kickForce = 0.25f;
             _fullAuto = true;
+        }
+
+        public override void Update()
+        {
+            base.Update();
+            _castSpeed = 0.0045f + 0.0008f * times;
         }
 
         public override void OnReleaseSpell()
@@ -75,10 +81,9 @@
             }
             if (times < 10 && _castTime >= 1f)
             {
-                times += 1;
+                times++;
                 SFX.PlaySynchronized("scoreDing", 0.5f, Convert.ToSingle(-0.3 + times * 0.03f), 0, false);
             }
-            _castSpeed = Convert.ToSingle(0.0045f + 0.0008 * times);
         }
 
         public void ModifyParameter(ref float bulletSpeed, ref float range)

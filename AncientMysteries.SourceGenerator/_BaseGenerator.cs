@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿//#define AllowTabFormat
+using System.Runtime.CompilerServices;
 
 namespace AncientMysteries.SourceGenerator
 {
@@ -15,6 +16,13 @@ namespace AncientMysteries.SourceGenerator
         public abstract void Initialize(GeneratorInitializationContext context);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static string TabLevel(int level) => _tabLevelsCache[level] ??= new string(' ', level * 4);
+        public static string TabLevel(int level)
+        {
+#if AllowTabFormat
+            return _tabLevelsCache[level] ??= new string(' ', level * 4);
+#else
+            return null;
+#endif
+        }
     }
 }

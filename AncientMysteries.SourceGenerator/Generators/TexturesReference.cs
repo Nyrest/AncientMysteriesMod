@@ -12,7 +12,7 @@ namespace AncientMysteries.SourceGenerator.Generators
 
         public override void Generate(GeneratorExecutionContext context, StringBuilder sb)
         {
-            sb.AppendLine("internal static partial class Texs");
+            sb.AppendLine($"{TabLevel(1)}internal static partial class Texs");
             sb.Append(TabLevel(1));
             sb.AppendLine("{");
             StringBuilder allTexturesBuilder = new($"{TabLevel(2)}public static readonly string[] _AllTextures = new string[]\n{TabLevel(2)}{{");
