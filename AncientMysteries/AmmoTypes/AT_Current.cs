@@ -9,7 +9,7 @@
             //sprite.CenterOrigin();
             accuracy = 1f;
             penetration = 1f;
-            bulletSpeed = 30f;
+            bulletSpeed = 60f;
             bulletThickness = 0.3f;
             rebound = true;
             bulletType = typeof(LaserBullet);
