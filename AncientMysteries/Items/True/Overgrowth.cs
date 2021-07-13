@@ -71,10 +71,10 @@
                     {
                         this.NmFireGun(list =>
                         {
-                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x - 40, d.y - 40, ModifyParameter, owner, Maths.PointDirection(d.x - 40, d.y - 40, d.x, d.y), this));                                                         
-                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x + 40, d.y - 40, ModifyParameter, owner, Maths.PointDirection(d.x + 40, d.y - 40, d.x, d.y), this));                                                         
-                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x - 40, d.y + 40, ModifyParameter, owner, Maths.PointDirection(d.x - 40, d.y + 40, d.x, d.y), this));
-                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x + 40, d.y + 40, ModifyParameter, owner, Maths.PointDirection(d.x + 40, d.y + 40, d.x, d.y), this));
+                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x - 40, d.y - 40, ModifyParameter, owner, -Maths.PointDirection(d.x - 40, d.y - 40, d.x, d.y), this));                                                         
+                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x + 40, d.y - 40, ModifyParameter, owner, -Maths.PointDirection(d.x + 40, d.y - 40, d.x, d.y), this));                                                         
+                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x - 40, d.y + 40, ModifyParameter, owner, -Maths.PointDirection(d.x - 40, d.y + 40, d.x, d.y), this));
+                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x + 40, d.y + 40, ModifyParameter, owner, -Maths.PointDirection(d.x + 40, d.y + 40, d.x, d.y), this));
                         });
                     }
                 }
@@ -88,8 +88,8 @@
 
         public void ModifyParameter(ref float bulletSpeed, ref float range)
         {
-            bulletSpeed *= times;
-            range *= times;
+            bulletSpeed += times * 0.5f;
+            range += times * 20;
         }
     }
 }
