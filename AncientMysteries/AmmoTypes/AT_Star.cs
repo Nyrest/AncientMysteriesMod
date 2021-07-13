@@ -5,7 +5,7 @@
         public AT_Star()
         {
             accuracy = 0.2f;
-            range = 1000f;
+            range = 400f;
             penetration = 1f;
             rangeVariation = 10f;//10
             combustable = true;

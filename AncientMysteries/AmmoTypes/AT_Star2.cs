@@ -5,7 +5,7 @@
         public AT_Star2()
         {
             accuracy = 1f;
-            range = 100f;
+            range = 0.5f;
             penetration = 1f;
             rangeVariation = 0;
             bulletSpeed = 0.02f;
