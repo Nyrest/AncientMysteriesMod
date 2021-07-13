@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public class AT_FerociousPredator : AmmoType
+    public class AT_FerociousPredator : AMAmmoType
     {
         public AT_FerociousPredator()
         {
