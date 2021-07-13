@@ -48,11 +48,11 @@
                 {
                     for (int i = -1; i < Math.Ceiling(Convert.ToDecimal(times / 2)); i++)
                     {
-                        list.Add(Make.Bullet<Overgrowth_AmmoType_Big>(firePos, ModifyParameter, owner, owner.offDir == 1 ? 0 : 180, this));
+                        list.Add(Make.Bullet<Overgrowth_AmmoType_Big>(firePos, ModifyParameter, owner, this.FaceAngleDegressLeftOrRight(), this));
                     }
                     for (int i = -1; i < times * 2; i++)
                     {
-                        list.Add(Make.Bullet<Overgrowth_AmmoType_Small>(firePos, ModifyParameter, owner, owner.offDir == 1 ? 0 : 180, this));
+                        list.Add(Make.Bullet<Overgrowth_AmmoType_Small>(firePos, ModifyParameter, owner, this.FaceAngleDegressLeftOrRight(), this));
                     }
                 });
             }
