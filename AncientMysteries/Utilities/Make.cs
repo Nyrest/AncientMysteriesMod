@@ -64,6 +64,8 @@ namespace AncientMysteries.Utilities
         private static TAmmoType GetAmmoTypeInstance<TAmmoType>()
             where TAmmoType : AmmoType, new()
         {
+            return InstanceOf<TAmmoType>.instance;
+            /*
             var a = FastNew<TAmmoType>.CreateInstance();
             if (a is null)
             {
@@ -72,7 +74,7 @@ namespace AncientMysteries.Utilities
                 ;
             }
             return a;
-            //return InstanceOf<TAmmoType>.instance;
+            */
         }
         #endregion
     }
