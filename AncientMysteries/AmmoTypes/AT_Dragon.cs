@@ -16,12 +16,6 @@
             bulletType = typeof(Bullet_Dragon);
         }
 
-        public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
-        {
-            bulletColor = Color.OrangeRed;
-            return base.FireBullet(position, owner, angle, firedFrom);
-        }
-
         public override void OnHit(bool destroyed, Bullet b)
         {
             base.OnHit(destroyed, b);
