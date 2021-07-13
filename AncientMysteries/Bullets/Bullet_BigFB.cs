@@ -26,7 +26,7 @@ namespace AncientMysteries.Bullets
             {
                 SFX.Play("flameExplode", 0.7f, Rando.Float(-0.8f, -0.4f), 0f, false);
                 n = 0;
-                var bullet = Make.Bullet<AT_Lava>(start, owner, Rando.Float(135, 45), this);
+                var bullet = Make.Bullet<AT_Lava>(start, _owner, Rando.Float(135, 45), this);
                 firedBullets.Add(bullet);
                 Level.Add(bullet);
             }
@@ -41,9 +41,9 @@ namespace AncientMysteries.Bullets
             }*/
         }
 
-        public override void DoTerminate()
+        public override void Removed()
         {
-            base.DoTerminate();
+            base.Removed();
             ExplosionPart ins = new(travelEnd.x, travelEnd.y, true);
             Level.Add(ins);
             SFX.Play("explode", 0.7f, Rando.Float(-0.7f, -0.5f), 0f, false);
@@ -59,10 +59,7 @@ namespace AncientMysteries.Bullets
             var firedBullets = new List<Bullet>(7);
             for (int i = 0; i < 7; i++)
             {
-                var bullet = new Bullet_Lava(travelEnd.x, travelEnd.y, new AT_Lava(), Rando.Float(0, 360), owner, false, 200, false, true)
-                {
-                    color = Color.DarkOrange
-                };
+                var bullet = Make.Bullet<AT_Lava>(travelEnd, _owner, Rando.Float(0, 360), this);
                 firedBullets.Add(bullet);
                 Level.Add(bullet);
             }
