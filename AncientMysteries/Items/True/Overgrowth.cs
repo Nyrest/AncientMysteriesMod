@@ -5,6 +5,8 @@
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
 
+        public StateBinding _timesBinding = new(nameof(times));
+
         public SpriteMap _spriteMap;
 
         public int times = 0;
@@ -20,29 +22,8 @@
             _ => "Overgrowth",
         };
 
-        public AT_Overgrowth ammoTypeSmall = new(false)
-        {
-            penetration = 1f,
-        };
-
-        public AT_Overgrowth ammoTypeBig = new(true)
-        {
-            penetration = 1f,
-        };
-
-        public AT_Overgrowth ammoTypeSmall2 = new(false)
-        {
-            bulletSpeed = 1f,
-            accuracy = 1f,
-            speedVariation = 0f,
-            rangeVariation = 0f,
-            penetration = 2147483647f,
-        };
-
         public Overgrowth(float xval, float yval) : base(xval, yval)
         {
-            _type = "gun";
-            _ammoType = ammoTypeSmall;
             _spriteMap = this.ReadyToRunMap(t_Overgrowth, 21, 34);
             _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2, 3);
             _spriteMap.SetAnimation("loop");
@@ -67,12 +48,11 @@
                 {
                     for (int i = -1; i < Math.Ceiling(Convert.ToDecimal(times / 2)); i++)
                     {
-
-                        list.Add(new Bullet_OGB(firePos.x, firePos.y, ammoTypeBig, owner.offDir == 1 ? 0 : 180, owner, false, 170 + Rando.Float(-50, 50)));
+                        list.Add(Make.Bullet<Overgrowth_AmmoType_Big>(firePos, ModifyParameter, owner, owner.offDir == 1 ? 0 : 180, this));
                     }
                     for (int i = -1; i < times * 2; i++)
                     {
-                        list.Add(new Bullet_OGS(firePos.x, firePos.y, ammoTypeSmall, owner.offDir == 1 ? 0 : 180, owner, false, 245 + Rando.Float(-80, 80)));
+                        list.Add(Make.Bullet<Overgrowth_AmmoType_Small>(firePos, ModifyParameter, owner, owner.offDir == 1 ? 0 : 180, this));
                     }
                 });
             }
@@ -85,10 +65,10 @@
                     {
                         this.NmFireGun(list =>
                         {
-                            list.Add(new Bullet_OGS(d.x - 40, d.y - 40, ammoTypeSmall2, Maths.PointDirection(d.x - 40, d.y - 40, d.x, d.y), owner, false, 60));
-                            list.Add(new Bullet_OGS(d.x + 40, d.y - 40, ammoTypeSmall2, Maths.PointDirection(d.x + 40, d.y - 40, d.x, d.y), owner, false, 60));
-                            list.Add(new Bullet_OGS(d.x - 40, d.y + 40, ammoTypeSmall2, Maths.PointDirection(d.x - 40, d.y + 40, d.x, d.y), owner, false, 60));
-                            list.Add(new Bullet_OGS(d.x + 40, d.y + 40, ammoTypeSmall2, Maths.PointDirection(d.x + 40, d.y + 40, d.x, d.y), owner, false, 60));
+                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x - 40, d.y - 40, ModifyParameter, owner, Maths.PointDirection(d.x - 40, d.y - 40, d.x, d.y), this));                                                         
+                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x + 40, d.y - 40, ModifyParameter, owner, Maths.PointDirection(d.x + 40, d.y - 40, d.x, d.y), this));                                                         
+                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x - 40, d.y + 40, ModifyParameter, owner, Maths.PointDirection(d.x - 40, d.y + 40, d.x, d.y), this));
+                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x + 40, d.y + 40, ModifyParameter, owner, Maths.PointDirection(d.x + 40, d.y + 40, d.x, d.y), this));
                         });
                     }
                 }
@@ -99,6 +79,12 @@
                 SFX.PlaySynchronized("scoreDing", 0.5f, Convert.ToSingle(-0.3 + times * 0.03f), 0, false);
             }
             _castSpeed = Convert.ToSingle(0.0045f + 0.0008 * times);
+        }
+
+        public void ModifyParameter(ref float bulletSpeed, ref float range)
+        {
+            bulletSpeed *= times;
+            range *= times;
         }
     }
 }
