@@ -22,6 +22,7 @@
 			_fireWait = 0.9f;
 			_kickForce = 0f;
 			_fullAuto = true;
+			_bulletColor = Color.Lime;
 		}
     }
 }

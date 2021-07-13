@@ -24,6 +24,7 @@
             loseAccuracy = 1f;
             maxAccuracyLost = 1f;
             _holdOffset = new Vec2(3f, 0.2f);
+            _bulletColor = Color.Red;
         }
 
         public override void Update()
