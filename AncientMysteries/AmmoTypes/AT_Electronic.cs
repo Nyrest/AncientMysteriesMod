@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_Electronic : AMAmmoType
+    public sealed class AT_Electronic : AmmoType
     {
         public AT_Electronic()
         {

@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_Lava : AMAmmoType
+    public sealed class AT_Lava : AmmoType
     {
         public AT_Lava()
         {

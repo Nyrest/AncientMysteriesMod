@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.Items.Explosives
 {
-    public class ViscousAcidLiquor_AmmoType : AMAmmoType
+    public class ViscousAcidLiquor_AmmoType : AmmoType
     {
 		public ViscousAcidLiquor_AmmoType()
 		{

@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_Shadow : AMAmmoType
+    public sealed class AT_Shadow : AmmoType
     {
         public AT_Shadow()
         {
