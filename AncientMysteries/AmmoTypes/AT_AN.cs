@@ -7,7 +7,7 @@
         public AT_AN()
         {
             accuracy = 1f;
-            range = 275f;
+            range = 80f;
             penetration = 1f;
             rangeVariation = 10f;
             bulletSpeed = 2;
