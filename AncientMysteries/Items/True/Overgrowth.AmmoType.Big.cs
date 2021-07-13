@@ -12,6 +12,7 @@
             rangeVariation = 50f;
             penetration = 1f;
             range = 180f;
+            bulletType = typeof(Overgrowth_Bullet_Big);
         }
     }
 }
