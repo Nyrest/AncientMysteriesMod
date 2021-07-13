@@ -10,7 +10,7 @@
             Generate(context, contentBuilder);
             string source = @$"{Using}namespace {_CompileSettings.Namespace}
 {{
-{contentBuilder.ToString()}
+{contentBuilder}
 }}";
             // Wht not? Cuz it's fucking suffering that using SourceGenerator In NetFX
             context.AddSource(UniqueName + ".cs", SourceText.From(source, Encoding.UTF8));
