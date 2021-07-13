@@ -5,16 +5,13 @@ namespace AncientMysteries.Bullets
 {
     public class Bullet_AN : Bullet
     {
-        public NovaExp n;
-
-        public StateBinding novaBinding = new(nameof(n));
         public Bullet_AN(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
             collisionSize = new Vec2(32, 32);
         }
         public override void Removed()
         {
-            n = new(travelEnd.x, travelEnd.y, true);
+            NovaExp n = new(travelEnd.x, travelEnd.y, true);
             n.xscale *= 3f;
             n.yscale *= 3f;
             Level.Add(n);
