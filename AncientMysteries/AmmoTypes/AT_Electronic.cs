@@ -4,13 +4,14 @@
     {
         public AT_Electronic()
         {
-            accuracy = 0.9f;
+            accuracy = 1f;
             range = 200f;
             penetration = 10f;
             rangeVariation = 20f;
             bulletThickness = 2f;
             bulletColor = Color.Lime;
             bulletType = typeof(Bullet_Electronic);
+            bulletSpeed = 30f;
             //this.bulletType = typeof(Bullet_Electronic);
             //this.sprite = TexHelper.ModSprite("ElectronicStar.png");
             //this.sprite.CenterOrigin();
