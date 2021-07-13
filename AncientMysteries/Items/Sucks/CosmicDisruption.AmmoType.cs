@@ -12,6 +12,7 @@
             bulletLength = 20002f;
             rangeVariation = 0;
             speedVariation = 0;
+            bulletColor = Color.Red;
         }
     }
 }

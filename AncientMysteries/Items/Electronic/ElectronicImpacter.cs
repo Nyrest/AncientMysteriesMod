@@ -11,10 +11,7 @@
 		public ElectronicImpacter(float xval, float yval) : base(xval, yval)
 		{
 			ammo = 80;
-			_ammoType = new AT_Electronic()
-			{
-				
-			};
+			_ammoType = new AT_Electronic();
 			_type = "gun";
 			this.ReadyToRunMap(t_ElectronicImpacter);
 			_flare.color = Color.Transparent;
