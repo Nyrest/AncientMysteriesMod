@@ -16,7 +16,7 @@
 			weight = 5f;
 			bulletThickness = 2f;
 			bulletColor = Color.White;
-			bulletType = typeof(Bullet_FerociousPredato);
+			bulletType = typeof(Bullet_FerociousPredator);
 			immediatelyDeadly = true;
 			sprite = new Sprite("launcherGrenade");
 			sprite.CenterOrigin();

@@ -18,6 +18,7 @@
             _spriteMap.AddAnimation("loop", 0.15f, true, 0, 1, 2, 3);
             _spriteMap.SetAnimation("loop");
             _spriteMap.CenterOrigin();
+            bulletType = typeof(Bullet_AN2);
         }
 
     }

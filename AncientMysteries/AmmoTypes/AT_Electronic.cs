@@ -10,6 +10,7 @@
             rangeVariation = 20f;
             bulletThickness = 2f;
             bulletColor = Color.Lime;
+            bulletType = typeof(Bullet_Electronic);
             //this.bulletType = typeof(Bullet_Electronic);
             //this.sprite = TexHelper.ModSprite("ElectronicStar.png");
             //this.sprite.CenterOrigin();

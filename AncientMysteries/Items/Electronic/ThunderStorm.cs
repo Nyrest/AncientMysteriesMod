@@ -52,16 +52,16 @@ namespace AncientMysteries.Items.Electronic
             {
                 SFX.Play("shotgunFire2", 0.7f, 0.9f);
             }
-            var firedBullets = new List<Bullet>(count);
-            for (int i = 0; i < count; i++)
+            this.NmFireGun(list =>
             {
-                ammoType.bulletSpeed = speed;
-                Bullet_CubicBlast bullet = new Bullet_CubicBlast(firePos.x, firePos.y, ammoType, offDir == 1 ? 0 : 180, this);
-                bullet.color = ammoType.bulletColor;
-                firedBullets.Add(bullet);
-                Level.Add(bullet);
-                bulletFireIndex += 1;
-            }
+                for (int i = 0; i < count; i++)
+                {
+                    ammoType.bulletSpeed = speed;
+                    Bullet bullet = Make.Bullet<AT_CubicBlast>(firePos, owner, offDir == 1 ? 0 : 180, this);
+                    bullet.color = ammoType.bulletColor;
+                    list.Add(bullet);
+                }
+            });
             if (Network.isActive)
             {
                 NMFireGun gunEvent = new NMFireGun(this, firedBullets, bulletFireIndex, rel: false, 4);

@@ -13,6 +13,7 @@
             bulletColor = Color.OrangeRed;
             sprite = TexHelper.ModSprite(t_Fireball2);
             sprite.CenterOrigin();
+            bulletType = typeof(Bullet_Dragon);
         }
 
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
