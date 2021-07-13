@@ -1,4 +1,5 @@
-﻿using AncientMysteries.Helpers;
+﻿using System.Diagnostics;
+using AncientMysteries.Helpers;
 
 namespace AncientMysteries.Utilities
 {
@@ -63,7 +64,14 @@ namespace AncientMysteries.Utilities
         private static TAmmoType GetAmmoTypeInstance<TAmmoType>()
             where TAmmoType : AmmoType, new()
         {
-            return FastNew<TAmmoType>.CreateInstance();
+            var a = FastNew<TAmmoType>.CreateInstance();
+            if (a is null)
+            {
+                Debugger.Launch();
+                Debugger.Break();
+                ;
+            }
+            return a;
             //return InstanceOf<TAmmoType>.instance;
         }
         #endregion
