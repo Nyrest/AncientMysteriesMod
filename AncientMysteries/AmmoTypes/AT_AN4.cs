@@ -17,6 +17,7 @@
             bulletThickness = 2;
             sprite = _spriteMap;
             _spriteMap.CenterOrigin();
+            bulletType = typeof(Bullet_AN4);
         }
 
     }

@@ -9,7 +9,7 @@
             penetration = 1f;
             rangeVariation = 20f;
             bulletThickness = 2f;
-            //this.bulletType = typeof(Bullet_Electronic);
+            bulletType = typeof(AT_Electronic);
             //this.sprite = TexHelper.ModSprite("ElectronicStar.png");
             //this.sprite.CenterOrigin();
             //bulletLength = 10;
