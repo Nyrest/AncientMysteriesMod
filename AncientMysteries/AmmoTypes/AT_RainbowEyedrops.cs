@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_RainbowEyedrops : AmmoType
+    public sealed class AT_RainbowEyedrops : AMAmmoType
     {
         public AT_RainbowEyedrops()
         {
