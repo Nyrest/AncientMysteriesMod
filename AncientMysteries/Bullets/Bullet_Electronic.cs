@@ -6,12 +6,5 @@
         {
             _bulletSpeed = 4f;
         }
-
-        public override void Draw()
-        {
-            ammo.sprite.depth = 1f;
-            ammo.sprite.angleDegrees += 10;
-            Graphics.Draw(ammo.sprite, position.x, position.y);
-        }
     }
 }
