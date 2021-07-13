@@ -31,7 +31,7 @@ namespace AncientMysteries.Bullets
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    var bullet = new Bullet_AN2(travelEnd.x, travelEnd.y, new AT_AN2(), Rando.Float(0, 360), owner, false, 80, false, true);
+                    var bullet = Make.Bullet<AT_AN2>(travelEnd, owner, Rando.Float(0, 360),this);
                     list.Add(bullet);
                 }
             });

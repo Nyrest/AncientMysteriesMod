@@ -26,10 +26,7 @@ namespace AncientMysteries.Bullets
             {
                 SFX.Play("flameExplode", 0.7f, Rando.Float(-0.8f, -0.4f), 0f, false);
                 n = 0;
-                var bullet = new Bullet_Lava(pos.x + travelDirNormalized.x * bulletSpeed, pos.y + travelDirNormalized.y * bulletSpeed, new AT_Lava(), Rando.Float(135, 45), owner, false, 200, false, true)
-                {
-                    color = Color.DarkOrange
-                };
+                var bullet = Make.Bullet<AT_Lava>(start, owner, Rando.Float(135, 45), this);
                 firedBullets.Add(bullet);
                 Level.Add(bullet);
             }

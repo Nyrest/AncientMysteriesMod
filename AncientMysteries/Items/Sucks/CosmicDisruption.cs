@@ -30,7 +30,6 @@
         public override void Update()
         {
             ammo = byte.MaxValue;
-            ammoType.bulletColor = Color.Blue;
             base.Update();
             base.Update();
         }

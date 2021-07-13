@@ -37,7 +37,7 @@ namespace AncientMysteries.Bullets
             var firedBullets = new List<Bullet>(5);
             for (int i = 0; i < 5; i++)
             {
-                var bullet = new Bullet_AN3(travelEnd.x, travelEnd.y, new AT_AN3(), Rando.Float(0, 360), owner, false, 80, false, true);
+                var bullet = Make.Bullet<AT_AN3>(travelEnd, owner, Rando.Float(0, 360), this);
                 firedBullets.Add(bullet);
                 Level.Add(bullet);
             }

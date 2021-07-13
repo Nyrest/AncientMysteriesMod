@@ -99,7 +99,7 @@ namespace AncientMysteries.Items.Dragon.Melee
                 {
                     for (int i = 0; i < 10; i++)
                     {
-                        Bullet b = new Bullet_FB(duck.x, duck.y, new AT_FB(), -180 + Rando.Float(-5, 5), owner, false, 250f + Rando.Float(-75, 75));
+                        Bullet b = Make.Bullet<AT_FB>(duck.position, owner, -180 + Rando.Float(-5, 5), this);
                         firedBullets.Add(b);
                         Level.Add(b);
                         cooldown3 = -10;
@@ -109,7 +109,7 @@ namespace AncientMysteries.Items.Dragon.Melee
                 {
                     for (int i = 0; i < 10; i++)
                     {
-                        Bullet b = new Bullet_FB(duck.x, duck.y, new AT_FB(), 0 + Rando.Float(-5, 5), owner, false, 250f + Rando.Float(-75, 75));
+                        Bullet b = Make.Bullet<AT_FB>(duck.position, owner, 0 + Rando.Float(-5, 5), this);
                         firedBullets.Add(b);
                         Level.Add(b);
                         cooldown3 = -10;

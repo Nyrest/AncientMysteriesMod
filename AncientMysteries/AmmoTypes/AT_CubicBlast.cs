@@ -19,6 +19,7 @@
             _spriteMap.AddAnimation("loop", 0.3f, true, 0, 1, 2, 3, 4);
             _spriteMap.SetAnimation("loop");
             _spriteMap.CenterOrigin();
+            bulletType = typeof(Bullet_CubicBlast);
         }
 
     }

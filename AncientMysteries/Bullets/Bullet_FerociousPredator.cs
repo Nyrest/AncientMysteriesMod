@@ -2,9 +2,9 @@
 
 namespace AncientMysteries.Bullets
 {
-    public class Bullet_FerociousPredato : Bullet
+    public class Bullet_FerociousPredator : Bullet
     {
-        public Bullet_FerociousPredato(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
+        public Bullet_FerociousPredator(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
 
         }
@@ -30,14 +30,7 @@ namespace AncientMysteries.Bullets
                     for (int i = 0; i < 24; i++)
                     {
                         float dir = i * 30f - 10f + Rando.Float(20f);
-                        ATGrenadeLauncherShrapnel shrap = new()
-                        {
-                            range = 100f + Rando.Float(20f)
-                        };
-                        Bullet bullet = new(bPos.x, bPos.y, shrap, dir)
-                        {
-                            firedFrom = this
-                        };
+                        Bullet bullet = Make.Bullet<ATGrenadeLauncherShrapnel>(bPos, owner, dir, this);
                         list.Add(bullet);
                     }
                 });

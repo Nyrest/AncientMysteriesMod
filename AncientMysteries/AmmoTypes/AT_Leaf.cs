@@ -13,7 +13,6 @@
             bulletLength = 0;
             sprite = TexHelper.ModSprite(t_Leaf);
             sprite.CenterOrigin();
-            bulletType = typeof(Bullet_Star2);
             bulletColor = Color.OrangeRed;
         }
 
