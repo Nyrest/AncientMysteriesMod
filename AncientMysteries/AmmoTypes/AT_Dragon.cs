@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_Dragon : AmmoType
+    public sealed class AT_Dragon : AMAmmoType
     {
         public AT_Dragon()
         {

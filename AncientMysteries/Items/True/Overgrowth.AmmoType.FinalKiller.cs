@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.Items.True
 {
-    public class Overgrowth_AmmoType_FinalKiller : AmmoType
+    public class Overgrowth_AmmoType_FinalKiller : AMAmmoType
     {
         public Overgrowth_AmmoType_FinalKiller()
         {

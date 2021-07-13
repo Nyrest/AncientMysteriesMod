@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.AmmoTypes
 {
-    public sealed class AT_BigFB : AmmoType
+    public sealed class AT_BigFB : AMAmmoType
     {
         public SpriteMap _spriteMap = TexHelper.ModSpriteMap(t_Firebally, 25, 12, true);
         public AT_BigFB()
