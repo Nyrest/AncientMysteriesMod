@@ -53,7 +53,7 @@
             {
                 this.NmFireGun(list =>
                 {
-                    Bullet b = new Bullet_AN(firePos.x, firePos.y, new AT_AN(), owner.offDir == 1 ? 0 : 180, owner);
+                    Bullet b = Make.Bullet<AT_AN>(firePos, owner, owner.offDir == 1 ? 0 : 180, this);
                     list.Add(b);
                 });
             }

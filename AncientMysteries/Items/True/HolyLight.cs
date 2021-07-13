@@ -57,7 +57,7 @@
             {
                 for (int i = 0; i < count; i++)
                 {
-                    Bullet b = new Bullet_Star(firePos.x, firePos.y, new AT_Star(), owner.offDir == 1 ? 0 : 180, owner, false, 275);
+                    Bullet b = Make.Bullet<AT_Star>(firePos, owner, owner.offDir == 1 ? 0 : 180, this);
                     firedBullets.Add(b);
                 }
             });

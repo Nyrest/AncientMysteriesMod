@@ -40,7 +40,7 @@ namespace AncientMysteries.Bullets
             ins.xscale *= 0.7f;
             ins.yscale *= 0.7f;
             Level.Add(ins);
-            SFX.Play("explode", 0.7f, Rando.Float(-0.7f, -0.5f), 0f, false);
+            SFX.PlaySynchronized("explode", 0.7f, Rando.Float(-0.7f, -0.5f), 0f, false);
             Thing bulletOwner = owner;
             IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(travelEnd, 14f);
             foreach (MaterialThing t2 in things)

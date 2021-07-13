@@ -4,12 +4,12 @@
     {
         public AT_Current()
         {
-            range = 400f;
+            range = 80f;
             rangeVariation = 10f;
             //sprite.CenterOrigin();
             accuracy = 1f;
             penetration = 1f;
-            bulletSpeed = 5f;
+            bulletSpeed = 30f;
             bulletThickness = 0.3f;
             rebound = true;
             bulletType = typeof(LaserBullet);
