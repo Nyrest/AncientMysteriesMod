@@ -23,11 +23,11 @@
     <Product>Ancient Mysteries</Product>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
-  
+
   <!--Source Generator And Analyzers-->
   <ItemGroup>
     <ProjectReference Include="..\AncientMysteries.Analyzers\AncientMysteries.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    <ProjectReference Include="..\AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+    <ProjectReference Include="..\AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
 
   <!--Debug-->
@@ -61,6 +61,7 @@
 
   <!--Duck Game References-->
   <ItemGroup>
+
     <Reference Include="DuckGame">
       <HintPath>..\References\DuckGame.exe</HintPath>
       <Private>false</Private>
@@ -82,4 +83,8 @@
   <ItemGroup>
     <None Include="AncientMysteries.csproj.user" />
   </ItemGroup>
+  <Import Project="AutoNest.generated.props" />
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="cd &quot;$(SolutionDir)&quot;&#xD;&#xA;PostBuild.bat" />
+  </Target>
 </Project>
