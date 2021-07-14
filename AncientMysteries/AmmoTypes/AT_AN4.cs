@@ -19,6 +19,5 @@
             _spriteMap.CenterOrigin();
             bulletType = typeof(Bullet_AN4);
         }
-
     }
 }
