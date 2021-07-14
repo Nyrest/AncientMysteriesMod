@@ -15,11 +15,11 @@ namespace AncientMysteries.Bullets
             base.Update();
             foreach (Duck d in Level.CheckCircleAll<Duck>(start, 80))
             {
-                if (d != owner && fired == false)
+                if (d != _owner && fired == false)
                 {
                     fired = true;
                     var firedBullets = new List<Bullet>(1);
-                    var bullet = Make.Bullet<AT_Current>(start, owner, -Maths.PointDirection(start, d.position), this);
+                    var bullet = Make.Bullet<AT_Current>(start, _owner, -Maths.PointDirection(start, d.position), this);
                     SFX.PlaySynchronized("deadTVLand");
                     firedBullets.Add(bullet);
                     Level.Add(bullet);

@@ -18,7 +18,7 @@ namespace AncientMysteries.Bullets
             var firedBullets = new List<Bullet>(5);
             for (int i = 0; i < 5; i++)
             {
-                var bullet = Make.Bullet<AT_Leaf>(travelEnd, owner, Rando.Float(0f, 360f), this);
+                var bullet = Make.Bullet<AT_Leaf>(travelEnd, _owner, Rando.Float(0f, 360f), this);
                 firedBullets.Add(bullet);
                 Level.Add(bullet);
             }

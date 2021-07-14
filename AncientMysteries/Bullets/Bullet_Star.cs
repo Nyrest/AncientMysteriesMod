@@ -26,7 +26,7 @@ namespace AncientMysteries.Bullets
             if (n == 5)
             {
                 //Bullet b = new Bullet_Star2(this.start.x, start.y, new AT_Star2(), _angle + 180, owner, false, 1, false, true);
-                Bullet b = Make.Bullet<AT_Star2>(start, owner, _angle + 180, this);//range = 1
+                Bullet b = Make.Bullet<AT_Star2>(start, _owner, _angle + 180, this);//range = 1
                 firedBullets.Add(b);
                 Level.Add(b);
                 n = 0;
