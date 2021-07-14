@@ -84,7 +84,7 @@
     <None Include="AncientMysteries.csproj.user" />
   </ItemGroup>
   <Import Project="AutoNest.generated.props" />
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="cd &quot;$(SolutionDir)&quot;&#xD;&#xA;PostBuild.bat" />
   </Target>
 </Project>
