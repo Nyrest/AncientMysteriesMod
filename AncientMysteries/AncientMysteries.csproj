@@ -83,8 +83,8 @@
   <ItemGroup>
     <None Include="AncientMysteries.csproj.user" />
   </ItemGroup>
-  <Import Project="AutoNest.generated.props" />
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+  <Target Name="PostBuild" BeforeTargets="PostBuildEvent">
     <Exec Command="cd &quot;$(SolutionDir)&quot;&#xD;&#xA;PostBuild.bat" />
   </Target>
+  <Import Project="AutoNest.generated.props" Condition="Exists('AutoNest.generated.props')" />
 </Project>
