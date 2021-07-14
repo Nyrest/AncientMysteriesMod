@@ -349,3 +349,4 @@ MigrationBackup/
 .ionide/
 
 buildOutput/
+AutoNest.generated.props

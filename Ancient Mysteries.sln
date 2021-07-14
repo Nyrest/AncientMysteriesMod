@@ -14,7 +14,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\nightlyBuild.yml = .github\workflows\nightlyBuild.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncientMysteries.Analyzers", "AncientMysteries.Analyzers\AncientMysteries.Analyzers.csproj", "{C7DD519A-3F3A-483C-9C85-639D1C45CFFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AncientMysteries.Analyzers", "AncientMysteries.Analyzers\AncientMysteries.Analyzers.csproj", "{C7DD519A-3F3A-483C-9C85-639D1C45CFFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{7B286F19-EC65-461D-B111-FB648A07111A}"
+	ProjectSection(SolutionItems) = preProject
+		AutoNest.csx = AutoNest.csx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
