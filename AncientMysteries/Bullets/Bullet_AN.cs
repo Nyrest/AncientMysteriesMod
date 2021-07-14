@@ -28,7 +28,7 @@ namespace AncientMysteries.Bullets
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    var bullet = Make.Bullet<AT_AN2>(travelEnd, owner, Rando.Float(0, 360),this);
+                    var bullet = Make.Bullet<AT_AN2>(travelEnd, _owner, Rando.Float(0, 360),this);
                     list.Add(bullet);
                 }
             });

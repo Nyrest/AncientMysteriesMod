@@ -5,7 +5,7 @@
         public AT_Lava()
         {
             accuracy = 1f;
-            range = 100f;
+            range = 200f;
             penetration = 1f;
             rangeVariation = 0;
             bulletSpeed = 2;
@@ -13,6 +13,7 @@
             affectedByGravity = true;;
             //sprite.CenterOrigin();
             bulletType = typeof(Bullet_Lava);
+            bulletColor = Color.DarkOrange;
         }
 
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)

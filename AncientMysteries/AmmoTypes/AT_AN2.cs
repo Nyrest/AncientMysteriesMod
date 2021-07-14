@@ -8,7 +8,7 @@
         {
             accuracy = 1f;
             range = 80f;
-            penetration = 200000f;
+            penetration = int.MaxValue;
             bulletSpeed = 6;
             speedVariation = 0.5f;
             bulletLength = 0;
