@@ -34,5 +34,10 @@ namespace AncientMysteries.Bullets
             });
             base.Removed();
         }
+
+        public override void Update()
+        {
+            base.Update();
+        }
     }
 }
