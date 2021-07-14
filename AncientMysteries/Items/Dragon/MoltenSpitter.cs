@@ -21,11 +21,7 @@
         public MoltenSpitter(float xval, float yval) : base(xval, yval)
         {
             ammo = 127;
-            _ammoType = new AT_Dragon()
-            {
-                range = 400,
-                accuracy = 0.6f,
-            };
+            _ammoType = new MoltenSpitter_AmmoType();
             _type = "gun";
             _spriteMap = this.ReadyToRunMap(t_MoltenSpitter, 39, 15);
             SetBox(39, 13);
