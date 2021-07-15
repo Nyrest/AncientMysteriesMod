@@ -18,8 +18,13 @@ namespace AncientMysteries.Items.Artifact
             Mode.WaterVapor
         };
 
-        public StateBinding currentModeBinding = new(nameof(currentMode));
-        public Mode currentMode = Mode.Water;
+        public StateBinding _currentModeBinding = new(nameof(_currentMode));
+        public byte _currentMode = 0;
+        public Mode currentMode 
+        {
+            get => (Mode)_currentMode;
+            set => _currentMode = (byte)value;
+        }
         public Mode lastMode;
 
         public AmmoType AmmoWater = new TemperatureArt_AmmoType_Water();
@@ -43,7 +48,7 @@ namespace AncientMysteries.Items.Artifact
             {
                 if (_quacked != duck.IsQuacking() && (_quacked = duck.IsQuacking()))
                 {
-                    Helper.Switch(modes, ref Unsafe.As<Mode, byte>(ref currentMode));
+                    Helper.Switch(modes, ref _currentMode);
                     SFX.Play("swipe", 1f, 0.8f);
                 }
             }
