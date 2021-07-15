@@ -6,5 +6,7 @@
     public interface IAMLocalizable
     {
         public string GetLocalizedName(AMLang lang);
+
+        public string GetLocalizedDescription(AMLang lang);
     }
 }
