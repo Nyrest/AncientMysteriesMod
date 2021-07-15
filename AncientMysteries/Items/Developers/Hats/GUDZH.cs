@@ -3,13 +3,13 @@
     [EditorGroup(e_developer)]
     public sealed class GUDZH : AMHelmet
     {
-        
+        public static Vec2 textureSize;
 
         public GUDZH(float xpos, float ypos) : base(xpos, ypos)
         {
-            _sprite = this.ModSpriteMap(t_Hat_GUDZH, 32, 32, true);
+            _sprite = this.ModSpriteWithFrames(t_Hat_GUDZH, 32, 32, true);
             _pickupSprite = this.ReadyToRun(t_Hat_GUDZHPickup);
-            _sprite.CenterOrigin();
+            //_sprite.CenterOrigin();
             EquipmentMaxHitPoints = 32767;
             EquipmentHitPoints = 32767;
             _isArmor = true;
@@ -19,13 +19,18 @@
         public override void Update()
         {
             base.Update();
-            this.scale = Vec2.One;
             if (owner is Duck duck)
             {
+                this.scale = Vec2.One;
+                float scale = 1;
                 if (duck.quack != 0)
                 {
-                    this.scale = new Vec2(2);
+                    scale = 2;
                 }
+                this.scale = new Vec2(scale);
+                float w = 18 * scale, h = 18 * scale;
+                this.collisionOffset = -(new Vec2(w / 2, h / 2)) + new Vec2(2.5f, 5) * scale;
+                this.collisionSize = new Vec2(w, h);
             }
         }
 

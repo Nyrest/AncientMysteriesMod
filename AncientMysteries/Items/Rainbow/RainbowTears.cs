@@ -26,7 +26,7 @@
 
             };
             _type = "gun";
-            _spriteMap = this.ReadyToRunMap(t_Staff_Judgement, 13, 39);
+            _spriteMap = this.ReadyToRunWithFrames(t_Staff_Judgement, 13, 39);
             SetBox(13, 39);
             _barrelOffsetTL = new Vec2(6f, 5f);
             _castSpeed = 0.01f;

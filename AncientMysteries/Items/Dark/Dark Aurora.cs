@@ -21,7 +21,7 @@
             {
                 range = 400f,
             };
-            this.ReadyToRunMap(t_Gun_DarkAurora);
+            this.ReadyToRunWithFrames(t_Gun_DarkAurora);
             _flare.color = Color.Black;
             BarrelSmoke.color = Color.Black;
             _barrelOffsetTL = new Vec2(28f, 4f);

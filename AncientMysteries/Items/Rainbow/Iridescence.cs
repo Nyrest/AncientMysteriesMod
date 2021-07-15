@@ -13,7 +13,7 @@
             ammo = 127;
             _ammoType = new Iridescence_AmmoType();
             _type = "gun";
-            this.ReadyToRunMap(t_Gun_RainbowGun);
+            this.ReadyToRunWithFrames(t_Gun_RainbowGun);
             _barrelOffsetTL = new Vec2(33f, 6f);
             BarrelSmoke.color = Color.White;
             _fireSound = "laserRifle";
