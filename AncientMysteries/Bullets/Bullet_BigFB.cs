@@ -8,10 +8,6 @@ namespace AncientMysteries.Bullets
 
         public Vec2 pos;
 
-        public StateBinding _bulletSpeedBinding = new(nameof(_bulletSpeed));
-        public StateBinding _bulletPosBinding = new(nameof(start));
-        public StateBinding _posBinding = new(nameof(pos));
-
         public Bullet_BigFB(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
 
