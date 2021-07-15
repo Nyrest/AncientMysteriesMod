@@ -17,9 +17,14 @@
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "神圣之光",
             _ => "Holy Light",
         };
-
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "他们需要救赎",
+            _ => "They need salvationn",
+        };
         public HolyLight(float xval, float yval) : base(xval, yval)
         {
             _ammoType = new AT_RainbowEyedrops()

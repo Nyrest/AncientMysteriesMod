@@ -16,7 +16,13 @@
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "奥术新星",
             _ => "Arcane Nova",
+        };
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "一把充满了宇宙奥秘的法杖",
+            _ => "A staff fulfilled with mysteries from the universe",
         };
 
         public ArcaneNova(float xval, float yval) : base(xval, yval)
