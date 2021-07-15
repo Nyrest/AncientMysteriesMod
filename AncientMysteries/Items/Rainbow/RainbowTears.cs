@@ -16,15 +16,18 @@
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "棱彩之泪",
             _ => "Chromatic Tears",
         };
 
-        public RainbowTears(float xval, float yval) : base(xval, yval)
-        {         
-            _ammoType = new AT_RainbowEyedrops()
-            {
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            _ => "「天気なんて、狂ったままでいいんだ！」",
+        };
 
-            };
+        public RainbowTears(float xval, float yval) : base(xval, yval)
+        {
+            _ammoType = new AT_RainbowEyedrops();
             _type = "gun";
             _spriteMap = this.ReadyToRunWithFrames(t_Staff_Judgement, 13, 39);
             SetBox(13, 39);
