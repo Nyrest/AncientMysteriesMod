@@ -11,19 +11,11 @@ namespace AncientMysteries.Items.True
 
         public override void Removed()
         {
-            var firedBullets = new List<Bullet>(5);
-            for (int i = 0; i < 5; i++)
+            NetHelper.NmFireGun(null,list =>
             {
                 var bullet = Make.Bullet<AT_Leaf>(travelEnd, _owner, Rando.Float(0f, 360f), this);
-                firedBullets.Add(bullet);
-                Level.Add(bullet);
-            }
-            if (Network.isActive)
-            {
-                NMFireGun gunEvent = new(null, firedBullets, (byte)firedBullets.Count, rel: false, 4);
-                Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
-                firedBullets.Clear();
-            }
+                list.Add(bullet);
+            });
             base.Removed();
         }
     }
