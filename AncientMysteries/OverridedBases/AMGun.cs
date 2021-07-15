@@ -51,5 +51,6 @@
         }
 
         public abstract string GetLocalizedName(AMLang lang);
+        public abstract string GetLocalizedDescription(AMLang lang);
     }
 }

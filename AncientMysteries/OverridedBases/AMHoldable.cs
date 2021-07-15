@@ -7,6 +7,7 @@
             _editorName = GetLocalizedName(AMLocalization.Current);
         }
 
+        public abstract string GetLocalizedDescription(AMLang lang);
         public abstract string GetLocalizedName(AMLang lang);
     }
 }
