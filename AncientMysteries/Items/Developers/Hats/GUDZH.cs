@@ -19,10 +19,10 @@
         public override void Update()
         {
             base.Update();
-            this.scale = Vec2.One;
-            float scale = 1;
             if (owner is Duck duck)
             {
+                this.scale = Vec2.One;
+                float scale = 1;
                 if (duck.quack != 0)
                 {
                     scale = 2;
