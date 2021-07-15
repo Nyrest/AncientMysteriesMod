@@ -11,17 +11,17 @@ namespace AncientMysteries.Items.Artifact
     {
         public int charger = 0;
 
-        public AntennaBullet fuck1;//左
+        public AntennaBullet fuck1;// Left
 
-        public AntennaBullet fuck2;//左下
+        public AntennaBullet fuck2;// Left-Bottom
 
-        public AntennaBullet fuck3;//左上
+        public AntennaBullet fuck3;// Left-Top
 
-        public AntennaBullet fuck4;//右
+        public AntennaBullet fuck4;// Right
 
-        public AntennaBullet fuck5;//右下
+        public AntennaBullet fuck5;// Right-Bottom
 
-        public AntennaBullet fuck6;//右上
+        public AntennaBullet fuck6;// Right-Top
 
         public StateBinding cBinding = new(nameof(charger));
         public Antenna(float xpos, float ypos) : base(xpos, ypos)
