@@ -11,7 +11,7 @@
             speedVariation = 0.1f;
             combustable = true;
             bulletLength = 0;
-            sprite = TexHelper.ModSprite(t_Leaf);
+            sprite = TexHelper.ModSprite(t_Bullet_Leaf);
             sprite.CenterOrigin();
             bulletColor = Color.OrangeRed;
         }

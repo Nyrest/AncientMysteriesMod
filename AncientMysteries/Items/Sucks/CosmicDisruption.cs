@@ -13,7 +13,7 @@
             ammo = byte.MaxValue;
             _ammoType = new CosmicDisruption_AmmoType();
             _type = "gun";
-            this.ReadyToRunMap(t_CosmicDisruption);
+            this.ReadyToRunMap(t_Gun_CosmicDisruption);
             _barrelOffsetTL = new Vec2(40f, 7f);
             BarrelSmoke.color = Color.White;
             _fireSound = "laserRifle";

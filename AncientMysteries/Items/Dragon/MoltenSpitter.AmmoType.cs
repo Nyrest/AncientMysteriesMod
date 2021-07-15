@@ -12,7 +12,7 @@
             bulletLength = 0;
             combustable = true;
             bulletColor = Color.OrangeRed;
-            sprite = TexHelper.ModSprite(t_Fireball2);
+            sprite = TexHelper.ModSprite(t_Bullet_Fireball2);
             sprite.CenterOrigin();
         }
 

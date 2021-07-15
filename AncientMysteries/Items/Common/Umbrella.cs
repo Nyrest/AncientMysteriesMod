@@ -14,7 +14,7 @@
 
         public Umbrella(float xval, float yval) : base(xval, yval)
         {
-            this.ReadyToRunMap(t_Umbrella_closed);
+            this.ReadyToRunMap(t_Holdable_UmbrellaClosed);
             thickness = 1.5f;
             flammable = 1f;
             physicsMaterial = PhysicsMaterial.Rubber;
@@ -29,7 +29,7 @@
                 if (!_opened)
                 {
                     _opened = true;
-                    this.ReadyToRunMap(t_Umbrella_open);
+                    this.ReadyToRunMap(t_Holdable_UmbrellaOpen);
                 }
                 handAngle = 0;
 
@@ -62,7 +62,7 @@
                 if (_opened)
                 {
                     _opened = false;
-                    this.ReadyToRunMap(t_Umbrella_closed);
+                    this.ReadyToRunMap(t_Holdable_UmbrellaClosed);
                 }
             }
         }

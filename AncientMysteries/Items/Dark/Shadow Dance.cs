@@ -16,7 +16,7 @@
                 range = 1600,
                 penetration = 3.5f,
             };
-            this.ReadyToRunMap(t_ShadowDance);
+            this.ReadyToRunMap(t_Gun_ShadowDance);
             _flare.color = Color.Black;
             BarrelSmoke.color = Color.Black;
             _barrelOffsetTL = new Vec2(34f, 6f);

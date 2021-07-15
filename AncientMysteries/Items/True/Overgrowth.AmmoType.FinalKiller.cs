@@ -4,7 +4,7 @@
     {
         public Overgrowth_AmmoType_FinalKiller()
         {
-            sprite = t_OvergrowthSmall.ModSprite();
+            sprite = t_Bullet_OvergrowthSmall.ModSprite();
             bulletLength = 0f;
             bulletSpeed = 1f;
             accuracy = 1f;

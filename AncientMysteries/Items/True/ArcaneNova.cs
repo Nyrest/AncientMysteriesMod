@@ -22,7 +22,7 @@
         public ArcaneNova(float xval, float yval) : base(xval, yval)
         {
             _type = "gun";
-            _spriteMap = this.ReadyToRunMap(t_ArcaneNova, 14, 37);
+            _spriteMap = this.ReadyToRunMap(t_Staff_ArcaneNova, 14, 37);
             SetBox(14, 37);
             _barrelOffsetTL = new Vec2(6f, 5f);
             _castSpeed = 0.007f;

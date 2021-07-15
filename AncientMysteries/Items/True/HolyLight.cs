@@ -27,7 +27,7 @@
 
             };
             _type = "gun";
-            _spriteMap = this.ReadyToRunMap(t_HolyLight, 15, 37);
+            _spriteMap = this.ReadyToRunMap(t_Staff_HolyLight, 15, 37);
             SetBox(15, 37);
             _barrelOffsetTL = new Vec2(6f, 5f);
             _castSpeed = 0.012f;

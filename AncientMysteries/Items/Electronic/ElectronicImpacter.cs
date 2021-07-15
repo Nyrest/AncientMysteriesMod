@@ -13,7 +13,7 @@
 			ammo = 80;
 			_ammoType = new AT_Electronic();
 			_type = "gun";
-			this.ReadyToRunMap(t_ElectronicImpacter);
+			this.ReadyToRunMap(t_Gun_ElectronicImpacter);
 			_flare.color = Color.Transparent;
 			BarrelSmokeFuckOff();
 			_barrelOffsetTL = new Vec2(24f, 5f);

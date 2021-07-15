@@ -49,7 +49,7 @@
         {
             ammo = 1;
             _type = "gun";
-            _sprite = this.ReadyToRunMap(t_FuriousNewYear, 7, 15);
+            _sprite = this.ReadyToRunMap(t_Throwable_FuriousNewYear, 7, 15);
             graphic = _sprite;
             bouncy = 0.4f;
             friction = 0.05f;

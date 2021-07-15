@@ -17,7 +17,7 @@
 			bulletColor = Color.White;
 			bulletType = typeof(ViscousAcidLiquor_Bullet);
 			immediatelyDeadly = true;
-			sprite = TexHelper.ModSprite(t_ViscousAcidLiquor_Bullet);
+			sprite = TexHelper.ModSprite(t_Bullet_ViscousAcidLiquorBullet);
 			sprite.CenterOrigin();
 		}
 	}

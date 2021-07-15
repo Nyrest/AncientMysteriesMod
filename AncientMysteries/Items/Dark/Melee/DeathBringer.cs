@@ -14,7 +14,7 @@
             : base(xval, yval)
         {
 
-            this.ReadyToRunMap(t_DeathBringer, 26, 32);
+            this.ReadyToRunMap(t_Melee_DeathBringer, 26, 32);
         }
 
         public override void Update()

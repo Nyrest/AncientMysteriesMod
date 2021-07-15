@@ -3,7 +3,7 @@
     [EditorGroup(g_artifacts)]
     public sealed class SpearOfLeonidas : AMMelee
     {
-        public static readonly Tex2D targetCircle = TexHelper.ModTex2D(t_TargetCircle);
+        public static readonly Tex2D targetCircle = TexHelper.ModTex2D(t_Effect_TargetCircle);
         public static readonly int tcWidth = targetCircle.w, tcHeight = targetCircle.h;
 
         //public StateBinding _targetPlayerBinding = new StateBinding("_targetPlayer");
@@ -23,7 +23,7 @@
 
         public SpearOfLeonidas(float xval, float yval) : base(xval, yval)
         {
-            this.ReadyToRunMap(t_SpearOfLeonidas);
+            this.ReadyToRunMap(t_Melee_SpearOfLeonidas);
             _barrelOffsetTL = new Vec2(20f, 4f);
             _fireSound = "smg";
             physicsMaterial = PhysicsMaterial.Metal;

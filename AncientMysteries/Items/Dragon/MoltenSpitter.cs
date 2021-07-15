@@ -23,7 +23,7 @@
             ammo = 127;
             _ammoType = new MoltenSpitter_AmmoType();
             _type = "gun";
-            _spriteMap = this.ReadyToRunMap(t_MoltenSpitter, 39, 15);
+            _spriteMap = this.ReadyToRunMap(t_Gun_MoltenSpitter, 39, 15);
             SetBox(39, 13);
             BarrelSmokeFuckOff();
             _fireSound = "smg";
