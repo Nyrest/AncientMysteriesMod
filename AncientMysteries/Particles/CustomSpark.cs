@@ -16,7 +16,7 @@
 
         public static CustomSpark New(float xpos, float ypos, Vec2 hitAngle, Color color, float killSpeed = 0.02f)
         {
-            CustomSpark spark = null;
+            CustomSpark spark;
             if (_sparks[_lastActiveSpark] == null)
             {
                 spark = new CustomSpark();
@@ -69,8 +69,7 @@
             Vec2 dir = velocity.normalized;
             float speed = velocity.length * 2f;
             Vec2 end = position + dir * speed;
-            Vec2 intersect;
-            Block touch = Level.CheckLine<Block>(position, end, out intersect);
+            Block touch = Level.CheckLine<Block>(position, end, out Vec2 intersect);
             Graphics.DrawLine(position, (touch != null) ? intersect : end, _color * alpha, 0.5f, depth);
         }
     }

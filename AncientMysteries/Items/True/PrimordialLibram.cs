@@ -134,7 +134,7 @@
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    var b = Make.Bullet<AT_Flower>(pos, owner, owner._offDir == 1 ? 0 : 180 + Rando.Float(-15, 15), this);
+                    var b = Make.Bullet<PrimordialLibram_AmmoType_Flower>(pos, owner, owner._offDir == 1 ? 0 : 180 + Rando.Float(-15, 15), this);
                     list.Add(b);
                 }
             });
