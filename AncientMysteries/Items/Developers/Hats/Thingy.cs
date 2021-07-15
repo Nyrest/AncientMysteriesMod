@@ -17,8 +17,8 @@ namespace AncientMysteries.Armor.Developers.Hats
 
         public Thingy(float xpos, float ypos) : base(xpos, ypos)
         {
-            _sprite = this.ModSpriteMap(t_HatHatty, 32, 32, true);
-            _pickupSprite = this.ReadyToRun(t_HatHattyPickup);
+            _sprite = this.ModSpriteMap(t_Hat_Devastator, 32, 32, true);
+            _pickupSprite = this.ReadyToRun(t_Hat_DevastatorPickup);
             EquipmentMaxHitPoints = 32767;
             EquipmentHitPoints = 32767;
             _isArmor = true;

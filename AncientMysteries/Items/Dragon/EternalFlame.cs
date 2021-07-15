@@ -17,7 +17,7 @@ namespace AncientMysteries.Items.Dragon.Melee
 
         public EternalFlame(float xval, float yval) : base(xval, yval)
         {
-            this.ReadyToRunMap(t_EF, 9, 25);
+            this.ReadyToRunMap(t_Melee_EternalFlame, 9, 25);
         }
 
         public override void Update()

@@ -9,8 +9,8 @@ namespace AncientMysteries.Items.Developers.Hats
 
         public GUDZH(float xpos, float ypos) : base(xpos, ypos)
         {
-            _sprite = this.ModSpriteMap(t_HatGUDZH, 32, 32, true);
-            _pickupSprite = this.ReadyToRun(t_HatGUDZHPickup);
+            _sprite = this.ModSpriteMap(t_Hat_GUDZH, 32, 32, true);
+            _pickupSprite = this.ReadyToRun(t_Hat_GUDZHPickup);
             _sprite.CenterOrigin();
             EquipmentMaxHitPoints = 32767;
             EquipmentHitPoints = 32767;
