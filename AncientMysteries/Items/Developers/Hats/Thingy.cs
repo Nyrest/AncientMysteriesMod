@@ -8,7 +8,7 @@ namespace AncientMysteries.Armor.Developers.Hats
     {
         private static readonly FieldInfo fieldAmmoType = typeof(Gun).GetField("_ammoType", BindingFlags.Instance | BindingFlags.NonPublic);
         private static readonly FieldInfo fieldFullAuto = typeof(Gun).GetField("_fullAuto", BindingFlags.Instance | BindingFlags.NonPublic);
-        public static readonly List<Gun> bindedSpawnedGuns = new List<Gun>();
+        public static readonly List<Gun> bindedSpawnedGuns = new();
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
@@ -17,8 +17,8 @@ namespace AncientMysteries.Armor.Developers.Hats
 
         public Thingy(float xpos, float ypos) : base(xpos, ypos)
         {
-            _sprite = this.ModSpriteMap(t_HatHatty, 32, 32, true);
-            _pickupSprite = this.ReadyToRun(t_HatHattyPickup);
+            _sprite = this.ModSpriteMap(t_Hat_Devastator, 32, 32, true);
+            _pickupSprite = this.ReadyToRun(t_Hat_DevastatorPickup);
             EquipmentMaxHitPoints = 32767;
             EquipmentHitPoints = 32767;
             _isArmor = true;

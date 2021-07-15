@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using static AncientMysteries.AMFonts;
 
 namespace AncientMysteries.Items.FutureTech.Grenades
 {
@@ -208,10 +207,10 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             }
             if (prevOwner != null && _cookThrower == null)
             {
-                _cookThrower = (prevOwner as Duck);
+                _cookThrower = prevOwner as Duck;
                 _cookTimeOnThrow = _timer;
             }
-            _sprite.frame = ((!_pin) ? 1 : 0);
+            _sprite.frame = (!_pin) ? 1 : 0;
         }
 
         public override void OnSolidImpact(MaterialThing with, ImpactedFrom from)
@@ -245,17 +244,17 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             {
                 var start = topLeft + graphic.center * graphic.scale;
                 float fontWidth;
-                fontWidth = _biosFont.GetWidth("@QUACK@", false, duck.inputProfile);
-                _biosFont.Draw("@QUACK@", duck.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
+                fontWidth = BiosFont.GetWidth("@QUACK@", false, duck.inputProfile);
+                BiosFont.Draw("@QUACK@", duck.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
                 if (_pin)
                 {
-                    fontWidth = _biosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
-                    _biosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
+                    fontWidth = BiosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
+                    BiosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
                 }
                 else
                 {
-                    fontWidth = _biosFont.GetWidth("@GRAB@", false, duck.inputProfile);
-                    _biosFont.Draw("@GRAB@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
+                    fontWidth = BiosFont.GetWidth("@GRAB@", false, duck.inputProfile);
+                    BiosFont.Draw("@GRAB@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
                 }
                 Graphics.DrawLine(start, _targetPlayer.position, Color.White, duck is null ? 0.6f : 1f, 1);
             }

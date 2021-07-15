@@ -66,7 +66,7 @@
             base.Update();
             if (_aiming && _aimWait <= 0f && _fireAngle < 90f)
             {
-                _fireAngle += _fireAngle < 30 ? 1 : ((90 / _fireAngle) * 1f);
+                _fireAngle += _fireAngle < 30 ? 1 : (90 / _fireAngle * 1f);
             }
             if (_aimWait > 0f)
             {

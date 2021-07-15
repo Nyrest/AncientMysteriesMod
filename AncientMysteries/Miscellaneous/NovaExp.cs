@@ -11,25 +11,25 @@
             _sprite = this.ReadyToRunMap(t_CrystalExplosionP, 36, 36);
             _sprite.AddAnimation("loop", 1f, false, new int[]
             {
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
             });
             _sprite.SetAnimation("loop");
             graphic = _sprite;
@@ -42,16 +42,6 @@
             {
                 _wait = 0f;
             }
-        }
-
-        public override void Update()
-        {
-            base.Update();
-        }
-
-        public override void Draw()
-        {
-            base.Draw();
         }
     }
 }

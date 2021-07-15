@@ -1,8 +1,9 @@
-﻿namespace AncientMysteries.AmmoTypes
+﻿namespace AncientMysteries.Items.Dragon
 {
-    public sealed class AT_Dragon : AMAmmoType
+    [EditorGroup(g_machineGuns)]
+    public sealed class MoltenSpitter_AmmoType : AMAmmoType
     {
-        public AT_Dragon()
+        public MoltenSpitter_AmmoType()
         {
             accuracy = 0.6f;
             range = 400f;
@@ -13,13 +14,12 @@
             bulletColor = Color.OrangeRed;
             sprite = TexHelper.ModSprite(t_Fireball2);
             sprite.CenterOrigin();
-            bulletType = typeof(Bullet_Dragon);
         }
 
         public override void OnHit(bool destroyed, Bullet b)
         {
-            base.OnHit(destroyed, b);
             Level.Add(SmallFire.New(b.x, b.y, 0, 0));
+            base.OnHit(destroyed, b);
         }
     }
 }

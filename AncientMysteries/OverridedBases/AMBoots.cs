@@ -1,10 +1,14 @@
-﻿namespace AncientMysteries.Items
+﻿namespace AncientMysteries
 {
-    public abstract class AMEquipment : Equipment, IAMEquipment, IAMLocalizable
+    public abstract class AMBoots : Boots, IAMEquipment, IAMLocalizable
     {
-        private static readonly FieldInfo _fieldEquipmentHealth = typeof(Equipment).GetField("_equipmentHealth", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static FieldInfo _fieldEquipmentHealth = typeof(Equipment).GetField("_equipmentHealth", BindingFlags.Instance | BindingFlags.NonPublic);
 
-        protected AMEquipment(float xpos, float ypos) : base(xpos, ypos)
+        public new ref SpriteMap _sprite => ref base._sprite;
+
+        public new ref Sprite _pickupSprite => ref base._pickupSprite;
+
+        protected AMBoots(float xpos, float ypos) : base(xpos, ypos)
         {
             _isArmor = true;
             _editorName = GetLocalizedName(AMLocalization.Current);
@@ -26,39 +30,8 @@
             return EquipmentHitPoints <= 0 && Destroyable && base.OnDestroy(type);
         }
 
-        public override bool Hit(Bullet bullet, Vec2 hitPos)
-        {
-            if (BulletThroughNotEquipped && (_equippedDuck == null || bullet.owner == duck || !bullet.isLocal))
-            {
-                return false;
-            }
-            if (_isArmor)
-            {
-                if (bullet.isLocal && duck != null)
-                {
-                    if (--EquipmentHitPoints <= 0 && KnockOffOnHit)
-                    {
-                        duck.KnockOffEquipment(this, ting: true, bullet);
-                        Fondle(this, DuckNetwork.localConnection);
-                    }
-                }
-                if (bullet.isLocal && Network.isActive)
-                {
-                    NetSoundEffect.Play("equipmentTing");
-                }
-                bullet.hitArmor = true;
-                Level.Add(MetalRebound.New(hitPos.x, hitPos.y, (bullet.travelDirNormalized.x > 0f) ? 1 : (-1)));
-                for (int i = 0; i < 6; i++)
-                {
-                    Level.Add(Spark.New(x, y, bullet.travelDirNormalized));
-                }
-                return thickness > bullet.ammo.penetration;
-            }
-            return base.Hit(bullet, hitPos);
-        }
-
         public abstract string GetLocalizedName(AMLang lang);
-
+        
         public StateBinding _equipmentMaxHitPointsBinding = new(nameof(_equipmentMaxHitPoints));
         public StateBinding _equipmentHitPointsBinding = new(nameof(_equipmentHitPoints));
 

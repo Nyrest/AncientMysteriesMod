@@ -76,7 +76,7 @@
             var targetPos = _target();
             Vec2 travel = position - targetPos;
             float len = travel.lengthSq;
-            if (len < 64f || len > 4096f)
+            if (len is < 64f or > 4096f)
             {
                 alpha -= 0.08f;
             }

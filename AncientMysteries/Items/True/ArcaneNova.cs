@@ -34,22 +34,13 @@
             _fullAuto = true;
         }
 
-        public override void OnSpelling()
-        {
-            base.OnSpelling();
-        }
-
-        public override void Update()
-        {
-            base.Update();
-        }
-
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
             if (_castTime >= 1f)
             {
+
                 this.NmFireGun(list =>
                 {
                     Bullet b = Make.Bullet<AT_AN>(firePos, owner, owner.offDir == 1 ? 0 : 180, this);
