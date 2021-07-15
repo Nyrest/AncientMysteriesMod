@@ -8,11 +8,11 @@ namespace AncientMysteries.Items.Artifact
 {
     class AntennaBullet : Thing, ITeleport
     {
-        public StateBinding positionBinding = new CompressedVec2Binding(nameof(position));
+        public StateBinding positionBinding = new(nameof(position));
 
         public Vec2 move;
 
-        public StateBinding moveBinding = new CompressedVec2Binding(nameof(move));
+        public StateBinding moveBinding = new(nameof(move));
 
         public bool isMoving => move != Vec2.Zero;
 
