@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AncientMysteries.Items.Dragon.Melee
+namespace AncientMysteries.Items.Melee
 {
     [EditorGroup(g_melees)]
     public sealed class EternalFlame : AMMelee
@@ -42,44 +42,22 @@ namespace AncientMysteries.Items.Dragon.Melee
             {
                 if (_quacked != duck.IsQuacking() && (_quacked = duck.IsQuacking()))
                 {
-                    if (owner._offDir == -1)
+                    ExplosionPart ins = new(owner.x, owner.y, true);
+                    ins.xscale *= 0.7f;
+                    ins.yscale *= 0.7f;
+                    Level.Add(ins);
+                    SFX.Play("explode", 0.7f, Rando.Float(-0.7f, -0.5f), 0f, false);
+                    Thing bulletOwner = owner;
+                    IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(owner.position, 14f);
+                    foreach (MaterialThing t2 in things)
                     {
-                        ExplosionPart ins = new(owner.x, owner.y, true);
-                        ins.xscale *= 0.7f;
-                        ins.yscale *= 0.7f;
-                        Level.Add(ins);
-                        SFX.Play("explode", 0.7f, Rando.Float(-0.7f, -0.5f), 0f, false);
-                        Thing bulletOwner = owner;
-                        IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(owner.position, 14f);
-                        foreach (MaterialThing t2 in things)
+                        if (t2 != bulletOwner)
                         {
-                            if (t2 != bulletOwner)
-                            {
-                                t2.Destroy(new DTShot(new Bullet_FB(owner.x, owner.y, new AT_FB(), -1, owner, false, 1)));
-                            }
+                            t2.Destroy(new DTImpact(this));
                         }
-                        owner.hSpeed += -700;
-                        cooldown2 = -15;
                     }
-                    else
-                    {
-                        ExplosionPart ins = new(owner.x, owner.y, true);
-                        ins.xscale *= 0.7f;
-                        ins.yscale *= 0.7f;
-                        Level.Add(ins);
-                        SFX.Play("explode", 0.7f, Rando.Float(-0.7f, -0.5f), 0f, false);
-                        Thing bulletOwner = owner;
-                        IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(owner.position, 14f);
-                        foreach (MaterialThing t2 in things)
-                        {
-                            if (t2 != bulletOwner)
-                            {
-                                t2.Destroy(new DTShot(new Bullet_FB(owner.x, owner.y, new AT_FB(), -1, owner, false, 1)));
-                            }
-                        }
-                        owner.hSpeed += 700;
-                        cooldown2 = -15;
-                    }
+                    owner.hSpeed += 700 * owner._offDir;
+                    cooldown2 = -15;
                 }
             }
             else
@@ -99,7 +77,7 @@ namespace AncientMysteries.Items.Dragon.Melee
                 {
                     for (int i = 0; i < 10; i++)
                     {
-                        Bullet b = Make.Bullet<AT_FB>(duck.position, owner, -180 + Rando.Float(-5, 5), this);
+                        Bullet b = Make.Bullet<EternalFlame_AmmoType>(duck.position, owner, -180 + Rando.Float(-5, 5), this);
                         firedBullets.Add(b);
                         Level.Add(b);
                         cooldown3 = -10;
@@ -109,7 +87,7 @@ namespace AncientMysteries.Items.Dragon.Melee
                 {
                     for (int i = 0; i < 10; i++)
                     {
-                        Bullet b = Make.Bullet<AT_FB>(duck.position, owner, 0 + Rando.Float(-5, 5), this);
+                        Bullet b = Make.Bullet<EternalFlame_AmmoType>(duck.position, owner, 0 + Rando.Float(-5, 5), this);
                         firedBullets.Add(b);
                         Level.Add(b);
                         cooldown3 = -10;
