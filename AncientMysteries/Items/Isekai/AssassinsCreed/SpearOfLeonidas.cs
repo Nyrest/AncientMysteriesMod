@@ -18,9 +18,14 @@
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "列奥尼达斯之矛",
             _ => "Spear Of Leonidas",
         };
-
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "斯巴达！",
+            _ => "Sparta!",
+        };
         public SpearOfLeonidas(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRunWithFrames(t_Melee_SpearOfLeonidas);
