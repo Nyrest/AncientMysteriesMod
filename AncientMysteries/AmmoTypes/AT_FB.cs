@@ -13,7 +13,7 @@
             rangeVariation = -50f;
             combustable = true;
             bulletLength = 0;
-            sprite = TexHelper.ModSprite(t_Firebolt);
+            sprite = TexHelper.ModSprite(t_Bullet_FireBolt);
             //sprite.CenterOrigin();
             bulletType = typeof(Bullet_FB);
         }

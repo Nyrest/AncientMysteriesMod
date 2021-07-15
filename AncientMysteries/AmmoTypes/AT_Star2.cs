@@ -13,7 +13,7 @@
             combustable = true;
             speedVariation = 0f;
             bulletType = typeof(Bullet_Star2);
-            sprite = TexHelper.ModSprite(t_HolyLight2);
+            sprite = TexHelper.ModSprite(t_Bullet_HolyStar2);
             sprite.CenterOrigin();
         }
 

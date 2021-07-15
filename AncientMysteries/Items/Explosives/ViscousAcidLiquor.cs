@@ -49,7 +49,7 @@
         {
             ammo = 15;
             _type = "gun";
-            this.ReadyToRun(t_ViscousAcidLiquor);
+            this.ReadyToRun(t_Gun_ViscousAcidLiquor);
             _barrelOffsetTL = new Vec2(29, 6);
             _fireSound = "pistol";
             _kickForce = 2f;

@@ -11,7 +11,7 @@
             bulletSpeed = 2f;
             speedVariation = 0f;
             bulletLength = 0;
-            sprite = TexHelper.ModSprite(t_Icicle);
+            sprite = TexHelper.ModSprite(t_Bullet_Icicle);
             sprite.CenterOrigin();
         }
     }

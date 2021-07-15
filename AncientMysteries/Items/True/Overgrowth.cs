@@ -24,7 +24,7 @@
 
         public Overgrowth(float xval, float yval) : base(xval, yval)
         {
-            _spriteMap = this.ReadyToRunMap(t_Overgrowth, 21, 34);
+            _spriteMap = this.ReadyToRunMap(t_Staff_Overgrowth, 21, 34);
             _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2, 3);
             _spriteMap.SetAnimation("loop");
             SetBox(21, 34);

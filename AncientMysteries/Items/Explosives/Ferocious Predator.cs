@@ -51,7 +51,7 @@
         {
             ammo = 6;
             _type = "gun";
-            this.ReadyToRunMap(t_FerociousPredator, 32, 16);
+            this.ReadyToRunMap(t_Gun_FerociousPredator, 32, 16);
             _barrelOffsetTL = new Vec2(32f, 7f);
             _fireSound = "pistol";
             _kickForce = 3f;

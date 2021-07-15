@@ -4,7 +4,7 @@
     {
         public Overgrowth_AmmoType_Big()
         {
-            sprite = t_OvergrowthBig.ModSprite();
+            sprite = t_Bullet_OvergrowthBig.ModSprite();
             bulletSpeed = 3f;
             accuracy = 0.4f;
             speedVariation = 3f;
