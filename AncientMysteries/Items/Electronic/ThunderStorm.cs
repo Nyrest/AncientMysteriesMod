@@ -22,7 +22,7 @@
         public Thunderstorm(float xval, float yval) : base(xval, yval)
         {
             _ammoType = new AT_CubicBlast();
-            _spriteMap = this.ReadyToRunMap(t_Staff_ThunderStorm, 13, 36);
+            _spriteMap = this.ReadyToRunWithFrames(t_Staff_ThunderStorm, 13, 36);
             _barrelOffsetTL = new Vec2(6, 3);
             _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2);
             _spriteMap.SetAnimation("loop");
