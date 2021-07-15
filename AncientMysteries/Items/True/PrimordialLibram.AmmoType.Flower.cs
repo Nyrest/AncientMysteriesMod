@@ -1,8 +1,14 @@
-﻿namespace AncientMysteries.AmmoTypes
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AncientMysteries.Items.True
 {
-    public sealed class AT_Flower : AMAmmoType
+    public sealed class PrimordialLibram_AmmoType_Flower : AMAmmoType
     {
-        public AT_Flower()
+        public PrimordialLibram_AmmoType_Flower()
         {
             accuracy = 1f;
             range = 250f;
@@ -13,14 +19,9 @@
             bulletLength = 0;
             sprite = TexHelper.ModSprite(t_Flower);
             sprite.CenterOrigin();
-            bulletType = typeof(Bullet_Flowerr);
+            bulletType = typeof(PrimordialLibram_Bullet_Flower);
             bulletColor = Color.OrangeRed;
             rangeVariation = 60f;
-        }
-
-        public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
-        {
-            return base.FireBullet(position, owner, angle, firedFrom);
         }
     }
 }
