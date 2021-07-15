@@ -5,9 +5,16 @@
     {
         public static Type[] amTypes = Assembly.GetExecutingAssembly().GetTypes().Where(x => !x.IsAbstract && typeof(Holdable).IsAssignableFrom(x)).ToArray();
 
+        public static readonly string[] awesomeGuys = new[]
+        {
+            t_Hat_Boring3Pickup,
+            t_Hat_DevastatorPickup,
+            t_Hat_GUDZHPickup,
+        };
+
         public RandomAMItem()
         {
-            this.ReadyToRunWithFrames(Rand.Choose(_AllTextures));
+            this.ReadyToRunWithFrames(Rand.Choose(awesomeGuys));
             _editorName = "|DGPURPLE|Random";
         }
 

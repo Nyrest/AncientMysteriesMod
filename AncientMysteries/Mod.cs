@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace AncientMysteries
 {
@@ -18,8 +19,8 @@ namespace AncientMysteries
 
         protected override void OnPostInitialize()
         {
-
             base.OnPostInitialize();
+            var a = typeof(Unsafe).ToString();
             (typeof(Game).GetField("updateableComponents", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(MonoMain.instance) as List<IUpdateable>).Add(new updateObject(x =>
             {
                 foreach (var modTopGroup in Editor.Placeables.SubGroups)
