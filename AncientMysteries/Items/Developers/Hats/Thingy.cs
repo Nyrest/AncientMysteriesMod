@@ -32,6 +32,12 @@ namespace AncientMysteries.Armor.Developers.Hats
             var d = equippedDuck;
             if (d is not null)
             {
+                if (d.quack != 0 && d.holdObject is null)
+                {
+                    var cosmicGun = new CosmicDisruption(duck.x, duck.y);
+                    bindedSpawnedGuns.Add(cosmicGun);
+                    duck.GiveHoldable(cosmicGun);
+                }
                 d.lives = 1;
                 d.gravMultiplier = d.crouch ? 2f : 0.2f;
                 if (d.gun is Gun gun)
@@ -94,7 +100,7 @@ namespace AncientMysteries.Armor.Developers.Hats
             List<Gun> toRemove = null;
             foreach (var item in bindedSpawnedGuns)
             {
-                if (owner is null || item.owner != owner)
+                if (d is null || d.holdObject != item)
                 {
                     Level.Remove(item);
                     if (toRemove is null)
@@ -111,22 +117,6 @@ namespace AncientMysteries.Armor.Developers.Hats
                     bindedSpawnedGuns.Remove(item);
                 }
             }
-        }
-
-        public override void Quack(float volume, float pitch)
-        {
-            base.Quack(volume, pitch);
-            if (owner is Duck duck && duck.holdObject is null)
-            {
-                var gun = new CosmicDisruption(duck.x, duck.y);
-                bindedSpawnedGuns.Add(gun);
-                duck.GiveHoldable(gun);
-            }
-        }
-
-        public override void Equip(Duck d)
-        {
-            base.Equip(d);
         }
 
         public override void UnEquip()
