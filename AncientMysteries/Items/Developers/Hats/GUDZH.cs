@@ -52,5 +52,11 @@
         {
             _ => "GUDZH",
         };
+
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "我在吃饭。真的。没什么好说的。",
+            _ => "Eating now... Really. There's nothing to say.",
+        };
     }
 }
