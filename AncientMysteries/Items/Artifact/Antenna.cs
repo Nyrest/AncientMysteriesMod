@@ -26,7 +26,7 @@ namespace AncientMysteries.Items.Artifact
         public StateBinding cBinding = new(nameof(charger));
         public Antenna(float xpos, float ypos) : base(xpos, ypos)
         {
-            this.ReadyToRunMap(t_Holdable_Antenna);
+            this.ReadyToRun(t_Holdable_Antenna);
         }
 
         public override string GetLocalizedName(AMLang lang) => lang switch
