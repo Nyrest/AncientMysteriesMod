@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Armor;
-
-namespace AncientMysteries.Items.Developers.Hats
+﻿namespace AncientMysteries.Items.Developers.Hats
 {
     [EditorGroup(e_developer)]
     public sealed class GUDZH : AMHelmet

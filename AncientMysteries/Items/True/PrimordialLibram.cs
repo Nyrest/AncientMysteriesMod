@@ -31,8 +31,11 @@
             _spriteMap = this.ReadyToRunMap(t_PriLibram, 21, 14);
             SetBox(21, 14);
             _barrelOffsetTL = new Vec2(6f, 5f);
-            //this._castSpeed = 0.006f;//0.006
-            _castSpeed = 1f;// for debug
+#if DEBUG
+            _castSpeed = 1f;
+#else
+            _castSpeed = 0.006f;
+#endif
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             _fireWait = 0.5f;
@@ -56,7 +59,7 @@
         public const int totalFireBallCount = 6;
         public bool cast_FireBall = false;
         public int currentFireBallCount = 0;
-        public Waiter fireBallWaiter = new(25);
+        public Waiter fireBallWaiter = new Waiter(25).TickToEnd();
 
         public void FireBallUpdate()
         {
@@ -74,12 +77,14 @@
                     }
                     else
                     {
+                        fireBallWaiter.TickToEnd();
                         cast_FireBall = false;
                         currentFireBallCount = 0;
                     }
                 }
                 else
                 {
+                    fireBallWaiter.TickToEnd();
                     cast_FireBall = false;
                     currentFireBallCount = 0;
                 }
@@ -92,7 +97,7 @@
         public bool cast_Icicle = false;
         public int currentIcicleCount = 0;
         public Vec2 icicle_pos;
-        public Waiter icicleWaiter = new(6);
+        public Waiter icicleWaiter = new Waiter(6).TickToEnd();
 
         public void IcicleUpdate()
         {
@@ -114,12 +119,14 @@
                     }
                     else
                     {
+                        icicleWaiter.TickToEnd();
                         cast_Icicle = false;
                         currentIcicleCount = 0;
                     }
                 }
                 else
                 {
+                    icicleWaiter.TickToEnd();
                     cast_Icicle = false;
                     currentIcicleCount = 0;
                 }
@@ -146,7 +153,7 @@
         public bool cast_Lightning = false;
         public int currentLightningCount = 0;
         public Vec2 lightning_pos;
-        public Waiter lightningWaiter = new(6);
+        public Waiter lightningWaiter = new Waiter(6).TickToEnd();
 
         public void LightningUpdate()
         {
@@ -180,12 +187,14 @@
                     }
                     else
                     {
+                        lightningWaiter.TickToEnd();
                         cast_Lightning = false;
                         currentLightningCount = 0;
                     }
                 }
                 else
                 {
+                    lightningWaiter.TickToEnd();
                     cast_Lightning = false;
                     currentLightningCount = 0;
                 }

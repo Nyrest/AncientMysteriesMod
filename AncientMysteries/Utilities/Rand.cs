@@ -19,7 +19,7 @@
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float RandomNegative(this float value) =>
-        (rand.Next() & 1) == 0
+        Bool()
             ? value
             : -value;
 

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using static AncientMysteries.AMFonts;
 
 namespace AncientMysteries.Items.FutureTech.Grenades
 {
@@ -243,7 +242,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                         continue;
                     }
                     previousThings.Add(o);
-                    if (o is Duck || o is TrappedDuck || o is RagdollPart)
+                    if (o is Duck or TrappedDuck or RagdollPart)
                     {
                         holdWeight += 5f;
                         Duck d2 = o as Duck;
@@ -430,8 +429,8 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             if (IsTargetVaild && duck?.profile.localPlayer == true)
             {
                 var start = topLeft + graphic.center * graphic.scale;
-                float fontWidth = _biosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
-                _biosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
+                float fontWidth = BiosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
+                BiosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
                 Graphics.DrawLine(start, _targetPlayer.position, Color.White, duck is null ? 0.6f : 1f, 1);
             }
         }

@@ -226,9 +226,6 @@ namespace AncientMysteries
             : base(xval, yval)
         {
             ammo = 4;
-            _ammoType = new ATLaser();
-            _ammoType.range = 170f;
-            _ammoType.accuracy = 0.8f;
             _type = "gun";
             graphic = new Sprite("sword");
             center = new Vec2(4f, 21f);
@@ -605,7 +602,7 @@ namespace AncientMysteries
                             _throwSpin = Lerp.Float(-90f, 0f, 16f);
                         }
                     }
-                    else if (_throwSpin > 90f && _throwSpin < 270f)
+                    else if (_throwSpin is > 90f and < 270f)
                     {
                         _throwSpin = Lerp.Float(_throwSpin, 180f, 14f);
                     }
@@ -936,7 +933,7 @@ namespace AncientMysteries
                         laserHit.safeDuck = duck;
                         float mag = laserHit.travel.length;
                         float mul = 1.5f;
-                        Vec2 travel = (laserHit.travel = ((offDir > 0) ? new Vec2(mag * mul, 0f) : new Vec2((0f - mag) * mul, 0f)));
+                        Vec2 travel = laserHit.travel = (offDir > 0) ? new Vec2(mag * mul, 0f) : new Vec2((0f - mag) * mul, 0f);
                         QuadLaserHit(laserHit);
                     }
                     else
@@ -1128,7 +1125,7 @@ namespace AncientMysteries
             {
                 if (duck != null)
                 {
-                    _swordSwing.flipH = ((duck.offDir <= 0) ? true : false);
+                    _swordSwing.flipH = duck.offDir <= 0;
                 }
                 _swordSwing.alpha = 0.4f;
                 _swordSwing.position = position;

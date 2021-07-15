@@ -9,9 +9,7 @@
 
         public static int FaceAngleDegressLeftOrRight(this Thing thing)
         {
-            if (thing.offDir == 1)
-                return 0;
-            else return 180;
+            return thing.offDir == 1 ? 0 : 180;
         }
     }
 }

@@ -22,16 +22,12 @@
 
         public override bool Destroy(DestroyType type = null)
         {
-            if (EquipmentHitPoints > 0 || !Destroyable)
-                return false;
-            return base.Destroy(type);
+            return EquipmentHitPoints <= 0 && Destroyable && base.Destroy(type);
         }
 
         protected override bool OnDestroy(DestroyType type = null)
         {
-            if (EquipmentHitPoints > 0 || !Destroyable)
-                return false;
-            return base.OnDestroy(type);
+            return EquipmentHitPoints <= 0 && Destroyable && base.OnDestroy(type);
         }
 
         public abstract string GetLocalizedName(AMLang lang);
