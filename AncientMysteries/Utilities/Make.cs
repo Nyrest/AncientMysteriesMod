@@ -49,7 +49,7 @@ namespace AncientMysteries.Utilities
     where TAmmoType : AmmoType, new()
         {
 
-            var ammoType = FastNew<TAmmoType>.CreateInstance();
+            var ammoType = GenericNew<TAmmoType>.CreateInstance();
             modifier(ref ammoType.bulletSpeed, ref ammoType.range);
             return ammoType.FireBullet(position, owner, angleDegress, firedFrom);
         }
@@ -64,7 +64,8 @@ namespace AncientMysteries.Utilities
         private static TAmmoType GetAmmoTypeInstance<TAmmoType>()
             where TAmmoType : AmmoType, new()
         {
-            return InstanceOf<TAmmoType>.instance;
+            return GenericNew<TAmmoType>.CreateInstance();
+            //return InstanceOf<TAmmoType>.instance;
         }
         #endregion
     }

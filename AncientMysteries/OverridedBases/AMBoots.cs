@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items
+﻿namespace AncientMysteries
 {
     public abstract class AMBoots : Boots, IAMEquipment, IAMLocalizable
     {

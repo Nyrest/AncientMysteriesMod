@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Armor
+﻿namespace AncientMysteries
 {
     public abstract class AMHelmet : Helmet, IAMEquipment, IAMLocalizable
     {
