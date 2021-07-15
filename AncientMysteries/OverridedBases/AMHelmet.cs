@@ -21,7 +21,7 @@
             if (CanCrush)
             {
                 int frm = _sprite.frame;
-                _sprite.frame = (crushed ? 1 : 0);
+                _sprite.frame = crushed ? 1 : 0;
                 base.Draw();
                 _sprite.frame = frm;
             }

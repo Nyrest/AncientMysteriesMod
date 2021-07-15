@@ -105,7 +105,7 @@
 
             var particleEnd =
                 hitPos
-                + (bullet.travelDirNormalized * bullet.bulletSpeed)
+                + bullet.travelDirNormalized * bullet.bulletSpeed
                 * 3
                 + new Vec2(Rando.Float(-5f, 5f), Rando.Float(-5f, 5f));
 

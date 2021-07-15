@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AncientMysteries.Items.Electronic
+﻿namespace AncientMysteries.Items.Electronic
 {
     [EditorGroup(g_staffs)]
     public sealed class Thunderstorm : AMStaff

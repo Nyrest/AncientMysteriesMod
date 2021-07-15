@@ -1,6 +1,4 @@
-﻿using static AncientMysteries.AMFonts;
-
-namespace AncientMysteries.Items.Artifacts
+﻿namespace AncientMysteries.Items.Artifacts
 {
     [EditorGroup(g_artifacts)]
     public sealed class SpearOfLeonidas : AMMelee
@@ -117,8 +115,8 @@ namespace AncientMysteries.Items.Artifacts
                 var start = duck.position;
                 var end = _targetPlayer.position - new Vec2(0, 13);
                 //Graphics.DrawLine(start, end, Color.White, 1f, 1);
-                float fontWidth = _biosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
-                _biosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
+                float fontWidth = BiosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
+                BiosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
                 Graphics.DrawLine(start, _targetPlayer.position, Color.White, 1f, 1);
             }
         }

@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using AncientMysteries.Helpers;
+﻿using AncientMysteries.Helpers;
 
 namespace AncientMysteries.Utilities
 {

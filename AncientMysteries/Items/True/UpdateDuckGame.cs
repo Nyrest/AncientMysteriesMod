@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using static AncientMysteries.AMFonts;
 
 namespace AncientMysteries.Items.True
 {
@@ -84,8 +83,8 @@ namespace AncientMysteries.Items.True
             if (IsTargetVaild && duck?.profile.localPlayer == true)
             {
                 var start = topLeft + graphic.center * graphic.scale;
-                float fontWidth = _biosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
-                _biosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
+                float fontWidth = BiosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
+                BiosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
                 Graphics.DrawLine(start, _targetPlayer.position, Color.White, duck is null ? 0.6f : 1f, 1);
             }
             if (IsTargetVaild && (_targetPlayer?.profile.localPlayer == true) && _blindTime > 0 && _blindTime > overlayDrawTime)
@@ -113,7 +112,7 @@ namespace AncientMysteries.Items.True
                 Graphics.Clear(Color.Blue);
                 const string text = "Your Duck Game is updating...";
                 float width = Graphics.GetStringWidth(text);
-                Graphics.DrawString(text, new Vec2(Graphics.width / 2 - (width / 2) * 4, 250), Color.White, default, null, 4);
+                Graphics.DrawString(text, new Vec2(Graphics.width / 2 - width / 2 * 4, 250), Color.White, default, null, 4);
                 float whiteSpaceX = 100;
                 Graphics.DrawRect(new Rectangle(whiteSpaceX, 300, Graphics.width - whiteSpaceX * 2, 40),
                     Color.DarkGray);

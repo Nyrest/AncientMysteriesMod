@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items.True
+﻿namespace AncientMysteries.Items.True
 {
     public sealed class PrimordialLibram_AmmoType_Flower : AMAmmoType
     {

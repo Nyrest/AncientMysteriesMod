@@ -78,7 +78,7 @@ namespace AncientMysteries.Items.Explosives
                     block.shouldWreck = true;
                     idx.Add((block as AutoBlock).blockIndex);
                 }
-                else if (block is Door || block is VerticalDoor)
+                else if (block is Door or VerticalDoor)
                 {
                     Level.Remove(block);
                     block.Destroy(new DTRocketExplosion(null));
