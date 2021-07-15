@@ -29,7 +29,7 @@ namespace AncientMysteries.Items.True
 
         public UpdateDuckGame(float xpos, float ypos) : base(xpos, ypos)
         {
-            this.ReadyToRunMap(t_Staff_ForceUpdate);
+            this.ReadyToRunWithFrames(t_Staff_ForceUpdate);
         }
 
         public override void Update()

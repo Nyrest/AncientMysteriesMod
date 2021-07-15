@@ -24,7 +24,7 @@ namespace AncientMysteries
 
         #region
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static SpriteMap ModSpriteMap(this string spriteMapName, bool centerOrigin = false)
+        public static SpriteMap ModSpriteWithFrames(this string spriteMapName, bool centerOrigin = false)
         {
             var info = GetInfo(spriteMapName);
             var result = new SpriteMap(info.texture, info.frameWidth, info.frameHeight);
@@ -44,7 +44,7 @@ namespace AncientMysteries
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static SpriteMap ModSpriteMap(this string spriteMapName, int frameWidth = -1, int frameHeight = -1, bool centerOrigin = false)
+        public static SpriteMap ModSpriteWithFrames(this string spriteMapName, int frameWidth = -1, int frameHeight = -1, bool centerOrigin = false)
         {
             var info = GetInfo(spriteMapName);
             var result = new SpriteMap(info.texture, frameWidth == -1 ? info.frameWidth : frameWidth, frameHeight == -1 ? info.frameHeight : frameHeight);
@@ -56,7 +56,7 @@ namespace AncientMysteries
         #endregion
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static SpriteMap ModSpriteMap(this Thing thing, string spriteMapName, bool centerOrigin = false)
+        public static SpriteMap ModSpriteWithFrames(this Thing thing, string spriteMapName, bool centerOrigin = false)
         {
             var info = GetInfo(spriteMapName);
             var result = new SpriteMap(info.texture, info.frameWidth, info.frameHeight);
@@ -76,7 +76,7 @@ namespace AncientMysteries
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static SpriteMap ModSpriteMap(this Thing thing, string spriteMapName, int frameWidth = -1, int frameHeight = -1, bool centerOrigin = false)
+        public static SpriteMap ModSpriteWithFrames(this Thing thing, string spriteMapName, int frameWidth = -1, int frameHeight = -1, bool centerOrigin = false)
         {
             var info = GetInfo(spriteMapName);
             var result = new SpriteMap(info.texture, frameWidth == -1 ? info.frameWidth : frameWidth, frameHeight == -1 ? info.frameHeight : frameHeight);
@@ -106,7 +106,7 @@ namespace AncientMysteries
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static SpriteMap ReadyToRunMap(this Thing thing, string spriteMapName, int frameWidth = -1, int frameHeight = -1)
+        public static SpriteMap ReadyToRunWithFrames(this Thing thing, string spriteMapName, int frameWidth = -1, int frameHeight = -1)
         {
             var info = GetInfo(spriteMapName);
             if(thing.graphic is SpriteMap spriteMap && spriteMap.texture == info.texture)
@@ -122,7 +122,7 @@ namespace AncientMysteries
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static SpriteMap ReadyToRunMap(this Thing thing, string spriteMapName, Vec2 scale, int frameWidth = -1, int frameHeight = -1)
+        public static SpriteMap ReadyToRunWithFrames(this Thing thing, string spriteMapName, Vec2 scale, int frameWidth = -1, int frameHeight = -1)
         {
             var info = GetInfo(spriteMapName);
             int w = (int)Math.Ceiling((frameWidth == -1 ? info.frameWidth : frameWidth) * scale.x);

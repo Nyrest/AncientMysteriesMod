@@ -57,7 +57,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
                 penetration = 0.4f
             };
             _type = "gun";
-            _sprite = this.ReadyToRunMap(t_Throwable_TrackingGrenade, 8, 9);
+            _sprite = this.ReadyToRunWithFrames(t_Throwable_TrackingGrenade, 8, 9);
             graphic = _sprite;
             bouncy = 0.4f;
             friction = 0.05f;
