@@ -10,6 +10,13 @@
             _ => "Boring3",
         };
 
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "也许是这个 Mod 里最屌的东西。。。",
+            _ => "Probably the most powerful thing in this mod...",
+        };
+
+
         public Vec2 baseCollisionOffset, baseCollisionSize;
 
         public Boring3(float xpos, float ypos) : base(xpos, ypos)

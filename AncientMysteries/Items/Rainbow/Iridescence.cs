@@ -5,7 +5,14 @@
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "流光溢彩",
             _ => "Iridescence",
+        };
+
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "彩虹，一条架向天堂的桥梁。",
+            _ => "Rainbow. A bridge to the heaven.",
         };
 
         public Iridescence(float xval, float yval) : base(xval, yval)
