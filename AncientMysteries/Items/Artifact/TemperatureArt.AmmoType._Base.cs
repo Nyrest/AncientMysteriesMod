@@ -13,6 +13,7 @@ namespace AncientMysteries.Items.Artifact
             accuracy = 1;
             sprite = t_Bullet_TemperatureArt_Ice.ModSprite(true);
             range = 800;
+            HideTail();
         }
     }
 }
