@@ -8,12 +8,18 @@
         public static bool Bool() =>
         (rand.Next() & 1) == 0;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static T Choose<T>(params T[] items) => 
+            (items is not null && items.Length != 0)
+                ? items[rand.Next(0, items.Length)]
+                : default;
+
         /// <summary>
         /// Negative value if random generated number is odd
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float RandomNegative(this float value) =>
-        (rand.Next() & 1) == 0
+        Bool()
             ? value
             : -value;
 

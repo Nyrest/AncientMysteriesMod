@@ -31,9 +31,31 @@ namespace AncientMysteries
                     Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
                 }
             }
-collect:
+        collect:
             firedBullets.Clear();
             GlobalPool<List<Bullet>>.Return(firedBullets);
+        }
+
+        private static readonly List<Bullet> Size1List = new();
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void NmFireGun(this Gun gun, Bullet value, bool alsoAddThemToWorld = true)
+        {
+            if (alsoAddThemToWorld)
+            {
+                Level.current.AddThing(value);
+            }
+
+            if (gun != null)
+            {
+                gun.bulletFireIndex++;
+                if (Network.isActive)
+                {
+                    Size1List[0] = value;
+                    NMFireGun gunEvent = new(gun, Size1List, gun.bulletFireIndex, rel: false, 4);
+                    Size1List[0] = null;
+                    Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
+                }
+            }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -62,7 +84,7 @@ collect:
                     Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
                 }
             }
-collect:
+        collect:
             firedBullets.Clear();
             GlobalPool<List<Bullet>>.Return(firedBullets);
         }

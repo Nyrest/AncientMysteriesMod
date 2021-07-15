@@ -1,18 +1,14 @@
 ﻿using System.Collections.Generic;
 
-namespace AncientMysteries.Bullets
+namespace AncientMysteries.Items.True
 {
-    public class Bullet_Flowerr : Bullet
+    public class PrimordialLibram_Bullet_Flower : AMBullet
     {
-        public Bullet_Flowerr(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
+        public PrimordialLibram_Bullet_Flower(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
 
         }
 
-        public override void Update()
-        {
-            base.Update();
-        }
         public override void Removed()
         {
             var firedBullets = new List<Bullet>(5);

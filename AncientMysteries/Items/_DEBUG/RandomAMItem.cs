@@ -7,7 +7,7 @@
 
         public RandomAMItem()
         {
-            this.ReadyToRun(Rand.Bool() ? t_HatBoring3Pickup : t_HatHattyPickup);
+            this.ReadyToRunMap(Rand.Choose(_AllTextures));
             _editorName = "|DGPURPLE|Random";
         }
 

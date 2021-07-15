@@ -146,10 +146,10 @@
             }
             if (prevOwner != null && _cookThrower == null)
             {
-                _cookThrower = (prevOwner as Duck);
+                _cookThrower = prevOwner as Duck;
                 _cookTimeOnThrow = _timer;
             }
-            _sprite.frame = ((!_pin) ? 1 : 0);
+            _sprite.frame = (!_pin) ? 1 : 0;
         }
 
         public override void OnSolidImpact(MaterialThing with, ImpactedFrom from)

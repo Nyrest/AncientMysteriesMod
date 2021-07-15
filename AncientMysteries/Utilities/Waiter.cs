@@ -38,5 +38,11 @@
         {
             CurrentFrame = 0;
         }
+
+        public Waiter TickToEnd()
+        {
+            CurrentFrame = FramesToWait;
+            return this;
+        }
     }
 }

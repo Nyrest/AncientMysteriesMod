@@ -14,8 +14,8 @@
 
         public Boring3(float xpos, float ypos) : base(xpos, ypos)
         {
-            _sprite = this.ModSpriteMap(t_HatBoring3, 32, 32, true);
-            _pickupSprite = this.ReadyToRun(t_HatBoring3Pickup);
+            _sprite = this.ModSpriteMap(t_Hat_Boring3, 32, 32, true);
+            _pickupSprite = this.ReadyToRun(t_Hat_Boring3Pickup);
             baseCollisionOffset = _collisionOffset;
             baseCollisionSize = _collisionSize;
             _equippedCollisionOffset = baseCollisionOffset - new Vec2(1, 1);
@@ -105,7 +105,7 @@
 
             var particleEnd =
                 hitPos
-                + (bullet.travelDirNormalized * bullet.bulletSpeed)
+                + bullet.travelDirNormalized * bullet.bulletSpeed
                 * 3
                 + new Vec2(Rando.Float(-5f, 5f), Rando.Float(-5f, 5f));
 
