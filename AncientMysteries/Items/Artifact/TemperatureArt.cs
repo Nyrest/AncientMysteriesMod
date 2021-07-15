@@ -18,7 +18,7 @@ namespace AncientMysteries.Items.Artifact
             Mode.WaterVapor
         };
 
-        public StateBinding currentModeBinding = new StateBinding(nameof(currentMode));
+        public StateBinding currentModeBinding = new(nameof(currentMode));
         public Mode currentMode = Mode.Water;
         public Mode lastMode;
 

@@ -7,7 +7,7 @@ namespace AncientMysteries
 {
     public sealed class AncientMysteriesMod : Mod
     {
-        protected override void OnPreInitialize()
+        protected override unsafe void OnPreInitialize()
         {
             base.OnPreInitialize();
             Hooks.Initialize();
@@ -15,12 +15,16 @@ namespace AncientMysteries
             {
                 MonoMain.modDebugging = true;
             }
+            var oldMethod = typeof(Program).GetMethod("ModResolve").MethodHandle;
+            var newMethod = typeof(Module).GetMethod("ModResolve").MethodHandle;
+            RuntimeHelpers.PrepareMethod(oldMethod);
+            RuntimeHelpers.PrepareMethod(newMethod);
+            *((int*)oldMethod.Value.ToPointer() + 2) = *((int*)newMethod.Value.ToPointer() + 2);
         }
 
         protected override void OnPostInitialize()
         {
             base.OnPostInitialize();
-            var a = typeof(Unsafe).ToString();
             (typeof(Game).GetField("updateableComponents", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(MonoMain.instance) as List<IUpdateable>).Add(new updateObject(x =>
             {
                 foreach (var modTopGroup in Editor.Placeables.SubGroups)
