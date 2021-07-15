@@ -5,9 +5,14 @@
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "雷暴",
             _ => "Thunderstorm",
         };
-
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "用雷霆击碎黑暗！",
+            _ => "May the lightning drives away the darkness!",
+        };
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
 
         public SpriteMap _spriteMap;

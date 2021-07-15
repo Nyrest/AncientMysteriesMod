@@ -5,9 +5,14 @@
 	{
 		public override string GetLocalizedName(AMLang lang) => lang switch
 		{
+			AMLang.schinese => "雷电撞击",
 			_ => "Electronic Impacter",
 		};
-
+		public override string GetLocalizedDescription(AMLang lang) => lang switch
+		{
+			AMLang.schinese => "但是，它为什么是绿色的呢？",
+			_ => "But, why is it green?",
+		};
 		public ElectronicImpacter(float xval, float yval) : base(xval, yval)
 		{
 			ammo = 80;

@@ -15,9 +15,14 @@
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "熔能喷吐",
             _ => "Molten Spitter",
         };
-
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "「像你这样的鸭子，就该在地狱里焚烧」",
+            _ => "「Ducks like you, should be burning in hell」",
+        };
         public MoltenSpitter(float xval, float yval) : base(xval, yval)
         {
             ammo = 127;

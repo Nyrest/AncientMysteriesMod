@@ -5,7 +5,13 @@
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "凶恶猎手",
             _ => "Ferocious Predator",
+        };
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "小心猎物",
+            _ => "Beware of the prey",
         };
 
         public StateBinding _fireAngleBinding = new("_fireAngle");
