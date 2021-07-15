@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.AmmoTypes
+﻿namespace AncientMysteries
 {
     public abstract class AMAmmoType : AmmoType
     {

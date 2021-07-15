@@ -17,7 +17,7 @@ namespace AncientMysteries
                 _array[index] = default!;
                 return result;
             }
-            return FastNew<T>.CreateInstance();
+            return GenericNew<T>.CreateInstance();
         }
 
         public static void Return(T item)
