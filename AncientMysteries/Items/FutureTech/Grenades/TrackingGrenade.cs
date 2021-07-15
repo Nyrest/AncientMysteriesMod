@@ -7,7 +7,14 @@ namespace AncientMysteries.Items.FutureTech.Grenades
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "纳米手雷",
             _ => "Nano Grenade",
+        };
+
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "一颗单身许久的饥渴手雷！",
+            _ => "This grenade wants a girl friend!",
         };
 
         public StateBinding _timerBinding = new("_timer");

@@ -7,7 +7,14 @@ namespace AncientMysteries.Items.Sucks
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            _ => "Death Flower",
+            AMLang.schinese => "一朵可爱的FAFA",
+            _ => "Wonder Flower",
+        };
+
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "看起来很美味，吃了它！",
+            _ => "Looks delicious. Eat it!",
         };
 
         public DeathFlower(float xval, float yval) : base(xval, yval)
