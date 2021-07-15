@@ -449,8 +449,7 @@ namespace AncientMysteries.Items.FutureTech.Grenades
             {
                 _pin = false;
                 UpdatePinState();
-                Duck duckOwner = owner as Duck;
-                if (duckOwner != null)
+                if (owner is Duck duckOwner)
                 {
                     _holdingWeight = 5f;
                     _mineOwner = duckOwner;
