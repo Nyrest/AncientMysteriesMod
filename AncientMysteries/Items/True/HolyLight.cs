@@ -17,15 +17,18 @@
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "神圣之光",
             _ => "Holy Light",
+        };
+
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "奇迹",
+            _ => "The miracle.",
         };
 
         public HolyLight(float xval, float yval) : base(xval, yval)
         {
-            _ammoType = new AT_RainbowEyedrops()
-            {
-
-            };
             _type = "gun";
             _spriteMap = this.ReadyToRunWithFrames(t_Staff_HolyLight, 15, 37);
             SetBox(15, 37);

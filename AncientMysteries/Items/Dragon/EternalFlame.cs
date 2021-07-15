@@ -15,6 +15,13 @@ namespace AncientMysteries.Items.Melee
             _ => "Eternal Flame",
         };
 
+#warning TODO: Description
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "TODO",
+            _ => "TODO",
+        };
+
         public EternalFlame(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRunWithFrames(t_Melee_EternalFlame, 9, 25);
