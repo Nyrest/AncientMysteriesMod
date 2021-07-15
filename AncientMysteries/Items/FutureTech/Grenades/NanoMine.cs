@@ -7,7 +7,14 @@ namespace AncientMysteries.Items.FutureTech.Grenades
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            _ => "Nano Mine",
+            AMLang.schinese => "追踪地雷",
+            _ => "Bunny Mine",
+        };
+
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "试图拥抱附近的每个人",
+            _ => "Trying to hug everyone nearby",
         };
 
         public StateBinding _pinBinding = new("_pin");
