@@ -6,26 +6,29 @@ using System.Threading.Tasks;
 
 namespace AncientMysteries.Items.Artifact
 {
-    class AntennaBullet : Thing
+    class AntennaBullet : Thing, ITeleport
     {
-        public Vec2 moveSpeed;
+        public StateBinding positionBinding = new CompressedVec2Binding(nameof(position));
 
-        public StateBinding moveBinding = new(nameof(moveSpeed));
+        public Vec2 move;
 
-        public bool isMoving = false;
+        public StateBinding moveBinding = new CompressedVec2Binding(nameof(move));
 
-        public StateBinding movingBinding = new(nameof(isMoving));
+        public bool isMoving => move != Vec2.Zero;
 
         public int aliveTime = 0;
 
         public StateBinding aliveTimeBinding = new(nameof(aliveTime));
-        public AntennaBullet(Vec2 spd, Thing ownerr = null, float xval = 0, float yval = 0, Sprite sprite = null) : base(xval, yval, sprite)
+
+        public StateBinding safeDuckBinding = new(nameof(safeDuck));
+        public Duck safeDuck;
+
+        public AntennaBullet(Vec2 anglePoint, Duck safeDuck, float xval = 0, float yval = 0) : base(xval, yval, null)
         {
-            moveSpeed = spd;
             alpha = 0f;
-            angleDegrees = -Maths.PointDirection(new Vec2(0, 0), spd);
+            angleDegrees = -Maths.PointDirection(new Vec2(0, 0), anglePoint);
             graphic = TexHelper.ModSprite(t_Bullet_Antenna, true);
-            owner = ownerr;
+            this.safeDuck = safeDuck;
         }
 
         public override void Update()
@@ -35,14 +38,15 @@ namespace AncientMysteries.Items.Artifact
             {
                 alpha += 0.016f;
             }
-            else 
+            else
             {
-                alpha = 1;            
+                alpha = 1;
             }
 
             if (isMoving)
             {
-                position += moveSpeed;
+                position += move;
+                aliveTime++;
             }
 
             if (aliveTime >= 120)
@@ -50,17 +54,13 @@ namespace AncientMysteries.Items.Artifact
                 Level.Remove(this);
             }
 
-            if (isMoving)
-            {
-                aliveTime++;
-            }
             foreach (Duck d in Level.CheckRectAll<Duck>(base.topLeft, base.bottomRight))
             {
                 if (isMoving == false)
                 {
                     return;
                 }
-                if (d != owner)
+                if (d != safeDuck)
                 {
                     d.Destroy(new DTCrush(d));
                 }

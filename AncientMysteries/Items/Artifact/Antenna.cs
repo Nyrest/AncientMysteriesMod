@@ -11,19 +11,12 @@ namespace AncientMysteries.Items.Artifact
     {
         public int charger = 0;
 
-        public AntennaBullet fuck1;// Left
-
-        public AntennaBullet fuck2;// Left-Bottom
-
-        public AntennaBullet fuck3;// Left-Top
-
-        public AntennaBullet fuck4;// Right
-
-        public AntennaBullet fuck5;// Right-Bottom
-
-        public AntennaBullet fuck6;// Right-Top
+        public AntennaBullet[] bulletsBuffer;
 
         public StateBinding cBinding = new(nameof(charger));
+
+        public bool ShouldShoot => charger >= 60;
+
         public Antenna(float xpos, float ypos) : base(xpos, ypos)
         {
             this.ReadyToRun(t_Holdable_Antenna);
@@ -34,63 +27,70 @@ namespace AncientMysteries.Items.Artifact
             _ => "Antenna",
         };
 
+        public override void OnHoldAction()
+        {
+            base.OnHoldAction();
+            if (!ShouldShoot)
+            {
+                charger++;
+            }
+        }
+
         public override void OnPressAction()
         {
             base.OnPressAction();
             float speedMultiplier = 3;
-            fuck1 = new(new Vec2(-2, 0) * speedMultiplier, owner, x, y, TexHelper.ModSprite(t_Bullet_Antenna, true));
-            fuck2 = new(new Vec2(-2, 1) * speedMultiplier, owner, x, y, TexHelper.ModSprite(t_Bullet_Antenna, true));
-            fuck3 = new(new Vec2(-2, -1) * speedMultiplier, owner, x, y, TexHelper.ModSprite(t_Bullet_Antenna, true));
-            fuck4 = new(new Vec2(2, 0) * speedMultiplier, owner, x, y, TexHelper.ModSprite(t_Bullet_Antenna, true));
-            fuck5 = new(new Vec2(2, 1) * speedMultiplier, owner, x, y, TexHelper.ModSprite(t_Bullet_Antenna, true));
-            fuck6 = new(new Vec2(2, -1) * speedMultiplier, owner, x, y, TexHelper.ModSprite(t_Bullet_Antenna, true));
-            Level.Add(fuck1);
-            Level.Add(fuck2);
-            Level.Add(fuck3);
-            Level.Add(fuck4);
-            Level.Add(fuck5);
-            Level.Add(fuck6);
-        }
-
-        public override void OnHoldAction()
-        {
-            base.OnHoldAction();
-            charger++;
-            fuck1.position = new Vec2(x - 20f, y + 3f);
-            fuck2.position = new Vec2(x - 15f, y + 8f);
-            fuck3.position = new Vec2(x - 15f, y - 2f);
-            fuck4.position = new Vec2(x + 20f, y);
-            fuck5.position = new Vec2(x + 15f, y + 5f);
-            fuck6.position = new Vec2(x + 15f, y - 5f);
+            bulletsBuffer = new AntennaBullet[6]
+            {
+                new(new Vec2(-2, 0) * speedMultiplier, duck, x, y),
+                new(new Vec2(-2, 1) * speedMultiplier, duck, x, y),
+                new(new Vec2(-2, -1) * speedMultiplier, duck, x, y),
+                new(new Vec2(2, 0) * speedMultiplier, duck, x, y),
+                new(new Vec2(2, 1) * speedMultiplier, duck, x, y),
+                new(new Vec2(2, -1) * speedMultiplier, duck, x, y),
+            };
+            for (int i = 0; i < bulletsBuffer.Length; i++)
+            {
+                Level.Add(bulletsBuffer[i]);
+            }
         }
 
         public override void OnReleaseAction()
         {
             base.OnReleaseAction();
-            if (charger >= 60)
+            const float speedMultiplier = 3;
+            if (ShouldShoot)
             {
-                fuck1.isMoving = true;
-                fuck2.isMoving = true;
-                fuck3.isMoving = true;
-                fuck4.isMoving = true;
-                fuck5.isMoving = true;
-                fuck6.isMoving = true;
+                bulletsBuffer[0].move = speedMultiplier * new Vec2(-2, +0);
+                bulletsBuffer[1].move = speedMultiplier * new Vec2(-2, +1);
+                bulletsBuffer[2].move = speedMultiplier * new Vec2(-2, -1);
+                bulletsBuffer[3].move = speedMultiplier * new Vec2(+2, +0);
+                bulletsBuffer[4].move = speedMultiplier * new Vec2(+2, +1);
+                bulletsBuffer[5].move = speedMultiplier * new Vec2(+2, -1);
             }
-            else
+            else if(bulletsBuffer != null)
             {
-                Level.Remove(fuck1);
-                Level.Remove(fuck2);
-                Level.Remove(fuck3);
-                Level.Remove(fuck4);
-                Level.Remove(fuck5);
-                Level.Remove(fuck6);
+                for (int i = 0; i < bulletsBuffer.Length; i++)
+                {
+                    Level.Remove(bulletsBuffer[i]);
+                }
             }
-            charger = 0;
+            bulletsBuffer = null;
         }
 
         public override void Update()
         {
             base.Update();
+            if (held && bulletsBuffer != null)
+            {
+                bulletsBuffer[0].position = new Vec2(x - 20f, y + 3f);
+                bulletsBuffer[1].position = new Vec2(x - 15f, y + 8f);
+                bulletsBuffer[2].position = new Vec2(x - 15f, y - 2f);
+                bulletsBuffer[3].position = new Vec2(x + 20f, y);
+                bulletsBuffer[4].position = new Vec2(x + 15f, y + 5f);
+                bulletsBuffer[5].position = new Vec2(x + 15f, y - 5f);
+            }
+            else charger = 0;
         }
     }
 }
