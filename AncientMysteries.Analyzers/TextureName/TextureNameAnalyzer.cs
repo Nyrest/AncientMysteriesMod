@@ -63,6 +63,7 @@ namespace AncientMysteries.Analyzers.UnclassifiedTexture
             context.Options.AnalyzerConfigOptionsProvider.GlobalOptions.TryGetValue("build_property.projectdir", out string projectDir);
             foreach (var fullname in Directory.GetFiles(projectDir + "content", "*.*"))
             {
+                if (IsException(fullname)) continue;
                 #region Invalid Texture
                 if (!Path.GetExtension(fullname).Equals(".png", StringComparison.OrdinalIgnoreCase))
                 {
@@ -77,6 +78,14 @@ namespace AncientMysteries.Analyzers.UnclassifiedTexture
                 }
                 #endregion
             }
+        }
+        private static string previewPng = Path.DirectorySeparatorChar + "preview.png";
+        private static string screenshotPng = Path.DirectorySeparatorChar + "screenshot.png";
+        private static bool IsException(string fullname)
+        {
+            if (fullname.EndsWith(previewPng, StringComparison.Ordinal)) return true;
+            if (fullname.EndsWith(screenshotPng, StringComparison.Ordinal)) return true;
+            return false;
         }
     }
 }
