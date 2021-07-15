@@ -20,7 +20,14 @@
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "时空扭曲",
             _ => "Fall Guy",
+        };
+
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "让你的好朋友替你受罪！",
+            _ => "Let someone fall instead of you!",
         };
 
         public FallGuy(float xpos, float ypos) : base(xpos, ypos)

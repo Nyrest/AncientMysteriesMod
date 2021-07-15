@@ -9,7 +9,14 @@
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "雨伞",
             _ => "Umbrella",
+        };
+
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "遮风挡雨……还有什么别的功能吗？",
+            _ => "Protects you from the rain..Or it has some other uses?",
         };
 
         public Umbrella(float xval, float yval) : base(xval, yval)

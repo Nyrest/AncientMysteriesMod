@@ -11,7 +11,13 @@
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "暗影极光",
             _ => "Dark Aurora",
+        };
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "召唤阴影中的光来击碎你的敌人",
+            _ => "Pour down shadowy light to crush your foes",
         };
 
         public DarkAurora(float xval, float yval) : base(xval, yval)
