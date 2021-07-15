@@ -13,3 +13,5 @@ global using AncientMysteries.Localization.Enums;
 global using static AncientMysteries.groupNames;
 global using static AncientMysteries.Texs;
 global using static AncientMysteries.AMFonts;
+global using static AncientMysteries.TexHelper;
+global using System.IO;
