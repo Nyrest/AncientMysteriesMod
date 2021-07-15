@@ -5,7 +5,15 @@
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "反弹盾",
             _ => "Rebound Shield",
+        };
+
+#warning TODO: Description
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "TODO",
+            _ => "TODO",
         };
 
         public ReboundShield(float xval, float yval) : base(xval, yval)

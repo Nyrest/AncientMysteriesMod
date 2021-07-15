@@ -18,7 +18,15 @@
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "列奥尼达斯之矛",
             _ => "Spear Of Leonidas",
+        };
+
+#warning TODO: Description
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "TODO",
+            _ => "TODO",
         };
 
         public SpearOfLeonidas(float xval, float yval) : base(xval, yval)

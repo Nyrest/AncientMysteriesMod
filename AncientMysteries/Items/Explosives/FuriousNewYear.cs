@@ -10,6 +10,7 @@
             AMLang.schinese => "新年狂欢",
             _ => "Furious New Year",
         };
+
         public override string GetLocalizedDescription(AMLang lang) => lang switch
         {
             AMLang.schinese => "不准放鞭炮！",

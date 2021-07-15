@@ -22,6 +22,13 @@
             _ => "Overgrowth",
         };
 
+#warning TODO: Description
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "TODO",
+            _ => "TODO",
+        };
+
         public Overgrowth(float xval, float yval) : base(xval, yval)
         {
             _spriteMap = this.ReadyToRunWithFrames(t_Staff_Overgrowth, 21, 34);

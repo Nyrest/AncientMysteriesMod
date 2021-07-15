@@ -15,6 +15,13 @@ namespace AncientMysteries.Armor.Developers.Hats
             _ => "Devastator",
         };
 
+#warning TODO: Description
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "TODO",
+            _ => "TODO",
+        };
+
         public Thingy(float xpos, float ypos) : base(xpos, ypos)
         {
             _sprite = this.ModSpriteWithFrames(t_Hat_Devastator, 32, 32, true);
