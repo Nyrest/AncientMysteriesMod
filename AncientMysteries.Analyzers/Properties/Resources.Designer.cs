@@ -61,6 +61,60 @@ namespace AncientMysteries.Analyzers.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Texture  format must be .png..
+        /// </summary>
+        internal static string Analyzer_InvalidTexture_Description {
+            get {
+                return ResourceManager.GetString("Analyzer_InvalidTexture_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Texture: {0}.
+        /// </summary>
+        internal static string Analyzer_InvalidTexture_MessageFormat {
+            get {
+                return ResourceManager.GetString("Analyzer_InvalidTexture_MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AM0002.
+        /// </summary>
+        internal static string Analyzer_InvalidTexture_Title {
+            get {
+                return ResourceManager.GetString("Analyzer_InvalidTexture_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add prefix to classify this texture..
+        /// </summary>
+        internal static string Analyzer_UnclassifiedTexture_Description {
+            get {
+                return ResourceManager.GetString("Analyzer_UnclassifiedTexture_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unclassified Texture: {0}.
+        /// </summary>
+        internal static string Analyzer_UnclassifiedTexture_MessageFormat {
+            get {
+                return ResourceManager.GetString("Analyzer_UnclassifiedTexture_MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AM0003.
+        /// </summary>
+        internal static string Analyzer_UnclassifiedTexture_Title {
+            get {
+                return ResourceManager.GetString("Analyzer_UnclassifiedTexture_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use texture reference to avoid bugs caused by rename..
         /// </summary>
         internal static string Analyzer_UseTextureRef_Description {
