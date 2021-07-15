@@ -3,7 +3,7 @@
 namespace AncientMysteries.Items.True
 {
     [EditorGroup(g_misc)]
-    public sealed class UpdateDuckGame : AMHoldable
+    public sealed class UpdateWindows : AMHoldable
     {
         public StateBinding _targetPlayerBinding = new(nameof(_targetPlayer));
         public Duck _targetPlayer;
@@ -22,12 +22,19 @@ namespace AncientMysteries.Items.True
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
-            _ => "Force Update",
+            AMLang.schinese => "更新",
+            _ => "Update",
+        };
+
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "窗 10 正在处理一些事情，坐和放宽，你正在成功！\n如果新版本出现问题，请尝试滚回到以前的版本。",
+            _ => "Windows 10 is updating.\nThis will take a while(?)",
         };
 
         public bool _quacked;
 
-        public UpdateDuckGame(float xpos, float ypos) : base(xpos, ypos)
+        public UpdateWindows(float xpos, float ypos) : base(xpos, ypos)
         {
             this.ReadyToRunWithFrames(t_Staff_ForceUpdate);
         }
@@ -93,7 +100,7 @@ namespace AncientMysteries.Items.True
             }
         }
 
-        static UpdateDuckGame()
+        static UpdateWindows()
         {
             Hooks.OnDraw += ForceUpdateDraw;
         }
