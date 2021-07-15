@@ -2,7 +2,7 @@
 {
     public sealed class AT_CubicBlast : AMAmmoType
     {
-        public SpriteMap _spriteMap = TexHelper.ModSpriteMap(t_Bullet_CubicBlast, 8, 8, true);
+        public SpriteMap _spriteMap = TexHelper.ModSpriteWithFrames(t_Bullet_CubicBlast, 8, 8, true);
 
         public AT_CubicBlast()
         {

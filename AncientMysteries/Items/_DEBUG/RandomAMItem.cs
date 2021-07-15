@@ -7,7 +7,7 @@
 
         public RandomAMItem()
         {
-            this.ReadyToRunMap(Rand.Choose(_AllTextures));
+            this.ReadyToRunWithFrames(Rand.Choose(_AllTextures));
             _editorName = "|DGPURPLE|Random";
         }
 

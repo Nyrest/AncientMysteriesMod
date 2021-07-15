@@ -14,7 +14,7 @@
 
         public Boring3(float xpos, float ypos) : base(xpos, ypos)
         {
-            _sprite = this.ModSpriteMap(t_Hat_Boring3, 32, 32, true);
+            _sprite = this.ModSpriteWithFrames(t_Hat_Boring3, 32, 32, true);
             _pickupSprite = this.ReadyToRun(t_Hat_Boring3Pickup);
             baseCollisionOffset = _collisionOffset;
             baseCollisionSize = _collisionSize;

@@ -25,9 +25,8 @@
 
         public FallGuy(float xpos, float ypos) : base(xpos, ypos)
         {
-            
             _type = "gun";
-            this.ReadyToRunMap(t_Staff_FallGuy);
+            this.ReadyToRunWithFrames(t_Staff_FallGuy);
             physicsMaterial = PhysicsMaterial.Metal;
             material = new MaterialGlitch(this);
         }

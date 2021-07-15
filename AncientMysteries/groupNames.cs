@@ -53,5 +53,11 @@
 
         public const string s_props = stuffs + "|Props";
         #endregion
+
+        #region Props
+        public const string props = topGroupName + "|Props";
+
+        public const string p_functional = props + "|Functional";
+        #endregion
     }
 }
