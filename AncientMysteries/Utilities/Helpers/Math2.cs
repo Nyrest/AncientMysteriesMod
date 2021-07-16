@@ -12,12 +12,12 @@ namespace AncientMysteries.Utilities
 
         public const float TwoPI = PI * 2;
 
-        public static Vec2 GetVectorFromDegress(float degress, float speed = 1f)
+        public static Vec2 GetBulletVecDeg(float degress, float speed = 1f)
         {
             return Maths.AngleToVec(Maths.DegToRad(degress)) * speed;
         }
 
-        public static Vec2 GetVectorFromRadian(float degress, float speed = 1f)
+        public static Vec2 GetBulletVecRad(float degress, float speed = 1f)
         {
             return Maths.AngleToVec(Maths.DegToRad(degress)) * speed;
         }
