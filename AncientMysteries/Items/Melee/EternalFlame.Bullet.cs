@@ -23,7 +23,7 @@
                 {
                     if (t2 != bulletOwner)
                     {
-                        t2.Destroy(new DTShot(this));
+                        t2.Destroy(new DTIncinerate(this));
                     }
                 }
             }
@@ -43,7 +43,7 @@
             {
                 if (t2 != bulletOwner)
                 {
-                    t2.Destroy(new DTShot(this));
+                    t2.Destroy(new DTIncinerate(this));
                 }
             }
         }
