@@ -69,19 +69,7 @@
 
         public override void OnPressAction()
         {
-            bulletsBuffer = new AntennaBullet[bulletCount]
-            {
-                new(position, duck, bulletAngle[0]),
-                new(position, duck, bulletAngle[1]),
-                new(position, duck, bulletAngle[2]),
-                new(position, duck, bulletAngle[3]),
-                new(position, duck, bulletAngle[4]),
-                new(position, duck, bulletAngle[5]),
-            };
-            for (int i = 0; i < bulletsBuffer.Length; i++)
-            {
-                Level.Add(bulletsBuffer[i]);
-            }
+
         }
 
         public override void OnReleaseAction()
@@ -94,21 +82,30 @@
                     bulletsBuffer[i].speed = speedMultiplier * bulletAngle[i];
                 }
             }
-            else if (bulletsBuffer != null)
-            {
-                for (int i = 0; i < bulletCount; i++)
-                {
-                    Level.Remove(bulletsBuffer[i]);
-                }
-            }
-            bulletsBuffer = null;
         }
 
         public override void Update()
         {
             base.Update();
-            if (held && bulletsBuffer != null)
+            if (held)
             {
+                if (bulletsBuffer is null)
+                {
+                    bulletsBuffer = new AntennaBullet[bulletCount]
+                    {
+                        new(position, duck, bulletAngle[0]),
+                        new(position, duck, bulletAngle[1]),
+                        new(position, duck, bulletAngle[2]),
+                        new(position, duck, bulletAngle[3]),
+                        new(position, duck, bulletAngle[4]),
+                        new(position, duck, bulletAngle[5]),
+                    };
+                    for (int i = 0; i < bulletsBuffer.Length; i++)
+                    {
+                        Level.Add(bulletsBuffer[i]);
+                    }
+                }
+
                 for (int i = 0; i < bulletCount; i++)
                 {
                     bulletsBuffer[i].position = position + bulletPosition[i];
@@ -125,9 +122,19 @@
                 {
                     bulletsBuffer[i].angle = bulletsBuffer[i].CalcBulletAngleRadian(bulletAngle[i]);
                 }
-
             }
-            else charger = 0;
+            else
+            {
+                charger = 0;
+                if (bulletsBuffer != null)
+                {
+                    for (int i = 0; i < bulletCount; i++)
+                    {
+                        Level.Remove(bulletsBuffer[i]);
+                    }
+                    bulletsBuffer = null;
+                }
+            }
         }
     }
 }
