@@ -81,6 +81,7 @@
                 {
                     bulletsBuffer[i].speed = speedMultiplier * bulletAngle[i];
                 }
+                bulletsBuffer = null;
             }
         }
 
