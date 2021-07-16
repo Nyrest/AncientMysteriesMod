@@ -18,6 +18,14 @@ namespace AncientMysteries.Bases
         public readonly float BulletPenetration;
         public Vec2 lastPosition;
 
+#if DEBUG
+        [Obsolete("Use BulletSafeDuck")]
+        public new object owner;
+
+        [Obsolete("Use BulletSafeDuck")]
+        public new object _owner;
+#endif
+
         public bool IsMoving => speed != Vec2.Zero;
 
         public AMThingBulletBase(Vec2 pos, float bulletRange, float bulletPenetration, Vec2 initSpeed, Duck safeDuck)
