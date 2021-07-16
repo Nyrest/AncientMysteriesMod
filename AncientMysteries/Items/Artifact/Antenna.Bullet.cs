@@ -6,65 +6,27 @@ using System.Threading.Tasks;
 
 namespace AncientMysteries.Items.Artifact
 {
-    class AntennaBullet : Thing, ITeleport
+    public class AntennaBullet : AMThingBulletLinar
     {
-        public StateBinding positionBinding = new(nameof(position));
-
-        public Vec2 move;
-
-        public StateBinding moveBinding = new(nameof(move));
-
-        public bool isMoving => move != Vec2.Zero;
-
-        public int aliveTime = 0;
-
-        public StateBinding aliveTimeBinding = new(nameof(aliveTime));
-
-        public StateBinding safeDuckBinding = new(nameof(safeDuck));
-        public Duck safeDuck;
-
-        public AntennaBullet(Vec2 anglePoint, Duck safeDuck, float xval = 0, float yval = 0) : base(xval, yval, null)
+        public AntennaBullet(Vec2 pos, Duck safeDuck, Vec2 pointAngle) : base(pos, 800, 2, Vec2.Zero, safeDuck)
         {
             alpha = 0f;
-            angleDegrees = -Maths.PointDirection(new Vec2(0, 0), anglePoint);
-            graphic = TexHelper.ModSprite(t_Bullet_Antenna, true);
-            this.safeDuck = safeDuck;
+            graphic = this.ReadyToRun(t_Bullet_Antenna);
+            graphic.CenterOrigin();
+            this.angle = CalcBulletAngleRadian(pointAngle);
+            
         }
 
         public override void Update()
         {
             base.Update();
-            if (alpha < 1)
-            {
-                alpha += 0.016f;
-            }
-            else
-            {
-                alpha = 1;
-            }
+        }
 
-            if (isMoving)
-            {
-                position += move;
-                aliveTime++;
-            }
-
-            if (aliveTime >= 120)
-            {
-                Level.Remove(this);
-            }
-
-            foreach (Duck d in Level.CheckRectAll<Duck>(base.topLeft, base.bottomRight))
-            {
-                if (isMoving == false)
-                {
-                    return;
-                }
-                if (d != safeDuck)
-                {
-                    d.Destroy(new DTCrush(d));
-                }
-            }
+        public override void UpdateAngle()
+        {
+            // Angle is controlled by Antenna this time
+            if (!IsMoving) return;
+            base.UpdateAngle();
         }
     }
 }

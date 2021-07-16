@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items.Artifact
+﻿namespace AncientMysteries.Items.Artifact
 {
     [EditorGroup(g_artifacts)]
-    class Antenna : AMHoldable
+    class Antenna : AMGun
     {
         public int charger = 0;
 
@@ -15,11 +9,38 @@ namespace AncientMysteries.Items.Artifact
 
         public StateBinding cBinding = new(nameof(charger));
 
-        public bool ShouldShoot => charger >= 60;
+        public const int bulletCount = 6;
+
+        public const int changerMax = 50;
+
+        // do not modify at runtime
+        public static readonly Vec2[] bulletPosition = new Vec2[bulletCount]
+        {
+            new Vec2( - 25f, 0),
+            new Vec2( - 20f, 0 + 6f),
+            new Vec2( - 20f, 0 - 6f),
+            new Vec2( + 25f, 0),
+            new Vec2( + 20f, 0 + 6f),
+            new Vec2( + 20f, 0 - 6f)
+        };
+
+        // do not modify at runtime
+        public static readonly Vec2[] bulletAngle = new Vec2[bulletCount]
+        {
+            new Vec2(-2, +0),
+            new Vec2(-2, +1),
+            new Vec2(-2, -1),
+            new Vec2(+2, +0),
+            new Vec2(+2, +1),
+            new Vec2(+2, -1)
+        };
+
+        public bool ShouldShoot => charger >= changerMax;
 
         public Antenna(float xpos, float ypos) : base(xpos, ypos)
         {
-            this.ReadyToRun(t_Holdable_Antenna);
+            this.ReadyToRun(t_Holdable_Antenna).CenterOrigin();
+            ammo = 255;
         }
 
         public override string GetLocalizedName(AMLang lang) => lang switch
@@ -34,27 +55,31 @@ namespace AncientMysteries.Items.Artifact
             _ => "It, which is stained by the blood of sins, awaits...",
         };
 
+
+        public Waiter RumbleWaiter = new Waiter(5);
         public override void OnHoldAction()
         {
             base.OnHoldAction();
             if (!ShouldShoot)
             {
                 charger++;
+                if (duck != null && RumbleWaiter.Tick())
+                    RumbleManager.AddRumbleEvent(duck.profile, new RumbleEvent(RumbleIntensity.Kick, RumbleDuration.Pulse, RumbleFalloff.None));
             }
         }
 
+        public override void Fire() { }
+
         public override void OnPressAction()
         {
-            base.OnPressAction();
-            float speedMultiplier = 3;
-            bulletsBuffer = new AntennaBullet[6]
+            bulletsBuffer = new AntennaBullet[bulletCount]
             {
-                new(new Vec2(-2, 0) * speedMultiplier, duck, x, y),
-                new(new Vec2(-2, 1) * speedMultiplier, duck, x, y),
-                new(new Vec2(-2, -1) * speedMultiplier, duck, x, y),
-                new(new Vec2(2, 0) * speedMultiplier, duck, x, y),
-                new(new Vec2(2, 1) * speedMultiplier, duck, x, y),
-                new(new Vec2(2, -1) * speedMultiplier, duck, x, y),
+                new(position, duck, bulletAngle[0]),
+                new(position, duck, bulletAngle[1]),
+                new(position, duck, bulletAngle[2]),
+                new(position, duck, bulletAngle[3]),
+                new(position, duck, bulletAngle[4]),
+                new(position, duck, bulletAngle[5]),
             };
             for (int i = 0; i < bulletsBuffer.Length; i++)
             {
@@ -64,20 +89,17 @@ namespace AncientMysteries.Items.Artifact
 
         public override void OnReleaseAction()
         {
-            base.OnReleaseAction();
             const float speedMultiplier = 3;
             if (ShouldShoot)
             {
-                bulletsBuffer[0].move = speedMultiplier * new Vec2(-2, +0);
-                bulletsBuffer[1].move = speedMultiplier * new Vec2(-2, +1);
-                bulletsBuffer[2].move = speedMultiplier * new Vec2(-2, -1);
-                bulletsBuffer[3].move = speedMultiplier * new Vec2(+2, +0);
-                bulletsBuffer[4].move = speedMultiplier * new Vec2(+2, +1);
-                bulletsBuffer[5].move = speedMultiplier * new Vec2(+2, -1);
+                for (int i = 0; i < bulletCount; i++)
+                {
+                    bulletsBuffer[i].speed = speedMultiplier * bulletAngle[i];
+                }
             }
-            else if(bulletsBuffer != null)
+            else if (bulletsBuffer != null)
             {
-                for (int i = 0; i < bulletsBuffer.Length; i++)
+                for (int i = 0; i < bulletCount; i++)
                 {
                     Level.Remove(bulletsBuffer[i]);
                 }
@@ -90,12 +112,23 @@ namespace AncientMysteries.Items.Artifact
             base.Update();
             if (held && bulletsBuffer != null)
             {
-                bulletsBuffer[0].position = new Vec2(x - 20f, y + 3f);
-                bulletsBuffer[1].position = new Vec2(x - 15f, y + 8f);
-                bulletsBuffer[2].position = new Vec2(x - 15f, y - 2f);
-                bulletsBuffer[3].position = new Vec2(x + 20f, y);
-                bulletsBuffer[4].position = new Vec2(x + 15f, y + 5f);
-                bulletsBuffer[5].position = new Vec2(x + 15f, y - 5f);
+                for (int i = 0; i < bulletCount; i++)
+                {
+                    bulletsBuffer[i].position = position + bulletPosition[i];
+                    bulletsBuffer[i].alpha = charger / (float)changerMax;
+
+                    float shakeOffset = 3 - 3 * (charger / (float)changerMax);
+                    Vec2 offset = new Vec2(
+                        i < bulletCount / 2 ? Rando.Float(-shakeOffset, 0) : Rando.Float(0, shakeOffset),
+                        Rando.Float(0, shakeOffset).RandomNegative());
+                    bulletsBuffer[i].position += offset;
+                }
+
+                for (int i = 0; i < bulletCount; i++)
+                {
+                    bulletsBuffer[i].angle = bulletsBuffer[i].CalcBulletAngleRadian(bulletAngle[i]);
+                }
+
             }
             else charger = 0;
         }

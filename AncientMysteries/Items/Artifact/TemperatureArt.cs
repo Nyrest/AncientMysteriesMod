@@ -84,7 +84,14 @@ namespace AncientMysteries.Items.Artifact
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "温度的艺术",
             _ => "Art of Temperature",
+        };
+
+        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        {
+            AMLang.schinese => "水蒸气难道不是看不见的吗？🤔",
+            _ => "Isn't Water Vapor invisible?🤔",
         };
 
         public enum Mode : byte
