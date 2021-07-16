@@ -121,9 +121,6 @@ namespace AncientMysteries.Bases
 
         public float CalcBulletAngleRadian(Vec2 speed) => -Maths.PointDirectionRad(Vec2.Zero, speed);
 
-        /// <summary>
-        /// All players will run this method
-        /// </summary>
         public virtual void BulletRemove()
         {
             Level.Remove(this);

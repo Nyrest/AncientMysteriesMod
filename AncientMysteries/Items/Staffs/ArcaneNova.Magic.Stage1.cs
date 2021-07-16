@@ -28,7 +28,7 @@ namespace AncientMysteries.Items.Staffs
                 IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(position, 32f);
                 foreach (MaterialThing t2 in things)
                 {
-                    if (t2 != owner)
+                    if (t2 != BulletSafeDuck)
                     {
                         t2.Destroy(new DT_ThingBullet(this));
                     }
@@ -36,7 +36,7 @@ namespace AncientMysteries.Items.Staffs
 
                 for (int i = 0; i < 5; i++)
                 {
-                    var bullet = new ArcaneNova_Magic_Stage2(position, Maths.AngleToVec(Rando.Float(0, Maths.PI)) * 6, BulletSafeDuck);
+                    var bullet = new ArcaneNova_Magic_Stage2(position, GetVectorFromRadian(Rando.Float(0, TwoPI), 6), BulletSafeDuck);
                     Level.Add(bullet);
                 }
             }
