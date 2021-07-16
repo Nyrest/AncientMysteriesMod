@@ -8,6 +8,10 @@ namespace AncientMysteries.Utilities
 {
     public static class Math2
     {
+        public const float PI = 3.14159274f;
+
+        public const float TwoPI = PI * 2;
+
         public static Vec2 GetVectorFromDegress(float degress, float speed = 1f)
         {
             return Maths.AngleToVec(Maths.DegToRad(degress)) * speed;
