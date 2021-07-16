@@ -21,7 +21,7 @@ namespace AncientMysteries.Items.Staffs
         public override void Update()
         {
             base.Update();
-            if(isServerForObject && fireWait.Tick())
+            if(fireWait.Tick())
             {
                 foreach (Duck d in Level.CheckCircleAll<Duck>(position, 80))
                 {
@@ -31,7 +31,7 @@ namespace AncientMysteries.Items.Staffs
                         {
                             var bullet = Make.Bullet<AT_Current>(position, null, -Maths.PointDirection(position, d.position));
                             list.Add(bullet);
-                            SFX.PlaySynchronized("deadTVLand");
+                            SFX.Play("deadTVLand");
                         });
                     }
                 }
