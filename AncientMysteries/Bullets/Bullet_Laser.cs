@@ -17,11 +17,11 @@
             ins.yscale *= 0.7f;
             Level.Add(ins);
             SFX.PlaySynchronized("explode", 0.7f, Rando.Float(0.1f, 0.3f), 0f, false);
-            Thing bulletOwner = owner;
+            //Thing bulletOwner = owner;
             IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(travelEnd, 14f);
             foreach (MaterialThing t2 in things)
             {
-                if (t2 != bulletOwner)
+                if (t2 is not Duck)
                 {
                     t2.Destroy(new DTShot(this));
                 }

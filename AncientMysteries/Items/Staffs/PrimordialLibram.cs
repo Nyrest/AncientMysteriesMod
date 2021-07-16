@@ -79,7 +79,7 @@
                     {
                         this.NmFireGun(list =>
                         {
-                            list.Add(Make.Bullet<AT_BigFB>(ownerPos, owner, (owner._offDir == 1 ? 0 : 180) + Rando.Float(-5, 5), this));
+                            list.Add(Make.Bullet<AT_BigFB>(ownerPos, duck, (owner._offDir == 1 ? 0 : 180) + Rando.Float(-5, 5), this));
                         });
                     }
                     else
@@ -119,7 +119,7 @@
                         {
                             for (int i = 0; i < 4; i++)
                             {
-                                list.Add(Make.Bullet<AT_Icicle>(icicle_pos, base.owner, Rando.Float(0, 360), this));
+                                list.Add(Make.Bullet<AT_Icicle>(icicle_pos, duck, Rando.Float(0, 360), this));
                             }
                             SFX.PlaySynchronized("goody", 0.4f, Rando.Float(0.2f, 0.4f));
                         });
@@ -148,7 +148,7 @@
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    var b = Make.Bullet<PrimordialLibram_AmmoType_Flower>(pos, owner, owner._offDir == 1 ? 0 : 180 + Rando.Float(-15, 15), this);
+                    var b = Make.Bullet<PrimordialLibram_AmmoType_Flower>(pos, duck, owner._offDir == 1 ? 0 : 180 + Rando.Float(-15, 15), this);
                     list.Add(b);
                 }
             });
@@ -179,7 +179,7 @@
                                         new Vec2(
                                             lightning_pos.x + Rando.Float(-r, r),
                                             lightning_pos.y - 200f + Rando.Float(-r / 2, r / 2)),
-                                        owner,
+                                        duck,
                                         Rando.Float(
                                             Convert.ToSingle(80f - r / 3.5f),
                                             Convert.ToSingle(100 + r / 3.5f)), this);
