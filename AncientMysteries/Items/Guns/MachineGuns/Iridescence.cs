@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Rainbow
+﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     [EditorGroup(g_rifles)]
     public sealed class Iridescence : AMGun

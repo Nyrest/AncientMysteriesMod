@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using AncientMysteries.Items.Miscellaneous;
+﻿using AncientMysteries.Items.Miscellaneous;
 
 namespace AncientMysteries.Bullets
 {

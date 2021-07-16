@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.True
+﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
     public class ArcaneNova : AMStaff

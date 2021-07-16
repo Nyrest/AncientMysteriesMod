@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items.Melee
+﻿namespace AncientMysteries.Items.Melee
 {
     public class EternalFlame_Bullet : AMBullet
     {

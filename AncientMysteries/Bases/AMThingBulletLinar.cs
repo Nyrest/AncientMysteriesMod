@@ -1,6 +1,4 @@
-﻿using AncientMysteries.DestroyTypes;
-
-namespace AncientMysteries.Bases
+﻿namespace AncientMysteries.Bases
 {
     public abstract class AMThingBulletLinar : AMThingBulletBase
     {

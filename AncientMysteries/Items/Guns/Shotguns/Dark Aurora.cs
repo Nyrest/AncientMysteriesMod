@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Shotguns
+﻿namespace AncientMysteries.Items.Guns.Shotguns
 {
     [EditorGroup(g_shotguns)]
     public sealed class DarkAurora : AMGun

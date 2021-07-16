@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AncientMysteries.Bullets
+﻿namespace AncientMysteries.Bullets
 {
     public class Bullet_CubicBlast : Bullet
     {

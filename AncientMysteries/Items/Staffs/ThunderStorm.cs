@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Electronic
+﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
     public sealed class Thunderstorm : AMStaff

@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Rainbow
+﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     public class Iridescence_Bullet : Bullet
     {

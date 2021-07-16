@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AncientMysteries.Items.True
+﻿namespace AncientMysteries.Items.Staffs
 {
     public class PrimordialLibram_Bullet_Flower : AMBullet
     {

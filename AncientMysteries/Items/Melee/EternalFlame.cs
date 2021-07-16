@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AncientMysteries.Items.Melee
+﻿namespace AncientMysteries.Items.Melee
 {
     [EditorGroup(g_melees)]
     public sealed class EternalFlame : AMMelee

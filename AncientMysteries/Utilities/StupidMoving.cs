@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AncientMysteries.Utilities
+﻿namespace AncientMysteries.Utilities
 {
     public static class StupidMoving
     {

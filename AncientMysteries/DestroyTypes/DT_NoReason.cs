@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DuckGame;
-
-namespace AncientMysteries.DeathTypes
+﻿namespace AncientMysteries.DeathTypes
 {
     public class DT_NoReason : DestroyType
     {

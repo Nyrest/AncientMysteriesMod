@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
-namespace AncientMysteries.Items.True
+namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_misc)]
     public sealed class UpdateWindows : AMHoldable

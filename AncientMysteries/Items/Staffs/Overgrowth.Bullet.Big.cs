@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AncientMysteries.Items.True
+﻿namespace AncientMysteries.Items.Staffs
 {
     public class Overgrowth_Bullet_Big : AMBullet
     {

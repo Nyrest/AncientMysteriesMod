@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AncientMysteries.Items.FutureTech.Grenades
+﻿namespace AncientMysteries.Items.Explosives.Grenades
 {
     [EditorGroup(guns)]
     public sealed class NanoMine : AMGun
