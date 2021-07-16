@@ -21,16 +21,14 @@
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "源生法典",
             _ => "Primordial Spellbook",
         };
-
-#warning TODO: Description
         public override string GetLocalizedDescription(AMLang lang) => lang switch
         {
-            AMLang.schinese => "TODO",
-            _ => "TODO",
+            AMLang.schinese => "万物生而凋零，一切皆因于此",
+            _ => "Everything is born and withers away, for they are all affected by this",
         };
-
         public PrimordialLibram(float xval, float yval) : base(xval, yval)
         {
             _ammoType = new AT_None();

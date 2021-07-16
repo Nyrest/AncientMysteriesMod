@@ -21,14 +21,11 @@
             AMLang.schinese => "列奥尼达斯之矛",
             _ => "Spear Of Leonidas",
         };
-
-#warning TODO: Description
         public override string GetLocalizedDescription(AMLang lang) => lang switch
         {
-            AMLang.schinese => "TODO",
-            _ => "TODO",
+            AMLang.schinese => "斯巴达！",
+            _ => "Sparta!",
         };
-
         public SpearOfLeonidas(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRunWithFrames(t_Melee_SpearOfLeonidas);

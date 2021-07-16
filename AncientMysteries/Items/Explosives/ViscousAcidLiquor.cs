@@ -5,14 +5,13 @@
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "黏稠酸液",
             _ => "Viscous Acid Liquor",
         };
-
-#warning TODO: Description
         public override string GetLocalizedDescription(AMLang lang) => lang switch
         {
-            AMLang.schinese => "TODO",
-            _ => "TODO",
+            AMLang.schinese => "这把枪会完全腐蚀掉你的头脑",
+            _ => "A gun that completely corrodes your mind",
         };
 
         public StateBinding _fireAngleBinding = new("_fireAngle");
