@@ -110,18 +110,21 @@
             base.Update();
             if(held)
             {
-                for (int i = 0; i < bulletCount; i++)
+                if(bulletsBuffer != null)
                 {
-                    bulletsBuffer[i].position = position + bulletPosition[i];
-                    bulletsBuffer[i].alpha = charger / (float)changerMax;
+                    for (int i = 0; i < bulletCount; i++)
+                    {
+                        bulletsBuffer[i].position = position + bulletPosition[i];
+                        bulletsBuffer[i].alpha = charger / (float)changerMax;
 
-                    float shakeOffset = 3 - 3 * (charger / (float)changerMax);
-                    Vec2 offset = new Vec2(
-                        i < bulletCount / 2 ? Rando.Float(-shakeOffset, 0) : Rando.Float(0, shakeOffset),
-                        Rando.Float(0, shakeOffset).RandomNegative());
-                    bulletsBuffer[i].position += offset;
+                        float shakeOffset = 3 - 3 * (charger / (float)changerMax);
+                        Vec2 offset = new Vec2(
+                            i < bulletCount / 2 ? Rando.Float(-shakeOffset, 0) : Rando.Float(0, shakeOffset),
+                            Rando.Float(0, shakeOffset).RandomNegative());
+                        bulletsBuffer[i].position += offset;
 
-                    bulletsBuffer[i].angle = bulletsBuffer[i].CalcBulletAngleRadian(bulletAngle[i]);
+                        bulletsBuffer[i].angle = bulletsBuffer[i].CalcBulletAngleRadian(bulletAngle[i]);
+                    }
                 }
             }
             else charger = 0;
