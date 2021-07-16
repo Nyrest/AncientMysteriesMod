@@ -1,31 +1,10 @@
-﻿namespace AncientMysteries
+﻿namespace AncientMysteries.Bases
 {
-    public abstract class AMChestPlate : ChestPlate, IAMEquipment, IAMLocalizable
+    public abstract class AMEquipment : Equipment, IAMEquipment, IAMLocalizable
     {
-        private static FieldInfo _fieldEquipmentHealth = typeof(Equipment).GetField("_equipmentHealth", BindingFlags.Instance | BindingFlags.NonPublic);
-        private static FieldInfo _fieldSprite = typeof(ChestPlate).GetField("_sprite", BindingFlags.Instance | BindingFlags.NonPublic);
-        private static FieldInfo _fieldSpriteOver = typeof(ChestPlate).GetField("_spriteOver", BindingFlags.Instance | BindingFlags.NonPublic);
-        private static FieldInfo _fieldPickupSprite = typeof(ChestPlate).GetField("_pickupSprite", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static readonly FieldInfo _fieldEquipmentHealth = typeof(Equipment).GetField("_equipmentHealth", BindingFlags.Instance | BindingFlags.NonPublic);
 
-        public SpriteMap _sprite
-        {
-            get => (SpriteMap)_fieldSprite.GetValue(this);
-            set => _fieldSprite.SetValue(this, value);
-        }
-
-        public SpriteMap _spriteOver
-        {
-            get => (SpriteMap)_fieldSpriteOver.GetValue(this);
-            set => _fieldSpriteOver.SetValue(this, value);
-        }
-
-        public Sprite _pickupSprite
-        {
-            get => (Sprite)_fieldPickupSprite.GetValue(this);
-            set => _fieldPickupSprite.SetValue(this, value);
-        }
-
-        protected AMChestPlate(float xpos, float ypos) : base(xpos, ypos)
+        protected AMEquipment(float xpos, float ypos) : base(xpos, ypos)
         {
             _isArmor = true;
             _editorName = GetLocalizedName(AMLocalization.Current);
@@ -45,6 +24,37 @@
         protected override bool OnDestroy(DestroyType type = null)
         {
             return EquipmentHitPoints <= 0 && Destroyable && base.OnDestroy(type);
+        }
+
+        public override bool Hit(Bullet bullet, Vec2 hitPos)
+        {
+            if (BulletThroughNotEquipped && (_equippedDuck == null || bullet.owner == duck || !bullet.isLocal))
+            {
+                return false;
+            }
+            if (_isArmor)
+            {
+                if (bullet.isLocal && duck != null)
+                {
+                    if (--EquipmentHitPoints <= 0 && KnockOffOnHit)
+                    {
+                        duck.KnockOffEquipment(this, ting: true, bullet);
+                        Fondle(this, DuckNetwork.localConnection);
+                    }
+                }
+                if (bullet.isLocal && Network.isActive)
+                {
+                    NetSoundEffect.Play("equipmentTing");
+                }
+                bullet.hitArmor = true;
+                Level.Add(MetalRebound.New(hitPos.x, hitPos.y, (bullet.travelDirNormalized.x > 0f) ? 1 : (-1)));
+                for (int i = 0; i < 6; i++)
+                {
+                    Level.Add(Spark.New(x, y, bullet.travelDirNormalized));
+                }
+                return thickness > bullet.ammo.penetration;
+            }
+            return base.Hit(bullet, hitPos);
         }
 
         public abstract string GetLocalizedName(AMLang lang);

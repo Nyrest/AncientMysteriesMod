@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries
+﻿namespace AncientMysteries.Bases
 {
     public abstract class AMGun : Gun, IAMLocalizable
     {

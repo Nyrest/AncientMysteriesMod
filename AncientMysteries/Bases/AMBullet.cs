@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries
+﻿namespace AncientMysteries.Bases
 {
     public class AMBullet : Bullet
     {
