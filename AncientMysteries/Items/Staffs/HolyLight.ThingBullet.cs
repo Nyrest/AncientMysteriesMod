@@ -8,7 +8,7 @@ namespace AncientMysteries.Items.Staffs
 {
     public class HolyLight_ThingBullet : AMThingBulletLinar
     {
-        public Waiter w = new(5);
+        public Waiter waiter = new(5);
         public HolyLight_ThingBullet(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 400, 1, initSpeed, safeDuck)
         {
             this.ReadyToRun(t_Bullet_HolyStar);
@@ -17,7 +17,7 @@ namespace AncientMysteries.Items.Staffs
         public override void Update()
         {
             base.Update();
-            if (isServerForObject && w.Tick())
+            if (isServerForObject && waiter.Tick())
             {
                 NetHelper.NmFireGun(list =>
                 {
