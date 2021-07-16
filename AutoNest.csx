@@ -17,7 +17,7 @@ public static void Main()
 <!--Do not modify this file manually-->
 <Project>
   <ItemGroup>
-", 512);
+", 5120);
     foreach (var item in Directory.GetFiles(loc, "*.cs", SearchOption.AllDirectories))
     {
         var fullpath = item.AsSpan();
