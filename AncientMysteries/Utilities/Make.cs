@@ -67,5 +67,9 @@ namespace AncientMysteries.Utilities
             //return InstanceOf<TAmmoType>.instance;
         }
         #endregion
+
+        #region ThingBullet
+        
+        #endregion
     }
 }
