@@ -53,17 +53,13 @@
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();
-            var firePos = barrelPosition;
             r = Rando.Int(3, 7);
             int count = _castTime >= 0.5 ? r : 1;
-            this.NmFireGun(firedBullets =>
+            for (int i = 0; i < count; i++)
             {
-                for (int i = 0; i < count; i++)
-                {
-                    Bullet b = Make.Bullet<AT_Star>(firePos, owner, owner.offDir == 1 ? 0 : 180, this);
-                    firedBullets.Add(b);
-                }
-            });
+                var b = new HolyLight_ThingBullet(barrelPosition, GetVectorFromDegress(duck.FaceAngleDegressLeftOrRight() + Rando.Float(-20, 20), Rando.Float(5, 6)), duck);
+                Level.Add(b);
+            }
         }
     }
 }
