@@ -8,7 +8,7 @@ namespace AncientMysteries.Items.Staffs
 {
     public class HolyLight_ThingBullet : AMThingBulletLinar
     {
-        public Waiter waiter = new(5);
+        public Waiter w = new(5);
         public HolyLight_ThingBullet(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 400, 1, initSpeed, safeDuck)
         {
             this.ReadyToRun(t_Bullet_HolyStar);
@@ -17,11 +17,11 @@ namespace AncientMysteries.Items.Staffs
         public override void Update()
         {
             base.Update();
-            if (isServerForObject && waiter.Tick())
+            if (isServerForObject && w.Tick())
             {
                 NetHelper.NmFireGun(list =>
                 {
-                    HolyLight_ThingBullet2 bullet = new(position, GetVectorFromDegress(angle,0.01f), BulletSafeDuck);
+                    HolyLight_ThingBullet2 bullet = new(position, GetVectorFromDegress(Rando.Float(0,360),0.01f), _owner as Duck);
                     Level.Add(bullet);
                 });
             }
