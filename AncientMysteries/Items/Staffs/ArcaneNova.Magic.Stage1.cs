@@ -34,9 +34,9 @@ namespace AncientMysteries.Items.Staffs
                     }
                 }
 
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 6; i++)
                 {
-                    var bullet = new ArcaneNova_Magic_Stage2(position, GetVectorFromDegress(Rando.Float(0, 360), 6), BulletSafeDuck);
+                    var bullet = new ArcaneNova_Magic_Stage2(position, GetBulletVecDeg(Rando.Float(0, 360), 6), BulletSafeDuck);
                     Level.Add(bullet);
                 }
             }
