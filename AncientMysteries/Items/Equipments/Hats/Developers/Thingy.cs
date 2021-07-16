@@ -13,12 +13,10 @@ namespace AncientMysteries.Equipments.Hats.Developers
         {
             _ => "Devastator",
         };
-
-#warning TODO: Description
         public override string GetLocalizedDescription(AMLang lang) => lang switch
         {
-            AMLang.schinese => "TODO",
-            _ => "TODO",
+            AMLang.schinese => "爽",
+            _ => "Satisfying",
         };
 
         public Thingy(float xpos, float ypos) : base(xpos, ypos)
