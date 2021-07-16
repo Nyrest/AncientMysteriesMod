@@ -62,6 +62,10 @@
   <!--Duck Game References-->
   <ItemGroup>
 
+    <Reference Include="DGSteam">
+      <HintPath>..\References\DGSteam.dll</HintPath>
+    </Reference>
+
     <Reference Include="DuckGame">
       <HintPath>..\References\DuckGame.exe</HintPath>
       <Private>false</Private>
