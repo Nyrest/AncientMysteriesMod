@@ -21,5 +21,11 @@ namespace AncientMysteries.Utilities
         {
             return Maths.AngleToVec(Maths.DegToRad(degress)) * speed;
         }
+
+        public static Vec2 GetBulletVecDeg(float degress, float speed = 1f, float speedVariable = 0, float accuracy = 1f)
+        {
+            var accuracyLossRad = Rando.Float(TwoPI * (1 - accuracy));
+            return Maths.AngleToVec(Maths.DegToRad(degress) + accuracyLossRad) * (speed + Rando.Float(speedVariable).RandomNegative());
+        }
     }
 }

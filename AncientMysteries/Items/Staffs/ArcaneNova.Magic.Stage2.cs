@@ -26,7 +26,7 @@ namespace AncientMysteries.Items.Staffs
                 IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(position, 25f);
                 foreach (MaterialThing t2 in things)
                 {
-                    if (t2 != owner)
+                    if (t2 != BulletSafeDuck)
                     {
                         t2.Destroy(new DT_ThingBullet(this));
                     }
