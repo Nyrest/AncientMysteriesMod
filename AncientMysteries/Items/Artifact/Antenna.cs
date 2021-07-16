@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Artifact
 {
     [EditorGroup(g_artifacts)]
-    class Antenna : AMGun
+    class Antenna : AMHoldable
     {
         public int charger = 0;
 
@@ -40,7 +40,6 @@
         public Antenna(float xpos, float ypos) : base(xpos, ypos)
         {
             this.ReadyToRun(t_Holdable_Antenna).CenterOrigin();
-            ammo = 255;
         }
 
         public override string GetLocalizedName(AMLang lang) => lang switch
