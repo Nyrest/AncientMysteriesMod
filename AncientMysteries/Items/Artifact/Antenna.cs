@@ -16,12 +16,12 @@
         // do not modify at runtime
         public static readonly Vec2[] bulletPosition = new Vec2[bulletCount]
         {
-            new Vec2( - 25f, 0),
-            new Vec2( - 20f, 0 + 6f),
-            new Vec2( - 20f, 0 - 6f),
-            new Vec2( + 25f, 0),
-            new Vec2( + 20f, 0 + 6f),
-            new Vec2( + 20f, 0 - 6f)
+            new Vec2(- 25f, 0),
+            new Vec2(- 20f, 0 + 6f),
+            new Vec2(- 20f, 0 - 6f),
+            new Vec2(+ 25f, 0),
+            new Vec2(+ 20f, 0 + 6f),
+            new Vec2(+ 20f, 0 - 6f)
         };
 
         // do not modify at runtime
@@ -69,19 +69,7 @@
 
         public override void OnPressAction()
         {
-            bulletsBuffer = new AntennaBullet[bulletCount]
-            {
-                new(position, duck, bulletAngle[0]),
-                new(position, duck, bulletAngle[1]),
-                new(position, duck, bulletAngle[2]),
-                new(position, duck, bulletAngle[3]),
-                new(position, duck, bulletAngle[4]),
-                new(position, duck, bulletAngle[5]),
-            };
-            for (int i = 0; i < bulletsBuffer.Length; i++)
-            {
-                Level.Add(bulletsBuffer[i]);
-            }
+
         }
 
         public override void OnReleaseAction()
@@ -107,8 +95,25 @@
         public override void Update()
         {
             base.Update();
-            if (held && bulletsBuffer != null)
+            if(held)
             {
+                if(bulletsBuffer is null)
+                {
+                    bulletsBuffer = new AntennaBullet[bulletCount]
+                    {
+                        new(position, duck, bulletAngle[0]),
+                        new(position, duck, bulletAngle[1]),
+                        new(position, duck, bulletAngle[2]),
+                        new(position, duck, bulletAngle[3]),
+                        new(position, duck, bulletAngle[4]),
+                        new(position, duck, bulletAngle[5]),
+                    };
+                    for (int i = 0; i < bulletsBuffer.Length; i++)
+                    {
+                        Level.Add(bulletsBuffer[i]);
+                    }
+                }
+
                 for (int i = 0; i < bulletCount; i++)
                 {
                     bulletsBuffer[i].position = position + bulletPosition[i];
@@ -119,13 +124,9 @@
                         i < bulletCount / 2 ? Rando.Float(-shakeOffset, 0) : Rando.Float(0, shakeOffset),
                         Rando.Float(0, shakeOffset).RandomNegative());
                     bulletsBuffer[i].position += offset;
-                }
 
-                for (int i = 0; i < bulletCount; i++)
-                {
                     bulletsBuffer[i].angle = bulletsBuffer[i].CalcBulletAngleRadian(bulletAngle[i]);
                 }
-
             }
             else charger = 0;
         }
