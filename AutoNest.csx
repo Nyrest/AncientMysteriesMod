@@ -2,11 +2,15 @@
 using System;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Text;
 
 static string loc = Path.GetFullPath("AncientMysteries\\");
 Main();
 public static void Main()
 {
+    string fullname = loc + Path.DirectorySeparatorChar + "AutoNest.generated.props";
+    var fileInfo = new FileInfo(fullname);
+    fileInfo.IsReadOnly = false;
     StringBuilder props = new StringBuilder(@"<?xml version=""1.0"" encoding=""utf-8""?>
 <Project>
   <ItemGroup>
@@ -22,7 +26,8 @@ public static void Main()
     }
     props.Append(@"  </ItemGroup>
 </Project>");
-    File.WriteAllText(loc + Path.DirectorySeparatorChar + "AutoNest.generated.props", props.ToString());
+    File.WriteAllText(fullname, props.ToString(), Encoding.UTF8);
+    fileInfo.IsReadOnly = true;
 }
 
 [MethodImpl(MethodImplOptions.AggressiveInlining)]
