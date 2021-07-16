@@ -10,14 +10,14 @@
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "永恒烈焰",
             _ => "Eternal Flame",
         };
 
-#warning TODO: Description
         public override string GetLocalizedDescription(AMLang lang) => lang switch
         {
-            AMLang.schinese => "TODO",
-            _ => "TODO",
+            AMLang.schinese => "让你的敌人在顷刻间化为焦黑的尸骨",
+            _ => "Make your enemies burn into charred bones",
         };
 
         public EternalFlame(float xval, float yval) : base(xval, yval)
