@@ -67,8 +67,6 @@
             }
         }
 
-        public override void Fire() { }
-
         public override void OnPressAction()
         {
             bulletsBuffer = new AntennaBullet[bulletCount]
