@@ -23,7 +23,6 @@
             set => _spriteMap._frame = value;
         }
 
-        public int r;
         public Thunderstorm(float xval, float yval) : base(xval, yval)
         {
             _ammoType = new AT_CubicBlast();
@@ -33,18 +32,11 @@
             _spriteMap.SetAnimation("loop");
         }
 
-
-        public float fuck = 0;
-        public override void Update()
-        {
-            base.Update();
-        }
-
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
-            r = Rando.Int(3, 5);
+            int r = Rando.Int(3, 5);
             int count = _castTime >= 0.95f ? r : 1;
             float speed = _castTime >= 0.95f ? 4 : 1.5f;
             if (_castTime >= 0.95f)
@@ -55,21 +47,13 @@
             {
                 SFX.Play("shotgunFire2", 0.7f, 0.9f);
             }
-            this.NmFireGun(list =>
+            for (int i = 0; i < count; i++)
             {
-                for (int i = 0; i < count; i++)
-                {
-                    ammoType.bulletSpeed = speed;
-                    Bullet bullet = Make.Bullet<AT_CubicBlast>(firePos, owner, offDir == 1 ? 0 : 180, this);
-                    bullet.color = ammoType.bulletColor;
-                    list.Add(bullet);
-                }
-            });
-            if (Network.isActive)
-            {
-                NMFireGun gunEvent = new(this, firedBullets, bulletFireIndex, rel: false, 4);
-                Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
-                firedBullets.Clear();
+                ThunderStorm_ThingBullet bullet = new(
+                    firePos, 
+                    GetBulletVecDeg(owner.FaceAngleDegressLeftOrRight(), speed, 0.5f, 0.6f),
+                    duck);
+                Level.Add(bullet);
             }
         }
     }

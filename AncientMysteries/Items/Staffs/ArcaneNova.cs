@@ -13,12 +13,12 @@
             set => _spriteMap._frame = value;
         }
 
-
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
             AMLang.schinese => "奥术新星",
             _ => "Arcane Nova",
         };
+
         public override string GetLocalizedDescription(AMLang lang) => lang switch
         {
             AMLang.schinese => "一把充满了宇宙奥秘的法杖",
@@ -46,7 +46,7 @@
             var firePos = barrelPosition;
             if (_castTime >= 1f)
             {
-                var bullet = new ArcaneNova_Magic_Stage1(firePos, Maths.AngleToVec(Maths.DegToRad(owner.offDir == 1 ? 0 : 180)) * 2.5f, duck);
+                var bullet = new ArcaneNova_Magic_Stage1(firePos, GetVectorFromDegress(owner.offDir == 1 ? 0 : 180, 2.5f), duck);
                 Level.Add(bullet);
                 SFX.PlaySynchronized("laserBlast", 5, -0.2f);
             }

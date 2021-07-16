@@ -8,6 +8,10 @@ namespace AncientMysteries.Utilities
 {
     public static class Math2
     {
+        public const float PI = 3.14159274f;
+
+        public const float TwoPI = PI * 2;
+
         public static Vec2 GetVectorFromDegress(float degress, float speed = 1f)
         {
             return Maths.AngleToVec(Maths.DegToRad(degress)) * speed;
@@ -16,6 +20,12 @@ namespace AncientMysteries.Utilities
         public static Vec2 GetVectorFromRadian(float degress, float speed = 1f)
         {
             return Maths.AngleToVec(Maths.DegToRad(degress)) * speed;
+        }
+
+        public static Vec2 GetBulletVecDeg(float degress, float speed = 1f, float speedVariable = 0, float accuracy = 1f)
+        {
+            var accuracyLossRad = Rando.Float(TwoPI * (1 - accuracy));
+            return Maths.AngleToVec(Maths.DegToRad(degress) + accuracyLossRad) * (speed + Rando.Float(speedVariable).RandomNegative());
         }
     }
 }
