@@ -51,7 +51,7 @@
             {
                 ThunderStorm_ThingBullet bullet = new(
                     firePos, 
-                    GetBulletVecDeg(owner.FaceAngleDegressLeftOrRight(), speed, 0.5f, 0.6f),
+                    GetBulletVecDeg(owner.FaceAngleDegressLeftOrRight(), speed, 0.5f, 1f),
                     duck);
                 Level.Add(bullet);
             }
