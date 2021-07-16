@@ -13,8 +13,6 @@
             set => _spriteMap._frame = value;
         }
 
-        public int r;
-
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
             AMLang.schinese => "神圣之光",
@@ -53,7 +51,7 @@
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();
-            r = Rando.Int(5, 7);
+            var r = Rando.Int(5, 7);
             int count = _castTime >= 0.5 ? r : 1;
             for (int i = 0; i < count; i++)
             {
