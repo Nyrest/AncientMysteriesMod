@@ -12,7 +12,5 @@ namespace AncientMysteries.Items.Staffs
         {
             this.ReadyToRun(t_Bullet_Flower);
         }
-
-        public 
     }
 }
