@@ -17,10 +17,7 @@ public static void Main()
         if (IsNestable(fullpath, out var parentFullpath) && File.Exists(parentFullpath))
         {
             var relativeFileName = item.Substring(loc.Length);
-            props.AppendLine($@"
-    <Compile Update=""{relativeFileName}"">
-      <DependentUpon>{Path.GetFileName(parentFullpath)}</DependentUpon>
-    </Compile>");
+            props.AppendLine($"    <Compile Update=\"{relativeFileName}\" DependentUpon=\"{Path.GetFileName(parentFullpath)}\"/>");
         }
     }
     props.Append(@"  </ItemGroup>
