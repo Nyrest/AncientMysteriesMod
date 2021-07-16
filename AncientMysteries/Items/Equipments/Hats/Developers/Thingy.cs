@@ -101,24 +101,27 @@ namespace AncientMysteries.Equipments.Hats.Developers
                     }
                 }
             }
-            List<Gun> toRemove = null;
-            foreach (var item in bindedSpawnedGuns)
+            if (isServerForObject)
             {
-                if (d is null || d.holdObject != item)
+                List<Gun> toRemove = null;
+                foreach (var item in bindedSpawnedGuns)
                 {
-                    Level.Remove(item);
-                    if (toRemove is null)
+                    if (d is null || d.holdObject != item)
                     {
-                        toRemove = new List<Gun>(bindedSpawnedGuns.Count);
+                        Level.Remove(item);
+                        if (toRemove is null)
+                        {
+                            toRemove = new List<Gun>(bindedSpawnedGuns.Count);
+                        }
+                        toRemove.Add(item);
                     }
-                    toRemove.Add(item);
                 }
-            }
-            if (toRemove != null)
-            {
-                foreach (var item in toRemove)
+                if (toRemove != null)
                 {
-                    bindedSpawnedGuns.Remove(item);
+                    foreach (var item in toRemove)
+                    {
+                        bindedSpawnedGuns.Remove(item);
+                    }
                 }
             }
         }
