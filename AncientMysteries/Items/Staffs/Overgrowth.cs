@@ -19,16 +19,14 @@
 
         public override string GetLocalizedName(AMLang lang) => lang switch
         {
+            AMLang.schinese => "过度生长",
             _ => "Overgrowth",
         };
-
-#warning TODO: Description
         public override string GetLocalizedDescription(AMLang lang) => lang switch
         {
-            AMLang.schinese => "TODO",
-            _ => "TODO",
+            AMLang.schinese => "如果让它过度释放自己的力量，也许不会有好事发生",
+            _ => "Things won't go easier if it releases its full power",
         };
-
         public Overgrowth(float xval, float yval) : base(xval, yval)
         {
             _spriteMap = this.ReadyToRunWithFrames(t_Staff_Overgrowth, 21, 34);
