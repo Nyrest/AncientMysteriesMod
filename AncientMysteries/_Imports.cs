@@ -16,4 +16,5 @@ global using AncientMysteries.Items;
 global using static AncientMysteries.groupNames;
 global using static AncientMysteries.Texs;
 global using static AncientMysteries.AMFonts;
+global using static AncientMysteries.Utilities.Math2;
 global using System.IO;
