@@ -21,7 +21,7 @@ namespace AncientMysteries.Items.Staffs
             n.xscale *= 3f;
             n.yscale *= 3f;
             Level.Add(n);
-            SFX.Play("explode", 0.8f, Rando.Float(-0.1f, 1f), 0f, false);
+            SFX.PlaySynchronized("explode", 0.8f, Rando.Float(-0.1f, 1f), 0f, false);
 
             if (isServerForObject)
             {
