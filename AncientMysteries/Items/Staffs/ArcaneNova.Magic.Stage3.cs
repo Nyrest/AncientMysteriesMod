@@ -3,9 +3,9 @@ using AncientMysteries.Items.Miscellaneous;
 
 namespace AncientMysteries.Items.Staffs
 {
-    public class ArcaneNova_Magic_Stage2 : AMThingBulletLinar
+    public class ArcaneNova_Magic_Stage3 : AMThingBulletLinar
     {
-        public ArcaneNova_Magic_Stage2(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 80, float.PositiveInfinity, initSpeed, safeDuck)
+        public ArcaneNova_Magic_Stage3(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 80, float.PositiveInfinity, initSpeed, safeDuck)
         {
             var _spriteMap = t_Bullet_NovaFrame2.ModSpriteWithFrames(25, 25, true);
             _spriteMap.AddAnimation("loop", 0.15f, true, 0, 1, 2, 3);
@@ -34,7 +34,7 @@ namespace AncientMysteries.Items.Staffs
 
                 for (int i = 0; i < 5; i++)
                 {
-                    var bullet = new ArcaneNova_Magic_Stage3(position, Maths.AngleToVec(Rando.Float(0, Maths.PI)) * 6, BulletSafeDuck);
+                    var bullet = new ArcaneNova_Magic_Stage4(position, Maths.AngleToVec(Rando.Float(0, Maths.PI)) * 6, BulletSafeDuck);
                     Level.Add(bullet);
                 }
             }

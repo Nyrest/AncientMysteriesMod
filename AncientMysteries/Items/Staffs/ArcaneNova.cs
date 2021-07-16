@@ -25,13 +25,6 @@
             _ => "A staff fulfilled with mysteries from the universe",
         };
 
-#warning TODO: Description
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
-        {
-            AMLang.schinese => "TODO",
-            _ => "TODO",
-        };
-
         public ArcaneNova(float xval, float yval) : base(xval, yval)
         {
             _type = "gun";
@@ -53,13 +46,9 @@
             var firePos = barrelPosition;
             if (_castTime >= 1f)
             {
-
-                this.NmFireGun(list =>
-                {
-                    Bullet b = Make.Bullet<AT_AN>(firePos, owner, owner.offDir == 1 ? 0 : 180, this);
-                    list.Add(b);
-                    SFX.PlaySynchronized("laserBlast", 5, -0.2f);
-                });
+                var bullet = new ArcaneNova_Magic_Stage1(position, Maths.AngleToVec(Maths.DegToRad(owner.offDir == 1 ? 0 : 180)) * 2.5f, duck);
+                Level.Add(bullet);
+                SFX.PlaySynchronized("laserBlast", 5, -0.2f);
             }
         }
     }

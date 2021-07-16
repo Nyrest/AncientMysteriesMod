@@ -21,5 +21,6 @@
             bulletType = typeof(Bullet_AN2);
         }
 
+        
     }
 }
