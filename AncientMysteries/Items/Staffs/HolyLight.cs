@@ -57,7 +57,7 @@
             int count = _castTime >= 0.5 ? r : 1;
             for (int i = 0; i < count; i++)
             {
-                var b = new HolyLight_ThingBullet(barrelPosition, GetVectorFromDegress(duck.FaceAngleDegressLeftOrRight() + Rando.Float(-20, 20), Rando.Float(5, 6)), duck);
+                var b = new HolyLight_ThingBullet(barrelPosition, GetBulletVecDeg(duck.FaceAngleDegressLeftOrRight() + Rando.Float(-20, 20), Rando.Float(5, 6)), duck);
                 Level.Add(b);
             }
         }

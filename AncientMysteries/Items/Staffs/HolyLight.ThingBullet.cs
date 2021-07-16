@@ -21,7 +21,7 @@ namespace AncientMysteries.Items.Staffs
             {
                 NetHelper.NmFireGun(list =>
                 {
-                    HolyLight_ThingBullet2 bullet = new(position, GetVectorFromDegress(angle,0.01f), BulletSafeDuck);
+                    HolyLight_ThingBullet2 bullet = new(position, GetBulletVecDeg(angle,0.01f), BulletSafeDuck);
                     Level.Add(bullet);
                 });
             }
