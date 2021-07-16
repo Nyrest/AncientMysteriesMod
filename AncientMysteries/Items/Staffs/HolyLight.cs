@@ -53,7 +53,7 @@
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();
-            r = Rando.Int(3, 7);
+            r = Rando.Int(5, 7);
             int count = _castTime >= 0.5 ? r : 1;
             for (int i = 0; i < count; i++)
             {
