@@ -19,10 +19,10 @@ namespace AncientMysteries.Bases
         public Vec2 lastPosition;
 
 #if DEBUG
-        [Obsolete("Use BulletSafeDuck")]
+        [Obsolete("Use BulletSafeDuck", true)]
         public new object owner;
 
-        [Obsolete("Use BulletSafeDuck")]
+        [Obsolete("Use BulletSafeDuck", true)]
         public new object _owner;
 #endif
 
