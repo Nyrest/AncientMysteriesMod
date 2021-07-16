@@ -14,13 +14,6 @@
             _ => "A gun that completely corrodes your mind",
         };
 
-#warning TODO: Description
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
-        {
-            AMLang.schinese => "TODO",
-            _ => "TODO",
-        };
-
         public StateBinding _fireAngleBinding = new("_fireAngle");
 
         public StateBinding _aimAngleBinding = new("_aimAngle");
