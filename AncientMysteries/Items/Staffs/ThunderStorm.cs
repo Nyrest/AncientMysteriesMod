@@ -38,7 +38,7 @@
             var firePos = barrelPosition;
             int r = Rando.Int(3, 5);
             int count = _castTime >= 0.95f ? r : 1;
-            float speed = _castTime >= 0.95f ? 4 : 1.5f;
+            float speed = _castTime >= 0.95f ? Rando.Float(3,5) : Rando.Float(1,2);
             if (_castTime >= 0.95f)
             {
                 SFX.Play("sniper", 0.9f, -0.4f);
@@ -51,7 +51,7 @@
             {
                 ThunderStorm_ThingBullet bullet = new(
                     firePos, 
-                    GetBulletVecDeg(owner.FaceAngleDegressLeftOrRight(), speed, 0.5f, 1f),
+                    GetBulletVecDeg(owner.FaceAngleDegressLeftOrRight() + Rando.Float(-10,10), speed, 0.5f, 1f),
                     duck);
                 Level.Add(bullet);
             }
