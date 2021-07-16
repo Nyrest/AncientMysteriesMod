@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Dark.Melee
+﻿namespace AncientMysteries.Items.Melee
 {
     [EditorGroup(g_melees)]
     public sealed class DeathBringer : AMMelee

@@ -1,6 +1,6 @@
 ﻿using AncientMysteries.DeathTypes;
 
-namespace AncientMysteries.Items.Sucks
+namespace AncientMysteries.Items.Props
 {
     [EditorGroup(p_functional)]
     public class DeathFlower : AMHoldable

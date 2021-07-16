@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Snipers
+﻿namespace AncientMysteries.Items.Guns.Snipers
 {
     [EditorGroup(g_snipers)]
     public sealed class ShadowDance : AMGun

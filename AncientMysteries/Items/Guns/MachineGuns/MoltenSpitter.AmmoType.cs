@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Dragon
+﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     [EditorGroup(g_machineGuns)]
     public sealed class MoltenSpitter_AmmoType : AMAmmoType

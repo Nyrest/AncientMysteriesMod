@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Rainbow
+﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
     public class RainbowTears : AMStaff

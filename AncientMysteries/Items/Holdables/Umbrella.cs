@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Common
+﻿namespace AncientMysteries.Items.Holdables
 {
     [EditorGroup(g_commons)]
     public class Umbrella : AMNotGun, IPlatform

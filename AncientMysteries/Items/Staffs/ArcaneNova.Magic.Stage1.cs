@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.True
+﻿namespace AncientMysteries.Items.Staffs
 {
     public class ArcaneNova_Magic_Stage1 : AMThing
     {

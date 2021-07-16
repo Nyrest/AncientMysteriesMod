@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.MachineGuns
+﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     [EditorGroup(g_machineGuns)]
     public sealed class VoidPiercer : AMGun

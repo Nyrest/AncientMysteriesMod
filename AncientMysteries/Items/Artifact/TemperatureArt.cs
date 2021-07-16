@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items.Artifact
+﻿namespace AncientMysteries.Items.Artifact
 {
     [EditorGroup(g_artifacts)]
     public class TemperatureArt : AMGun

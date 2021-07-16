@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AncientMysteries
+﻿namespace AncientMysteries
 {
     public static class TexHelper
     {

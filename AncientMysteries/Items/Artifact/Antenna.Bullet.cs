@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items.Artifact
+﻿namespace AncientMysteries.Items.Artifact
 {
     public class AntennaBullet : AMThingBulletLinar
     {

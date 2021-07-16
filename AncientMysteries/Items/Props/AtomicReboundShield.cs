@@ -1,6 +1,6 @@
-﻿namespace AncientMysteries.Items.FutureTech
+﻿namespace AncientMysteries.Items.Props
 {
-    [EditorGroup(guns)]
+    [EditorGroup(p_functional)]
     public class ReboundShield : AMGun, IPlatform
     {
         public override string GetLocalizedName(AMLang lang) => lang switch

@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Armor.Developers.Hats
+﻿namespace AncientMysteries.Equipments.Hats.Developers
 {
     [EditorGroup(e_developer)]
     public sealed class Boring3 : AMHelmet, IPlatform

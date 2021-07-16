@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Explosives
+﻿namespace AncientMysteries.Items.Explosives.Grenades
 {
     [EditorGroup(guns)]
     public class FuriousNewYear : AMGun

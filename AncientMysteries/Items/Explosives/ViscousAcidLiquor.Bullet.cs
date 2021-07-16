@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AncientMysteries.Items.Explosives
+﻿namespace AncientMysteries.Items.Explosives
 {
     public class ViscousAcidLiquor_Bullet : Bullet
     {

@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using AncientMysteries.Items.Sucks;
+﻿using AncientMysteries.Items.Guns.MachineGuns;
 
-namespace AncientMysteries.Armor.Developers.Hats
+namespace AncientMysteries.Equipments.Hats.Developers
 {
     [EditorGroup(e_developer)]
     public sealed class Thingy : AMHelmet

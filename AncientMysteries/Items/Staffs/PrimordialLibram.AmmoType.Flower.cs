@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.True
+﻿namespace AncientMysteries.Items.Staffs
 {
     public sealed class PrimordialLibram_AmmoType_Flower : AMAmmoType
     {

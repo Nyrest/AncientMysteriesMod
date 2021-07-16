@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.True
+﻿namespace AncientMysteries.Items.Staffs
 {
     public class Overgrowth_AmmoType_Small : AMAmmoType
     {

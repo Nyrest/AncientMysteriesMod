@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Electronic
+﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     [EditorGroup(g_rifles)]
     public sealed class ElectronicImpacter : AMGun
@@ -16,11 +16,12 @@
 		public ElectronicImpacter(float xval, float yval) : base(xval, yval)
 		{
 			ammo = 80;
-			_ammoType = new AT_Electronic();
+			_ammoType = new ElectronicImpacter_AmmoType();
 			_type = "gun";
 			this.ReadyToRunWithFrames(t_Gun_ElectronicImpacter);
 			_flare.color = Color.Transparent;
 			BarrelSmokeFuckOff();
+			_fireRumble = RumbleIntensity.Kick;
 			_barrelOffsetTL = new Vec2(24f, 5f);
 			_fireSound = "laserRifle";
 			_fireSoundPitch = 0.9f;

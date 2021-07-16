@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Sucks
+﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     [EditorGroup(g_wtf)]
     public sealed class CosmicDisruption : AMGun
