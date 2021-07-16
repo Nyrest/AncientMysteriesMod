@@ -17,7 +17,7 @@ namespace AncientMysteries.Items.Staffs
         public override void Update()
         {
             base.Update();
-            if (isServerForObject && w.Tick())
+            if (isServerForObject && waiter.Tick())
             {
                 NetHelper.NmFireGun(list =>
                 {
