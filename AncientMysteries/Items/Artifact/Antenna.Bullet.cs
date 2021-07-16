@@ -11,11 +11,6 @@
             
         }
 
-        public override void Update()
-        {
-            base.Update();
-        }
-
         public override void UpdateAngle()
         {
             // Angle is controlled by Antenna this time

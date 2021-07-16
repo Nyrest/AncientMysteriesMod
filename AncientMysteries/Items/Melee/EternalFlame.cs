@@ -58,7 +58,7 @@
                     {
                         if (t2 != bulletOwner)
                         {
-                            t2.Destroy(new DTImpact(this));
+                            t2.Destroy(new DTIncinerate(this));
                         }
                     }
                     owner.hSpeed += 700 * owner._offDir;
