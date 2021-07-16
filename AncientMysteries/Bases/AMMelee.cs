@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AncientMysteries
+﻿namespace AncientMysteries.Bases
 {
     public class AMMeleeFlagBinding : StateFlagBase
     {
