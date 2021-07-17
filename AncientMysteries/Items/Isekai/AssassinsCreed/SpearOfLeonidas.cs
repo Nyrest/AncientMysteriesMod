@@ -28,7 +28,7 @@
         };
         public SpearOfLeonidas(float xval, float yval) : base(xval, yval)
         {
-            this.ReadyToRunWithFrames(t_Melee_SpearOfLeonidas);
+            this.ReadyToRun(t_Melee_SpearOfLeonidas);
             _barrelOffsetTL = new Vec2(20f, 4f);
             _fireSound = "smg";
             physicsMaterial = PhysicsMaterial.Metal;

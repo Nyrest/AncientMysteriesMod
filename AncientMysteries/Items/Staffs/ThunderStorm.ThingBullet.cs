@@ -37,5 +37,22 @@ namespace AncientMysteries.Items.Staffs
                 }
             }
         }
+
+        public override void Removed()
+        {
+            base.Removed();
+            foreach (Duck d in Level.CheckCircleAll<Duck>(position, 80000))
+            {
+                if (d != BulletSafeDuck)
+                {
+                    NetHelper.NmFireGun(list =>
+                    {
+                        var bullet = Make.Bullet<AT_Current>(position, null, -Maths.PointDirection(position, d.position));
+                        list.Add(bullet);
+                        SFX.Play("deadTVLand");
+                    });
+                }
+            }
+        }
     }
 }
