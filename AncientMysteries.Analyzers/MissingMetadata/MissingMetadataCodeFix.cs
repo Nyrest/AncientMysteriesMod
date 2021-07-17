@@ -56,7 +56,7 @@ namespace AncientMysteries.Analyzers.MissingMetadata
             List<AttributeSyntax> list = new(3);
             if ((flags & MetadataFlags.HasEditorGroup) == 0)
             {
-                var args = SF.ParseAttributeArgumentList("(\"g_unknown\")");
+                var args = SF.ParseAttributeArgumentList("(g_unknown)");
                 list.Add(SF.Attribute(SF.IdentifierName("EditorGroup"), args));
             }
             if ((flags & MetadataFlags.HasMetaImage) == 0)
