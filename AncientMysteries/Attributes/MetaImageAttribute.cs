@@ -19,16 +19,4 @@ namespace AncientMysteries
         /// <param name="frames">Frames to present (null or empty to use 1)</param>
         public MetaImageAttribute(string texture, int frameWidth = -1, int frameHeight = -1, params int[] frames) { }
     }
-
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
-    public sealed class MetaInfoAttribute : Attribute
-    {
-        /// <summary>
-        /// Specify localized name and description for DescImgGeneator
-        /// </summary>
-        /// <param name="lang">Language</param>
-        /// <param name="name">Localized Name</param>
-        /// <param name="description">Localized Description. (Use \n to make line break)</param>
-        public MetaInfoAttribute(Lang lang, string name, string description) { }
-    }
 }
