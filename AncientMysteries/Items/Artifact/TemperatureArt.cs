@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Artifact
 {
     [EditorGroup(g_artifacts)]
+    [MetaImage(t_)]
+    [MetaInfo(Lang.english, "Temperature Art", "desc")]
+    [MetaInfo(Lang.schinese, "", "")]
     public partial class TemperatureArt : AMGun
     {
         private bool _quacked;

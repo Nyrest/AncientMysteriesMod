@@ -3,6 +3,9 @@
 namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_misc)]
+    [MetaImage(t_)]
+    [MetaInfo(Lang.english, "Update Windows", "desc")]
+    [MetaInfo(Lang.schinese, "", "")]
     public sealed partial class UpdateWindows : AMHoldable
     {
         public StateBinding _targetPlayerBinding = new(nameof(_targetPlayer));

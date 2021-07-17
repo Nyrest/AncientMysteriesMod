@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Artifacts
 {
     [EditorGroup(g_artifacts)]
+    [MetaImage(t_Melee_SpearOfLeonidas)]
+    [MetaInfo(Lang.english, "Spear Of Leonidas", "Sparta!")]
+    [MetaInfo(Lang.schinese, "列奥尼达斯之矛", "斯巴达！")]
     public sealed partial class SpearOfLeonidas : AMMelee
     {
         public static readonly Tex2D targetCircle = TexHelper.ModTex2D(t_Effect_TargetCircle);

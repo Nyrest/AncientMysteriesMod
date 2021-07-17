@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
+    [MetaImage(t_Staff_PrimordialSpellbook)]
+    [MetaInfo(Lang.english, "Primordial Libram", "Everything is born and withers away, for they are all affected by this")]
+    [MetaInfo(Lang.schinese, "源生法典", "万物生而凋零，一切皆因于此")]
     public partial class PrimordialLibram : AMStaff
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));

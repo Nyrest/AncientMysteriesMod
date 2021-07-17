@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     [EditorGroup(g_wtf)]
+    [MetaImage(t_)]
+    [MetaInfo(Lang.english, "Cosmic Disruption", "desc")]
+    [MetaInfo(Lang.schinese, "", "")]
     public sealed partial class CosmicDisruption : AMGun
     {
         public override string GetLocalizedName(Lang lang) => lang switch

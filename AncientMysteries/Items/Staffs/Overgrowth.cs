@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
+    [MetaImage(t_Staff_Overgrowth)]
+    [MetaInfo(Lang.english, "Overgrowth", "Something bad might happen if it releases its full power")]
+    [MetaInfo(Lang.schinese, "过度生长", "如果让它过度释放自己的力量，也许不会有好事发生")]
     public partial class Overgrowth : AMStaff
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
@@ -25,7 +28,7 @@
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "如果让它过度释放自己的力量，也许不会有好事发生",
-            _ => "Things won't go easier if it releases its full power",
+            _ => "Something bad might happen if it releases its full power",
         };
         public Overgrowth(float xval, float yval) : base(xval, yval)
         {

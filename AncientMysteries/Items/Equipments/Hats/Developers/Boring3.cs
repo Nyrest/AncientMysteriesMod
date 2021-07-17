@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Equipments.Hats.Developers
 {
     [EditorGroup(e_developer)]
+    [MetaImage(t_Hat_Boring3Pickup)]
+    [MetaInfo(Lang.english, "Boring3", "Probably the most powerful thing in this mod...")]
+    [MetaInfo(Lang.schinese, null, "也许是这个 Mod 里最屌的东西。。。")]
     public sealed partial class Boring3 : AMHelmet, IPlatform
     {
         public static readonly FieldInfo feather_Sprite = typeof(Feather).GetField("_sprite", BindingFlags.NonPublic | BindingFlags.Instance);

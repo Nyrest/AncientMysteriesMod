@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
+    [MetaImage(t_Staff_ThunderStorm)]
+    [MetaInfo(Lang.english, "Thunderstorm", "May the lightning drives away the darkness!")]
+    [MetaInfo(Lang.schinese, "雷暴", "以雷霆击碎黑暗！")]
     public sealed partial class Thunderstorm : AMStaff
     {
         public override string GetLocalizedName(Lang lang) => lang switch
@@ -10,7 +13,7 @@
         };
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            Lang.schinese => "用雷霆击碎黑暗！",
+            Lang.schinese => "以雷霆击碎黑暗！",
             _ => "May the lightning drives away the darkness!",
         };
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));

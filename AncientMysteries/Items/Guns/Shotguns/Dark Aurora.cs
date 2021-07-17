@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Guns.Shotguns
 {
     [EditorGroup(g_shotguns)]
+    [MetaImage(t_)]
+    [MetaInfo(Lang.english, "Dark Aurora", "desc")]
+    [MetaInfo(Lang.schinese, "", "")]
     public sealed partial class DarkAurora : AMGun
     {
         private float _loadProgress = 1f;

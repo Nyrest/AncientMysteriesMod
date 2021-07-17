@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Melee
 {
     [EditorGroup(g_melees)]
+    [MetaImage(t_Melee_EternalFlame)]
+    [MetaInfo(Lang.english, "Eternal Flame", "Make your enemies burn into charred bones in the blink of an eye")]
+    [MetaInfo(Lang.schinese, "永恒烈焰", "让你的敌人在顷刻间化为焦黑的尸骨")]
     public sealed partial class EternalFlame : AMMelee
     {
         public float cooldown = 0;
@@ -17,7 +20,7 @@
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "让你的敌人在顷刻间化为焦黑的尸骨",
-            _ => "Make your enemies burn into charred bones",
+            _ => "Make your enemies burn into charred bones in the blink of an eye",
         };
 
         public EternalFlame(float xval, float yval) : base(xval, yval)

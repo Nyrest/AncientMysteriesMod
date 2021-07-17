@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Explosives.Grenades
 {
     [EditorGroup(guns)]
+    [MetaImage(t_)]
+    [MetaInfo(Lang.english, "Tracking Grenade", "desc")]
+    [MetaInfo(Lang.schinese, "", "")]
     public sealed partial class TrackingGrenade : AMGun
     {
         public override string GetLocalizedName(Lang lang) => lang switch

@@ -1,7 +1,10 @@
 ﻿namespace AncientMysteries.Items.Artifact
 {
     [EditorGroup(g_artifacts)]
-partial     class Antenna : AMHoldable
+    [MetaImage(t_Holdable_Antenna)]
+    [MetaInfo(Lang.english, "Antenna", "It, which is stained by the blood of sins, awaits...")]
+    [MetaInfo(Lang.schinese, "怖人触须", "沾染了罪恶之血的触须，正等待着下一个目标……")]
+    partial     class Antenna : AMHoldable
     {
         public int charger = 0;
 

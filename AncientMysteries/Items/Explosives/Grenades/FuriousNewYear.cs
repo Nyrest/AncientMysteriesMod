@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Explosives.Grenades
 {
     [EditorGroup(guns)]
+    [MetaImage(t_)]
+    [MetaInfo(Lang.english, "Furious New Year", "desc")]
+    [MetaInfo(Lang.schinese, "", "")]
     public partial class FuriousNewYear : AMGun
     {
         private static FieldInfo _firecrackerExplodeTimer = typeof(Firecracker).GetField("_explodeTimer", BindingFlags.Instance | BindingFlags.NonPublic);
