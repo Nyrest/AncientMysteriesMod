@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Numerics;
 using System.Reflection;
@@ -10,7 +11,11 @@ using AncientMysteries;
 using AncientMysteries.Localization;
 using AncientMysteries.Localization.Enums;
 using DuckGame;
+using FastGenericNew;
+using HarmonyLib;
+using Microsoft.Xna.Framework.Graphics;
 using SkiaSharp;
+using static HarmonyLib.AccessTools;
 
 namespace DescImgGenerator
 {
@@ -30,13 +35,18 @@ namespace DescImgGenerator
 
         public record Item(Thing thing, IAMLocalizable localizable, SKBitmap bitmap);
 
+        static Program()
+        {
+            Hooks.InitHooks();
+        }
+
         static void Main(string[] args)
         {
             foreach (var item in modAssembly.GetTypes())
             {
                 if (item.IsAbstract || !typeof(IAMLocalizable).IsAssignableFrom(item)) continue;
-                // var thing = (Thing)Activator.CreateInstance(item, new object[] { 0, 0 });
-                Thing thing = null;
+                
+                var thing = TypeNew.GetCreateInstance<Thing, float, float>(item, typeof(float), typeof(float))(0, 0);
                 allTheFucks.Add(new Item(thing, (IAMLocalizable)thing, GetItemBitmap(thing)));
             }
             var sur = BuildImage(out SKRectI rect);
@@ -105,6 +115,40 @@ namespace DescImgGenerator
                 Color = SKColors.Red,
             }
             );
+        }
+    }
+
+    public static class Hooks
+    {
+        public static Harmony harmony = new Harmony("descImgGen");
+
+        public static Tex2D blank;
+
+        public static void InitHooks()
+        {
+            blank = FastNew<Tex2D, Texture2D, string, short>.CreateInstance(FastNew<Texture2D>.CreateInstance(), string.Empty, 0);
+            harmony.Patch(Method(
+                typeof(Content),
+                "Load",
+                new Type[] { typeof(string) }).MakeGenericMethod(typeof(Tex2D)), new HarmonyMethod(Method(typeof(Hooks), nameof(EmptyTex))));
+
+            harmony.Patch(Method(
+                typeof(TeamSelect2),
+                "Enabled"), new HarmonyMethod(Method(typeof(Hooks), nameof(NotEnabled))));
+            harmony.PatchAll();
+        }
+
+        public static bool EmptyTex(ref Tex2D __result, string name)
+        {
+            __result = blank;
+            return false;
+        }
+
+
+        public static bool NotEnabled(ref bool __result, string id, bool ignoreTeamSelect = false)
+        {
+            __result = false;
+            return false;
         }
     }
 }

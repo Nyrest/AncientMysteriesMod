@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Boring3.FastGenericNew" Version="2.0.0" />
     <PackageReference Include="Lib.Harmony" Version="2.1.0" />
     <PackageReference Include="SkiaSharp" Version="2.80.3" />
     <PackageReference Include="System.Memory" Version="4.5.4" />
@@ -20,8 +21,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="DGSteam">
+      <HintPath>..\References\DGSteam.dll</HintPath>
+    </Reference>
     <Reference Include="DuckGame">
       <HintPath>..\References\DuckGame.exe</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics">
+      <HintPath>..\References\Microsoft.Xna.Framework.Graphics.dll</HintPath>
     </Reference>
   </ItemGroup>
 
