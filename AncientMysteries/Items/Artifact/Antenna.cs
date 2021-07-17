@@ -82,6 +82,7 @@ partial     class Antenna : AMHoldable
                     bulletsBuffer[i].speed = speedMultiplier * bulletAngle[i];
                 }
                 bulletsBuffer = null;
+                charger = 0;
             }
         }
 
