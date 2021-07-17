@@ -1,9 +1,9 @@
 ﻿namespace AncientMysteries.Items.Guns.Shotguns
 {
     [EditorGroup(g_shotguns)]
-    [MetaImage(t_)]
-    [MetaInfo(Lang.english, "Dark Aurora", "desc")]
-    [MetaInfo(Lang.schinese, "", "")]
+    [MetaImage(t_Gun_DarkAurora)]
+    [MetaInfo(Lang.english, "Dark Aurora", "Pour down shadowy light to crush your foes")]
+    [MetaInfo(Lang.schinese, "暗影极光", "召唤阴影之光来击碎你的敌人")]
     public sealed partial class DarkAurora : AMGun
     {
         private float _loadProgress = 1f;
@@ -19,7 +19,7 @@
         };
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            Lang.schinese => "召唤阴影中的光来击碎你的敌人",
+            Lang.schinese => "召唤阴影之光来击碎你的敌人",
             _ => "Pour down shadowy light to crush your foes",
         };
 

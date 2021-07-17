@@ -1,9 +1,9 @@
 ﻿namespace AncientMysteries.Items.Explosives.Grenades
 {
     [EditorGroup(guns)]
-    [MetaImage(t_)]
-    [MetaInfo(Lang.english, "Nano Mine", "desc")]
-    [MetaInfo(Lang.schinese, "", "")]
+    [MetaImage(t_Throwable_NanoMine)]
+    [MetaInfo(Lang.english, "Spider Mine", "Trying to hug everyone nearby")]
+    [MetaInfo(Lang.schinese, "追踪地雷", "试图拥抱附近的每个人")]
     public sealed partial class NanoMine : AMGun
     {
         public override string GetLocalizedName(Lang lang) => lang switch

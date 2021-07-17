@@ -1,9 +1,9 @@
 ﻿namespace AncientMysteries.Items.Melee
 {
     [EditorGroup(g_melees)]
-    [MetaImage(t_)]
-    [MetaInfo(Lang.english, "Death Bringer", "desc")]
-    [MetaInfo(Lang.schinese, "", "")]
+    [MetaImage(t_Melee_DeathBringer)]
+    [MetaInfo(Lang.english, "Death Bringer", "Looks cool, but not cool actually")]
+    [MetaInfo(Lang.schinese, "死亡收割者", "用起来没有想象中的好")]
     public sealed partial class DeathBringer : AMMelee
     {
         public override string GetLocalizedName(Lang lang) => lang switch
