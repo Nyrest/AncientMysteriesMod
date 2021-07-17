@@ -1,9 +1,9 @@
 ﻿namespace AncientMysteries.Items.Holdables
 {
     [EditorGroup(g_commons)]
-    [MetaImage(t_)]
-    [MetaInfo(Lang.english, "Umbrella", "desc")]
-    [MetaInfo(Lang.schinese, "", "")]
+    [MetaImage(t_Holdable_UmbrellaClosed)]
+    [MetaInfo(Lang.english, "Umbrella", "It protects you from the rain..does it have some other uses?")]
+    [MetaInfo(Lang.schinese, "雨伞", "遮风挡雨……还有什么别的功能吗？")]
     public partial class Umbrella : AMNotGun, IPlatform
     {
         //public StateBinding _openedBinding = new StateBinding("_opened");
@@ -19,7 +19,7 @@
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "遮风挡雨……还有什么别的功能吗？",
-            _ => "Protects you from the rain..Or it has some other uses?",
+            _ => "It protects you from the rain..does it have some other uses?",
         };
 
         public Umbrella(float xval, float yval) : base(xval, yval)

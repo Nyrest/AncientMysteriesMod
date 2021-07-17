@@ -1,9 +1,9 @@
 ﻿namespace AncientMysteries.Items.Guns.Snipers
 {
     [EditorGroup(g_snipers)]
-    [MetaImage(t_)]
-    [MetaInfo(Lang.english, "Shadow Dance", "desc")]
-    [MetaInfo(Lang.schinese, "", "")]
+    [MetaImage(t_Gun_ShadowDance)]
+    [MetaInfo(Lang.english, "Shadow Dance", "Aim, fire!")]
+    [MetaInfo(Lang.schinese, "影舞者", "瞄准，开火！")]
     public sealed partial class ShadowDance : AMGun
     {
         public override string GetLocalizedName(Lang lang) => lang switch

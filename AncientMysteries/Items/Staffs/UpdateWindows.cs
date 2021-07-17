@@ -3,9 +3,9 @@
 namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_misc)]
-    [MetaImage(t_)]
-    [MetaInfo(Lang.english, "Update Windows", "desc")]
-    [MetaInfo(Lang.schinese, "", "")]
+    [MetaImage(t_Staff_ForceUpdate)]
+    [MetaInfo(Lang.english, "Update Windows", "Windows 10 is updating.\nThis will take a while(?)")]
+    [MetaInfo(Lang.schinese, "更新", "窗 10 正在处理一些事情，坐和放宽，你正在成功！\n如果新版本出现问题，请尝试滚回到以前的版本。")]
     public sealed partial class UpdateWindows : AMHoldable
     {
         public StateBinding _targetPlayerBinding = new(nameof(_targetPlayer));

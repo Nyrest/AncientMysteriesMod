@@ -1,9 +1,9 @@
 ﻿namespace AncientMysteries.Items.Explosives.Grenades
 {
     [EditorGroup(guns)]
-    [MetaImage(t_)]
-    [MetaInfo(Lang.english, "Tracking Grenade", "desc")]
-    [MetaInfo(Lang.schinese, "", "")]
+    [MetaImage(t_Throwable_TrackingGrenade)]
+    [MetaInfo(Lang.english, "Tracking Grenade", "This grenade wants a girl friend!")]
+    [MetaInfo(Lang.schinese, "纳米手雷", "一颗单身许久的饥渴手雷！")]
     public sealed partial class TrackingGrenade : AMGun
     {
         public override string GetLocalizedName(Lang lang) => lang switch
@@ -15,7 +15,7 @@
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "一颗单身许久的饥渴手雷！",
-            _ => "This grenade wants a girl friend!",
+            _ => "This grenade wants a girlfriend!",
         };
 
         public StateBinding _timerBinding = new("_timer");
