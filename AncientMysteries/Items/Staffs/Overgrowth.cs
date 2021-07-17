@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
-    public class Overgrowth : AMStaff
+    public partial class Overgrowth : AMStaff
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
 

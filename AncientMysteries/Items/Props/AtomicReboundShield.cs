@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Props
 {
     [EditorGroup(p_functional)]
-    public class ReboundShield : AMGun, IPlatform
+    public partial class ReboundShield : AMGun, IPlatform
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {

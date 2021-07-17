@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     [EditorGroup(g_machineGuns)]
-    public sealed class VoidPiercer : AMGun
+    public sealed partial class VoidPiercer : AMGun
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {

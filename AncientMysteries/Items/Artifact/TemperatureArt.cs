@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Artifact
 {
     [EditorGroup(g_artifacts)]
-    public class TemperatureArt : AMGun
+    public partial class TemperatureArt : AMGun
     {
         private bool _quacked;
 

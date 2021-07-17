@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Explosives.Grenades
 {
     [EditorGroup(guns)]
-    public class FuriousNewYear : AMGun
+    public partial class FuriousNewYear : AMGun
     {
         private static FieldInfo _firecrackerExplodeTimer = typeof(Firecracker).GetField("_explodeTimer", BindingFlags.Instance | BindingFlags.NonPublic);
 

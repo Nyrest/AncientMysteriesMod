@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Equipments.Hats.Developers
 {
     [EditorGroup(e_developer)]
-    public sealed class Boring3 : AMHelmet, IPlatform
+    public sealed partial class Boring3 : AMHelmet, IPlatform
     {
         public static readonly FieldInfo feather_Sprite = typeof(Feather).GetField("_sprite", BindingFlags.NonPublic | BindingFlags.Instance);
 

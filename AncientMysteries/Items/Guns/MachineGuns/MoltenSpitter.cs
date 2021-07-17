@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     [EditorGroup(g_machineGuns)]
-    public sealed class MoltenSpitter : AMGun
+    public sealed partial class MoltenSpitter : AMGun
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
 

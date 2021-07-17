@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     [EditorGroup(g_rifles)]
-    public sealed class ElectronicImpacter : AMGun
+    public sealed partial class ElectronicImpacter : AMGun
 	{
 		public override string GetLocalizedName(AMLang lang) => lang switch
 		{

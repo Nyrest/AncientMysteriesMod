@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     [EditorGroup(g_wtf)]
-    public sealed class CosmicDisruption : AMGun
+    public sealed partial class CosmicDisruption : AMGun
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {

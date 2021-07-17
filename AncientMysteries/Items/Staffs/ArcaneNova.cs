@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
-    public class ArcaneNova : AMStaff
+    public partial class ArcaneNova : AMStaff
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
 

@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Explosives
 {
     [EditorGroup(g_explosives)]
-    public sealed class ViscousAcidLiquor : AMGun
+    public sealed partial class ViscousAcidLiquor : AMGun
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {

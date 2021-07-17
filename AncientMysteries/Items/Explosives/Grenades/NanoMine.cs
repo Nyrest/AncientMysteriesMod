@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Explosives.Grenades
 {
     [EditorGroup(guns)]
-    public sealed class NanoMine : AMGun
+    public sealed partial class NanoMine : AMGun
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {

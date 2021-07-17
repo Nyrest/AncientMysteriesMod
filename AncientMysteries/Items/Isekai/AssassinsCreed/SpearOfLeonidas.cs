@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Artifacts
 {
     [EditorGroup(g_artifacts)]
-    public sealed class SpearOfLeonidas : AMMelee
+    public sealed partial class SpearOfLeonidas : AMMelee
     {
         public static readonly Tex2D targetCircle = TexHelper.ModTex2D(t_Effect_TargetCircle);
         public static readonly int tcWidth = targetCircle.w, tcHeight = targetCircle.h;

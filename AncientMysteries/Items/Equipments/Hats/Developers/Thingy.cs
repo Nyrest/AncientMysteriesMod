@@ -3,7 +3,7 @@
 namespace AncientMysteries.Equipments.Hats.Developers
 {
     [EditorGroup(e_developer)]
-    public sealed class Thingy : AMHelmet
+    public sealed partial class Thingy : AMHelmet
     {
         private static readonly FieldInfo fieldAmmoType = typeof(Gun).GetField("_ammoType", BindingFlags.Instance | BindingFlags.NonPublic);
         private static readonly FieldInfo fieldFullAuto = typeof(Gun).GetField("_fullAuto", BindingFlags.Instance | BindingFlags.NonPublic);

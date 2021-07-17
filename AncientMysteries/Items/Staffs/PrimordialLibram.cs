@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
-    public class PrimordialLibram : AMStaff
+    public partial class PrimordialLibram : AMStaff
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
 

@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Guns.Snipers
 {
     [EditorGroup(g_snipers)]
-    public sealed class ShadowDance : AMGun
+    public sealed partial class ShadowDance : AMGun
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {

@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Explosives.Grenades
 {
     [EditorGroup(guns)]
-    public sealed class TrackingGrenade : AMGun
+    public sealed partial class TrackingGrenade : AMGun
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {

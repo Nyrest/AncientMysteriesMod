@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Melee
 {
     [EditorGroup(g_melees)]
-    public sealed class DeathBringer : AMMelee
+    public sealed partial class DeathBringer : AMMelee
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {

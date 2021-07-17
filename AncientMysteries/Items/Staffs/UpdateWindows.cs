@@ -3,7 +3,7 @@
 namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_misc)]
-    public sealed class UpdateWindows : AMHoldable
+    public sealed partial class UpdateWindows : AMHoldable
     {
         public StateBinding _targetPlayerBinding = new(nameof(_targetPlayer));
         public Duck _targetPlayer;
