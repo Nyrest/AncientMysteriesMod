@@ -31,7 +31,7 @@ namespace DescImgGenerator
         public const int canvasMaxWidth = 628;
         public const int canvasMaxHeight = 10240;
 
-        public static AMLang currentLang = AMLang.english;
+        public static Lang currentLang = Lang.english;
 
         public record Item(Thing thing, IAMLocalizable localizable, SKBitmap bitmap);
 

@@ -8,6 +8,6 @@ namespace AncientMysteries.Localization
 {
     public static class LocalizationHelper
     {
-        public static AMLang DefaultLang => AMLang.english;
+        public static Lang DefaultLang => Lang.english;
     }
 }

@@ -3,14 +3,14 @@
     [EditorGroup(g_melees)]
     public sealed partial class DeathBringer : AMMelee
     {
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "死亡收割者",
+            Lang.schinese => "死亡收割者",
             _ => "Death Bringer",
         };
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "用起来没有想象中的好",
+            Lang.schinese => "用起来没有想象中的好",
             _ => "Looks cool, but not cool actually",
         };
 

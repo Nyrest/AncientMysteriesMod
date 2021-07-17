@@ -3,14 +3,14 @@
     [EditorGroup(g_explosives)]
     public sealed partial class FerociousPredator : AMGun
     {
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "凶恶猎手",
+            Lang.schinese => "凶恶猎手",
             _ => "Ferocious Predator",
         };
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "小心猎物",
+            Lang.schinese => "小心猎物",
             _ => "Beware of the prey",
         };
 

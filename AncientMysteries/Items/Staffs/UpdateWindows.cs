@@ -20,15 +20,15 @@ namespace AncientMysteries.Items.Staffs
 
         public bool IsTargetVaild => _targetPlayer?.dead == false && _targetPlayer?.ragdoll == null;
 
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "更新",
+            Lang.schinese => "更新",
             _ => "Update",
         };
 
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "窗 10 正在处理一些事情，坐和放宽，你正在成功！\n如果新版本出现问题，请尝试滚回到以前的版本。",
+            Lang.schinese => "窗 10 正在处理一些事情，坐和放宽，你正在成功！\n如果新版本出现问题，请尝试滚回到以前的版本。",
             _ => "Windows 10 is updating.\nThis will take a while(?)",
         };
 

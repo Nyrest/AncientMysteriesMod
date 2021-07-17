@@ -19,15 +19,15 @@
             set => _spriteMap._frame = value;
         }
 
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "源生法典",
+            Lang.schinese => "源生法典",
             _ => "Primordial Spellbook",
         };
 
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "万物生而凋零，一切皆因于此",
+            Lang.schinese => "万物生而凋零，一切皆因于此",
             _ => "Everything is born and withers away, for they are all affected by this",
         };
 

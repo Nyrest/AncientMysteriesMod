@@ -16,14 +16,14 @@
 
         public bool _quacked;
 
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "列奥尼达斯之矛",
+            Lang.schinese => "列奥尼达斯之矛",
             _ => "Spear Of Leonidas",
         };
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "斯巴达！",
+            Lang.schinese => "斯巴达！",
             _ => "Sparta!",
         };
         public SpearOfLeonidas(float xval, float yval) : base(xval, yval)

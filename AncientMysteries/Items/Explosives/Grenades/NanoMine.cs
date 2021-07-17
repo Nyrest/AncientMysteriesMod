@@ -3,15 +3,15 @@
     [EditorGroup(guns)]
     public sealed partial class NanoMine : AMGun
     {
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "追踪地雷",
+            Lang.schinese => "追踪地雷",
             _ => "Bunny Mine",
         };
 
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "试图拥抱附近的每个人",
+            Lang.schinese => "试图拥抱附近的每个人",
             _ => "Trying to hug everyone nearby",
         };
 

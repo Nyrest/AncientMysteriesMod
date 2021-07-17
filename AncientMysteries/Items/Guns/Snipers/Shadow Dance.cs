@@ -3,14 +3,14 @@
     [EditorGroup(g_snipers)]
     public sealed partial class ShadowDance : AMGun
     {
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "影舞者",
+            Lang.schinese => "影舞者",
             _ => "Shadow Dance",
         };
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "瞄准，开火！",
+            Lang.schinese => "瞄准，开火！",
             _ => "Aim, fire!",
         };
         public ShadowDance(float xval, float yval) : base(xval, yval)

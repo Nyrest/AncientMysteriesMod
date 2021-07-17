@@ -3,15 +3,15 @@
     [EditorGroup(g_machineGuns)]
     public sealed partial class VoidPiercer : AMGun
     {
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "虚空穿刺者",
+            Lang.schinese => "虚空穿刺者",
             _ => "Void Piercer",
         };
 
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "穿行于虚无之中，无人能够逃脱你所带来的死亡",
+            Lang.schinese => "穿行于虚无之中，无人能够逃脱你所带来的死亡",
             _ => "Traveling through the void, nothing can escape from you",
         };
         public VoidPiercer(float xval, float yval) : base(xval, yval)

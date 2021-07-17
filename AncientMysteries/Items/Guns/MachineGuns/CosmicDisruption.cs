@@ -3,15 +3,15 @@
     [EditorGroup(g_wtf)]
     public sealed partial class CosmicDisruption : AMGun
     {
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "寰宇星怒",
+            Lang.schinese => "寰宇星怒",
             _ => "Cosmic Disruption",
         };
 
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "外挂和这把枪你只需要一个。",
+            Lang.schinese => "外挂和这把枪你只需要一个。",
             _ => "Cheating is no longer needed with this.",
         };
 

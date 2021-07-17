@@ -75,15 +75,15 @@
             }
         }
 
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "温度的艺术",
+            Lang.schinese => "温度的艺术",
             _ => "Art of Temperature",
         };
 
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "水蒸气难道不是看不见的吗？🤔",
+            Lang.schinese => "水蒸气难道不是看不见的吗？🤔",
             _ => "Isn't Water Vapor invisible?🤔",
         };
 

@@ -17,14 +17,14 @@
             set => _spriteMap._frame = value;
         }
 
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "过度生长",
+            Lang.schinese => "过度生长",
             _ => "Overgrowth",
         };
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "如果让它过度释放自己的力量，也许不会有好事发生",
+            Lang.schinese => "如果让它过度释放自己的力量，也许不会有好事发生",
             _ => "Things won't go easier if it releases its full power",
         };
         public Overgrowth(float xval, float yval) : base(xval, yval)
@@ -34,7 +34,11 @@
             _spriteMap.SetAnimation("loop");
             SetBox(21, 34);
             _barrelOffsetTL = new Vec2(6f, 5f);
+#if DEBUG
+            _castSpeed = 1;
+#else
             _castSpeed = 0.0035f;
+#endif
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             _fireWait = 0.5f;

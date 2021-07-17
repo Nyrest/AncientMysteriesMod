@@ -16,3 +16,4 @@ global using Microsoft.CodeAnalysis.Diagnostics;
 global using Microsoft.CodeAnalysis.Text;
 
 global using Res = AncientMysteries.Analyzers.Properties.Resources;
+global using SF = Microsoft.CodeAnalysis.CSharp.SyntaxFactory;

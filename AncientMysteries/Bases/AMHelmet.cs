@@ -107,8 +107,8 @@
             }
         }
 
-        public abstract string GetLocalizedName(AMLang lang);
-        public abstract string GetLocalizedDescription(AMLang lang);
+        public abstract string GetLocalizedName(Lang lang);
+        public abstract string GetLocalizedDescription(Lang lang);
 
         public StateBinding _equipmentMaxHitPointsBinding = new(nameof(_equipmentMaxHitPoints));
         public StateBinding _equipmentHitPointsBinding = new(nameof(_equipmentHitPoints));

@@ -8,15 +8,15 @@
         public float cooldown3 = 0;
         public bool _quacked;
 
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "永恒烈焰",
+            Lang.schinese => "永恒烈焰",
             _ => "Eternal Flame",
         };
 
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "让你的敌人在顷刻间化为焦黑的尸骨",
+            Lang.schinese => "让你的敌人在顷刻间化为焦黑的尸骨",
             _ => "Make your enemies burn into charred bones",
         };
 

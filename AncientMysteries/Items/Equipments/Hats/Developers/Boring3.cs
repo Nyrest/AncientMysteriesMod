@@ -5,14 +5,14 @@
     {
         public static readonly FieldInfo feather_Sprite = typeof(Feather).GetField("_sprite", BindingFlags.NonPublic | BindingFlags.Instance);
 
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
             _ => "Boring3",
         };
 
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "也许是这个 Mod 里最屌的东西。。。",
+            Lang.schinese => "也许是这个 Mod 里最屌的东西。。。",
             _ => "Probably the most powerful thing in this mod...",
         };
 

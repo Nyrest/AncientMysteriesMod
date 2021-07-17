@@ -5,15 +5,15 @@ namespace AncientMysteries.Items.Props
     [EditorGroup(p_functional)]
     public partial class DeathFlower : AMHoldable
     {
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "一朵可爱的FAFA",
+            Lang.schinese => "一朵可爱的FAFA",
             _ => "Wonder Flower",
         };
 
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "看起来很美味，吃了它！",
+            Lang.schinese => "看起来很美味，吃了它！",
             _ => "Looks delicious. Eat it!",
         };
 

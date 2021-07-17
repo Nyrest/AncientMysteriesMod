@@ -50,7 +50,7 @@
             collisionSize = new Vec2(w, h);
         }
 
-        public abstract string GetLocalizedName(AMLang lang);
-        public abstract string GetLocalizedDescription(AMLang lang);
+        public abstract string GetLocalizedName(Lang lang);
+        public abstract string GetLocalizedDescription(Lang lang);
     }
 }
