@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Holdables
 {
     [EditorGroup(g_commons)]
-    [MetaImage(t_Holdable_UmbrellaClosed)]
+    [MetaImage(t_Holdable_UmbrellaOpen)]
     [MetaInfo(Lang.english, "Umbrella", "It protects you from the rain..does it have some other uses?")]
     [MetaInfo(Lang.schinese, "雨伞", "遮风挡雨……还有什么别的功能吗？")]
     public partial class Umbrella : AMNotGun, IPlatform
