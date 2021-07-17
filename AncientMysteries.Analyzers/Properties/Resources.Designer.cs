@@ -115,6 +115,33 @@ namespace AncientMysteries.Analyzers.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add metadata for DescImgGenerator..
+        /// </summary>
+        internal static string Analyzer_MissingMetadata_Description {
+            get {
+                return ResourceManager.GetString("Analyzer_MissingMetadata_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add metadata attributes for Items.
+        /// </summary>
+        internal static string Analyzer_MissingMetadata_MessageFormat {
+            get {
+                return ResourceManager.GetString("Analyzer_MissingMetadata_MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AM0005.
+        /// </summary>
+        internal static string Analyzer_MissingMetadata_Title {
+            get {
+                return ResourceManager.GetString("Analyzer_MissingMetadata_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add prefix to classify this texture..
         /// </summary>
         internal static string Analyzer_UnclassifiedTexture_Description {
@@ -174,6 +201,15 @@ namespace AncientMysteries.Analyzers.Properties {
         internal static string CodeFix_MakePartial_Title {
             get {
                 return ResourceManager.GetString("CodeFix_MakePartial_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add missing Metadata Attributes.
+        /// </summary>
+        internal static string CodeFix_MissingMetadata_Title {
+            get {
+                return ResourceManager.GetString("CodeFix_MissingMetadata_Title", resourceCulture);
             }
         }
         

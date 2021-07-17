@@ -5,15 +5,15 @@
     {
         private static FieldInfo _firecrackerExplodeTimer = typeof(Firecracker).GetField("_explodeTimer", BindingFlags.Instance | BindingFlags.NonPublic);
 
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "新年狂欢",
+            Lang.schinese => "新年狂欢",
             _ => "Furious New Year",
         };
 
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "不准放鞭炮！",
+            Lang.schinese => "不准放鞭炮！",
             _ => "No firecrackers!",
         };
 

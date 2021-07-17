@@ -18,15 +18,15 @@
 
         public bool IsTargetVaild => _targetPlayer?.dead == false && _targetPlayer?.ragdoll == null;
 
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "时空扭曲",
+            Lang.schinese => "时空扭曲",
             _ => "Fall Guy",
         };
 
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "让你的好朋友替你受罪！",
+            Lang.schinese => "让你的好朋友替你受罪！",
             _ => "Let someone fall instead of you!",
         };
 

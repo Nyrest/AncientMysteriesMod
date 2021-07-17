@@ -48,14 +48,14 @@
             return result;
         }
 
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
             _ => "GUDZH",
         };
 
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "我在吃饭。真的。没什么好说的。",
+            Lang.schinese => "我在吃饭。真的。没什么好说的。",
             _ => "Eating now... Really. There's nothing to say.",
         };
     }

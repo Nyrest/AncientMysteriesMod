@@ -4,6 +4,7 @@
     {
         public static Assembly ModResolve(object sender, ResolveEventArgs args)
         {
+            if (args.RequestingAssembly is null) goto DefaultBehavior;
             var referenceName = new AssemblyName(args.Name);
             string sourceRoot = args.RequestingAssembly.Location;
             FixModLocation(ref sourceRoot, args);

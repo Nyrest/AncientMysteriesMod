@@ -5,6 +5,7 @@
     <LangVersion>preview</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IsRoslynComponent>true</IsRoslynComponent>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
 

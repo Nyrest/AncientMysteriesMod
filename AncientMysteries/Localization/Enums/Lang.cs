@@ -4,7 +4,7 @@
     /// <para>Steamworks Localization Code</para>
     /// <para>https://partner.steamgames.com/doc/store/localization</para>
     /// </summary>
-    public enum AMLang
+    public enum Lang
     {
         english,
         arabic,

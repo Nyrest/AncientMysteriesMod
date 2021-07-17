@@ -14,13 +14,13 @@
         }
 
 
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "棱彩之泪",
+            Lang.schinese => "棱彩之泪",
             _ => "Chromatic Tears",
         };
 
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             _ => "「天気なんて、狂ったままでいいんだ！」",
         };

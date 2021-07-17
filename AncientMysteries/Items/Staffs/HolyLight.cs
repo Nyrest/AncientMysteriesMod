@@ -13,15 +13,15 @@
             set => _spriteMap._frame = value;
         }
 
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "神圣之光",
+            Lang.schinese => "神圣之光",
             _ => "Holy Light",
         };
 
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "奇迹",
+            Lang.schinese => "奇迹",
             _ => "The miracle.",
         };
 

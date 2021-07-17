@@ -59,5 +59,8 @@
 
         public const string p_functional = props + "|Functional";
         #endregion
+
+        [Obsolete("Assign a valid group.", true)]
+        public const string g_unknown = topGroupName + "|Error";
     }
 }

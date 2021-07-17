@@ -10,7 +10,7 @@
             accuracy = 1f;
             speedVariation = 0f;
             rangeVariation = 0f;
-            penetration = 2147483647f;
+            penetration = float.MaxValue;
             range = 180;
         }
     }

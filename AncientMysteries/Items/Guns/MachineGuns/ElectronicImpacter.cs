@@ -3,14 +3,14 @@
     [EditorGroup(g_rifles)]
     public sealed partial class ElectronicImpacter : AMGun
 	{
-		public override string GetLocalizedName(AMLang lang) => lang switch
+		public override string GetLocalizedName(Lang lang) => lang switch
 		{
-			AMLang.schinese => "雷电撞击",
+			Lang.schinese => "雷电撞击",
 			_ => "Electronic Impacter",
 		};
-		public override string GetLocalizedDescription(AMLang lang) => lang switch
+		public override string GetLocalizedDescription(Lang lang) => lang switch
 		{
-			AMLang.schinese => "但是，它为什么是绿色的呢？",
+			Lang.schinese => "但是，它为什么是绿色的呢？",
 			_ => "But, why is it green?",
 		};
 		public ElectronicImpacter(float xval, float yval) : base(xval, yval)

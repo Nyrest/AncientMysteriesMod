@@ -9,13 +9,13 @@ namespace AncientMysteries.Equipments.Hats.Developers
         private static readonly FieldInfo fieldFullAuto = typeof(Gun).GetField("_fullAuto", BindingFlags.Instance | BindingFlags.NonPublic);
         public static readonly List<Gun> bindedSpawnedGuns = new();
 
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
             _ => "Devastator",
         };
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "爽",
+            Lang.schinese => "爽",
             _ => "Satisfying",
         };
 

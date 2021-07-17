@@ -3,15 +3,15 @@
     [EditorGroup(guns)]
     public sealed partial class TrackingGrenade : AMGun
     {
-        public override string GetLocalizedName(AMLang lang) => lang switch
+        public override string GetLocalizedName(Lang lang) => lang switch
         {
-            AMLang.schinese => "纳米手雷",
+            Lang.schinese => "纳米手雷",
             _ => "Nano Grenade",
         };
 
-        public override string GetLocalizedDescription(AMLang lang) => lang switch
+        public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            AMLang.schinese => "一颗单身许久的饥渴手雷！",
+            Lang.schinese => "一颗单身许久的饥渴手雷！",
             _ => "This grenade wants a girl friend!",
         };
 
