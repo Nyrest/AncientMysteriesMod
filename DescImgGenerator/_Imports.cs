@@ -1,0 +1,14 @@
+﻿global using System.Runtime.CompilerServices;
+global using System.Runtime.InteropServices;
+global using System.Diagnostics.CodeAnalysis;
+global using SkiaSharp;
+global using System.Reflection;
+global using Mono.Cecil;
+global using Mono.Cecil.Rocks;
+global using Mono.Cecil.Cil;
+global using Mono.Cecil.Mdb;
+global using Mono.Cecil.Pdb;
+global using System.Collections.Generic;
+global using System.IO;
+global using System.Linq;
+global using static DescImgGenerator.ModMetaReader;

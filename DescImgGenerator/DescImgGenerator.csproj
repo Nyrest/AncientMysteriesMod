@@ -6,6 +6,8 @@
     <LangVersion>preview</LangVersion>
     <Platforms>AnyCPU</Platforms>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

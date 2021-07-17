@@ -3,7 +3,7 @@
 namespace AncientMysteries.Equipments.Hats.Developers
 {
     [EditorGroup(e_developer)]
-    [MetaImage(t_Hat_Devastator)]
+    [MetaImage(t_Hat_DevastatorPickup)]
     [MetaInfo(Lang.english, "Thingy", "Satisfying")]
     [MetaInfo(Lang.schinese, "米团", "爽")]
     public sealed partial class Thingy : AMHelmet
