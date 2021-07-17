@@ -88,6 +88,33 @@ namespace AncientMysteries.Analyzers.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Just fucking do it..
+        /// </summary>
+        internal static string Analyzer_MakePartial_Description {
+            get {
+                return ResourceManager.GetString("Analyzer_MakePartial_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make partial.
+        /// </summary>
+        internal static string Analyzer_MakePartial_MessageFormat {
+            get {
+                return ResourceManager.GetString("Analyzer_MakePartial_MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AM0004.
+        /// </summary>
+        internal static string Analyzer_MakePartial_Title {
+            get {
+                return ResourceManager.GetString("Analyzer_MakePartial_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add prefix to classify this texture..
         /// </summary>
         internal static string Analyzer_UnclassifiedTexture_Description {
@@ -138,6 +165,15 @@ namespace AncientMysteries.Analyzers.Properties {
         internal static string Analyzer_UseTextureRef_Title {
             get {
                 return ResourceManager.GetString("Analyzer_UseTextureRef_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make partial.
+        /// </summary>
+        internal static string CodeFix_MakePartial_Title {
+            get {
+                return ResourceManager.GetString("CodeFix_MakePartial_Title", resourceCulture);
             }
         }
         

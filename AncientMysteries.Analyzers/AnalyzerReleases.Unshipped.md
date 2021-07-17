@@ -7,3 +7,4 @@ Rule ID | Category | Severity | Notes
 AM0001 | Usage | Warning | UseTextureRefAnalyzer
 AM0002 | Usage | Warning | TextureNameAnalyzer
 AM0003 | Usage | Warning | TextureNameAnalyzer
+AM0004 | Usage | Error | MakePartialAnalyzer
