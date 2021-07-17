@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
+    [MetaImage(t_Staff_ArcaneNova)]
+    [MetaInfo(Lang.english, "Arcane Nova", "A staff fulfilled with mysteries from the universe")]
+    [MetaInfo(Lang.schinese, "奥术新星", "一把充满了宇宙奥秘的法杖")]
     public partial class ArcaneNova : AMStaff
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));

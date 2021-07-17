@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
+    [MetaImage(t_)]
+    [MetaInfo(Lang.english, "Rainbow Tears", "desc")]
+    [MetaInfo(Lang.schinese, "", "")]
     public partial class RainbowTears : AMStaff
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));

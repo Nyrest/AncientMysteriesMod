@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
+    [MetaImage(t_Staff_HolyLight)]
+    [MetaInfo(Lang.english, "Holy Light", "The miracle.")]
+    [MetaInfo(Lang.schinese, "神圣之光", "奇迹")]
     public partial class HolyLight : AMStaff
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));

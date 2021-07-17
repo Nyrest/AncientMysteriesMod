@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     [EditorGroup(g_rifles)]
+    [MetaImage(t_)]
+    [MetaInfo(Lang.english, "Electronic Impacter", "desc")]
+    [MetaInfo(Lang.schinese, "", "")]
     public sealed partial class ElectronicImpacter : AMGun
 	{
 		public override string GetLocalizedName(Lang lang) => lang switch

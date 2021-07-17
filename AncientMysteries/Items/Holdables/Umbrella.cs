@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Holdables
 {
     [EditorGroup(g_commons)]
+    [MetaImage(t_)]
+    [MetaInfo(Lang.english, "Umbrella", "desc")]
+    [MetaInfo(Lang.schinese, "", "")]
     public partial class Umbrella : AMNotGun, IPlatform
     {
         //public StateBinding _openedBinding = new StateBinding("_opened");

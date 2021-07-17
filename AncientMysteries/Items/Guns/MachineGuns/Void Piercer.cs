@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     [EditorGroup(g_machineGuns)]
+    [MetaImage(t_)]
+    [MetaInfo(Lang.english, "Void Piercer", "desc")]
+    [MetaInfo(Lang.schinese, "", "")]
     public sealed partial class VoidPiercer : AMGun
     {
         public override string GetLocalizedName(Lang lang) => lang switch

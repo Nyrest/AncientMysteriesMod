@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     [EditorGroup(g_rifles)]
+    [MetaImage(t_)]
+    [MetaInfo(Lang.english, "Iridescence", "desc")]
+    [MetaInfo(Lang.schinese, "", "")]
     public sealed partial class Iridescence : AMGun
     {
         public override string GetLocalizedName(Lang lang) => lang switch

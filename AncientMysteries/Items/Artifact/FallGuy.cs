@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Artifacts
 {
     [EditorGroup(g_artifacts)]
+    [MetaImage(t_Staff_FallGuy)]
+    [MetaInfo(Lang.english, "Fall Guy", "Let someone fall instead of you!")]
+    [MetaInfo(Lang.schinese, "时空扭曲", "让你的好朋友替你受罪！")]
     public sealed partial class FallGuy : AMHoldable
     {
         public static readonly Tex2D mark = TexHelper.ModTex2D(t_Effect_FallGuyMark);

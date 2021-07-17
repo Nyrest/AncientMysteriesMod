@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     [EditorGroup(g_machineGuns)]
+    [MetaImage(t_)]
+    [MetaInfo(Lang.english, "Molten Spitter", "desc")]
+    [MetaInfo(Lang.schinese, "", "")]
     public sealed partial class MoltenSpitter : AMGun
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));

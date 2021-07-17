@@ -1,6 +1,9 @@
 ﻿namespace AncientMysteries.Items.Props
 {
     [EditorGroup(p_functional)]
+    [MetaImage(t_)]
+    [MetaInfo(Lang.english, "Rebound Shield", "desc")]
+    [MetaInfo(Lang.schinese, "", "")]
     public partial class ReboundShield : AMGun, IPlatform
     {
         public override string GetLocalizedName(Lang lang) => lang switch
