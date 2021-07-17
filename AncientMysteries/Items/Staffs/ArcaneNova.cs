@@ -43,7 +43,7 @@
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();
-            var firePos = barrelPosition;
+            var firePos = owner.offDir == 1 ? new Vec2(barrelPosition.x, barrelPosition.y - 18) : new Vec2(barrelPosition.x, barrelPosition.y + 10);
             if (_castTime >= 1f)
             {
                 var bullet = new ArcaneNova_Magic_Stage1(firePos, GetBulletVecDeg(owner.offDir == 1 ? 0 : 180, 3.5f), duck);
