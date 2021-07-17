@@ -32,10 +32,7 @@
                 IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(pos, 8f);
                 foreach (MaterialThing t2 in things)
                 {
-                    if (t2 != bulletOwner)
-                    {
-                        t2.Destroy(new DTShot(this));
-                    }
+                    t2.Destroy(new DTShot(this));
                 }
             }
         }
