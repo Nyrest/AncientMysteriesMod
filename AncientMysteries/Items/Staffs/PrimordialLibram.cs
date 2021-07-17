@@ -148,8 +148,8 @@
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    var b = Make.Bullet<PrimordialLibram_AmmoType_Flower>(pos, duck, owner._offDir == 1 ? 0 : 180 + Rando.Float(-15, 15), this);
-                    list.Add(b);
+                    PrimordialLibram_ThingBullet_Flower b = new(barrelPosition, GetBulletVecDeg((duck.offDir == 1 ? 0 : 180) + Rando.Float( -15,15),Rando.Float(3,5)),duck);
+                    Level.Add(b);
                 }
             });
         }
