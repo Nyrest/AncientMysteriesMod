@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
-    public class RainbowTears : AMStaff
+    public partial class RainbowTears : AMStaff
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
 

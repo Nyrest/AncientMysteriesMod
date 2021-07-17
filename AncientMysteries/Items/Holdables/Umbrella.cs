@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Holdables
 {
     [EditorGroup(g_commons)]
-    public class Umbrella : AMNotGun, IPlatform
+    public partial class Umbrella : AMNotGun, IPlatform
     {
         //public StateBinding _openedBinding = new StateBinding("_opened");
 

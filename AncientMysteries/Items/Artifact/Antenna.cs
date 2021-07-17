@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Artifact
 {
     [EditorGroup(g_artifacts)]
-    class Antenna : AMHoldable
+partial     class Antenna : AMHoldable
     {
         public int charger = 0;
 

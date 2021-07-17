@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Equipments.Hats.Developers
 {
     [EditorGroup(e_developer)]
-    public sealed class GUDZH : AMHelmet
+    public sealed partial class GUDZH : AMHelmet
     {
         public static Vec2 textureSize;
 

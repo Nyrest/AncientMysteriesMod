@@ -3,7 +3,7 @@
 namespace AncientMysteries.Items.Props
 {
     [EditorGroup(p_functional)]
-    public class DeathFlower : AMHoldable
+    public partial class DeathFlower : AMHoldable
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {

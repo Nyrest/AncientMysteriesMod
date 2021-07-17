@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Melee
 {
     [EditorGroup(g_melees)]
-    public sealed class EternalFlame : AMMelee
+    public sealed partial class EternalFlame : AMMelee
     {
         public float cooldown = 0;
         public float cooldown2 = 0;

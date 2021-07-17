@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Guns.MachineGuns
 {
     [EditorGroup(g_rifles)]
-    public sealed class Iridescence : AMGun
+    public sealed partial class Iridescence : AMGun
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {

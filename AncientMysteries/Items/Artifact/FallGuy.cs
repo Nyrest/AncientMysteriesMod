@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Artifacts
 {
     [EditorGroup(g_artifacts)]
-    public sealed class FallGuy : AMHoldable
+    public sealed partial class FallGuy : AMHoldable
     {
         public static readonly Tex2D mark = TexHelper.ModTex2D(t_Effect_FallGuyMark);
         public static readonly int markWidth = mark.w, markHeight = mark.h;

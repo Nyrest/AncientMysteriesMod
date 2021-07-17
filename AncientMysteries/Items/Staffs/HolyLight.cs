@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
-    public class HolyLight : AMStaff
+    public partial class HolyLight : AMStaff
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
 

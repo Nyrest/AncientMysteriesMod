@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
-    public sealed class Thunderstorm : AMStaff
+    public sealed partial class Thunderstorm : AMStaff
     {
         public override string GetLocalizedName(AMLang lang) => lang switch
         {

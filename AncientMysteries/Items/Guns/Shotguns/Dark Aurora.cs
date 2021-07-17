@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Guns.Shotguns
 {
     [EditorGroup(g_shotguns)]
-    public sealed class DarkAurora : AMGun
+    public sealed partial class DarkAurora : AMGun
     {
         private float _loadProgress = 1f;
 
