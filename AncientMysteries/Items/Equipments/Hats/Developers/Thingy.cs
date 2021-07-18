@@ -6,6 +6,7 @@ namespace AncientMysteries.Equipments.Hats.Developers
     [MetaImage(t_Hat_DevastatorPickup)]
     [MetaInfo(Lang.english, "Thingy", "Satisfying")]
     [MetaInfo(Lang.schinese, "米团", "爽")]
+    [MetaOrder(int.MaxValue)]
     public sealed partial class Thingy : AMHelmet
     {
         private static readonly FieldInfo fieldAmmoType = typeof(Gun).GetField("_ammoType", BindingFlags.Instance | BindingFlags.NonPublic);

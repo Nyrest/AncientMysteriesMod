@@ -1,8 +1,9 @@
 ﻿namespace AncientMysteries.Items.Explosives
 {
     [EditorGroup(g_explosives)]
-    [MetaImage(t_Bullet_Antenna)]
-    [MetaInfo(Lang.english, "Viscous Acid Liquor", "desc")]
+    [MetaImage(t_Gun_ViscousAcidLiquor)]
+    [MetaInfo(Lang.english, "Viscous Acid Liquor", "A gun that completely corrodes your mind.")]
+    [MetaInfo(Lang.schinese, "黏稠酸液", "这把枪会完全腐蚀掉你的头脑")]
     public sealed partial class ViscousAcidLiquor : AMGun
     {
         public override string GetLocalizedName(Lang lang) => lang switch
