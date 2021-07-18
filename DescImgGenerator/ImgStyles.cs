@@ -12,7 +12,7 @@
         public const int canvasMaxWidth = 628;
         public const int canvasMaxHeight = 10240;
 
-        public static Style nameStyle = new Style()
+        public static Style nameStyle = new()
         {
             TextColor = new SKColor(238, 66, 102),
             FontSize = 16,
@@ -32,12 +32,12 @@
             LcdRenderText = true,
         };
 
-        public static SKPaint bgFill = new SKPaint()
+        public static SKPaint bgFill = new()
         {
             Color = new SKColor(24, 26, 27),
         };
 
-        public static SKPaint bgBorder = new SKPaint()
+        public static SKPaint bgBorder = new()
         {
             Color = new SKColor(93, 101, 178),
             StrokeWidth = 2,

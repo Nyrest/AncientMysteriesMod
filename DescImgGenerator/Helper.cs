@@ -10,7 +10,7 @@ namespace DescImgGenerator
         {
             float ratio = rect.Height / bitmap.Height;
             if (ratio > maxRatio) ratio = maxRatio;
-            SKBitmap result = new SKBitmap((int)MathF.Round(bitmap.Width * ratio), (int)MathF.Round(bitmap.Height * ratio));
+            SKBitmap result = new((int)MathF.Round(bitmap.Width * ratio), (int)MathF.Round(bitmap.Height * ratio));
             bitmap.ScalePixels(result, SKFilterQuality.None);
             return result;
         }
