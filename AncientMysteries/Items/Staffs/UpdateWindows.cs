@@ -5,7 +5,7 @@ namespace AncientMysteries.Items
     [EditorGroup(group_Guns_Misc)]
     [MetaImage(tex_Staff_ForceUpdate)]
     [MetaInfo(Lang.english, "Update Windows", "Windows 10 is updating.\nThis will take a while(?)")]
-    [MetaInfo(Lang.schinese, "更新", "窗 10 正在更新，坐和放宽，你正在成功！\n如果新版本出现问题，请滚回到以前的版本。")]
+    [MetaInfo(Lang.schinese, "Windows 更新", "窗 10 正在更新，坐和放宽，你正在成功！\n如果新版本出现问题，请滚回到以前的版本。")]
     public sealed partial class UpdateWindows : AMHoldable
     {
         public StateBinding _targetPlayerBinding = new(nameof(_targetPlayer));
@@ -31,7 +31,7 @@ namespace AncientMysteries.Items
 
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            Lang.schinese => "窗 10 正在处理一些事情，坐和放宽，你正在成功！\n如果新版本出现问题，请尝试滚回到以前的版本。",
+            Lang.schinese => "窗 10 正在更新，坐和放宽，你正在成功！\n如果新版本出现问题，请滚回到以前的版本。",
             _ => "Windows 10 is updating.\nThis will take a while(?)",
         };
 
