@@ -4,7 +4,10 @@ using Mono.Cecil;
 
 namespace DescImgGenerator
 {
-    public record Item(LocalizedText name, LocalizedText description, SKBitmap? bitmap);
+    public record Item(LocalizedText name, LocalizedText description, SKBitmap bitmap, int order) : IComparable<Item>
+    {
+        public int CompareTo(Item? other) => other is not null ? order.CompareTo(other.order) : 1;
+    }
 
     public class LocalizedText
     {
@@ -59,17 +62,28 @@ namespace DescImgGenerator
             {
                 if (type.IsAbstract || type.IsValueType || !IsModItem(type, out CustomAttribute metaImageAttr)) continue;
                 LocalizedText name = new(), description = new();
-
+                int order = 0;
                 foreach (var attr in type.CustomAttributes)
                 {
                     var fullname = attr.AttributeType.FullName;
-                    if (fullname.Equals("AncientMysteries.MetaInfoAttribute"))
+                    switch (fullname)
                     {
-                        var txtLang = (Lang)attr.ConstructorArguments[0].Value;
-                        string txtName = (string)attr.ConstructorArguments[1].Value;
-                        string txtDesc = (string)attr.ConstructorArguments[2].Value;
-                        name.AddText(txtLang, txtName);
-                        description.AddText(txtLang, txtDesc);
+                        case "AncientMysteries.MetaInfoAttribute":
+                            {
+                                var txtLang = (Lang)attr.ConstructorArguments[0].Value;
+                                string txtName = (string)attr.ConstructorArguments[1].Value;
+                                string txtDesc = (string)attr.ConstructorArguments[2].Value;
+                                name.AddText(txtLang, txtName);
+                                description.AddText(txtLang, txtDesc);
+                                break;
+                            }
+                        case "AncientMysteries.MetaOrderAttribute":
+                            {
+                                order = (int)attr.ConstructorArguments[0].Value;
+                                break;
+                            }
+                        default:
+                            break;
                     }
                 }
                 var metaImageAttrArgs = metaImageAttr.ConstructorArguments;
@@ -78,9 +92,10 @@ namespace DescImgGenerator
                 var imgFrameHeight = (int)metaImageAttrArgs[2].Value;
                 var imgFrames = ((CustomAttributeArgument[])metaImageAttrArgs[3].Value).Select(x => (int)x.Value).ToArray();
 
-                items.Add(new Item(name, description, GetItemBitmap(imgName, imgFrameWidth, imgFrameHeight, imgFrames)));
+                items.Add(new Item(name, description, GetItemBitmap(imgName, imgFrameWidth, imgFrameHeight, imgFrames), order));
             }
             ModItems = items.ToArray();
+            ModItems.AsSpan().Sort();
             static bool IsModItem(TypeDefinition type, out CustomAttribute metaImageAttr)
             {
                 Unsafe.SkipInit(out metaImageAttr);
@@ -105,6 +120,24 @@ namespace DescImgGenerator
             {
                 return bitmap;
             }
+        }
+
+        /*
+        public static SKBitmap ScaleTexTo(SKBitmap bitmap, SKRect rect)
+        {
+            float ratio = rect.Height / bitmap.Height;
+            SKBitmap result = new SKBitmap((int)MathF.Round(bitmap.Width * ratio), (int)MathF.Round(bitmap.Height * ratio));
+            bitmap.ScalePixels(result, SKFilterQuality.None);
+            return result;
+        }
+        */
+        public static SKBitmap ScaleTexTo(SKBitmap bitmap, SKRect rect, float maxRatio = 3)
+        {
+            float ratio = rect.Height / bitmap.Height;
+            if (ratio > maxRatio) ratio = maxRatio;
+            SKBitmap result = new SKBitmap((int)MathF.Round(bitmap.Width * ratio), (int)MathF.Round(bitmap.Height * ratio));
+            bitmap.ScalePixels(result, SKFilterQuality.None);
+            return result;
         }
     }
 }

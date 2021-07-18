@@ -2,6 +2,7 @@
 global using System.Runtime.InteropServices;
 global using System.Diagnostics.CodeAnalysis;
 global using SkiaSharp;
+global using Topten.RichTextKit;
 global using System.Reflection;
 global using Mono.Cecil;
 global using Mono.Cecil.Rocks;
@@ -12,3 +13,4 @@ global using System.Collections.Generic;
 global using System.IO;
 global using System.Linq;
 global using static DescImgGenerator.ModMetaReader;
+global using static DescImgGenerator.Helper;
