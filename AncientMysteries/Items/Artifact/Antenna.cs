@@ -19,12 +19,12 @@
         // do not modify at runtime
         public static readonly Vec2[] bulletPosition = new Vec2[bulletCount]
         {
-            new Vec2( - 25f, 0),
-            new Vec2( - 20f, 0 + 6f),
-            new Vec2( - 20f, 0 - 6f),
-            new Vec2( + 25f, 0),
-            new Vec2( + 20f, 0 + 6f),
-            new Vec2( + 20f, 0 - 6f)
+            new Vec2(- 25f, 0),
+            new Vec2(- 20f, 0 + 6f),
+            new Vec2(- 20f, 0 - 6f),
+            new Vec2(+ 25f, 0),
+            new Vec2(+ 20f, 0 + 6f),
+            new Vec2(+ 20f, 0 - 6f)
         };
 
         // do not modify at runtime
