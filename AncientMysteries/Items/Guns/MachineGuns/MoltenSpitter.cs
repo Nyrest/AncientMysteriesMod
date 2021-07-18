@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_MachineGuns)]
     [MetaImage(tex_Gun_MoltenSpitter, 39, 15, 0, 2)]
     [MetaInfo(Lang.english, "Molten Spitter", "「Ducks like you, should be burning in hell」")]
@@ -20,11 +21,13 @@
             Lang.schinese => "熔能喷吐",
             _ => "Molten Spitter",
         };
+
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "「像你这样的鸭子，就该在地狱里焚烧」",
             _ => "「Ducks like you, should be burning in hell」",
         };
+
         public MoltenSpitter(float xval, float yval) : base(xval, yval)
         {
             ammo = 127;

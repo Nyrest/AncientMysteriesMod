@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_Artifacts)]
     [MetaImage(tex_Staff_FallGuy)]
     [MetaInfo(Lang.english, "Fall Guy", "Let someone fall instead of you!")]

@@ -22,6 +22,8 @@
 
         public abstract void Generate(GeneratorExecutionContext context, StringBuilder sb);
 
-        public override void Initialize(GeneratorInitializationContext context) { }
+        public override void Initialize(GeneratorInitializationContext context)
+        {
+        }
     }
 }

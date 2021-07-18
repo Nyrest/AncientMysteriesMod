@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     public class ThunderStorm_ThingBullet : AMThingBulletLinar
     {
         public Waiter fireWait = new(15);
@@ -14,13 +15,13 @@
         public override void Update()
         {
             base.Update();
-            if(fireWait.Tick())
+            if (fireWait.Tick())
             {
                 foreach (Duck d in Level.CheckCircleAll<Duck>(position, 80))
                 {
                     if (d != BulletSafeDuck)
                     {
-                        NetHelper.NmFireGun(list => 
+                        NetHelper.NmFireGun(list =>
                         {
                             var bullet = Make.Bullet<AT_Current>(position, null, -Maths.PointDirection(position, d.position));
                             list.Add(bullet);

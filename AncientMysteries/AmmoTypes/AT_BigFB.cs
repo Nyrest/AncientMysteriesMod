@@ -3,6 +3,7 @@
     public sealed class AT_BigFB : AMAmmoType
     {
         public SpriteMap _spriteMap = TexHelper.ModSpriteWithFrames(tex_Bullet_Firebally, 25, 12, true);
+
         public AT_BigFB()
         {
             accuracy = 0.8f;

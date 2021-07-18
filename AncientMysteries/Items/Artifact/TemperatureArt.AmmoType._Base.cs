@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     public class TemperatureArt_AmmoType_Base : AMAmmoType
     {
         public TemperatureArt_AmmoType_Base()

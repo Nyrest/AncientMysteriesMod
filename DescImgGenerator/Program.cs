@@ -2,7 +2,7 @@
 
 namespace DescImgGenerator
 {
-    static class Program
+    internal static class Program
     {
         public static Lang[] languages = new[]
         {
@@ -10,7 +10,7 @@ namespace DescImgGenerator
             Lang.schinese
         };
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             string saveTo = args.Length == 0 ? ".\\" : args[0] + Path.DirectorySeparatorChar;
             FontMapper.Default = new CustomFontMapper();
@@ -37,17 +37,23 @@ namespace DescImgGenerator
             foreach (var item in ModItems)
             {
                 #region Move Y if needed
+
                 if ((x + itemWidth + itemMargin) > canvasMaxWidth)
                 {
                     x = itemMargin;
                     y += itemHeight + itemMargin + 1;
                 }
-                #endregion
+
+                #endregion Move Y if needed
+
                 var itemRect = new SKRect(x, y, x + itemWidth, y + itemHeight);
                 DrawItem(canvas, item, lang, itemRect);
+
                 #region Move X
+
                 x += itemWidth + itemMargin + 1;
-                #endregion
+
+                #endregion Move X
             }
             rect = new SKRectI(0, 0, canvasMaxWidth, y + itemHeight + itemMargin);
             return surface;
@@ -66,7 +72,9 @@ namespace DescImgGenerator
             using var scaled = ScaleTexTo(item.bitmap, imageRect);
             var imageDestRect = CalculateDisplayRect(imageRect, scaled, BitmapAlignment.Start, BitmapAlignment.Center);
             canvas.DrawBitmap(scaled, imageDestRect.Left + 5, imageDestRect.Top);
+
             #region Draw Name
+
             RichString name = new RichString()
             {
                 MaxWidth = nameRect.Width,
@@ -74,7 +82,9 @@ namespace DescImgGenerator
             }.Add(item.name.GetText(lang));
             name.MaxLines = 1;
             name.Paint(canvas, new SKPoint(nameRect.Left + 2, nameRect.Top + 5), paintOptions);
-            #endregion
+
+            #endregion Draw Name
+
             RichString desc = new RichString()
             {
                 MaxWidth = nameRect.Width,
@@ -83,7 +93,6 @@ namespace DescImgGenerator
             }.Add(item.description.GetText(lang));
             desc.MaxLines = 20;
             desc.Paint(canvas, new SKPoint(descRect.Left + 3, descRect.Top + 5), paintOptions);
-
         }
     }
 }

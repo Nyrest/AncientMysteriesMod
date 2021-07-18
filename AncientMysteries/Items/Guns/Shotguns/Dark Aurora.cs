@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_Shotguns)]
     [MetaImage(tex_Gun_DarkAurora)]
     [MetaInfo(Lang.english, "Dark Aurora", "Pour down shadowy light to crush your foes")]
@@ -16,6 +17,7 @@
             Lang.schinese => "暗影极光",
             _ => "Dark Aurora",
         };
+
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "召唤阴影之光来击碎你的敌人",

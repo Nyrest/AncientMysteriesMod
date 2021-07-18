@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     public class Overgrowth_AmmoType_FinalKiller : AMAmmoType
     {
         public Overgrowth_AmmoType_FinalKiller()

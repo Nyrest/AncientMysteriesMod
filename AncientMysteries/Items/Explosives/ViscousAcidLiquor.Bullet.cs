@@ -1,15 +1,15 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     public class ViscousAcidLiquor_Bullet : Bullet
     {
         public ViscousAcidLiquor_Bullet(float xval, float yval, AmmoType type, float ang = -1, Thing owner = null, bool rbound = false, float distance = -1, bool tracer = false, bool network = true) : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
-
         }
 
         public override void OnCollide(Vec2 pos, Thing t, bool willBeStopped)
         {
             if (!willBeStopped) return;
-            SFX.PlaySynchronized("ignite",1,0.7f);
+            SFX.PlaySynchronized("ignite", 1, 0.7f);
             for (int i = 0; i < 6; i++)
             {
                 SmallSmoke smallSmoke = SmallSmoke.New(pos.x + Rando.Float(-5f, 5f), pos.y + Rando.Float(-5f, 5f), 0.8f, 4);
@@ -18,7 +18,6 @@
                 Level.Add(smallSmoke);
             }
             DestroyRadius(pos, 40, this);
-
         }
 
         public static int DestroyRadius(Vec2 pPosition, float pRadius, Thing pBullet)

@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     public sealed class PrimordialLibram_AmmoType_Flower : AMAmmoType
     {
         public PrimordialLibram_AmmoType_Flower()

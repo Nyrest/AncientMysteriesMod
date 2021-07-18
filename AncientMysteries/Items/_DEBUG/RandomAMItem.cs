@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_DEBUG)]
     public class RandomAMItem : Holdable
     {

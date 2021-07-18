@@ -43,6 +43,7 @@
             StrokeWidth = 2,
             Style = SKPaintStyle.Stroke,
         };
+
         public static void DrawItemBackground(SKCanvas canvas, SKRect rect)
         {
             canvas.DrawRect(rect, bgFill);

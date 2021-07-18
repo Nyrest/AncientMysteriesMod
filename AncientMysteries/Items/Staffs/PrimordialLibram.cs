@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_Staffs)]
     [MetaImage(tex_Staff_PrimordialSpellbook, 21, 14, 0, 1)]
     [MetaInfo(Lang.english, "Primordial Libram", "Everything is born and withers away, for they are all affected by this")]
@@ -65,6 +66,7 @@
         }
 
         #region Fire
+
         public const int totalFireBallCount = 6;
         public bool cast_FireBall = false;
         public int currentFireBallCount = 0;
@@ -99,9 +101,11 @@
                 }
             }
         }
-        #endregion
+
+        #endregion Fire
 
         #region Icicle
+
         public const int totalIcicleCount = 25;
         public bool cast_Icicle = false;
         public int currentIcicleCount = 0;
@@ -141,9 +145,11 @@
                 }
             }
         }
-        #endregion
+
+        #endregion Icicle
 
         #region Green
+
         public void GreenFire(Vec2 pos)
         {
             this.NmFireGun(list =>
@@ -155,9 +161,11 @@
                 }
             });
         }
-        #endregion
+
+        #endregion Green
 
         #region Lightning
+
         public const int totalLightningCount = 25;
         public bool cast_Lightning = false;
         public int currentLightningCount = 0;
@@ -209,7 +217,8 @@
                 }
             }
         }
-        #endregion
+
+        #endregion Lightning
 
         public override void Update()
         {
@@ -228,6 +237,7 @@
             LightningUpdate();
             r += 0.8f;
         }
+
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();

@@ -15,6 +15,7 @@
         {
             _ => "Devastator",
         };
+
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "爽",

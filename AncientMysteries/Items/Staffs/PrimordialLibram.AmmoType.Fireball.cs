@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     public class PrimordialLibram_AmmoType_Fireball : AMAmmoType
     {
         public PrimordialLibram_AmmoType_Fireball()

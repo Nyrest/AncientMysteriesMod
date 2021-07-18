@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     public sealed class Iridescence_AmmoType : AMAmmoType
     {
         public Iridescence_AmmoType()

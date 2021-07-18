@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     public class Overgrowth_AmmoType_Small : AMAmmoType
     {
         public Overgrowth_AmmoType_Small()

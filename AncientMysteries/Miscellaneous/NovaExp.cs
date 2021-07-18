@@ -1,10 +1,12 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     public sealed class NovaExp : ExplosionPart
     {
         public SpriteMap _sprite;
         public bool _smoked;
         public int _smokeFrame;
         public float _wait;
+
         public NovaExp(float xpos, float ypos, bool doWait = true) : base(xpos, ypos)
         {
             _sprite = this.ReadyToRunWithFrames(tex_Effect_CrystalExplosionPurple, 36, 36);

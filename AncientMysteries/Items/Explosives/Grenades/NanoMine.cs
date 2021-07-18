@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns)]
     [MetaImage(tex_Throwable_NanoMine, 18, 16, 1, 2)]
     [MetaInfo(Lang.english, "Spider Mine", "Trying to hug everyone nearby")]

@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_Explosives)]
     [MetaImage(tex_Gun_ViscousAcidLiquor)]
     [MetaInfo(Lang.english, "Viscous Acid Liquor", "A gun that completely corrodes your mind.")]
@@ -10,6 +11,7 @@
             Lang.schinese => "黏稠酸液",
             _ => "Viscous Acid Liquor",
         };
+
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "这把枪会完全腐蚀掉你的头脑",

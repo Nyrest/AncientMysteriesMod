@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_Artifacts)]
     [MetaImage(tex_Melee_SpearOfLeonidas)]
     [MetaInfo(Lang.english, "Spear Of Leonidas", "Sparta!")]
@@ -23,11 +24,13 @@
             Lang.schinese => "列奥尼达斯之矛",
             _ => "Spear Of Leonidas",
         };
+
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "斯巴达！",
             _ => "Sparta!",
         };
+
         public SpearOfLeonidas(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRun(tex_Melee_SpearOfLeonidas);

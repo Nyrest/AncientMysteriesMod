@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_Staffs)]
     [MetaImage(tex_Staff_HolyLight)]
     [MetaInfo(Lang.english, "Holy Light", "The miracle.")]

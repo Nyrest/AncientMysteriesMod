@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_WTF)]
     [MetaImage(tex_Gun_CosmicDisruption)]
     [MetaInfo(Lang.english, "Cosmic Disruption", "Cheating is no longer needed with this.")]

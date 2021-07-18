@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_Melees)]
     [MetaImage(tex_Melee_EternalFlame)]
     [MetaInfo(Lang.english, "Eternal Flame", "Make your enemies burn into charred bones in the blink of an eye")]
@@ -71,7 +72,6 @@
             {
                 _quacked = false;
             }
-
         }
 
         public override void OnPressAction()

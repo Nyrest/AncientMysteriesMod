@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     public class EternalFlame_AmmoType : AMAmmoType
     {
         public EternalFlame_AmmoType()

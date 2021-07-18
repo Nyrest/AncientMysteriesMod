@@ -40,5 +40,4 @@
             context.ReportDiagnostic(Diagnostic.Create(Rule, node.GetLocation()));
         }
     }
-
 }

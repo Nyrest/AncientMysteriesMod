@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     public class CosmicDisruption_AmmoType : AMAmmoType
     {
         public CosmicDisruption_AmmoType()

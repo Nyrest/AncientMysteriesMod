@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_Melees)]
     [MetaImage(tex_Melee_DeathBringer)]
     [MetaInfo(Lang.english, "Death Bringer", "Looks cool, but not cool actually")]
@@ -10,6 +11,7 @@
             Lang.schinese => "死亡收割者",
             _ => "Death Bringer",
         };
+
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "用起来没有想象中的好",

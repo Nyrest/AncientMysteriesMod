@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text;
-using static AncientMysteries.Analyzers.UnifyItemNamespace.UnifyItemNamespaceAnalyzer;
+﻿using static AncientMysteries.Analyzers.UnifyItemNamespace.UnifyItemNamespaceAnalyzer;
 
 namespace AncientMysteries.Analyzers.UnifyItemNamespace
 {

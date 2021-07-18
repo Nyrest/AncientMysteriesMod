@@ -7,10 +7,13 @@
         public const string group_DEBUG = grouptopGroupName + "|Debug";
 
         #region relative
+
         private const string group_relative_Isekai = "|Isekai";
-        #endregion
+
+        #endregion relative
 
         #region Guns
+
         public const string group_Guns = grouptopGroupName + "|Weapons";
 
         public const string group_Guns_Commons = group_Guns + "|Commons";
@@ -38,27 +41,34 @@
         public const string group_Guns_Explosives = group_Guns + "|Explosives";
 
         public const string group_Guns_WTF = group_Guns + "|WTF";
-        #endregion
+
+        #endregion Guns
 
         #region Equipments
+
         public const string group_Equipments = grouptopGroupName + "|Equipments";
 
         public const string group_Equipment_Developer = group_Equipments + "|Developers";
 
         public const string group_Equipment_Isekai_ROR = group_Equipments + group_relative_Isekai + "|Risk of Rain";
-        #endregion
+
+        #endregion Equipments
 
         #region Stuffs
+
         public const string group_Stuffs = grouptopGroupName + "|Stuffs";
 
         public const string group_Stuffs_Props = group_Stuffs + "|Props";
-        #endregion
+
+        #endregion Stuffs
 
         #region Props
+
         public const string group_Props = grouptopGroupName + "|Props";
 
         public const string group_Props_functional = group_Props + "|Functional";
-        #endregion
+
+        #endregion Props
 
         [Obsolete("Assign a valid group.", true)]
         public const string group_Unknown = grouptopGroupName + "|Error";

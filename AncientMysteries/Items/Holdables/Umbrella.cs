@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_Commons)]
     [MetaImage(tex_Holdable_UmbrellaOpen)]
     [MetaInfo(Lang.english, "Umbrella", "It protects you from the rain..does it have some other uses?")]
@@ -45,7 +46,7 @@
                 if (d.crouch || _triggerHeld)
                 {
                     handAngle = -1.56f * -offDir;
-                    _holdOffset = new Vec2(-10 , -5);
+                    _holdOffset = new Vec2(-10, -5);
                     handOffset = new Vec2(0, -4);
                 }
                 else

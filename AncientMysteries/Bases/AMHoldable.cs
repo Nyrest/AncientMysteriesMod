@@ -8,6 +8,7 @@
         }
 
         public abstract string GetLocalizedDescription(Lang lang);
+
         public abstract string GetLocalizedName(Lang lang);
     }
 }

@@ -1,6 +1,4 @@
-﻿
-
-namespace AncientMysteries.Bullets
+﻿namespace AncientMysteries.Bullets
 {
     public class Bullet_AN3 : Bullet
     {
@@ -14,6 +12,7 @@ namespace AncientMysteries.Bullets
         {
             base.Update();
         }
+
         public override void Removed()
         {
             NovaExp n = new(travelEnd.x, travelEnd.y, true);
