@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DescImgGenerator
 {
@@ -61,15 +63,16 @@ namespace DescImgGenerator
 
         public static void DrawItem(SKCanvas canvas, Item item, Lang lang, SKRect rect)
         {
+            Console.WriteLine($"[{lang}] {item.name.GetText(lang)}");
             DrawItemBackground(canvas, rect);
-            SKRect padded = new(rect.Left + itemPadding, rect.Top + itemPadding, rect.Right - itemPadding, rect.Bottom - itemPadding);
+            SKRect padded = new(rect.Left + itemPadding, rect.Top + itemPadding, rect.Right - itemPadding, rect.Bottom);
             float imageHeight = padded.Height * 0.4f;
             float nameHeight = padded.Height * 0.2f;
             float descHeight = padded.Height * 0.4f;
             SKRect imageRect = crect(padded.Left, padded.Top, padded.Width, imageHeight);
-            SKRect nameRect = crect(padded.Left, padded.Top + imageHeight, padded.Width, nameHeight);
-            SKRect descRect = crect(padded.Left, padded.Top + imageHeight + nameHeight, padded.Width, descHeight);
-            using var scaled = ScaleTexTo(item.bitmap, imageRect);
+            SKRect nameRect = crect(padded.Left + 3, padded.Top + imageHeight, padded.Width - 5, nameHeight);
+            SKRect descRect = crect(padded.Left + 3, padded.Top + imageHeight + nameHeight, padded.Width - 5, descHeight);
+            var scaled = item.GetScaledBitmap(imageRect);
             var imageDestRect = CalculateDisplayRect(imageRect, scaled, BitmapAlignment.Start, BitmapAlignment.Center);
             canvas.DrawBitmap(scaled, imageDestRect.Left + 5, imageDestRect.Top);
 
@@ -81,7 +84,7 @@ namespace DescImgGenerator
                 DefaultStyle = nameStyle,
             }.Add(item.name.GetText(lang));
             name.MaxLines = 1;
-            name.Paint(canvas, new SKPoint(nameRect.Left + 2, nameRect.Top + 5), paintOptions);
+            name.Paint(canvas, new SKPoint(nameRect.Left , nameRect.Top + 4), paintOptions);
 
             #endregion Draw Name
 
@@ -92,7 +95,7 @@ namespace DescImgGenerator
                 DefaultStyle = descStyle,
             }.Add(item.description.GetText(lang));
             desc.MaxLines = 20;
-            desc.Paint(canvas, new SKPoint(descRect.Left + 3, descRect.Top + 5), paintOptions);
+            desc.Paint(canvas, new SKPoint(descRect.Left, descRect.Top + 3), paintOptions);
         }
     }
 }

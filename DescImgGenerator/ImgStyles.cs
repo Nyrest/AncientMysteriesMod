@@ -3,7 +3,7 @@
     public static class ImgStyles
     {
         public const int itemMargin = 3;
-        public const int itemPadding = 4;
+        public const int itemPadding = 6;
         public const int itemWidth = 314;
         public const int itemHeight = 140;
 
@@ -23,7 +23,7 @@
         {
             TextColor = new SKColor(240, 239, 235),
             FontWeight = 300,
-            FontSize = 13.8f,
+            FontSize = 13.7f,
         };
 
         public static TextPaintOptions paintOptions = new()

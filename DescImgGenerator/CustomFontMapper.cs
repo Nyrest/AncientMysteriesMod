@@ -3,17 +3,19 @@
     public class CustomFontMapper : FontMapper
     {
         public static readonly SKTypeface typeface;
+        public static readonly SKTypeface typefaceDemiLight;
+
 
         static CustomFontMapper()
         {
-            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("DescImgGenerator.NotoSansCJKsc-Regular.otf")!)
-            {
-                typeface = SKTypeface.FromStream(stream);
-            }
+            typeface = SKTypeface.FromFile("NotoSansCJKsc-Regular.otf");
+            typefaceDemiLight = SKTypeface.FromFile("NotoSansCJKsc-Light.otf");
         }
 
         public override SKTypeface TypefaceFromStyle(IStyle style, bool ignoreFontVariants)
         {
+            if (style.FontWeight < 400)
+                return typefaceDemiLight;
             return typeface;
         }
     }
