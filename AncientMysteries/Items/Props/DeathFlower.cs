@@ -39,10 +39,11 @@ namespace AncientMysteries.Items
         public override void OnPressAction()
         {
             base.OnPressAction();
-            if (duck != null)
+            if (duck != null && AnimationFrame == 0)
             {
                 duck.Scream();
                 duck.Kill(new DT_NoReason());
+                SFX.PlayMod(snd_FloweyLaugh, 1, -0.3f);
                 AnimationFrame = 1;
             }
         }

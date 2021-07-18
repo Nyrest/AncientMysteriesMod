@@ -19,6 +19,7 @@
             n.xscale *= 2.25f;
             n.yscale *= 2.25f;
             Level.Add(n);
+            
             SFX.PlaySynchronized("explode", 0.8f, Rando.Float(-0.1f, 1f), 0f, false);
             IEnumerable<MaterialThing> things = Level.CheckCircleAll<MaterialThing>(travelEnd, 25f);
             foreach (MaterialThing t2 in things)
