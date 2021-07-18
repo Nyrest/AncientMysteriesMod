@@ -59,7 +59,7 @@ namespace DescImgGenerator
             SKRect imageRect = crect(padded.Left, padded.Top, padded.Width, imageHeight);
             SKRect nameRect = crect(padded.Left, padded.Top + imageHeight, padded.Width, nameHeight);
             SKRect descRect = crect(padded.Left, padded.Top + imageHeight + nameHeight, padded.Width, descHeight);
-            var scaled = ScaleTexTo(item.bitmap, imageRect);
+            using var scaled = ScaleTexTo(item.bitmap, imageRect);
             var imageDestRect = CalculateDisplayRect(imageRect, scaled, BitmapAlignment.Start, BitmapAlignment.Center);
             canvas.DrawBitmap(scaled, imageDestRect.Left + 5, imageDestRect.Top);
             #region Draw Name
