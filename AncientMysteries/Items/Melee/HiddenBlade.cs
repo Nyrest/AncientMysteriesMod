@@ -8,9 +8,9 @@ namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_Melees)]
     [MetaImage(tex_Melee_HiddenBlade_Out)]
-    [MetaInfo(Lang.english, "Hiddle Blade", "「Nothing is true, everything is permitted.」")]
+    [MetaInfo(Lang.english, "Hidden Blade", "「Nothing is true, everything is permitted.」")]
     [MetaInfo(Lang.schinese, "袖箭", "「万事皆虚，万事皆允。」")]
-    public partial class HiddleBlade : AMHoldable
+    public partial class HiddenBlade : AMHoldable
     {
         public StateBinding bladeOutBinding = new StateBinding(nameof(bladeOut));
 
@@ -28,7 +28,7 @@ namespace AncientMysteries.Items
             }
         }
 
-        public HiddleBlade(float xpos, float ypos) : base(xpos, ypos)
+        public HiddenBlade(float xpos, float ypos) : base(xpos, ypos)
         {
             this.ReadyToRun(tex_Melee_HiddenBlade);
             hideLeftWing = true;
@@ -70,7 +70,7 @@ namespace AncientMysteries.Items
 
         public override string GetLocalizedName(Lang lang) => lang switch
         {
-            _ => "Hiddle Blade",
+            _ => "Hidden Blade",
         };
     }
 }
