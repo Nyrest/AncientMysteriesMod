@@ -3,13 +3,13 @@
     [EditorGroup(group_Guns)]
     [MetaImage(tex_Throwable_TrackingGrenade, 8, 9, 0, 1)]
     [MetaInfo(Lang.english, "Tracking Grenade", "This grenade wants a girl friend!")]
-    [MetaInfo(Lang.schinese, "纳米手雷", "一颗单身许久的饥渴手雷！")]
+    [MetaInfo(Lang.schinese, "追踪手雷", "一颗单身许久的饥渴手雷！")]
     public sealed partial class TrackingGrenade : AMGun
     {
         public override string GetLocalizedName(Lang lang) => lang switch
         {
-            Lang.schinese => "纳米手雷",
-            _ => "Nano Grenade",
+            Lang.schinese => "追踪手雷",
+            _ => "Tracking Grenade",
         };
 
         public override string GetLocalizedDescription(Lang lang) => lang switch

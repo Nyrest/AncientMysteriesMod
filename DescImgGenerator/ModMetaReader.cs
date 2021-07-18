@@ -3,10 +3,7 @@ using System.Threading.Tasks;
 
 namespace DescImgGenerator
 {
-    public record Item(LocalizedText name, LocalizedText description, SKBitmap bitmap, int order) : IComparable<Item>
-    {
-        public int CompareTo(Item? other) => other is not null ? order.CompareTo(other.order) : 1;
-    }
+
 
     public class LocalizedText
     {
@@ -117,8 +114,9 @@ namespace DescImgGenerator
         {
             string filename = Path.GetFullPath("content\\" + item);
             var bitmap = SKBitmap.Decode(filename);
-            return frameWidth == -1 ? bitmap : WithFrames(bitmap, frameWidth, frameHeight, frames);
-            SKBitmap WithFrames(SKBitmap bitmap, int frameWidth, int frameHeight, int[] frames)
+            return frameWidth == -1 ? bitmap : WithFrames();
+
+            SKBitmap WithFrames()
             {
                 SKBitmap result = new((frameWidth + frameMargin) * frames.Length, frameHeight);
                 SKCanvas canvas = new(result);
