@@ -1,6 +1,4 @@
 ﻿using System.Threading.Tasks;
-using System.Xml;
-using Topten.RichTextKit.Editor;
 
 namespace DescImgGenerator
 {
@@ -82,23 +80,6 @@ namespace DescImgGenerator
             desc.MaxLines = 20;
             desc.Paint(canvas, new SKPoint(descRect.Left + 3, descRect.Top + 5), paintOptions);
 
-        }
-
-        static SKPaint bgFill = new SKPaint()
-        {
-            Color = new SKColor(24, 26, 27),
-        };
-
-        static SKPaint bgBorder = new SKPaint()
-        {
-            Color = new SKColor(45, 100, 97),
-            StrokeWidth = 2,
-            Style = SKPaintStyle.Stroke,
-        };
-        public static void DrawItemBackground(SKCanvas canvas, SKRect rect)
-        {
-            canvas.DrawRect(rect, bgFill);
-            canvas.DrawRect(rect, bgBorder);
         }
     }
 }

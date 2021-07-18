@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DescImgGenerator
+﻿namespace DescImgGenerator
 {
     public static class ImgStyles
     {
@@ -20,14 +14,15 @@ namespace DescImgGenerator
 
         public static Style nameStyle = new Style()
         {
-            TextColor = SKColors.White,
+            TextColor = new SKColor(238, 66, 102),
             FontSize = 16,
             LetterSpacing = 1,
         };
 
         public static Style descStyle = new()
         {
-            TextColor = SKColors.LightGray,
+            TextColor = new SKColor(240, 239, 235),
+            FontWeight = 300,
             FontSize = 13.8f,
         };
 
@@ -36,5 +31,22 @@ namespace DescImgGenerator
             IsAntialias = true,
             LcdRenderText = true,
         };
+
+        public static SKPaint bgFill = new SKPaint()
+        {
+            Color = new SKColor(24, 26, 27),
+        };
+
+        public static SKPaint bgBorder = new SKPaint()
+        {
+            Color = new SKColor(93, 101, 178),
+            StrokeWidth = 2,
+            Style = SKPaintStyle.Stroke,
+        };
+        public static void DrawItemBackground(SKCanvas canvas, SKRect rect)
+        {
+            canvas.DrawRect(rect, bgFill);
+            canvas.DrawRect(rect, bgBorder);
+        }
     }
 }

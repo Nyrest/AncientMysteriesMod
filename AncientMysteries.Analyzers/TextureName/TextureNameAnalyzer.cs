@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AncientMysteries.Analyzers.UnclassifiedTexture
+﻿namespace AncientMysteries.Analyzers.UnclassifiedTexture
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class TextureNameAnalyzer : DiagnosticAnalyzer

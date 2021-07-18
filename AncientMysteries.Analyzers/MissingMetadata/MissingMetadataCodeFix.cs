@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
+﻿using System.Collections.Generic;
 using System.Text;
-using Microsoft.CodeAnalysis.Host;
 using static AncientMysteries.Analyzers.MissingMetadata.MissingMetadataAnalyzer;
 
 namespace AncientMysteries.Analyzers.MissingMetadata

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AncientMysteries.Analyzers.MarkPartial
+﻿namespace AncientMysteries.Analyzers.MarkPartial
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class MakePartialAnalyzer : DiagnosticAnalyzer

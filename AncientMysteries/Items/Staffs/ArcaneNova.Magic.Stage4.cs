@@ -1,7 +1,4 @@
-﻿using AncientMysteries.DestroyTypes;
-using AncientMysteries.Items.Miscellaneous;
-
-namespace AncientMysteries.Items.Staffs
+﻿namespace AncientMysteries.Items.Staffs
 {
     public class ArcaneNova_Magic_Stage4 : AMThingBulletLinar
     {
