@@ -1,7 +1,6 @@
-﻿namespace AncientMysteries.Items.Guns.MachineGuns
-{
-    [EditorGroup(g_rifles)]
-    [MetaImage(t_Gun_ElectronicImpacter)]
+﻿namespace AncientMysteries.Items{
+    [EditorGroup(group_Guns_Rifles)]
+    [MetaImage(tex_Gun_ElectronicImpacter)]
     [MetaInfo(Lang.english, "Electronic Impacter", "But, why is it green?")]
     [MetaInfo(Lang.schinese, "雷电撞击", "但是，它为什么是绿色的呢？")]
     public sealed partial class ElectronicImpacter : AMGun
@@ -21,7 +20,7 @@
 			ammo = 80;
 			_ammoType = new ElectronicImpacter_AmmoType();
 			_type = "gun";
-			this.ReadyToRunWithFrames(t_Gun_ElectronicImpacter);
+			this.ReadyToRunWithFrames(tex_Gun_ElectronicImpacter);
 			_flare.color = Color.Transparent;
 			BarrelSmokeFuckOff();
 			_fireRumble = RumbleIntensity.Kick;

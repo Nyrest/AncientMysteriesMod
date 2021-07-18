@@ -1,7 +1,6 @@
-﻿namespace AncientMysteries.Items.Guns.Snipers
-{
-    [EditorGroup(g_snipers)]
-    [MetaImage(t_Gun_ShadowDance)]
+﻿namespace AncientMysteries.Items{
+    [EditorGroup(group_Guns_Snipers)]
+    [MetaImage(tex_Gun_ShadowDance)]
     [MetaInfo(Lang.english, "Shadow Dance", "Aim, fire!")]
     [MetaInfo(Lang.schinese, "影舞者", "瞄准，开火！")]
     public sealed partial class ShadowDance : AMGun
@@ -24,7 +23,7 @@
                 range = 1600,
                 penetration = 3.5f,
             };
-            this.ReadyToRunWithFrames(t_Gun_ShadowDance);
+            this.ReadyToRunWithFrames(tex_Gun_ShadowDance);
             _flare.color = Color.Black;
             BarrelSmoke.color = Color.Black;
             _fireRumble = RumbleIntensity.Medium;

@@ -1,7 +1,6 @@
-﻿namespace AncientMysteries.Items.Guns.MachineGuns
-{
-    [EditorGroup(g_machineGuns)]
-    [MetaImage(t_Gun_MoltenSpitter, 39, 15, 0, 2)]
+﻿namespace AncientMysteries.Items{
+    [EditorGroup(group_Guns_MachineGuns)]
+    [MetaImage(tex_Gun_MoltenSpitter, 39, 15, 0, 2)]
     [MetaInfo(Lang.english, "Molten Spitter", "「Ducks like you, should be burning in hell」")]
     [MetaInfo(Lang.schinese, "熔能喷吐", "「像你这样的鸭子，就该在地狱里焚烧」")]
     public sealed partial class MoltenSpitter : AMGun
@@ -31,7 +30,7 @@
             ammo = 127;
             _ammoType = new MoltenSpitter_AmmoType();
             _type = "gun";
-            _spriteMap = this.ReadyToRunWithFrames(t_Gun_MoltenSpitter, 39, 15);
+            _spriteMap = this.ReadyToRunWithFrames(tex_Gun_MoltenSpitter, 39, 15);
             SetBox(39, 13);
             BarrelSmokeFuckOff();
             _fireRumble = RumbleIntensity.Light;

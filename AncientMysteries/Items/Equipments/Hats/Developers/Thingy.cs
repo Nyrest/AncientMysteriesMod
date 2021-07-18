@@ -1,9 +1,7 @@
-﻿using AncientMysteries.Items.Guns.MachineGuns;
-
-namespace AncientMysteries.Equipments.Hats.Developers
+﻿namespace AncientMysteries.Equipments.Hats.Developers
 {
-    [EditorGroup(e_developer)]
-    [MetaImage(t_Hat_DevastatorPickup)]
+    [EditorGroup(group_Equipment_Developer)]
+    [MetaImage(tex_Hat_DevastatorPickup)]
     [MetaInfo(Lang.english, "Thingy", "Satisfying")]
     [MetaInfo(Lang.schinese, "米团", "爽")]
     [MetaOrder(int.MaxValue - 1)]
@@ -25,8 +23,8 @@ namespace AncientMysteries.Equipments.Hats.Developers
 
         public Thingy(float xpos, float ypos) : base(xpos, ypos)
         {
-            _sprite = this.ModSpriteWithFrames(t_Hat_Devastator, 32, 32, true);
-            _pickupSprite = this.ReadyToRun(t_Hat_DevastatorPickup);
+            _sprite = this.ModSpriteWithFrames(tex_Hat_Devastator, 32, 32, true);
+            _pickupSprite = this.ReadyToRun(tex_Hat_DevastatorPickup);
             EquipmentMaxHitPoints = 32767;
             EquipmentHitPoints = 32767;
             _isArmor = true;

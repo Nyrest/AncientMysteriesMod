@@ -1,4 +1,8 @@
-﻿namespace AncientMysteries.AmmoTypes
+﻿#if DEBUG
+using System.Diagnostics;
+#endif
+
+namespace AncientMysteries.AmmoTypes
 {
     public class _ImplicitDefaultAmmoType : AMAmmoType
     {

@@ -1,13 +1,13 @@
 ﻿namespace AncientMysteries.Equipments.Hats.Developers
 {
-    [EditorGroup(e_developer)]
-    [MetaImage(t_Hat_Boring3Pickup)]
-    [MetaInfo(Lang.english, "Boring3", "Probably the most powerful thing in this mod")]
+    [EditorGroup(group_Equipment_Developer)]
+    [MetaImage(tex_Hat_Boring3Pickup)]
+    [MetaInfo(Lang.english, "Boring3", "Probably the most powerful thing in this Mod")]
     [MetaInfo(Lang.schinese, null, "也许是这个 Mod 里最屌的东西")]
     [MetaOrder(int.MaxValue - 2)]
     public sealed partial class Boring3 : AMHelmet, IPlatform
     {
-        public static readonly FieldInfo feather_Sprite = typeof(Feather).GetField("_sprite", BindingFlags.NonPublic | BindingFlags.Instance);
+        public static readonly FieldInfo feather_Field = typeof(Feather).GetField("_sprite", BindingFlags.NonPublic | BindingFlags.Instance);
 
         public override string GetLocalizedName(Lang lang) => lang switch
         {
@@ -17,7 +17,7 @@
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "也许是这个 Mod 里最屌的东西",
-            _ => "Probably the most powerful thing in this mod",
+            _ => "Probably the most powerful thing in this Mod",
         };
 
 
@@ -25,8 +25,8 @@
 
         public Boring3(float xpos, float ypos) : base(xpos, ypos)
         {
-            _sprite = this.ModSpriteWithFrames(t_Hat_Boring3, 32, 32, true);
-            _pickupSprite = this.ReadyToRun(t_Hat_Boring3Pickup);
+            _sprite = this.ModSpriteWithFrames(tex_Hat_Boring3, 32, 32, true);
+            _pickupSprite = this.ReadyToRun(tex_Hat_Boring3Pickup);
             baseCollisionOffset = _collisionOffset;
             baseCollisionSize = _collisionSize;
             _equippedCollisionOffset = baseCollisionOffset - new Vec2(1, 1);
@@ -84,7 +84,7 @@
                 var equppedDuckColor = _equippedDuck.persona.colorUsable;
                 foreach (var feather in Level.CheckCircleAll<Feather>(_equippedDuck.position, 50))
                 {
-                    var spriteMap = (SpriteMap)feather_Sprite.GetValue(feather);
+                    var spriteMap = (SpriteMap)feather_Field.GetValue(feather);
                     if (spriteMap.texture == equippedDuckFeather)
                     {
                         var particleEnd = feather.position + -feather.velocity * 15;

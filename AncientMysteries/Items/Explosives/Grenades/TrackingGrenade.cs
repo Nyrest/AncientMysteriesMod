@@ -1,7 +1,6 @@
-﻿namespace AncientMysteries.Items.Explosives.Grenades
-{
-    [EditorGroup(guns)]
-    [MetaImage(t_Throwable_TrackingGrenade, 8, 9, 0, 1)]
+﻿namespace AncientMysteries.Items{
+    [EditorGroup(group_Guns)]
+    [MetaImage(tex_Throwable_TrackingGrenade, 8, 9, 0, 1)]
     [MetaInfo(Lang.english, "Tracking Grenade", "This grenade wants a girl friend!")]
     [MetaInfo(Lang.schinese, "纳米手雷", "一颗单身许久的饥渴手雷！")]
     public sealed partial class TrackingGrenade : AMGun
@@ -65,7 +64,7 @@
                 penetration = 0.4f
             };
             _type = "gun";
-            _sprite = this.ReadyToRunWithFrames(t_Throwable_TrackingGrenade, 8, 9);
+            _sprite = this.ReadyToRunWithFrames(tex_Throwable_TrackingGrenade, 8, 9);
             graphic = _sprite;
             bouncy = 0.4f;
             friction = 0.05f;

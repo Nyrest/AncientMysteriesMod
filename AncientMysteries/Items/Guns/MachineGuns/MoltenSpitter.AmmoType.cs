@@ -1,6 +1,5 @@
-﻿namespace AncientMysteries.Items.Guns.MachineGuns
-{
-    [EditorGroup(g_machineGuns)]
+﻿namespace AncientMysteries.Items{
+    [EditorGroup(group_Guns_MachineGuns)]
     public sealed class MoltenSpitter_AmmoType : AMAmmoType
     {
         public MoltenSpitter_AmmoType()
@@ -12,7 +11,7 @@
             bulletLength = 0;
             combustable = true;
             bulletColor = Color.OrangeRed;
-            sprite = TexHelper.ModSprite(t_Bullet_Fireball2);
+            sprite = TexHelper.ModSprite(tex_Bullet_Fireball2);
             sprite.CenterOrigin();
         }
 

@@ -1,7 +1,6 @@
-﻿namespace AncientMysteries.Items.Staffs
-{
-    [EditorGroup(g_staffs)]
-    [MetaImage(t_Staff_PrimordialSpellbook, 21, 14, 0, 1)]
+﻿namespace AncientMysteries.Items{
+    [EditorGroup(group_Guns_Staffs)]
+    [MetaImage(tex_Staff_PrimordialSpellbook, 21, 14, 0, 1)]
     [MetaInfo(Lang.english, "Primordial Libram", "Everything is born and withers away, for they are all affected by this")]
     [MetaInfo(Lang.schinese, "源生法典", "万物生而凋零，一切皆因于此")]
     public partial class PrimordialLibram : AMStaff
@@ -38,7 +37,7 @@
         {
             _ammoType = new AT_None();
             _type = "gun";
-            _spriteMap = this.ReadyToRunWithFrames(t_Staff_PrimordialSpellbook, 21, 14);
+            _spriteMap = this.ReadyToRunWithFrames(tex_Staff_PrimordialSpellbook, 21, 14);
             SetBox(21, 14);
             _barrelOffsetTL = new Vec2(6f, 5f);
 #if DEBUG

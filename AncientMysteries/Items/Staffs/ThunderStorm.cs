@@ -1,7 +1,6 @@
-﻿namespace AncientMysteries.Items.Staffs
-{
-    [EditorGroup(g_staffs)]
-    [MetaImage(t_Staff_ThunderStorm, 13, 36)]
+﻿namespace AncientMysteries.Items{
+    [EditorGroup(group_Guns_Staffs)]
+    [MetaImage(tex_Staff_ThunderStorm, 13, 36)]
     [MetaInfo(Lang.english, "Thunderstorm", "May the lightning drives away the darkness!")]
     [MetaInfo(Lang.schinese, "雷暴", "以雷霆击碎黑暗！")]
     public sealed partial class Thunderstorm : AMStaff
@@ -29,7 +28,7 @@
         public Thunderstorm(float xval, float yval) : base(xval, yval)
         {
             _ammoType = new AT_CubicBlast();
-            _spriteMap = this.ReadyToRunWithFrames(t_Staff_ThunderStorm, 13, 36);
+            _spriteMap = this.ReadyToRunWithFrames(tex_Staff_ThunderStorm, 13, 36);
             _barrelOffsetTL = new Vec2(6, 3);
             _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2);
             _spriteMap.SetAnimation("loop");

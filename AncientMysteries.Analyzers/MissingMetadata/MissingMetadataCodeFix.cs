@@ -47,13 +47,12 @@ namespace AncientMysteries.Analyzers.MissingMetadata
 
             var syntaxTree = await document.GetSyntaxTreeAsync(cancellationToken);
             if (syntaxTree is null) throw new NullReferenceException(nameof(syntaxTree));
-            var root = await syntaxTree.GetRootAsync(cancellationToken);
 
             var flags = GetMetadataFlags(symbol);
             List<AttributeSyntax> list = new(3);
             if ((flags & MetadataFlags.HasEditorGroup) == 0)
             {
-                var args = SF.ParseAttributeArgumentList("(g_unknown)");
+                var args = SF.ParseAttributeArgumentList("(group_Unknown)");
                 list.Add(SF.Attribute(SF.IdentifierName("EditorGroup"), args));
             }
             if ((flags & MetadataFlags.HasMetaImage) == 0)
@@ -77,7 +76,8 @@ namespace AncientMysteries.Analyzers.MissingMetadata
                 updatedNode = updatedNode.AddAttributeLists(SF.AttributeList(SF.SingletonSeparatedList(item)));
             }
 
-            var updatedSyntaxTree = syntaxTree.GetRoot().ReplaceNode(node, updatedNode);
+            var root = await syntaxTree.GetRootAsync(cancellationToken);
+            var updatedSyntaxTree = root.ReplaceNode(node, updatedNode);
             return document.WithSyntaxRoot(updatedSyntaxTree);
         }
 
