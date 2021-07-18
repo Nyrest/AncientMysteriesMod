@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
-    [MetaImage(t_Staff_Judgement)]
+    [MetaImage(t_Staff_Judgement, 13, 39)]
     [MetaInfo(Lang.english, "Rainbow Tears", "「天気なんて、狂ったままでいいんだ！」")]
     [MetaInfo(Lang.schinese, "棱彩之泪", "「天気なんて、狂ったままでいいんだ！」")]
     public partial class RainbowTears : AMStaff

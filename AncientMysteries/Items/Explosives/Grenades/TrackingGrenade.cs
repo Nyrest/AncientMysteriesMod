@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Explosives.Grenades
 {
     [EditorGroup(guns)]
-    [MetaImage(t_Throwable_TrackingGrenade)]
+    [MetaImage(t_Throwable_TrackingGrenade, 8, 9, 0, 1)]
     [MetaInfo(Lang.english, "Tracking Grenade", "This grenade wants a girl friend!")]
     [MetaInfo(Lang.schinese, "纳米手雷", "一颗单身许久的饥渴手雷！")]
     public sealed partial class TrackingGrenade : AMGun

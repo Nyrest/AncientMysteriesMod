@@ -14,3 +14,4 @@ global using System.IO;
 global using System.Linq;
 global using static DescImgGenerator.ModMetaReader;
 global using static DescImgGenerator.Helper;
+global using static DescImgGenerator.ImgStyles;

@@ -27,6 +27,7 @@
             this.ReadyToRunWithFrames(t_Gun_ShadowDance);
             _flare.color = Color.Black;
             BarrelSmoke.color = Color.Black;
+            _fireRumble = RumbleIntensity.Medium;
             _barrelOffsetTL = new Vec2(34f, 6f);
             _fireSound = "laserBlast";
             _fireSoundPitch = -0.8f;

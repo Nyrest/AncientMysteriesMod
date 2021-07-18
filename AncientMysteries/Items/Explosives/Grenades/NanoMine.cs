@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Explosives.Grenades
 {
     [EditorGroup(guns)]
-    [MetaImage(t_Throwable_NanoMine)]
+    [MetaImage(t_Throwable_NanoMine, 18, 16, 1, 2)]
     [MetaInfo(Lang.english, "Spider Mine", "Trying to hug everyone nearby")]
     [MetaInfo(Lang.schinese, "追踪地雷", "试图拥抱附近的每个人")]
     public sealed partial class NanoMine : AMGun

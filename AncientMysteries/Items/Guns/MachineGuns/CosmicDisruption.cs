@@ -26,6 +26,7 @@
             this.ReadyToRunWithFrames(t_Gun_CosmicDisruption);
             _barrelOffsetTL = new Vec2(40f, 7f);
             BarrelSmoke.color = Color.White;
+            _fireRumble = RumbleIntensity.Kick;
             _fireSound = "laserRifle";
             _fireWait = 0f;
             _fireSoundPitch = 0.9f;

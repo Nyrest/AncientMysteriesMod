@@ -19,6 +19,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="NotoSansCJKsc-Regular.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="NotoSansCJKsc-Regular.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Mono.Cecil" Version="0.11.4" />
     <PackageReference Include="SkiaSharp" Version="2.80.3" />
     <PackageReference Include="Topten.RichTextKit" Version="0.4.140" />

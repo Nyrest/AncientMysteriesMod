@@ -2,8 +2,8 @@
 {
     [EditorGroup(g_rifles)]
     [MetaImage(t_Gun_ElectronicImpacter)]
-    [MetaInfo(Lang.english, "Electronic Impacter", "雷电撞击")]
-    [MetaInfo(Lang.schinese, "但是，它为什么是绿色的呢？", "But, why is it green?")]
+    [MetaInfo(Lang.english, "Electronic Impacter", "But, why is it green?")]
+    [MetaInfo(Lang.schinese, "雷电撞击", "但是，它为什么是绿色的呢？")]
     public sealed partial class ElectronicImpacter : AMGun
 	{
 		public override string GetLocalizedName(Lang lang) => lang switch

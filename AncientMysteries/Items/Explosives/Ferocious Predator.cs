@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Explosives
 {
     [EditorGroup(g_explosives)]
-    [MetaImage(t_Gun_FerociousPredator)]
+    [MetaImage(t_Gun_FerociousPredator, 32, 16)]
     [MetaInfo(Lang.english, "Ferocious Predator", "Beware of the prey")]
     [MetaInfo(Lang.schinese, "凶恶猎手", "凶恶猎手")]
     public sealed partial class FerociousPredator : AMGun

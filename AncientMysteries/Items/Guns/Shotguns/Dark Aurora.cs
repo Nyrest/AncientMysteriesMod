@@ -34,6 +34,7 @@
             _flare.color = Color.Black;
             BarrelSmoke.color = Color.Black;
             _barrelOffsetTL = new Vec2(28f, 4f);
+            _fireRumble = RumbleIntensity.Medium;
             _fireSound = "laserBlast";
             _fireSoundPitch = -0.9f;
             _kickForce = 2f;
