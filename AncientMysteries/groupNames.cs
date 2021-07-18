@@ -44,6 +44,10 @@
 
         #endregion Guns
 
+        #region Melee
+
+        #endregion
+
         #region Equipments
 
         public const string group_Equipments = grouptopGroupName + "|Equipments";

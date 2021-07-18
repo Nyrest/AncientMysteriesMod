@@ -25,7 +25,7 @@
             }
         }
 
-        public static void ThingMoveTo(Thing thing, Vec2 position, float speed = 3)
+        public static void ThingMoveTo(Thing thing, Vec2 position, float speed = 3, float lerpAmount = -1)
         {
             if (thing == null)
                 return;
@@ -43,18 +43,6 @@
                         if (plat is MaterialThing t)
                         {
                             materialThing.clip.Add(t);
-                            /*
-                            if (Level.CheckPoint<IPlatform>(
-                                t.topLeft + new Vec2(-2f, 2f)) is MaterialThing left && left is Block)
-                            {
-                                materialThing.clip.Add(left);
-                            }
-                            if (Level.CheckPoint<IPlatform>(
-                                t.topRight + new Vec2(2f, 2f)) is MaterialThing right && right is Block)
-                            {
-                                materialThing.clip.Add(right);
-                            }
-                             */
                             IPlatform left = Level.CheckPoint<IPlatform>(t.topLeft + new Vec2(-2f, 2f));
                             if (left is not null and MaterialThing and not Block)
                             {
@@ -74,15 +62,26 @@
             }
             Vec2 anglevec = Vec2.Clamp(new Vec2(position.x - thing.x, thing.y - position.y), new Vec2(-speed), new Vec2(speed));
             Vec2 tmp = Maths.AngleToVec((float)Math.Atan(anglevec.y / anglevec.x)) * speed;
-            thing.hSpeed = anglevec.x < 0 ? -tmp.x : tmp.x;
-            thing.vSpeed = anglevec.x < 0 ? -tmp.y : tmp.y;
+            if (lerpAmount == -1)
+            {
+                thing.hSpeed = anglevec.x < 0 ? -tmp.x : tmp.x;
+                thing.vSpeed = anglevec.x < 0 ? -tmp.y : tmp.y;
+            }
+            else
+            {
+                var newHSpeed = anglevec.x < 0 ? -tmp.x : tmp.x;
+                var newVSpeed = anglevec.x < 0 ? -tmp.y : tmp.y;
+                thing.hSpeed = MathHelper.Lerp(thing.hSpeed, newHSpeed, lerpAmount);
+                thing.vSpeed = MathHelper.Lerp(thing.vSpeed, newVSpeed, lerpAmount);
+            }
+
             if (Level.CheckRect<Window>(thing.topLeft, thing.bottomRight) is Window window)
             {
                 window.Destroy();
             }
         }
 
-        public static void ThingMoveToVertically(Thing thing, Vec2 position, float speed = 3)
+        public static void ThingMoveToVertically(Thing thing, Vec2 position, float speed = 3, float lerpAmount = -1)
         {
             if (thing == null)
                 return;
@@ -130,8 +129,19 @@
                 }
             }
             Vec2 tmp = position - thing.position;
-            thing.hSpeed = Maths.Clamp(tmp.x, -speed, speed);
-            thing.vSpeed = Maths.Clamp(tmp.y, -speed, speed);
+            if (lerpAmount == -1)
+            {
+                thing.hSpeed = Maths.Clamp(tmp.x, -speed, speed);
+                thing.vSpeed = Maths.Clamp(tmp.y, -speed, speed);
+            }
+            else
+            {
+                var newHSpeed = Maths.Clamp(tmp.x, -speed, speed);
+                var newVSpeed = Maths.Clamp(tmp.y, -speed, speed);
+                thing.hSpeed = MathHelper.Lerp(thing.hSpeed, newHSpeed, lerpAmount);
+                thing.vSpeed = MathHelper.Lerp(thing.vSpeed, newVSpeed, lerpAmount);
+            }
+
         }
     }
 }

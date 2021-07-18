@@ -142,11 +142,11 @@
                 {
                     if (Level.CheckLine<Block>(position, _targetPlayer.position) != null)
                     {
-                        StupidMoving.ThingMoveTo(this, _targetPlayer.position, 3f);
+                        StupidMoving.ThingMoveTo(this, _targetPlayer.position, 3.1f, 0.5f);
                     }
                     else
                     {
-                        StupidMoving.ThingMoveToVertically(this, _targetPlayer.position, 3f);
+                        StupidMoving.ThingMoveToVertically(this, _targetPlayer.position, 3.1f, 0.5f);
                     }
                 }
             }

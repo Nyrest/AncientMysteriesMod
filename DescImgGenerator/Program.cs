@@ -26,6 +26,7 @@ namespace DescImgGenerator
                 using var snapshot = sur.Snapshot(rect);
                 using var encodedData = snapshot.Encode(SKEncodedImageFormat.Png, 100);
                 using var fileStream = File.OpenWrite($"{saveTo}desc_{lang}.png");
+
                 encodedData.SaveTo(fileStream);
             });
         }
@@ -63,7 +64,7 @@ namespace DescImgGenerator
 
         public static void DrawItem(SKCanvas canvas, Item item, Lang lang, SKRect rect)
         {
-            Console.WriteLine($"[{lang}] {item.name.GetText(lang)}");
+            Console.Out.WriteLine($"[{lang}] {item.name.GetText(lang)}".AsSpan());
             DrawItemBackground(canvas, rect);
             SKRect padded = new(rect.Left + itemPadding, rect.Top + itemPadding, rect.Right - itemPadding, rect.Bottom);
             float imageHeight = padded.Height * 0.4f;
@@ -95,7 +96,7 @@ namespace DescImgGenerator
                 DefaultStyle = descStyle,
             }.Add(item.description.GetText(lang));
             desc.MaxLines = 20;
-            desc.Paint(canvas, new SKPoint(descRect.Left, descRect.Top + 3), paintOptions);
+            desc.Paint(canvas, new SKPoint(descRect.Left, descRect.Top + 1), paintOptions);
         }
     }
 }
