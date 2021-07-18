@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_Rifles)]
     [MetaImage(tex_Gun_RainbowGun)]
     [MetaInfo(Lang.english, "Iridescence", "Rainbow. A bridge to the heaven.")]

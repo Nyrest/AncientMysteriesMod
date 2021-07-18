@@ -1,6 +1,5 @@
 ﻿using AncientMysteries.SourceGenerator.Generators;
 
-
 namespace AncientMysteries.Analyzers.UseResourceRef
 {
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(UseContentRefCodeFix)), Shared]

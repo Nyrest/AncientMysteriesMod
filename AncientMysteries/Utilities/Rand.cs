@@ -26,7 +26,6 @@
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float FloatRN(float min, float max) => Rando.Float(min, max).RandomNegative();
 
-
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Vec2 Vec2XY(float min, float max) => new(Rando.Float(min, max), Rando.Float(min, max));
     }

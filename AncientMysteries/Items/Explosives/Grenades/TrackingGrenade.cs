@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns)]
     [MetaImage(tex_Throwable_TrackingGrenade, 8, 9, 0, 1)]
     [MetaInfo(Lang.english, "Tracking Grenade", "This grenade wants a girl friend!")]

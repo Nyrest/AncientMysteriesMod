@@ -1,7 +1,9 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     public class HolyLight_ThingBullet : AMThingBulletLinar
     {
         public Waiter waiter = new(5);
+
         public HolyLight_ThingBullet(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 400, 1, initSpeed, safeDuck)
         {
             this.ReadyToRun(tex_Bullet_HolyStar);

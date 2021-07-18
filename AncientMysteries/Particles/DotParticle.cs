@@ -67,7 +67,6 @@
             _airFireScale = 0f;
             _spinSpeed = 0.1f + Rando.Float(0.1f);
 
-
             alpha = 1f;
         }
 
@@ -93,7 +92,9 @@
             {
                 alpha -= 0.08f;
             }
+
             #region Air Fire
+
             if (_airFireScale < 1.2f)
             {
                 _airFireScale += 0.15f;
@@ -115,7 +116,9 @@
             _airFire.depth = depth - 1;
             _airFire.alpha = 0.5f;
             _airFire.angle += hSpeed * _spinSpeed;
-            #endregion
+
+            #endregion Air Fire
+
             if (alpha < 0f)
             {
                 Level.Remove(this);

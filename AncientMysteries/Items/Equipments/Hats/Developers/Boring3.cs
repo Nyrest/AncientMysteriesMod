@@ -20,7 +20,6 @@
             _ => "Probably the most powerful thing in this Mod",
         };
 
-
         public Vec2 baseCollisionOffset, baseCollisionSize;
 
         public Boring3(float xpos, float ypos) : base(xpos, ypos)
@@ -40,7 +39,6 @@
             EquipmentHitPoints = 32767;
             _isArmor = true;
             _equippedThickness = float.MaxValue;
-
         }
 
         public override void Update()

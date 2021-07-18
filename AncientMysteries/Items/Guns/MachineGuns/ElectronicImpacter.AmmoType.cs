@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     public class ElectronicImpacter_AmmoType : AMAmmoType
     {
         public ElectronicImpacter_AmmoType()

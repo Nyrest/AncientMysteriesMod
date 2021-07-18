@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_Staffs)]
     [MetaImage(tex_Staff_Judgement, 13, 39)]
     [MetaInfo(Lang.english, "Rainbow Tears", "「天気なんて、狂ったままでいいんだ！」")]
@@ -14,7 +15,6 @@
             get => (byte)_spriteMap._frame;
             set => _spriteMap._frame = value;
         }
-
 
         public override string GetLocalizedName(Lang lang) => lang switch
         {

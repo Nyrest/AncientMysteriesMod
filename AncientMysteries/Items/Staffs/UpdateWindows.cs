@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
-namespace AncientMysteries.Items{
+namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_Misc)]
     [MetaImage(tex_Staff_ForceUpdate)]
     [MetaInfo(Lang.english, "Update Windows", "Windows 10 is updating.\nThis will take a while(?)")]
@@ -106,6 +107,7 @@ namespace AncientMysteries.Items{
         {
             Hooks.OnDraw += ForceUpdateDraw;
         }
+
         public static int overlayDrawTime;
 
         public static void ForceUpdateDraw()

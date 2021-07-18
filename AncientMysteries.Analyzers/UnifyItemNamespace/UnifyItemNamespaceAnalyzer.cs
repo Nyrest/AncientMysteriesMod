@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-
-namespace AncientMysteries.Analyzers.UnifyItemNamespace
+﻿namespace AncientMysteries.Analyzers.UnifyItemNamespace
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class UnifyItemNamespaceAnalyzer : DiagnosticAnalyzer

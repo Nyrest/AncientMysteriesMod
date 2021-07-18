@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_Staffs)]
     [MetaImage(tex_Staff_ArcaneNova)]
     [MetaInfo(Lang.english, "Arcane Nova", "A staff fulfilled with mysteries from the universe")]

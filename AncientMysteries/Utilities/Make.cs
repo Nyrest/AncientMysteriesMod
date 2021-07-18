@@ -7,6 +7,7 @@ namespace AncientMysteries.Utilities
         #region Bullet
 
         #region Default
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Bullet Bullet<TAmmoType>(Vec2 position, Thing owner = null, float angleDegress = 0, Thing firedFrom = null)
     where TAmmoType : AmmoType, new()
@@ -19,14 +20,15 @@ namespace AncientMysteries.Utilities
         public static Bullet Bullet<TAmmoType>(float x, float y, Thing owner = null, float angleDegress = 0, Thing firedFrom = null)
             where TAmmoType : AmmoType, new()
             => Bullet<TAmmoType>(new Vec2(x, y), owner, angleDegress, firedFrom);
-        #endregion
+
+        #endregion Default
 
         #region Fixed BulletSpeed and Range
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Bullet Bullet<TAmmoType>(Vec2 position, float bulletSpeed, float range, Thing owner = null, float angleDegress = 0, Thing firedFrom = null)
     where TAmmoType : AmmoType, new()
         {
-
             var ammoType = GetAmmoTypeInstance<TAmmoType>();
             // Only these two is safe to modify
             ammoType.bulletSpeed = bulletSpeed;
@@ -38,16 +40,17 @@ namespace AncientMysteries.Utilities
         public static Bullet Bullet<TAmmoType>(float x, float y, float bulletSpeed, float range, Thing owner = null, float angleDegress = 0, Thing firedFrom = null)
             where TAmmoType : AmmoType, new()
             => Bullet<TAmmoType>(new Vec2(x, y), bulletSpeed, range, owner, angleDegress, firedFrom);
-        #endregion
+
+        #endregion Fixed BulletSpeed and Range
 
         #region Modifier
+
         public delegate void AmmoTypeModifier(ref float bulletSpeed, ref float range);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Bullet Bullet<TAmmoType>(Vec2 position, AmmoTypeModifier modifier, Thing owner = null, float angleDegress = 0, Thing firedFrom = null)
     where TAmmoType : AmmoType, new()
         {
-
             var ammoType = GenericNew<TAmmoType>.CreateInstance();
             modifier(ref ammoType.bulletSpeed, ref ammoType.range);
             return ammoType.FireBullet(position, owner, angleDegress, firedFrom);
@@ -57,7 +60,8 @@ namespace AncientMysteries.Utilities
         public static Bullet Bullet<TAmmoType>(float x, float y, AmmoTypeModifier modifier, Thing owner = null, float angleDegress = 0, Thing firedFrom = null)
             where TAmmoType : AmmoType, new()
             => Bullet<TAmmoType>(new Vec2(x, y), modifier, owner, angleDegress, firedFrom);
-        #endregion
+
+        #endregion Modifier
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static TAmmoType GetAmmoTypeInstance<TAmmoType>()
@@ -66,10 +70,7 @@ namespace AncientMysteries.Utilities
             return GenericNew<TAmmoType>.CreateInstance();
             //return InstanceOf<TAmmoType>.instance;
         }
-        #endregion
 
-        #region ThingBullet
-        
-        #endregion
+        #endregion Bullet
     }
 }

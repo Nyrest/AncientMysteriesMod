@@ -45,5 +45,4 @@
             return document.WithSyntaxRoot(updatedSyntaxTree);
         }
     }
-
 }

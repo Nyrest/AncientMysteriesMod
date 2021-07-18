@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     public class AntennaBullet : AMThingBulletLinar
     {
         public AntennaBullet(Vec2 pos, Duck safeDuck, Vec2 pointAngle) : base(pos, 800, 2, Vec2.Zero, safeDuck)
@@ -7,7 +8,6 @@
             graphic = this.ReadyToRun(tex_Bullet_Antenna);
             graphic.CenterOrigin();
             this.angle = CalcBulletAngleRadian(pointAngle);
-            
         }
 
         public override void UpdateAngle()

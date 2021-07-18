@@ -25,9 +25,11 @@ namespace DescImgGenerator
                 case BitmapAlignment.Center:
                     x = (dest.Width - bmpWidth) / 2;
                     break;
+
                 case BitmapAlignment.End:
                     x = dest.Width - bmpWidth;
                     break;
+
                 default: break;
             }
 
@@ -36,9 +38,11 @@ namespace DescImgGenerator
                 case BitmapAlignment.Center:
                     y = (dest.Height - bmpHeight) / 2;
                     break;
+
                 case BitmapAlignment.End:
                     y = dest.Height - bmpHeight;
                     break;
+
                 default: break;
             }
 

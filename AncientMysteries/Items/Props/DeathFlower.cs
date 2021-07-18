@@ -1,6 +1,7 @@
 ﻿using AncientMysteries.DeathTypes;
 
-namespace AncientMysteries.Items{
+namespace AncientMysteries.Items
+{
     [EditorGroup(group_Props_functional)]
     [MetaImage(tex_Props_DeathFlower, 9, 14, 0, 1)]
     [MetaInfo(Lang.english, "Wonder Flower", "Looks delicious. Eat it!")]
@@ -31,7 +32,6 @@ namespace AncientMysteries.Items{
 
         public DeathFlower(float xval, float yval) : base(xval, yval)
         {
-            
             _spriteMap = this.ReadyToRunWithFrames(tex_Props_DeathFlower, 9, 14);
             AnimationFrame = 0;
         }

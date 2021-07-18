@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns)]
     [MetaImage(tex_Throwable_FuriousNewYear, 7, 15)]
     [MetaInfo(Lang.english, "Furious New Year", "No firecrackers!")]

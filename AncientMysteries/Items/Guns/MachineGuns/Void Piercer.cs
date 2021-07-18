@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_MachineGuns)]
     [MetaImage(tex_Gun_VoidPiercer)]
     [MetaInfo(Lang.english, "Void Piercer", "Traveling through the void, nothing can escape from you")]
@@ -16,6 +17,7 @@
             Lang.schinese => "穿行于虚无之中，无人能够逃脱你所带来的死亡",
             _ => "Traveling through the void, nothing can escape from you",
         };
+
         public VoidPiercer(float xval, float yval) : base(xval, yval)
         {
             ammo = sbyte.MaxValue;

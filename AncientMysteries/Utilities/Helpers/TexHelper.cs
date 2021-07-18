@@ -21,6 +21,7 @@
         }
 
         #region
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static SpriteMap ModSpriteWithFrames(this string spriteMapName, bool centerOrigin = false)
         {
@@ -51,6 +52,7 @@
                 result.CenterOrigin();
             return result;
         }
+
         #endregion
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -107,7 +109,7 @@
         public static SpriteMap ReadyToRunWithFrames(this Thing thing, string spriteMapName, int frameWidth = -1, int frameHeight = -1)
         {
             var info = GetInfo(spriteMapName);
-            if(thing.graphic is SpriteMap spriteMap && spriteMap.texture == info.texture)
+            if (thing.graphic is SpriteMap spriteMap && spriteMap.texture == info.texture)
             {
                 return spriteMap;
             }

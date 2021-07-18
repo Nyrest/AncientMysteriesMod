@@ -1,7 +1,7 @@
 ﻿using AncientMysteries.DestroyTypes;
 
-
-namespace AncientMysteries.Items{
+namespace AncientMysteries.Items
+{
     public class ArcaneNova_Magic_Stage3 : AMThingBulletLinar
     {
         public ArcaneNova_Magic_Stage3(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 90, float.PositiveInfinity, initSpeed, safeDuck)

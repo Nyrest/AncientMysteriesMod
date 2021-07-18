@@ -21,6 +21,5 @@
             _spriteMap.CenterOrigin();
             bulletType = typeof(Bullet_CubicBlast);
         }
-
     }
 }

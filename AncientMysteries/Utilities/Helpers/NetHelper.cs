@@ -38,6 +38,7 @@
         public static void NmFireGun(Action<List<Bullet>> value, bool alsoAddThemToWorld = true) => NmFireGun(null, value, alsoAddThemToWorld);
 
         private static readonly List<Bullet> Size1List = new();
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void NmFireGun(this Gun gun, Bullet value, bool alsoAddThemToWorld = true)
         {

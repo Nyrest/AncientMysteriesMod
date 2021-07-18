@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries.Items{
+﻿namespace AncientMysteries.Items
+{
     [EditorGroup(group_Guns_Staffs)]
     [MetaImage(tex_Staff_ThunderStorm, 13, 36)]
     [MetaInfo(Lang.english, "Thunderstorm", "May the lightning drives away the darkness!")]
@@ -10,11 +11,13 @@
             Lang.schinese => "雷暴",
             _ => "Thunderstorm",
         };
+
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "以雷霆击碎黑暗！",
             _ => "May the lightning drives away the darkness!",
         };
+
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
 
         public SpriteMap _spriteMap;

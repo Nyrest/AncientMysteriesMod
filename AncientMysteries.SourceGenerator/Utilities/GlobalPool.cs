@@ -48,7 +48,7 @@ namespace AncientMysteries.SourceGenerator
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ReturnMini(this StringBuilder value)
         {
-            if(value.Capacity > 4096)
+            if (value.Capacity > 4096)
             {
                 Return(value);
                 return;
