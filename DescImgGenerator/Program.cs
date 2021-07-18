@@ -1,48 +1,35 @@
-﻿using System.Xml;
+﻿using System.Threading.Tasks;
+using System.Xml;
 using Topten.RichTextKit.Editor;
 
 namespace DescImgGenerator
 {
     static class Program
     {
-        public const int itemMargin = 8;
-        public const int itemPadding = 4;
-        public const int itemWidth = 314;
-        public const int itemHeight = 140;
-
-        public const int itemFrameMargin = 8;
-
-        public const int canvasMaxWidth = 628;
-        public const int canvasMaxHeight = 10240;
-
-        public static Lang currentLang = Lang.english;
-
-        public static Style nameStyle = new()
+        public static Lang[] languages = new[]
         {
-            TextColor = SKColors.White,
-            FontSize = 16,
-            FontWeight = 500,
-            LetterSpacing = 1,
-        };
-
-        public static Style descStyle = new()
-        {
-            TextColor = SKColors.LightSeaGreen,
-            FontSize = 13,
+            Lang.english,
+            Lang.schinese
         };
 
         static void Main(string[] args)
         {
+            string saveTo = args.Length == 0 ? ".\\" : args[0] + Path.DirectorySeparatorChar;
+            FontMapper.Default = new CustomFontMapper();
             LoadAssembly("AncientMysteries.dll");
             ScanModItems();
-            var sur = BuildImage(out SKRectI rect);
-            sur.Snapshot(rect).Encode(SKEncodedImageFormat.Png, 100).SaveTo(File.OpenWrite("A:\\test.png"));
+            Parallel.ForEach(languages, lang =>
+            {
+                var sur = BuildImage(lang, out SKRectI rect);
+                sur.Snapshot(rect).Encode(SKEncodedImageFormat.Png, 100).SaveTo(File.OpenWrite($"{saveTo}desc_{lang}.png"));
+            });
         }
 
-        public static SKSurface BuildImage(out SKRectI rect)
+        public static SKSurface BuildImage(Lang lang, out SKRectI rect)
         {
+            object _lock = new object();
             int x = 0, y = 0;
-            var surface = SKSurface.Create(new SKImageInfo(628, 10240));
+            var surface = SKSurface.Create(new SKImageInfo(canvasMaxWidth, canvasMaxHeight));
             var canvas = surface.Canvas;
             foreach (var item in ModItems)
             {
@@ -54,7 +41,7 @@ namespace DescImgGenerator
                 }
                 #endregion
                 var itemRect = new SKRect(x + itemPadding, y + itemPadding, x + itemWidth - itemPadding, y + itemHeight - itemPadding);
-                DrawItem(canvas, item, itemRect);
+                DrawItem(canvas, item, lang, itemRect);
                 #region Move X
                 x += itemWidth;
                 #endregion
@@ -64,7 +51,7 @@ namespace DescImgGenerator
             return surface;
         }
 
-        public static void DrawItem(SKCanvas canvas, Item item, SKRect rect)
+        public static void DrawItem(SKCanvas canvas, Item item, Lang lang, SKRect rect)
         {
             DrawItemBackground(canvas, rect);
             SKRect padded = new(rect.Left + itemPadding, rect.Top + itemPadding, rect.Right - itemPadding, rect.Bottom - itemPadding);
@@ -74,38 +61,44 @@ namespace DescImgGenerator
             SKRect imageRect = crect(padded.Left, padded.Top, padded.Width, imageHeight);
             SKRect nameRect = crect(padded.Left, padded.Top + imageHeight, padded.Width, nameHeight);
             SKRect descRect = crect(padded.Left, padded.Top + imageHeight + nameHeight, padded.Width, descHeight);
-            canvas.DrawBitmap(ScaleTexTo(item.bitmap, imageRect), imageRect.Left, imageRect.Top);
+            var scaled = ScaleTexTo(item.bitmap, imageRect);
+            var imageDestRect = CalculateDisplayRect(imageRect, scaled, BitmapAlignment.Start, BitmapAlignment.Center);
+            canvas.DrawBitmap(scaled, imageDestRect.Left + 5, imageDestRect.Top);
             #region Draw Name
             RichString name = new RichString()
             {
                 MaxWidth = nameRect.Width,
-            }.FontFamily("Microsoft YaHei").FontSize(18).TextColor(SKColors.White)
-            .Add(item.name.GetText(currentLang));
+                DefaultStyle = nameStyle,
+            }.Add(item.name.GetText(lang));
             name.MaxLines = 1;
-            name.Paint(canvas, new SKPoint(nameRect.Left + 2, nameRect.Top + 5));
+            name.Paint(canvas, new SKPoint(nameRect.Left + 2, nameRect.Top + 5), paintOptions);
             #endregion
             RichString desc = new RichString()
             {
                 MaxWidth = nameRect.Width,
                 MaxHeight = null,
-            }.FontFamily("Microsoft YaHei").FontSize(13).TextColor(SKColors.LightGreen)
-            .Add(item.description.GetText(currentLang));
+                DefaultStyle = descStyle,
+            }.Add(item.description.GetText(lang));
             desc.MaxLines = 20;
-            desc.Paint(canvas, new SKPoint(descRect.Left + 3, descRect.Top + 5));
+            desc.Paint(canvas, new SKPoint(descRect.Left + 3, descRect.Top + 5), paintOptions);
+
         }
 
+        static SKPaint bgFill = new SKPaint()
+        {
+            Color = new SKColor(24, 26, 27),
+        };
+
+        static SKPaint bgBorder = new SKPaint()
+        {
+            Color = new SKColor(45, 100, 97),
+            StrokeWidth = 2,
+            Style = SKPaintStyle.Stroke,
+        };
         public static void DrawItemBackground(SKCanvas canvas, SKRect rect)
         {
-            canvas.DrawRect(rect, new SKPaint()
-            {
-                Color = new SKColor(24, 26, 27),
-            });
-            canvas.DrawRect(rect, new SKPaint()
-            {
-                Color = new SKColor(45, 100, 97),
-                StrokeWidth = 2,
-                Style = SKPaintStyle.Stroke,
-            });
+            canvas.DrawRect(rect, bgFill);
+            canvas.DrawRect(rect, bgBorder);
         }
     }
 }

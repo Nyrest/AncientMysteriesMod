@@ -26,6 +26,7 @@
             this.ReadyToRunWithFrames(t_Gun_RainbowGun);
             _barrelOffsetTL = new Vec2(33f, 6f);
             BarrelSmoke.color = Color.White;
+            _fireRumble = RumbleIntensity.Kick;
             _fireSound = "laserRifle";
             _fireWait = 0.6f;
             _fireSoundPitch = 0.9f;

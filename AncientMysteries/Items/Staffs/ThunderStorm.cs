@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Staffs
 {
     [EditorGroup(g_staffs)]
-    [MetaImage(t_Staff_ThunderStorm)]
+    [MetaImage(t_Staff_ThunderStorm, 13, 36)]
     [MetaInfo(Lang.english, "Thunderstorm", "May the lightning drives away the darkness!")]
     [MetaInfo(Lang.schinese, "雷暴", "以雷霆击碎黑暗！")]
     public sealed partial class Thunderstorm : AMStaff
@@ -41,7 +41,7 @@
             var firePos = barrelPosition;
             int r = Rando.Int(3, 5);
             int count = _castTime >= 0.95f ? r : 1;
-            float speed = _castTime >= 0.95f ? Rando.Float(3,5) : Rando.Float(1,2);
+            float speed = _castTime >= 0.95f ? Rando.Float(3, 5) : Rando.Float(1, 2);
             if (_castTime >= 0.95f)
             {
                 SFX.Play("sniper", 0.9f, -0.4f);
@@ -53,8 +53,8 @@
             for (int i = 0; i < count; i++)
             {
                 ThunderStorm_ThingBullet bullet = new(
-                    firePos, 
-                    GetBulletVecDeg(owner.FaceAngleDegressLeftOrRight() + Rando.Float(-10,10), speed, 0.5f, 1f),
+                    firePos,
+                    GetBulletVecDeg(owner.FaceAngleDegressLeftOrRight() + Rando.Float(-10, 10), speed, 0.5f, 1f),
                     duck);
                 Level.Add(bullet);
             }

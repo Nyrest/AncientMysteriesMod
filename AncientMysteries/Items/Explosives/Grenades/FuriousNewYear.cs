@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items.Explosives.Grenades
 {
     [EditorGroup(guns)]
-    [MetaImage(t_Throwable_FuriousNewYear)]
+    [MetaImage(t_Throwable_FuriousNewYear, 7, 15)]
     [MetaInfo(Lang.english, "Furious New Year", "No firecrackers!")]
     [MetaInfo(Lang.schinese, "新年狂欢", "不准放鞭炮")]
     public partial class FuriousNewYear : AMGun
