@@ -25,7 +25,7 @@ namespace DescImgGenerator
 
         public static SKSurface BuildImage(Lang lang, out SKRectI rect)
         {
-            object _lock = new object();
+            object _lock = new();
             int x = 0, y = 0;
             var surface = SKSurface.Create(new SKImageInfo(canvasMaxWidth, canvasMaxHeight));
             var canvas = surface.Canvas;
