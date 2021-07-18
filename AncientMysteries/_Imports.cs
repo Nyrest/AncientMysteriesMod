@@ -12,7 +12,6 @@ global using AncientMysteries.Particles;
 global using AncientMysteries.Localization;
 global using AncientMysteries.Localization.Enums;
 global using AncientMysteries.Bases;
-global using AncientMysteries.Items;
 global using static AncientMysteries.groupNames;
 global using static AncientMysteries.Texs;
 global using static AncientMysteries.AMFonts;
