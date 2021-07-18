@@ -96,11 +96,6 @@
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="5.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Items\Staffs\ArcaneNova - Copy.Magic.Stage2.cs">
-      <DependentUpon>ArcaneNova.cs</DependentUpon>
-    </Compile>
-  </ItemGroup>
   <Target Name="PostBuild" BeforeTargets="PostBuildEvent">
     <Exec Command="cd &quot;$(SolutionDir)&quot;&#xD;&#xA;PostBuild.bat" />
   </Target>
