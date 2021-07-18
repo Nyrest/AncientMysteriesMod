@@ -31,7 +31,9 @@
             base.DoUpdate();
         }
 
-        public virtual void FirstUpdate() { }
+        public virtual void FirstUpdate()
+        {
+        }
 
         public void BarrelSmokeFuckOff()
         {
@@ -51,6 +53,7 @@
         }
 
         public abstract string GetLocalizedName(Lang lang);
+
         public abstract string GetLocalizedDescription(Lang lang);
     }
 }

@@ -10,7 +10,7 @@
             rangeVariation = 0;
             bulletSpeed = 2;
             combustable = true;
-            affectedByGravity = true;;
+            affectedByGravity = true; ;
             //sprite.CenterOrigin();
             bulletType = typeof(Bullet_Lava);
             bulletColor = Color.DarkOrange;

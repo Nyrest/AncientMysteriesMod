@@ -2,7 +2,7 @@
 {
     public sealed class AT_AN : AMAmmoType
     {
-        public SpriteMap _spriteMap = TexHelper.ModSpriteWithFrames(t_Bullet_NovaFrame, 32, 32, true);
+        public SpriteMap _spriteMap = TexHelper.ModSpriteWithFrames(tex_Bullet_NovaFrame, 32, 32, true);
 
         public AT_AN()
         {
@@ -21,6 +21,5 @@
             _spriteMap.CenterOrigin();
             bulletType = typeof(Bullet_AN);
         }
-
     }
 }

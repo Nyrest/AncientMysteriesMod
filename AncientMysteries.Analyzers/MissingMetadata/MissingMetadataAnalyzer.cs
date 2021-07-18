@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.CodeAnalysis.Host;
-
-namespace AncientMysteries.Analyzers.MissingMetadata
+﻿namespace AncientMysteries.Analyzers.MissingMetadata
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class MissingMetadataAnalyzer : DiagnosticAnalyzer

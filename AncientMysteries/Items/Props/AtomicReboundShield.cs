@@ -1,7 +1,7 @@
-﻿namespace AncientMysteries.Items.Props
+﻿namespace AncientMysteries.Items
 {
-    [EditorGroup(p_functional)]
-    [MetaImage(t_Holdable_ReboundShield)]
+    [EditorGroup(group_Props_functional)]
+    [MetaImage(tex_Holdable_ReboundShield)]
     [MetaInfo(Lang.english, "Rebound Shield", "Send this mod to 10 other people to receive bless from the developers")]
     [MetaInfo(Lang.schinese, "反弹盾", "转发这个Mod给十个人以获得来自制作者的祝福")]
     public partial class ReboundShield : AMGun, IPlatform
@@ -11,15 +11,17 @@
             Lang.schinese => "反弹盾",
             _ => "Rebound Shield",
         };
+
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "转发这个Mod给十个人以获得来自制作者的祝福",
             _ => "Send this mod to 10 other people to receive bless from the developers",
         };
+
         public ReboundShield(float xval, float yval) : base(xval, yval)
         {
             ammo = 1;
-            this.ReadyToRunWithFrames(t_Holdable_ReboundShield);
+            this.ReadyToRunWithFrames(tex_Holdable_ReboundShield);
             thickness = 100f;
             weight = 10f;
             flammable = 0f;
@@ -44,10 +46,16 @@
             return base.Hit(bullet, hitPos);
         }
 
-        public override void ApplyKick() { }
+        public override void ApplyKick()
+        {
+        }
 
-        public override void PressAction() { }
+        public override void PressAction()
+        {
+        }
 
-        public override void Fire() { }
+        public override void Fire()
+        {
+        }
     }
 }

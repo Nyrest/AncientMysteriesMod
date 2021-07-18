@@ -1,7 +1,7 @@
-﻿namespace AncientMysteries.Items.Artifact
+﻿namespace AncientMysteries.Items
 {
-    [EditorGroup(g_artifacts)]
-    [MetaImage(t_Gun_TemperatureArt_Water)]
+    [EditorGroup(group_Guns_Artifacts)]
+    [MetaImage(tex_Gun_TemperatureArt_Water)]
     [MetaInfo(Lang.english, "Temperature Art", "Isn't Water Vapor invisible?🤔")]
     [MetaInfo(Lang.schinese, "温度的艺术", "水蒸气难道不是看不见的吗？🤔")]
     public partial class TemperatureArt : AMGun
@@ -16,11 +16,13 @@
 
         public StateBinding _currentModeBinding = new(nameof(_currentMode));
         public byte _currentMode = 0;
-        public Mode currentMode 
+
+        public Mode currentMode
         {
             get => (Mode)_currentMode;
             set => _currentMode = (byte)value;
         }
+
         public Mode lastMode;
 
         public AmmoType AmmoWater = new TemperatureArt_AmmoType_Water();
@@ -62,17 +64,20 @@
             switch (currentMode)
             {
                 case Mode.Water:
-                    this.ReadyToRun(t_Gun_TemperatureArt_Water);
+                    this.ReadyToRun(tex_Gun_TemperatureArt_Water);
                     _ammoType = AmmoWater;
                     break;
+
                 case Mode.Ice:
-                    this.ReadyToRun(t_Gun_TemperatureArt_Ice);
+                    this.ReadyToRun(tex_Gun_TemperatureArt_Ice);
                     _ammoType = AmmoIce;
                     break;
+
                 case Mode.WaterVapor:
-                    this.ReadyToRun(t_Gun_TemperatureArt_WaterVapor);
+                    this.ReadyToRun(tex_Gun_TemperatureArt_WaterVapor);
                     _ammoType = AmmoWaterVapor;
                     break;
+
                 default:
                     break;
             }

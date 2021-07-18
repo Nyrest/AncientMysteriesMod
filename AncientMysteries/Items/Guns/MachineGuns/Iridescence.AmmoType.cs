@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Guns.MachineGuns
+﻿namespace AncientMysteries.Items
 {
     public sealed class Iridescence_AmmoType : AMAmmoType
     {

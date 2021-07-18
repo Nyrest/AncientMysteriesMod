@@ -1,7 +1,7 @@
-﻿namespace AncientMysteries.Items.Guns.Shotguns
+﻿namespace AncientMysteries.Items
 {
-    [EditorGroup(g_shotguns)]
-    [MetaImage(t_Gun_DarkAurora)]
+    [EditorGroup(group_Guns_Shotguns)]
+    [MetaImage(tex_Gun_DarkAurora)]
     [MetaInfo(Lang.english, "Dark Aurora", "Pour down shadowy light to crush your foes")]
     [MetaInfo(Lang.schinese, "暗影极光", "召唤阴影之光来击碎你的敌人")]
     public sealed partial class DarkAurora : AMGun
@@ -17,6 +17,7 @@
             Lang.schinese => "暗影极光",
             _ => "Dark Aurora",
         };
+
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "召唤阴影之光来击碎你的敌人",
@@ -30,10 +31,11 @@
             {
                 range = 400f,
             };
-            this.ReadyToRunWithFrames(t_Gun_DarkAurora);
+            this.ReadyToRunWithFrames(tex_Gun_DarkAurora);
             _flare.color = Color.Black;
             BarrelSmoke.color = Color.Black;
             _barrelOffsetTL = new Vec2(28f, 4f);
+            _fireRumble = RumbleIntensity.Medium;
             _fireSound = "laserBlast";
             _fireSoundPitch = -0.9f;
             _kickForce = 2f;

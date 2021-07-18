@@ -1,7 +1,7 @@
-﻿namespace AncientMysteries.Items.Staffs
+﻿namespace AncientMysteries.Items
 {
-    [EditorGroup(g_staffs)]
-    [MetaImage(t_Staff_Overgrowth)]
+    [EditorGroup(group_Guns_Staffs)]
+    [MetaImage(tex_Staff_Overgrowth, 21, 34)]
     [MetaInfo(Lang.english, "Overgrowth", "Something bad might happen if it releases its full power")]
     [MetaInfo(Lang.schinese, "过度生长", "如果让它过度释放自己的力量，也许不会有好事发生")]
     public partial class Overgrowth : AMStaff
@@ -25,14 +25,16 @@
             Lang.schinese => "过度生长",
             _ => "Overgrowth",
         };
+
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "如果让它过度释放自己的力量，也许不会有好事发生",
             _ => "Something bad might happen if it releases its full power",
         };
+
         public Overgrowth(float xval, float yval) : base(xval, yval)
         {
-            _spriteMap = this.ReadyToRunWithFrames(t_Staff_Overgrowth, 21, 34);
+            _spriteMap = this.ReadyToRunWithFrames(tex_Staff_Overgrowth, 21, 34);
             _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2, 3);
             _spriteMap.SetAnimation("loop");
             SetBox(21, 34);
@@ -87,8 +89,8 @@
                     {
                         this.NmFireGun(list =>
                         {
-                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x - 40, d.y - 40, ModifyParameter, owner, -Maths.PointDirection(d.x - 40, d.y - 40, d.x, d.y), this));                                                         
-                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x + 40, d.y - 40, ModifyParameter, owner, -Maths.PointDirection(d.x + 40, d.y - 40, d.x, d.y), this));                                                         
+                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x - 40, d.y - 40, ModifyParameter, owner, -Maths.PointDirection(d.x - 40, d.y - 40, d.x, d.y), this));
+                            list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x + 40, d.y - 40, ModifyParameter, owner, -Maths.PointDirection(d.x + 40, d.y - 40, d.x, d.y), this));
                             list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x - 40, d.y + 40, ModifyParameter, owner, -Maths.PointDirection(d.x - 40, d.y + 40, d.x, d.y), this));
                             list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x + 40, d.y + 40, ModifyParameter, owner, -Maths.PointDirection(d.x + 40, d.y + 40, d.x, d.y), this));
                         });

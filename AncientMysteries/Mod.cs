@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using Microsoft.Xna.Framework;
 
 namespace AncientMysteries
 {
@@ -67,13 +67,21 @@ namespace AncientMysteries
             public Action<updateObject> action;
 
 #pragma warning disable CS0067 // Unreachable code detected
+
             public event EventHandler<EventArgs> EnabledChanged;
+
             public event EventHandler<EventArgs> UpdateOrderChanged;
+
 #pragma warning restore CS0067 // Unreachable code detected
 
-            public updateObject() { }
+            public updateObject()
+            {
+            }
 
-            public updateObject(Action<updateObject> action) { this.action = action; }
+            public updateObject(Action<updateObject> action)
+            {
+                this.action = action;
+            }
 
             public void Update(GameTime gameTime)
             {

@@ -1,7 +1,7 @@
-﻿namespace AncientMysteries.Items.Melee
+﻿namespace AncientMysteries.Items
 {
-    [EditorGroup(g_melees)]
-    [MetaImage(t_Melee_DeathBringer)]
+    [EditorGroup(group_Guns_Melees)]
+    [MetaImage(tex_Melee_DeathBringer)]
     [MetaInfo(Lang.english, "Death Bringer", "Looks cool, but not cool actually")]
     [MetaInfo(Lang.schinese, "死亡收割者", "用起来没有想象中的好")]
     public sealed partial class DeathBringer : AMMelee
@@ -11,6 +11,7 @@
             Lang.schinese => "死亡收割者",
             _ => "Death Bringer",
         };
+
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "用起来没有想象中的好",
@@ -22,7 +23,7 @@
         public DeathBringer(float xval, float yval)
             : base(xval, yval)
         {
-            this.ReadyToRunWithFrames(t_Melee_DeathBringer, 26, 32);
+            this.ReadyToRunWithFrames(tex_Melee_DeathBringer, 26, 32);
         }
 
         public override void Update()

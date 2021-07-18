@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Staffs
+﻿namespace AncientMysteries.Items
 {
     public class Overgrowth_Bullet_Big : AMBullet
     {

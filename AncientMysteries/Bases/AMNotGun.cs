@@ -7,8 +7,12 @@
             ammo = sbyte.MaxValue;
         }
 
-        public override void ApplyKick() { }
+        public override void ApplyKick()
+        {
+        }
 
-        public override void Fire() { }
+        public override void Fire()
+        {
+        }
     }
 }

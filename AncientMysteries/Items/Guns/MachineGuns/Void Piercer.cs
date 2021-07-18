@@ -1,7 +1,7 @@
-﻿namespace AncientMysteries.Items.Guns.MachineGuns
+﻿namespace AncientMysteries.Items
 {
-    [EditorGroup(g_machineGuns)]
-    [MetaImage(t_Gun_VoidPiercer)]
+    [EditorGroup(group_Guns_MachineGuns)]
+    [MetaImage(tex_Gun_VoidPiercer)]
     [MetaInfo(Lang.english, "Void Piercer", "Traveling through the void, nothing can escape from you")]
     [MetaInfo(Lang.schinese, "虚空穿刺者", "穿行于虚无之中，无人能够逃脱你所带来的死亡")]
     public sealed partial class VoidPiercer : AMGun
@@ -17,6 +17,7 @@
             Lang.schinese => "穿行于虚无之中，无人能够逃脱你所带来的死亡",
             _ => "Traveling through the void, nothing can escape from you",
         };
+
         public VoidPiercer(float xval, float yval) : base(xval, yval)
         {
             ammo = sbyte.MaxValue;
@@ -26,10 +27,11 @@
                 accuracy = 0.7f,
                 penetration = 1f
             };
-            this.ReadyToRunWithFrames(t_Gun_VoidPiercer);
+            this.ReadyToRunWithFrames(tex_Gun_VoidPiercer);
             _barrelOffsetTL = new Vec2(20f, 4f);
             _flare.color = Color.Black;
             BarrelSmoke.color = Color.Black;
+            _fireRumble = RumbleIntensity.Kick;
             _fireSound = "laserRifle";
             _fireWait = 0.6f;
             _fireSoundPitch = -0.5f;

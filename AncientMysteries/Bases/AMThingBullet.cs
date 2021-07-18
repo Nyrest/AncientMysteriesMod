@@ -19,11 +19,13 @@ namespace AncientMysteries.Bases
         public Vec2 lastPosition;
 
 #if DEBUG
+
         [Obsolete("Use BulletSafeDuck", true)]
         public new object owner;
 
         [Obsolete("Use BulletSafeDuck", true)]
         public new object _owner;
+
 #endif
 
         public bool IsMoving => speed != Vec2.Zero;
@@ -87,8 +89,8 @@ namespace AncientMysteries.Bases
         public virtual bool BulletCanDestory(MaterialThing thing)
         {
             /*
-                if (BulletSafeDuck is not null && 
-                        (thing == BulletSafeDuck || 
+                if (BulletSafeDuck is not null &&
+                        (thing == BulletSafeDuck ||
                         BulletSafeDuck.ExtendsTo(thing) ||
                         thing == BulletSafeDuck.holdObject)
                     )

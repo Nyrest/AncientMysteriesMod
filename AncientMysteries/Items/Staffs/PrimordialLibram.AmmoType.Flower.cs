@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Staffs
+﻿namespace AncientMysteries.Items
 {
     public sealed class PrimordialLibram_AmmoType_Flower : AMAmmoType
     {
@@ -11,7 +11,7 @@
             speedVariation = 3f;
             combustable = true;
             bulletLength = 0;
-            sprite = TexHelper.ModSprite(t_Bullet_Flower);
+            sprite = TexHelper.ModSprite(tex_Bullet_Flower);
             sprite.CenterOrigin();
             bulletType = typeof(PrimordialLibram_Bullet_Flower);
             bulletColor = Color.OrangeRed;

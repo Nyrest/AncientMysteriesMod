@@ -1,7 +1,7 @@
-﻿namespace AncientMysteries.Items.Staffs
+﻿namespace AncientMysteries.Items
 {
-    [EditorGroup(g_staffs)]
-    [MetaImage(t_Staff_ArcaneNova)]
+    [EditorGroup(group_Guns_Staffs)]
+    [MetaImage(tex_Staff_ArcaneNova)]
     [MetaInfo(Lang.english, "Arcane Nova", "A staff fulfilled with mysteries from the universe")]
     [MetaInfo(Lang.schinese, "奥术新星", "一把充满了宇宙奥秘的法杖")]
     public partial class ArcaneNova : AMStaff
@@ -31,7 +31,7 @@
         public ArcaneNova(float xval, float yval) : base(xval, yval)
         {
             _type = "gun";
-            _spriteMap = this.ReadyToRunWithFrames(t_Staff_ArcaneNova, 14, 37);
+            _spriteMap = this.ReadyToRunWithFrames(tex_Staff_ArcaneNova, 14, 37);
             SetBox(14, 37);
             _barrelOffsetTL = new Vec2(6f, 5f);
             _castSpeed = 0.007f;

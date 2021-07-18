@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Bases
+﻿namespace AncientMysteries.Bases
 {
     public abstract class AMEquipmentWing : AMEquipment
     {

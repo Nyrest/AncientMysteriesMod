@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items.Staffs
+﻿namespace AncientMysteries.Items
 {
     public class HolyLight_ThingBullet : AMThingBulletLinar
     {
         public Waiter waiter = new(5);
+
         public HolyLight_ThingBullet(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 400, 1, initSpeed, safeDuck)
         {
-            this.ReadyToRun(t_Bullet_HolyStar);
+            this.ReadyToRun(tex_Bullet_HolyStar);
         }
 
         public override void Update()

@@ -1,0 +1,12 @@
+﻿global using System.Collections.Generic;
+global using System.IO;
+global using System.Linq;
+global using System.Reflection;
+global using System.Runtime.CompilerServices;
+global using System.Runtime.InteropServices;
+global using Mono.Cecil;
+global using SkiaSharp;
+global using Topten.RichTextKit;
+global using static DescImgGenerator.Helper;
+global using static DescImgGenerator.ImgStyles;
+global using static DescImgGenerator.ModMetaReader;

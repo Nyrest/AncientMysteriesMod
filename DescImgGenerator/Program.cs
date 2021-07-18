@@ -1,79 +1,102 @@
 ﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Numerics;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using SkiaSharp;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DescImgGenerator
 {
-    static class Program
+    internal static class Program
     {
-        public static Assembly modAssembly;
-
-        public const int itemPadding = 4;
-        public const int itemWidth = 314;
-        public const int itemHeight = 200;
-
-        public const int canvasMaxWidth = 628;
-        public const int canvasMaxHeight = 10240;
-
-        public static List<Item> Items;
-
-        public record Item(string name, string description, SKBitmap bitmap);
-
-        public static byte[] modRawAssembly;
-
-        static void Main(string[] args)
+        public static Lang[] languages = new[]
         {
-            var sur = BuildImage(out SKRectI rect);
-            sur.Snapshot().Encode(SKEncodedImageFormat.Png, 100).SaveTo(File.OpenWrite("A:\\test.png"));
+            Lang.english,
+            Lang.schinese
+        };
+
+        private static void Main(string[] args)
+        {
+            string saveTo = args.Length == 0 ? ".\\" : args[0] + Path.DirectorySeparatorChar;
+            FontMapper.Default = new CustomFontMapper();
+            LoadAssembly("AncientMysteries.dll");
+            ScanModItems();
+            Parallel.ForEach(languages, lang =>
+            {
+                var sur = BuildImage(lang, out SKRectI rect);
+                sur.Canvas.Flush();
+                sur.Flush();
+                using var snapshot = sur.Snapshot(rect);
+                using var encodedData = snapshot.Encode(SKEncodedImageFormat.Png, 100);
+                using var fileStream = File.OpenWrite($"{saveTo}desc_{lang}.png");
+
+                encodedData.SaveTo(fileStream);
+            });
         }
 
-        public static SKBitmap GetItemBitmap(string item, int frameWidth = -1, int frameHeight = -1, params int[] frames)
+        public static SKSurface BuildImage(Lang lang, out SKRectI rect)
         {
-            
-            return null;
-        }
-
-        public static SKSurface BuildImage(out SKRectI rect)
-        {
-            int x = 0, y = 0;
-            var surface = SKSurface.Create(new SKImageInfo(628, 10240));
+            object _lock = new();
+            int x = itemMargin, y = 0;
+            var surface = SKSurface.Create(new SKImageInfo(canvasMaxWidth, canvasMaxHeight));
             var canvas = surface.Canvas;
-            foreach (var item in Items)
+            foreach (var item in ModItems)
             {
                 #region Move Y if needed
-                if (x > canvasMaxWidth)
+
+                if ((x + itemWidth + itemMargin) > canvasMaxWidth)
                 {
-                    x = 0;
-                    y += itemHeight;
+                    x = itemMargin;
+                    y += itemHeight + itemMargin + 1;
                 }
-                #endregion
-                var itemRect = new SKRect(x + itemPadding, y + itemPadding, x + itemWidth - itemPadding, y + itemHeight - itemPadding);
-                DrawItem(canvas, item, itemRect);
+
+                #endregion Move Y if needed
+
+                var itemRect = new SKRect(x, y, x + itemWidth, y + itemHeight);
+                DrawItem(canvas, item, lang, itemRect);
+
                 #region Move X
-                x += itemWidth;
-                #endregion
+
+                x += itemWidth + itemMargin + 1;
+
+                #endregion Move X
             }
-            surface.Flush();
-            rect = new SKRectI(0, 0, canvasMaxWidth, y + itemHeight);
+            rect = new SKRectI(0, 0, canvasMaxWidth, y + itemHeight + itemMargin);
             return surface;
         }
 
-        public static void DrawItem(SKCanvas canvas, Item item, SKRect rect)
+        public static void DrawItem(SKCanvas canvas, Item item, Lang lang, SKRect rect)
         {
-            canvas.DrawRect(rect, new SKPaint()
+            Console.Out.WriteLine($"[{lang}] {item.name.GetText(lang)}".AsSpan());
+            DrawItemBackground(canvas, rect);
+            SKRect padded = new(rect.Left + itemPadding, rect.Top + itemPadding, rect.Right - itemPadding, rect.Bottom);
+            float imageHeight = padded.Height * 0.4f;
+            float nameHeight = padded.Height * 0.2f;
+            float descHeight = padded.Height * 0.4f;
+            SKRect imageRect = crect(padded.Left, padded.Top, padded.Width, imageHeight);
+            SKRect nameRect = crect(padded.Left + 3, padded.Top + imageHeight, padded.Width - 5, nameHeight);
+            SKRect descRect = crect(padded.Left + 3, padded.Top + imageHeight + nameHeight, padded.Width - 5, descHeight);
+            var scaled = item.GetScaledBitmap(imageRect);
+            var imageDestRect = CalculateDisplayRect(imageRect, scaled, BitmapAlignment.Start, BitmapAlignment.Center);
+            canvas.DrawBitmap(scaled, imageDestRect.Left + 5, imageDestRect.Top);
+
+            #region Draw Name
+
+            RichString name = new RichString()
             {
-                Color = SKColors.Red,
-            }
-            );
+                MaxWidth = nameRect.Width,
+                DefaultStyle = nameStyle,
+            }.Add(item.name.GetText(lang));
+            name.MaxLines = 1;
+            name.Paint(canvas, new SKPoint(nameRect.Left , nameRect.Top + 4), paintOptions);
+
+            #endregion Draw Name
+
+            RichString desc = new RichString()
+            {
+                MaxWidth = nameRect.Width,
+                MaxHeight = null,
+                DefaultStyle = descStyle,
+            }.Add(item.description.GetText(lang));
+            desc.MaxLines = 20;
+            desc.Paint(canvas, new SKPoint(descRect.Left, descRect.Top + 1), paintOptions);
         }
     }
 }

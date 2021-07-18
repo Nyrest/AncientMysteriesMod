@@ -1,6 +1,4 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
-
-namespace AncientMysteries.SourceGenerator
+﻿namespace AncientMysteries.SourceGenerator
 {
     public abstract class _BaseSourceGenerator : _BaseGenerator
     {
@@ -24,6 +22,8 @@ namespace AncientMysteries.SourceGenerator
 
         public abstract void Generate(GeneratorExecutionContext context, StringBuilder sb);
 
-        public override void Initialize(GeneratorInitializationContext context) { }
+        public override void Initialize(GeneratorInitializationContext context)
+        {
+        }
     }
 }

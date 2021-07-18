@@ -1,7 +1,7 @@
-﻿namespace AncientMysteries.Items.Guns.MachineGuns
+﻿namespace AncientMysteries.Items
 {
-    [EditorGroup(g_wtf)]
-    [MetaImage(t_Gun_CosmicDisruption)]
+    [EditorGroup(group_Guns_WTF)]
+    [MetaImage(tex_Gun_CosmicDisruption)]
     [MetaInfo(Lang.english, "Cosmic Disruption", "Cheating is no longer needed with this.")]
     [MetaInfo(Lang.schinese, "寰宇星怒", "外挂和这把枪你只需要一个。")]
     public sealed partial class CosmicDisruption : AMGun
@@ -23,9 +23,10 @@
             ammo = byte.MaxValue;
             _ammoType = new CosmicDisruption_AmmoType();
             _type = "gun";
-            this.ReadyToRunWithFrames(t_Gun_CosmicDisruption);
+            this.ReadyToRunWithFrames(tex_Gun_CosmicDisruption);
             _barrelOffsetTL = new Vec2(40f, 7f);
             BarrelSmoke.color = Color.White;
+            _fireRumble = RumbleIntensity.Kick;
             _fireSound = "laserRifle";
             _fireWait = 0f;
             _fireSoundPitch = 0.9f;

@@ -1,10 +1,10 @@
-﻿namespace AncientMysteries.Items.Artifact
+﻿namespace AncientMysteries.Items
 {
-    [EditorGroup(g_artifacts)]
-    [MetaImage(t_Holdable_Antenna)]
+    [EditorGroup(group_Guns_Artifacts)]
+    [MetaImage(tex_Holdable_Antenna)]
     [MetaInfo(Lang.english, "Antenna", "It, which is stained by the blood of sins, awaits...")]
     [MetaInfo(Lang.schinese, "怖人触须", "沾染了罪恶之血的触须，正等待着下一个目标……")]
-    partial     class Antenna : AMHoldable
+    partial class Antenna : AMHoldable
     {
         public int charger = 0;
 
@@ -42,7 +42,7 @@
 
         public Antenna(float xpos, float ypos) : base(xpos, ypos)
         {
-            this.ReadyToRun(t_Holdable_Antenna).CenterOrigin();
+            this.ReadyToRun(tex_Holdable_Antenna).CenterOrigin();
         }
 
         public override string GetLocalizedName(Lang lang) => lang switch
@@ -57,8 +57,8 @@
             _ => "It, which is stained by the blood of sins, awaits...",
         };
 
-
         public Waiter RumbleWaiter = new Waiter(5);
+
         public override void OnHoldAction()
         {
             base.OnHoldAction();
@@ -72,7 +72,6 @@
 
         public override void OnPressAction()
         {
-
         }
 
         public override void OnReleaseAction()
