@@ -14,7 +14,7 @@ namespace AncientMysteries
         {
             if (_initialized) return;
             _initialized = true;
-            // 
+            //
             (typeof(Game).GetField("updateableComponents", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(MonoMain.instance) as List<IUpdateable>).Add(new HookUpdate());
             (typeof(Game).GetField("drawableComponents", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(MonoMain.instance) as List<IDrawable>).Add(new HookDraw());
         }
@@ -29,8 +29,11 @@ namespace AncientMysteries
             public int DrawOrder => 0;
 
 #pragma warning disable CS0067 // Unreachable code detected
+
             public event EventHandler<EventArgs> VisibleChanged;
+
             public event EventHandler<EventArgs> DrawOrderChanged;
+
 #pragma warning restore CS0067 // Unreachable code detected
 
             public void Draw(GameTime gameTime)
@@ -45,8 +48,11 @@ namespace AncientMysteries
             public int UpdateOrder => 0;
 
 #pragma warning disable CS0067 // Unreachable code detected
+
             public event EventHandler<EventArgs> EnabledChanged;
+
             public event EventHandler<EventArgs> UpdateOrderChanged;
+
 #pragma warning restore CS0067 // Unreachable code detected
 
             public void Update(GameTime gameTime)
@@ -57,8 +63,8 @@ namespace AncientMysteries
                 {
                     foreach (var item in things[typeof(Thing)])
                     {
-                        if(item.removeFromLevel)
-                        removedThings.Add(item);
+                        if (item.removeFromLevel)
+                            removedThings.Add(item);
                     }
                 }
             }

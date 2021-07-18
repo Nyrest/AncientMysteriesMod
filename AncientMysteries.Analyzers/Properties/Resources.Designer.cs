@@ -61,33 +61,6 @@ namespace AncientMysteries.Analyzers.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Texture  format must be .png..
-        /// </summary>
-        internal static string Analyzer_InvalidTexture_Description {
-            get {
-                return ResourceManager.GetString("Analyzer_InvalidTexture_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Invalid Texture: {0}.
-        /// </summary>
-        internal static string Analyzer_InvalidTexture_MessageFormat {
-            get {
-                return ResourceManager.GetString("Analyzer_InvalidTexture_MessageFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to AM0002.
-        /// </summary>
-        internal static string Analyzer_InvalidTexture_Title {
-            get {
-                return ResourceManager.GetString("Analyzer_InvalidTexture_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Just fucking do it..
         /// </summary>
         internal static string Analyzer_MakePartial_Description {
@@ -169,29 +142,56 @@ namespace AncientMysteries.Analyzers.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use texture reference to avoid bugs caused by rename..
+        ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Analyzer_UseTextureRef_Description {
+        internal static string Analyzer_UnifyItemNamespace_Description {
             get {
-                return ResourceManager.GetString("Analyzer_UseTextureRef_Description", resourceCulture);
+                return ResourceManager.GetString("Analyzer_UnifyItemNamespace_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unify Item Namespace to &apos;AncientMysteries.Items&apos;.
+        /// </summary>
+        internal static string Analyzer_UnifyItemNamespace_MessageFormat {
+            get {
+                return ResourceManager.GetString("Analyzer_UnifyItemNamespace_MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AM0002.
+        /// </summary>
+        internal static string Analyzer_UnifyItemNamespace_Title {
+            get {
+                return ResourceManager.GetString("Analyzer_UnifyItemNamespace_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use content reference to avoid bugs caused by rename/delete..
+        /// </summary>
+        internal static string Analyzer_UseContentRef_Description {
+            get {
+                return ResourceManager.GetString("Analyzer_UseContentRef_Description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Replace to {0}.
         /// </summary>
-        internal static string Analyzer_UseTextureRef_MessageFormat {
+        internal static string Analyzer_UseContentRef_MessageFormat {
             get {
-                return ResourceManager.GetString("Analyzer_UseTextureRef_MessageFormat", resourceCulture);
+                return ResourceManager.GetString("Analyzer_UseContentRef_MessageFormat", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to AM0001.
         /// </summary>
-        internal static string Analyzer_UseTextureRef_Title {
+        internal static string Analyzer_UseContentRef_Title {
             get {
-                return ResourceManager.GetString("Analyzer_UseTextureRef_Title", resourceCulture);
+                return ResourceManager.GetString("Analyzer_UseContentRef_Title", resourceCulture);
             }
         }
         
@@ -214,11 +214,20 @@ namespace AncientMysteries.Analyzers.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use Texture Reference.
+        ///   Looks up a localized string similar to Unify Item Namespace.
         /// </summary>
-        internal static string CodeFix_UseTextureRef_Title {
+        internal static string CodeFix_UnifyItemNamespace_Title {
             get {
-                return ResourceManager.GetString("CodeFix_UseTextureRef_Title", resourceCulture);
+                return ResourceManager.GetString("CodeFix_UnifyItemNamespace_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Content Reference.
+        /// </summary>
+        internal static string CodeFix_UseContentRef_Title {
+            get {
+                return ResourceManager.GetString("CodeFix_UseContentRef_Title", resourceCulture);
             }
         }
     }

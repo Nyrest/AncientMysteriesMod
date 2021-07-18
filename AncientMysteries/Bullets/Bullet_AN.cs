@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Items.Miscellaneous;
-
-namespace AncientMysteries.Bullets
+﻿namespace AncientMysteries.Bullets
 {
     public class Bullet_AN : Bullet
     {
@@ -8,6 +6,7 @@ namespace AncientMysteries.Bullets
         {
             collisionSize = new Vec2(32, 32);
         }
+
         public override void Removed()
         {
             NovaExp n = new(travelEnd.x, travelEnd.y, true);
@@ -27,7 +26,7 @@ namespace AncientMysteries.Bullets
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    var bullet = Make.Bullet<AT_AN2>(travelEnd, _owner, Rando.Float(0, 360),this);
+                    var bullet = Make.Bullet<AT_AN2>(travelEnd, _owner, Rando.Float(0, 360), this);
                     list.Add(bullet);
                 }
             });

@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Miscellaneous
+﻿namespace AncientMysteries.Items
 {
     public sealed class NovaExp : ExplosionPart
     {
@@ -6,9 +6,10 @@
         public bool _smoked;
         public int _smokeFrame;
         public float _wait;
+
         public NovaExp(float xpos, float ypos, bool doWait = true) : base(xpos, ypos)
         {
-            _sprite = this.ReadyToRunWithFrames(t_Effect_CrystalExplosionPurple, 36, 36);
+            _sprite = this.ReadyToRunWithFrames(tex_Effect_CrystalExplosionPurple, 36, 36);
             _sprite.AddAnimation("loop", 1f, false, new int[]
             {
                 0,

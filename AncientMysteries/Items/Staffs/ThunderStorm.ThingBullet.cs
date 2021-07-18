@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items.Staffs
+﻿namespace AncientMysteries.Items
 {
     public class ThunderStorm_ThingBullet : AMThingBulletLinar
     {
@@ -12,7 +6,7 @@ namespace AncientMysteries.Items.Staffs
 
         public ThunderStorm_ThingBullet(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 600, 1, initSpeed, safeDuck)
         {
-            var _spriteMap = TexHelper.ModSpriteWithFrames(t_Bullet_CubicBlast, 8, 8, true);
+            var _spriteMap = TexHelper.ModSpriteWithFrames(tex_Bullet_CubicBlast, 8, 8, true);
             _spriteMap.AddAnimation("loop", 0.3f, true, 0, 1, 2, 3, 4);
             _spriteMap.SetAnimation("loop");
             graphic = _spriteMap;
@@ -21,13 +15,13 @@ namespace AncientMysteries.Items.Staffs
         public override void Update()
         {
             base.Update();
-            if(fireWait.Tick())
+            if (fireWait.Tick())
             {
                 foreach (Duck d in Level.CheckCircleAll<Duck>(position, 80))
                 {
                     if (d != BulletSafeDuck)
                     {
-                        NetHelper.NmFireGun(list => 
+                        NetHelper.NmFireGun(list =>
                         {
                             var bullet = Make.Bullet<AT_Current>(position, null, -Maths.PointDirection(position, d.position));
                             list.Add(bullet);

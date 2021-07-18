@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Items.Guns.MachineGuns
+﻿namespace AncientMysteries.Items
 {
     public class CosmicDisruption_AmmoType : AMAmmoType
     {

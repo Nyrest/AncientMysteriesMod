@@ -1,7 +1,7 @@
-﻿namespace AncientMysteries.Items.Holdables
+﻿namespace AncientMysteries.Items
 {
-    [EditorGroup(g_commons)]
-    [MetaImage(t_Holdable_UmbrellaOpen)]
+    [EditorGroup(group_Guns_Commons)]
+    [MetaImage(tex_Holdable_UmbrellaOpen)]
     [MetaInfo(Lang.english, "Umbrella", "It protects you from the rain..does it have some other uses?")]
     [MetaInfo(Lang.schinese, "雨伞", "遮风挡雨……还有什么别的功能吗？")]
     public partial class Umbrella : AMNotGun, IPlatform
@@ -24,7 +24,7 @@
 
         public Umbrella(float xval, float yval) : base(xval, yval)
         {
-            this.ReadyToRunWithFrames(t_Holdable_UmbrellaClosed);
+            this.ReadyToRunWithFrames(tex_Holdable_UmbrellaClosed);
             thickness = 1.5f;
             flammable = 1f;
             physicsMaterial = PhysicsMaterial.Rubber;
@@ -39,14 +39,14 @@
                 if (!_opened)
                 {
                     _opened = true;
-                    this.ReadyToRunWithFrames(t_Holdable_UmbrellaOpen);
+                    this.ReadyToRunWithFrames(tex_Holdable_UmbrellaOpen);
                 }
                 handAngle = 0;
 
                 if (d.crouch || _triggerHeld)
                 {
                     handAngle = -1.56f * -offDir;
-                    _holdOffset = new Vec2(-10 , -5);
+                    _holdOffset = new Vec2(-10, -5);
                     handOffset = new Vec2(0, -4);
                 }
                 else
@@ -72,7 +72,7 @@
                 if (_opened)
                 {
                     _opened = false;
-                    this.ReadyToRunWithFrames(t_Holdable_UmbrellaClosed);
+                    this.ReadyToRunWithFrames(tex_Holdable_UmbrellaClosed);
                 }
             }
         }

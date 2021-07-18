@@ -1,10 +1,9 @@
-﻿//#define AllowTabFormat
+﻿#define AllowTabFormat
+
 using System.Runtime.CompilerServices;
 
 namespace AncientMysteries.SourceGenerator
 {
-
-
     public abstract class _BaseGenerator : ISourceGenerator
     {
         private static string[] _tabLevelsCache = new string[8];

@@ -1,7 +1,7 @@
-﻿namespace AncientMysteries.Items.Explosives
+﻿namespace AncientMysteries.Items
 {
-    [EditorGroup(g_explosives)]
-    [MetaImage(t_Gun_FerociousPredator)]
+    [EditorGroup(group_Guns_Explosives)]
+    [MetaImage(tex_Gun_FerociousPredator, 32, 16)]
     [MetaInfo(Lang.english, "Ferocious Predator", "Beware of the prey")]
     [MetaInfo(Lang.schinese, "凶恶猎手", "凶恶猎手")]
     public sealed partial class FerociousPredator : AMGun
@@ -11,6 +11,7 @@
             Lang.schinese => "凶恶猎手",
             _ => "Ferocious Predator",
         };
+
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "小心猎物",
@@ -60,7 +61,7 @@
         {
             ammo = 6;
             _type = "gun";
-            this.ReadyToRunWithFrames(t_Gun_FerociousPredator, 32, 16);
+            this.ReadyToRunWithFrames(tex_Gun_FerociousPredator, 32, 16);
             _barrelOffsetTL = new Vec2(32f, 7f);
             _fireSound = "pistol";
             _kickForce = 3f;

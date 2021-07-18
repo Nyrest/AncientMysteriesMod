@@ -117,13 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Analyzer_InvalidTexture_Description" xml:space="preserve">
-    <value>Texture  format must be .png.</value>
+  <data name="Analyzer_UnifyItemNamespace_Description" xml:space="preserve">
+    <value />
   </data>
-  <data name="Analyzer_InvalidTexture_MessageFormat" xml:space="preserve">
-    <value>Invalid Texture: {0}</value>
+  <data name="Analyzer_UnifyItemNamespace_MessageFormat" xml:space="preserve">
+    <value>Unify Item Namespace to 'AncientMysteries.Items'</value>
   </data>
-  <data name="Analyzer_InvalidTexture_Title" xml:space="preserve">
+  <data name="Analyzer_UnifyItemNamespace_Title" xml:space="preserve">
     <value>AM0002</value>
   </data>
   <data name="Analyzer_MakePartial_Description" xml:space="preserve">
@@ -147,17 +147,17 @@
   <data name="Analyzer_UnclassifiedTexture_Title" xml:space="preserve">
     <value>AM0003</value>
   </data>
-  <data name="Analyzer_UseTextureRef_Description" xml:space="preserve">
-    <value>Use texture reference to avoid bugs caused by rename.</value>
+  <data name="Analyzer_UseContentRef_Description" xml:space="preserve">
+    <value>Use content reference to avoid bugs caused by rename/delete.</value>
   </data>
-  <data name="Analyzer_UseTextureRef_MessageFormat" xml:space="preserve">
+  <data name="Analyzer_UseContentRef_MessageFormat" xml:space="preserve">
     <value>Replace to {0}</value>
   </data>
-  <data name="Analyzer_UseTextureRef_Title" xml:space="preserve">
+  <data name="Analyzer_UseContentRef_Title" xml:space="preserve">
     <value>AM0001</value>
   </data>
-  <data name="CodeFix_UseTextureRef_Title" xml:space="preserve">
-    <value>Use Texture Reference</value>
+  <data name="CodeFix_UseContentRef_Title" xml:space="preserve">
+    <value>Use Content Reference</value>
   </data>
   <data name="Analyzer_MissingMetadata_Description" xml:space="preserve">
     <value>Add metadata for DescImgGenerator.</value>
@@ -170,5 +170,8 @@
   </data>
   <data name="CodeFix_MissingMetadata_Title" xml:space="preserve">
     <value>Add missing Metadata Attributes</value>
+  </data>
+  <data name="CodeFix_UnifyItemNamespace_Title" xml:space="preserve">
+    <value>Unify Item Namespace</value>
   </data>
 </root>

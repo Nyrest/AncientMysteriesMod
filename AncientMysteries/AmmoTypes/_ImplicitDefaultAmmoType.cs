@@ -1,4 +1,8 @@
-﻿using System.Diagnostics;
+﻿#if DEBUG
+
+using System.Diagnostics;
+
+#endif
 
 namespace AncientMysteries.AmmoTypes
 {
@@ -7,6 +11,7 @@ namespace AncientMysteries.AmmoTypes
         public static readonly _ImplicitDefaultAmmoType Instance = new();
 
 #if DEBUG
+
         public override Bullet FireBullet(Vec2 position, Thing owner = null, float angle = 0, Thing firedFrom = null)
         {
             // This shouldn't happen.
@@ -22,6 +27,7 @@ namespace AncientMysteries.AmmoTypes
             Debugger.Break();
             base.OnHit(destroyed, b);
         }
+
 #endif
     }
 }

@@ -6,6 +6,8 @@
     <LangVersion>preview</LangVersion>
     <Platforms>AnyCPU</Platforms>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -19,6 +21,7 @@
   <ItemGroup>
     <PackageReference Include="Mono.Cecil" Version="0.11.4" />
     <PackageReference Include="SkiaSharp" Version="2.80.3" />
+    <PackageReference Include="Topten.RichTextKit" Version="0.4.140" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +30,15 @@
       <OutputItemType>Content</OutputItemType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="NotoSansCJKsc-Light.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="NotoSansCJKsc-Regular.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

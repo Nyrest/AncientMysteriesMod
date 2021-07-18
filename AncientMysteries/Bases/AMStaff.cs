@@ -60,7 +60,7 @@
         {
         }
 
-        public override sealed void Fire()
+        public sealed override void Fire()
         {
         }
 
@@ -103,7 +103,7 @@
                     handAngle = offDir * MathHelper.Lerp(_holdAngle, _fireAngle, _castTime);
                 else handAngle = 0;
             }
-            if(castingParticlesEnabled)
+            if (castingParticlesEnabled)
             {
                 DoCastingParticles();
             }
@@ -113,10 +113,10 @@
 
         public virtual void DoCastingParticles()
         {
-
         }
 
         #region Progress Bar
+
         public bool drawProgressBar = true;
 
         public Color progressBgColor = Color.White;
@@ -150,6 +150,7 @@
         {
             progressFillColor = _castTime >= 1 ? Color.Orange : new Color((byte)(_castTime * 255), (byte)0, (byte)0);
         }
-        #endregion
+
+        #endregion Progress Bar
     }
 }

@@ -1,7 +1,7 @@
-﻿namespace AncientMysteries.Items.Staffs
+﻿namespace AncientMysteries.Items
 {
-    [EditorGroup(g_staffs)]
-    [MetaImage(t_Staff_Judgement)]
+    [EditorGroup(group_Guns_Staffs)]
+    [MetaImage(tex_Staff_Judgement, 13, 39)]
     [MetaInfo(Lang.english, "Rainbow Tears", "「天気なんて、狂ったままでいいんだ！」")]
     [MetaInfo(Lang.schinese, "棱彩之泪", "「天気なんて、狂ったままでいいんだ！」")]
     public partial class RainbowTears : AMStaff
@@ -15,7 +15,6 @@
             get => (byte)_spriteMap._frame;
             set => _spriteMap._frame = value;
         }
-
 
         public override string GetLocalizedName(Lang lang) => lang switch
         {
@@ -32,7 +31,7 @@
         {
             _ammoType = new AT_RainbowEyedrops();
             _type = "gun";
-            _spriteMap = this.ReadyToRunWithFrames(t_Staff_Judgement, 13, 39);
+            _spriteMap = this.ReadyToRunWithFrames(tex_Staff_Judgement, 13, 39);
             SetBox(13, 39);
             _barrelOffsetTL = new Vec2(6f, 5f);
             _castSpeed = 0.01f;

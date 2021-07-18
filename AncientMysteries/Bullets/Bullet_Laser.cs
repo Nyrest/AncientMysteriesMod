@@ -6,7 +6,6 @@
         {
             _bulletSpeed = 30f;
             color = Color.Yellow;
-
         }
 
         public override void Removed()

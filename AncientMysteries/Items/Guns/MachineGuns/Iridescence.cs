@@ -1,7 +1,7 @@
-﻿namespace AncientMysteries.Items.Guns.MachineGuns
+﻿namespace AncientMysteries.Items
 {
-    [EditorGroup(g_rifles)]
-    [MetaImage(t_Gun_RainbowGun)]
+    [EditorGroup(group_Guns_Rifles)]
+    [MetaImage(tex_Gun_RainbowGun)]
     [MetaInfo(Lang.english, "Iridescence", "Rainbow. A bridge to the heaven.")]
     [MetaInfo(Lang.schinese, "流光溢彩", "彩虹，一条架向天堂的桥梁。")]
     public sealed partial class Iridescence : AMGun
@@ -23,9 +23,10 @@
             ammo = 127;
             _ammoType = new Iridescence_AmmoType();
             _type = "gun";
-            this.ReadyToRunWithFrames(t_Gun_RainbowGun);
+            this.ReadyToRunWithFrames(tex_Gun_RainbowGun);
             _barrelOffsetTL = new Vec2(33f, 6f);
             BarrelSmoke.color = Color.White;
+            _fireRumble = RumbleIntensity.Kick;
             _fireSound = "laserRifle";
             _fireWait = 0.6f;
             _fireSoundPitch = 0.9f;

@@ -1,15 +1,15 @@
-﻿namespace AncientMysteries.Items.Explosives.Grenades
+﻿namespace AncientMysteries.Items
 {
-    [EditorGroup(guns)]
-    [MetaImage(t_Throwable_TrackingGrenade)]
+    [EditorGroup(group_Guns)]
+    [MetaImage(tex_Throwable_TrackingGrenade, 8, 9, 0, 1)]
     [MetaInfo(Lang.english, "Tracking Grenade", "This grenade wants a girl friend!")]
-    [MetaInfo(Lang.schinese, "纳米手雷", "一颗单身许久的饥渴手雷！")]
+    [MetaInfo(Lang.schinese, "追踪手雷", "一颗单身许久的饥渴手雷！")]
     public sealed partial class TrackingGrenade : AMGun
     {
         public override string GetLocalizedName(Lang lang) => lang switch
         {
-            Lang.schinese => "纳米手雷",
-            _ => "Nano Grenade",
+            Lang.schinese => "追踪手雷",
+            _ => "Tracking Grenade",
         };
 
         public override string GetLocalizedDescription(Lang lang) => lang switch
@@ -65,7 +65,7 @@
                 penetration = 0.4f
             };
             _type = "gun";
-            _sprite = this.ReadyToRunWithFrames(t_Throwable_TrackingGrenade, 8, 9);
+            _sprite = this.ReadyToRunWithFrames(tex_Throwable_TrackingGrenade, 8, 9);
             graphic = _sprite;
             bouncy = 0.4f;
             friction = 0.05f;
@@ -142,11 +142,11 @@
                 {
                     if (Level.CheckLine<Block>(position, _targetPlayer.position) != null)
                     {
-                        StupidMoving.ThingMoveTo(this, _targetPlayer.position, 3f);
+                        StupidMoving.ThingMoveTo(this, _targetPlayer.position, 3.1f, 0.5f);
                     }
                     else
                     {
-                        StupidMoving.ThingMoveToVertically(this, _targetPlayer.position, 3f);
+                        StupidMoving.ThingMoveToVertically(this, _targetPlayer.position, 3.1f, 0.5f);
                     }
                 }
             }

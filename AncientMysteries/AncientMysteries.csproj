@@ -51,6 +51,7 @@
     <Content Include="content\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Compile Remove="Items\Equipments\Back\AngelWings.cs" />
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
@@ -87,6 +88,7 @@
 
   <ItemGroup>
     <None Include="AncientMysteries.csproj.user" />
+    <None Include="Items\Equipments\Back\AngelWings.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -94,11 +96,6 @@
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="5.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Items\Staffs\ArcaneNova - Copy.Magic.Stage2.cs">
-      <DependentUpon>ArcaneNova.cs</DependentUpon>
-    </Compile>
-  </ItemGroup>
   <Target Name="PostBuild" BeforeTargets="PostBuildEvent">
     <Exec Command="cd &quot;$(SolutionDir)&quot;&#xD;&#xA;PostBuild.bat" />
   </Target>
