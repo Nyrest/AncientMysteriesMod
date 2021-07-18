@@ -19,33 +19,37 @@ namespace DescImgGenerator
             Parallel.ForEach(languages, lang =>
             {
                 var sur = BuildImage(lang, out SKRectI rect);
-                sur.Snapshot(rect).Encode(SKEncodedImageFormat.Png, 100).SaveTo(File.OpenWrite($"{saveTo}desc_{lang}.png"));
+                sur.Canvas.Flush();
+                sur.Flush();
+                using var snapshot = sur.Snapshot(rect);
+                using var encodedData = snapshot.Encode(SKEncodedImageFormat.Png, 100);
+                using var fileStream = File.OpenWrite($"{saveTo}desc_{lang}.png");
+                encodedData.SaveTo(fileStream);
             });
         }
 
         public static SKSurface BuildImage(Lang lang, out SKRectI rect)
         {
             object _lock = new();
-            int x = 0, y = 0;
+            int x = itemMargin, y = 0;
             var surface = SKSurface.Create(new SKImageInfo(canvasMaxWidth, canvasMaxHeight));
             var canvas = surface.Canvas;
             foreach (var item in ModItems)
             {
                 #region Move Y if needed
-                if ((x + itemWidth) > canvasMaxWidth)
+                if ((x + itemWidth + itemMargin) > canvasMaxWidth)
                 {
-                    x = 0;
-                    y += itemHeight;
+                    x = itemMargin;
+                    y += itemHeight + itemMargin + 1;
                 }
                 #endregion
-                var itemRect = new SKRect(x + itemPadding, y + itemPadding, x + itemWidth - itemPadding, y + itemHeight - itemPadding);
+                var itemRect = new SKRect(x, y, x + itemWidth, y + itemHeight);
                 DrawItem(canvas, item, lang, itemRect);
                 #region Move X
-                x += itemWidth;
+                x += itemWidth + itemMargin + 1;
                 #endregion
             }
-            surface.Flush();
-            rect = new SKRectI(0, 0, canvasMaxWidth, y + itemHeight);
+            rect = new SKRectI(0, 0, canvasMaxWidth, y + itemHeight + itemMargin);
             return surface;
         }
 

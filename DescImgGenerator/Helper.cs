@@ -8,9 +8,9 @@ namespace DescImgGenerator
 
         public static SKBitmap ScaleTexTo(SKBitmap bitmap, SKRect rect, float maxRatio = 3)
         {
-            float ratio = rect.Height / bitmap.Height;
+            double ratio = (double)rect.Height / bitmap.Height;
             if (ratio > maxRatio) ratio = maxRatio;
-            SKBitmap result = new((int)MathF.Round(bitmap.Width * ratio), (int)MathF.Round(bitmap.Height * ratio));
+            SKBitmap result = new((int)Math.Ceiling(bitmap.Width * ratio), (int)Math.Ceiling(bitmap.Height * ratio));
             bitmap.ScalePixels(result, SKFilterQuality.None);
             return result;
         }
