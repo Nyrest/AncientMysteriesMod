@@ -2,14 +2,14 @@
 {
     public static class ImgStyles
     {
-        public const int itemMargin = 8;
+        public const int itemMargin = 3;
         public const int itemPadding = 4;
         public const int itemWidth = 314;
         public const int itemHeight = 140;
 
         public const int frameMargin = 4;
 
-        public const int canvasMaxWidth = 628;
+        public const int canvasMaxWidth = 638;
         public const int canvasMaxHeight = 10240;
 
         public static Style nameStyle = new()
