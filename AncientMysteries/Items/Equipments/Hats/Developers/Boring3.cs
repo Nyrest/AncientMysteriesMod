@@ -2,8 +2,8 @@
 {
     [EditorGroup(e_developer)]
     [MetaImage(t_Hat_Boring3Pickup)]
-    [MetaInfo(Lang.english, "Boring3", "Probably the most powerful thing in this mod...")]
-    [MetaInfo(Lang.schinese, null, "也许是这个 Mod 里最屌的东西。。。")]
+    [MetaInfo(Lang.english, "Boring3", "Probably the most powerful thing in this mod")]
+    [MetaInfo(Lang.schinese, null, "也许是这个 Mod 里最屌的东西")]
     [MetaOrder(int.MaxValue - 2)]
     public sealed partial class Boring3 : AMHelmet, IPlatform
     {
@@ -16,8 +16,8 @@
 
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            Lang.schinese => "也许是这个 Mod 里最屌的东西。。。",
-            _ => "Probably the most powerful thing in this mod...",
+            Lang.schinese => "也许是这个 Mod 里最屌的东西",
+            _ => "Probably the most powerful thing in this mod",
         };
 
 
