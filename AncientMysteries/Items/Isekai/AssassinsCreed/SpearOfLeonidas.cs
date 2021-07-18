@@ -1,12 +1,11 @@
-﻿namespace AncientMysteries.Items.Artifacts
-{
-    [EditorGroup(g_artifacts)]
-    [MetaImage(t_Melee_SpearOfLeonidas)]
+﻿namespace AncientMysteries.Items{
+    [EditorGroup(group_Guns_Artifacts)]
+    [MetaImage(tex_Melee_SpearOfLeonidas)]
     [MetaInfo(Lang.english, "Spear Of Leonidas", "Sparta!")]
     [MetaInfo(Lang.schinese, "列奥尼达斯之矛", "斯巴达！")]
     public sealed partial class SpearOfLeonidas : AMMelee
     {
-        public static readonly Tex2D targetCircle = TexHelper.ModTex2D(t_Effect_TargetCircle);
+        public static readonly Tex2D targetCircle = TexHelper.ModTex2D(tex_Effect_TargetCircle);
         public static readonly int tcWidth = targetCircle.w, tcHeight = targetCircle.h;
 
         //public StateBinding _targetPlayerBinding = new StateBinding("_targetPlayer");
@@ -31,7 +30,7 @@
         };
         public SpearOfLeonidas(float xval, float yval) : base(xval, yval)
         {
-            this.ReadyToRun(t_Melee_SpearOfLeonidas);
+            this.ReadyToRun(tex_Melee_SpearOfLeonidas);
             _barrelOffsetTL = new Vec2(20f, 4f);
             _fireSound = "smg";
             physicsMaterial = PhysicsMaterial.Metal;

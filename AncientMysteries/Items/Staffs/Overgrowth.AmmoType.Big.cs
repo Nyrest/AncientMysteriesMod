@@ -1,10 +1,9 @@
-﻿namespace AncientMysteries.Items.Staffs
-{
+﻿namespace AncientMysteries.Items{
     public class Overgrowth_AmmoType_Big : AMAmmoType
     {
         public Overgrowth_AmmoType_Big()
         {
-            sprite = t_Bullet_OvergrowthBig.ModSprite();
+            sprite = tex_Bullet_OvergrowthBig.ModSprite();
             bulletSpeed = 3f;
             accuracy = 0.4f;
             speedVariation = 3f;

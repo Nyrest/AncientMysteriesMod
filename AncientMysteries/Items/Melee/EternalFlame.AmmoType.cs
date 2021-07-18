@@ -1,5 +1,4 @@
-﻿namespace AncientMysteries.Items.Melee
-{
+﻿namespace AncientMysteries.Items{
     public class EternalFlame_AmmoType : AMAmmoType
     {
         public EternalFlame_AmmoType()
@@ -13,7 +12,7 @@
             rangeVariation = -50f;
             combustable = true;
             bulletLength = 0;
-            sprite = TexHelper.ModSprite(t_Bullet_FireBolt);
+            sprite = TexHelper.ModSprite(tex_Bullet_FireBolt);
             sprite.CenterOrigin();
             bulletType = typeof(EternalFlame_Bullet);
         }

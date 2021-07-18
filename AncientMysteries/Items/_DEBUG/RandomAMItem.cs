@@ -1,15 +1,14 @@
-﻿namespace AncientMysteries.Items._DEBUG
-{
-    [EditorGroup(_debugGroup)]
+﻿namespace AncientMysteries.Items{
+    [EditorGroup(group_DEBUG)]
     public class RandomAMItem : Holdable
     {
         public static Type[] amTypes = Assembly.GetExecutingAssembly().GetTypes().Where(x => !x.IsAbstract && typeof(Holdable).IsAssignableFrom(x)).ToArray();
 
         public static readonly string[] awesomeGuys = new[]
         {
-            t_Hat_Boring3Pickup,
-            t_Hat_DevastatorPickup,
-            t_Hat_GUDZHPickup,
+            tex_Hat_Boring3Pickup,
+            tex_Hat_DevastatorPickup,
+            tex_Hat_GUDZHPickup,
         };
 
         public RandomAMItem()

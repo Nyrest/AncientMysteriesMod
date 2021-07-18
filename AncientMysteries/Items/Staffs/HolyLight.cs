@@ -1,7 +1,6 @@
-﻿namespace AncientMysteries.Items.Staffs
-{
-    [EditorGroup(g_staffs)]
-    [MetaImage(t_Staff_HolyLight)]
+﻿namespace AncientMysteries.Items{
+    [EditorGroup(group_Guns_Staffs)]
+    [MetaImage(tex_Staff_HolyLight)]
     [MetaInfo(Lang.english, "Holy Light", "The miracle.")]
     [MetaInfo(Lang.schinese, "神圣之光", "奇迹")]
     public partial class HolyLight : AMStaff
@@ -31,7 +30,7 @@
         public HolyLight(float xval, float yval) : base(xval, yval)
         {
             _type = "gun";
-            _spriteMap = this.ReadyToRunWithFrames(t_Staff_HolyLight, 15, 37);
+            _spriteMap = this.ReadyToRunWithFrames(tex_Staff_HolyLight, 15, 37);
             SetBox(15, 37);
             _barrelOffsetTL = new Vec2(6f, 5f);
             _castSpeed = 0.012f;

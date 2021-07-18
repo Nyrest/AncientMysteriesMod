@@ -1,12 +1,11 @@
-﻿namespace AncientMysteries.Items.Artifacts
-{
-    [EditorGroup(g_artifacts)]
-    [MetaImage(t_Staff_FallGuy)]
+﻿namespace AncientMysteries.Items{
+    [EditorGroup(group_Guns_Artifacts)]
+    [MetaImage(tex_Staff_FallGuy)]
     [MetaInfo(Lang.english, "Fall Guy", "Let someone fall instead of you!")]
     [MetaInfo(Lang.schinese, "移形换影", "让你的好朋友替你受罪！")]
     public sealed partial class FallGuy : AMHoldable
     {
-        public static readonly Tex2D mark = TexHelper.ModTex2D(t_Effect_FallGuyMark);
+        public static readonly Tex2D mark = TexHelper.ModTex2D(tex_Effect_FallGuyMark);
         public static readonly int markWidth = mark.w, markHeight = mark.h;
 
         //public StateBinding _targetPlayerBinding = new StateBinding("_targetPlayer");
@@ -36,7 +35,7 @@
         public FallGuy(float xpos, float ypos) : base(xpos, ypos)
         {
             _type = "gun";
-            this.ReadyToRunWithFrames(t_Staff_FallGuy);
+            this.ReadyToRunWithFrames(tex_Staff_FallGuy);
             physicsMaterial = PhysicsMaterial.Metal;
             material = new MaterialGlitch(this);
         }

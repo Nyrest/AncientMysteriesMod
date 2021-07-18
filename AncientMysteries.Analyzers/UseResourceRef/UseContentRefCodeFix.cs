@@ -1,12 +1,12 @@
 ﻿using AncientMysteries.SourceGenerator.Generators;
 
 
-namespace AncientMysteries.Analyzers.UseTextureRef
+namespace AncientMysteries.Analyzers.UseResourceRef
 {
-    [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(UseTextureRefCodeFix)), Shared]
-    public class UseTextureRefCodeFix : CodeFixProvider
+    [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(UseContentRefCodeFix)), Shared]
+    public class UseContentRefCodeFix : CodeFixProvider
     {
-        public sealed override ImmutableArray<string> FixableDiagnosticIds => ImmutableArray.Create(UseTextureRefAnalyzer.DiagnosticId);
+        public sealed override ImmutableArray<string> FixableDiagnosticIds => ImmutableArray.Create(UseContentRefAnalyzer.DiagnosticId);
 
         public sealed override FixAllProvider GetFixAllProvider()
         {
@@ -28,9 +28,9 @@ namespace AncientMysteries.Analyzers.UseTextureRef
             // Register a code action that will invoke the fix.
             context.RegisterCodeFix(
                 CodeAction.Create(
-                    title: Res.CodeFix_UseTextureRef_Title,
+                    title: Res.CodeFix_UseContentRef_Title,
                     createChangedDocument: c => MakeConstAsync(context.Document, declaration, c),
-                    equivalenceKey: nameof(Res.CodeFix_UseTextureRef_Title)),
+                    equivalenceKey: nameof(Res.CodeFix_UseContentRef_Title)),
                 diagnostic);
         }
 
@@ -39,7 +39,28 @@ namespace AncientMysteries.Analyzers.UseTextureRef
     CancellationToken cancellationToken)
         {
             var token = literalExpressionSyntax.Token;
-            var newToken = SyntaxFactory.Identifier(TexturesReference.GetFieldName(token.ValueText));
+            string name = token.ValueText;
+            string extension = Path.GetExtension(name).ToLower();
+            SyntaxToken newToken;
+            switch (extension)
+            {
+                case ".png":
+                    {
+                        newToken = SyntaxFactory.Identifier(ContentReferencesGenerator.GetFieldName(
+                            ContentReferencesGenerator.prefix_Texture,
+                            token.ValueText));
+                        break;
+                    }
+                case ".wav":
+                    {
+                        newToken = SyntaxFactory.Identifier(ContentReferencesGenerator.GetFieldName(
+                            ContentReferencesGenerator.prefix_Sound,
+                            token.ValueText));
+                        break;
+                    }
+                default:
+                    throw new Exception("Unexpected File Extension");
+            }
 
             var sourceText = await literalExpressionSyntax.SyntaxTree.GetTextAsync(cancellationToken);
             // Return document with transformed tree.

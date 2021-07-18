@@ -1,5 +1,4 @@
-﻿namespace AncientMysteries.Items.Explosives
-{
+﻿namespace AncientMysteries.Items{
     public class ViscousAcidLiquor_AmmoType : AMAmmoType
     {
 		public ViscousAcidLiquor_AmmoType()
@@ -17,7 +16,7 @@
 			bulletColor = Color.White;
 			bulletType = typeof(ViscousAcidLiquor_Bullet);
 			immediatelyDeadly = true;
-			sprite = TexHelper.ModSprite(t_Bullet_ViscousAcidLiquorBullet);
+			sprite = TexHelper.ModSprite(tex_Bullet_ViscousAcidLiquorBullet);
 			sprite.CenterOrigin();
 		}
 	}

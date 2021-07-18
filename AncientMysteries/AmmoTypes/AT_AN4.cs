@@ -2,7 +2,7 @@
 {
     public sealed class AT_AN4 : AMAmmoType
     {
-        public SpriteMap _spriteMap = TexHelper.ModSpriteWithFrames(t_Bullet_Nova4, 14, 6, true);
+        public SpriteMap _spriteMap = TexHelper.ModSpriteWithFrames(tex_Bullet_Nova4, 14, 6, true);
 
         public AT_AN4()
         {

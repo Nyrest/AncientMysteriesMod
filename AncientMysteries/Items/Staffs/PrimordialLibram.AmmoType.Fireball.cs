@@ -1,5 +1,4 @@
-﻿namespace AncientMysteries.Items.Staffs
-{
+﻿namespace AncientMysteries.Items{
     public class PrimordialLibram_AmmoType_Fireball : AMAmmoType
     {
         public PrimordialLibram_AmmoType_Fireball()
@@ -13,7 +12,7 @@
             rangeVariation = -50f;
             combustable = true;
             bulletLength = 0;
-            sprite = TexHelper.ModSprite(t_Bullet_FireBolt);
+            sprite = TexHelper.ModSprite(tex_Bullet_FireBolt);
             sprite.CenterOrigin();
             bulletColor = Color.OrangeRed;
             bulletType = typeof(PrimordialLibram_Bullet_Fireball);

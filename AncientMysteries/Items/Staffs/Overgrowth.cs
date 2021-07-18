@@ -1,7 +1,6 @@
-﻿namespace AncientMysteries.Items.Staffs
-{
-    [EditorGroup(g_staffs)]
-    [MetaImage(t_Staff_Overgrowth, 21, 34)]
+﻿namespace AncientMysteries.Items{
+    [EditorGroup(group_Guns_Staffs)]
+    [MetaImage(tex_Staff_Overgrowth, 21, 34)]
     [MetaInfo(Lang.english, "Overgrowth", "Something bad might happen if it releases its full power")]
     [MetaInfo(Lang.schinese, "过度生长", "如果让它过度释放自己的力量，也许不会有好事发生")]
     public partial class Overgrowth : AMStaff
@@ -32,7 +31,7 @@
         };
         public Overgrowth(float xval, float yval) : base(xval, yval)
         {
-            _spriteMap = this.ReadyToRunWithFrames(t_Staff_Overgrowth, 21, 34);
+            _spriteMap = this.ReadyToRunWithFrames(tex_Staff_Overgrowth, 21, 34);
             _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2, 3);
             _spriteMap.SetAnimation("loop");
             SetBox(21, 34);

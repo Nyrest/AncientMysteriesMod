@@ -1,7 +1,6 @@
-﻿namespace AncientMysteries.Items.Explosives.Grenades
-{
-    [EditorGroup(guns)]
-    [MetaImage(t_Throwable_FuriousNewYear, 7, 15)]
+﻿namespace AncientMysteries.Items{
+    [EditorGroup(group_Guns)]
+    [MetaImage(tex_Throwable_FuriousNewYear, 7, 15)]
     [MetaInfo(Lang.english, "Furious New Year", "No firecrackers!")]
     [MetaInfo(Lang.schinese, "新年狂欢", "不准放鞭炮")]
     public partial class FuriousNewYear : AMGun
@@ -59,7 +58,7 @@
         {
             ammo = 1;
             _type = "gun";
-            _sprite = this.ReadyToRunWithFrames(t_Throwable_FuriousNewYear, 7, 15);
+            _sprite = this.ReadyToRunWithFrames(tex_Throwable_FuriousNewYear, 7, 15);
             graphic = _sprite;
             bouncy = 0.4f;
             friction = 0.05f;

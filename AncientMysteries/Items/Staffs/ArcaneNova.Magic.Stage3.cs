@@ -1,13 +1,12 @@
 ﻿using AncientMysteries.DestroyTypes;
-using AncientMysteries.Items.Miscellaneous;
 
-namespace AncientMysteries.Items.Staffs
-{
+
+namespace AncientMysteries.Items{
     public class ArcaneNova_Magic_Stage3 : AMThingBulletLinar
     {
         public ArcaneNova_Magic_Stage3(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 90, float.PositiveInfinity, initSpeed, safeDuck)
         {
-            var _spriteMap = t_Bullet_NovaFrame2.ModSpriteWithFrames(25, 25, true);
+            var _spriteMap = tex_Bullet_NovaFrame2.ModSpriteWithFrames(25, 25, true);
             _spriteMap.AddAnimation("loop", 0.15f, true, 0, 1, 2, 3);
             _spriteMap.SetAnimation("loop");
             _spriteMap.CenterOrigin();

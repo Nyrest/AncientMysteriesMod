@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Equipments.Hats.Developers
 {
-    [EditorGroup(e_developer)]
-    [MetaImage(t_Hat_GUDZHPickup)]
+    [EditorGroup(group_Equipment_Developer)]
+    [MetaImage(tex_Hat_GUDZHPickup)]
     [MetaInfo(Lang.english, "GUDZH", "Eating now... Really. There's nothing to say.")]
     [MetaInfo(Lang.schinese, null, "我在吃饭。真的。没什么好说的。")]
     [MetaOrder(int.MaxValue)]
@@ -11,8 +11,8 @@
 
         public GUDZH(float xpos, float ypos) : base(xpos, ypos)
         {
-            _sprite = this.ModSpriteWithFrames(t_Hat_GUDZH, 32, 32, true);
-            _pickupSprite = this.ReadyToRun(t_Hat_GUDZHPickup);
+            _sprite = this.ModSpriteWithFrames(tex_Hat_GUDZH, 32, 32, true);
+            _pickupSprite = this.ReadyToRun(tex_Hat_GUDZHPickup);
             //_sprite.CenterOrigin();
             EquipmentMaxHitPoints = 32767;
             EquipmentHitPoints = 32767;

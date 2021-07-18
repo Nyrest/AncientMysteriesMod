@@ -1,7 +1,6 @@
-﻿namespace AncientMysteries.Items.Props
-{
-    [EditorGroup(p_functional)]
-    [MetaImage(t_Holdable_ReboundShield)]
+﻿namespace AncientMysteries.Items{
+    [EditorGroup(group_Props_functional)]
+    [MetaImage(tex_Holdable_ReboundShield)]
     [MetaInfo(Lang.english, "Rebound Shield", "Send this mod to 10 other people to receive bless from the developers")]
     [MetaInfo(Lang.schinese, "反弹盾", "转发这个Mod给十个人以获得来自制作者的祝福")]
     public partial class ReboundShield : AMGun, IPlatform
@@ -19,7 +18,7 @@
         public ReboundShield(float xval, float yval) : base(xval, yval)
         {
             ammo = 1;
-            this.ReadyToRunWithFrames(t_Holdable_ReboundShield);
+            this.ReadyToRunWithFrames(tex_Holdable_ReboundShield);
             thickness = 100f;
             weight = 10f;
             flammable = 0f;
