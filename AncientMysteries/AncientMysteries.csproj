@@ -26,8 +26,8 @@
 
   <!--Source Generator And Analyzers-->
   <ItemGroup>
-    <ProjectReference Include="..\AncientMysteries.Analyzers\AncientMysteries.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    <ProjectReference Include="..\AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\AncientMysteries.Analyzers\AncientMysteries.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" Private="false" />
+    <ProjectReference Include="..\AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" Private="false" />
   </ItemGroup>
 
   <!--Debug-->
@@ -64,6 +64,7 @@
 
     <Reference Include="DGSteam">
       <HintPath>..\References\DGSteam.dll</HintPath>
+      <Private>false</Private>
     </Reference>
 
     <Reference Include="DuckGame">
@@ -94,7 +95,7 @@
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="5.0.0" />
   </ItemGroup>
 
-  <Target Name="PostBuild" BeforeTargets="PostBuildEvent">
+  <Target Name="PostBuild" BeforeTargets="PostBuildEvent" Condition="$(NoPostBuild) != true">
     <Exec Command="cd &quot;$(SolutionDir)&quot;&#xD;&#xA;PostBuild.bat" />
   </Target>
   <Import Project="AutoNest.generated.props" Condition="Exists('AutoNest.generated.props')" />
