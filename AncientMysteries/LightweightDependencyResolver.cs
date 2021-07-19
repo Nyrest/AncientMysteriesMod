@@ -7,25 +7,29 @@
             if (args.RequestingAssembly is null) goto DefaultBehavior;
             var referenceName = new AssemblyName(args.Name);
             string sourceRoot = args.RequestingAssembly.Location;
-            if(!string.IsNullOrWhiteSpace(sourceRoot))
+            if (!string.IsNullOrWhiteSpace(sourceRoot))
             {
                 sourceRoot = Path.GetDirectoryName(sourceRoot);
             }
             else FixModLocation(ref sourceRoot, args);
             if (sourceRoot is null) goto DefaultBehavior;
 
-            foreach (var dllFile in Directory.EnumerateFiles(sourceRoot, "*.dll", SearchOption.TopDirectoryOnly))
+            try
             {
-                try
+                foreach (var dllFile in Directory.EnumerateFiles(sourceRoot, "*.dll", SearchOption.TopDirectoryOnly))
                 {
-                    var dllName = AssemblyName.GetAssemblyName(dllFile);
-                    if (AssemblyName.ReferenceMatchesDefinition(referenceName, dllName))
+                    try
                     {
-                        return Assembly.LoadFile(dllFile);
+                        var dllName = AssemblyName.GetAssemblyName(dllFile);
+                        if (AssemblyName.ReferenceMatchesDefinition(referenceName, dllName))
+                        {
+                            return Assembly.LoadFile(dllFile);
+                        }
                     }
+                    catch { }
                 }
-                catch { }
             }
+            catch { }
 
         DefaultBehavior:
             return ManagedContent.ResolveModAssembly(sender, args);
