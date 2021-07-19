@@ -24,7 +24,7 @@
 
         public override string GetLocalizedName(Lang lang) => lang switch
         {
-            Lang.schinese => "源生法典",
+            Lang.schinese => "源生魔典",
             _ => "Primordial Spellbook",
         };
 

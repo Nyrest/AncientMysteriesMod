@@ -3,7 +3,7 @@
     [EditorGroup(group_Guns_Explosives)]
     [MetaImage(tex_Gun_FerociousPredator, 32, 16)]
     [MetaInfo(Lang.english, "Ferocious Predator", "Beware of the prey")]
-    [MetaInfo(Lang.schinese, "凶恶猎手", "凶恶猎手")]
+    [MetaInfo(Lang.schinese, "凶恶猎手", "小心猎物")]
     public sealed partial class FerociousPredator : AMGun
     {
         public override string GetLocalizedName(Lang lang) => lang switch

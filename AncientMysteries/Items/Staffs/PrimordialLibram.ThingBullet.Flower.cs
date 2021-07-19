@@ -24,7 +24,7 @@
         public override void Update()
         {
             base.Update();
-            angleDegrees += 3;
+            angle += 30;
         }
     }
 }
