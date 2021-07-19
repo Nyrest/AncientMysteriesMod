@@ -35,9 +35,11 @@
         public override void Removed()
         {
             base.Removed();
-            foreach (Duck d in Level.CheckCircleAll<Duck>(position, 80000))
+            foreach (Duck d in Level.current.things[typeof(Duck)])
             {
-                if (d != BulletSafeDuck)
+                if (d == BulletSafeDuck) return;
+
+                if (d != BulletSafeDuck && d != null)
                 {
                     NetHelper.NmFireGun(list =>
                     {

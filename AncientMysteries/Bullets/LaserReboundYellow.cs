@@ -1,8 +1,8 @@
-﻿namespace DuckGame
+﻿namespace AncientMysteries.Bullets
 {
     public class LaserReboundYellow : Thing
     {
-        private Tex2D _rebound = Content.Load<Tex2D>(tex_Bullet_LaserRebound);
+        private Tex2D _rebound = TexHelper.ModTex2D(tex_Bullet_LaserRebound);
 
         public LaserReboundYellow(float xpos, float ypos)
             : base(xpos, ypos)

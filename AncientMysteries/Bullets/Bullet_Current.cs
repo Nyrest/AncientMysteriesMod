@@ -2,11 +2,11 @@
 using System;
 using System.Linq;
 
-namespace DuckGame
+namespace AncientMysteries.Bullets
 {
     public class Bullet_Current : Bullet
     {
-        protected Texture2D _beem;
+        public Texture2D _beem;
 
         protected float _thickness;
 
@@ -14,7 +14,7 @@ namespace DuckGame
             : base(xval, yval, type, ang, owner, rbound, distance, tracer, network)
         {
             _thickness = type.bulletThickness;
-            _beem = Content.Load<Texture2D>(tex_Bullet_LaserBeam);
+            _beem = TexHelper.ModTex2D(tex_Bullet_LaserBeam);
         }
 
         public override void Draw()
@@ -86,7 +86,7 @@ namespace DuckGame
         {
             reboundBulletsCreated++;
             Bullet.isRebound = true;
-            LaserBullet laserBullet = new LaserBullet(pos.x, pos.y, ammo, dir, null, rebound, rng);
+            Bullet_Current laserBullet = new(pos.x, pos.y, ammo, dir, null, rebound, rng);
             Bullet.isRebound = false;
             laserBullet.firedFrom = base.firedFrom;
             laserBullet.lastReboundSource = lastReboundSource;
