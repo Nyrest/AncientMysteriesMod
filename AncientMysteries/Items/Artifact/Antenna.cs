@@ -70,10 +70,6 @@
             }
         }
 
-        public override void OnPressAction()
-        {
-        }
-
         public override void OnReleaseAction()
         {
             const float speedMultiplier = 3;
