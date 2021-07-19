@@ -23,9 +23,17 @@ jobs:
             - name: Install DotNet Script
               run: dotnet tool install -g dotnet-script
 
-            # Build the Solution
-            - name: Build the Solution
-              run: dotnet build -c Release -o ".\buildOutput" --nologo
+            # Build Ancient Mysteries Source Generator
+            - name: Build Ancient Mysteries Mod
+              run: dotnet build AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj -c Release --nologo
+
+            # Build Ancient Mysteries Code Analyzers
+            - name: Build Ancient Mysteries Mod
+              run: dotnet build AncientMysteries.Analyzers\AncientMysteries.Analyzers.csproj -c Release --nologo
+
+            # Build Ancient Mysteries Mod
+            - name: Build Ancient Mysteries Mod
+              run: dotnet build .\AncientMysteries\AncientMysteries.csproj -c Release -o ".\buildOutput" --nologo /p:NoPostBuild=true --no-dependencies
 
             # Pack built files into single zip
             - name: Pack built files
