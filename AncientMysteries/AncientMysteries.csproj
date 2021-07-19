@@ -51,7 +51,6 @@
     <Content Include="content\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Compile Remove="Items\Equipments\Back\AngelWings.cs" />
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
@@ -88,7 +87,6 @@
 
   <ItemGroup>
     <None Include="AncientMysteries.csproj.user" />
-    <None Include="Items\Equipments\Back\AngelWings.cs" />
   </ItemGroup>
 
   <ItemGroup>
