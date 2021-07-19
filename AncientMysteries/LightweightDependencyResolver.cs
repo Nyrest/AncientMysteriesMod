@@ -6,7 +6,7 @@
         {
             if (args.RequestingAssembly is null) goto DefaultBehavior;
             var referenceName = new AssemblyName(args.Name);
-            string sourceRoot = args.RequestingAssembly.Location;
+            string sourceRoot = Path.GetDirectoryName(args.RequestingAssembly.Location);
             FixModLocation(ref sourceRoot, args);
             if (sourceRoot is null) goto DefaultBehavior;
 
