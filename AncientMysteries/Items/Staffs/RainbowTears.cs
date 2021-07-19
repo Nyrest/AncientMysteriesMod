@@ -95,23 +95,6 @@
             {
                 _spriteMap.currentAnimation = null;
             }
-
-            if (isFlying)
-            {
-                PhysicsObject propel = _equippedDuck;
-                if (_equippedDuck._trapped != null)
-                {
-                    propel = _equippedDuck._trapped;
-                }
-                else if (_equippedDuck.ragdoll?.part1 != null)
-                {
-                    propel = _equippedDuck.ragdoll.part1;
-                }
-                propel.position += GetFlyDir() * 3.5f;
-                propel.velocity = Vec2.Zero;
-                _equippedDuck.gravMultiplier = 0;
-            }
-            _equippedDuck.gravMultiplier = 1;
         }
     }
 }

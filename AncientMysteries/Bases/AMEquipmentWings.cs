@@ -63,6 +63,7 @@
                 _equippedDuck.gravMultiplier = 0;
             }
             _equippedDuck.gravMultiplier = 1;
+
         }
 
         public Vec2 GetFlyDir()
