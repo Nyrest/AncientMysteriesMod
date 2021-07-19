@@ -49,5 +49,7 @@ namespace AncientMysteries.Utilities
         public const string trigger_Gamepad_LStrick = "LSTICK";
         public const string trigger_Gamepad_RStick = "RSTICK";
         #endregion
+
+        public static bool InputDown(this Duck duck, string trigger) => duck.inputProfile.Down(trigger);
     }
 }
