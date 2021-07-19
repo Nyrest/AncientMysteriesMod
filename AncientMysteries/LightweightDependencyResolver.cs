@@ -6,8 +6,12 @@
         {
             if (args.RequestingAssembly is null) goto DefaultBehavior;
             var referenceName = new AssemblyName(args.Name);
-            string sourceRoot = Path.GetDirectoryName(args.RequestingAssembly.Location);
-            FixModLocation(ref sourceRoot, args);
+            string sourceRoot = args.RequestingAssembly.Location;
+            if(string.IsNullOrEmpty(sourceRoot))
+            {
+                sourceRoot = Path.GetDirectoryName(sourceRoot);
+            }
+            else FixModLocation(ref sourceRoot, args);
             if (sourceRoot is null) goto DefaultBehavior;
 
             foreach (var dllFile in Directory.EnumerateFiles(sourceRoot, "*.dll", SearchOption.TopDirectoryOnly))
@@ -28,7 +32,6 @@
 
             static void FixModLocation(ref string sourceRoot, ResolveEventArgs args)
             {
-                if (!string.IsNullOrEmpty(sourceRoot)) return;
                 foreach (var mod in ModLoader.accessibleMods)
                 {
                     var configuration = mod.configuration;
