@@ -58,8 +58,7 @@
                 {
                     propel = _equippedDuck.ragdoll.part1;
                 }
-                propel.position += GetFlyDir() * 3.5f;
-                propel.velocity = Vec2.Zero;
+                propel.velocity = GetFlyDir() * 3.5f;
                 _equippedDuck.gravMultiplier = 0;
             }
             _equippedDuck.gravMultiplier = 1;

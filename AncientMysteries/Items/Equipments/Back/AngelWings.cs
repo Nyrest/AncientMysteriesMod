@@ -38,7 +38,6 @@
         public override void Equip(Duck d)
         {
             base.Equip(d);
-            //_equippedDuck.gravMultiplier = 0.8f;
         }
 
         public override void UnEquip()
