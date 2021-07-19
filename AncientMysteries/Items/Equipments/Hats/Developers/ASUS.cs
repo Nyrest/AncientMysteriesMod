@@ -4,6 +4,7 @@
     [MetaImage(tex_Hat_ASUS)]
     [MetaInfo(Lang.english, "ASUS", "desc")]
     [MetaInfo(Lang.schinese, null, "")]
+    [MetaOrder(int.MaxValue)]
     public partial class ASUS : AMHelmet
     {
         public ASUS(float xpos, float ypos) : base(xpos, ypos)
