@@ -4,6 +4,8 @@
     {
         private static readonly FieldInfo _fieldEquipmentHealth = typeof(Equipment).GetField("_equipmentHealth", BindingFlags.Instance | BindingFlags.NonPublic);
 
+        public bool IsEquippdByDuck => equippedDuck != null;
+
         protected AMEquipment(float xpos, float ypos) : base(xpos, ypos)
         {
             _isArmor = true;
