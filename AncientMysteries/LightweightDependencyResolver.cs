@@ -7,7 +7,7 @@
             if (args.RequestingAssembly is null) goto DefaultBehavior;
             var referenceName = new AssemblyName(args.Name);
             string sourceRoot = args.RequestingAssembly.Location;
-            if(string.IsNullOrEmpty(sourceRoot))
+            if(!string.IsNullOrWhiteSpace(sourceRoot))
             {
                 sourceRoot = Path.GetDirectoryName(sourceRoot);
             }
