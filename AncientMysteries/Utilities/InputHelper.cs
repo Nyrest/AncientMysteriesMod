@@ -10,7 +10,7 @@ namespace AncientMysteries.Utilities
     {
         #region Gameplay
         public const string trigger_Up = "Up";
-        public const string trigger_DOWN = "DOWN";
+        public const string trigger_Down = "DOWN";
         public const string trigger_Left = "LEFT";
         public const string trigger_Right = "RIGHT";
 
