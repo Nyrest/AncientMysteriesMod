@@ -2,7 +2,7 @@
 {
     [EditorGroup(group_Equipment_Developer)]
     [MetaImage(tex_Hat_DevastatorPickup)]
-    [MetaInfo(Lang.english, "Thingy", "Satisfying")]
+    [MetaInfo(Lang.english, "Ricey", "Satisfying")]
     [MetaInfo(Lang.schinese, "米团", "爽")]
     [MetaOrder(int.MaxValue - 1)]
     public sealed partial class Thingy : AMHelmet
