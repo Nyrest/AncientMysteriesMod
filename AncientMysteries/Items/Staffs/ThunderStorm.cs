@@ -35,8 +35,8 @@
             _barrelOffsetTL = new Vec2(6, 3);
             _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2);
             _spriteMap.SetAnimation("loop");
+            _castSpeed = 0.02f;
         }
-
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();

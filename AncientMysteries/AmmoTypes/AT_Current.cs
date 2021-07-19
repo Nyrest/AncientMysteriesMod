@@ -12,7 +12,7 @@
             bulletSpeed = 60f;
             bulletThickness = 0.3f;
             rebound = true;
-            bulletType = typeof(LaserBullet);
+            bulletType = typeof(Bullet_Current);
             bulletColor = Color.Yellow;
         }
 
