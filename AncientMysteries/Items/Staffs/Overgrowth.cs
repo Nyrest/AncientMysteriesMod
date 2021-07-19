@@ -56,6 +56,9 @@
         {
             base.Update();
             _castSpeed = 0.0045f + 0.0008f * times;
+#if DEBUG
+            _castSpeed = 1;
+#endif
         }
 
         public override void OnReleaseSpell()
