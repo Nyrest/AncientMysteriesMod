@@ -96,6 +96,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Items\Decorations\" />
     <Folder Include="Items\Holdables\" />
   </ItemGroup>
 
