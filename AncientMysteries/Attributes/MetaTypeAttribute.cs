@@ -8,8 +8,8 @@
 
     public enum MetaType
     {
-        [Obsolete()]
-        Error,
+        [Obsolete("As the name", true)]
+        Error = 0,
         Gun,
         Magic,
         Melee,
