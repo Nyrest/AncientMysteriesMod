@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace AncientMysteries.Items
 {
-    class AMMapToolGameplay
+    public abstract partial class AMMapToolGameplay : AMMapTool
     {
-        public AMMapToolGameplay()
+        protected AMMapToolGameplay(float xpos, float ypos) : base(xpos, ypos)
         {
         }
     }
