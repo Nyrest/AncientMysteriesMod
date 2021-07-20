@@ -4,6 +4,7 @@
     [MetaImage(tex_Staff_HolyLight)]
     [MetaInfo(Lang.english, "Holy Light", "The miracle.")]
     [MetaInfo(Lang.schinese, "神圣之光", "奇迹")]
+    [MetaType(MetaType.Magic)]
     public partial class HolyLight : AMStaff
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));

@@ -1,6 +1,7 @@
-﻿namespace AncientMysteries.Bases
+﻿namespace AncientMysteries.Items
 {
     public abstract class AMThing : Thing
     {
+
     }
 }

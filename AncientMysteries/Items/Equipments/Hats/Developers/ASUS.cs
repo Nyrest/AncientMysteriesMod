@@ -7,6 +7,7 @@ namespace AncientMysteries.Items
     [MetaInfo(Lang.english, "ASUS", "Hard as rock")]
     [MetaInfo(Lang.schinese, null, "坚若磐石")]
     [MetaOrder(int.MaxValue)]
+    [MetaType(MetaType.Equipment)]
     public partial class ASUS : AMHelmet
     {
         public ASUS(float xpos, float ypos) : base(xpos, ypos)

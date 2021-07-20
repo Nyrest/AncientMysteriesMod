@@ -4,6 +4,7 @@
     [MetaImage(tex_Gun_RainbowGun)]
     [MetaInfo(Lang.english, "Iridescence", "Rainbow. A bridge to the heaven.")]
     [MetaInfo(Lang.schinese, "流光溢彩", "彩虹，一条架向天堂的桥梁。")]
+    [MetaType(MetaType.Gun)]
     public sealed partial class Iridescence : AMGun
     {
         public override string GetLocalizedName(Lang lang) => lang switch

@@ -4,6 +4,7 @@
     [MetaImage(tex_Staff_ArcaneNova)]
     [MetaInfo(Lang.english, "Arcane Nova", "A staff fulfilled with mysteries from the universe")]
     [MetaInfo(Lang.schinese, "奥术新星", "一把充满了宇宙奥秘的法杖")]
+    [MetaType(MetaType.Magic)]
     public partial class ArcaneNova : AMStaff
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));

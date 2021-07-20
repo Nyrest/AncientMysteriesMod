@@ -4,6 +4,7 @@
     [MetaImage(tex_Holdable_ReboundShield)]
     [MetaInfo(Lang.english, "Rebound Shield", "Send this mod to 10 other people to receive bless from the developers")]
     [MetaInfo(Lang.schinese, "反弹盾", "转发这个Mod给十个人以获得来自制作者的祝福")]
+    [MetaType(MetaType.Gun)]
     public partial class ReboundShield : AMGun, IPlatform
     {
         public override string GetLocalizedName(Lang lang) => lang switch

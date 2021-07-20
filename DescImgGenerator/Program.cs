@@ -33,12 +33,21 @@ namespace DescImgGenerator
 
         public static SKSurface BuildImage(Lang lang, out SKRectI rect)
         {
-            object _lock = new();
             int x = itemMargin, y = 0;
             var surface = SKSurface.Create(new SKImageInfo(canvasMaxWidth, canvasMaxHeight));
             var canvas = surface.Canvas;
+            MetaType lastType = (MetaType)int.MinValue;
             foreach (var item in ModItems)
             {
+                if (lastType != item.metaType)
+                {
+                    // Draw Label
+                    x = 0;
+                    if (y != 0)
+                        y += itemHeight + itemMargin + 1;
+                    DrawLabel(canvas, item.metaType, new SKRect(x, y, canvasMaxWidth, labelHeight));
+                    x = canvasMaxWidth;
+                }
                 #region Move Y if needed
 
                 if ((x + itemWidth + itemMargin) > canvasMaxWidth)
@@ -60,6 +69,24 @@ namespace DescImgGenerator
             }
             rect = new SKRectI(0, 0, canvasMaxWidth, y + itemHeight + itemMargin);
             return surface;
+        }
+
+        public static void DrawLabel(SKCanvas canvas, MetaType metaType, SKRect rect)
+        {
+            string labelName = metaType switch
+            {
+                MetaType.Error => "Error (WTF?)",
+                MetaType.Gun => "Guns",
+                MetaType.Magic => "Magics",
+                MetaType.Melee => throw new NotImplementedException(),
+                MetaType.Equipment => throw new NotImplementedException(),
+                MetaType.Throwable => throw new NotImplementedException(),
+                MetaType.Props => throw new NotImplementedException(),
+                MetaType.Decoration => throw new NotImplementedException(),
+                MetaType.Developer => throw new NotImplementedException(),
+                _ => throw new NotImplementedException(),
+            };
+            //using(var textBlob = SKTextBlob.Create())
         }
 
         public static void DrawItem(SKCanvas canvas, Item item, Lang lang, SKRect rect)
@@ -85,7 +112,7 @@ namespace DescImgGenerator
                 DefaultStyle = nameStyle,
             }.Add(item.name.GetText(lang));
             name.MaxLines = 1;
-            name.Paint(canvas, new SKPoint(nameRect.Left , nameRect.Top + 4), paintOptions);
+            name.Paint(canvas, new SKPoint(nameRect.Left, nameRect.Top + 4), paintOptions);
 
             #endregion Draw Name
 
