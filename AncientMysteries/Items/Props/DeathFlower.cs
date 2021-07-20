@@ -6,7 +6,7 @@ namespace AncientMysteries.Items
     [MetaImage(tex_Props_DeathFlower, 9, 14, 0, 1)]
     [MetaInfo(Lang.english, "Wonder Flower", "Looks delicious. Eat it!")]
     [MetaInfo(Lang.schinese, "一朵可爱的FAFA", "看起来很美味，吃了它！")]
-    [MetaType(MetaType.Gun)]
+    [MetaType(MetaType.Props)]
     public partial class DeathFlower : AMHoldable
     {
         public override string GetLocalizedName(Lang lang) => lang switch

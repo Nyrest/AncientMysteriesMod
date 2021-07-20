@@ -2,10 +2,10 @@
 {
     [EditorGroup(group_Equipment_Developer)]
     [MetaImage(tex_Hat_GUDZHPickup)]
-    [MetaInfo(Lang.english, "GUDZH", "Eating now... Really. There's nothing to say.")]
-    [MetaInfo(Lang.schinese, null, "我在吃饭。真的。没什么好说的。")]
+    [MetaInfo(Lang.english, "GUDZH", "Eating now... Nothing to say.\nMain Artist")]
+    [MetaInfo(Lang.schinese, null, "在吃饭。没什么好说的。\n主画师")]
     [MetaOrder(int.MaxValue - 1)]
-    [MetaType(MetaType.Equipment)]
+    [MetaType(MetaType.Developer)]
     public sealed partial class GUDZH : AMHelmet
     {
         public static Vec2 textureSize;
