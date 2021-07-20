@@ -30,10 +30,9 @@ namespace AncientMysteries.Items
 
         public bool IsMoving => speed != Vec2.Zero;
 
-        public AMThingBulletBase(Vec2 pos, float bulletRange, float bulletPenetration, Vec2 initSpeed, Duck safeDuck)
+        public AMThingBulletBase(Vec2 pos, float bulletRange, float bulletPenetration, Vec2 initSpeed, Duck safeDuck) : base(pos.x, pos.y)
         {
             BulletSafeDuck = safeDuck;
-            position = pos;
             BulletRange = bulletRange;
             BulletPenetration = bulletPenetration;
             speed = initSpeed;
