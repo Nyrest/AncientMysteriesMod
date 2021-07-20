@@ -11,7 +11,7 @@
 
         public StateBinding _timesBinding = new(nameof(times));
 
-        public SpriteMap _spriteMap;CameraFixed
+        public SpriteMap _spriteMap;
 
         public int times = 1;
 

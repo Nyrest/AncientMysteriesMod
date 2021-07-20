@@ -8,7 +8,7 @@ namespace AncientMysteries.Buffs
 {
     public partial class Paralyzed : Equipment
     {
-        public Waiter waiter = new Waiter(180);
+        public Waiter waiter = new Waiter(30000);
         public Paralyzed(float xpos, float ypos) : base(xpos, ypos)
         {
             
