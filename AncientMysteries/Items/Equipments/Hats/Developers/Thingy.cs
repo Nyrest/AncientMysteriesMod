@@ -43,6 +43,7 @@
                 {
                     var cosmicGun = new CosmicDisruption(duck.x, duck.y);
                     bindedSpawnedGuns.Add(cosmicGun);
+                    Level.Add(cosmicGun);
                     duck.GiveHoldable(cosmicGun);
                 }
                 d.lives = 1;
@@ -85,6 +86,11 @@
                             bulletColor = oriAt.bulletColor,
                         });
                     }
+                }
+
+                if (d.holdObject is AMStaff staff)
+                {
+                    staff._castSpeed = 0.99f;
                 }
 
                 float amount = 0.5f;

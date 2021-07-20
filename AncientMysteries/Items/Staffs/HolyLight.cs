@@ -61,6 +61,7 @@
                 var b = new HolyLight_ThingBullet(barrelPosition, GetBulletVecDeg(duck.FaceAngleDegressLeftOrRight() + Rando.Float(-20, 20), Rando.Float(5, 6)), duck);
                 Level.Add(b);
             }
+            SFX.PlaySynchronized("scoreDing", _castTime >= 0.5f ? 1f : 0.5f, _castTime >= 0.5f ? -0.1f : -0.5f);
         }
     }
 }

@@ -61,7 +61,7 @@
             else _castSpeed = 0.01f;
             if (IsSpelling)
             {
-                if (_castTime > 0.3f)
+                if (_castTime > 0.5f)
                 {
                     Vec2 barrelPos = barrelPosition;
                     int count = Rando.Int(1, 2);
