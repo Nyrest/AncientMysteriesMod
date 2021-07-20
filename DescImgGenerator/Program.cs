@@ -33,33 +33,65 @@ namespace DescImgGenerator
 
         public static SKSurface BuildImage(Lang lang, out SKRectI rect)
         {
-            object _lock = new();
             int x = itemMargin, y = 0;
             var surface = SKSurface.Create(new SKImageInfo(canvasMaxWidth, canvasMaxHeight));
             var canvas = surface.Canvas;
-            foreach (var item in ModItems)
+            foreach (var groupItems in ModItems.GroupBy(x => x.metaType))
             {
-                #region Move Y if needed
-
-                if ((x + itemWidth + itemMargin) > canvasMaxWidth)
-                {
-                    x = itemMargin;
+                // Draw Label
+                #region Draw Label
+                var metaType = groupItems.First().metaType;
+                x = 0;
+                if (y != 0)
                     y += itemHeight + itemMargin + 1;
+                DrawLabel(canvas, metaType, lang, SKRect.Create(x, y, canvasMaxWidth, labelHeight));
+                x = itemMargin;
+                y += labelHeight + itemMargin * 2;
+                #endregion
+
+
+                foreach (var item in groupItems.OrderBy(x => x.name.GetText(Lang.english)).OrderBy(x => x.order))
+                {
+                    #region Move Y if needed
+                    if ((x + itemWidth + itemMargin) > canvasMaxWidth)
+                    {
+                        x = itemMargin;
+                        y += itemHeight + itemMargin + 1;
+                    }
+
+                    #endregion Move Y if needed
+
+                    var itemRect = new SKRect(x, y, x + itemWidth, y + itemHeight);
+                    DrawItem(canvas, item, lang, itemRect);
+
+                    #region Move X
+
+                    x += itemWidth + itemMargin + 1;
+
+                    #endregion Move X
                 }
-
-                #endregion Move Y if needed
-
-                var itemRect = new SKRect(x, y, x + itemWidth, y + itemHeight);
-                DrawItem(canvas, item, lang, itemRect);
-
-                #region Move X
-
-                x += itemWidth + itemMargin + 1;
-
-                #endregion Move X
             }
             rect = new SKRectI(0, 0, canvasMaxWidth, y + itemHeight + itemMargin);
             return surface;
+        }
+
+        public static void DrawLabel(SKCanvas canvas, MetaType metaType, Lang lang, SKRect rect)
+        {
+            var lineR = rect;
+            lineR.Inflate(-(canvasMaxWidth * 0.8f), -(itemMargin * 2.4f));
+            //top
+            //canvas.DrawLine(new SKPoint(lineR.Left, lineR.Top), new SKPoint(lineR.Right, lineR.Top), labelLine);
+            //bottom
+            canvas.DrawLine(new SKPoint(lineR.Left, lineR.Bottom), new SKPoint(lineR.Right, lineR.Bottom), labelLine);
+
+            string labelName = GetMetaTypeLabel(lang, metaType);
+            RichString desc = new RichString()
+            {
+                DefaultStyle = labelStyle,
+                MaxLines = 1,
+            }.Add(labelName);
+            const int offsetY = 3;
+            desc.Paint(canvas, new SKPoint(rect.MidX - desc.MeasuredWidth / 2, rect.MidY - desc.MeasuredHeight / 2 - offsetY), paintOptions);
         }
 
         public static void DrawItem(SKCanvas canvas, Item item, Lang lang, SKRect rect)
@@ -85,7 +117,7 @@ namespace DescImgGenerator
                 DefaultStyle = nameStyle,
             }.Add(item.name.GetText(lang));
             name.MaxLines = 1;
-            name.Paint(canvas, new SKPoint(nameRect.Left , nameRect.Top + 4), paintOptions);
+            name.Paint(canvas, new SKPoint(nameRect.Left, nameRect.Top + 4), paintOptions);
 
             #endregion Draw Name
 

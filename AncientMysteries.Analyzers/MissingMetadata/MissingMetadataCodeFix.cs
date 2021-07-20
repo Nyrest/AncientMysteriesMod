@@ -68,6 +68,53 @@ namespace AncientMysteries.Analyzers.MissingMetadata
                 var args2 = SF.ParseAttributeArgumentList($"(Lang.schinese, \"\", \"\")");
                 list.Add(SF.Attribute(SF.IdentifierName("MetaInfo"), args2));
             }
+            if ((flags & MetadataFlags.HasMetaType) == 0)
+            {
+                const string meta_Gun = "Gun";
+                const string meta_Magic = "Magic";
+                const string meta_Melee = "Melee";
+                const string meta_Equipment = "Equipment";
+                const string meta_Throwable = "Throwable";
+                const string meta_Decoration = "Decoration";
+
+                string? metaType = null;
+                if (symbol.HasBaseType("AncientMysteries.Items.AMStaff"))
+                {
+                    metaType = meta_Magic;
+                    goto mustBeIt;
+                }
+                if (symbol.HasBaseType("AncientMysteries.Items.AMMelee"))
+                {
+                    metaType = meta_Melee;
+                    goto mustBeIt;
+                }
+                if (symbol.HasBaseType("AncientMysteries.Items.AMChestPlate",
+                   "AncientMysteries.Items.AMBoots",
+                   "AncientMysteries.Items.AMEquipment",
+                   "AncientMysteries.Items.AMHelmet"))
+                {
+                    metaType = meta_Equipment;
+                    goto mustBeIt;
+                }
+                if (symbol.HasBaseType("AncientMysteries.Items.AMThrowable"))
+                {
+                    metaType = meta_Throwable;
+                    goto mustBeIt;
+                }
+                if (symbol.HasBaseType("AncientMysteries.Items.AMDecoration"))
+                {
+                    metaType = meta_Decoration;
+                    goto mustBeIt;
+                }
+                if (symbol.HasBaseType("AncientMysteries.Items.AMGun"))
+                {
+                    metaType = meta_Gun;
+                    goto mustBeIt;
+                }
+            mustBeIt:
+                var args = SF.ParseAttributeArgumentList($"(MetaType.{metaType})");
+                list.Add(SF.Attribute(SF.IdentifierName("MetaType"), args));
+            }
             if (list.Count == 0) return document;
             var updatedNode = node;
 

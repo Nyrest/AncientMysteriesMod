@@ -4,6 +4,7 @@
     [MetaImage(tex_Gun_FerociousPredator, 32, 16)]
     [MetaInfo(Lang.english, "Ferocious Predator", "Beware of the prey")]
     [MetaInfo(Lang.schinese, "凶恶猎手", "小心猎物")]
+    [MetaType(MetaType.Gun)]
     public sealed partial class FerociousPredator : AMGun
     {
         public override string GetLocalizedName(Lang lang) => lang switch

@@ -4,6 +4,7 @@
     [MetaImage(tex_Staff_Judgement, 13, 39)]
     [MetaInfo(Lang.english, "Rainbow Tears", "「天気なんて、狂ったままでいいんだ！」")]
     [MetaInfo(Lang.schinese, "棱彩之泪", "「天気なんて、狂ったままでいいんだ！」")]
+    [MetaType(MetaType.Magic)]
     public partial class RainbowTears : AMStaff
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));

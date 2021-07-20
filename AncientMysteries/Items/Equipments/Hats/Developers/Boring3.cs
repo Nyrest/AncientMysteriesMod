@@ -2,9 +2,10 @@
 {
     [EditorGroup(group_Equipment_Developer)]
     [MetaImage(tex_Hat_Boring3Pickup)]
-    [MetaInfo(Lang.english, "Boring3", "Probably the most powerful thing in this Mod")]
-    [MetaInfo(Lang.schinese, null, "也许是这个 Mod 里最屌的东西")]
+    [MetaInfo(Lang.english, "Boring3", "Carrying the weight of the world\nLead Programmer")]
+    [MetaInfo(Lang.schinese, null, "承受着世界的重量\n主程序员")]
     [MetaOrder(int.MaxValue - 3)]
+    [MetaType(MetaType.Developer)]
     public sealed partial class Boring3 : AMHelmet, IPlatform
     {
         public static readonly FieldInfo feather_Field = typeof(Feather).GetField("_sprite", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -16,8 +17,8 @@
 
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
-            Lang.schinese => "也许是这个 Mod 里最屌的东西",
-            _ => "Probably the most powerful thing in this Mod",
+            Lang.schinese => "承受着世界的重量",
+            _ => "Carrying the weight of the world",
         };
 
         public Vec2 baseCollisionOffset, baseCollisionSize;

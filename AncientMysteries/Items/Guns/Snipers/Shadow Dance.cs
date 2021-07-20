@@ -4,6 +4,7 @@
     [MetaImage(tex_Gun_ShadowDance)]
     [MetaInfo(Lang.english, "Shadow Dance", "Aim, fire!")]
     [MetaInfo(Lang.schinese, "影舞者", "瞄准，开火！")]
+    [MetaType(MetaType.Gun)]
     public sealed partial class ShadowDance : AMGun
     {
         public override string GetLocalizedName(Lang lang) => lang switch
