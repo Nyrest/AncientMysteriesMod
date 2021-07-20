@@ -43,6 +43,7 @@
             _kickForce = 0.25f;
             _fullAuto = true;
             _spriteMap.AddAnimation("loop", 0.04f, true, 0, 1, 2, 1);
+            _castSpeed = 0.01f;
         }
 
         public override void OnSpelling()
@@ -54,11 +55,6 @@
         {
             base.Update();
             Graphics.material = null;
-            if (_castTime > 0.3f)
-            {
-                _castSpeed = 0.005f;
-            }
-            else _castSpeed = 0.01f;
             if (IsSpelling)
             {
                 if (_castTime > 0.5f)
