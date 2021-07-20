@@ -67,6 +67,11 @@
                     result |= MetadataFlags.HasMetaImage;
                     continue;
                 }
+                if (fullname.Equals("AncientMysteries.MetaTypeAttribute"))
+                {
+                    result |= MetadataFlags.HasMetaType;
+                    continue;
+                }
             }
             return result;
         }
@@ -78,7 +83,8 @@
             HasEditorGroup = 1 << 0,
             HasMetaInfo = 1 << 1,
             HasMetaImage = 2 << 2,
-            All = HasEditorGroup | HasMetaInfo | HasMetaImage,
+            HasMetaType = 2 << 3,
+            All = HasEditorGroup | HasMetaInfo | HasMetaImage | HasMetaType,
         }
     }
 }

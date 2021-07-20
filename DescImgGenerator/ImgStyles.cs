@@ -7,6 +7,8 @@
         public const int itemWidth = 314;
         public const int itemHeight = 140;
 
+        public const int labelHeight = 20;
+
         public const int frameMargin = 4;
 
         public const int canvasMaxWidth = 638;

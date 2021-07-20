@@ -4,6 +4,7 @@
     [MetaImage(tex_Gun_MoltenSpitter, 39, 15, 0, 2)]
     [MetaInfo(Lang.english, "Molten Spitter", "「Ducks like you, should be burning in hell」")]
     [MetaInfo(Lang.schinese, "熔能喷吐", "「像你这样的鸭子，就该在地狱里焚烧」")]
+    [MetaType(MetaType.Gun)]
     public sealed partial class MoltenSpitter : AMGun
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));

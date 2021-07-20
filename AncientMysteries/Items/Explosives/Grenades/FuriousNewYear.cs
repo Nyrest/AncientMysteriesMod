@@ -4,7 +4,8 @@
     [MetaImage(tex_Throwable_FuriousNewYear, 7, 15)]
     [MetaInfo(Lang.english, "Furious New Year", "No firecrackers!")]
     [MetaInfo(Lang.schinese, "新年狂欢", "不准放鞭炮")]
-    public partial class FuriousNewYear : AMGun
+    [MetaType(MetaType.Throwable)]
+    public partial class FuriousNewYear : AMThrowable
     {
         private static FieldInfo _firecrackerExplodeTimer = typeof(Firecracker).GetField("_explodeTimer", BindingFlags.Instance | BindingFlags.NonPublic);
 

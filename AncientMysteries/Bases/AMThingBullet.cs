@@ -1,6 +1,6 @@
 ﻿using AncientMysteries.DestroyTypes;
 
-namespace AncientMysteries.Bases
+namespace AncientMysteries.Items
 {
     // Warning
     // Angle is not network sync

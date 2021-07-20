@@ -4,13 +4,14 @@
     [MetaImage(tex_Holdable_Antenna)]
     [MetaInfo(Lang.english, "Antenna", "It, which is stained by the blood of sins, awaits...")]
     [MetaInfo(Lang.schinese, "怖人触须", "沾染了罪恶之血的触须，正等待着下一个目标……")]
+    [MetaType(MetaType.Gun)]
     partial class Antenna : AMHoldable
     {
         public int charger = 0;
 
         public AntennaBullet[] bulletsBuffer;
 
-        public StateBinding cBinding = new(nameof(charger));
+        public StateBinding changerBinding = new(nameof(charger));
 
         public const int bulletCount = 6;
 

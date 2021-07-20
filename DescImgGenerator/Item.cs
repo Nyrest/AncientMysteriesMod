@@ -2,13 +2,14 @@
 
 namespace DescImgGenerator
 {
-    public record Item(LocalizedText name, LocalizedText description, SKBitmap bitmap, int order) : IComparable<Item>
+    public record Item(LocalizedText name, LocalizedText description, SKBitmap? bitmap, int order, MetaType metaType) : IComparable<Item>
     {
         private SKBitmap? _scaled;
         private SKRect _scaleRect;
         private readonly object _scaleLock = new();
-        public SKBitmap GetScaledBitmap(SKRect rect)
+        public SKBitmap? GetScaledBitmap(SKRect rect)
         {
+            if (bitmap is null) return null;
             lock (_scaleLock)
             {
                 if (_scaleRect != rect) _scaled = null;

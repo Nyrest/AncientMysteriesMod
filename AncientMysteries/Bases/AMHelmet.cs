@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Bases
+﻿namespace AncientMysteries.Items
 {
     public abstract class AMHelmet : Helmet, IAMEquipment, IAMLocalizable
     {

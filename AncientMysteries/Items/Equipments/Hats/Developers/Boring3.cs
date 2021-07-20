@@ -5,6 +5,7 @@
     [MetaInfo(Lang.english, "Boring3", "Probably the most powerful thing in this Mod")]
     [MetaInfo(Lang.schinese, null, "也许是这个 Mod 里最屌的东西")]
     [MetaOrder(int.MaxValue - 3)]
+    [MetaType(MetaType.Equipment)]
     public sealed partial class Boring3 : AMHelmet, IPlatform
     {
         public static readonly FieldInfo feather_Field = typeof(Feather).GetField("_sprite", BindingFlags.NonPublic | BindingFlags.Instance);

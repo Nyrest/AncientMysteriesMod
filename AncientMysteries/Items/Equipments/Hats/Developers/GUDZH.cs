@@ -5,6 +5,7 @@
     [MetaInfo(Lang.english, "GUDZH", "Eating now... Really. There's nothing to say.")]
     [MetaInfo(Lang.schinese, null, "我在吃饭。真的。没什么好说的。")]
     [MetaOrder(int.MaxValue - 1)]
+    [MetaType(MetaType.Equipment)]
     public sealed partial class GUDZH : AMHelmet
     {
         public static Vec2 textureSize;
