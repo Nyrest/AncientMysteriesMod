@@ -4,10 +4,10 @@ namespace AncientMysteries.Items
 {
     [EditorGroup(group_Equipment_Developer)]
     [MetaImage(tex_Hat_ASUS,32,32)]
-    [MetaInfo(Lang.english, "ASUS", "Hard as rock")]
-    [MetaInfo(Lang.schinese, null, "坚若磐石")]
+    [MetaInfo(Lang.english, "ASUS", "Hard as rock\nLead Artist")]
+    [MetaInfo(Lang.schinese, null, "坚若磐石\n神仙画师")]
     [MetaOrder(int.MaxValue)]
-    [MetaType(MetaType.Equipment)]
+    [MetaType(MetaType.Developer)]
     public partial class ASUS : AMHelmet
     {
         public ASUS(float xpos, float ypos) : base(xpos, ypos)

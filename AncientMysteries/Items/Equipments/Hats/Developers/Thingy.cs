@@ -2,10 +2,10 @@
 {
     [EditorGroup(group_Equipment_Developer)]
     [MetaImage(tex_Hat_DevastatorPickup)]
-    [MetaInfo(Lang.english, "Ricey", "Satisfying")]
-    [MetaInfo(Lang.schinese, "米团", "爽")]
+    [MetaInfo(Lang.english, "Ricey", "Satisfying\nMain Artist, Programmer")]
+    [MetaInfo(Lang.schinese, "米团", "爽\n主画师, 程序员")]
     [MetaOrder(int.MaxValue - 2)]
-    [MetaType(MetaType.Equipment)]
+    [MetaType(MetaType.Developer)]
     public sealed partial class Thingy : AMHelmet
     {
         private static readonly FieldInfo fieldAmmoType = typeof(Gun).GetField("_ammoType", BindingFlags.Instance | BindingFlags.NonPublic);
