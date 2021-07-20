@@ -6,7 +6,7 @@ namespace AncientMysteries.Items
     [MetaImage(tex_Decoration_PointLight)]
     [MetaInfo(Lang.english, "Point Light", "Highly Customizable Point Light")]
     [MetaInfo(Lang.schinese, "点光源", "高度可定制的点光源")]
-    [MetaType(MetaType.Decoration)]
+    [MetaType(MetaType.MapTools)]
     public partial class PointLight2 : AMDecoration
     {
         private readonly List<LightOccluder> _occluders = new List<LightOccluder>();
