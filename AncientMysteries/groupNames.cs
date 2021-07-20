@@ -84,7 +84,7 @@
 
         public const string group_MapTools = grouptopGroupName + "|MapTools";
 
-        public const string group_MapTools_Lights = grouptopGroupName + "|Lights";
+        public const string group_MapTools_Lights = group_MapTools + "|Lights";
 
         #endregion Props
 
