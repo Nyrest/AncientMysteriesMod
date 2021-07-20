@@ -9,13 +9,13 @@ namespace AncientMysteries.Items
     [MetaType(MetaType.MapTools)]
     public partial class QuadLaserKiller : AMMapTool
     {
-        public EditorProperty<float> Width = new EditorProperty<float>(100, null, 1f, 1000f, 1f)
+        public EditorProperty<float> Width = new EditorProperty<float>(100, null, 20f, 1000f, 1f)
         {
             name = "Width",
             _tooltip = "Width"
         };
 
-        public EditorProperty<float> Height = new EditorProperty<float>(100, null, 1f, 1000f, 1f)
+        public EditorProperty<float> Height = new EditorProperty<float>(100, null, 20f, 1000f, 1f)
         {
             name = "Height",
             _tooltip = "Height"
