@@ -40,9 +40,9 @@
             SetBox(21, 34);
             _barrelOffsetTL = new Vec2(6f, 5f);
 #if DEBUG
-            _castSpeed = 1;
+            _castSpeed = 1f;
 #else
-            _castSpeed = 0.0035f;
+            _castSpeed = 0.0045f;
 #endif
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
@@ -55,9 +55,9 @@
         public override void Update()
         {
             base.Update();
-            _castSpeed = 0.0045f + 0.0008f * times;
+            _castSpeed = 0.0045f + 0.0009f * times;
 #if DEBUG
-            _castSpeed = 1;
+            _castSpeed = 1f;
 #endif
         }
 
