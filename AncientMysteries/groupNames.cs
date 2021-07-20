@@ -82,7 +82,7 @@
 
         #region Map Decorations 
 
-        public const string group_ModTools = grouptopGroupName + "|MapTools";
+        public const string group_MapTools = grouptopGroupName + "|MapTools";
 
         public const string group_MapTools_Lights = grouptopGroupName + "|Lights";
 
