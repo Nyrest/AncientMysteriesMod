@@ -41,6 +41,7 @@ namespace AncientMysteries.Items
         public PointLight2(float xpos, float ypos) : base(xpos, ypos)
         {
             this.ReadyToRun(tex_Decoration_PointLight);
+            editorName = "Point Light";
             graphic.CenterOrigin();
             Red = new EditorProperty<int>(val_R, this, 0, 255, 1)
             {
