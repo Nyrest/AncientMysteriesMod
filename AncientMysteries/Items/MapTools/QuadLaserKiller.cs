@@ -2,12 +2,12 @@
 
 namespace DuckGame
 {
-    [EditorGroup(group_)]
-    public class CameraFixed : CustomCamera
+    [EditorGroup(group_ModTools)]
+    public class QuadLaserKiller : CustomCamera
     {
         public EditorProperty<int> Size = new EditorProperty<int>(320, null, 60f, 1920f, 1f);
 
-        public CameraFixed()
+        public QuadLaserKiller()
         {
             _contextMenuFilter.Add("wide");
             _editorName = "Quadlaser Killer";
@@ -41,6 +41,7 @@ namespace DuckGame
 
         public override void Draw()
         {
+            wide.value = Size.value;
             base.Draw();
         }
     }
