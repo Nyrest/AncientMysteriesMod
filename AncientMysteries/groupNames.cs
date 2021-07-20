@@ -80,11 +80,13 @@
 
         #endregion Props
 
-        #region Map Decorations 
+        #region Map Tools
 
         public const string group_MapTools = grouptopGroupName + "|MapTools";
 
         public const string group_MapTools_Lights = group_MapTools + "|Lights";
+
+        public const string group_MapTools_Gameplay = group_MapTools + "|Gameplay";
 
         #endregion Props
 
