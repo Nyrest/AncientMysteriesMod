@@ -7,13 +7,13 @@ Building
 -------
 Windows:
 - Install Visual Studio with the following components:
-  - Workload ".NET Desktop Development". And .NET Framework 4.5.2 SDK.
+  - Workload ".NET Desktop Development". And .NET Framework 4.6.1 SDK.
 - Clone AncientMysteriesMod repository using git.
 - Open Ancient Mysteries.sln in Visual Studio.
 - Add your DuckGame.exe to project references.
 - Build the project!
 
-**Note:** Duck Game is a XNA Game based on .NET Framework 4.0 So it can only build/run on Windows.
+**Note:** Duck Game is a XNA Game based on .NET Framework So it can only build/run on Windows.
 
 How to Use
 -------
