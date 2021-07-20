@@ -11,29 +11,28 @@ namespace AncientMysteries.Items
     {
         private readonly List<LightOccluder> _occluders = new List<LightOccluder>();
 
-        public float lightRange = 80;
+        public float val_LightRange = 80;
 
-        public byte R = 255;
-        public byte G = 255;
-        public byte B = 180;
-        public byte A = 255;
+        public EditorProperty<int> Red;
+        public EditorProperty<int> Green;
+        public EditorProperty<int> Blue;
+        public EditorProperty<int> Alpha;
+        public EditorProperty<float> LightRange;
 
-        public EditorProperty<int> property_ColorR;
-        public EditorProperty<int> property_ColorG;
-        public EditorProperty<int> property_ColorB;
-        public EditorProperty<int> property_ColorA;
-
-        public EditorProperty<float> property_LightRange;
+        public byte val_R = 255;
+        public byte val_G = 255;
+        public byte val_B = 180;
+        public byte val_A = 255;
 
         public Color LightColor
         {
-            get => new(R, G, B, A);
+            get => new(val_R, val_G, val_B, val_A);
             set
             {
-                R = value.r;
-                G = value.g;
-                B = value.b;
-                A = value.a;
+                val_R = value.r;
+                val_G = value.g;
+                val_B = value.b;
+                val_A = value.a;
             }
         }
 
@@ -43,27 +42,27 @@ namespace AncientMysteries.Items
         {
             this.ReadyToRun(tex_Decoration_PointLight);
             graphic.CenterOrigin();
-            property_ColorR = new EditorProperty<int>(R, this, 0, 255, 1)
+            Red = new EditorProperty<int>(val_R, this, 0, 255, 1)
             {
                 name = "Red",
                 _tooltip = "Red channel of the light color",
             };
-            property_ColorG = new EditorProperty<int>(G, this, 0, 255, 1)
+            Green = new EditorProperty<int>(val_G, this, 0, 255, 1)
             {
                 name = "Green",
                 _tooltip = "Green channel of the light color",
             };
-            property_ColorB = new EditorProperty<int>(B, this, 0, 255, 1)
+            Blue = new EditorProperty<int>(val_B, this, 0, 255, 1)
             {
                 name = "Blue",
                 _tooltip = "Blue channel of the light color",
             };
-            property_ColorA = new EditorProperty<int>(A, this, 0, 255, 1)
+            Alpha = new EditorProperty<int>(val_A, this, 0, 255, 1)
             {
                 name = "Alpha",
                 _tooltip = "Alpha channel of the light color",
             };
-            property_LightRange = new EditorProperty<float>(lightRange, this, 1, 512, 1)
+            LightRange = new EditorProperty<float>(val_LightRange, this, 1, 512, 1)
             {
                 name = "Range",
                 _tooltip = "Range of the light",
@@ -76,11 +75,11 @@ namespace AncientMysteries.Items
 
         public override void EditorPropertyChanged(object property)
         {
-            R = (byte)property_ColorR;
-            G = (byte)property_ColorG;
-            B = (byte)property_ColorB;
-            A = (byte)property_ColorA;
-            lightRange = property_LightRange;
+            val_R = (byte)Red;
+            val_G = (byte)Green;
+            val_B = (byte)Blue;
+            val_A = (byte)Alpha;
+            val_LightRange = LightRange;
             graphic.color = LightColor;
         }
 
@@ -96,13 +95,13 @@ namespace AncientMysteries.Items
             {
                 Level.Remove(light);
             }
-            light = new PointLight(x, y, LightColor, lightRange, _occluders);
+            light = new PointLight(x, y, LightColor, val_LightRange, _occluders);
             Level.Add(light);
         }
 
         public override void Draw()
         {
-            Graphics.DrawCircle(position, lightRange, LightColor);
+            Graphics.DrawCircle(position, val_LightRange, LightColor);
             base.Draw();
         }
     }
