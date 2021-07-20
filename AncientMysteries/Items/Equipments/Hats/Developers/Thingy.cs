@@ -91,7 +91,7 @@
 
                 if (d.holdObject is AMStaff staff)
                 {
-                    staff._castSpeed = 0.99f;
+                    staff._castSpeed = 1f;
                 }
 
                 float amount = 0.5f;
