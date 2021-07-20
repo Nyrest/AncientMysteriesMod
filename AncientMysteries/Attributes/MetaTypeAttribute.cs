@@ -17,6 +17,7 @@
         Throwable,
         Props,
         Decoration,
+        MapTools,
         Developer,
     }
 }
