@@ -2,12 +2,12 @@
 
 namespace AncientMysteries.Items
 {
-    [EditorGroup(group_Decorations_Lights)]
+    [EditorGroup(group_MapTools_Lights)]
     [MetaImage(tex_Decoration_PointLight)]
     [MetaInfo(Lang.english, "Point Light", "Highly Customizable Point Light")]
     [MetaInfo(Lang.schinese, "点光源", "高度可定制的点光源")]
-    [MetaType(MetaType.Decoration)]
-    public partial class PointLight2 : AMDecoration
+    [MetaType(MetaType.MapTools)]
+    public partial class PointLight2 : AMMapTool
     {
         private readonly List<LightOccluder> _occluders = new List<LightOccluder>();
 
