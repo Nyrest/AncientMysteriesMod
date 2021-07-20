@@ -12,6 +12,7 @@ namespace DescImgGenerator
         Throwable,
         Props,
         Decoration,
+        MapTools,
         Developer,
     }
 }
