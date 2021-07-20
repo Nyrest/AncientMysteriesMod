@@ -4,6 +4,7 @@
     [MetaImage(tex_Gun_TemperatureArt_Water)]
     [MetaInfo(Lang.english, "Temperature Art", "Isn't Water Vapor invisible?🤔")]
     [MetaInfo(Lang.schinese, "温度的艺术", "水蒸气难道不是看不见的吗？🤔")]
+    [MetaType(MetaType.Gun)]
     public partial class TemperatureArt : AMGun
     {
         private bool _quacked;

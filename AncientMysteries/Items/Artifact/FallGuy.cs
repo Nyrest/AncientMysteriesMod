@@ -4,6 +4,7 @@
     [MetaImage(tex_Staff_FallGuy)]
     [MetaInfo(Lang.english, "Fall Guy", "Let someone fall instead of you!")]
     [MetaInfo(Lang.schinese, "移形换影", "让你的好朋友替你受罪！")]
+    [MetaType(MetaType.Magic)]
     public sealed partial class FallGuy : AMHoldable
     {
         public static readonly Tex2D mark = TexHelper.ModTex2D(tex_Effect_FallGuyMark);

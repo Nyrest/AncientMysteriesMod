@@ -4,6 +4,7 @@
     [MetaImage(tex_Melee_HiddenBlade_Out)]
     [MetaInfo(Lang.english, "Hidden Blade", "「Nothing is true, everything is permitted.」")]
     [MetaInfo(Lang.schinese, "袖箭", "「万事皆虚，万事皆允。」")]
+    [MetaType(MetaType.Melee)]
     public partial class HiddenBlade : AMHoldable
     {
         public StateBinding bladeOutBinding = new StateBinding(nameof(bladeOut));

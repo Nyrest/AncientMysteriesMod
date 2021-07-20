@@ -4,6 +4,7 @@
     [MetaImage(tex_Equipment_DemonWings, 28, 14, 1)]
     [MetaInfo(Lang.english, "Angel Wings", "「また 60 億分の 1 の確率で出会えたら・・・」")]
     [MetaInfo(Lang.schinese, "天使之翼", null)]
+    [MetaType(MetaType.Equipment)]
     public partial class AngelWings : AMEquipmentWings
     {
         public AngelWings(float xpos, float ypos) : base(xpos, ypos)

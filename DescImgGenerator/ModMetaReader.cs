@@ -59,6 +59,7 @@ namespace DescImgGenerator
                 if (!IsModItem(type, out CustomAttribute metaImageAttr)) return;
                 LocalizedText name = new(), description = new();
                 int order = 0;
+                MetaType metaType = MetaType.Error;
                 foreach (var attr in type.CustomAttributes)
                 {
                     var fullname = attr.AttributeType.FullName;
@@ -78,6 +79,11 @@ namespace DescImgGenerator
                                 order = (int)attr.ConstructorArguments[0].Value;
                                 break;
                             }
+                        case "AncientMysteries.MetaTypeAttribute":
+                            {
+                                metaType = (MetaType)attr.ConstructorArguments[0].Value;
+                                break;
+                            }
                         default:
                             break;
                     }
@@ -89,12 +95,13 @@ namespace DescImgGenerator
                 var rawImgFrames = (CustomAttributeArgument[])metaImageAttrArgs[3].Value;
                 var imgFrames = rawImgFrames.Length != 0 ? rawImgFrames.Select(x => (int)x.Value).ToArray() : new int[1] { 0 };
                 lock (items)
-                    items.Add(new Item(name, description, GetItemBitmap(imgName, imgFrameWidth, imgFrameHeight, imgFrames), order));
+                    items.Add(new Item(name, description, GetItemBitmap(imgName, imgFrameWidth, imgFrameHeight, imgFrames), order, metaType));
             });
 
             ModItems = items.ToArray();
             ModItems.AsSpan().Sort((x, y) => x.name.GetText(Lang.english).CompareTo(y.name.GetText(Lang.english)));
             ModItems.AsSpan().Sort();
+            ModItems = ModItems.OrderBy(x => (int)x.metaType).ToArray();
             static bool IsModItem(TypeDefinition type, out CustomAttribute metaImageAttr)
             {
                 Unsafe.SkipInit(out metaImageAttr);

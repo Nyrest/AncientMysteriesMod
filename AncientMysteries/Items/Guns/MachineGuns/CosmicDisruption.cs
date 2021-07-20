@@ -4,6 +4,7 @@
     [MetaImage(tex_Gun_CosmicDisruption)]
     [MetaInfo(Lang.english, "Cosmic Disruption", "Cheating is no longer needed with this.")]
     [MetaInfo(Lang.schinese, "寰宇星怒", "外挂和这把枪你只需要一个。")]
+    [MetaType(MetaType.Gun)]
     public sealed partial class CosmicDisruption : AMGun
     {
         public override string GetLocalizedName(Lang lang) => lang switch

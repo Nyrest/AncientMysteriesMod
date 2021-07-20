@@ -4,6 +4,7 @@
     [MetaImage(tex_Staff_ThunderStorm, 13, 36)]
     [MetaInfo(Lang.english, "Thunderstorm", "May the lightning drives away the darkness!")]
     [MetaInfo(Lang.schinese, "雷暴", "以雷霆击碎黑暗！")]
+    [MetaType(MetaType.Magic)]
     public sealed partial class Thunderstorm : AMStaff
     {
         public override string GetLocalizedName(Lang lang) => lang switch

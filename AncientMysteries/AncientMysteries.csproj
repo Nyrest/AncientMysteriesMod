@@ -95,6 +95,10 @@
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Items\Holdables\" />
+  </ItemGroup>
+
   <Target Name="PostBuild" BeforeTargets="PostBuildEvent" Condition="$(NoPostBuild) != true">
     <Exec Command="cd &quot;$(SolutionDir)&quot;&#xD;&#xA;PostBuild.bat" />
   </Target>

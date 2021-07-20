@@ -4,6 +4,7 @@
     [MetaImage(tex_Melee_DeathBringer)]
     [MetaInfo(Lang.english, "Death Bringer", "Looks cool, but not cool actually")]
     [MetaInfo(Lang.schinese, "死亡收割者", "用起来没有想象中的好")]
+    [MetaType(MetaType.Melee)]
     public sealed partial class DeathBringer : AMMelee
     {
         public override string GetLocalizedName(Lang lang) => lang switch
