@@ -2,7 +2,7 @@
 
 namespace DuckGame
 {
-    [EditorGroup(group_ModTools)]
+    [EditorGroup(group_MapTools)]
     public class QuadLaserKiller : CustomCamera
     {
         public EditorProperty<int> Size = new EditorProperty<int>(320, null, 60f, 1920f, 1f);
