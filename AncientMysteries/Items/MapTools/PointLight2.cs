@@ -7,7 +7,7 @@ namespace AncientMysteries.Items
     [MetaInfo(Lang.english, "Point Light", "Highly Customizable Point Light")]
     [MetaInfo(Lang.schinese, "点光源", "高度可定制的点光源")]
     [MetaType(MetaType.MapTools)]
-    public partial class PointLight2 : AMDecoration
+    public partial class PointLight2 : AMMapTool
     {
         private readonly List<LightOccluder> _occluders = new List<LightOccluder>();
 
