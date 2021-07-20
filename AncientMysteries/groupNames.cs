@@ -78,13 +78,13 @@
 
         public const string group_Decorations = grouptopGroupName + "|Decorations";
 
-        public const string group_Decorations_Lights = group_Decorations + "|Lights";
-
         #endregion Props
 
         #region Map Decorations 
 
         public const string group_ModTools = grouptopGroupName + "|MapTools";
+
+        public const string group_MapTools_Lights = grouptopGroupName + "|Lights";
 
         #endregion Props
 
