@@ -74,11 +74,17 @@
 
         #endregion Props
 
-        #region Map Helper
+        #region Map Decorations 
 
         public const string group_Decorations = grouptopGroupName + "|Decorations";
 
         public const string group_Decorations_Lights = group_Decorations + "|Lights";
+
+        #endregion Props
+
+        #region Map Decorations 
+
+        public const string group_ModTools = grouptopGroupName + "|MapTools";
 
         #endregion Props
 
