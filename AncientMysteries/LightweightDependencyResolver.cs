@@ -14,23 +14,45 @@
             else FixModLocation(ref sourceRoot, args);
             if (sourceRoot is null) goto DefaultBehavior;
 
+            #region Search .dll
             try
             {
                 foreach (var dllFile in Directory.EnumerateFiles(sourceRoot, "*.dll", SearchOption.TopDirectoryOnly))
                 {
-                    try
-                    {
-                        var dllName = AssemblyName.GetAssemblyName(dllFile);
-                        if (AssemblyName.ReferenceMatchesDefinition(referenceName, dllName))
-                        {
-                            return Assembly.LoadFile(dllFile);
-                        }
-                    }
-                    catch { }
+                    if (TryLoad(dllFile, out Assembly result))
+                        return result;
                 }
             }
             catch { }
+            #endregion
 
+            #region Freaks
+            try
+            {
+                foreach (var dllFile in Directory.EnumerateFiles(sourceRoot, "*.*", SearchOption.TopDirectoryOnly))
+                {
+                    if (TryLoad(dllFile, out Assembly result))
+                        return result;
+                }
+            }
+            catch { }
+            #endregion
+
+            bool TryLoad(string filename, out Assembly assembly)
+            {
+                try
+                {
+                    var dllName = AssemblyName.GetAssemblyName(filename);
+                    if (AssemblyName.ReferenceMatchesDefinition(referenceName, dllName))
+                    {
+                        assembly = Assembly.LoadFile(filename);
+                        return true;
+                    }
+                }
+                catch { }
+                assembly = null;
+                return false;
+            }
         DefaultBehavior:
             return ManagedContent.ResolveModAssembly(sender, args);
 

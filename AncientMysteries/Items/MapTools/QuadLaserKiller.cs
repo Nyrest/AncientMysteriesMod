@@ -31,7 +31,7 @@ namespace AncientMysteries.Items
 
         public override void Update()
         {
-            if (!(Level.current is Editor))
+            if (Level.current is not Editor)
             {
                 foreach (QuadLaserBullet q in Level.CheckRectAll<QuadLaserBullet>(
                     position - new Vec2(Width / 2f, Height / 2f),

@@ -53,11 +53,6 @@
             return result;
         }
 
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            _ => "GUDZH",
-        };
-
         public override string GetLocalizedDescription(Lang lang) => lang switch
         {
             Lang.schinese => "我在吃饭。真的。没什么好说的。",
