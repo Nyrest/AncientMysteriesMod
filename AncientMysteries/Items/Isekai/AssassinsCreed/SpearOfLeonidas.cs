@@ -20,18 +20,6 @@
 
         public bool _quacked;
 
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "列奥尼达斯之矛",
-            _ => "Spear Of Leonidas",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "斯巴达！",
-            _ => "Sparta!",
-        };
-
         public SpearOfLeonidas(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRun(tex_Melee_SpearOfLeonidas);
