@@ -1,11 +1,25 @@
-﻿using System.IO;
+﻿#define AllowTabFormat
+
+using System.IO;
 using System.Runtime.CompilerServices;
 
 namespace AncientMysteries.SourceGenerator
 {
     public static class Helper
     {
-        private static string _projectLocation;
+        private static readonly string[] _tabLevelsCache = new string[8];
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static string? Tab(int count)
+        {
+#if AllowTabFormat
+            return _tabLevelsCache[count] ??= new string(' ', count * 4);
+#else
+            return null;
+#endif
+        }
+
+        private static string? _projectLocation;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetProjectLocaltion(this in GeneratorExecutionContext context)
