@@ -12,8 +12,7 @@ namespace AncientMysteries.Items
         {
         }
 
-        public string GetLocalizedDescription(Lang lang) => string.Empty;
-
-        public string GetLocalizedName(Lang lang) => string.Empty;
+        public abstract string GetLocalizedDescription(Lang lang);
+        public abstract string GetLocalizedName(Lang lang);
     }
 }
