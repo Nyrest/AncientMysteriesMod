@@ -16,18 +16,6 @@
             _equippedDepth = -2;
 
         }
-
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "天使之翼",
-            _ => "Angel Wings",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            _ => "「また 60 億分の 1 の確率で出会えたら・・・」",
-        };
-
         public override void Update()
         {
             base.Update();

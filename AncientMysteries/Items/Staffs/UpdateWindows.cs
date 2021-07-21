@@ -24,18 +24,6 @@ namespace AncientMysteries.Items
 
         public bool IsTargetVaild => _targetPlayer?.dead == false && _targetPlayer?.ragdoll == null;
 
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "更新",
-            _ => "Update",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "窗 10 正在更新，坐和放宽，你正在成功！\n如果新版本出现问题，请滚回到以前的版本。",
-            _ => "Windows 10 is updating.\nThis will take a while(?)",
-        };
-
         public bool _quacked;
 
         public UpdateWindows(float xpos, float ypos) : base(xpos, ypos)

@@ -22,18 +22,6 @@
 
         public bool IsTargetVaild => _targetPlayer?.dead == false && _targetPlayer?.ragdoll == null;
 
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "移形换影",
-            _ => "Fall Guy",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "让你的好朋友替你受罪！",
-            _ => "Let someone fall instead of you!",
-        };
-
         public FallGuy(float xpos, float ypos) : base(xpos, ypos)
         {
             _type = "gun";

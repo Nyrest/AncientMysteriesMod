@@ -7,18 +7,6 @@
     [MetaType(MetaType.Gun)]
     public sealed partial class ShadowDance : AMGun
     {
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "影舞者",
-            _ => "Shadow Dance",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "瞄准，开火！",
-            _ => "Aim, fire!",
-        };
-
         public ShadowDance(float xval, float yval) : base(xval, yval)
         {
             ammo = sbyte.MaxValue;

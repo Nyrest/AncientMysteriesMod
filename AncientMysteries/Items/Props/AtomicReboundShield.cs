@@ -7,18 +7,6 @@
     [MetaType(MetaType.Props)]
     public partial class ReboundShield : AMGun, IPlatform
     {
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "反弹盾",
-            _ => "Rebound Shield",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "转发这个Mod给十个人以获得来自制作者的祝福",
-            _ => "Send this mod to 10 other people to receive bless from the developers",
-        };
-
         public ReboundShield(float xval, float yval) : base(xval, yval)
         {
             ammo = 1;

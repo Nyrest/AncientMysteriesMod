@@ -7,18 +7,6 @@
     [MetaType(MetaType.Gun)]
     public sealed partial class ElectronicImpacter : AMGun
     {
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "雷电撞击",
-            _ => "Electronic Impacter",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "但是，它为什么是绿色的呢？",
-            _ => "But, why is it green?",
-        };
-
         public ElectronicImpacter(float xval, float yval) : base(xval, yval)
         {
             ammo = 80;

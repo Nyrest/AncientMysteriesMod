@@ -16,19 +16,6 @@
             get => (byte)_spriteMap._frame;
             set => _spriteMap._frame = value;
         }
-
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "神圣之光",
-            _ => "Holy Light",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "奇迹",
-            _ => "The miracle.",
-        };
-
         public HolyLight(float xval, float yval) : base(xval, yval)
         {
             _type = "gun";

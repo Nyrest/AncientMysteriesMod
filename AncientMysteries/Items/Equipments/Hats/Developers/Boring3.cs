@@ -10,17 +10,6 @@
     {
         public static readonly FieldInfo feather_Field = typeof(Feather).GetField("_sprite", BindingFlags.NonPublic | BindingFlags.Instance);
 
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            _ => "Boring3",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "承受着世界的重量",
-            _ => "Carrying the weight of the world",
-        };
-
         public Vec2 baseCollisionOffset, baseCollisionSize;
 
         public Boring3(float xpos, float ypos) : base(xpos, ypos)

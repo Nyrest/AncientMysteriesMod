@@ -11,18 +11,6 @@
         private static readonly FieldInfo fieldAmmoType = typeof(Gun).GetField("_ammoType", BindingFlags.Instance | BindingFlags.NonPublic);
         private static readonly FieldInfo fieldFullAuto = typeof(Gun).GetField("_fullAuto", BindingFlags.Instance | BindingFlags.NonPublic);
         public static readonly List<Gun> bindedSpawnedGuns = new();
-
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            _ => "Devastator",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "爽",
-            _ => "Satisfying",
-        };
-
         public Thingy(float xpos, float ypos) : base(xpos, ypos)
         {
             _sprite = this.ModSpriteWithFrames(tex_Hat_Devastator, 32, 32, true);

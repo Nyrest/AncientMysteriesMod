@@ -17,18 +17,6 @@
             set => _spriteMap._frame = value;
         }
 
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "熔能喷吐",
-            _ => "Molten Spitter",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "「像你这样的鸭子，就该在地狱里焚烧」",
-            _ => "「Ducks like you, should be burning in hell」",
-        };
-
         public MoltenSpitter(float xval, float yval) : base(xval, yval)
         {
             ammo = 127;

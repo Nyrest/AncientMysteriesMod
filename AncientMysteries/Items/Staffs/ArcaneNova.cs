@@ -17,18 +17,6 @@
             set => _spriteMap._frame = value;
         }
 
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "奥术新星",
-            _ => "Arcane Nova",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "一把充满了宇宙奥秘的法杖",
-            _ => "A staff fulfilled with mysteries from the universe",
-        };
-
         public ArcaneNova(float xval, float yval) : base(xval, yval)
         {
             _type = "gun";

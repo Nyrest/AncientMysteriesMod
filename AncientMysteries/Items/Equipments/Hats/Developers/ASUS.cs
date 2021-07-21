@@ -17,17 +17,6 @@ namespace AncientMysteries.Items
             pickupSprite = this.ReadyToRunWithFrames(tex_Hat_ASUS, 32, 32);
         }
 
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "",
-            _ => "",
-        };
-
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            _ => "ASUS",
-        };
-
         public override void Update()
         {
             base.Update();

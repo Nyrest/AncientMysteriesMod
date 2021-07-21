@@ -7,17 +7,6 @@
     [MetaType(MetaType.Magic)]
     public sealed partial class Thunderstorm : AMStaff
     {
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "雷暴",
-            _ => "Thunderstorm",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "以雷霆击碎黑暗！",
-            _ => "May the lightning drives away the darkness!",
-        };
 
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
 

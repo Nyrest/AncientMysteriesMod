@@ -7,18 +7,6 @@
     [MetaType(MetaType.Gun)]
     public sealed partial class Iridescence : AMGun
     {
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "流光溢彩",
-            _ => "Iridescence",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "彩虹，一条架向天堂的桥梁。",
-            _ => "Rainbow. A bridge to the heaven.",
-        };
-
         public Iridescence(float xval, float yval) : base(xval, yval)
         {
             ammo = 127;

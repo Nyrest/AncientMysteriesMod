@@ -9,18 +9,6 @@
     {
         private static FieldInfo _firecrackerExplodeTimer = typeof(Firecracker).GetField("_explodeTimer", BindingFlags.Instance | BindingFlags.NonPublic);
 
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "新年狂欢",
-            _ => "Furious New Year",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "不准放鞭炮！",
-            _ => "No firecrackers!",
-        };
-
         public StateBinding _timerBinding = new("_timer");
 
         public StateBinding _pinBinding = new("_pin");
