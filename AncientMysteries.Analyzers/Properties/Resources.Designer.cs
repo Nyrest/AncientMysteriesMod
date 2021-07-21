@@ -79,7 +79,7 @@ namespace AncientMysteries.Analyzers.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AM0004.
+        ///   Looks up a localized string similar to Missing partial keyword.
         /// </summary>
         internal static string Analyzer_MakePartial_Title {
             get {
@@ -106,7 +106,7 @@ namespace AncientMysteries.Analyzers.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AM0005.
+        ///   Looks up a localized string similar to Missing metadata attributes.
         /// </summary>
         internal static string Analyzer_MissingMetadata_Title {
             get {
@@ -133,7 +133,7 @@ namespace AncientMysteries.Analyzers.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AM0003.
+        ///   Looks up a localized string similar to Add prefix to classify this texture.
         /// </summary>
         internal static string Analyzer_UnclassifiedTexture_Title {
             get {
@@ -142,7 +142,7 @@ namespace AncientMysteries.Analyzers.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Do it.
         /// </summary>
         internal static string Analyzer_UnifyItemNamespace_Description {
             get {
@@ -160,7 +160,7 @@ namespace AncientMysteries.Analyzers.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AM0002.
+        ///   Looks up a localized string similar to Unify Item Namespace to &apos;AncientMysteries.Items&apos;.
         /// </summary>
         internal static string Analyzer_UnifyItemNamespace_Title {
             get {
@@ -187,7 +187,7 @@ namespace AncientMysteries.Analyzers.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AM0001.
+        ///   Looks up a localized string similar to Use Content Reference.
         /// </summary>
         internal static string Analyzer_UseContentRef_Title {
             get {
