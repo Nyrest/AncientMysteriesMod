@@ -22,6 +22,8 @@ namespace AncientMysteries.SourceGenerator.Generators
             // Find the symbol
             if (context.SemanticModel.GetDeclaredSymbol(syntax) is not ITypeSymbol symbol) return;
 
+            if (symbol.IsAbstract) return;
+
             if (!symbol.AllInterfaces.Any(x => x.ToDisplayString() == "AncientMysteries.Localization.IAMLocalizable")) return;
 
             List<LocalizationInfo> infos = new(4);

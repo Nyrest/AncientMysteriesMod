@@ -30,7 +30,7 @@ namespace AncientMysteries.SourceGenerator.Generators
                 // return sb soon as possible
                 string rawSource = sb.ToStringAndReturn();
 
-                var hintName = $"{info.Symbol.ToDisplayString()}_Localizable.cs";
+                var hintName = $"{info.Symbol.ToDisplayString()}_LocalizableImpl.cs";
                 var sourceText = SourceText.From(rawSource, Encoding.UTF8);
 
                 lock (addSourceLock)
@@ -61,12 +61,12 @@ namespace AncientMysteries.SourceGenerator.Generators
                 sb.Append(langCase);
                 sb.Append(" => ");
                 sb.Append('\"');
-                sb.Append(type switch
+                sb.Append((type switch
                 {
                     BuildType.Name => info.Name,
                     BuildType.Description => info.Description,
                     _ => throw new NotImplementedException(),
-                });
+                })?.Replace("\n", "\\n")); // Unescape
                 sb.Append('\"');
                 sb.AppendLine(",");
             }
