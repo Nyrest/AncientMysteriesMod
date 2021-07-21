@@ -46,7 +46,7 @@
         public ViscousAcidLiquor(float xval, float yval)
             : base(xval, yval)
         {
-            ammo = 15;
+            ammo = 6;
             _type = "gun";
             this.ReadyToRun(tex_Gun_ViscousAcidLiquor);
             _barrelOffsetTL = new Vec2(29, 6);
