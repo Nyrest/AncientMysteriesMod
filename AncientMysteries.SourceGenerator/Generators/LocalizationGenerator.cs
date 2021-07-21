@@ -30,7 +30,7 @@ namespace AncientMysteries.SourceGenerator.Generators
                 // return sb soon as possible
                 string rawSource = sb.ToStringAndReturn();
 
-                var hintName = $"{info.Symbol.ToDisplayString()}_Localizable.cs";
+                var hintName = $"{info.Symbol.ToDisplayString()}_LocalizableImpl.cs";
                 var sourceText = SourceText.From(rawSource, Encoding.UTF8);
 
                 lock (addSourceLock)
