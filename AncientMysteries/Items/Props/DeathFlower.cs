@@ -9,18 +9,6 @@ namespace AncientMysteries.Items
     [MetaType(MetaType.Props)]
     public partial class DeathFlower : AMHoldable
     {
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "一朵可爱的FAFA",
-            _ => "Wonder Flower",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "看起来很美味，吃了它！",
-            _ => "Looks delicious. Eat it!",
-        };
-
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
 
         public SpriteMap _spriteMap;

@@ -7,18 +7,6 @@
     [MetaType(MetaType.Throwable)]
     public sealed partial class TrackingGrenade : AMThrowable
     {
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "追踪手雷",
-            _ => "Tracking Grenade",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "一颗单身许久的饥渴手雷！",
-            _ => "This grenade wants a girlfriend!",
-        };
-
         public StateBinding _timerBinding = new("_timer");
 
         public StateBinding _pinBinding = new("_pin");

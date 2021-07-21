@@ -10,19 +10,6 @@
         //public StateBinding _openedBinding = new StateBinding("_opened");
 
         public bool _opened = false;
-
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "雨伞",
-            _ => "Umbrella",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "遮风挡雨……还有什么别的功能吗？",
-            _ => "It protects you from the rain..does it have some other uses?",
-        };
-
         public Umbrella(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRunWithFrames(tex_Holdable_UmbrellaClosed);

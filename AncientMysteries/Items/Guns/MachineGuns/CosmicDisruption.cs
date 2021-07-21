@@ -7,18 +7,6 @@
     [MetaType(MetaType.Gun)]
     public sealed partial class CosmicDisruption : AMGun
     {
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "寰宇星怒",
-            _ => "Cosmic Disruption",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "外挂和这把枪你只需要一个。",
-            _ => "Cheating is no longer needed with this.",
-        };
-
         public CosmicDisruption(float xval, float yval) : base(xval, yval)
         {
             ammo = byte.MaxValue;

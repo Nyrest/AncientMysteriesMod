@@ -7,17 +7,6 @@
     [MetaType(MetaType.Throwable)]
     public sealed partial class SpiderMine : AMThrowable
     {
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "追踪地雷",
-            _ => "Spider Mine",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "试图拥抱附近除了你以外的每个人",
-            _ => "Trying to hug everyone nearby but you",
-        };
 
         public StateBinding _pinBinding = new("_pin");
 

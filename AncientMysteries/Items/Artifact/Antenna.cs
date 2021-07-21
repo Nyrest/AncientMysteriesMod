@@ -46,18 +46,6 @@
             this.ReadyToRun(tex_Holdable_Antenna).CenterOrigin();
         }
 
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "怖人触须",
-            _ => "Antenna",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "沾染了罪恶之血的触须，正等待着下一个目标……",
-            _ => "It, which is stained by the blood of sins, awaits...",
-        };
-
         public Waiter RumbleWaiter = new Waiter(5);
 
         public override void OnHoldAction()

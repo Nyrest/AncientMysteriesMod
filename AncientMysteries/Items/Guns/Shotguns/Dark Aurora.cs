@@ -13,18 +13,6 @@
 
         public bool _first = true;
 
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "暗影极光",
-            _ => "Dark Aurora",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "召唤阴影之光来击碎你的敌人",
-            _ => "Pour down shadowy light to crush your foes",
-        };
-
         public DarkAurora(float xval, float yval) : base(xval, yval)
         {
             ammo = sbyte.MaxValue;

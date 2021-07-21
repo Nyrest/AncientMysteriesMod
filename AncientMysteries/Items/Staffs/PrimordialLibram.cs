@@ -22,19 +22,6 @@
             get => (byte)_spriteMap._frame;
             set => _spriteMap._frame = value;
         }
-
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "源生魔典",
-            _ => "Primordial Spellbook",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "万物生而凋零，一切皆因于此",
-            _ => "Everything is born and withers away, for they are all affected by this",
-        };
-
         public PrimordialLibram(float xval, float yval) : base(xval, yval)
         {
             _ammoType = new AT_None();

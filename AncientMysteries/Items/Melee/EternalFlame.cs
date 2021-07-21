@@ -12,18 +12,6 @@
         public float cooldown3 = 0;
         public bool _quacked;
 
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "永恒烈焰",
-            _ => "Eternal Flame",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "让你的敌人在顷刻间化为焦黑的尸骨",
-            _ => "Make your enemies burn into charred bones in the blink of an eye",
-        };
-
         public EternalFlame(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRunWithFrames(tex_Melee_EternalFlame, 9, 25);

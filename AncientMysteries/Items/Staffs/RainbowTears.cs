@@ -16,18 +16,6 @@
             get => (byte)_spriteMap._frame;
             set => _spriteMap._frame = value;
         }
-
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "棱彩之泪",
-            _ => "Chromatic Tears",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            _ => "「天気なんて、狂ったままでいいんだ！」",
-        };
-
         public RainbowTears(float xval, float yval) : base(xval, yval)
         {
             _ammoType = new AT_RainbowEyedrops();

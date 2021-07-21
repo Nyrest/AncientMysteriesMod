@@ -57,15 +57,5 @@
             base.OnReleaseAction();
             bladeOut = false;
         }
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            _ => "「Nothing is true, everything is permitted.」",
-        };
-
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            _ => "Hidden Blade",
-        };
     }
 }

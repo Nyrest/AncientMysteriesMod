@@ -7,17 +7,6 @@
     [MetaType(MetaType.Gun)]
     public sealed partial class FerociousPredator : AMGun
     {
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "凶恶猎手",
-            _ => "Ferocious Predator",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "小心猎物",
-            _ => "Beware of the prey",
-        };
 
         public StateBinding _fireAngleBinding = new("_fireAngle");
 

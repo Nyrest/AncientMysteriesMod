@@ -7,18 +7,6 @@
     [MetaType(MetaType.Melee)]
     public sealed partial class DeathBringer : AMMelee
     {
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "死亡收割者",
-            _ => "Death Bringer",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "用起来没有想象中的好",
-            _ => "Looks cool, but not cool actually",
-        };
-
         public float cooldown = -2;
 
         public DeathBringer(float xval, float yval)

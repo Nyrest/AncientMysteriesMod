@@ -83,19 +83,6 @@
                     break;
             }
         }
-
-        public override string GetLocalizedName(Lang lang) => lang switch
-        {
-            Lang.schinese => "温度的艺术",
-            _ => "Art of Temperature",
-        };
-
-        public override string GetLocalizedDescription(Lang lang) => lang switch
-        {
-            Lang.schinese => "水蒸气难道不是看不见的吗？🤔",
-            _ => "Isn't Water Vapor invisible?🤔",
-        };
-
         public enum Mode : byte
         {
             Water,
