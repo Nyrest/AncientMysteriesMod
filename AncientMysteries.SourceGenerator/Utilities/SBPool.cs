@@ -35,6 +35,18 @@ namespace AncientMysteries.SourceGenerator
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static string ToStringAndReturn(this StringBuilder value)
+        {
+            string result = value.ToString();
+            value.Clear();
+            lock (_lockObj)
+            {
+                _stack.Push(value);
+            }
+            return result;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static StringBuilder RentMini()
         {
             lock (_lockObjMini)
