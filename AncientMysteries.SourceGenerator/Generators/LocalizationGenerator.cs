@@ -66,7 +66,7 @@ namespace AncientMysteries.SourceGenerator.Generators
                     BuildType.Name => info.Name,
                     BuildType.Description => info.Description,
                     _ => throw new NotImplementedException(),
-                }).Replace("\n", "\\n")); // Unescape
+                })?.Replace("\n", "\\n")); // Unescape
                 sb.Append('\"');
                 sb.AppendLine(",");
             }
