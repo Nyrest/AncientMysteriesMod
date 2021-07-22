@@ -22,6 +22,7 @@
     <Authors>Boring3 | Devastator | GUDZH | ASUS</Authors>
     <Product>Ancient Mysteries</Product>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <UserSecretsId>6c7b65f6-e597-4bb3-9015-2e98c3e26bed</UserSecretsId>
   </PropertyGroup>
 
   <!--Source Generator And Analyzers-->

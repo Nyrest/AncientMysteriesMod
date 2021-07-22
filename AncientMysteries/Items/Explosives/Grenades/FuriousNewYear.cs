@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns)]
-    [MetaImage(tex_Throwable_FuriousNewYear, 7, 15)]
+    [MetaImage(tex_Throwable_FuriousNewYear, 7, 16)]
     [MetaInfo(Lang.english, "Furious New Year", "No firecrackers!")]
     [MetaInfo(Lang.schinese, "新年狂欢", "不准放鞭炮")]
     [MetaType(MetaType.Throwable)]
@@ -48,7 +48,7 @@
         {
             ammo = 1;
             _type = "gun";
-            _sprite = this.ReadyToRunWithFrames(tex_Throwable_FuriousNewYear, 7, 15);
+            _sprite = this.ReadyToRunWithFrames(tex_Throwable_FuriousNewYear, 7, 16);
             graphic = _sprite;
             bouncy = 0.4f;
             friction = 0.05f;
