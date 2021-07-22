@@ -17,10 +17,10 @@ namespace AncientMysteries.Items
         public readonly Queue<Vec2> tailQueue = new();
         public readonly Color BulletTailColor = Color.White;
         public readonly bool BulletTail = true;
-        public readonly float BulletTailSegmentLength = 3;
-        public readonly float BulletTailMaxSegments = 8;
+        public readonly float BulletTailSegmentLength = 1;
+        public readonly float BulletTailMaxSegments = 10;
         public float BulletDistanceTraveled { get; private set; }
-        public float CurrentTailSegments => BulletTailSegmentLength / BulletDistanceTraveled;
+        public float CurrentTailSegments => BulletDistanceTraveled / BulletTailSegmentLength;
         public readonly float BulletPenetration;
         public Vec2 lastPosition;
 
@@ -68,14 +68,16 @@ namespace AncientMysteries.Items
             {
                 BulletRemove();
             }
-            if (tailQueue.Count < CurrentTailSegments)
-            {
-                tailQueue.Enqueue(position);
-            }
-            else
-            {
 
-            }    
+            if (tailQueue.Count > BulletTailMaxSegments)
+            {
+                tailQueue.Dequeue();
+            }
+            else if (tailQueue.Count < CurrentTailSegments)
+            {
+                if ((position - tailQueue.LastOrDefault()).lengthSq >= BulletTailSegmentLength)
+                    tailQueue.Enqueue(position);
+            }
         }
 
         public void DoBulletCollideCheck()
@@ -147,6 +149,27 @@ namespace AncientMysteries.Items
         public virtual void BulletRemove()
         {
             Level.Remove(this);
+        }
+
+        public override void Draw()
+        {
+            base.Draw();
+            if (tailQueue.Count != 0)
+                DrawTail();
+        }
+
+        public virtual void DrawTail()
+        {
+            int count = tailQueue.Count;
+            Vec2 lastPos = position;
+            int cur = count;
+            foreach (var pos in tailQueue.Reverse())
+            {
+                float alpha = (cur--) / (float)count;
+                //Graphics.DrawRect(new Rectangle(pos.x, pos.y, 2, 2), Color.Red);
+                Graphics.DrawLine(lastPos, pos, BulletTailColor * alpha);
+                lastPos = pos;
+            }
         }
     }
 }
