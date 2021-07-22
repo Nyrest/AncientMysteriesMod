@@ -17,10 +17,10 @@ namespace AncientMysteries.Items
         public readonly Queue<Vec2> tailQueue = new();
         public readonly Color BulletTailColor = Color.White;
         public readonly bool BulletTail = true;
-        public readonly float BulletTailSegmentLength = 1;
+        public readonly float BulletTailSegmentMinLength = 1;
         public readonly float BulletTailMaxSegments = 10;
         public float BulletDistanceTraveled { get; private set; }
-        public float CurrentTailSegments => BulletDistanceTraveled / BulletTailSegmentLength;
+        public float CurrentTailSegments => BulletDistanceTraveled / BulletTailSegmentMinLength;
         public readonly float BulletPenetration;
         public Vec2 lastPosition;
 
@@ -75,7 +75,7 @@ namespace AncientMysteries.Items
             }
             else if (tailQueue.Count < CurrentTailSegments)
             {
-                if ((position - tailQueue.LastOrDefault()).lengthSq >= BulletTailSegmentLength)
+                if ((position - tailQueue.LastOrDefault()).lengthSq >= BulletTailSegmentMinLength)
                     tailQueue.Enqueue(position);
             }
         }
