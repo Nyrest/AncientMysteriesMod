@@ -14,7 +14,13 @@ namespace AncientMysteries.Items
         public Duck BulletSafeDuck;
         public readonly float BulletRange;
         public readonly bool BulletCanCollideWhenNotMoving;
+        public readonly Queue<Vec2> tailQueue = new();
+        public readonly Color BulletTailColor = Color.White;
+        public readonly bool BulletTail = true;
+        public readonly float BulletTailSegmentLength = 3;
+        public readonly float BulletTailMaxSegments = 8;
         public float BulletDistanceTraveled { get; private set; }
+        public float CurrentTailSegments => BulletTailSegmentLength / BulletDistanceTraveled;
         public readonly float BulletPenetration;
         public Vec2 lastPosition;
 
@@ -62,6 +68,14 @@ namespace AncientMysteries.Items
             {
                 BulletRemove();
             }
+            if (tailQueue.Count < CurrentTailSegments)
+            {
+                tailQueue.Enqueue(position);
+            }
+            else
+            {
+
+            }    
         }
 
         public void DoBulletCollideCheck()

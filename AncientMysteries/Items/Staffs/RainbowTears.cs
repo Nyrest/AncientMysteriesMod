@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_Staffs)]
-    [MetaImage(tex_Staff_Judgement, 13, 39)]
+    [MetaImage(tex_Staff_Judgement, 17, 49)]
     [MetaInfo(Lang.english, "Rainbow Tears", "「天気なんて、狂ったままでいいんだ！」")]
     [MetaInfo(Lang.schinese, "棱彩之泪", "「天気なんて、狂ったままでいいんだ！」")]
     [MetaType(MetaType.Magic)]
@@ -16,12 +16,13 @@
             get => (byte)_spriteMap._frame;
             set => _spriteMap._frame = value;
         }
+
         public RainbowTears(float xval, float yval) : base(xval, yval)
         {
             _ammoType = new AT_RainbowEyedrops();
             _type = "gun";
-            _spriteMap = this.ReadyToRunWithFrames(tex_Staff_Judgement, 13, 39);
-            SetBox(13, 39);
+            _spriteMap = this.ReadyToRunWithFrames(tex_Staff_Judgement, 17, 49);
+            SetBox(17, 47);
             _barrelOffsetTL = new Vec2(6f, 5f);
             _castSpeed = 0.01f;
             BarrelSmokeFuckOff();
@@ -29,6 +30,7 @@
             _fireSound = "flameExplode";
             _fireWait = 0.5f;
             _fireSoundPitch = 0.9f;
+            _holdOffset = new Vec2(-5, -10);
             _kickForce = 0.25f;
             _fullAuto = true;
             _spriteMap.AddAnimation("loop", 0.04f, true, 0, 1, 2, 1);
