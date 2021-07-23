@@ -33,7 +33,7 @@
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Sprite ModSprite(this string spriteMapName, bool centerOrigin = false)
+        public static Sprite ModSprite(this string spriteMapName, bool centerOrigin = true)
         {
             var info = GetInfo(spriteMapName);
             var result = new Sprite(info.texture, info.frameWidth, info.frameHeight);

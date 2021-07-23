@@ -17,7 +17,7 @@
 
         public override void Update()
         {
-            if (!(Level.current is Editor))
+            if (Level.current is not Editor)
             {
                 foreach (Duck d in Level.current.things[typeof(Duck)])
                 {

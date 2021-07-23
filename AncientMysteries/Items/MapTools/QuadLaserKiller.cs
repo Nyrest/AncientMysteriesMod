@@ -2,7 +2,7 @@
 {
     [EditorGroup(group_MapTools)]
     [MetaImage(tex_MapTools_Swirl)]
-    [MetaInfo(Lang.english, "Quad Laser Killer", "Perfect for those who wants to kill laggy things.")]
+    [MetaInfo(Lang.english, "Quad Laser Remover", "Perfect for those who wants to remove laggy things.")]
     [MetaInfo(Lang.schinese, null, "给那些想要手动移除 QuadLaserBullet 的人的礼物")]
     [MetaType(MetaType.MapTools)]
     public partial class QuadLaserKiller : AMMapTool
@@ -10,13 +10,13 @@
         public EditorProperty<float> Width = new EditorProperty<float>(100, null, 20f, 1000f, 1f)
         {
             name = "Width",
-            _tooltip = "Width"
+            _tooltip = "Width of the QuadLazerBullet Removing Zone"
         };
 
         public EditorProperty<float> Height = new EditorProperty<float>(100, null, 20f, 1000f, 1f)
         {
             name = "Height",
-            _tooltip = "Height"
+            _tooltip = "Height of the QuadLazerBullet Removing Zone"
         };
 
         public QuadLaserKiller(float xpos, float ypos) : base(xpos, ypos)
