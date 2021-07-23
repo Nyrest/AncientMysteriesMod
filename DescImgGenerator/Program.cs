@@ -85,7 +85,7 @@ namespace DescImgGenerator
             //bottom
             canvas.DrawLine(new SKPoint(lineR.Left, lineR.Bottom), new SKPoint(lineR.Right, lineR.Bottom), labelLine);
 
-            string labelName = GetMetaTypeLabel(lang, metaType);
+            string labelName = "- " + GetMetaTypeLabel(lang, metaType) + " -";
             RichString desc = new RichString()
             {
                 DefaultStyle = labelStyle,
