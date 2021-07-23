@@ -1,10 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace DescImgGenerator
 {
-
-
     public class LocalizedText
     {
         public Dictionary<Lang, string> localizations = new();
