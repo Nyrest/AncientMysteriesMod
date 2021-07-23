@@ -118,7 +118,7 @@ namespace DescImgGenerator
         {
             string filename = Path.GetFullPath("content\\" + item);
             var bitmap = SKBitmap.Decode(filename);
-            return frameWidth == -1 ? bitmap : WithFrames();
+            return CropTransparent(frameWidth == -1 ? bitmap : WithFrames());
 
             SKBitmap WithFrames()
             {
@@ -141,6 +141,36 @@ namespace DescImgGenerator
                     return SKRect.Create(column * frameWidth, row * frameHeight, frameWidth, frameHeight);
                 }
             }
+        }
+
+        public static SKBitmap CropTransparent(SKBitmap image)
+        {
+            int minX = int.MaxValue, minY = int.MaxValue;
+            int maxX = int.MinValue, maxY = int.MinValue;
+
+            using (var pixels = image.PeekPixels())
+            {
+                for (int x = 0; x < image.Width; x++)
+                {
+                    for (int y = 0; y < image.Height; y++)
+                    {
+                        byte pixelAlpha = pixels.GetPixelColor(x, y).Alpha;
+                        if (pixelAlpha != 0)
+                        {
+                            if (x < minX) minX = x;
+                            if (y < minY) minY = y;
+
+                            if (x > maxX) maxX = x;
+                            if (y > maxY) maxY = y;
+                        }
+                    }
+                }
+            }
+            SKRectI cropRect = new(minX, minY, maxX + 1, maxY + 1);
+            if (minX == 0 && minY == 0 && maxX == image.Width - 1 && maxY == image.Height - 1)
+                return image;
+            var dest = new SKBitmap(cropRect.Width, cropRect.Height);
+            return !image.ExtractSubset(dest, cropRect) ? throw new Exception("Unable to extract subset bitmap") : dest;
         }
     }
 }
