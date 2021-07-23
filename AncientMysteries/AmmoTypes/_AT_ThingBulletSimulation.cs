@@ -16,6 +16,7 @@ namespace AncientMysteries.AmmoTypes
             penetration = 0;
             range = 2;
             bulletSpeed = range;
+            this.canBeReflected = false;
         }
     }
 }
