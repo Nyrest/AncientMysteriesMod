@@ -16,7 +16,7 @@
                 accuracy = 0.7f,
                 penetration = 1f
             };
-            this.ReadyToRunWithFrames(tex_Gun_VoidPiercer);
+            this.ReadyToRun(tex_Gun_VoidPiercer);
             _barrelOffsetTL = new Vec2(20f, 4f);
             _flare.color = Color.Black;
             BarrelSmoke.color = Color.Black;
