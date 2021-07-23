@@ -24,7 +24,6 @@
             SetBox(14, 37);
             _barrelOffsetTL = new Vec2(6f, 5f);
             _castSpeed = 0.007f;
-            BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             _fireWait = 0.5f;
             _fireSoundPitch = 0.9f;
@@ -35,7 +34,7 @@
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();
-            var firePos = owner.offDir == 1 ? new Vec2(barrelPosition.x, barrelPosition.y - 18) : new Vec2(barrelPosition.x, barrelPosition.y + 10);
+            var firePos = barrelPosition;
             if (_castTime >= 1f)
             {
                 var bullet = new ArcaneNova_Magic_Stage1(firePos, GetBulletVecDeg(owner.offDir == 1 ? 0 : 180, 3.5f), duck);

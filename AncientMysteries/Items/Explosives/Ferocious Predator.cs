@@ -7,7 +7,6 @@
     [MetaType(MetaType.Gun)]
     public sealed partial class FerociousPredator : AMGun
     {
-
         public StateBinding _fireAngleBinding = new("_fireAngle");
 
         public StateBinding _aimAngleBinding = new("_aimAngle");

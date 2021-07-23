@@ -5,7 +5,6 @@
         public static readonly SKTypeface typeface;
         public static readonly SKTypeface typefaceLight;
 
-
         static CustomFontMapper()
         {
             typeface = SKTypeface.FromFile("NotoSansCJKsc-Regular.otf");

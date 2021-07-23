@@ -54,7 +54,7 @@
                     MusketSmoke smoke = new(duck.x + Rando.Float(-5, 5), duck.y + Rando.Float(-10, 3))
                     {
                         alpha = 0.9f,
-                        depth = 0.9f + i * 0.001f,
+                        depth = 0.9f + (i * 0.001f),
                         fly = new Vec2(Rando.Float(-flyMax, flyMax), Rando.Float(-flyMax, flyMax))
                     };
                     if (i % 4 != 0)
@@ -62,7 +62,7 @@
                     MusketSmoke smoke2 = new(_targetPlayer.x + Rando.Float(-5, 5), _targetPlayer.y + Rando.Float(-10, 3))
                     {
                         alpha = 0.9f,
-                        depth = 0.9f + i * 0.001f,
+                        depth = 0.9f + (i * 0.001f),
                         fly = new Vec2(Rando.Float(-flyMax, flyMax), Rando.Float(-flyMax, flyMax))
                     };
                     if (i % 4 != 0)
@@ -126,7 +126,7 @@
             base.Draw();
             if (IsTargetVaild && duck?.profile.localPlayer == true)
             {
-                var start = topLeft + graphic.center * graphic.scale;
+                var start = topLeft + (graphic.center * graphic.scale);
                 var end = _targetPlayer.position - new Vec2(0, 13);
                 var cache = material;
                 Graphics.material = null;
@@ -136,7 +136,7 @@
                 }
                 Graphics.DrawLine(start, end, new Color((byte)(255 * (1 - _cdTime)), (byte)25, (byte)34, (byte)(255 * (1 - _cdTime))), 1f, 1);
                 Graphics.material = cache;
-                Graphics.Draw(mark, end.x - markWidth / 2, end.y - markHeight / 2, 0.9f);
+                Graphics.Draw(mark, end.x - (markWidth / 2), end.y - (markHeight / 2), 0.9f);
                 _targetPlayer.DrawTopText("@SHOOT@", Color.White, -9, duck.inputProfile);
             }
         }

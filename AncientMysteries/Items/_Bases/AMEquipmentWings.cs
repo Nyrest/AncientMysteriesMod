@@ -31,7 +31,7 @@
             {
                 isFlying = true;
             }
-            else if(_equippedDuck.grounded)
+            else if (_equippedDuck.grounded)
             {
                 isFlying = false;
             }
@@ -62,7 +62,6 @@
                 _equippedDuck.gravMultiplier = 0;
             }
             _equippedDuck.gravMultiplier = 1;
-
         }
 
         public Vec2 GetFlyDir()

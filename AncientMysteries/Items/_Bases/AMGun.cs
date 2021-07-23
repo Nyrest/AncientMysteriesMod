@@ -52,6 +52,12 @@
             collisionSize = new Vec2(w, h);
         }
 
+        public void SetBarrelFlare(string flareTexReference)
+        {
+            _flare = this.ModSpriteWithFrames(flareTexReference, -1, -1, true);
+            _flare.centerx = 0;
+        }
+
         public abstract string GetLocalizedName(Lang lang);
 
         public abstract string GetLocalizedDescription(Lang lang);

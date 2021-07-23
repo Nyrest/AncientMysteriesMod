@@ -33,7 +33,7 @@
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Sprite ModSprite(this string spriteMapName, bool centerOrigin = false)
+        public static Sprite ModSprite(this string spriteMapName, bool centerOrigin = true)
         {
             var info = GetInfo(spriteMapName);
             var result = new Sprite(info.texture, info.frameWidth, info.frameHeight);
@@ -76,7 +76,7 @@
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static SpriteMap ModSpriteWithFrames(this Thing thing, string spriteMapName, int frameWidth = -1, int frameHeight = -1, bool centerOrigin = false)
+        public static SpriteMap ModSpriteWithFrames(this Thing thing, string spriteMapName, int frameWidth = -1, int frameHeight = -1, bool centerOrigin = true)
         {
             var info = GetInfo(spriteMapName);
             var result = new SpriteMap(info.texture, frameWidth == -1 ? info.frameWidth : frameWidth, frameHeight == -1 ? info.frameHeight : frameHeight);
@@ -106,7 +106,7 @@
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static SpriteMap ReadyToRunWithFrames(this Thing thing, string spriteMapName, int frameWidth = -1, int frameHeight = -1)
+        public static SpriteMap ReadyToRunWithFrames(this Thing thing, string spriteMapName, int frameWidth = -1, int frameHeight = -1, bool centerOrigin = true)
         {
             var info = GetInfo(spriteMapName);
             if (thing.graphic is SpriteMap spriteMap && spriteMap.texture == info.texture)
@@ -115,6 +115,7 @@
             }
             int w = frameWidth == -1 ? info.frameWidth : frameWidth, h = frameHeight == -1 ? info.frameHeight : frameHeight;
             SpriteMap result = new(info.texture, w, h);
+            result.CenterOrigin();
             thing.graphic = result;
             thing.collisionOffset = -(thing.center = new Vec2(w / 2, h / 2));
             thing.collisionSize = new Vec2(w, h);

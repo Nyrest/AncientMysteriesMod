@@ -92,7 +92,7 @@
                 }
                 for (int i = 0; i < num; i++)
                 {
-                    float dir = i * 60f + Rando.Float(-10f, 10f);
+                    float dir = (i * 60f) + Rando.Float(-10f, 10f);
                     float dist = Rando.Float(12f, 20f);
                     ExplosionPart ins = new(cx + (float)(Math.Cos(Maths.DegToRad(dir)) * dist), cy - (float)(Math.Sin(Maths.DegToRad(dir)) * dist));
                     Level.Add(ins);
@@ -168,7 +168,7 @@
                             var firedBullets = new List<Bullet>(bulletCount);
                             for (int i = 0; i < bulletCount; i++)
                             {
-                                float dir = i * 18f - 5f + Rando.Float(10f);
+                                float dir = (i * 18f) - 5f + Rando.Float(10f);
                                 ATShrapnel shrap = new()
                                 {
                                     range = 70f + Rando.Float(20f)
@@ -239,7 +239,7 @@
             base.Draw();
             if (IsTargetVaild && duck?.profile.localPlayer == true)
             {
-                var start = topLeft + graphic.center * graphic.scale;
+                var start = topLeft + (graphic.center * graphic.scale);
                 float fontWidth;
                 fontWidth = BiosFont.GetWidth("@QUACK@", false, duck.inputProfile);
                 BiosFont.Draw("@QUACK@", duck.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);

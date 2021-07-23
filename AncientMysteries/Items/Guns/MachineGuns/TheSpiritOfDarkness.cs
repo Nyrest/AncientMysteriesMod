@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_MachineGuns)]
     [MetaImage(tex_Gun_TheSpiritOfDarkness)]

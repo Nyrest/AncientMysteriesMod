@@ -69,7 +69,7 @@
                 Vec2 anglevec = new(_targetPlayer.x - x, y - _targetPlayer.y);
                 float angle = (float)Math.Atan(anglevec.y / anglevec.x);
                 offDir = (sbyte)(anglevec.x < 0 ? -1 : 1);
-                _angle = angle + 1.56f * offDir;
+                _angle = angle + (1.56f * offDir);
                 //this.position += anglevec * 0.1f;
                 hSpeed = Math.Min(anglevec.x, 5);
                 vSpeed = Math.Min(anglevec.y, 5) * -1;

@@ -25,6 +25,7 @@
         {
             var node = (ClassDeclarationSyntax)context.Node;
             var symbol = context.SemanticModel.GetDeclaredSymbol(node);
+            if (symbol is null) throw new NullReferenceException(nameof(symbol));
             if (symbol.IsAbstract || symbol.IsStatic) return;
             bool isLocalizable = false;
             foreach (var item in symbol.AllInterfaces)

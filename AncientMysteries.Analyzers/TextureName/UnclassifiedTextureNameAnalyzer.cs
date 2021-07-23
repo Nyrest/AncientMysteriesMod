@@ -40,7 +40,8 @@
 
         private void Analyze(CompilationAnalysisContext context)
         {
-            context.Options.AnalyzerConfigOptionsProvider.GlobalOptions.TryGetValue("build_property.projectdir", out string projectDir);
+            context.Options.AnalyzerConfigOptionsProvider.GlobalOptions.TryGetValue("build_property.projectdir", out var projectDir);
+            if (projectDir is null) throw new NullReferenceException(nameof(projectDir));
             foreach (var fullname in Directory.GetFiles(projectDir + "content", "*.*"))
             {
                 if (IsException(fullname)) continue;
@@ -56,14 +57,12 @@
             }
         }
 
-        private static string previewPng = Path.DirectorySeparatorChar + "preview.png";
-        private static string screenshotPng = Path.DirectorySeparatorChar + "screenshot.png";
+        private static readonly string previewPng = Path.DirectorySeparatorChar + "preview.png";
+        private static readonly string screenshotPng = Path.DirectorySeparatorChar + "screenshot.png";
 
         private static bool IsException(string fullname)
         {
-            if (fullname.EndsWith(previewPng, StringComparison.Ordinal)) return true;
-            if (fullname.EndsWith(screenshotPng, StringComparison.Ordinal)) return true;
-            return false;
+            return fullname.EndsWith(previewPng, StringComparison.Ordinal) || fullname.EndsWith(screenshotPng, StringComparison.Ordinal);
         }
     }
 }

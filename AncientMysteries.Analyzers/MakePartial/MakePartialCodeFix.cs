@@ -14,13 +14,15 @@
         public sealed override async Task RegisterCodeFixesAsync(CodeFixContext context)
         {
             var root = await context.Document.GetSyntaxRootAsync(context.CancellationToken).ConfigureAwait(false);
-
+            if (root is null) throw new NullReferenceException(nameof(root));
             // TODO: Replace the following code with your own analysis, generating a CodeAction for each fix to suggest
             var diagnostic = context.Diagnostics.First();
             var diagnosticSpan = diagnostic.Location.SourceSpan;
 
             // Find the type declaration identified by the diagnostic.
-            var declaration = root.FindToken(diagnosticSpan.Start).Parent.AncestorsAndSelf().OfType<ClassDeclarationSyntax>().First();
+            var parent = root.FindToken(diagnosticSpan.Start).Parent;
+            if (parent is null) throw new NullReferenceException(nameof(parent));
+            var declaration = parent.AncestorsAndSelf().OfType<ClassDeclarationSyntax>().First();
 
             // Register a code action that will invoke the fix.
             context.RegisterCodeFix(
@@ -39,7 +41,7 @@
             var updatedNode = node.AddModifiers(modifierPartical);
 
             var syntaxTree = await document.GetSyntaxTreeAsync(cancellationToken);
-
+            if (syntaxTree is null) throw new NullReferenceException(nameof(syntaxTree));
             var updatedSyntaxTree =
                 syntaxTree.GetRoot().ReplaceNode(node, updatedNode);
             return document.WithSyntaxRoot(updatedSyntaxTree);

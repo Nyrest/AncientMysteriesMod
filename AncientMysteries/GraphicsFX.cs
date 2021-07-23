@@ -5,17 +5,23 @@ namespace AncientMysteries
     public static class GfxEffects
     {
         #region Passive Reverser Bindings
+
         // Avoid bugs cause permanent graphics effects
         private static readonly Dictionary<Func<bool>, Action> passiveReverserBindings = new();
+
         private static readonly List<Func<bool>> passiveReverserBindingsToRemove = new();
-        #endregion
+
+        #endregion Passive Reverser Bindings
 
         #region Defaults
+
         private static readonly BlendState DefaultBlendState = Graphics.device.BlendState;
         private static readonly Color DefaultBlendFactor = Graphics.device.BlendFactor;
-        #endregion
+
+        #endregion Defaults
 
         #region Effect Invert Color
+
         public static void EnableInvertColor(Thing binder) => EnableInvertColor(() => binder.removeFromLevel);
 
         public static void EnableInvertColor(Func<bool> binder)
@@ -28,9 +34,11 @@ namespace AncientMysteries
         {
             Graphics.device.BlendState.ColorDestinationBlend = DefaultBlendState.ColorDestinationBlend;
         }
-        #endregion
+
+        #endregion Effect Invert Color
 
         #region Effect Blend Factor
+
         public static void EnableBlendFactor(Thing binder, Color factor) => EnableBlendFactor(() => binder.removeFromLevel, factor);
 
         public static void EnableBlendFactor(Func<bool> binder, Color factor)
@@ -43,7 +51,8 @@ namespace AncientMysteries
         {
             Graphics.device.BlendFactor = DefaultBlendFactor;
         }
-        #endregion
+
+        #endregion Effect Blend Factor
 
         public static void Update()
         {
@@ -54,7 +63,9 @@ namespace AncientMysteries
                     passiveReverserBindingsToRemove.Add(passive.Key);
                 }
             }
+
             #region MyRegion
+
             if (passiveReverserBindingsToRemove.Count != 0)
             {
                 foreach (var item in passiveReverserBindingsToRemove)
@@ -63,7 +74,8 @@ namespace AncientMysteries
                 }
                 passiveReverserBindingsToRemove.Clear();
             }
-            #endregion
+
+            #endregion MyRegion
         }
     }
 }

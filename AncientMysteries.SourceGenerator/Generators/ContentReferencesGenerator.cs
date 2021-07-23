@@ -38,14 +38,14 @@ namespace AncientMysteries.SourceGenerator.Generators
                                     break;
                             }
                             fieldName = GetFieldName(prefix_Texture, filename);
-                            allTexturesBuilder.Append($"\n{Tab(2)}{fieldName},");
+                            allTexturesBuilder.Append($"\n{Tab(3)}{fieldName},");
                             textureCount++;
                             break;
                         }
                     case ".wav":
                         {
                             fieldName = GetFieldName(prefix_Sound, filename);
-                            allSoundsBuilder.Append($"\n{Tab(2)}{fieldName},");
+                            allSoundsBuilder.Append($"\n{Tab(3)}{fieldName},");
                             soundCount++;
                             break;
                         }
@@ -69,19 +69,17 @@ namespace AncientMysteries.SourceGenerator.Generators
             string extension = Path.GetExtension(filename);
             string filenameNoExt = Path.GetFileNameWithoutExtension(filename);
             string fieldName = char.ToUpperInvariant(filenameNoExt[0]) + filenameNoExt.Substring(1).Replace(" ", null);
-            string prefix;
-            switch (extension.ToLowerInvariant())
+            string prefix = extension.ToLowerInvariant() switch
             {
-                case ".png": prefix = prefix_Texture; break;
-                case ".wav": prefix = prefix_Sound; break;
-                default: throw new Exception("Unexpected File Extension: " + extension);
-            }
+                ".png" => prefix_Texture,
+                ".wav" => prefix_Sound,
+                _ => throw new Exception("Unexpected File Extension: " + extension),
+            };
             return prefix + fieldName;
         }
 
         public static string GetFieldName(string prefix, string filename)
         {
-            string extension = Path.GetExtension(filename);
             string filenameNoExt = Path.GetFileNameWithoutExtension(filename);
             string fieldName = char.ToUpperInvariant(filenameNoExt[0]) + filenameNoExt.Substring(1).Replace(" ", null);
             return prefix + fieldName;

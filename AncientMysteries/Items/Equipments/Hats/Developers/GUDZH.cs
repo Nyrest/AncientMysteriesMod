@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_Equipment_Developer)]
     [MetaImage(tex_Hat_GUDZHPickup)]
-    [MetaInfo(Lang.english, "GUDZH", "Eating now... Nothing to say.\nMain Artist")]
-    [MetaInfo(Lang.schinese, null, "在吃饭。没什么好说的。\n主画师")]
+    [MetaInfo(Lang.english, "GUDZH", "Eating now... Nothing to say. 🍔🥪🥤🍜🍱\nMain Artist 🥞🍗🍰")]
+    [MetaInfo(Lang.schinese, null, "在吃饭。没什么好说的。🍔🥪🥤🍜🍱\n主画师 🥞🍗🍰")]
     [MetaOrder(int.MaxValue - 1)]
     [MetaType(MetaType.Developer)]
     public sealed partial class GUDZH : AMHelmet
@@ -34,7 +34,7 @@
                 }
                 this.scale = new Vec2(scale);
                 float w = 18 * scale, h = 18 * scale;
-                this.collisionOffset = -(new Vec2(w / 2, h / 2)) + new Vec2(2.5f, 5) * scale;
+                this.collisionOffset = -(new Vec2(w / 2, h / 2)) + (new Vec2(2.5f, 5) * scale);
                 this.collisionSize = new Vec2(w, h);
             }
         }

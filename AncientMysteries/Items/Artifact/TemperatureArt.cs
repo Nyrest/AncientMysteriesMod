@@ -83,6 +83,7 @@
                     break;
             }
         }
+
         public enum Mode : byte
         {
             Water,
