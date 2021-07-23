@@ -23,11 +23,12 @@
             if (gun != null)
             {
                 gun.bulletFireIndex++;
-                if (Network.isActive)
-                {
-                    NMFireGun gunEvent = new(gun, firedBullets, gun.bulletFireIndex, rel: false, 4);
-                    Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
-                }
+
+            }
+            if (Network.isActive)
+            {
+                NMFireGun gunEvent = new(gun, firedBullets, gun?.bulletFireIndex ?? 0, rel: false, 4);
+                Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
             }
         collect:
             firedBullets.Clear();
@@ -40,24 +41,20 @@
         private static readonly List<Bullet> Size1List = new();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void NmFireGun(this Gun gun, Bullet value, bool alsoAddThemToWorld = true)
+        public static void NmFireGun(this Bullet value, bool alsoAddThemToWorld = true)
         {
             if (alsoAddThemToWorld)
             {
                 Level.current.AddThing(value);
             }
 
-            if (gun != null)
-            {
-                gun.bulletFireIndex++;
-                if (Network.isActive)
+            if (Network.isActive)
                 {
                     Size1List[0] = value;
-                    NMFireGun gunEvent = new(gun, Size1List, gun.bulletFireIndex, rel: false, 4);
+                    NMFireGun gunEvent = new(null, Size1List, 0, rel: false, 4);
                     Size1List[0] = null;
                     Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
                 }
-            }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
