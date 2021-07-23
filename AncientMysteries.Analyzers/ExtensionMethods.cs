@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AncientMysteries.Analyzers
+﻿namespace AncientMysteries.Analyzers
 {
     public static class ExtensionMethods
     {

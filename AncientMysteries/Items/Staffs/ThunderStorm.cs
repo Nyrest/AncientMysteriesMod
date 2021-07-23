@@ -7,7 +7,6 @@
     [MetaType(MetaType.Magic)]
     public sealed partial class Thunderstorm : AMStaff
     {
-
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
 
         public SpriteMap _spriteMap;
@@ -20,13 +19,13 @@
 
         public Thunderstorm(float xval, float yval) : base(xval, yval)
         {
-            _ammoType = new AT_CubicBlast();
             _spriteMap = this.ReadyToRunWithFrames(tex_Staff_ThunderStorm, 13, 36);
             _barrelOffsetTL = new Vec2(6, 3);
             _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2);
             _spriteMap.SetAnimation("loop");
             _castSpeed = 0.02f;
         }
+
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();

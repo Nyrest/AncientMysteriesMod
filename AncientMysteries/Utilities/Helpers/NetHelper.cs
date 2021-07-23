@@ -23,7 +23,6 @@
             if (gun != null)
             {
                 gun.bulletFireIndex++;
-
             }
             if (Network.isActive)
             {
@@ -49,12 +48,12 @@
             }
 
             if (Network.isActive)
-                {
-                    Size1List[0] = value;
-                    NMFireGun gunEvent = new(null, Size1List, 0, rel: false, 4);
-                    Size1List[0] = null;
-                    Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
-                }
+            {
+                Size1List[0] = value;
+                NMFireGun gunEvent = new(null, Size1List, 0, rel: false, 4);
+                Size1List[0] = null;
+                Send.Message(gunEvent, NetMessagePriority.ReliableOrdered);
+            }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

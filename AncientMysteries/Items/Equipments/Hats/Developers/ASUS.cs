@@ -3,7 +3,7 @@
 namespace AncientMysteries.Items
 {
     [EditorGroup(group_Equipment_Developer)]
-    [MetaImage(tex_Hat_ASUS,32,32)]
+    [MetaImage(tex_Hat_ASUS, 32, 32)]
     [MetaInfo(Lang.english, "ASUS", "Hard as rock\nExcellent Artist")]
     [MetaInfo(Lang.schinese, null, "坚若磐石\n神仙画师")]
     [MetaOrder(int.MaxValue)]
@@ -28,7 +28,7 @@ namespace AncientMysteries.Items
                     {
                         Paralyzed p = new(0, 0);
                         Level.Add(p);
-                        d.Equip(p,false);
+                        d.Equip(p, false);
                     }
                 }
                 Level.Remove(this);

@@ -44,9 +44,7 @@
 
         #endregion Guns
 
-        #region Melee
 
-        #endregion
 
         #region Equipments
 
@@ -74,11 +72,11 @@
 
         #endregion Props
 
-        #region Map Decorations 
+        #region Map Decorations
 
         public const string group_Decorations = grouptopGroupName + "|Decorations";
 
-        #endregion Props
+        #endregion Map Decorations
 
         #region Map Tools
 
@@ -88,7 +86,7 @@
 
         public const string group_MapTools_Gameplay = group_MapTools + "|Gameplay";
 
-        #endregion Props
+        #endregion Map Tools
 
         [Obsolete("Assign a valid group.", true)]
         public const string group_Unknown = grouptopGroupName + "|Error";

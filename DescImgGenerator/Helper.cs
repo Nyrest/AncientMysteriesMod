@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DescImgGenerator
+﻿namespace DescImgGenerator
 {
     public static class Helper
     {
