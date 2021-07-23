@@ -2,7 +2,7 @@
 {
     [EditorGroup(group_MapTools)]
     [MetaImage(tex_MapTools_Swirl)]
-    [MetaInfo(Lang.english, "Quad Laser Remover", "Perfect for those who wants to remove laggy things.")]
+    [MetaInfo(Lang.english, "Quad Laser 移除器", "Perfect for those who wants to remove laggy things.")]
     [MetaInfo(Lang.schinese, null, "给那些想要手动移除 QuadLaserBullet 的人的礼物")]
     [MetaType(MetaType.MapTools)]
     public partial class QuadLaserKiller : AMMapTool

@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_Equipment_Developer)]
     [MetaImage(tex_Hat_GUDZHPickup)]
-    [MetaInfo(Lang.english, "GUDZH", "Eating now... Nothing to say.\nMain Artist")]
-    [MetaInfo(Lang.schinese, null, "在吃饭。没什么好说的。\n主画师")]
+    [MetaInfo(Lang.english, "GUDZH", "Eating now... Nothing to say. 🍔🥪🥤🍜🍱\nMain Artist 🥞🍗🍰")]
+    [MetaInfo(Lang.schinese, null, "在吃饭。没什么好说的。🍔🥪🥤🍜🍱\n主画师 🥞🍗🍰")]
     [MetaOrder(int.MaxValue - 1)]
     [MetaType(MetaType.Developer)]
     public sealed partial class GUDZH : AMHelmet
