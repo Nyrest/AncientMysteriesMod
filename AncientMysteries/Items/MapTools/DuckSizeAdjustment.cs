@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace AncientMysteries.Items{
     [EditorGroup(group_MapTools)]
     [MetaImage(tex_MapTools_Swirl)]
-    [MetaInfo(Lang.english, "Duck Size Adjustment", "Allow to adjust the duck size multiplier")]
+    [MetaInfo(Lang.english, "Adjustment - Duck Size", "Allow to adjust the duck size multiplier")]
     [MetaInfo(Lang.schinese, "鸭子大小调整", "使地图制作者可以调整鸭子大小系数")]
     [MetaType(MetaType.MapTools)]
     public partial class DuckSizeAdjustment : AMMapToolGameplay
