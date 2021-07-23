@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Buffs;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Equipment_Developer)]
     [MetaImage(tex_Hat_ASUS, 32, 32)]
