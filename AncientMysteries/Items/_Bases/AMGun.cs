@@ -60,7 +60,7 @@
 
         public Vec2 GetBarrelPosition(Vec2 barrelOffsetTL)
         {
-            return barrelOffsetTL - center + _extraOffset;
+            return Offset(barrelOffsetTL - center + _extraOffset);
         }
 
         public abstract string GetLocalizedName(Lang lang);
