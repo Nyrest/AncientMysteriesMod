@@ -9,7 +9,11 @@ namespace AncientMysteries.Items
     public partial class TheSpiritOfDarkness_ThingBullet : AMThingBulletLinar
     {
         public bool _goingUp = false;
-        public TheSpiritOfDarkness_ThingBullet(Vec2 pos, Vec2 initSpeed, Duck safeDuck, bool goingUp) : base(pos, 320, 2, initSpeed, safeDuck)
+
+        public float cos = 0;
+
+        public float a = 3;
+        public TheSpiritOfDarkness_ThingBullet(Vec2 pos, Vec2 initSpeed, Duck safeDuck, bool goingUp) : base(pos, 320, int.MaxValue, initSpeed, safeDuck)
         {
             BulletTailColor = Color.Purple;
             this.ReadyToRun(tex_Bullet_TSOD);
@@ -19,8 +23,9 @@ namespace AncientMysteries.Items
         public override void Update()
         {
             base.Update();
-            if (_goingUp) y += (float)Math.Sin(2*x) * 3;
-            else y += -(float)Math.Sin(2 * x) * 3;
+            cos += 0.2f;
+            if (_goingUp) y += (float)Math.Cos(cos) * a;
+            else y += -(float)Math.Cos(cos) * a;
         }
     }
 }
