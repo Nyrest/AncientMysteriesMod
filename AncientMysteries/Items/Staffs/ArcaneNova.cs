@@ -24,7 +24,6 @@
             SetBox(14, 37);
             _barrelOffsetTL = new Vec2(6f, 5f);
             _castSpeed = 0.007f;
-            BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             _fireWait = 0.5f;
             _fireSoundPitch = 0.9f;

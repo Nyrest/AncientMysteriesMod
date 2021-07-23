@@ -78,14 +78,17 @@ namespace AncientMysteries.Items
                 BulletRemove();
             }
 
-            if (_tailQueue.Count > BulletTailMaxSegments)
+            if (BulletTail)
             {
-                _tailQueue.Dequeue();
-            }
-            else if (_tailQueue.Count < CurrentTailSegments)
-            {
-                if ((position - _tailQueue.LastOrDefault()).lengthSq >= BulletTailSegmentMinLength)
-                    _tailQueue.Enqueue(position);
+                if (_tailQueue.Count > BulletTailMaxSegments)
+                {
+                    _tailQueue.Dequeue();
+                }
+                else if (_tailQueue.Count < CurrentTailSegments)
+                {
+                    if ((position - _tailQueue.LastOrDefault()).lengthSq >= BulletTailSegmentMinLength)
+                        _tailQueue.Enqueue(position);
+                }
             }
         }
 
@@ -183,7 +186,7 @@ namespace AncientMysteries.Items
         public override void Draw()
         {
             base.Draw();
-            if (_tailQueue.Count != 0)
+            if (BulletTail && _tailQueue.Count != 0)
                 DrawTail();
         }
 

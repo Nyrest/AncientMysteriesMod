@@ -76,7 +76,7 @@
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static SpriteMap ModSpriteWithFrames(this Thing thing, string spriteMapName, int frameWidth = -1, int frameHeight = -1, bool centerOrigin = false)
+        public static SpriteMap ModSpriteWithFrames(this Thing thing, string spriteMapName, int frameWidth = -1, int frameHeight = -1, bool centerOrigin = true)
         {
             var info = GetInfo(spriteMapName);
             var result = new SpriteMap(info.texture, frameWidth == -1 ? info.frameWidth : frameWidth, frameHeight == -1 ? info.frameHeight : frameHeight);

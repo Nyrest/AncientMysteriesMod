@@ -51,11 +51,33 @@
         public override void OnHoldAction()
         {
             base.OnHoldAction();
-            if (!ShouldShoot)
+            if (bulletsBuffer is null)
             {
-                charger++;
-                if (duck != null && RumbleWaiter.Tick())
-                    RumbleManager.AddRumbleEvent(duck.profile, new RumbleEvent(RumbleIntensity.Kick, RumbleDuration.Pulse, RumbleFalloff.None));
+                if (isServerForObject)
+                {
+                    bulletsBuffer = new AntennaBullet[bulletCount]
+                    {
+                        new(position, duck, bulletAngle[0]),
+                        new(position, duck, bulletAngle[1]),
+                        new(position, duck, bulletAngle[2]),
+                        new(position, duck, bulletAngle[3]),
+                        new(position, duck, bulletAngle[4]),
+                        new(position, duck, bulletAngle[5]),
+                    };
+                    for (int i = 0; i < bulletsBuffer.Length; i++)
+                    {
+                        Level.Add(bulletsBuffer[i]);
+                    }
+                }
+            }
+            else
+            {
+                if (!ShouldShoot)
+                {
+                    charger++;
+                    if (duck != null && RumbleWaiter.Tick())
+                        RumbleManager.AddRumbleEvent(duck.profile, new RumbleEvent(RumbleIntensity.Kick, RumbleDuration.Pulse, RumbleFalloff.None));
+                }
             }
         }
 
@@ -78,23 +100,7 @@
             base.Update();
             if (held)
             {
-                if (bulletsBuffer is null)
-                {
-                    bulletsBuffer = new AntennaBullet[bulletCount]
-                    {
-                        new(position, duck, bulletAngle[0]),
-                        new(position, duck, bulletAngle[1]),
-                        new(position, duck, bulletAngle[2]),
-                        new(position, duck, bulletAngle[3]),
-                        new(position, duck, bulletAngle[4]),
-                        new(position, duck, bulletAngle[5]),
-                    };
-                    for (int i = 0; i < bulletsBuffer.Length; i++)
-                    {
-                        Level.Add(bulletsBuffer[i]);
-                    }
-                }
-
+                if (bulletsBuffer is null) return;
                 for (int i = 0; i < bulletCount; i++)
                 {
                     bulletsBuffer[i].position = position + bulletPosition[i];
