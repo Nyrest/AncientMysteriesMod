@@ -16,6 +16,7 @@
             _barrelOffsetTL = new Vec2(40f, 7f);
             BarrelSmoke.color = Color.White;
             _fireRumble = RumbleIntensity.Kick;
+            SetBarrelFlare(tex_Effect_DarkFlare);
             _fireSound = "laserRifle";
             _fireWait = 0f;
             _fireSoundPitch = 0.9f;

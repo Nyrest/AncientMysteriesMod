@@ -22,6 +22,7 @@
         public GravityAdjustment(float xpos, float ypos) : base(xpos, ypos)
         {
             this.ReadyToRun(tex_MapTools_Swirl);
+            _visibleInGame = false;
         }
 
         public override void Update()
