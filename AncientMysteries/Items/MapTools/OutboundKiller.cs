@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_MapTools_Gameplay)]
     [MetaImage(tex_MapTools_Swirl)]

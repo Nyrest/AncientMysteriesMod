@@ -22,6 +22,7 @@
             get => (byte)_spriteMap._frame;
             set => _spriteMap._frame = value;
         }
+
         public PrimordialLibram(float xval, float yval) : base(xval, yval)
         {
             _ammoType = new AT_None();

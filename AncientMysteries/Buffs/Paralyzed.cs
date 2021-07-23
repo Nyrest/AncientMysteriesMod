@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Buffs
+﻿namespace AncientMysteries.Buffs
 {
     public partial class Paralyzed : Equipment
     {
         public Waiter waiter = new(360);
+
         public Paralyzed(float xpos, float ypos) : base(xpos, ypos)
         {
-            
         }
 
         public override void Update()

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_Staffs)]
     [MetaImage(tex_Staff_AbyssalGazer)]
@@ -15,7 +9,6 @@ namespace AncientMysteries.Items
     {
         public AbyssalGazer(float xval, float yval) : base(xval, yval)
         {
-            
         }
     }
 }

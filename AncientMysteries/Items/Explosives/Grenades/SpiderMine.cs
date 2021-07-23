@@ -7,7 +7,6 @@
     [MetaType(MetaType.Throwable)]
     public sealed partial class SpiderMine : AMThrowable
     {
-
         public StateBinding _pinBinding = new("_pin");
 
         public StateBinding _armedBinding = new("_armed");

@@ -14,14 +14,12 @@
             _wingsSpriteMap.AddAnimation("idle", 1f, true, 0);
             wearOffset = new(-0.5f, -1);
             _equippedDepth = -2;
-
         }
+
         public override void Update()
         {
             base.Update();
             if (this._equippedDuck is not Duck _equippedDuck) return;
-
-
         }
 
         public override void Equip(Duck d)

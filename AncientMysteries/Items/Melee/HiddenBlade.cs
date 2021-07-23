@@ -10,6 +10,7 @@
         public StateBinding bladeOutBinding = new StateBinding(nameof(bladeOut));
 
         private bool _bladeOut;
+
         public bool bladeOut
         {
             get => _bladeOut;

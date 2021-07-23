@@ -141,7 +141,6 @@
                 thing.hSpeed = MathHelper.Lerp(thing.hSpeed, newHSpeed, lerpAmount);
                 thing.vSpeed = MathHelper.Lerp(thing.vSpeed, newVSpeed, lerpAmount);
             }
-
         }
     }
 }

@@ -10,6 +10,7 @@
         //public StateBinding _openedBinding = new StateBinding("_opened");
 
         public bool _opened = false;
+
         public Umbrella(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRunWithFrames(tex_Holdable_UmbrellaClosed);

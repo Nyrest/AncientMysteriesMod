@@ -11,6 +11,7 @@
         private static readonly FieldInfo fieldAmmoType = typeof(Gun).GetField("_ammoType", BindingFlags.Instance | BindingFlags.NonPublic);
         private static readonly FieldInfo fieldFullAuto = typeof(Gun).GetField("_fullAuto", BindingFlags.Instance | BindingFlags.NonPublic);
         public static readonly List<Gun> bindedSpawnedGuns = new();
+
         public Thingy(float xpos, float ypos) : base(xpos, ypos)
         {
             _sprite = this.ModSpriteWithFrames(tex_Hat_Devastator, 32, 32, true);

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DescImgGenerator
+﻿namespace DescImgGenerator
 {
     public record Item(LocalizedText name, LocalizedText description, SKBitmap? bitmap, int order, MetaType metaType) : IComparable<Item>
     {

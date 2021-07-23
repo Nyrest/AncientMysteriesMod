@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AncientMysteries.SourceGenerator.Generators
@@ -11,7 +8,7 @@ namespace AncientMysteries.SourceGenerator.Generators
     {
         public void Execute(GeneratorExecutionContext context)
         {
-            // retrieve the receiver 
+            // retrieve the receiver
             if (context.SyntaxContextReceiver is not LocalizationSyntaxReceiver receiver) return;
             object addSourceLock = new();
             List<(string hintName, SourceText sourceText)> sources = new(50);
@@ -42,7 +39,7 @@ namespace AncientMysteries.SourceGenerator.Generators
             }
         }
 
-        static void Build(StringBuilder sb, BuildType type, LocalizedClass localized)
+        private static void Build(StringBuilder sb, BuildType type, LocalizedClass localized)
         {
             string methodName = type switch
             {
@@ -80,7 +77,7 @@ namespace AncientMysteries.SourceGenerator.Generators
             context.RegisterForSyntaxNotifications(() => new LocalizationSyntaxReceiver());
         }
 
-        enum BuildType
+        private enum BuildType
         {
             Name,
             Description,

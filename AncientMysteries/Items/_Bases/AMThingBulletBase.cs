@@ -109,7 +109,7 @@ namespace AncientMysteries.Items
                         BulletOnHit(item);
                         return;
                     }
-                } 
+                }
             }
             if (_currentImpacting.Count != 0)
             {
@@ -122,7 +122,7 @@ namespace AncientMysteries.Items
         {
             // local only
             // do not sync
-            if(isServerForObject)
+            if (isServerForObject)
             {
                 Make.Bullet<AT_ThingBulletSimulation>(thing.position, BulletSafeDuck, angleDegrees, this);
             }
