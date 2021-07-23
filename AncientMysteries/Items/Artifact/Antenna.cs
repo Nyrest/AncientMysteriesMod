@@ -46,7 +46,7 @@
             this.ReadyToRun(tex_Holdable_Antenna).CenterOrigin();
         }
 
-        public Waiter RumbleWaiter = new Waiter(5);
+        public Waiter RumbleWaiter = new(5);
 
         public override void OnHoldAction()
         {
@@ -100,8 +100,8 @@
                     bulletsBuffer[i].position = position + bulletPosition[i];
                     bulletsBuffer[i].alpha = charger / (float)changerMax;
 
-                    float shakeOffset = 3 - 3 * (charger / (float)changerMax);
-                    Vec2 offset = new Vec2(
+                    float shakeOffset = 3 - (3 * (charger / (float)changerMax));
+                    Vec2 offset = new(
                         i < bulletCount / 2 ? Rando.Float(-shakeOffset, 0) : Rando.Float(0, shakeOffset),
                         Rando.Float(0, shakeOffset).RandomNegative());
                     bulletsBuffer[i].position += offset;

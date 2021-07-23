@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Analyzer_UnifyItemNamespace_Description" xml:space="preserve">
-    <value>Do it</value>
+    <value>Do it.</value>
   </data>
   <data name="Analyzer_UnifyItemNamespace_MessageFormat" xml:space="preserve">
     <value>Unify Item Namespace to 'AncientMysteries.Items'</value>

@@ -9,7 +9,7 @@ namespace AncientMysteries.Items
     [MetaType(MetaType.MapTools)]
     public partial class PointLight2 : AMMapTool
     {
-        private readonly List<LightOccluder> _occluders = new List<LightOccluder>();
+        private readonly List<LightOccluder> _occluders = new();
 
         public float val_LightRange = 80;
 

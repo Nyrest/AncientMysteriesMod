@@ -18,7 +18,7 @@
 
             duck.hSpeed = MathHelper.Clamp((position - duck.position).x, -maxSpeed, maxSpeed);
 
-            if (Level.CheckLine<Window>(duck.position, duck.position + new Vec2(20, 0) * duck.offDir) != null && Level.CheckLine<Block>(duck.position, duck.position + new Vec2(20, 5) * duck.offDir) == null)
+            if (Level.CheckLine<Window>(duck.position, duck.position + (new Vec2(20, 0) * duck.offDir)) != null && Level.CheckLine<Block>(duck.position, duck.position + (new Vec2(20, 5) * duck.offDir)) == null)
             {
                 duck.crouch = true;
                 duck.sliding = true;

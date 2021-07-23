@@ -180,8 +180,8 @@
                                             lightning_pos.y - 200f + Rando.Float(-r / 2, r / 2)),
                                         duck,
                                         Rando.Float(
-                                            Convert.ToSingle(80f - r / 3.5f),
-                                            Convert.ToSingle(100 + r / 3.5f)), this);
+                                            Convert.ToSingle(80f - (r / 3.5f)),
+                                            Convert.ToSingle(100 + (r / 3.5f))), this);
                                 ExplosionPart ins = new(b.travelStart.x, b.travelStart.y, true);
                                 ins.xscale *= 0.2f;
                                 ins.yscale *= 0.2f;

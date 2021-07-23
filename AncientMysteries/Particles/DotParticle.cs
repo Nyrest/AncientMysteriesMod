@@ -85,8 +85,8 @@
             position.y += vSpeed;
             position.x = Lerp.Float(position.x, targetPos.x, 0.16f);
             position.y = Lerp.Float(position.y, targetPos.y, 0.16f);
-            hSpeed *= Math.Min(1f, len / 128f + 0.25f);
-            vSpeed *= Math.Min(1f, len / 128f + 0.25f);
+            hSpeed *= Math.Min(1f, (len / 128f) + 0.25f);
+            vSpeed *= Math.Min(1f, (len / 128f) + 0.25f);
             life -= lifeFadeSpeed;
             if (life < 0f)
             {
@@ -130,7 +130,7 @@
         {
             Vec2 dir = velocity.normalized;
             float speed = velocity.length * 2f;
-            Vec2 end = position + dir * speed;
+            Vec2 end = position + (dir * speed);
             Graphics.DrawLine(col: color * alpha, p1: position, p2: end, width: 1f, depth: depth);
         }
     }
