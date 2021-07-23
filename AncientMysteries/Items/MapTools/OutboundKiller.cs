@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_MapTools_Gameplay)]
     [MetaImage(tex_MapTools_Swirl)]
-    [MetaInfo(Lang.english, "Outbound Killer", "Works well with Fixed Camera.")]
+    [MetaInfo(Lang.english, "出图即死", "Works well with Fixed Camera.")]
     [MetaInfo(Lang.schinese, null, "与固定相机完美配合。")]
     [MetaType(MetaType.MapTools)]
     public partial class OutboundKiller : AMMapToolGameplay
@@ -19,7 +17,7 @@ namespace AncientMysteries.Items
 
         public override void Update()
         {
-            if (!(Level.current is Editor))
+            if (Level.current is not Editor)
             {
                 foreach (Duck d in Level.current.things[typeof(Duck)])
                 {

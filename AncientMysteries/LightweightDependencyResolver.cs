@@ -15,6 +15,7 @@
             if (sourceRoot is null) goto DefaultBehavior;
 
             #region Search .dll
+
             try
             {
                 foreach (var dllFile in Directory.EnumerateFiles(sourceRoot, "*.dll", SearchOption.TopDirectoryOnly))
@@ -24,9 +25,11 @@
                 }
             }
             catch { }
-            #endregion
+
+            #endregion Search .dll
 
             #region Freaks
+
             try
             {
                 foreach (var dllFile in Directory.EnumerateFiles(sourceRoot, "*.*", SearchOption.TopDirectoryOnly))
@@ -36,7 +39,8 @@
                 }
             }
             catch { }
-            #endregion
+
+            #endregion Freaks
 
             bool TryLoad(string filename, out Assembly assembly)
             {

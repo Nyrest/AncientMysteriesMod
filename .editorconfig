@@ -5,3 +5,6 @@ dotnet_diagnostic.IDE1006.severity = none
 
 # CA2211: Non-constant fields should not be visible
 dotnet_diagnostic.CA2211.severity = none
+
+# IDE0057: Use range operator
+csharp_style_prefer_range_operator = false

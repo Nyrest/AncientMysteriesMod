@@ -2,15 +2,15 @@
 
 namespace AncientMysteries.Items
 {
-    public class ArcaneNova_Magic_Stage1 : AMThingBulletLinar
+    public class ArcaneNova_Magic_Stage1 : AMThingBulletCircular
     {
         public ArcaneNova_Magic_Stage1(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 275f, float.PositiveInfinity, initSpeed, safeDuck)
         {
-            var _spriteMap = tex_Bullet_NovaFrame.ModSpriteWithFrames(32, 32, true);
+            var _spriteMap = this.ReadyToRunWithFrames(tex_Bullet_NovaFrame, 32, 32);
             _spriteMap.AddAnimation("loop", 0.15f, true, 0, 1, 2, 3);
             _spriteMap.SetAnimation("loop");
-            _spriteMap.CenterOrigin();
-            graphic = _spriteMap;
+            BulletTail = false;
+            BulletRadius = 16;
         }
 
         public override void BulletRemove()

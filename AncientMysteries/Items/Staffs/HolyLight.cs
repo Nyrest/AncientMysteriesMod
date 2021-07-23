@@ -16,6 +16,7 @@
             get => (byte)_spriteMap._frame;
             set => _spriteMap._frame = value;
         }
+
         public HolyLight(float xval, float yval) : base(xval, yval)
         {
             _type = "gun";

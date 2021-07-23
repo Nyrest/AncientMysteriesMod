@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace DescImgGenerator
 {
@@ -39,7 +37,9 @@ namespace DescImgGenerator
             foreach (var groupItems in ModItems.GroupBy(x => x.metaType))
             {
                 // Draw Label
+
                 #region Draw Label
+
                 var metaType = groupItems.First().metaType;
                 x = 0;
                 if (y != 0)
@@ -47,12 +47,13 @@ namespace DescImgGenerator
                 DrawLabel(canvas, metaType, lang, SKRect.Create(x, y, canvasMaxWidth, labelHeight));
                 x = itemMargin;
                 y += labelHeight + itemMargin * 2;
-                #endregion
 
+                #endregion Draw Label
 
                 foreach (var item in groupItems.OrderBy(x => x.name.GetText(Lang.english)).OrderBy(x => x.order))
                 {
                     #region Move Y if needed
+
                     if ((x + itemWidth + itemMargin) > canvasMaxWidth)
                     {
                         x = itemMargin;
@@ -84,7 +85,7 @@ namespace DescImgGenerator
             //bottom
             canvas.DrawLine(new SKPoint(lineR.Left, lineR.Bottom), new SKPoint(lineR.Right, lineR.Bottom), labelLine);
 
-            string labelName = GetMetaTypeLabel(lang, metaType);
+            string labelName = "- " + GetMetaTypeLabel(lang, metaType) + " -";
             RichString desc = new RichString()
             {
                 DefaultStyle = labelStyle,

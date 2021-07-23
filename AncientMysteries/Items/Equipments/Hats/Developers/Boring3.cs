@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_Equipment_Developer)]
     [MetaImage(tex_Hat_Boring3Pickup)]
-    [MetaInfo(Lang.english, "Boring3", "Carrying the weight of the world\nLead Programmer")]
-    [MetaInfo(Lang.schinese, null, "承受着世界的重量\n主程序员")]
+    [MetaInfo(Lang.english, "Boring3", "Carrying the weight of the world\nMod Proposer / Lead Programmer / Translater")]
+    [MetaInfo(Lang.schinese, null, "承受着世界的重量\nMod 企划者 / 主程序员 / 翻译")]
     [MetaOrder(int.MaxValue - 3)]
     [MetaType(MetaType.Developer)]
     public sealed partial class Boring3 : AMHelmet, IPlatform
@@ -75,7 +75,7 @@
                     var spriteMap = (SpriteMap)feather_Field.GetValue(feather);
                     if (spriteMap.texture == equippedDuckFeather)
                     {
-                        var particleEnd = feather.position + -feather.velocity * 15;
+                        var particleEnd = feather.position + (-feather.velocity * 15);
 
                         for (int i2 = 0; i2 < 3; i2++)
                         {
@@ -104,8 +104,8 @@
 
             var particleEnd =
                 hitPos
-                + bullet.travelDirNormalized * bullet.bulletSpeed
-                * 3
+                + (bullet.travelDirNormalized * bullet.bulletSpeed
+                * 3)
                 + new Vec2(Rando.Float(-5f, 5f), Rando.Float(-5f, 5f));
 
             for (int i2 = 0; i2 < 3; i2++)

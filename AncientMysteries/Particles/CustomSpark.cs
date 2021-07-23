@@ -48,7 +48,7 @@
             position.x = xpos;
             position.y = ypos;
             hSpeed = (0f - hitAngle.x) * 2f * (Rando.Float(1f) + 0.3f);
-            vSpeed = (0f - hitAngle.y) * 2f * (Rando.Float(1f) + 0.3f) - Rando.Float(2f);
+            vSpeed = ((0f - hitAngle.y) * 2f * (Rando.Float(1f) + 0.3f)) - Rando.Float(2f);
             _bounceEfficiency = 0.6f;
             depth = 0.9f;
             _killSpeed = killSpeed;
@@ -68,7 +68,7 @@
         {
             Vec2 dir = velocity.normalized;
             float speed = velocity.length * 2f;
-            Vec2 end = position + dir * speed;
+            Vec2 end = position + (dir * speed);
             Block touch = Level.CheckLine<Block>(position, end, out Vec2 intersect);
             Graphics.DrawLine(position, (touch != null) ? intersect : end, _color * alpha, 0.5f, depth);
         }

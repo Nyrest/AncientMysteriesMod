@@ -34,7 +34,7 @@ namespace AncientMysteries.Bullets
                     doBreak = true;
                 }
                 alph += incs;
-                Graphics.DrawTexturedLine(_beem, drawStart + travelDirNormalized * dist, drawStart + travelDirNormalized * (dist + drawLength), Color.White * alph, _thickness, 0.6f);
+                Graphics.DrawTexturedLine(_beem, drawStart + (travelDirNormalized * dist), drawStart + (travelDirNormalized * (dist + drawLength)), Color.White * alph, _thickness, 0.6f);
                 if (doBreak)
                 {
                     break;

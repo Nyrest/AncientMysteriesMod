@@ -1,6 +1,4 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Linq;
 
 namespace AncientMysteries.Bullets
 {
@@ -36,7 +34,7 @@ namespace AncientMysteries.Bullets
                 for (int i = 0; i < num; i++)
                 {
                     Vec2 pointOnArc = GetPointOnArc(i * 8);
-                    Graphics.DrawTexturedLine(_beem, pointOnArc, p, color * (1f - (float)i / (float)num) * base.alpha, ammo.bulletThickness, 0.9f);
+                    Graphics.DrawTexturedLine(_beem, pointOnArc, p, color * (1f - ((float)i / (float)num)) * base.alpha, ammo.bulletThickness, 0.9f);
                     if (!(pointOnArc == prev.First()))
                     {
                         p = pointOnArc;
@@ -71,7 +69,7 @@ namespace AncientMysteries.Bullets
                 }
 
                 num4 += num3;
-                Graphics.DrawTexturedLine(_beem, drawStart + travelDirNormalized * num2, drawStart + travelDirNormalized * (num2 + num5), Color.White * num4, _thickness, 0.6f);
+                Graphics.DrawTexturedLine(_beem, drawStart + (travelDirNormalized * num2), drawStart + (travelDirNormalized * (num2 + num5)), Color.White * num4, _thickness, 0.6f);
                 if (!flag)
                 {
                     num2 += 8f;

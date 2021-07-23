@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_Equipment_Developer)]
     [MetaImage(tex_Hat_DevastatorPickup)]
-    [MetaInfo(Lang.english, "Ricey", "Satisfying\nMain Artist, Programmer")]
-    [MetaInfo(Lang.schinese, "米团", "爽\n主画师, 程序员")]
+    [MetaInfo(Lang.english, "Ricey", "Satisfying\nMain Artist / Programmer / Lead Translater")]
+    [MetaInfo(Lang.schinese, "米团", "爽\n主画师 / 程序员 / 主翻译")]
     [MetaOrder(int.MaxValue - 2)]
     [MetaType(MetaType.Developer)]
     public sealed partial class Thingy : AMHelmet
@@ -11,6 +11,7 @@
         private static readonly FieldInfo fieldAmmoType = typeof(Gun).GetField("_ammoType", BindingFlags.Instance | BindingFlags.NonPublic);
         private static readonly FieldInfo fieldFullAuto = typeof(Gun).GetField("_fullAuto", BindingFlags.Instance | BindingFlags.NonPublic);
         public static readonly List<Gun> bindedSpawnedGuns = new();
+
         public Thingy(float xpos, float ypos) : base(xpos, ypos)
         {
             _sprite = this.ModSpriteWithFrames(tex_Hat_Devastator, 32, 32, true);

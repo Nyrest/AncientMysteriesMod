@@ -2,14 +2,15 @@
 {
     [EditorGroup(group_Props)]
     [MetaImage(tex_Holdable_UmbrellaOpen)]
-    [MetaInfo(Lang.english, "Umbrella", "It protects you from the rain..does it have some other uses?")]
-    [MetaInfo(Lang.schinese, "雨伞", "遮风挡雨……还有什么别的功能吗？")]
+    [MetaInfo(Lang.english, "Umbrella", "It protects you from the rain..\nDoes it have some other uses?")]
+    [MetaInfo(Lang.schinese, "雨伞", "遮风挡雨……\n还有什么别的功能吗？")]
     [MetaType(MetaType.Props)]
     public partial class Umbrella : AMNotGun, IPlatform
     {
         //public StateBinding _openedBinding = new StateBinding("_opened");
 
         public bool _opened = false;
+
         public Umbrella(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRunWithFrames(tex_Holdable_UmbrellaClosed);

@@ -1,6 +1,4 @@
-﻿
-
-namespace DescImgGenerator
+﻿namespace DescImgGenerator
 {
     public enum MetaType
     {
