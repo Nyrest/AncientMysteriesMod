@@ -14,7 +14,6 @@ namespace AncientMysteries.Items
         public Duck BulletSafeDuck;
         public float BulletRange { get; init; }
         public bool BulletCanCollideWhenNotMoving { get; init; }
-        public readonly Queue<Vec2> tailQueue = new();
         public Color BulletTailColor { get; init; } = Color.White;
         public bool BulletTail { get; init; } = true;
         public float BulletTailSegmentMinLength { get; init; } = 1;
@@ -24,7 +23,9 @@ namespace AncientMysteries.Items
         public readonly float BulletPenetration;
         public Vec2 lastPosition;
 
-        public List<MaterialThing> _currentlyImpacting = new List<MaterialThing>(5);
+        public Queue<Vec2> _tailQueue;
+        public HashSet<MaterialThing> _lastImpacting;
+        public List<MaterialThing> _currentImpacting;
 
 #if DEBUG
 
@@ -40,12 +41,18 @@ namespace AncientMysteries.Items
 
         public AMThingBulletBase(Vec2 pos, float bulletRange, float bulletPenetration, Vec2 initSpeed, Duck safeDuck) : base(pos.x, pos.y)
         {
+            ThingBulletPool.InitBullet(this);
             BulletSafeDuck = safeDuck;
             BulletRange = bulletRange;
             BulletPenetration = bulletPenetration;
             speed = initSpeed;
             angle = CalcBulletAngleRadian();
             lastPosition = pos;
+        }
+
+        ~AMThingBulletBase()
+        {
+            ThingBulletPool.Recycle(this);
         }
 
         public override void Update()
@@ -71,14 +78,14 @@ namespace AncientMysteries.Items
                 BulletRemove();
             }
 
-            if (tailQueue.Count > BulletTailMaxSegments)
+            if (_tailQueue.Count > BulletTailMaxSegments)
             {
-                tailQueue.Dequeue();
+                _tailQueue.Dequeue();
             }
-            else if (tailQueue.Count < CurrentTailSegments)
+            else if (_tailQueue.Count < CurrentTailSegments)
             {
-                if ((position - tailQueue.LastOrDefault()).lengthSq >= BulletTailSegmentMinLength)
-                    tailQueue.Enqueue(position);
+                if ((position - _tailQueue.LastOrDefault()).lengthSq >= BulletTailSegmentMinLength)
+                    _tailQueue.Enqueue(position);
             }
         }
 
@@ -90,6 +97,11 @@ namespace AncientMysteries.Items
                 {
                     item.Destroy(new DT_ThingBullet(this));
                 }
+                if (_lastImpacting.Add(item))
+                {
+                    LegacyImpact(item);
+                    _currentImpacting.Add(item);
+                }
                 if (item.thickness > BulletPenetration && item is not Teleporter)
                 {
                     if (BulletCanHit(item))
@@ -97,7 +109,22 @@ namespace AncientMysteries.Items
                         BulletOnHit(item);
                         return;
                     }
-                }
+                } 
+            }
+            if (_currentImpacting.Count != 0)
+            {
+                _lastImpacting.RemoveWhere(x => !_currentImpacting.Contains(x));
+                _currentImpacting.RemoveAll(x => !_lastImpacting.Contains(x));
+            }
+        }
+
+        public virtual void LegacyImpact(MaterialThing thing)
+        {
+            // local only
+            // do not sync
+            if(isServerForObject)
+            {
+                Make.Bullet<AT_ThingBulletSimulation>(thing.position, BulletSafeDuck, angleDegrees, this);
             }
         }
 
@@ -156,16 +183,16 @@ namespace AncientMysteries.Items
         public override void Draw()
         {
             base.Draw();
-            if (tailQueue.Count != 0)
+            if (_tailQueue.Count != 0)
                 DrawTail();
         }
 
         public virtual void DrawTail()
         {
-            int count = tailQueue.Count;
+            int count = _tailQueue.Count;
             Vec2 lastPos = position;
             int cur = count;
-            foreach (var pos in tailQueue.Reverse())
+            foreach (var pos in _tailQueue.Reverse())
             {
                 float alpha = (cur--) / (float)count;
                 //Graphics.DrawRect(new Rectangle(pos.x, pos.y, 2, 2), Color.Red);
