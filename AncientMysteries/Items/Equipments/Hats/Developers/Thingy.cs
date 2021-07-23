@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_Equipment_Developer)]
     [MetaImage(tex_Hat_DevastatorPickup)]
-    [MetaInfo(Lang.english, "Ricey", "Satisfying\nMain Artist, Programmer")]
-    [MetaInfo(Lang.schinese, "米团", "爽\n主画师, 程序员")]
+    [MetaInfo(Lang.english, "Ricey", "Satisfying\nMain Artist / Programmer / Lead Translater")]
+    [MetaInfo(Lang.schinese, "米团", "爽\n主画师 / 程序员 / 主翻译")]
     [MetaOrder(int.MaxValue - 2)]
     [MetaType(MetaType.Developer)]
     public sealed partial class Thingy : AMHelmet
