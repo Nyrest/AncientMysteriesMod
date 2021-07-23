@@ -20,24 +20,22 @@
             SFX.Play("explode");
             Vec2 bPos = pos;
             bPos -= travelDirNormalized;
-            if (isLocal)
+
+            NetHelper.NmFireGun(null, list =>
             {
-                NetHelper.NmFireGun(null, list =>
+                for (int i = 0; i < 24; i++)
                 {
-                    for (int i = 0; i < 24; i++)
-                    {
-                        float dir = i * 30f - 10f + Rando.Float(20f);
-                        Bullet bullet = Make.Bullet<ATGrenadeLauncherShrapnel>(bPos, owner, dir, this);
-                        list.Add(bullet);
-                    }
-                });
-                IEnumerable<Window> windows = Level.CheckCircleAll<Window>(position, 20f);
-                foreach (Window w in windows)
+                    float dir = i * 30f - 10f + Rando.Float(20f);
+                    Bullet bullet = Make.Bullet<ATGrenadeLauncherShrapnel>(bPos, owner, dir, this);
+                    list.Add(bullet);
+                }
+            });
+            IEnumerable<Window> windows = Level.CheckCircleAll<Window>(position, 20f);
+            foreach (Window w in windows)
+            {
+                if (Level.CheckLine<Block>(position, w.position, w) == null)
                 {
-                    if (Level.CheckLine<Block>(position, w.position, w) == null)
-                    {
-                        w.Destroy(new DTImpact(this));
-                    }
+                    w.Destroy(new DTImpact(this));
                 }
             }
         }

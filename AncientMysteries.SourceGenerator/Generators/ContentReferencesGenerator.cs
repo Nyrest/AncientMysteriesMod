@@ -38,14 +38,14 @@ namespace AncientMysteries.SourceGenerator.Generators
                                     break;
                             }
                             fieldName = GetFieldName(prefix_Texture, filename);
-                            allTexturesBuilder.Append($"\n{Tab(2)}{fieldName},");
+                            allTexturesBuilder.Append($"\n{Tab(3)}{fieldName},");
                             textureCount++;
                             break;
                         }
                     case ".wav":
                         {
                             fieldName = GetFieldName(prefix_Sound, filename);
-                            allSoundsBuilder.Append($"\n{Tab(2)}{fieldName},");
+                            allSoundsBuilder.Append($"\n{Tab(3)}{fieldName},");
                             soundCount++;
                             break;
                         }
