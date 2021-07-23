@@ -142,7 +142,7 @@ namespace AncientMysteries.Analyzers.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do it.
+        ///   Looks up a localized string similar to Do it..
         /// </summary>
         internal static string Analyzer_UnifyItemNamespace_Description {
             get {

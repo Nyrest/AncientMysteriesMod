@@ -19,8 +19,8 @@
             }
             float num = l < 0.5f
                 ? (l * (1f + s))
-                : (l + s - s * l);
-            float v = 2f * l - num;
+                : (l + s - (s * l));
+            float v = (2f * l) - num;
             float red = HueToRgb(v, num, h + 0.333333334f);
             float green = HueToRgb(v, num, h);
             float blue = HueToRgb(v, num, h - 0.333333334f);
@@ -35,11 +35,11 @@
             else if (vH > 1f)
                 vH -= 1f;
             return 6f * vH < 1f
-                ? v1 + (v2 - v1) * 6f * vH
+                ? v1 + ((v2 - v1) * 6f * vH)
                 : 2f * vH < 1f
                 ? v2
                 : 3f * vH < 2f
-                ? v1 + (v2 - v1) * (2 / 3f - vH) * 6f
+                ? v1 + ((v2 - v1) * ((2 / 3f) - vH) * 6f)
                 : v1;
         }
     }

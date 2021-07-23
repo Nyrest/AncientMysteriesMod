@@ -187,8 +187,8 @@
                 Vec2 colSizeTall = new(4f, 14f);
                 Vec2 colOffsetTall = new(-2f, -7f);
                 float norm = (float)Math.Abs(Math.Sin(angle));
-                collisionSize = colSizeWide * (1f - norm) + colSizeTall * norm;
-                collisionOffset = colOffsetWide * (1f - norm) + colOffsetTall * norm;
+                collisionSize = (colSizeWide * (1f - norm)) + (colSizeTall * norm);
+                collisionOffset = (colOffsetWide * (1f - norm)) + (colOffsetTall * norm);
                 prevAngle = angle;
             }
             UpdatePinState();
@@ -335,7 +335,7 @@
                 if (p != this)
                 {
                     Vec2 dir2 = p.position - position;
-                    float mul = 1f - Math.Min(dir2.length, 22f) / 22f;
+                    float mul = 1f - (Math.Min(dir2.length, 22f) / 22f);
                     float len = mul * 4f;
                     dir2.Normalize();
                     p.hSpeed += len * dir2.x;
@@ -349,7 +349,7 @@
             var firedBullets = new List<Bullet>(20);
             for (int i = 0; i < 20; i++)
             {
-                float dir = i * 18f - 5f + Rando.Float(10f);
+                float dir = (i * 18f) - 5f + Rando.Float(10f);
                 ATShrapnel shrap = new()
                 {
                     range = 60f + Rando.Float(18f)
@@ -392,7 +392,7 @@
                 }
                 for (int i = 0; i < num; i++)
                 {
-                    float dir = i * 60f + Rando.Float(-10f, 10f);
+                    float dir = (i * 60f) + Rando.Float(-10f, 10f);
                     float dist = Rando.Float(12f, 20f);
                     ExplosionPart ins = new(cx + (float)(Math.Cos(Maths.DegToRad(dir)) * dist), cy - (float)(Math.Sin(Maths.DegToRad(dir)) * dist));
                     Level.Add(ins);
@@ -425,7 +425,7 @@
             base.Draw();
             if (IsTargetVaild && duck?.profile.localPlayer == true)
             {
-                var start = topLeft + graphic.center * graphic.scale;
+                var start = topLeft + (graphic.center * graphic.scale);
                 float fontWidth = BiosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
                 BiosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
                 Graphics.DrawLine(start, _targetPlayer.position, Color.White, duck is null ? 0.6f : 1f, 1);

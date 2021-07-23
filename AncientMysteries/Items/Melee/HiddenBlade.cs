@@ -7,7 +7,7 @@
     [MetaType(MetaType.Melee)]
     public partial class HiddenBlade : AMHoldable
     {
-        public StateBinding bladeOutBinding = new StateBinding(nameof(bladeOut));
+        public StateBinding bladeOutBinding = new(nameof(bladeOut));
 
         private bool _bladeOut;
 

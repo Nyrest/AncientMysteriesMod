@@ -166,7 +166,7 @@
                 {
                     return _angle;
                 }
-                return base.angle + (_swing + _hold) * offDir;
+                return base.angle + ((_swing + _hold) * offDir);
             }
             set
             {
@@ -184,13 +184,13 @@
             {
                 if (owner == null)
                 {
-                    return position - (Offset(barrelOffset) - position).normalized * 6f;
+                    return position - ((Offset(barrelOffset) - position).normalized * 6f);
                 }
                 if (_slamStance)
                 {
-                    return position + (Offset(barrelOffset) - position).normalized * 12f;
+                    return position + ((Offset(barrelOffset) - position).normalized * 12f);
                 }
-                return position + (Offset(barrelOffset) - position).normalized * 2f;
+                return position + ((Offset(barrelOffset) - position).normalized * 2f);
             }
         }
 
@@ -258,7 +258,7 @@
         {
             if (pTaped.gun1 != null && pTaped.gun2 != null)
             {
-                angleDegrees = pTaped.angleDegrees - 90 * offDir;
+                angleDegrees = pTaped.angleDegrees - (90 * offDir);
             }
             if (tapedCompatriot is Gun)
             {
@@ -390,11 +390,11 @@
         {
             if (hSpeed > 0f)
             {
-                _throwSpin += (Math.Abs(hSpeed) + Math.Abs(vSpeed)) * 2f + 4f;
+                _throwSpin += ((Math.Abs(hSpeed) + Math.Abs(vSpeed)) * 2f) + 4f;
             }
             else
             {
-                _throwSpin -= (Math.Abs(hSpeed) + Math.Abs(vSpeed)) * 2f + 4f;
+                _throwSpin -= ((Math.Abs(hSpeed) + Math.Abs(vSpeed)) * 2f) + 4f;
             }
         }
 
@@ -919,7 +919,7 @@
                     {
                         ignore = duck.GetEquipment(typeof(Helmet));
                     }
-                    Vec2 barrel = barrelPosition + barrelVector * 3f;
+                    Vec2 barrel = barrelPosition + (barrelVector * 3f);
                     Vec2 p3 = new((position.x < barrel.x) ? position.x : barrel.x, (position.y < barrel.y) ? position.y : barrel.y);
                     Vec2 p2 = new((position.x > barrel.x) ? position.x : barrel.x, (position.y > barrel.y) ? position.y : barrel.y);
                     QuadLaserBullet laserHit = Level.CheckRect<QuadLaserBullet>(p3, p2);

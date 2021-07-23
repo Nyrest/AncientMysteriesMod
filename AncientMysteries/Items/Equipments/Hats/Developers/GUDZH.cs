@@ -34,7 +34,7 @@
                 }
                 this.scale = new Vec2(scale);
                 float w = 18 * scale, h = 18 * scale;
-                this.collisionOffset = -(new Vec2(w / 2, h / 2)) + new Vec2(2.5f, 5) * scale;
+                this.collisionOffset = -(new Vec2(w / 2, h / 2)) + (new Vec2(2.5f, 5) * scale);
                 this.collisionSize = new Vec2(w, h);
             }
         }

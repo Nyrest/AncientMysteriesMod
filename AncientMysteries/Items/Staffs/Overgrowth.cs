@@ -44,7 +44,7 @@
         public override void Update()
         {
             base.Update();
-            _castSpeed = 0.0045f + 0.0009f * times;
+            _castSpeed = 0.0045f + (0.0009f * times);
 #if DEBUG
             _castSpeed = 1f;
 #endif
@@ -92,7 +92,7 @@
             if (times < 10 && _castTime >= 1f)
             {
                 times++;
-                SFX.PlaySynchronized("scoreDing", 0.5f, Convert.ToSingle(-0.3 + times * 0.03f), 0, false);
+                SFX.PlaySynchronized("scoreDing", 0.5f, Convert.ToSingle(-0.3 + (times * 0.03f)), 0, false);
             }
         }
 

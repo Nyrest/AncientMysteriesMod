@@ -75,7 +75,7 @@
                     var spriteMap = (SpriteMap)feather_Field.GetValue(feather);
                     if (spriteMap.texture == equippedDuckFeather)
                     {
-                        var particleEnd = feather.position + -feather.velocity * 15;
+                        var particleEnd = feather.position + (-feather.velocity * 15);
 
                         for (int i2 = 0; i2 < 3; i2++)
                         {
@@ -104,8 +104,8 @@
 
             var particleEnd =
                 hitPos
-                + bullet.travelDirNormalized * bullet.bulletSpeed
-                * 3
+                + (bullet.travelDirNormalized * bullet.bulletSpeed
+                * 3)
                 + new Vec2(Rando.Float(-5f, 5f), Rando.Float(-5f, 5f));
 
             for (int i2 = 0; i2 < 3; i2++)

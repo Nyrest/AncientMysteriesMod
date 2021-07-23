@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AncientMysteries.Items{
+namespace AncientMysteries.Items
+{
     [EditorGroup(group_MapTools)]
     [MetaImage(tex_MapTools_Swirl)]
     [MetaInfo(Lang.english, "Adjustment - Duck Size", "Allow to adjust the duck size multiplier")]

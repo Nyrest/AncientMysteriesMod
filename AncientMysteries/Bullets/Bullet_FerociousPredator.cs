@@ -25,7 +25,7 @@
             {
                 for (int i = 0; i < 24; i++)
                 {
-                    float dir = i * 30f - 10f + Rando.Float(20f);
+                    float dir = (i * 30f) - 10f + Rando.Float(20f);
                     Bullet bullet = Make.Bullet<ATGrenadeLauncherShrapnel>(bPos, owner, dir, this);
                     list.Add(bullet);
                 }

@@ -7,13 +7,13 @@
     [MetaType(MetaType.MapTools)]
     public partial class QuadLaserKiller : AMMapTool
     {
-        public EditorProperty<float> Width = new EditorProperty<float>(100, null, 20f, 1000f, 1f)
+        public EditorProperty<float> Width = new(100, null, 20f, 1000f, 1f)
         {
             name = "Width",
             _tooltip = "Width of the QuadLazerBullet Removing Zone"
         };
 
-        public EditorProperty<float> Height = new EditorProperty<float>(100, null, 20f, 1000f, 1f)
+        public EditorProperty<float> Height = new(100, null, 20f, 1000f, 1f)
         {
             name = "Height",
             _tooltip = "Height of the QuadLazerBullet Removing Zone"
