@@ -58,6 +58,11 @@
             _flare.centerx = 0;
         }
 
+        public Vec2 GetBarrelPosition(Vec2 barrelOffsetTL)
+        {
+            return barrelOffsetTL - center + _extraOffset;
+        }
+
         public abstract string GetLocalizedName(Lang lang);
 
         public abstract string GetLocalizedDescription(Lang lang);
