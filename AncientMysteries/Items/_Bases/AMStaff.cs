@@ -26,13 +26,9 @@
 
         public bool _doPose = true;
 
-        public bool IsSpelling
-        {
-            get
-            {
-                return _castTime != 0f;
-            }
-        }
+        public bool IsSpelling => _castTime != 0f;
+
+        public bool IsSpellingCompleted => _castTime == 1f;
 
         public AMStaff(float xval, float yval) : base(xval, yval)
         {
@@ -100,14 +96,18 @@
             if (_doPose)
             {
                 handAngle = offDir * MathHelper.Lerp(_holdAngle, _fireAngle, _castTime);
-                OnSpelling();
             }
             else handAngle = 0;
 
-            if (castingParticlesEnabled)
+            if(IsSpelling)
             {
-                DoCastingParticles();
+                OnSpelling();
+                if (castingParticlesEnabled)
+                {
+                    DoCastingParticles();
+                }
             }
+
             if (drawProgressBar)
                 UpdateProgressStyle();
         }

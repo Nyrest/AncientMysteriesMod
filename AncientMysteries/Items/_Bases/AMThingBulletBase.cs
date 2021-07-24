@@ -203,5 +203,11 @@ namespace AncientMysteries.Items
                 lastPos = pos;
             }
         }
+
+        public virtual void GoTo(Thing thing) => GoTo(thing.position);
+        public virtual void GoTo(Vec2 pos)
+        {
+            
+        }
     }
 }

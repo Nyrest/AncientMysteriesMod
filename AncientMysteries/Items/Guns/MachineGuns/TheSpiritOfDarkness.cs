@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_Guns_MachineGuns)]
     [MetaImage(tex_Gun_TheSpiritOfDarkness)]
-    [MetaInfo(Lang.english, "The Spirit Of Darkness", "The ")]
-    [MetaInfo(Lang.schinese, "", "")]
+    [MetaInfo(Lang.english, "The Spirit Of Darkness", "The twins accompanying. Not ever wither.")]
+    [MetaInfo(Lang.schinese, "黑暗之灵", "双生随伴，永不凋零。")]
     [MetaType(MetaType.Gun)]
     public partial class TheSpiritOfDarkness : AMGun
     {
