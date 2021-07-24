@@ -31,21 +31,24 @@
         public static void Recycle(AMThingBulletBase bullet)
         {
             if (bullet._lastImpacting.Count > 20) return;
-            if ((uint)_size < (uint)_array.Length)
+            lock (_array)
             {
-                _array[_size++] = new ThingBulletCache(bullet._tailQueue, bullet._lastImpacting, bullet._currentImpacting);
-            }
-            else
-            {
-                ResizeThenRecycle(bullet);
-            }
-            bullet._tailQueue = null;
-            bullet._lastImpacting = null;
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            static void ResizeThenRecycle(AMThingBulletBase bullet)
-            {
-                Array.Resize(ref _array, 2 * _array.Length);
-                _array[_size++] = new ThingBulletCache(bullet._tailQueue, bullet._lastImpacting, bullet._currentImpacting);
+                if ((uint)_size < (uint)_array.Length)
+                {
+                    _array[_size++] = new ThingBulletCache(bullet._tailQueue, bullet._lastImpacting, bullet._currentImpacting);
+                }
+                else
+                {
+                    ResizeThenRecycle(bullet);
+                }
+                bullet._tailQueue = null;
+                bullet._lastImpacting = null;
+                [MethodImpl(MethodImplOptions.NoInlining)]
+                static void ResizeThenRecycle(AMThingBulletBase bullet)
+                {
+                    Array.Resize(ref _array, 2 * _array.Length);
+                    _array[_size++] = new ThingBulletCache(bullet._tailQueue, bullet._lastImpacting, bullet._currentImpacting);
+                }
             }
         }
 
