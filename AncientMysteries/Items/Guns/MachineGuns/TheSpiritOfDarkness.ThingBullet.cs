@@ -19,14 +19,15 @@ namespace AncientMysteries.Items
             this.ReadyToRun(tex_Bullet_TSOD);
             _goingUp = goingUp;
             BulletTailMaxSegments = 10;
+            BulletCanCollideWhenNotMoving = true;
         }
 
         public override void Update()
         {
-            base.Update();
             cosInput += 0.2f;
             if (_goingUp) y += (float)Math.Cos(cosInput) * amplitude;
             else y += -(float)Math.Cos(cosInput) * amplitude;
+            base.Update();
         }
     }
 }
