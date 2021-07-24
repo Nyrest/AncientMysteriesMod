@@ -96,13 +96,17 @@
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Sprite ReadyToRun(this Thing thing, string spriteMapName)
+        public static Sprite ReadyToRun(this Thing thing, string spriteMapName, bool centerOrigin = true)
         {
             var info = GetInfo(spriteMapName);
             int w = info.frameWidth, h = info.frameHeight;
             thing.collisionOffset = -(thing.center = new Vec2(w / 2, h / 2));
             thing.collisionSize = new Vec2(w, h);
-            return thing.graphic = new Sprite(info.texture, w, h);
+            Sprite result;
+            result = thing.graphic = new Sprite(info.texture, w, h);
+            if (centerOrigin)
+                result.CenterOrigin();
+            return result;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
