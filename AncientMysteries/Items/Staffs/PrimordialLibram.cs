@@ -25,7 +25,6 @@
 
         public PrimordialLibram(float xval, float yval) : base(xval, yval)
         {
-            _ammoType = new AT_None();
             _type = "gun";
             _spriteMap = this.ReadyToRunWithFrames(tex_Staff_PrimordialSpellbook, 21, 14);
             SetBox(21, 14);

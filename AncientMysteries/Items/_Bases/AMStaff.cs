@@ -34,11 +34,6 @@
             }
         }
 
-#if DEBUG
-        [Obsolete("It's useless to set AmmoType for Staff", true)]
-        public new object _ammoType;
-#endif
-
         public AMStaff(float xval, float yval) : base(xval, yval)
         {
             base._ammoType = new AT_None();
