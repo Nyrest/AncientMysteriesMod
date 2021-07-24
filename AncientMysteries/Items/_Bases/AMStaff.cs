@@ -97,12 +97,13 @@
             {
                 _castWaitVal = 0;
             }
-            if (duck != null)
+            if (_doPose)
             {
-                if (_doPose)
-                    handAngle = offDir * MathHelper.Lerp(_holdAngle, _fireAngle, _castTime);
-                else handAngle = 0;
+                handAngle = offDir * MathHelper.Lerp(_holdAngle, _fireAngle, _castTime);
+                OnSpelling();
             }
+            else handAngle = 0;
+
             if (castingParticlesEnabled)
             {
                 DoCastingParticles();

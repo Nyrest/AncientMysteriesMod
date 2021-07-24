@@ -28,11 +28,6 @@
             _flare.color = Color.Transparent;
             castingParticlesEnabled = true;
             castingParticlesColor = Color.Yellow;
-
-            _fireWait = 0.5f;
-            _fireSoundPitch = 0.9f;
-            _kickForce = 0.25f;
-            _fullAuto = true;
         }
 
         public override void OnSpelling()
