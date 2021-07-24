@@ -10,22 +10,23 @@ namespace AncientMysteries.Items
     {
         public bool _goingUp = false;
 
-        public float cos = 0;
+        public float cosInput = 0;
 
-        public float a = 3;
+        public float amplitude = 3;
         public TheSpiritOfDarkness_ThingBullet(Vec2 pos, Vec2 initSpeed, Duck safeDuck, bool goingUp) : base(pos, 320, int.MaxValue, initSpeed, safeDuck)
         {
             BulletTailColor = Color.Purple;
             this.ReadyToRun(tex_Bullet_TSOD);
             _goingUp = goingUp;
+            BulletTailMaxSegments = 10;
         }
 
         public override void Update()
         {
             base.Update();
-            cos += 0.2f;
-            if (_goingUp) y += (float)Math.Cos(cos) * a;
-            else y += -(float)Math.Cos(cos) * a;
+            cosInput += 0.2f;
+            if (_goingUp) y += (float)Math.Cos(cosInput) * amplitude;
+            else y += -(float)Math.Cos(cosInput) * amplitude;
         }
     }
 }

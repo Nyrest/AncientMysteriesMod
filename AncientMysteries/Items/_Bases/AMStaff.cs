@@ -34,9 +34,14 @@
             }
         }
 
+#if DEBUG
+        [Obsolete("It's useless to set AmmoType for Staff", true)]
+        public new object _ammoType;
+#endif
+
         public AMStaff(float xval, float yval) : base(xval, yval)
         {
-            _ammoType = new AT_None();
+            base._ammoType = new AT_None();
             _type = "gun";
             ammo = 4;
             _flare.color = Color.Transparent;
