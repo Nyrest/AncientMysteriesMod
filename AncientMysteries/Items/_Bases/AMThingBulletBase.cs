@@ -37,7 +37,7 @@ namespace AncientMysteries.Items
 
 #endif
 
-        public bool IsMoving => speed != Vec2.Zero;
+        public virtual bool IsMoving => speed != Vec2.Zero;
 
         public AMThingBulletBase(Vec2 pos, float bulletRange, float bulletPenetration, Vec2 initSpeed, Duck safeDuck) : base(pos.x, pos.y)
         {

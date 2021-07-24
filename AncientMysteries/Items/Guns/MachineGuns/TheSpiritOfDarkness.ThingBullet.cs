@@ -13,20 +13,30 @@ namespace AncientMysteries.Items
         public float cosInput = 0;
 
         public float amplitude = 3;
-        public TheSpiritOfDarkness_ThingBullet(Vec2 pos, Vec2 initSpeed, Duck safeDuck, bool goingUp) : base(pos, 320, int.MaxValue, initSpeed, safeDuck)
+        public float fireAngleRadius;
+        public StateBinding fireAngleBinding = new(nameof(fireAngleRadius));
+
+        public override bool IsMoving => true;
+
+        public TheSpiritOfDarkness_ThingBullet(Vec2 pos, Duck safeDuck, bool goingUp, float fireAngleRadius) : base(pos, 820, int.MaxValue, Vec2.Zero, safeDuck)
         {
             BulletTailColor = Color.Purple;
             this.ReadyToRun(tex_Bullet_TSOD);
             _goingUp = goingUp;
             BulletTailMaxSegments = 10;
             BulletCanCollideWhenNotMoving = true;
+            this.fireAngleRadius = fireAngleRadius;
         }
 
         public override void Update()
         {
             cosInput += 0.2f;
-            if (_goingUp) y += (float)Math.Cos(cosInput) * amplitude;
-            else y += -(float)Math.Cos(cosInput) * amplitude;
+            float offset = (float)Math.Cos(cosInput) * amplitude;
+            var offsetVec = new Vec2(3, _goingUp ? offset : -offset);
+            speed = offsetVec.Rotate(fireAngleRadius, Vec2.Zero);
+            speed.y *= -1;
+            //if (_goingUp) y += (float)Math.Cos(cosInput) * amplitude;
+            //else y += -(float)Math.Cos(cosInput) * amplitude;
             base.Update();
         }
 
