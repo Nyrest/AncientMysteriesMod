@@ -24,8 +24,9 @@
         {
             if (_wait != 0) return;
             _wait = _fireWait;
-            TheSpiritOfDarkness_ThingBullet b1 = new(GetBarrelPosition(new Vec2(27, 11)), GetBulletVecDeg(owner.FaceAngleDegressLeftOrRight(), 3), duck, true);
-            TheSpiritOfDarkness_ThingBullet b2 = new(GetBarrelPosition(new Vec2(27, 11)), GetBulletVecDeg(owner.FaceAngleDegressLeftOrRight(), 3), duck, false);
+            var barrelAngleRad = this.barrelAngle;
+            TheSpiritOfDarkness_ThingBullet b1 = new(GetBarrelPosition(new Vec2(27, 11)), duck, true, barrelAngleRad);
+            TheSpiritOfDarkness_ThingBullet b2 = new(GetBarrelPosition(new Vec2(27, 11)), duck, false, barrelAngleRad);
             Level.Add(b1);
             Level.Add(b2);
             SFX.PlaySynchronized("laserRifle", 1, -0.5f);
