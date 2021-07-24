@@ -18,7 +18,7 @@ namespace AncientMysteries.Items
 
         public override bool IsMoving => true;
 
-        public TheSpiritOfDarkness_ThingBullet(Vec2 pos, Duck safeDuck, bool goingUp, float fireAngleRadius) : base(pos, 820, int.MaxValue, Vec2.Zero, safeDuck)
+        public TheSpiritOfDarkness_ThingBullet(Vec2 pos, Duck safeDuck, bool goingUp, float fireAngleRadius) : base(pos, 320, int.MaxValue, Vec2.Zero, safeDuck)
         {
             BulletTailColor = Color.Purple;
             this.ReadyToRun(tex_Bullet_TSOD);
@@ -43,6 +43,9 @@ namespace AncientMysteries.Items
         public override void BulletRemove()
         {
             base.BulletRemove();
+            ExplosionPart exp = new(x, y);
+            Level.Add(exp);
+            SFX.PlaySynchronized("explode",1,0.2f);
         }
     }
 }
