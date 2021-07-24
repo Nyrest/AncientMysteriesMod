@@ -29,5 +29,10 @@ namespace AncientMysteries.Items
             else y += -(float)Math.Cos(cosInput) * amplitude;
             base.Update();
         }
+
+        public override void BulletRemove()
+        {
+            base.BulletRemove();
+        }
     }
 }
