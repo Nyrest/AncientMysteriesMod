@@ -58,7 +58,7 @@
         public const int totalFireBallCount = 6;
         public bool cast_FireBall = false;
         public int currentFireBallCount = 0;
-        public Waiter fireBallWaiter = new Waiter(25).TickToEnd();
+        public Waiter fireBallWaiter = new Waiter(30).TickToEnd();
 
         public void FireBallUpdate()
         {
@@ -98,7 +98,7 @@
         public bool cast_Icicle = false;
         public int currentIcicleCount = 0;
         public Vec2 icicle_pos;
-        public Waiter icicleWaiter = new Waiter(6).TickToEnd();
+        public Waiter icicleWaiter = new Waiter(7).TickToEnd();
 
         public void IcicleUpdate()
         {
@@ -142,7 +142,7 @@
         {
             this.NmFireGun(list =>
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 4; i++)
                 {
                     PrimordialLibram_ThingBullet_Flower b = new(barrelPosition, GetBulletVecDeg((duck.offDir == 1 ? 0 : 180) + Rando.Float(-15, 15), Rando.Float(3, 5)), duck);
                     Level.Add(b);
@@ -154,7 +154,7 @@
 
         #region Lightning
 
-        public const int totalLightningCount = 25;
+        public const int totalLightningCount = 20;
         public bool cast_Lightning = false;
         public int currentLightningCount = 0;
         public Vec2 lightning_pos;
