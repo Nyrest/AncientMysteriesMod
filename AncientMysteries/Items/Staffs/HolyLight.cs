@@ -23,7 +23,7 @@
             _spriteMap = this.ReadyToRunWithFrames(tex_Staff_HolyLight, 15, 37);
             SetBox(15, 37);
             _barrelOffsetTL = new Vec2(6f, 5f);
-            _castSpeed = 0.012f;
+            _castSpeed = 0.01f;
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             castingParticlesEnabled = true;

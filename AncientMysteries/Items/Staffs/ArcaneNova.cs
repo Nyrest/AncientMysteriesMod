@@ -23,7 +23,7 @@
             _spriteMap = this.ReadyToRunWithFrames(tex_Staff_ArcaneNova, 14, 37);
             SetBox(14, 37);
             _barrelOffsetTL = new Vec2(6f, 5f);
-            _castSpeed = 0.007f;
+            _castSpeed = 0.005f;
             _fireWait = 0.5f;
         }
 

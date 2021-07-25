@@ -18,7 +18,7 @@ namespace AncientMysteries.Items{
         public override void Update()
         {
             base.Update();
-            alpha -= 0.03f;
+            alpha -= 0.06f;
             if(alpha<=0)
             {
                 Level.Remove(this);

@@ -11,6 +11,7 @@
 
         public SpriteMap _spriteMap;
 
+        public Waiter waiter = new(2);
         public byte AnimationFrame
         {
             get => (byte)_spriteMap._frame;
@@ -48,7 +49,7 @@
             Graphics.material = null;
             if (IsSpelling)
             {
-                if (_castTime > 0.5f)
+                if (_castTime > 0.5f && waiter.Tick())
                 {
                     Vec2 barrelPos = barrelPosition;
                     int count = Rando.Int(1, 2);

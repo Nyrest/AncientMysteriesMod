@@ -30,24 +30,19 @@
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
-            int r = Rando.Int(3, 5);
-            int count = _castTime >= 0.95f ? r : 1;
-            float speed = _castTime >= 0.95f ? Rando.Float(3, 5) : Rando.Float(1, 2);
+            int r = Rando.Int(2, 4);
+            float speed = Rando.Float(2, 4);
             if (_castTime >= 0.95f)
             {
                 SFX.Play("sniper", 0.9f, -0.4f);
-            }
-            else
-            {
-                SFX.Play("shotgunFire2", 0.7f, 0.9f);
-            }
-            for (int i = 0; i < count; i++)
-            {
-                ThunderStorm_ThingBullet bullet = new(
-                    firePos,
-                    GetBulletVecDeg(owner.FaceAngleDegressLeftOrRight() + Rando.Float(-10, 10), speed, 0.5f, 1f),
-                    duck);
-                Level.Add(bullet);
+                for (int i = 0; i < r; i++)
+                {
+                    ThunderStorm_ThingBullet bullet = new(
+                        firePos,
+                        GetBulletVecDeg(owner.FaceAngleDegressLeftOrRight() + Rando.Float(-10, 10), speed, 0.5f, 1f),
+                        duck);
+                    Level.Add(bullet);
+                }
             }
         }
     }
