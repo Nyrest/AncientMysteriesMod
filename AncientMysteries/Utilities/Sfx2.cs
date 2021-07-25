@@ -8,6 +8,13 @@
             return Play(fullName, vol, pitch, pan, looped);
         }
 
+        public static Sound PlayModSynchronized(string sound, float vol = 1, float pitch = 0, float pan = 0, bool looped = false)
+        {
+            string fullName = Mod.GetPath<AncientMysteriesMod>(sound);
+            return PlaySynchronized(fullName, vol, pitch, pan, looped);
+        }
+
+
         public static Sound Play(int sound, float vol = 1, float pitch = 0, float pan = 0, bool looped = false) =>
             DuckGame.SFX.Play(sound, vol, pitch, pan, looped);
 
