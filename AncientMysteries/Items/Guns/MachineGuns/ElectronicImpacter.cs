@@ -16,7 +16,7 @@
             _flare.color = Color.Transparent;
             BarrelSmokeFuckOff();
             _fireRumble = RumbleIntensity.Kick;
-            _barrelOffsetTL = new Vec2(24f, 5f);
+            _barrelOffsetTL = new Vec2(35f, 10f);
             _fireSound = "laserRifle";
             _fireSoundPitch = 0.9f;
             _fireWait = 0.9f;
