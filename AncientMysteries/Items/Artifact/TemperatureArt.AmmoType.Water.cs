@@ -30,10 +30,14 @@ namespace AncientMysteries.Items
 
         public override void LegacyImpact(MaterialThing thing)
         {
-            if (thing is Duck)
+            Duck? duck = thing switch
             {
-                return;
-            }
+                Duck d when d != BulletSafeDuck => d,
+                RagdollPart ragdollPart => ragdollPart.duck,
+                _ => null,
+            };
+            if (duck is not null) return;
+
             base.LegacyImpact(thing);
         }
     }
