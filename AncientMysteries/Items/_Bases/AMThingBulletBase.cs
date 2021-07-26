@@ -170,13 +170,13 @@ namespace AncientMysteries.Items
                 angle = CalcBulletAngleRadian();
         }
 
-        public float CalcBulletAngleDegrees() => -Maths.PointDirection(Vec2.Zero, speed);
+        public float CalcBulletAngleDegrees() => CalcBulletAngleDegrees(speed);
 
-        public float CalcBulletAngleRadian() => -Maths.PointDirectionRad(Vec2.Zero, speed);
+        public float CalcBulletAngleRadian() => CalcBulletAngleRadian(speed);
 
-        public float CalcBulletAngleDegrees(Vec2 speed) => -Maths.PointDirection(Vec2.Zero, speed);
+        public virtual float CalcBulletAngleDegrees(Vec2 speed) => -Maths.PointDirection(Vec2.Zero, speed);
 
-        public float CalcBulletAngleRadian(Vec2 speed) => -Maths.PointDirectionRad(Vec2.Zero, speed);
+        public virtual float CalcBulletAngleRadian(Vec2 speed) => -Maths.PointDirectionRad(Vec2.Zero, speed);
 
         public virtual void BulletRemove()
         {
