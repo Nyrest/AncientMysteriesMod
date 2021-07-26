@@ -27,7 +27,7 @@ namespace AncientMysteries.Items
 
         public DuckSizeAdjustment(float xpos, float ypos) : base(xpos, ypos)
         {
-            this.ReadyToRun(tex_MapTools_Swirl);
+
         }
 
         public override void Update()
