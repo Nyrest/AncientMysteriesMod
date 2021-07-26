@@ -174,7 +174,7 @@ namespace AncientMysteries.Items
 
         public float CalcBulletAngleRadian() => CalcBulletAngleRadian(speed);
 
-        public virtual float CalcBulletAngleDegrees(Vec2 speed) => -Maths.PointDirection(Vec2.Zero, speed);
+        public float CalcBulletAngleDegrees(Vec2 speed) => Maths.RadToDeg(CalcBulletAngleRadian(speed));
 
         public virtual float CalcBulletAngleRadian(Vec2 speed) => -Maths.PointDirectionRad(Vec2.Zero, speed);
 
