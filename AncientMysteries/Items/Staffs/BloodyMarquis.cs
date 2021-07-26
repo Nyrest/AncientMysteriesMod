@@ -42,6 +42,10 @@ namespace AncientMysteries.Items
 
         public void GenerateBullet(int i)
         {
+            if (owner = null)
+            {
+                return;
+            }
             float SingleBulletAngle = 360f / BulletCount;
             float angleDeg = SingleBulletAngle * i;
             Vec2 offset = new Vec2(0, 30);
