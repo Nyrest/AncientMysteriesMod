@@ -13,7 +13,7 @@ namespace AncientMysteries.Items
     [MetaType(MetaType.MapTools)]
     public partial class DuckSizeAdjustment : AMMapToolGameplay
     {
-        public EditorProperty<float> Size = new(1, null, -20, 20, 0.1f)
+        public EditorProperty<float> Size = new(1, null, 0.5f, 5, 0.1f)
         {
             name = "Duck Size Multiplier",
             _tooltip = "Size Multiplier of duck"
@@ -27,7 +27,7 @@ namespace AncientMysteries.Items
 
         public DuckSizeAdjustment(float xpos, float ypos) : base(xpos, ypos)
         {
-            this.ReadyToRun(tex_MapTools_Swirl);
+
         }
 
         public override void Update()

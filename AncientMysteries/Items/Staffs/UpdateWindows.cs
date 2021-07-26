@@ -15,14 +15,9 @@ namespace AncientMysteries.Items
         public StateBinding _blindTimeBinding = new(nameof(_blindTime));
         public int _blindTime;
 
-        public StateBinding _cdBinding = new(nameof(_cd));
-        public int _cd;
+        public const int maxBlinkTime = 60 * 3; // 5sec
 
-        public const int totalBlinkTime = 60 * 5; // 5sec
-
-        public const int totalCD = totalBlinkTime * 2;
-
-        public bool IsTargetVaild => _targetPlayer?.dead == false && _targetPlayer?.ragdoll == null;
+        public bool IsTargetVaild => _targetPlayer?.dead == false;
 
         public bool _quacked;
 
@@ -39,11 +34,6 @@ namespace AncientMysteries.Items
                 _blindTime--;
             }
             else _blindTime = 0;
-            if (_cd > 0)
-            {
-                _cd--;
-            }
-            else _cd = 0;
             if (duck != null)
             {
                 if (
@@ -57,38 +47,38 @@ namespace AncientMysteries.Items
             }
             else
             {
-                _targetPlayer = null;
+                //_targetPlayer = null;
                 _quacked = false;
+            }
+            if (IsTargetVaild && (_targetPlayer?.profile.localPlayer == true) && _blindTime > 0 && _blindTime > overlayDrawTime)
+            {
+                overlayDrawTime = _blindTime;
             }
         }
 
         public override void PressAction()
         {
             base.PressAction();
-            if (IsTargetVaild)
+            if (IsTargetVaild && _blindTime == 0)
             {
-                _blindTime = totalBlinkTime;
-                _cd = totalCD;
+                _blindTime = maxBlinkTime;
+                SFX.PlayMod(snd_Sound_WinXPShutdown);
+                this.visible = false;
+                this.canPickUp = false;
+                duck?.ThrowItem(false);
+                //position = new Vec2(float.PositiveInfinity, float.PositiveInfinity);
             }
         }
 
         public override void Draw()
         {
             base.Draw();
-            if (_cd != 0 && duck != null)
-            {
-                GTool.DrawTopProgressCenterTop(duck.position, _cd / totalCD, Color.White, Color.OrangeRed, Color.Black, 1, -13, 20, 7, depth);
-            }
             if (IsTargetVaild && duck?.profile.localPlayer == true)
             {
                 var start = topLeft + (graphic.center * graphic.scale);
                 float fontWidth = BiosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
                 BiosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);
                 Graphics.DrawLine(start, _targetPlayer.position, Color.White, duck is null ? 0.6f : 1f, 1);
-            }
-            if (IsTargetVaild && (_targetPlayer?.profile.localPlayer == true) && _blindTime > 0 && _blindTime > overlayDrawTime)
-            {
-                overlayDrawTime = _blindTime;
             }
         }
 
@@ -101,7 +91,7 @@ namespace AncientMysteries.Items
 
         public static void ForceUpdateDraw()
         {
-            if (overlayDrawTime > totalBlinkTime)
+            if (overlayDrawTime > maxBlinkTime)
             {
                 overlayDrawTime = 0;
             }
@@ -110,13 +100,16 @@ namespace AncientMysteries.Items
                 Graphics.caseSensitiveStringDrawing = false;
                 Graphics.screen.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.Default, RasterizerState.CullNone, null);
                 Graphics.Clear(Color.Blue);
-                const string text = "Your Duck Game is updating...";
+                const string oops = ":(";
+                float oopsWidth = Graphics.GetStringWidth(oops);
+                Graphics.DrawString(oops, new Vec2(100, 100), Color.White, default, null, 8);
+                const string text = "Oh Shit.\n\nYour Duck Game is updating...";
                 float width = Graphics.GetStringWidth(text);
                 Graphics.DrawString(text, new Vec2((Graphics.width / 2) - (width / 2 * 4), 250), Color.White, default, null, 4);
                 float whiteSpaceX = 100;
-                Graphics.DrawRect(new Rectangle(whiteSpaceX, 300, Graphics.width - (whiteSpaceX * 2), 40),
+                Graphics.DrawRect(new Rectangle(whiteSpaceX, 400, Graphics.width - (whiteSpaceX * 2), 40),
                     Color.DarkGray);
-                Graphics.DrawRect(new Rectangle(whiteSpaceX, 300, (Graphics.width - (whiteSpaceX * 2)) * (1f - (overlayDrawTime / (float)totalBlinkTime)), 40), Color.White);
+                Graphics.DrawRect(new Rectangle(whiteSpaceX, 400, (Graphics.width - (whiteSpaceX * 2)) * (1f - (overlayDrawTime / (float)maxBlinkTime)), 40), Color.White);
                 Graphics.screen.End();
                 overlayDrawTime--;
             }

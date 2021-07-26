@@ -32,7 +32,7 @@ namespace AncientMysteries.Items
             {
                 duck.Scream();
                 duck.Kill(new DT_NoReason());
-                SFX.PlayMod(snd_FloweyLaugh, 1, -0.3f);
+                SFX.PlayModSynchronized(snd_Sound_FloweyLaugh, 1, -0.3f);
                 AnimationFrame = 1;
             }
         }
