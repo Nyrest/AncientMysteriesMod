@@ -1,4 +1,6 @@
-﻿namespace AncientMysteries.Items
+﻿#nullable enable
+
+namespace AncientMysteries.Items
 {
     public class TemperatureArt_AmmoType_Water : TemperatureArt_AmmoType_Base
     {
@@ -10,12 +12,19 @@
 
         public override bool BulletCanDestory(MaterialThing thing)
         {
-            if ((thing is Duck d && d != BulletSafeDuck) || thing is RagdollPart)
+            Duck? duck = thing switch
             {
-                d.velocity += speed;
-                d.GoRagdoll();
-                return false;
-            }
+                Duck d when d != BulletSafeDuck => d,
+                RagdollPart ragdollPart => ragdollPart.duck,
+                _ => null,
+            };
+            if (duck is null) goto notDuck;
+
+            duck.velocity += speed;
+            duck.GoRagdoll();
+            return false;
+
+        notDuck:
             return base.BulletCanDestory(thing);
         }
 
