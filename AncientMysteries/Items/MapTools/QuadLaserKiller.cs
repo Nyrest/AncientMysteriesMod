@@ -19,13 +19,7 @@
             _tooltip = "Height of the QuadLazerBullet Removing Zone"
         };
 
-        public QuadLaserKiller(float xpos, float ypos) : base(xpos, ypos)
-        {
-            this.ReadyToRun(tex_MapTools_Swirl);
-            _editorName = "Quadlaser Killer";
-            editorTooltip = "Perfect for those who wants to kill laggy things.";
-            _visibleInGame = false;
-        }
+        public QuadLaserKiller(float xpos, float ypos) : base(xpos, ypos) { }
 
         public override void Update()
         {
