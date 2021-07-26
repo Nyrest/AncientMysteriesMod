@@ -42,7 +42,7 @@ namespace AncientMysteries.Items
 
         public void GenerateBullet(int i)
         {
-            if (owner = null)
+            if (owner == null)
             {
                 return;
             }
