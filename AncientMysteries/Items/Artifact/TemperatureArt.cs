@@ -9,6 +9,8 @@
     {
         private bool _quacked;
 
+        public TemperatureArt_AmmoType_Base b;
+
         public static readonly Mode[] modes = new[] {
             Mode.Water,
             Mode.Ice,
@@ -26,18 +28,19 @@
 
         public Mode lastMode;
 
-        public AmmoType AmmoWater = new TemperatureArt_AmmoType_Water();
+        /*public AmmoType AmmoWater = new TemperatureArt_AmmoType_Water();
         public AmmoType AmmoIce = new TemperatureArt_AmmoType_Ice();
-        public AmmoType AmmoWaterVapor = new TemperatureArt_AmmoType_WaterVapor();
+        public AmmoType AmmoWaterVapor = new TemperatureArt_AmmoType_WaterVapor();*/
 
         public TemperatureArt(float xval, float yval) : base(xval, yval)
         {
             ammo = byte.MaxValue;
             _holdOffset = new Vec2(-5, -3);
             _barrelOffsetTL = new Vec2(38, 21);
-            this.loseAccuracy = 0;
-            this.maxAccuracyLost = 0;
+            loseAccuracy = 0;
+            maxAccuracyLost = 0;
             UpdateMode();
+            _fireWait = 1f;
         }
 
         public override void Update()
@@ -66,17 +69,16 @@
             {
                 case Mode.Water:
                     this.ReadyToRun(tex_Gun_TemperatureArt_Water);
-                    _ammoType = AmmoWater;
                     break;
 
                 case Mode.Ice:
                     this.ReadyToRun(tex_Gun_TemperatureArt_Ice);
-                    _ammoType = AmmoIce;
+                    //b = new TemperatureArt_AmmoType_Ice();
                     break;
 
                 case Mode.WaterVapor:
                     this.ReadyToRun(tex_Gun_TemperatureArt_WaterVapor);
-                    _ammoType = AmmoWaterVapor;
+                    //b = new TemperatureArt_AmmoType_WaterVapor();
                     break;
 
                 default:
@@ -89,6 +91,29 @@
             Water,
             Ice,
             WaterVapor
+        }
+
+        public override void Fire()
+        {
+            //base.Fire();
+            switch (currentMode)
+            {
+                case Mode.Water:
+                    b = new TemperatureArt_AmmoType_Water(barrelPosition, 400, barrelVector * 5, duck);
+                    Level.Add(b);
+                    break;
+
+                case Mode.Ice:
+                    //b = new TemperatureArt_AmmoType_Ice();
+                    break;
+
+                case Mode.WaterVapor:
+                    //b = new TemperatureArt_AmmoType_WaterVapor();
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }
