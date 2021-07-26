@@ -172,7 +172,7 @@ namespace AncientMysteries.Items
 
         public float CalcBulletAngleDegrees() => -Maths.PointDirection(Vec2.Zero, speed);
 
-        public float CalcBulletAngleRadian() => -Maths.PointDirectionRad(Vec2.Zero, speed);
+        public float CalcBulletAngleRadian() => -Maths.PointDirectionRad(Vec2.Zero, speed) + 1.56f;
 
         public float CalcBulletAngleDegrees(Vec2 speed) => -Maths.PointDirection(Vec2.Zero, speed);
 
@@ -207,7 +207,7 @@ namespace AncientMysteries.Items
         public virtual void GoTo(Thing thing) => GoTo(thing.position);
         public virtual void GoTo(Vec2 pos)
         {
-            
+
         }
     }
 }

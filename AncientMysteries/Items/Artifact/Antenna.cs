@@ -84,10 +84,11 @@
         public override void OnReleaseAction()
         {
             const float speedMultiplier = 3;
-            if (ShouldShoot)
+            if (ShouldShoot && bulletsBuffer != null)
             {
                 for (int i = 0; i < bulletCount; i++)
                 {
+                    Fondle(bulletsBuffer[i]);
                     bulletsBuffer[i].speed = speedMultiplier * bulletAngle[i];
                 }
                 bulletsBuffer = null;

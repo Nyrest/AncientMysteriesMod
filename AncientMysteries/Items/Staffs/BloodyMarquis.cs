@@ -47,7 +47,7 @@ namespace AncientMysteries.Items
             Vec2 offset = new Vec2(0, 30);
             Vec2 rotated = offset.Rotate(Maths.DegToRad(angleDeg), Vec2.Zero);
             Vec2 finalPos = owner.position + rotated;
-            BloodyMarquis_Crystal crystal = new BloodyMarquis_Crystal(finalPos.x, finalPos.y);
+            BloodyMarquis_Crystal crystal = new BloodyMarquis_Crystal(finalPos.x, finalPos.y, angleDeg, duck);
             Level.Add(crystal);
         }
     }

@@ -4,6 +4,7 @@
     {
         protected AMMapToolGameplay(float xpos, float ypos) : base(xpos, ypos)
         {
+
         }
     }
 }
