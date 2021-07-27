@@ -2,10 +2,12 @@
 {
     public class PrimordialLibram_ThingBullet_Flower : AMThingBulletLinar
     {
-        public PrimordialLibram_ThingBullet_Flower(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 300, 1, initSpeed, safeDuck)
+        public PrimordialLibram_ThingBullet_Flower(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 300, 3, initSpeed, safeDuck)
         {
             this.ReadyToRun(tex_Bullet_Flower);
             angleDegrees = Rando.Float(0, 360);
+            BulletTail = false;
+            alpha = 0;
         }
 
         public override void Removed()
@@ -25,6 +27,7 @@
         {
             base.Update();
             angle += 30;
+            MathHelper.Min(alpha += 0.04f, 1);
         }
     }
 }

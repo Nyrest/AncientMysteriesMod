@@ -40,9 +40,13 @@
             base.OnReleaseSpell();
             var r = Rando.Int(5, 7);
             int count = _castTime >= 0.5 ? r : 1;
+            float angleVariation;
+            float bulletSpeed;
             for (int i = 0; i < count; i++)
             {
-                var b = new HolyLight_ThingBullet(barrelPosition, GetBulletVecDeg(duck.FaceAngleDegressLeftOrRight() + Rando.Float(-20, 20), Rando.Float(5, 6)), duck);
+                angleVariation = _castTime >= 0.5 ? Rando.Float(-20, 20) : Rando.Float(-25, 25);
+                bulletSpeed = _castTime >= 0.5 ? Rando.Float(4, 5) : Rando.Float(5, 6);
+                var b = new HolyLight_ThingBullet(barrelPosition, GetBulletVecDeg(duck.FaceAngleDegressLeftOrRight() + angleVariation, bulletSpeed), duck);
                 Level.Add(b);
             }
             SFX.PlaySynchronized("scoreDing", _castTime >= 0.5f ? 1f : 0.5f, _castTime >= 0.5f ? -0.1f : -0.5f);
