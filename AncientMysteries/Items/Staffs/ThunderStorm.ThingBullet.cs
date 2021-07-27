@@ -11,6 +11,7 @@
             _spriteMap.AddAnimation("loop", 0.3f, true, 0, 1, 2, 3, 4);
             _spriteMap.SetAnimation("loop");
             graphic = _spriteMap;
+            BulletTailColor = Color.Gold;
         }
 
         public override void Update()

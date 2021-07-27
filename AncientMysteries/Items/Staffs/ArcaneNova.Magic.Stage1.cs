@@ -11,6 +11,7 @@ namespace AncientMysteries.Items
             _spriteMap.SetAnimation("loop");
             BulletTail = false;
             BulletRadius = 16;
+            alpha = 0f;
         }
 
         public override void BulletRemove()
@@ -38,6 +39,17 @@ namespace AncientMysteries.Items
                     var bullet = new ArcaneNova_Magic_Stage2(position, GetBulletVecDeg(Rando.Float(0, 360), 6), BulletSafeDuck);
                     Level.Add(bullet);
                 }
+            }
+        }
+
+        public override void Update()
+        {
+            base.Update();
+            MathHelper.Min(alpha += 0.08f, 1);
+            speed *= 0.98f;
+            if (Math.Pow(speed.x, 2) + Math.Pow(speed.y, 2) <= 0.7f)
+            {
+                BulletRemove();
             }
         }
     }
