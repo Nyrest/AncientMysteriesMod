@@ -69,7 +69,7 @@
         {
             Lang.schinese => metaType switch
             {
-                MetaType.Error => "Error (WTF?)",
+                0 => "Error (WTF?)",
                 MetaType.Gun => "武器",
                 MetaType.Magic => "魔法",
                 MetaType.Melee => "近战武器",
@@ -83,7 +83,7 @@
             },
             _ => metaType switch
             {
-                MetaType.Error => "Error (WTF?)",
+                0 => "Error (WTF?)",
                 MetaType.Gun => "Weapons",
                 MetaType.Magic => "Magics",
                 MetaType.Melee => "Melees",

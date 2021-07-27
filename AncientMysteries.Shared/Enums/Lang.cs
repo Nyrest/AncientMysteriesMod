@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Localization.Enums
+﻿namespace AncientMysteries
 {
     /// <summary>
     /// <para>Steamworks Localization Code</para>

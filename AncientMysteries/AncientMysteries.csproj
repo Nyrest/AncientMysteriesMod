@@ -104,5 +104,7 @@
   <Target Name="PostBuild" BeforeTargets="PostBuildEvent" Condition="$(NoPostBuild) != true">
     <Exec Command="cd &quot;$(SolutionDir)&quot;&#xD;&#xA;PostBuild.bat" />
   </Target>
+
+  <Import Project="..\AncientMysteries.Shared\AncientMysteries.Shared.projitems" Label="Shared" />
   <Import Project="AutoNest.generated.props" Condition="Exists('AutoNest.generated.props')" />
 </Project>
