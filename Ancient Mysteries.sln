@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{7B28
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DescImgGenerator", "DescImgGenerator\DescImgGenerator.csproj", "{0DAAB529-5019-4CD5-9F0A-8A3946FD183C}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AncientMysteries.Shared", "AncientMysteries.Shared\AncientMysteries.Shared.shproj", "{A5DBDCB2-6D91-44EB-A087-5F2B948526C0}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "_AncientMysteries.Shared", "AncientMysteries.Shared\_AncientMysteries.Shared.shproj", "{A5DBDCB2-6D91-44EB-A087-5F2B948526C0}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
