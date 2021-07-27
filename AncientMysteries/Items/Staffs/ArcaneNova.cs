@@ -33,7 +33,7 @@
             var firePos = barrelPosition;
             if (_castTime >= 1f)
             {
-                var bullet = new ArcaneNova_Magic_Stage1(firePos, GetBulletVecDeg(owner.offDir == 1 ? 0 : 180, 3.5f), duck);
+                var bullet = new ArcaneNova_Magic_Stage1(firePos, GetBulletVecDeg(owner.offDir == 1 ? 0 : 180, 7.5f), duck);
                 Level.Add(bullet);
                 SFX.PlaySynchronized("laserBlast", 5, -0.2f);
             }

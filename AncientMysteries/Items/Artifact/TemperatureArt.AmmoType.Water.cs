@@ -4,7 +4,7 @@ namespace AncientMysteries.Items
 {
     public class TemperatureArt_AmmoType_Water : TemperatureArt_AmmoType_Base
     {
-        public TemperatureArt_AmmoType_Water(Vec2 pos, float bulletRange, Vec2 initSpeed, Duck safeDuck) : base(pos, bulletRange, initSpeed, safeDuck)
+        public TemperatureArt_AmmoType_Water(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 120, initSpeed, safeDuck)
         {
             var sprite = this.ReadyToRun(tex_Bullet_TemperatureArt_Water);
             sprite.angleDegrees = 90;
