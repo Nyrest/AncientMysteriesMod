@@ -57,7 +57,7 @@ namespace AncientMysteries.Analyzers.MissingMetadata
             }
             if ((flags & MetadataFlags.HasMetaImage) == 0)
             {
-                var args = SF.ParseAttributeArgumentList("(t_)");
+                var args = SF.ParseAttributeArgumentList("(tex_)");
                 list.Add(SF.Attribute(SF.IdentifierName("MetaImage"), args));
             }
             if ((flags & MetadataFlags.HasMetaInfo) == 0)
