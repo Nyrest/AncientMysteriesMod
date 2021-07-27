@@ -20,7 +20,7 @@ namespace AncientMysteries.Items
         public BloodyMarquis(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRun(tex_Staff_BloodyMarquis);
-            _castSpeed = 0.05f;
+            _castSpeed = 0.01f;
         }
 
         public override void OnSpelling()
@@ -42,10 +42,8 @@ namespace AncientMysteries.Items
 
         public void GenerateBullet(int i)
         {
-            if (owner == null)
-            {
-                return;
-            }
+            if (owner == null) return;
+
             float SingleBulletAngle = 360f / BulletCount;
             float angleDeg = SingleBulletAngle * i;
             Vec2 offset = new Vec2(0, 30);

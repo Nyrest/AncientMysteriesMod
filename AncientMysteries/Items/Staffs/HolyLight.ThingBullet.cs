@@ -7,6 +7,7 @@
         public HolyLight_ThingBullet(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 400, 1, initSpeed, safeDuck)
         {
             this.ReadyToRun(tex_Bullet_HolyStar);
+            BulletTailColor = Color.Yellow;
         }
 
         public override void Update()
