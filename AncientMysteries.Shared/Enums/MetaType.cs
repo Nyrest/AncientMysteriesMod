@@ -1,8 +1,10 @@
-﻿namespace DescImgGenerator
+﻿namespace AncientMysteries
 {
     public enum MetaType
     {
-        Error,
+        [Obsolete("Invalid MetaType Value", true)]
+        Undefined = 0,
+
         Gun,
         Magic,
         Melee,

@@ -47,7 +47,7 @@ namespace AncientMysteries.SourceGenerator.Generators
                 BuildType.Description => "GetLocalizedDescription",
                 _ => throw new NotImplementedException(),
             };
-            sb.AppendLine(@$"{Tab(2)}public override string {methodName}(Lang lang) => lang switch {{");
+            sb.AppendLine(@$"{Tab(2)}public override string {methodName}({nameof(Lang)} lang) => lang switch {{");
             foreach (var info in localized.Infos.OrderBy(x => x.Lang == Lang.english ? 1 : 0))
             {
                 if (type == BuildType.Name && info.Name is null) continue;

@@ -55,11 +55,7 @@
                 }
                 if (fullname.Equals("AncientMysteries.MetaInfoAttribute"))
                 {
-                    var args = item.ConstructorArguments;
-                    //if (args.Length == 0 || !args[0].Value.Equals(0)) continue;
-
                     result |= MetadataFlags.HasMetaInfo;
-
                     continue;
                 }
                 if (fullname.Equals("AncientMysteries.MetaImageAttribute"))
