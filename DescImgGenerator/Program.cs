@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Text;
+using System.Threading.Tasks;
 
 namespace DescImgGenerator
 {
@@ -12,6 +13,7 @@ namespace DescImgGenerator
 
         private static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8;
             string saveTo = args.Length == 0 ? ".\\" : args[0] + Path.DirectorySeparatorChar;
             FontMapper.Default = new CustomFontMapper();
             LoadAssembly("AncientMysteries.dll");
