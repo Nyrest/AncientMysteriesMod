@@ -40,7 +40,6 @@
             loseAccuracy = 0;
             maxAccuracyLost = 0;
             UpdateMode();
-            _fireWait = 1f;
         }
 
         public override void Update()
@@ -69,15 +68,18 @@
             {
                 case Mode.Water:
                     this.ReadyToRun(tex_Gun_TemperatureArt_Water);
+                    _fireWait = 2f;
                     break;
 
                 case Mode.Ice:
                     this.ReadyToRun(tex_Gun_TemperatureArt_Ice);
+                    _fireWait = 1.2f;
                     //b = new TemperatureArt_AmmoType_Ice();
                     break;
 
                 case Mode.WaterVapor:
                     this.ReadyToRun(tex_Gun_TemperatureArt_WaterVapor);
+                    _fireWait = 20.7f;
                     //b = new TemperatureArt_AmmoType_WaterVapor();
                     break;
 
@@ -99,16 +101,26 @@
             switch (currentMode)
             {
                 case Mode.Water:
-                    b = new TemperatureArt_AmmoType_Water(barrelPosition, 400, barrelVector * 5, duck);
-                    Level.Add(b);
+                    for (int i = 0; i < 12; i++)
+                    {
+                        b = new TemperatureArt_AmmoType_Water(barrelPosition, barrelVector.Rotate(Rando.Float((float)(-1.56 / 6), (float)(1.56 / 6)),Vec2.Zero) * 10, duck);
+                        Level.Add(b);
+                    }
                     break;
 
                 case Mode.Ice:
                     //b = new TemperatureArt_AmmoType_Ice();
+                    b = new TemperatureArt_AmmoType_Ice(barrelPosition, barrelVector.Rotate(Rando.Float((float)(-1.56 / 75), (float)(1.56 / 75)), Vec2.Zero) * 20, duck);
+                    Level.Add(b);
                     break;
 
                 case Mode.WaterVapor:
                     //b = new TemperatureArt_AmmoType_WaterVapor();
+                    for (int i = 0; i < 5; i++)
+                    {
+                        b = new TemperatureArt_AmmoType_WaterVapor(barrelPosition, barrelVector.Rotate(Rando.Float((float)(-1.56 / 8), (float)(1.56 / 8)), Vec2.Zero) * 5, duck);
+                        Level.Add(b);
+                    }
                     break;
 
                 default:
