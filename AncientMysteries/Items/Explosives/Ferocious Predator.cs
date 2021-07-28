@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_Explosives)]
-    [MetaImage(tex_Gun_FerociousPredator, 32, 16)]
+    [MetaImage(tex_Gun_FerociousPredator)]
     [MetaInfo(Lang.english, "Ferocious Predator", "Beware of the prey")]
     [MetaInfo(Lang.schinese, "凶恶猎手", "小心猎物")]
     [MetaType(MetaType.Gun)]
@@ -50,11 +50,11 @@
         {
             ammo = 6;
             _type = "gun";
-            this.ReadyToRunWithFrames(tex_Gun_FerociousPredator, 32, 16);
-            _barrelOffsetTL = new Vec2(32f, 7f);
+            this.ReadyToRun(tex_Gun_FerociousPredator);
+            _barrelOffsetTL = new Vec2(49, 7f);
             _fireSound = "pistol";
             _kickForce = 3f;
-            _holdOffset = new Vec2(4f, 0f);
+            _holdOffset = new Vec2(8f, 0f);
             _ammoType = new AT_FerociousPredator();
             _fireSound = "deepMachineGun";
             _bulletColor = Color.White;
