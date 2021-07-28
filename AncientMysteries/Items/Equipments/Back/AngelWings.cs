@@ -9,11 +9,11 @@
     {
         public AngelWings(float xpos, float ypos) : base(xpos, ypos)
         {
-            _wingsSpriteMap = this.ReadyToRunWithFrames(tex_Equipment_VampireWings, 28, 14);
-            _wingsSpriteMap.AddAnimation("loop", 0.15f, true, 0, 1, 2, 1);
+            _wingsSpriteMap = this.ReadyToRunWithFrames(tex_Equipment_VampireWings, 30, 11);
+            _wingsSpriteMap.AddAnimation("loop", 0.2f, true, 0, 1, 2, 1);
             _wingsSpriteMap.AddAnimation("idle", 1f, true, 0);
-            wearOffset = new(-0.5f, -1);
-            _equippedDepth = -2;
+            wearOffset = new(-0.5f, 1);
+            _equippedDepth = -12;
         }
 
         public override void Update()
