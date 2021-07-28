@@ -14,7 +14,7 @@
             {
                 SmallSmoke smallSmoke = SmallSmoke.New(pos.x + Rando.Float(-5f, 5f), pos.y + Rando.Float(-5f, 5f), 0.8f, 4);
                 smallSmoke.vSpeed = Rando.Float(0f, -0.5f);
-                float num4 = smallSmoke.xscale = smallSmoke.yscale = Rando.Float(0.2f, 0.7f);
+                smallSmoke.xscale = smallSmoke.yscale = Rando.Float(0.2f, 0.7f);
                 Level.Add(smallSmoke);
             }
             DestroyRadius(pos, 40, this);

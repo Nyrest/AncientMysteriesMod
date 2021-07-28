@@ -2,7 +2,7 @@
 {
     public class LaserReboundYellow : Thing
     {
-        private Tex2D _rebound = TexHelper.ModTex2D(tex_Bullet_LaserRebound);
+        private readonly Tex2D _rebound = TexHelper.ModTex2D(tex_Bullet_LaserRebound);
 
         public LaserReboundYellow(float xpos, float ypos)
             : base(xpos, ypos)

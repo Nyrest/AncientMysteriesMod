@@ -2,7 +2,7 @@
 {
     public abstract class AMBoots : Boots, IAMEquipment, IAMLocalizable
     {
-        private static FieldInfo _fieldEquipmentHealth = typeof(Equipment).GetField("_equipmentHealth", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static readonly FieldInfo _fieldEquipmentHealth = typeof(Equipment).GetField("_equipmentHealth", BindingFlags.Instance | BindingFlags.NonPublic);
 
         public new ref SpriteMap _sprite => ref base._sprite;
 

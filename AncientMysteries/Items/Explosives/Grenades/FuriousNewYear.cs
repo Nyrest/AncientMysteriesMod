@@ -7,13 +7,13 @@
     [MetaType(MetaType.Throwable)]
     public partial class FuriousNewYear : AMThrowable
     {
-        private static FieldInfo _firecrackerExplodeTimer = typeof(Firecracker).GetField("_explodeTimer", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static readonly FieldInfo _firecrackerExplodeTimer = typeof(Firecracker).GetField("_explodeTimer", BindingFlags.Instance | BindingFlags.NonPublic);
 
         public StateBinding _timerBinding = new("_timer");
 
         public StateBinding _pinBinding = new("_pin");
 
-        private SpriteMap _sprite;
+        private readonly SpriteMap _sprite;
 
         public bool _pin = true;
 

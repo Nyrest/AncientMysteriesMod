@@ -112,7 +112,6 @@
             if (IsTargetVaild && duck?.profile.localPlayer == true)
             {
                 var start = duck.position;
-                var end = _targetPlayer.position - new Vec2(0, 13);
                 //Graphics.DrawLine(start, end, Color.White, 1f, 1);
                 float fontWidth = BiosFont.GetWidth("@SHOOT@", false, duck.inputProfile);
                 BiosFont.Draw("@SHOOT@", _targetPlayer.position + new Vec2(-fontWidth / 2, -20), Color.White, 1, duck.inputProfile);

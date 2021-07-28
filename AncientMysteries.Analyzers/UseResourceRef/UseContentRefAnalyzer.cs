@@ -34,7 +34,7 @@ namespace AncientMysteries.Analyzers.UseResourceRef
                 var name = ContentReferencesGenerator.GetFieldName(ContentReferencesGenerator.prefix_Texture, sourceText.ToString(new TextSpan(1, sourceText.Length - 2)));
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), name));
             }
-            else if (text.Equals(".mp3", StringComparison.OrdinalIgnoreCase))
+            else if (text.Equals(".wav", StringComparison.OrdinalIgnoreCase))
             {
                 if (Path.GetFileName(context.Node.SyntaxTree.FilePath) == "ContentReferences.cs") return;
                 var name = ContentReferencesGenerator.GetFieldName(ContentReferencesGenerator.prefix_Texture, sourceText.ToString(new TextSpan(1, sourceText.Length - 2)));

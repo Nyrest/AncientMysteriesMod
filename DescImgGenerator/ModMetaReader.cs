@@ -34,9 +34,9 @@ namespace DescImgGenerator
 
     public static unsafe class ModMetaReader
     {
-        public static Item[] ModItems { get; private set; }
+        public static Item[] ModItems { get; private set; } = null!;
 
-        public static AssemblyDefinition Asm { get; private set; }
+        public static AssemblyDefinition Asm { get; private set; } = null!;
 
         public static ModuleDefinition MainModule => Asm.MainModule;
 
@@ -56,7 +56,7 @@ namespace DescImgGenerator
                 if (!IsModItem(type, out CustomAttribute metaImageAttr)) return;
                 LocalizedText name = new(), description = new();
                 int order = 0;
-                MetaType metaType = MetaType.Error;
+                MetaType metaType = 0;
                 foreach (var attr in type.CustomAttributes)
                 {
                     var fullname = attr.AttributeType.FullName;
