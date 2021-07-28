@@ -13,9 +13,7 @@ namespace AncientMysteries.Items
 
         public int currentBulletIndex = 0;
 
-        const int radius = 5;
-
-        public Waiter waiter = new Waiter(2);
+        public Waiter waiter = new(2);
 
         public BloodyMarquis(float xval, float yval) : base(xval, yval)
         {
@@ -46,13 +44,13 @@ namespace AncientMysteries.Items
 
             float SingleBulletAngle = 360f / BulletCount;
             float angleDeg = SingleBulletAngle * i;
-            Vec2 offset = new Vec2(0, 30);
+            Vec2 offset = new(0, 30);
             Vec2 rotated = offset.Rotate(Maths.DegToRad(angleDeg), Vec2.Zero);
             Vec2 rotated2 = offset.Rotate(Maths.DegToRad(angleDeg) + 3.14f, Vec2.Zero);
             Vec2 finalPos = owner.position + rotated;
             Vec2 finalPos2 = owner.position + rotated2;
-            BloodyMarquis_Crystal crystal = new BloodyMarquis_Crystal(finalPos.x, finalPos.y, angleDeg, duck);
-            BloodyMarquis_Crystal crystal2 = new BloodyMarquis_Crystal(finalPos2.x, finalPos2.y, angleDeg + 180, duck);
+            BloodyMarquis_Crystal crystal = new(finalPos.x, finalPos.y, angleDeg, duck);
+            BloodyMarquis_Crystal crystal2 = new(finalPos2.x, finalPos2.y, angleDeg + 180, duck);
             Level.Add(crystal);
             Level.Add(crystal2);
         }

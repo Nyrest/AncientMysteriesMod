@@ -8,3 +8,6 @@ dotnet_diagnostic.CA2211.severity = none
 
 # IDE0057: Use range operator
 csharp_style_prefer_range_operator = false
+
+# IDE0059: Unnecessary assignment of a value
+dotnet_diagnostic.IDE0059.severity = warning

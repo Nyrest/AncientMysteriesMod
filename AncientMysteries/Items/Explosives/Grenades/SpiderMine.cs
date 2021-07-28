@@ -25,7 +25,7 @@
 
         public NetSoundEffect _netPin = new("pullPin");
 
-        private SpriteMap _sprite;
+        private readonly SpriteMap _sprite;
 
         public bool _pin = true;
 
@@ -45,9 +45,9 @@
 
         public bool _thrown;
 
-        private Sprite _mineFlash;
+        private readonly Sprite _mineFlash;
 
-        private Dictionary<Duck, float> _ducksOnMine = new();
+        private readonly Dictionary<Duck, float> _ducksOnMine = new();
 
         public List<PhysicsObject> previousThings = new();
 

@@ -162,11 +162,7 @@
         {
             get
             {
-                if (_drawing)
-                {
-                    return _angle;
-                }
-                return base.angle + ((_swing + _hold) * offDir);
+                return _drawing ? _angle : base.angle + ((_swing + _hold) * offDir);
             }
             set
             {
@@ -182,15 +178,13 @@
         {
             get
             {
-                if (owner == null)
+                return owner switch
                 {
-                    return position - ((Offset(barrelOffset) - position).normalized * 6f);
-                }
-                if (_slamStance)
-                {
-                    return position + ((Offset(barrelOffset) - position).normalized * 12f);
-                }
-                return position + ((Offset(barrelOffset) - position).normalized * 2f);
+                    null => position - (Offset(barrelOffset) - position).normalized * 6f,
+                    _ => _slamStance
+                        ? position + (Offset(barrelOffset) - position).normalized * 12f
+                        : position + (Offset(barrelOffset) - position).normalized * 2f,
+                };
             }
         }
 
@@ -198,11 +192,7 @@
         {
             get
             {
-                if (tapedCompatriot is Gun)
-                {
-                    return (tapedCompatriot as Gun).barrelOffset + new Vec2(-14f, 2f);
-                }
-                return new Vec2(-6f, -3f);
+                return tapedCompatriot is Gun ? (tapedCompatriot as Gun).barrelOffset + new Vec2(-14f, 2f) : new Vec2(-6f, -3f);
             }
         }
 
@@ -210,11 +200,7 @@
         {
             get
             {
-                if (duck != null && duck.holdObject == this)
-                {
-                    return true;
-                }
-                return false;
+                return duck != null && duck.holdObject == this;
             }
         }
 
@@ -274,8 +260,7 @@
 
         public override void CheckIfHoldObstructed()
         {
-            Duck duckOwner = owner as Duck;
-            if (duckOwner != null)
+            if (owner is Duck duckOwner)
             {
                 duckOwner.holdObstructed = false;
             }
@@ -477,8 +462,7 @@
                         {
                             continue;
                         }
-                        MaterialThing realThing3 = d2 as MaterialThing;
-                        if (realThing3 == null)
+                        if (d2 is not MaterialThing realThing3)
                         {
                             continue;
                         }
@@ -690,8 +674,7 @@
                             {
                                 continue;
                             }
-                            MaterialThing realThing5 = d5 as MaterialThing;
-                            if (realThing5 == null)
+                            if (d5 is not MaterialThing realThing5)
                             {
                                 continue;
                             }
@@ -721,8 +704,7 @@
                     {
                         continue;
                     }
-                    MaterialThing realThing4 = d4 as MaterialThing;
-                    if (realThing4 == null)
+                    if (d4 is not MaterialThing realThing4)
                     {
                         continue;
                     }
@@ -931,7 +913,7 @@
                         laserHit.safeDuck = duck;
                         float mag = laserHit.travel.length;
                         float mul = 1.5f;
-                        Vec2 travel = laserHit.travel = (offDir > 0) ? new Vec2(mag * mul, 0f) : new Vec2((0f - mag) * mul, 0f);
+                        laserHit.travel = (offDir > 0) ? new Vec2(mag * mul, 0f) : new Vec2((0f - mag) * mul, 0f);
                         QuadLaserHit(laserHit);
                     }
                     else
@@ -1003,11 +985,9 @@
                     {
                         continue;
                     }
-                    MaterialThing realThing2 = d3 as MaterialThing;
-                    if (realThing2 != null)
+                    if (d3 is MaterialThing realThing2)
                     {
-                        Duck realDuck3 = realThing2 as Duck;
-                        if (realDuck3 != null && !realDuck3.destroyed && duck != null)
+                        if (realThing2 is Duck realDuck3 && !realDuck3.destroyed && duck != null)
                         {
                             RumbleManager.AddRumbleEvent(duck.profile, new RumbleEvent(RumbleIntensity.Light, RumbleDuration.Pulse, RumbleFalloff.Short));
                             Global.data.swordKills.valueInt++;
@@ -1028,15 +1008,13 @@
                     {
                         continue;
                     }
-                    MaterialThing realThing = d as MaterialThing;
-                    if (realThing == null)
+                    if (d is not MaterialThing realThing)
                     {
                         continue;
                     }
                     if (realThing.vSpeed > 0.5f && realThing.bottom < position.y - 8f && realThing.left < barrelPosition.x && realThing.right > barrelPosition.x)
                     {
-                        Duck realDuck2 = realThing as Duck;
-                        if (realDuck2 != null && !realDuck2.destroyed)
+                        if (realThing is Duck realDuck2 && !realDuck2.destroyed)
                         {
                             RumbleManager.AddRumbleEvent(duck.profile, new RumbleEvent(RumbleIntensity.Light, RumbleDuration.Pulse, RumbleFalloff.Short));
                             Global.data.swordKills.valueInt++;
@@ -1055,8 +1033,7 @@
                         }
                         else if ((duck.x > realThing.x && realThing.hSpeed > 1.5f) || (duck.x < realThing.x && realThing.hSpeed < -1.5f))
                         {
-                            Duck realDuck = realThing as Duck;
-                            if (realDuck != null && !realDuck.destroyed)
+                            if (realThing is Duck realDuck && !realDuck.destroyed)
                             {
                                 RumbleManager.AddRumbleEvent(duck.profile, new RumbleEvent(RumbleIntensity.Light, RumbleDuration.Pulse, RumbleFalloff.Short));
                                 Global.data.swordKills.valueInt++;

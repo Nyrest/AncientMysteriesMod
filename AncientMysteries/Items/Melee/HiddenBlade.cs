@@ -10,7 +10,7 @@
         public StateBinding bladeOutBinding = new(nameof(bladeOut));
 
         private bool _bladeOut;
-        private SpriteMap _spriteMap;
+        private readonly SpriteMap _spriteMap;
         public bool bladeOut
         {
             get => _bladeOut;

@@ -14,7 +14,7 @@ namespace AncientMysteries.Items
     [MetaType(MetaType.Props)]
     public partial class CrashErrorDialog : AMHoldable
     {
-        private HashSet<ushort> breakBlockIds = new();
+        private readonly HashSet<ushort> breakBlockIds = new();
         public CrashErrorDialog(float xpos, float ypos) : base(xpos, ypos)
         {
             this.ReadyToRun(tex_Props_CrashErrorDialog);
@@ -25,14 +25,11 @@ namespace AncientMysteries.Items
         public override void Update()
         {
             base.Update();
-            if (owner is Thing && owner.offDir == -1)
+            _holdOffset = owner switch
             {
-                _holdOffset = new Vec2(-(width / 2) + 6, -(height / 2) + 8);
-            }
-            else
-            {
-                _holdOffset = new Vec2((width / 2) - 6, -(height / 2) + 8);
-            }
+                not null when owner.offDir == -1 => new Vec2(-(width / 2) + 6, -(height / 2) + 8),
+                _ => new Vec2(width / 2 - 6, -(height / 2) + 8),
+            };
             if (breakBlockIds.Count != 0)
             {
             }
@@ -44,7 +41,7 @@ namespace AncientMysteries.Items
         {
             base.Impact(with, from, solidImpact);
             if (this.velocity.length <= 0.1f) return;
-            if (with is IAmADuck || with is Window)
+            if (with is IAmADuck or Window)
             {
                 with.Destroy(new DTImpale(this));
             }
