@@ -13,9 +13,7 @@
 
         public override SKTypeface TypefaceFromStyle(IStyle style, bool ignoreFontVariants)
         {
-            if (style.FontWeight < 400)
-                return typefaceLight;
-            return typeface;
+            return style.FontWeight < 400 ? typefaceLight : typeface;
         }
     }
 }
