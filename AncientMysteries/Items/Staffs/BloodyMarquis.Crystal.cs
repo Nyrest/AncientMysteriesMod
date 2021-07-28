@@ -31,7 +31,7 @@ namespace AncientMysteries.Items
             {
                 fired = true;
                 #region Do Fire
-                var bullet = new BloodyMarquis_ThingBullet(position, 800, 1, GetBulletVecDeg(-fireAngleDegree, bulletSpeed) * 0.1f, safeDuck);
+                var bullet = new BloodyMarquis_ThingBullet(position, 800, 1, GetBulletVecDeg(-fireAngleDegree, bulletSpeed) * 0.01f, safeDuck);
                 Level.Add(bullet);
                 #endregion
             }
