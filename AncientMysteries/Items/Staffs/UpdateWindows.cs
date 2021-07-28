@@ -101,7 +101,6 @@ namespace AncientMysteries.Items
                 Graphics.screen.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.Default, RasterizerState.CullNone, null);
                 Graphics.Clear(Color.Blue);
                 const string oops = ":(";
-                float oopsWidth = Graphics.GetStringWidth(oops);
                 Graphics.DrawString(oops, new Vec2(100, 100), Color.White, default, null, 8);
                 const string text = "Oh Shit.\n\nYour Duck Game is updating...";
                 float width = Graphics.GetStringWidth(text);

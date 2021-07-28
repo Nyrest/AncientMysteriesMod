@@ -19,7 +19,7 @@
         public override void Update()
         {
             base.Update();
-            if (this._equippedDuck is not Duck _equippedDuck) return;
+            if (_equippedDuck is null) return;
         }
 
         public override void Equip(Duck d)

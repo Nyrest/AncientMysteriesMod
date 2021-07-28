@@ -2,7 +2,6 @@
 global using AncientMysteries.Bullets;
 global using AncientMysteries.Items;
 global using AncientMysteries.Localization;
-global using AncientMysteries.Localization.Enums;
 global using AncientMysteries.Particles;
 global using AncientMysteries.Utilities;
 global using DuckGame;

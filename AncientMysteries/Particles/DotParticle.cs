@@ -18,7 +18,7 @@
 
         public static DotParticle New(float xpos, float ypos, Func<Vec2> target, in Color color, float lifeFadeSpeed = 0.02f)
         {
-            DotParticle spark = null;
+            DotParticle spark;
             if (_sparks[_lastActiveWagCharge] == null)
             {
                 spark = new DotParticle();
@@ -35,7 +35,7 @@
             return spark;
         }
 
-        private SpriteMap _airFire;
+        private readonly SpriteMap _airFire;
 
         private float _airFireScale;
 

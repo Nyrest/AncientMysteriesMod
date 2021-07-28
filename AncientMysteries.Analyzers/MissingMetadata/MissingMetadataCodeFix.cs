@@ -57,35 +57,28 @@ namespace AncientMysteries.Analyzers.MissingMetadata
             }
             if ((flags & MetadataFlags.HasMetaImage) == 0)
             {
-                var args = SF.ParseAttributeArgumentList("(t_)");
+                var args = SF.ParseAttributeArgumentList("(tex_)");
                 list.Add(SF.Attribute(SF.IdentifierName("MetaImage"), args));
             }
             if ((flags & MetadataFlags.HasMetaInfo) == 0)
             {
                 string className = symbol.Name;
-                var args = SF.ParseAttributeArgumentList($"(Lang.english, \"{ParsePascalName(className)}\", \"desc\")");
+                var args = SF.ParseAttributeArgumentList($"({nameof(Lang)}.english, \"{ParsePascalName(className)}\", \"desc\")");
                 list.Add(SF.Attribute(SF.IdentifierName("MetaInfo"), args));
-                var args2 = SF.ParseAttributeArgumentList($"(Lang.schinese, \"\", \"\")");
+                var args2 = SF.ParseAttributeArgumentList($"({nameof(Lang)}.schinese, \"\", \"\")");
                 list.Add(SF.Attribute(SF.IdentifierName("MetaInfo"), args2));
             }
             if ((flags & MetadataFlags.HasMetaType) == 0)
             {
-                const string meta_Gun = "Gun";
-                const string meta_Magic = "Magic";
-                const string meta_Melee = "Melee";
-                const string meta_Equipment = "Equipment";
-                const string meta_Throwable = "Throwable";
-                const string meta_Decoration = "Decoration";
-
-                string? metaType = null;
+                MetaType metaType = 0; // 0 = MetaType.Undefined
                 if (symbol.HasBaseType("AncientMysteries.Items.AMStaff"))
                 {
-                    metaType = meta_Magic;
+                    metaType = MetaType.Magic;
                     goto mustBeIt;
                 }
                 if (symbol.HasBaseType("AncientMysteries.Items.AMMelee"))
                 {
-                    metaType = meta_Melee;
+                    metaType = MetaType.Melee;
                     goto mustBeIt;
                 }
                 if (symbol.HasBaseType("AncientMysteries.Items.AMChestPlate",
@@ -93,22 +86,22 @@ namespace AncientMysteries.Analyzers.MissingMetadata
                    "AncientMysteries.Items.AMEquipment",
                    "AncientMysteries.Items.AMHelmet"))
                 {
-                    metaType = meta_Equipment;
+                    metaType = MetaType.Equipment;
                     goto mustBeIt;
                 }
                 if (symbol.HasBaseType("AncientMysteries.Items.AMThrowable"))
                 {
-                    metaType = meta_Throwable;
+                    metaType = MetaType.Throwable;
                     goto mustBeIt;
                 }
                 if (symbol.HasBaseType("AncientMysteries.Items.AMDecoration"))
                 {
-                    metaType = meta_Decoration;
+                    metaType = MetaType.Decoration;
                     goto mustBeIt;
                 }
                 if (symbol.HasBaseType("AncientMysteries.Items.AMGun"))
                 {
-                    metaType = meta_Gun;
+                    metaType = MetaType.Gun;
                     goto mustBeIt;
                 }
             mustBeIt:

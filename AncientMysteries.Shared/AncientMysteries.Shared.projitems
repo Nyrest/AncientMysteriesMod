@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>a5dbdcb2-6d91-44eb-a087-5f2b948526c0</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>AncientMysteries</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\MetaImageAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\MetaInfoAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\MetaOrderAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\MetaTypeAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\Lang.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\MetaType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)_FuckNetFX\System\Runtime\CompilerServices\Attributes\ModuleInitializerAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)_FuckNetFX\System\Runtime\CompilerServices\IsExternalInit.cs" />
+  </ItemGroup>
+</Project>

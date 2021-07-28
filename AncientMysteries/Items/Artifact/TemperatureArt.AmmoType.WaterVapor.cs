@@ -1,4 +1,6 @@
-﻿namespace AncientMysteries.Items
+﻿#nullable enable
+
+namespace AncientMysteries.Items
 {
     public class TemperatureArt_AmmoType_WaterVapor : TemperatureArt_AmmoType_Base
     {
