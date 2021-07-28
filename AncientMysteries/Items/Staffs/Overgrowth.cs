@@ -15,6 +15,8 @@
 
         public int times = 1;
 
+        public const int timesMax = 11;
+
         public byte AnimationFrame
         {
             get => (byte)_spriteMap._frame;
@@ -44,6 +46,11 @@
         public override void Update()
         {
             base.Update();
+            if (times == timesMax)
+            {
+                progressFillColor = Color.DarkGreen;
+                progressBgColor = Color.Lime;
+            }
             _castSpeed = 0.0045f + (0.0009f * times);
 #if DEBUG
             _castSpeed = 1f;
@@ -72,10 +79,10 @@
                     }
                 });
             }
-            if (times == 10 && _castTime >= 1f)
+            if (times == timesMax && _castTime >= 1f)
             {
                 SFX.PlaySynchronized("scoreDing", 0.7f, 0.1f, 0, false);
-                foreach (Duck d in Level.CheckCircleAll<Duck>(owner.position, 999))
+                /*foreach (Duck d in Level.CheckCircleAll<Duck>(owner.position, 999))
                 {
                     if (d != owner)
                     {
@@ -87,9 +94,9 @@
                             list.Add(Make.Bullet<Overgrowth_AmmoType_FinalKiller>(d.x + 40, d.y + 40, ModifyParameter, owner, -Maths.PointDirection(d.x + 40, d.y + 40, d.x, d.y), this));
                         });
                     }
-                }
+                }*/
             }
-            if (times < 10 && _castTime >= 1f)
+            if (times < timesMax && _castTime >= 1f)
             {
                 times++;
                 SFX.PlaySynchronized("scoreDing", 0.5f, Convert.ToSingle(-0.3 + (times * 0.03f)), 0, false);
@@ -98,8 +105,16 @@
 
         public void ModifyParameter(ref float bulletSpeed, ref float range)
         {
-            bulletSpeed += times * 0.5f;
-            range += times * 20;
+            if (times < timesMax)
+            {
+                bulletSpeed += times * 0.5f;
+                range += times * 20;
+            }
+            else
+            {
+                bulletSpeed += times * 0.6f;
+                range += times * 25;
+            }
         }
     }
 }
