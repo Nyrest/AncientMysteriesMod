@@ -31,7 +31,7 @@
     <ProjectReference Include="..\AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" Private="false" />
   </ItemGroup>
 
-  <!--Debug-->
+  <!--Debug Configuration-->
   <PropertyGroup Condition="'$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -39,7 +39,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
   </PropertyGroup>
 
-  <!--Release-->
+  <!--Release Configuration-->
   <PropertyGroup Condition="'$(Configuration)' == 'Release' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -58,11 +58,14 @@
     <AdditionalFiles Include="_projLocator" Visible="false" />
   </ItemGroup>
 
-  <!--Nuget Packages-->
+  <!--Nuget Dependencies-->
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="5.0.0" />
+  </ItemGroup>
 
   <!--Duck Game References-->
   <ItemGroup>
-
     <Reference Include="DGSteam">
       <HintPath>..\References\DGSteam.dll</HintPath>
       <Private>false</Private>
@@ -87,24 +90,25 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
 
+  <!--Git Ignored MSBuild Properties-->
+  <!--Set OutputPath inside it-->
   <ItemGroup>
     <None Include="AncientMysteries.csproj.user" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="5.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Items\Decorations\" />
-    <Folder Include="Items\Holdables\" />
-  </ItemGroup>
-
+  <!--Post Build Event-->
   <Target Name="PostBuild" BeforeTargets="PostBuildEvent" Condition="$(NoPostBuild) != true">
+    <!--Run AutoNest-->
     <Exec Command="cd &quot;$(SolutionDir)&quot;&#xD;&#xA;PostBuild.bat" />
   </Target>
 
+  <!--Import Shared Project-->
   <Import Project="..\AncientMysteries.Shared\AncientMysteries.Shared.projitems" Label="Shared" />
+  
+  <!--Import AutoNest Generated Properties-->
   <Import Project="AutoNest.generated.props" Condition="Exists('AutoNest.generated.props')" />
+
+  <ItemGroup>
+    <Folder Include="Items\Decorations\" />
+  </ItemGroup>
 </Project>
