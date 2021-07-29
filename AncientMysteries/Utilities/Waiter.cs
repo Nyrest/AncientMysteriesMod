@@ -24,20 +24,11 @@
             return false;
         }
 
-        public void Pause()
-        {
-            Paused = true;
-        }
+        public void Pause() => Paused = true;
 
-        public void Resume()
-        {
-            Paused = false;
-        }
+        public void Resume() => Paused = false;
 
-        public void Reset()
-        {
-            CurrentFrame = 0;
-        }
+        public void Reset() => CurrentFrame = 0;
 
         public Waiter TickToEnd()
         {

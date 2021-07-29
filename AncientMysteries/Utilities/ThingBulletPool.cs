@@ -52,6 +52,6 @@
             }
         }
 
-        private record struct ThingBulletCache(Queue<Vec2> TailQueue, HashSet<MaterialThing> Impacting, List<MaterialThing> ImpactingToKeep);
+        private readonly record struct ThingBulletCache(Queue<Vec2> TailQueue, HashSet<MaterialThing> Impacting, List<MaterialThing> ImpactingToKeep);
     }
 }
