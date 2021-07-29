@@ -47,7 +47,7 @@
         {
             base.Update();
             Graphics.material = null;
-            if (IsSpelling)
+            if (IsSpelling && isServerForObject)
             {
                 if (_castTime > 0.5f && waiter.Tick())
                 {

@@ -22,7 +22,7 @@
 
         public override void Fire()
         {
-            if (_wait != 0) return;
+            if (_wait != 0 || !isServerForObject) return;
             _wait = _fireWait;
             var barrelAngleRad = this.barrelAngle;
             TheSpiritOfDarkness_ThingBullet b1 = new(GetBarrelPosition(new Vec2(27, 11)), duck, true, barrelAngleRad);

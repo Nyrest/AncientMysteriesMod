@@ -53,18 +53,21 @@
             base.OnHoldAction();
             if (bulletsBuffer is null)
             {
-                bulletsBuffer = new AntennaBullet[bulletCount]
+                if (isServerForObject)
                 {
+                    bulletsBuffer = new AntennaBullet[bulletCount]
+                    {
                         new(position, duck, bulletAngle[0]),
                         new(position, duck, bulletAngle[1]),
                         new(position, duck, bulletAngle[2]),
                         new(position, duck, bulletAngle[3]),
                         new(position, duck, bulletAngle[4]),
                         new(position, duck, bulletAngle[5]),
-                };
-                for (int i = 0; i < bulletsBuffer.Length; i++)
-                {
-                    Level.Add(bulletsBuffer[i]);
+                    };
+                    for (int i = 0; i < bulletsBuffer.Length; i++)
+                    {
+                        Level.Add(bulletsBuffer[i]);
+                    }
                 }
             }
             else
