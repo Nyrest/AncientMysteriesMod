@@ -15,8 +15,9 @@ namespace AncientMysteries.Items
     {
         public InterstellarBoots(float xpos, float ypos) : base(xpos, ypos)
         {
-            _pickupSprite = this.ReadyToRun(tex_Equipment_InterstellarBoots_Pickup);
-            _sprite = this.ReadyToRunWithFrames(tex_Equipment_InterstellarBoots, 32, 32);
+            // Not using ReadyToRun because we are going to use vanilla collide box and crop size
+            _pickupSprite = this.ModSprite(tex_Equipment_InterstellarBoots_Pickup);
+            _sprite = this.ModSpriteWithFrames(tex_Equipment_InterstellarBoots, 32, 32);
             CanCrush = false;
         }
     }
