@@ -2,7 +2,7 @@
 {
     [EditorGroup(group_Guns_Artifacts)]
     [MetaImage(tex_Melee_SpearOfLeonidas)]
-    [MetaInfo(Lang.english, "Spear Of Leonidas", "Sparta!")]
+    [MetaInfo(Lang.Default, "Spear Of Leonidas", "Sparta!")]
     [MetaInfo(Lang.schinese, "列奥尼达斯之矛", "斯巴达！")]
     [MetaType(MetaType.Melee)]
     public sealed partial class SpearOfLeonidas : AMMelee

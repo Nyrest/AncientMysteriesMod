@@ -2,7 +2,7 @@
 {
     [EditorGroup(group_MapTools_Gameplay)]
     [MetaImage(tex_MapTools_Swirl)]
-    [MetaInfo(Lang.english, "Outbound Killer", "Works well with Fixed Camera.")]
+    [MetaInfo(Lang.Default, "Outbound Killer", "Works well with Fixed Camera.")]
     [MetaInfo(Lang.schinese, "出图即死", "与固定相机完美配合。")]
     [MetaType(MetaType.MapTools)]
     public partial class OutboundKiller : AMMapToolGameplay

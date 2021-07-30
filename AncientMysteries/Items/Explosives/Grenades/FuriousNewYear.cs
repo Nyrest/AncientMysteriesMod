@@ -2,7 +2,7 @@
 {
     [EditorGroup(group_Guns)]
     [MetaImage(tex_Throwable_FuriousNewYear, 7, 16)]
-    [MetaInfo(Lang.english, "Furious New Year", "No firecrackers!")]
+    [MetaInfo(Lang.Default, "Furious New Year", "No firecrackers!")]
     [MetaInfo(Lang.schinese, "新年狂欢", "不准放鞭炮")]
     [MetaType(MetaType.Throwable)]
     public partial class FuriousNewYear : AMThrowable
