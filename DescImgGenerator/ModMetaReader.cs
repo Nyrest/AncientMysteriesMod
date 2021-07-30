@@ -6,27 +6,27 @@ namespace DescImgGenerator
     {
         public Dictionary<Lang, string> localizations = new();
 
-        private bool _englishOnly = true;
+        private bool _defaultOnly = true;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string GetText(Lang lang)
         {
-            if (_englishOnly) goto retEnglish;
+            if (_defaultOnly) goto retDefaultLang;
             ref string result = ref CollectionsMarshal.GetValueRefOrNullRef(localizations, lang);
             if (!Unsafe.IsNullRef(ref result))
             {
                 return result;
             }
-        retEnglish:
-            return GetEnglishText();
+        retDefaultLang:
+            return GetDefaultLangText();
             [MethodImpl(MethodImplOptions.NoInlining)]
-            string GetEnglishText() => localizations[Lang.english];
+            string GetDefaultLangText() => localizations[Lang.Default];
         }
 
         public LocalizedText AddText(Lang lang, string text)
         {
             if (string.IsNullOrEmpty(text)) return this;
-            if (lang != Lang.english) _englishOnly = false;
+            if (lang != Lang.Default) _defaultOnly = false;
             localizations[lang] = text;
             return this;
         }
@@ -96,7 +96,7 @@ namespace DescImgGenerator
             });
 
             ModItems = items.ToArray();
-            ModItems.AsSpan().Sort((x, y) => x.name.GetText(Lang.english).CompareTo(y.name.GetText(Lang.english)));
+            ModItems.AsSpan().Sort((x, y) => x.name.GetText(Lang.Default).CompareTo(y.name.GetText(Lang.Default)));
             ModItems.AsSpan().Sort();
             ModItems = ModItems.OrderBy(x => (int)x.metaType).ToArray();
             static bool IsModItem(TypeDefinition type, out CustomAttribute metaImageAttr)

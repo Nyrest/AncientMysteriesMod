@@ -4,7 +4,7 @@ namespace AncientMysteries.Items
 {
     [EditorGroup(group_MapTools_Lights)]
     [MetaImage(tex_Decoration_PointLight)]
-    [MetaInfo(Lang.english, "Point Light", "Highly Customizable Point Light")]
+    [MetaInfo(Lang.Default, "Point Light", "Highly Customizable Point Light")]
     [MetaInfo(Lang.schinese, "点光源", "高度可定制的点光源")]
     [MetaType(MetaType.MapTools)]
     public partial class PointLight2 : AMMapTool

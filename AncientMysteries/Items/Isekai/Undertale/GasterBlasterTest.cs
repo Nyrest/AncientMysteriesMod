@@ -8,7 +8,7 @@ namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns)]
     [MetaImage(tex_Gun_Umbra)]
-    [MetaInfo(Lang.english, "Gaster Blaster Test", "desc")]
+    [MetaInfo(Lang.Default, "Gaster Blaster Test", "desc")]
     [MetaInfo(Lang.schinese, "", "")]
     [MetaType(MetaType.Gun)]
     public partial class aGasterBlasterTest : AMGun

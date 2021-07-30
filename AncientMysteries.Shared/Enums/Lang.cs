@@ -35,5 +35,7 @@
         turkish,
         ukrainian,
         vietnamese,
+
+        Default = english,
     }
 }

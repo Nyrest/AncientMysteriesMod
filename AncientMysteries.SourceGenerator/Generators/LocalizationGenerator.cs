@@ -48,12 +48,12 @@ namespace AncientMysteries.SourceGenerator.Generators
                 _ => throw new NotImplementedException(),
             };
             sb.AppendLine(@$"{Tab(2)}public override string {methodName}({nameof(Lang)} lang) => lang switch {{");
-            foreach (var info in localized.Infos.OrderBy(x => x.Lang == Lang.english ? 1 : 0))
+            foreach (var info in localized.Infos.OrderBy(x => x.Lang == Lang.Default ? 1 : 0))
             {
                 if (type == BuildType.Name && info.Name is null) continue;
                 if (type == BuildType.Description && info.Description is null) continue;
 
-                string langCase = info.Lang == Lang.english ? "_" : $"{nameof(Lang)}.{info.Lang.ToString()}";
+                string langCase = info.Lang == Lang.Default ? "_" : $"{nameof(Lang)}.{info.Lang.ToString()}";
                 sb.Append(Tab(3));
                 sb.Append(langCase);
                 sb.Append(" => ");

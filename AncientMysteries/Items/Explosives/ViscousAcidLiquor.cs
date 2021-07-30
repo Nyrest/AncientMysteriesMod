@@ -2,7 +2,7 @@
 {
     [EditorGroup(group_Guns_Explosives)]
     [MetaImage(tex_Gun_ViscousAcidLiquor)]
-    [MetaInfo(Lang.english, "Viscous Acid Liquor", "A gun that completely corrodes your mind.")]
+    [MetaInfo(Lang.Default, "Viscous Acid Liquor", "A gun that completely corrodes your mind.")]
     [MetaInfo(Lang.schinese, "黏稠酸液", "这把枪会完全腐蚀掉你的头脑")]
     [MetaType(MetaType.Gun)]
     public sealed partial class ViscousAcidLiquor : AMGun

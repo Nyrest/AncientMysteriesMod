@@ -2,7 +2,7 @@
 {
     [EditorGroup(group_Equipment_Developer)]
     [MetaImage(tex_Hat_ASUS, 32, 32)]
-    [MetaInfo(Lang.english, "ASUS", "Hard as rock\nExcellent Artist / Cover Painter")]
+    [MetaInfo(Lang.Default, "ASUS", "Hard as rock\nExcellent Artist / Cover Painter")]
     [MetaInfo(Lang.schinese, null, "坚若磐石\n神仙画师 / 封面画师")]
     [MetaOrder(int.MaxValue)]
     [MetaType(MetaType.Developer)]
