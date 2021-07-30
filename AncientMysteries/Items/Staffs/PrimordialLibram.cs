@@ -2,7 +2,7 @@
 {
     [EditorGroup(group_Guns_Staffs)]
     [MetaImage(tex_Staff_PrimordialSpellbook, 21, 14, 0, 1)]
-    [MetaInfo(Lang.english, "Primordial Libram", "Everything is born and withers away, for they are all affected by this")]
+    [MetaInfo(Lang.Default, "Primordial Libram", "Everything is born and withers away, for they are all affected by this")]
     [MetaInfo(Lang.schinese, "源生法典", "万物生而凋零，一切皆因于此")]
     [MetaType(MetaType.Magic)]
     public partial class PrimordialLibram : AMStaff

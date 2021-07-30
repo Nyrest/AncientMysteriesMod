@@ -2,7 +2,7 @@
 {
     [EditorGroup(group_Guns_Rifles)]
     [MetaImage(tex_Gun_ElectronicImpacter)]
-    [MetaInfo(Lang.english, "Electronic Impacter", "But, why is it green?")]
+    [MetaInfo(Lang.Default, "Electronic Impacter", "But, why is it green?")]
     [MetaInfo(Lang.schinese, "雷电撞击", "但是，它为什么是绿色的呢？")]
     [MetaType(MetaType.Gun)]
     public sealed partial class ElectronicImpacter : AMGun

@@ -52,7 +52,7 @@ namespace DescImgGenerator
 
                 #endregion Draw Label
 
-                foreach (var item in groupItems.OrderBy(x => x.name.GetText(Lang.english)).OrderBy(x => x.order))
+                foreach (var item in groupItems.OrderBy(x => x.name.GetText(Lang.Default)).OrderBy(x => x.order))
                 {
                     #region Move Y if needed
 

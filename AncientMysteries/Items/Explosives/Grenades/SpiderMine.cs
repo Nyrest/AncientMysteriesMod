@@ -2,7 +2,7 @@
 {
     [EditorGroup(group_Guns)]
     [MetaImage(tex_Throwable_NanoMine, 18, 16, 1, 2)]
-    [MetaInfo(Lang.english, "Spider Mine", "Trying to hug everyone nearby but you")]
+    [MetaInfo(Lang.Default, "Spider Mine", "Trying to hug everyone nearby but you")]
     [MetaInfo(Lang.schinese, "追踪地雷", "试图拥抱附近除了你以外的每个人")]
     [MetaType(MetaType.Throwable)]
     public sealed partial class SpiderMine : AMThrowable
