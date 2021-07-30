@@ -2,7 +2,7 @@
 {
     [EditorGroup(group_Guns_Staffs)]
     [MetaImage(tex_Staff_Overgrowth, 21, 34)]
-    [MetaInfo(Lang.english, "Overgrowth", "Something bad might happen if it releases its full power")]
+    [MetaInfo(Lang.Default, "Overgrowth", "Something bad might happen if it releases its full power")]
     [MetaInfo(Lang.schinese, "过度生长", "如果让它过度释放自己的力量，也许不会有好事发生")]
     [MetaType(MetaType.Magic)]
     public partial class Overgrowth : AMStaff

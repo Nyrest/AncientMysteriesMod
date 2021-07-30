@@ -7,7 +7,7 @@
     {
         public static Lang Current
         {
-            get => Lang.english;
+            get => Lang.Default;
         }
     }
 }

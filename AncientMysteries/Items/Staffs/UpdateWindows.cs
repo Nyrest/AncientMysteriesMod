@@ -4,7 +4,7 @@ namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_Misc)]
     [MetaImage(tex_Staff_ForceUpdate)]
-    [MetaInfo(Lang.english, "Update Windows", "Windows 10 is updating.\nThis will take forever.")]
+    [MetaInfo(Lang.Default, "Update Windows", "Windows 10 is updating.\nThis will take forever.")]
     [MetaInfo(Lang.schinese, "Windows 更新", "窗 10 正在更新，坐和放宽，你正在成功！\n如果新版本出现问题，请滚回到以前的版本。")]
     [MetaType(MetaType.Magic)]
     public sealed partial class UpdateWindows : AMHoldable

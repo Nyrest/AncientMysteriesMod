@@ -2,6 +2,6 @@
 {
     public static class LocalizationHelper
     {
-        public static Lang DefaultLang => Lang.english;
+        public static Lang DefaultLang => Lang.Default;
     }
 }

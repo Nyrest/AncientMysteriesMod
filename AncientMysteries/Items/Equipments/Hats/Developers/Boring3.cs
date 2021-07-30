@@ -2,7 +2,7 @@
 {
     [EditorGroup(group_Equipment_Developer)]
     [MetaImage(tex_Hat_Boring3Pickup)]
-    [MetaInfo(Lang.english, "Boring3", "Carrying the weight of the world\nMod Proposer / Lead Programmer / Translater")]
+    [MetaInfo(Lang.Default, "Boring3", "Carrying the weight of the world\nMod Proposer / Lead Programmer / Translater")]
     [MetaInfo(Lang.schinese, null, "承受着世界的重量\nMod 企划者 / 主程序员 / 翻译")]
     [MetaOrder(int.MaxValue - 3)]
     [MetaType(MetaType.Developer)]
