@@ -15,8 +15,8 @@ namespace AncientMysteries.Items
     {
         public InterstellarSuit(float xpos, float ypos) : base(xpos, ypos)
         {
-            // Not using ReadyToRun because we are going to use vanilla collide box and crop size
-            _pickupSprite = this.ModSprite(tex_Equipment_InterstellarSuit_Pickup);
+            // Not using ReadyToRun because we are going to use vanilla collide box and cropping size
+            graphic = _pickupSprite = this.ModSprite(tex_Equipment_InterstellarSuit_Pickup);
             _sprite = this.ModSpriteWithFrames(tex_Equipment_InterstellarSuit_Anim, 32, 32);
             _spriteOver = this.ModSpriteWithFrames(tex_Equipment_InterstellarSuit_AnimOver,32,32);
             CanCrush = false;
