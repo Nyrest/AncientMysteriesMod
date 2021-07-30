@@ -34,6 +34,65 @@
 
         public abstract string GetLocalizedDescription(Lang lang);
 
+        public override bool Hit(Bullet bullet, Vec2 hitPos)
+        {
+            if (_equippedDuck == null || bullet.owner == duck || !bullet.isLocal)
+            {
+                return false;
+            }
+            if (_isArmor && duck != null)
+            {
+                EquipmentHitPoints--;
+                if (bullet.isLocal && EquipmentHitPoints <= 0)
+                {
+                    duck.KnockOffEquipment(this, ting: true, bullet);
+                    Fondle(this, DuckNetwork.localConnection);
+                }
+                if (MakeDefaultHitEffects)
+                {
+                    if (bullet.isLocal && Network.isActive)
+                    {
+                        NetSoundEffect.Play("equipmentTing");
+                    }
+                    bullet.hitArmor = true;
+                    Level.Add(MetalRebound.New(hitPos.x, hitPos.y, (bullet.travelDirNormalized.x > 0f) ? 1 : (-1)));
+                    for (int i = 0; i < 6; i++)
+                    {
+                        Level.Add(Spark.New(x, y, bullet.travelDirNormalized));
+                    }
+                }
+                return BaseBaseHit();
+            }
+            return BaseBaseHit();
+            bool BaseBaseHit()
+            {
+                if (MakeDefaultHitEffects)
+                {
+                    if (physicsMaterial == PhysicsMaterial.Metal)
+                    {
+                        Level.Add(MetalRebound.New(hitPos.x, hitPos.y, (bullet.travelDirNormalized.x > 0f) ? 1 : (-1)));
+                        hitPos -= bullet.travelDirNormalized;
+                        for (int j = 0; j < 3; j++)
+                        {
+                            Level.Add(Spark.New(hitPos.x, hitPos.y, bullet.travelDirNormalized));
+                        }
+                    }
+                    else if (physicsMaterial == PhysicsMaterial.Wood)
+                    {
+                        hitPos -= bullet.travelDirNormalized;
+                        for (int i = 0; i < 3; i++)
+                        {
+                            WoodDebris woodDebris = WoodDebris.New(hitPos.x, hitPos.y);
+                            woodDebris.hSpeed = 0f - bullet.travelDirNormalized.x + Rando.Float(-1f, 1f);
+                            woodDebris.vSpeed = 0f - bullet.travelDirNormalized.y + Rando.Float(-1f, 1f);
+                            Level.Add(woodDebris);
+                        }
+                    }
+                }
+                return thickness > bullet.ammo.penetration;
+            }
+        }
+
         public StateBinding _equipmentMaxHitPointsBinding = new(nameof(_equipmentMaxHitPoints));
         public StateBinding _equipmentHitPointsBinding = new(nameof(_equipmentHitPoints));
 
