@@ -15,7 +15,7 @@ namespace AncientMysteries.Items
     {
         public InterstellarBoots(float xpos, float ypos) : base(xpos, ypos)
         {
-            // Not using ReadyToRun because we are going to use vanilla collide box and cropping size
+            // Not using ReadyToRun because we are going to use vanilla collide box and crop size
             graphic = _pickupSprite = this.ModSprite(tex_Equipment_InterstellarBoots_Pickup);
             _sprite = this.ModSpriteWithFrames(tex_Equipment_InterstellarBoots, 32, 32);
             CanCrush = false;
