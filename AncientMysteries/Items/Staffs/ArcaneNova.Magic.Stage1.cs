@@ -46,8 +46,8 @@ namespace AncientMysteries.Items
         {
             base.Update();
             MathHelper.Min(alpha += 0.08f, 1);
-            speed *= 0.98f;
-            if (Math.Pow(speed.x, 2) + Math.Pow(speed.y, 2) <= 0.7f)
+            bulletVelocity *= 0.98f;
+            if (Math.Pow(bulletVelocity.x, 2) + Math.Pow(bulletVelocity.y, 2) <= 0.7f)
             {
                 BulletRemove();
             }

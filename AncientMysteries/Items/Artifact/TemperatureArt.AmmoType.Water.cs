@@ -20,7 +20,7 @@ namespace AncientMysteries.Items
             };
             if (duck is null) goto notDuck;
 
-            duck.velocity += speed;
+            duck.velocity += bulletVelocity;
             duck.GoRagdoll();
             return false;
 

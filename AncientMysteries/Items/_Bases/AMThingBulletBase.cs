@@ -9,8 +9,8 @@ namespace AncientMysteries.Items
     public abstract class AMThingBulletBase : AMThing, ITeleport
     {
         public StateBinding positionBinding = new CompressedVec2Binding(nameof(position));
-        public StateBinding speedBinding = new CompressedVec2Binding(nameof(speed));
-        public Vec2 speed;
+        public StateBinding speedBinding = new CompressedVec2Binding(nameof(bulletVelocity));
+        public Vec2 bulletVelocity;
         public StateBinding safeDuckBinding = new(nameof(BulletSafeDuck));
         public Duck BulletSafeDuck;
         public float BulletRange { get; init; }
@@ -38,7 +38,7 @@ namespace AncientMysteries.Items
 
 #endif
 
-        public virtual bool IsMoving => speed != Vec2.Zero;
+        public virtual bool IsMoving => bulletVelocity != Vec2.Zero;
 
         public AMThingBulletBase(Vec2 pos, float bulletRange, float bulletPenetration, Vec2 initSpeed, Duck safeDuck) : base(pos.x, pos.y)
         {
@@ -46,7 +46,7 @@ namespace AncientMysteries.Items
             BulletSafeDuck = safeDuck;
             BulletRange = bulletRange;
             BulletPenetration = bulletPenetration;
-            speed = initSpeed;
+            bulletVelocity = initSpeed;
             angle = CalcBulletAngleRadian();
             lastPosition = pos;
         }
@@ -63,8 +63,8 @@ namespace AncientMysteries.Items
             lastPosition = position;
             if (IsMoving)
             {
-                position += speed;
-                BulletDistanceTraveled += speed.Length();
+                position += bulletVelocity;
+                BulletDistanceTraveled += bulletVelocity.Length();
                 DoBulletCollideCheck();
             }
             else if (BulletCanCollideWhenNotMoving)
@@ -180,9 +180,9 @@ namespace AncientMysteries.Items
                 angle = CalcBulletAngleRadian();
         }
 
-        public float CalcBulletAngleDegrees() => CalcBulletAngleDegrees(speed);
+        public float CalcBulletAngleDegrees() => CalcBulletAngleDegrees(bulletVelocity);
 
-        public float CalcBulletAngleRadian() => CalcBulletAngleRadian(speed);
+        public float CalcBulletAngleRadian() => CalcBulletAngleRadian(bulletVelocity);
 
         public float CalcBulletAngleDegrees(Vec2 speed) => Maths.RadToDeg(CalcBulletAngleRadian(speed));
 
@@ -214,10 +214,34 @@ namespace AncientMysteries.Items
             }
         }
 
-        public virtual void GoTo(Thing thing) => GoTo(thing.position);
-        public virtual void GoTo(Vec2 pos)
+        public void GoToByVelocity(Transform transform, float speed, float lerpAmount) => GoToByVelocity(transform.position, speed, lerpAmount);
+        public void GoToByVelocity(Vec2 target, float speed, float lerpAmount)
         {
+            float angleToTargetRad = Maths.PointDirectionRad(position, target);
+            var vecToTarget = Maths.AngleToVec(angleToTargetRad) * speed;
+            //vecToTarget.y *= -1;
+            bulletVelocity = Vec2.Lerp(bulletVelocity, vecToTarget, lerpAmount);
+        }
 
+#warning GoToByAngle: Need to fix
+        [Obsolete("Need to fix")]
+        /// <summary>
+        /// Call this after base.Update();
+        /// </summary>
+        public void GoToByAngle(Transform transform, float speed, float lerpAmount) => GoToByAngle(transform.position, speed, lerpAmount);
+        [Obsolete("Need to fix")]
+        /// <summary>
+        /// Call this after base.Update();
+        /// </summary>
+        public void GoToByAngle(Vec2 target, float speed, float lerpAmount)
+        {
+            float angleToTargetRad = Maths.PointDirectionRad(position, target);
+
+            var lerpedAngleRad = MathHelper.Lerp(angle, angleToTargetRad, lerpAmount);
+            bulletVelocity = Maths.AngleToVec(lerpedAngleRad) * speed;
+            //var vecToTarget = Maths.AngleToVec(angleToTargetRad) * speed;
+
+            //bulletVelocity = Vec2.Lerp(bulletVelocity, vecToTarget, speed);
         }
     }
 }

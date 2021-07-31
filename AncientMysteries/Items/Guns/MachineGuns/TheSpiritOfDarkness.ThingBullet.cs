@@ -33,8 +33,8 @@ namespace AncientMysteries.Items
             cosInput += 0.2f;
             float offset = (float)Math.Cos(cosInput) * amplitude;
             var offsetVec = new Vec2(3, _goingUp ? offset : -offset);
-            speed = offsetVec.Rotate(fireAngleRadius, Vec2.Zero);
-            speed.y *= -1;
+            bulletVelocity = offsetVec.Rotate(fireAngleRadius, Vec2.Zero);
+            bulletVelocity.y *= -1;
             //if (_goingUp) y += (float)Math.Cos(cosInput) * amplitude;
             //else y += -(float)Math.Cos(cosInput) * amplitude;
             base.Update();

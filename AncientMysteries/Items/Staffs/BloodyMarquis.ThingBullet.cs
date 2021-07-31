@@ -1,10 +1,12 @@
-﻿using System;
+﻿using AncientMysteries.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AncientMysteries.Items{
+namespace AncientMysteries.Items
+{
     public class BloodyMarquis_ThingBullet : AMThingBulletLinar
     {
         public override float CalcBulletAngleRadian(Vec2 speed) => base.CalcBulletAngleRadian(speed) + 1.56f;
@@ -32,16 +34,16 @@ namespace AncientMysteries.Items{
             }
             else
             {*/
-                MathHelper.Min(alpha += 0.04f, 1);
+            MathHelper.Min(alpha += 0.04f, 1);
             //}
             foreach (Duck duck in Level.current.things[typeof(Duck)])
             {
                 if (duck.dead) continue;
                 if (BulletSafeDuck != null && duck.team == BulletSafeDuck.team) continue;
-                
-                
+
+
             }
-            speed *= 1.04f;
+            bulletVelocity *= 1.04f;
         }
     }
 }
