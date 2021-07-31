@@ -8,7 +8,7 @@ namespace AncientMysteries.Items
 {
     [EditorGroup(group_Equipments)]
     [MetaImage(tex_Equipment_InterstellarBoots_Pickup)]
-    [MetaInfo(Lang.english, "Interstellar Boots", "desc")]
+    [MetaInfo(Lang.Default, "Interstellar Boots", "desc")]
     [MetaInfo(Lang.schinese, "", "")]
     [MetaType(MetaType.Equipment)]
     public partial class InterstellarBoots : AMBoots
