@@ -20,6 +20,10 @@ namespace AncientMysteries.Items
             _sprite = this.ModSpriteWithFrames(tex_Equipment_InterstellarSuit_Anim, 32, 32);
             _spriteOver = this.ModSpriteWithFrames(tex_Equipment_InterstellarSuit_AnimOver,32,32);
             CanCrush = false;
+            _isArmor = true;
+            _equipmentMaxHitPoints = 999;
+            _equipmentHitPoints = 999;
+            _equippedThickness = float.MaxValue;
         }
     }
 }
