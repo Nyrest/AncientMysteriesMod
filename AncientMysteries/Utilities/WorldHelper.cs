@@ -80,7 +80,7 @@ namespace AncientMysteries.Utilities
                     idx.Add((block as AutoBlock).blockIndex);
                     if (pExplode)
                     {
-                        if (idd % 10 == 0)
+                        if (idd % 10 == 0 && explodeMakeFire)
                         {
                             Level.Add(new ExplosionPart(block.x, block.y));
                             Level.Add(SmallFire.New(block.x, block.y, Rando.Float(-2f, 2f), Rando.Float(-2f, 2f)));

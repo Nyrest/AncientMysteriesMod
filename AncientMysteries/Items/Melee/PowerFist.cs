@@ -16,6 +16,8 @@ namespace AncientMysteries.Items
     {
         public const float maxDashTime = 30; // in ticks
         public float dashTime = -1; // in ticks, -1 = not started
+        public Waiter chargeWaiter = new(120);
+        public bool charged = false;
 
         public bool Dashing
         {
@@ -39,11 +41,17 @@ namespace AncientMysteries.Items
         public PowerFist(float xpos, float ypos) : base(xpos, ypos)
         {
             this.ReadyToRun(tex_Melee_PowerFist);
+            chargeWaiter.Pause();
         }
 
         public override void Update()
         {
             base.Update();
+            if (chargeWaiter.Tick() && charged == false)
+            {
+                charged = true;
+                SFX.PlaySynchronized("targetDing", 1, 0.3f);
+            }
             if (Dashing)
             {
                 if (dashTime++ >= maxDashTime)
@@ -57,20 +65,28 @@ namespace AncientMysteries.Items
                 duck.velocity = vel;
                 foreach (MaterialThing item in Level.CheckCircleAll<MaterialThing>(duck.position, 30))
                 {
-                    switch (item)
+                    if (item is not PowerFist && item as Duck != duck)
                     {
-                        case Window window:
+                        switch (item)
+                        {
+                            case Window window:
+                                {
+                                    window.Destroy(new DTImpact(duck));
+                                    break;
+                                }
+                            case Door door when door.locked is false:
+                                {
+                                    // TODO: use DTShot to make velocity
+                                    door.Destroy(new DTImpact(duck));
+                                    break;
+                                }
+                            case PhysicsObject obj:
                             {
-                                window.Destroy(new DTImpact(duck));
-                                break;
-                            }
-                        case Door door when door.locked is false:
-                            {
-                                // TODO: use DTShot to make velocity
-                                door.Destroy(new DTImpact(duck));
-                                break;
-                            }
-                        default: break;
+                                    obj.Destroy(new DTImpact(duck));
+                                    break;
+                                }
+                            default: break;
+                        }
                     }
                 }
                 if (CheckCollide(out var collideWith))
@@ -85,11 +101,15 @@ namespace AncientMysteries.Items
                                     culprit: duck,
                                     true,
                                     true,
-                                    // culprit will not be destoryed
+                                    // culprit will not be destroyed
                                     true,
                                     false);
                                 // stop dashing
                                 Dashing = false;
+                                ExplosionPart exp = new(fuckingBlock.position.x, fuckingBlock.position.y);
+                                exp.scale = new(1.5f,1.5f);
+                                SFX.PlaySynchronized("explode", 1, 0.1f);
+                                Level.Add(exp);
                                 break;
                             }
                         default:
@@ -102,16 +122,25 @@ namespace AncientMysteries.Items
         public override void PressAction()
         {
             base.PressAction();
-            if (this.duck is Duck duck)
+            chargeWaiter.Resume();
+        }
+
+        public override void OnReleaseAction()
+        {
+            base.OnReleaseAction();
+            chargeWaiter.Reset();
+            chargeWaiter.Pause();
+            if (this.duck is Duck duck && charged)
             {
                 duck.immobilized = true;
+                charged = false;
                 Dash();
             }
         }
 
         public bool CheckCollide([NotNullWhen(true)] out MaterialThing collideWith) =>
-            (collideWith = duck.collideLeft) is not null ||
-            (collideWith = duck.collideRight) is not null;
+            (collideWith = duck?.collideLeft) is not null ||
+            (collideWith = duck?.collideRight) is not null;
 
         public void Dash()
         {
