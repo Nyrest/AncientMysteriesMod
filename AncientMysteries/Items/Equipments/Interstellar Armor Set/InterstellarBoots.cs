@@ -19,6 +19,10 @@ namespace AncientMysteries.Items
             graphic = _pickupSprite = this.ModSprite(tex_Equipment_InterstellarBoots_Pickup);
             _sprite = this.ModSpriteWithFrames(tex_Equipment_InterstellarBoots, 32, 32);
             CanCrush = false;
+            _isArmor = true;
+            _equippedThickness = float.MaxValue;
+            _equipmentMaxHitPoints = 999;
+            _equipmentHitPoints = 999;
         }
     }
 }
