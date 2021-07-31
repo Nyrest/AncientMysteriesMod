@@ -11,6 +11,7 @@ global using System.IO;
 global using System.Linq;
 global using System.Reflection;
 global using System.Runtime.CompilerServices;
+global using System.Diagnostics.CodeAnalysis;
 global using static AncientMysteries.AMFonts;
 global using static AncientMysteries.ContentReferences;
 global using static AncientMysteries.groupNames;
