@@ -8,7 +8,7 @@ namespace AncientMysteries.Items
 {
     [EditorGroup(group_Equipments)]
     [MetaImage(tex_Equipment_InterstellarVisage_Pickup)]
-    [MetaInfo(Lang.english, "Interstellar Visage", "desc")]
+    [MetaInfo(Lang.Default, "Interstellar Visage", "desc")]
     [MetaInfo(Lang.schinese, "", "")]
     [MetaType(MetaType.Equipment)]
     public partial class InterstellarVisage : AMHelmet

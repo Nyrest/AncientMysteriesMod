@@ -63,7 +63,7 @@ namespace AncientMysteries.Analyzers.MissingMetadata
             if ((flags & MetadataFlags.HasMetaInfo) == 0)
             {
                 string className = symbol.Name;
-                var args = SF.ParseAttributeArgumentList($"({nameof(Lang)}.{nameof(Lang.Default)}, \"{ParsePascalName(className)}\", \"desc\")");
+                var args = SF.ParseAttributeArgumentList($"({nameof(Lang)}.Default, \"{ParsePascalName(className)}\", \"todo\")");
                 list.Add(SF.Attribute(SF.IdentifierName("MetaInfo"), args));
                 var args2 = SF.ParseAttributeArgumentList($"({nameof(Lang)}.{nameof(Lang.schinese)}, \"\", \"\")");
                 list.Add(SF.Attribute(SF.IdentifierName("MetaInfo"), args2));
