@@ -8,7 +8,7 @@ namespace AncientMysteries.Utilities
 {
     public static class WorldHelper
     {
-        public static int DestroyBlocksRadius(Vec2 pPosition, float pRadius, Thing culprit, bool pExplode = false, bool destoryWindows = true, bool destoryPhyObjs = true)
+        public static int DestroyBlocksRadius(Vec2 pPosition, float pRadius, Thing culprit, bool pExplode = false, bool destoryWindows = true, bool destoryPhyObjs = true, bool explodeMakeFire = false)
         {
             if (destoryWindows)
             {
@@ -61,7 +61,10 @@ namespace AncientMysteries.Utilities
                         if (pExplode && idd % 10 == 0)
                         {
                             Level.Add(new ExplosionPart(bl.x, bl.y));
-                            Level.Add(SmallFire.New(bl.x, bl.y, Rando.Float(-2f, 2f), Rando.Float(-2f, 2f)));
+                            if(explodeMakeFire)
+                            {
+                                Level.Add(SmallFire.New(bl.x, bl.y, Rando.Float(-2f, 2f), Rando.Float(-2f, 2f)));
+                            }
                         }
                         idd++;
                     }

@@ -14,17 +14,21 @@ namespace AncientMysteries.Items
     [MetaType(MetaType.Melee)]
     public partial class PowerFist : AMHoldable
     {
-        public const float maxDashTime = 3 * 60; // in ticks
+        public const float maxDashTime = 30; // in ticks
         public float dashTime = -1; // in ticks, -1 = not started
 
         public bool Dashing
         {
-            get => dashTime >= 0;
+            get => duck is not null && dashTime >= 0;
             set
             {
                 if (!value)
                 {
                     dashTime = -1;
+                    if (duck != null)
+                    {
+                        duck.immobilized = false;
+                    }
                     return;
                 }
                 if (dashTime < 0)
@@ -39,40 +43,70 @@ namespace AncientMysteries.Items
 
         public override void Update()
         {
-            if (CheckCollide(out var collideWith))
+            base.Update();
+            if (Dashing)
             {
-                switch (collideWith)
+                if (dashTime++ >= maxDashTime)
                 {
-                    case Window window:
-                        {
-                            window.Destroy(new DTImpact(duck));
+                    Dashing = false;
+                    return;
+                }
+                var vel = Maths.AngleToVec(angle) * 14;
+                vel.x *= offDir;
+                vel.y *= -1;
+                duck.velocity = vel;
+                foreach (MaterialThing item in Level.CheckCircleAll<MaterialThing>(duck.position, 30))
+                {
+                    switch (item)
+                    {
+                        case Window window:
+                            {
+                                window.Destroy(new DTImpact(duck));
+                                break;
+                            }
+                        case Door door when door.locked is false:
+                            {
+                                // TODO: use DTShot to make velocity
+                                door.Destroy(new DTImpact(duck));
+                                break;
+                            }
+                        default: break;
+                    }
+                }
+                if (CheckCollide(out var collideWith))
+                {
+                    switch (collideWith)
+                    {
+                        case Block fuckingBlock:
+                            {
+                                WorldHelper.DestroyBlocksRadius(
+                                    fuckingBlock.position,
+                                    35,
+                                    culprit: duck,
+                                    true,
+                                    true,
+                                    // culprit will not be destoryed
+                                    true,
+                                    false);
+                                // stop dashing
+                                Dashing = false;
+                                break;
+                            }
+                        default:
                             break;
-                        }
-                    case Door door when door.locked is false:
-                        {
-                            // TODO: use DTShot to make velocity
-                            door.Destroy(new DTImpact(duck));
-                            break;
-                        }
-                    case Block fuckingBlock:
-                        {
-                            WorldHelper.DestroyBlocksRadius(
-                                fuckingBlock.position,
-                                20,
-                                culprit: duck,
-                                false,
-                                true,
-                                // culprit will not be destoryed
-                                true);
-                            // stop dashing
-                            goto default;
-                        }
-                    default:
-                        Dashing = false;
-                        break;
+                    }
                 }
             }
-            base.Update();
+        }
+
+        public override void PressAction()
+        {
+            base.PressAction();
+            if (this.duck is Duck duck)
+            {
+                duck.immobilized = true;
+                Dash();
+            }
         }
 
         public bool CheckCollide([NotNullWhen(true)] out MaterialThing collideWith) =>
