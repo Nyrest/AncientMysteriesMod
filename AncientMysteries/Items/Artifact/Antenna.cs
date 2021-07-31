@@ -89,7 +89,7 @@
                 for (int i = 0; i < bulletCount; i++)
                 {
                     Fondle(bulletsBuffer[i]);
-                    bulletsBuffer[i].speed = speedMultiplier * bulletAngle[i];
+                    bulletsBuffer[i].bulletVelocity = speedMultiplier * bulletAngle[i];
                 }
                 bulletsBuffer = null;
                 charger = 0;
