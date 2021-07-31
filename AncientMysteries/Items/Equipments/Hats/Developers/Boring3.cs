@@ -51,23 +51,24 @@
             if (_equippedDuck != null)
             {
                 var rect = _equippedDuck.rectangle;
-                bool foundFire = false;
                 foreach (SmallFire item in Level.current.things[typeof(SmallFire)])
                 {
-                    if (item.stick == _equippedDuck)
+                    if (item.stick == _equippedDuck || item.stick == _equippedDuck.holdObject)
                     {
                         item.stick = null;
                     }
-                    if (Collision.Rect(rect, item.rectangle))
-                    {
-                        foundFire = true;
-                    }
                 }
-                if (!foundFire)
+
+                _equippedDuck.burnt = 0;
+                _equippedDuck.onFire = false;
+                _equippedDuck.flammable = 0;
+                if (_equippedDuck.holdObject != null)
                 {
-                    _equippedDuck.burnt = 0;
-                    _equippedDuck.onFire = false;
+                    _equippedDuck.holdObject.burnt = 0;
                 }
+
+
+
                 var equippedDuckFeather = _equippedDuck.persona.featherSprite.texture;
                 var equppedDuckColor = _equippedDuck.persona.colorUsable;
                 foreach (var feather in Level.CheckCircleAll<Feather>(_equippedDuck.position, 50))
@@ -133,7 +134,11 @@
 
         public override void UnEquip()
         {
-            _equippedDuck.invincible = false;
+            if (_equippedDuck != null)
+            {
+                _equippedDuck.invincible = false;
+                _equippedDuck.flammable = 1;
+            }
             base.UnEquip();
         }
     }
