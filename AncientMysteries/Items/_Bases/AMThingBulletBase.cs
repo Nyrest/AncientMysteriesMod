@@ -1,4 +1,5 @@
 ﻿using AncientMysteries.DestroyTypes;
+using static AncientMysteries.AmmoTypes.ThingBulletSimulation_AmmoType;
 
 namespace AncientMysteries.Items
 {
@@ -127,8 +128,17 @@ namespace AncientMysteries.Items
             // do not sync
             if (isServerForObject)
             {
-                Make.Bullet<AT_ThingBulletSimulation>(thing.position, BulletSafeDuck, angleDegrees, this);
+                var bullet = (ThingBulletSimulation_Bullet)Make.Bullet<ThingBulletSimulation_AmmoType>(thing.position, BulletSafeDuck, angleDegrees, this);
+                bullet.callback = this;
             }
+        }
+
+        /// <summary>
+        /// Absolutely not Network sync
+        /// </summary>
+        public virtual void LegacyRebound(Vec2 pos, float dirDegress, float rangeLeft)
+        {
+
         }
 
         public abstract IEnumerable<MaterialThing> BulletCollideCheck();
