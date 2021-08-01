@@ -8,7 +8,7 @@
 
         public int timeFlied = 0;
 
-        public SpriteMap _wingsSpriteMap;
+        public SpriteMap _wingsSpriteMap = null!;
 
         public byte AnimationFrame
         {
