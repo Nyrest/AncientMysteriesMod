@@ -26,7 +26,6 @@ namespace AncientMysteries.Items
         {
             const int bulletSpeed = 3;
             base.Update();
-            if (!isServerForObject) return;
             alpha -= 0.06f;
             if (!fired)
             {
