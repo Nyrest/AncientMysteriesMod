@@ -1,4 +1,4 @@
-﻿namespace AncientMysteries.Equipments.Hats.Developers
+﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Equipment_Developer)]
     [MetaImage(tex_Hat_GUDZHPickup)]
