@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Equipments)]
-    [MetaImage(tex_Equipment_VampireWings, 28, 14, 1)]
+    [MetaImage(tex_Equipment_VampireWings, 30, 11, 1)]
     [MetaInfo(Lang.Default, "Vampire Wings", "「また 60 億分の 1 の確率で出会えたら・・・」")]
     [MetaInfo(Lang.schinese, "吸血鬼之翼", null)]
     [MetaType(MetaType.Equipment)]
