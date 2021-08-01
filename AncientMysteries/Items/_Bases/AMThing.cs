@@ -5,7 +5,5 @@
         public AMThing(float xpos, float ypos) : base(xpos, ypos)
         {
         }
-
-        protected AMThing This() { return this; }
     }
 }
