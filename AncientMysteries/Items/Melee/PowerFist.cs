@@ -61,7 +61,7 @@ namespace AncientMysteries.Items
                 }
                 var vel = Maths.AngleToVec(angle) * 14;
                 vel.x *= offDir;
-                vel.y *= -1;
+                vel.y *= offDir;
                 duck.velocity = vel;
                 foreach (MaterialThing item in Level.CheckCircleAll<MaterialThing>(duck.position, 30))
                 {
