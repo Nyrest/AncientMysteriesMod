@@ -1,13 +1,13 @@
 ﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Equipments)]
-    [MetaImage(tex_Equipment_DemonWings, 28, 14, 1)]
-    [MetaInfo(Lang.Default, "Angel Wings", "「また 60 億分の 1 の確率で出会えたら・・・」")]
-    [MetaInfo(Lang.schinese, "天使之翼", null)]
+    [MetaImage(tex_Equipment_VampireWings, 28, 14, 1)]
+    [MetaInfo(Lang.Default, "Vampire Wings", "「また 60 億分の 1 の確率で出会えたら・・・」")]
+    [MetaInfo(Lang.schinese, "吸血鬼之翼", null)]
     [MetaType(MetaType.Equipment)]
-    public partial class AngelWings : AMEquipmentWings
+    public partial class VampireWings : AMEquipmentWings
     {
-        public AngelWings(float xpos, float ypos) : base(xpos, ypos)
+        public VampireWings(float xpos, float ypos) : base(xpos, ypos)
         {
             _wingsSpriteMap = this.ReadyToRunWithFrames(tex_Equipment_VampireWings, 30, 11);
             _wingsSpriteMap.AddAnimation("loop", 0.2f, true, 0, 1, 2, 1);

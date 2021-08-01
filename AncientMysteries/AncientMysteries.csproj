@@ -52,6 +52,19 @@
     <Content Include="content\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Compile Remove="Items\Artifact\Antenna.Bullet.cs" />
+    <Compile Remove="Items\Artifact\Antenna.cs" />
+    <Compile Remove="Items\Artifact\TemperatureArt.AmmoType.Ice.cs" />
+    <Compile Remove="Items\Artifact\TemperatureArt.AmmoType.Water.cs" />
+    <Compile Remove="Items\Artifact\TemperatureArt.AmmoType.WaterVapor.cs" />
+    <Compile Remove="Items\Artifact\TemperatureArt.AmmoType._Base.cs" />
+    <Compile Remove="Items\Artifact\TemperatureArt.cs" />
+    <Compile Remove="Items\Isekai\AssassinsCreed\HiddenBlade.cs" />
+    <Compile Remove="Items\Isekai\DanceFireAndIce\DanceIceAndFire.Bullet.cs" />
+    <Compile Remove="Items\Isekai\DanceFireAndIce\DanceIceAndFire.cs" />
+    <Compile Remove="Items\Isekai\Undertale\GasterBlasterTest.cs" />
+    <Compile Remove="Items\Props\CrashErrorDialog.cs" />
+    <Compile Remove="Items\Staffs\AbyssalGazer.cs" />
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
@@ -98,6 +111,19 @@
   <!--Set OutputPath inside it-->
   <ItemGroup>
     <None Include="AncientMysteries.csproj.user" />
+    <None Include="Items\Artifact\Antenna.Bullet.cs" />
+    <None Include="Items\Artifact\Antenna.cs" />
+    <None Include="Items\Artifact\TemperatureArt.AmmoType.Ice.cs" />
+    <None Include="Items\Artifact\TemperatureArt.AmmoType.Water.cs" />
+    <None Include="Items\Artifact\TemperatureArt.AmmoType.WaterVapor.cs" />
+    <None Include="Items\Artifact\TemperatureArt.AmmoType._Base.cs" />
+    <None Include="Items\Artifact\TemperatureArt.cs" />
+    <None Include="Items\Isekai\AssassinsCreed\HiddenBlade.cs" />
+    <None Include="Items\Isekai\DanceFireAndIce\DanceIceAndFire.Bullet.cs" />
+    <None Include="Items\Isekai\DanceFireAndIce\DanceIceAndFire.cs" />
+    <None Include="Items\Isekai\Undertale\GasterBlasterTest.cs" />
+    <None Include="Items\Props\CrashErrorDialog.cs" />
+    <None Include="Items\Staffs\AbyssalGazer.cs" />
   </ItemGroup>
 
   <!--Post Build Event-->
