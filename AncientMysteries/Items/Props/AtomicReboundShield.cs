@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_Props_functional)]
     [MetaImage(tex_Holdable_ReboundShield)]
-    [MetaInfo(Lang.Default, "Rebound Shield", "Send this mod to 10 other people to receive bless from the developers")]
-    [MetaInfo(Lang.schinese, "反弹盾", "转发这个Mod给十个人以获得来自制作者的祝福")]
+    [MetaInfo(Lang.Default, "Rebound Shield", "It may also rebound the chain letters.")]
+    [MetaInfo(Lang.schinese, "反弹盾", "也许还能为你反弹诅咒连环信。")]
     [MetaType(MetaType.Props)]
     public partial class ReboundShield : AMGun, IPlatform
     {
