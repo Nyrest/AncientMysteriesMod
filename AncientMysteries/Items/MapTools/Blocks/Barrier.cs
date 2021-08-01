@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 namespace AncientMysteries.Items
 {
     [EditorGroup(grouptopGroupName)]
-    public sealed class Barrier : AMBlock
+    [MetaImage(tex_Block_Barrier)]
+    [MetaInfo(Lang.Default, "Barrier", "Blocks everything")]
+    [MetaInfo(Lang.schinese, "屏障", "简单来说就是空气墙")]
+    [MetaType(MetaType.MapTools)]
+    public sealed partial class Barrier : AMMapToolBlock
     {
         public Barrier(float x, float y) : base(x, y)
         {
