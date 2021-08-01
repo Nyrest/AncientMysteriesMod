@@ -11,7 +11,8 @@ namespace AncientMysteries.Items
         public StateBinding positionBinding = new StateBinding(nameof(position));
         public StateBinding alphaBinding = new StateBinding(nameof(alpha));
         public StateBinding fireAngleDegreeBinding = new StateBinding(nameof(fireAngleDegree));
-        private readonly Duck safeDuck;
+        public StateBinding safeDuckBinding = new StateBinding(nameof(safeDuck));
+        private Duck safeDuck;
         private bool fired = false;
         private float fireAngleDegree;
 
