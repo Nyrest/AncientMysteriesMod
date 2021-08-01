@@ -88,6 +88,12 @@
 
         #endregion Map Tools
 
+        #region Blocks
+
+        public const string group_Blocks = grouptopGroupName + "|Blocks";
+
+        #endregion Blocks
+
         [Obsolete("Assign a valid group.", true)]
         public const string group_Unknown = grouptopGroupName + "|Error";
     }

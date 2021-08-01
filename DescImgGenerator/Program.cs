@@ -94,7 +94,9 @@ namespace DescImgGenerator
                 MaxLines = 1,
             }.Add(labelName);
             const int offsetY = 3;
+            int ori = canvas.SaveLayer(labelPaint);
             desc.Paint(canvas, new SKPoint(rect.MidX - desc.MeasuredWidth / 2, rect.MidY - desc.MeasuredHeight / 2 - offsetY), paintOptions);
+            canvas.RestoreToCount(ori);
         }
 
         public static void DrawItem(SKCanvas canvas, Item item, Lang lang, SKRect rect)
@@ -109,7 +111,7 @@ namespace DescImgGenerator
             SKRect nameRect = crect(padded.Left + 3, padded.Top + imageHeight, padded.Width - 5, nameHeight);
             SKRect descRect = crect(padded.Left + 3, padded.Top + imageHeight + nameHeight, padded.Width - 5, descHeight);
             var scaled = item.GetScaledBitmap(imageRect);
-            if(scaled != null)
+            if (scaled != null)
             {
                 var imageDestRect = CalculateDisplayRect(imageRect, scaled, BitmapAlignment.Start, BitmapAlignment.Center);
                 canvas.DrawBitmap(scaled, imageDestRect.Left + 5, imageDestRect.Top);
