@@ -12,6 +12,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>preview</LangVersion>
     <Platforms>x86</Platforms>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <!--Info-->
