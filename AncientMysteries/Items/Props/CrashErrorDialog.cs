@@ -10,7 +10,7 @@ namespace AncientMysteries.Items
     [EditorGroup(group_Props)]
     [MetaImage(tex_Props_CrashErrorDialog)]
     [MetaInfo(Lang.Default, "Crash Error Dialog", "desc")]
-    [MetaInfo(Lang.schinese, "", "")]
+    [MetaInfo(Lang.schinese, "错误弹窗", "「你不要过来啊！！」")]
     [MetaType(MetaType.Props)]
     public partial class CrashErrorDialog : AMHoldable
     {
