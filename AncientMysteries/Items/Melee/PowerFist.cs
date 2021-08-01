@@ -16,7 +16,7 @@ namespace AncientMysteries.Items
     {
         public const float maxDashTime = 30; // in ticks
         public float dashTime = -1; // in ticks, -1 = not started
-        public Waiter chargeWaiter = new(120);
+        public Waiter chargeWaiter = new(150);
         public bool charged = false;
 
         public bool Dashing
