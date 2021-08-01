@@ -15,6 +15,8 @@
         public EternalFlame(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRunWithFrames(tex_Melee_EternalFlame, 9, 25);
+            //additionalHoldOffset = new Vec2(4, -5);
+            //_collisionSize = new Vec2(15, 32);
         }
 
         public override void Update()
@@ -74,6 +76,7 @@
                     for (int i = 0; i < 10; i++)
                     {
                         Bullet b = Make.Bullet<EternalFlame_AmmoType>(duck.position, owner, -180 + Rando.Float(-5, 5), this);
+                        b.scale = new Vec2(2, 2);
                         firedBullets.Add(b);
                         Level.Add(b);
                         cooldown3 = -10;
