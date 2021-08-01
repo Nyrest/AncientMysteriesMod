@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_Guns_Staffs)]
     [MetaImage(tex_Staff_Judgement, 17, 49)]
-    [MetaInfo(Lang.Default, "Rainbow Tears", "「天気なんて、狂ったままでいいんだ！」")]
-    [MetaInfo(Lang.schinese, "棱彩之泪", "「天気なんて、狂ったままでいいんだ！」")]
+    [MetaInfo(Lang.Default, "Rainbow Tears", "Other ducks may cries louder")]
+    [MetaInfo(Lang.schinese, "棱彩之泪", "别的鸭子也许会哭得更惨")]
     [MetaType(MetaType.Magic)]
     public partial class RainbowTears : AMStaff
     {
