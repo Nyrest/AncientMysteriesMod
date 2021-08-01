@@ -19,7 +19,6 @@
         public override void Update()
         {
             base.Update();
-            if (_equippedDuck is null) return;
         }
 
         public override void Equip(Duck d)
@@ -29,8 +28,6 @@
 
         public override void UnEquip()
         {
-            if (_equippedDuck is not null)
-                _equippedDuck.gravMultiplier = 1f;
             base.UnEquip();
         }
     }

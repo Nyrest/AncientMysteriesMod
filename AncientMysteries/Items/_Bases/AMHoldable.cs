@@ -5,6 +5,7 @@
         protected AMHoldable(float xpos, float ypos) : base(xpos, ypos)
         {
             _editorName = GetLocalizedName(AMLocalization.Current);
+            editorTooltip = GetLocalizedDescription(AMLocalization.Current);
         }
 
 

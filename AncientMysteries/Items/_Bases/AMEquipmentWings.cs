@@ -2,8 +2,6 @@
 {
     public abstract class AMEquipmentWings : AMEquipment
     {
-        public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
-
         public StateBinding isFlyingBinding = new(nameof(isFlying));
 
         public bool isFlying = false;

@@ -29,6 +29,7 @@
         {
             _isArmor = true;
             _editorName = GetLocalizedName(AMLocalization.Current);
+            editorTooltip = GetLocalizedDescription(AMLocalization.Current);
         }
 
         public override void Update()
