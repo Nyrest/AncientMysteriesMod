@@ -88,7 +88,7 @@ namespace AncientMysteries.Utilities
                         idd++;
                     }
                 }
-                else if (block is Door || block is VerticalDoor)
+                else if (block is Door or VerticalDoor)
                 {
                     Level.Remove(block);
                     block.Destroy(new DTRocketExplosion(null));

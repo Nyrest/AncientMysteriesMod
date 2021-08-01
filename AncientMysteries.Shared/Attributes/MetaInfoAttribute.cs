@@ -1,4 +1,5 @@
-﻿namespace AncientMysteries
+﻿#nullable enable
+namespace AncientMysteries
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
     public sealed class MetaInfoAttribute : Attribute

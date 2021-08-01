@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     public partial class GasterBlaster : AMThing
     {
         public StateBinding positionBinding = new CompressedVec2Binding(nameof(position));
-        public StateBinding angleBinding = new StateBinding(nameof(angle));
-        public StateBinding fireWaitBinding = new StateBinding(nameof(fireWait));
+        public StateBinding angleBinding = new(nameof(angle));
+        public StateBinding fireWaitBinding = new(nameof(fireWait));
         public Vec2 targetPosition;
         public int fireWait;
         private SpriteMap spriteMap;
