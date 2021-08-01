@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AncientMysteries.Items
 {
-    [EditorGroup(grouptopGroupName)]
+    [EditorGroup(group_MapTools)]
     [MetaImage(tex_Block_Barrier)]
     [MetaInfo(Lang.Default, "Barrier", "Blocks everything")]
     [MetaInfo(Lang.schinese, "屏障", "简单来说就是空气墙")]

@@ -82,6 +82,8 @@
 
         public const string group_MapTools = grouptopGroupName + "|MapTools";
 
+        public const string group_MapTools_Blocks = group_MapTools + "|Block";
+
         public const string group_MapTools_Lights = group_MapTools + "|Lights";
 
         public const string group_MapTools_Gameplay = group_MapTools + "|Gameplay";
