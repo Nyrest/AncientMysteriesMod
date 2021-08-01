@@ -3,7 +3,7 @@
     [EditorGroup(group_Guns_Melees)]
     [MetaImage(tex_Melee_HiddenBlade, 8, 16, 0, 1)]
     [MetaInfo(Lang.Default, "Hidden Blade", "「Nothing is true, everything is permitted.」")]
-    [MetaInfo(Lang.schinese, "袖剑", "「万事皆虚，万事皆允。」")]
+    [MetaInfo(Lang.schinese, "袖剑", "「万物皆虚，万事皆允。」")]
     [MetaType(MetaType.Melee)]
     public partial class HiddenBlade : AMHoldable
     {

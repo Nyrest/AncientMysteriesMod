@@ -59,6 +59,11 @@
             Style = SKPaintStyle.Stroke,
         };
 
+        public static SKPaint labelPaint = new()
+        {
+            ImageFilter = SKImageFilter.CreateDropShadow(0, 0, 1.3f, 1.3f, new SKColor(37, 38, 63)),
+        };
+
         public static void DrawItemBackground(SKCanvas canvas, SKRect rect)
         {
             canvas.DrawRect(rect, bgFill);

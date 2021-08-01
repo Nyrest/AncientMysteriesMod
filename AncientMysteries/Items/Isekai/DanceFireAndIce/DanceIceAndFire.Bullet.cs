@@ -8,10 +8,10 @@ namespace AncientMysteries.Items
 {
     public class DanceIceAndFire_BulletThing : AMThing
     {
-        public StateBinding linkedBallBinding = new StateBinding(nameof(linkedBall));
+        public StateBinding linkedBallBinding = new(nameof(linkedBall));
         public DanceIceAndFire_BulletThing linkedBall;
 
-        public StateBinding rollingBinding = new StateBinding(nameof(rolling));
+        public StateBinding rollingBinding = new(nameof(rolling));
         public bool rolling;
 
         public DanceIceAndFire_BulletThing(float xpos, float ypos) : base(xpos, ypos)
