@@ -138,7 +138,7 @@ namespace AncientMysteries.Items
             }
         }
 
-        public bool CheckCollide([NotNullWhen(true)] out MaterialThing collideWith) =>
+        public bool CheckCollide([NotNullWhen(true)] out MaterialThing? collideWith) =>
             (collideWith = duck?.collideLeft) is not null ||
             (collideWith = duck?.collideRight) is not null;
 
