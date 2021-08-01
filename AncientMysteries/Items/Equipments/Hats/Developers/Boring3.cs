@@ -34,7 +34,7 @@
         public override void Update()
         {
             base.Update();
-
+            
             if (_equippedDuck != null && !destroyed)
             {
                 _equippedCollisionOffset = duck.topLeft - position + new Vec2(-1.5f, -1.5f);
@@ -50,6 +50,7 @@
 
             if (_equippedDuck != null)
             {
+
                 var rect = _equippedDuck.rectangle;
                 foreach (SmallFire item in Level.current.things[typeof(SmallFire)])
                 {
@@ -64,10 +65,8 @@
                 _equippedDuck.flammable = 0;
                 if (_equippedDuck.holdObject != null)
                 {
-                    _equippedDuck.holdObject.burnt = 0;
+                    _equippedDuck.holdObject.heat = 0;
                 }
-
-
 
                 var equippedDuckFeather = _equippedDuck.persona.featherSprite.texture;
                 var equppedDuckColor = _equippedDuck.persona.colorUsable;

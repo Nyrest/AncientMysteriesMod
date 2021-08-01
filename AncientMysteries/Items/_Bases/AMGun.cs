@@ -19,6 +19,7 @@
             _type = "gun";
             _ammoType = DefaultAmmoType;
             _editorName = GetLocalizedName(AMLocalization.Current);
+            editorTooltip = GetLocalizedDescription(AMLocalization.Current);
         }
 
         public override void DoUpdate()

@@ -141,5 +141,6 @@
   <ItemGroup>
     <Folder Include="Items\Blocks\" />
     <Folder Include="Items\Decorations\" />
+    <Folder Include="Utilities\NewFolder\" />
   </ItemGroup>
 </Project>

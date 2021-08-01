@@ -24,7 +24,7 @@ namespace AncientMysteries.Items
         public override void OnSpelling()
         {
             base.OnSpelling();
-            if (_castTime == 1 && waiter.Tick())
+            if (isServerForObject && _castTime == 1 && waiter.Tick())
             {
                 GenerateBullet(currentBulletIndex++);
                 if (currentBulletIndex == 10) currentBulletIndex = 0;
