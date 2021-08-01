@@ -13,18 +13,8 @@
         public override void Update()
         {
             base.Update();
-            n++;
-            var firedBullets = new List<Bullet>(1);
-            if (n == 10)
-            {
-                SFX.Play("flameExplode", 0.7f, Rando.Float(-0.8f, -0.4f), 0f, false);
-                n = 0;
-                var bullet = Make.Bullet<AT_Lava>(start, _owner, Rando.Float(135, 45), this);
-                firedBullets.Add(bullet);
-                Level.Add(bullet);
-            }
             _bulletSpeed += 0.15f;
-            pos = start;
+
             /*foreach (Thing t in Level.CheckCircleAll<Thing>(this.position,10))
             {
                 if (t != Level.CheckCircleAll<Thing>(DuckNetwork.localConnection.profile.duck.position,20))
