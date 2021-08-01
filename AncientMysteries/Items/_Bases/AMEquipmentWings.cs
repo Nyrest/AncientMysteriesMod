@@ -39,27 +39,27 @@
             {
                 timeFlied++;
                 equippedDuck.vSpeed += -0.1f;
+
+                if (isFlying)
+                {
+                    PhysicsObject propel = _equippedDuck;
+                    if (equippedDuck._trapped != null)
+                    {
+                        propel = equippedDuck._trapped;
+                    }
+                    else if (equippedDuck.ragdoll?.part1 != null)
+                    {
+                        propel = equippedDuck.ragdoll.part1;
+                    }
+                    propel.velocity = GetFlyDir() * 3.5f;
+                    equippedDuck.gravMultiplier = 0;
+                }
+                equippedDuck.gravMultiplier = 1;
             }
             if (_equippedDuck is null || timeFlied > 300)
             {
                 timeFlied = 0;
             }
-
-            if (isFlying)
-            {
-                PhysicsObject propel = _equippedDuck;
-                if (_equippedDuck._trapped != null)
-                {
-                    propel = _equippedDuck._trapped;
-                }
-                else if (_equippedDuck.ragdoll?.part1 != null)
-                {
-                    propel = _equippedDuck.ragdoll.part1;
-                }
-                propel.velocity = GetFlyDir() * 3.5f;
-                _equippedDuck.gravMultiplier = 0;
-            }
-            _equippedDuck.gravMultiplier = 1;
         }
 
         public Vec2 GetFlyDir()
