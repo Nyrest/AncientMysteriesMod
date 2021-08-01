@@ -21,7 +21,7 @@ namespace AncientMysteries.Items
         public float BulletTailMaxSegments { get; init; } = 10;
         public float BulletDistanceTraveled { get; private set; }
         public float CurrentTailSegments => BulletDistanceTraveled / BulletTailSegmentMinLength;
-        public readonly float BulletPenetration;
+        public float BulletPenetration { get; init; }
         public Vec2 lastPosition;
 
         public Queue<Vec2> _tailQueue;
