@@ -8,7 +8,7 @@ namespace AncientMysteries.Items
 {
     public class BloodyMarquis_Crystal : AMThing
     {
-        public StateBinding positionBinding = new CompressedVec2Binding(nameof(position));
+        public StateBinding positionBinding = new StateBinding(nameof(position));
         public StateBinding alphaBinding = new StateBinding(nameof(alpha));
         public StateBinding fireAngleDegreeBinding = new StateBinding(nameof(fireAngleDegree));
         private readonly Duck safeDuck;
