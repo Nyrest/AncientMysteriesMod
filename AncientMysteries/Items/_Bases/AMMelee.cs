@@ -246,11 +246,11 @@
             {
                 angleDegrees = pTaped.angleDegrees - (90 * offDir);
             }
-            if (tapedCompatriot is Gun)
+            if (tapedCompatriot is Gun gun)
             {
-                (tapedCompatriot as Gun).addVerticalTapeOffset = false;
-                tape._holdOffset = (tapedCompatriot as Gun)._holdOffset;
-                tape.handOffset = (tapedCompatriot as Gun).handOffset;
+                gun.addVerticalTapeOffset = false;
+                tape._holdOffset = gun._holdOffset;
+                tape.handOffset = gun.handOffset;
             }
             collisionOffset = new Vec2(-4f, 0f);
             collisionSize = new Vec2(4f, 4f);
