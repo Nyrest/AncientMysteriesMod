@@ -1,6 +1,6 @@
 ﻿namespace AncientMysteries.Items
 {
-    [EditorGroup(group_MapTools)]
+    [EditorGroup(group_MapTools_Gameplay)]
     [MetaImage(tex_MapTools_Swirl)]
     [MetaInfo(Lang.Default, "Adjustment - Gravity", "Allow to adjust the level gravity multiplier")]
     [MetaInfo(Lang.schinese, "重力调整", "使地图制作者可以调整关卡重力系数")]

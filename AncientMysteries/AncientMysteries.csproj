@@ -113,6 +113,7 @@
   <Import Project="AutoNest.generated.props" Condition="Exists('AutoNest.generated.props')" />
 
   <ItemGroup>
+    <Folder Include="Items\Blocks\" />
     <Folder Include="Items\Decorations\" />
   </ItemGroup>
 </Project>
