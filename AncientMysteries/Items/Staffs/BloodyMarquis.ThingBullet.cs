@@ -17,9 +17,13 @@ namespace AncientMysteries.Items
         public BloodyMarquis_ThingBullet(Vec2 pos, float bulletRange, float bulletPenetration, Vec2 initSpeed, Duck safeDuck) : base(pos, bulletRange, bulletPenetration, initSpeed, safeDuck)
         {
             this.ReadyToRun(tex_Bullet_BloodyDagger);
-            BulletTailColor = Color.DarkRed;
             alpha = 0f;
         }
+
+        public override ColorTrajectory GetTrajectory() => base.GetTrajectory() with
+        {
+            Color = Color.DarkRed
+        };
 
         public override void Update()
         {
