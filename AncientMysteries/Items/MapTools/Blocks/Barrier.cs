@@ -31,7 +31,6 @@ namespace AncientMysteries.Items
                 bullet.OnCollide(hitPos, this, willBeStopped: true);
                 ExitHit(bullet, hitPos);
                 Level.Remove(bullet);
-                //bullet.Removed();
             }
             return false;
         }
