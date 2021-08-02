@@ -14,7 +14,6 @@
                 ThingBulletCache item = _array[_size = index];
                 _array[index] = default;
 
-                bullet._tailQueue = item.TailQueue;
                 bullet._lastImpacting = item.Impacting;
                 bullet._currentImpacting = item.ImpactingToKeep;
             }
@@ -22,7 +21,6 @@
             [MethodImpl(MethodImplOptions.NoInlining)]
             static void Create(AMThingBulletBase bullet)
             {
-                bullet._tailQueue = new(10);
                 bullet._lastImpacting = new();
                 bullet._currentImpacting = new();
             }
@@ -35,23 +33,22 @@
             {
                 if ((uint)_size < (uint)_array.Length)
                 {
-                    _array[_size++] = new ThingBulletCache(bullet._tailQueue, bullet._lastImpacting, bullet._currentImpacting);
+                    _array[_size++] = new ThingBulletCache(bullet._lastImpacting, bullet._currentImpacting);
                 }
                 else
                 {
                     ResizeThenRecycle(bullet);
                 }
-                bullet._tailQueue = null;
                 bullet._lastImpacting = null;
                 [MethodImpl(MethodImplOptions.NoInlining)]
                 static void ResizeThenRecycle(AMThingBulletBase bullet)
                 {
                     Array.Resize(ref _array, 2 * _array.Length);
-                    _array[_size++] = new ThingBulletCache(bullet._tailQueue, bullet._lastImpacting, bullet._currentImpacting);
+                    _array[_size++] = new ThingBulletCache(bullet._lastImpacting, bullet._currentImpacting);
                 }
             }
         }
 
-        private readonly record struct ThingBulletCache(Queue<Vec2> TailQueue, HashSet<MaterialThing> Impacting, List<MaterialThing> ImpactingToKeep);
+        private readonly record struct ThingBulletCache(HashSet<MaterialThing> Impacting, List<MaterialThing> ImpactingToKeep);
     }
 }
