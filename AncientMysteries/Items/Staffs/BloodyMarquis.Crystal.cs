@@ -8,10 +8,10 @@ namespace AncientMysteries.Items
 {
     public class BloodyMarquis_Crystal : AMThing
     {
-        public StateBinding positionBinding = new StateBinding(nameof(position));
-        public StateBinding alphaBinding = new StateBinding(nameof(alpha));
-        public StateBinding fireAngleDegreeBinding = new StateBinding(nameof(fireAngleDegree));
-        public StateBinding safeDuckBinding = new StateBinding(nameof(safeDuck));
+        public StateBinding positionBinding = new StateBinding(GhostPriority.High, nameof(position));
+        public StateBinding alphaBinding = new StateBinding(GhostPriority.High, nameof(alpha));
+        public StateBinding fireAngleDegreeBinding = new StateBinding(GhostPriority.High, nameof(fireAngleDegree));
+        public StateBinding safeDuckBinding = new StateBinding(GhostPriority.High, nameof(safeDuck));
         private Duck safeDuck;
         private bool fired = false;
         private float fireAngleDegree;

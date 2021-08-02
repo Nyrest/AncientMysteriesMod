@@ -1,4 +1,5 @@
 ﻿using AncientMysteries.DestroyTypes;
+using AncientMysteries.Utilities;
 using static AncientMysteries.AmmoTypes.ThingBulletSimulation_AmmoType;
 
 namespace AncientMysteries.Items
@@ -24,7 +25,7 @@ namespace AncientMysteries.Items
         public float BulletPenetration { get; init; }
         public Vec2 lastPosition;
 
-        public Queue<Vec2> _tailQueue;
+        public Trajectory trajectory;
         public HashSet<MaterialThing> _lastImpacting;
         public List<MaterialThing> _currentImpacting;
 
@@ -49,6 +50,10 @@ namespace AncientMysteries.Items
             bulletVelocity = initSpeed;
             angle = CalcBulletAngleRadian();
             lastPosition = pos;
+            trajectory = new Trajectory(this)
+            {
+                Color = BulletTailColor,
+            };
         }
 
         ~AMThingBulletBase()
@@ -78,18 +83,12 @@ namespace AncientMysteries.Items
             {
                 BulletRemove();
             }
-
             if (BulletTail)
             {
-                if (_tailQueue.Count > BulletTailMaxSegments)
-                {
-                    _tailQueue.Dequeue();
-                }
-                else if (_tailQueue.Count < CurrentTailSegments)
-                {
-                    if ((position - _tailQueue.LastOrDefault()).lengthSq >= BulletTailSegmentMinLength)
-                        _tailQueue.Enqueue(position);
-                }
+                trajectory.MaxSegments = BulletTailMaxSegments;
+                trajectory.SegmentMinLength = BulletTailSegmentMinLength;
+                trajectory.Color = BulletTailColor;
+                trajectory.Update();
             }
         }
 
@@ -196,22 +195,8 @@ namespace AncientMysteries.Items
         public override void Draw()
         {
             base.Draw();
-            if (BulletTail && _tailQueue.Count != 0)
-                DrawTail();
-        }
-
-        public virtual void DrawTail()
-        {
-            int count = _tailQueue.Count;
-            Vec2 lastPos = position;
-            int cur = count;
-            foreach (var pos in _tailQueue.Reverse())
-            {
-                float alpha = (cur--) / (float)count;
-                //Graphics.DrawRect(new Rectangle(pos.x, pos.y, 2, 2), Color.Red);
-                Graphics.DrawLine(lastPos, pos, BulletTailColor * alpha);
-                lastPos = pos;
-            }
+            if (BulletTail)
+                trajectory.Draw();
         }
 
         public void GoToByVelocity(Transform transform, float speed, float lerpAmount) => GoToByVelocity(transform.position, speed, lerpAmount);
