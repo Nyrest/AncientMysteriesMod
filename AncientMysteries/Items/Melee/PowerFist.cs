@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-#nullable enable
+﻿#nullable enable
 
 namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_Melees)]
     [MetaImage(tex_Melee_PowerFist)]
     [MetaInfo(Lang.Default, "Power Fist", "Deja Vu ♫")]
-    [MetaInfo(Lang.schinese, "能量拳套", "逮虾户!!")]
+    [MetaInfo(Lang.schinese, "妈妈的拳头", "逮虾户!!")]
     [MetaType(MetaType.Melee)]
     public partial class PowerFist : AMHoldable
     {
@@ -38,10 +33,18 @@ namespace AncientMysteries.Items
             }
         }
 
+        // Clone the template
+        public ColorTrajectory trajectory1;
+        public ColorTrajectory trajectory2;
+        public ColorTrajectory trajectory3;
+
         public PowerFist(float xpos, float ypos) : base(xpos, ypos)
         {
             this.ReadyToRun(tex_Melee_PowerFist);
             chargeWaiter.Pause();
+            trajectory1 = new(this, new(1, 6)) { Color = Color.Red };
+            trajectory2 = new(this, new(1, 8)) { Color = Color.Red };
+            trajectory3 = new(this, new(1, 10)) { Color = Color.Red };
         }
 
         public override void Update()
@@ -118,6 +121,17 @@ namespace AncientMysteries.Items
                     }
                 }
             }
+            trajectory1.Update();
+            trajectory2.Update();
+            trajectory3.Update();
+        }
+
+        public override void Draw()
+        {
+            base.Draw();
+            trajectory1.Draw();
+            trajectory2.Draw();
+            trajectory3.Draw();
         }
 
         public override void PressAction()

@@ -14,12 +14,18 @@ namespace AncientMysteries.Utilities
         public float MaxSegments { get; init; } = 10;
         public float DistanceTraveled { get; private set; }
         public float CurrentSegmentsCount => DistanceTraveled / SegmentMinLength;
+        public Func<Vec2> PositionProvider { get; set; }
         public Color Color { get; set; } = Color.White;
-        private Vec2 lastUpdatePosition;
+        private Vec2 lastUpdatePosition = new(float.NaN);
 
         public ColorTrajectory(Thing thing)
         {
             Bind(thing);
+        }
+
+        public ColorTrajectory(Thing thing, Vec2 offsetLT)
+        {
+            Bind(thing, offsetLT);
         }
 
         public void Bind(Thing thing)
@@ -41,9 +47,18 @@ namespace AncientMysteries.Utilities
         public override void Update()
         {
             Vec2 pos = GetGetCurrentPosition();
-            DistanceTraveled += (pos - lastUpdatePosition).length;
+            if (lastUpdatePosition.x == float.NaN)
+            {
+                lastUpdatePosition = pos;
+            }
+            float stepDistance = (pos - lastUpdatePosition).length;
+            if (stepDistance == 0)
+            {
+                _segmentsQueue.Dequeue();
+            }
+            DistanceTraveled += stepDistance;
             lastUpdatePosition = pos;
-            if (_segmentsQueue.Count > MaxSegments)
+            if (_segmentsQueue.Count > MaxSegments || _segmentsQueue.Count > CurrentSegmentsCount)
             {
                 _segmentsQueue.Dequeue();
             }
