@@ -20,13 +20,17 @@ namespace AncientMysteries.Items
 
         public TheSpiritOfDarkness_ThingBullet(Vec2 pos, Duck safeDuck, bool goingUp, float fireAngleRadius) : base(pos, 320, int.MaxValue, Vec2.Zero, safeDuck)
         {
-            BulletTailColor = Color.Purple;
             this.ReadyToRun(tex_Bullet_TSOD);
             _goingUp = goingUp;
-            BulletTailMaxSegments = 10;
             BulletCanCollideWhenNotMoving = true;
             this.fireAngleRadius = fireAngleRadius;
         }
+
+        public override ColorTrajectory GetTrajectory() => base.GetTrajectory() with
+        {
+            Color = Color.Purple,
+            MaxSegments = 10,
+        };
 
         public override void Update()
         {
@@ -45,7 +49,7 @@ namespace AncientMysteries.Items
             base.BulletRemove();
             ExplosionPart exp = new(x, y);
             Level.Add(exp);
-            SFX.PlaySynchronized("explode",1,0.2f);
+            SFX.PlaySynchronized("explode", 1, 0.2f);
         }
     }
 }

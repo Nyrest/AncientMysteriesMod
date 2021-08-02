@@ -1,5 +1,4 @@
-﻿using DuckGame;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,25 +6,18 @@ using System.Threading.Tasks;
 
 namespace AncientMysteries.Utilities
 {
-    // Usage:
-    // Create the instance
-    // Bind the thing if you created this without new Trajectory(this);
-    // Call Trajectory.Update in Thing.Update
-    // Call Trajectory.Draw in Thing.Draw
-#warning TODO
-    public sealed class Trajectory
+    public record class ColorTrajectory : TrajectoryBase
     {
-        public Queue<Vec2> _segmentsQueue = new Queue<Vec2>();
-        public Func<Vec2> PositionProvider { get; private set; }
+        private Queue<Vec2> _segmentsQueue = new Queue<Vec2>();
 
-        public float SegmentMinLength { get; set; } = 1;
-        public float MaxSegments { get; set; } = 10;
+        public float SegmentMinLength { get; init; } = 1;
+        public float MaxSegments { get; init; } = 10;
         public float DistanceTraveled { get; private set; }
         public float CurrentSegmentsCount => DistanceTraveled / SegmentMinLength;
-        public Color Color { get; set; }
+        public Color Color { get; set; } = Color.White;
         private Vec2 lastUpdatePosition;
 
-        public Trajectory(Thing thing)
+        public ColorTrajectory(Thing thing)
         {
             Bind(thing);
         }
@@ -46,7 +38,7 @@ namespace AncientMysteries.Utilities
             lastUpdatePosition = GetGetCurrentPosition();
         }
 
-        public void Update()
+        public override void Update()
         {
             Vec2 pos = GetGetCurrentPosition();
             DistanceTraveled += (pos - lastUpdatePosition).length;
@@ -62,7 +54,7 @@ namespace AncientMysteries.Utilities
             }
         }
 
-        public void Draw()
+        public override void Draw()
         {
             if (_segmentsQueue.Count == 0) return;
             int count = _segmentsQueue.Count;
@@ -78,10 +70,5 @@ namespace AncientMysteries.Utilities
         }
 
         public Vec2 GetGetCurrentPosition() => PositionProvider();
-    }
-
-    public static class TrajectoryPool
-    {
-
     }
 }

@@ -9,10 +9,11 @@ namespace AncientMysteries.Items
             var _spriteMap = this.ReadyToRunWithFrames(tex_Bullet_NovaFrame, 32, 32);
             _spriteMap.AddAnimation("loop", 0.15f, true, 0, 1, 2, 3);
             _spriteMap.SetAnimation("loop");
-            BulletTail = false;
             BulletRadius = 16;
             alpha = 0f;
         }
+
+        public override ColorTrajectory GetTrajectory() => null;
 
         public override void BulletRemove()
         {
