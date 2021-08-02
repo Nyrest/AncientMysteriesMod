@@ -9,10 +9,11 @@ namespace AncientMysteries.Utilities
 {
     public abstract record class TrajectoryBase
     {
-        public Func<Vec2> PositionProvider { get; protected set; }
 
         public abstract void Update();
 
         public abstract void Draw();
+
+        public abstract void Reset();
     }
 }
