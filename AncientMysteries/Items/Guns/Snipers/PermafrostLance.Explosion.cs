@@ -10,7 +10,7 @@
         public PermafrostExplosion(float xpos, float ypos, bool doWait = true) : base(xpos, ypos)
         {
             _sprite = this.ReadyToRunWithFrames(tex_Effect_PermafrostExplosion, 15, 15);
-            _sprite.AddAnimation("loop", 0.6f, false, new int[]
+            _sprite.AddAnimation("loop", 0.7f, false, new int[]
             {
                 0,
                 1,
@@ -23,11 +23,10 @@
             });
             _sprite.SetAnimation("loop");
             graphic = _sprite;
-            _sprite.speed = 0.6f;
             xscale = 2f;
             yscale = xscale;
             center = new Vec2(7.5f, 7.5f);
-            depth = 0f;
+            depth = 1;
             if (!doWait)
             {
                 _wait = 0f;

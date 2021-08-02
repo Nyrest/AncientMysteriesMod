@@ -59,7 +59,7 @@
 
         public override void OnHoldAction()
         {
-            n++;
+            n++;;
             base.OnHoldAction();
         }
     }
