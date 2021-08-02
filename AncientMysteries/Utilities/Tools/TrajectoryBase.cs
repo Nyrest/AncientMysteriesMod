@@ -13,7 +13,5 @@ namespace AncientMysteries.Utilities
         public abstract void Update();
 
         public abstract void Draw();
-
-        public abstract void Reset();
     }
 }

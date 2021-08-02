@@ -35,5 +35,10 @@
             CurrentFrame = FramesToWait;
             return this;
         }
+
+        public float ToProgress() => CurrentFrame / (float)FramesToWait;
+
+        public static implicit operator uint(Waiter value) => value.CurrentFrame;
+        public static implicit operator int(Waiter value) => (int)value.CurrentFrame;
     }
 }
