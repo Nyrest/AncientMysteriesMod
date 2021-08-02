@@ -80,9 +80,10 @@ namespace AncientMysteries.Items
                                     door.Destroy(new DTImpact(duck));
                                     break;
                                 }
-                            case PhysicsObject obj:
-                            {
-                                    obj.Destroy(new DTImpact(duck));
+                            case MaterialThing mat:
+                                {
+
+                                    mat.Destroy(new DTImpact(duck));
                                     break;
                                 }
                             default: break;
@@ -107,7 +108,7 @@ namespace AncientMysteries.Items
                                 // stop dashing
                                 Dashing = false;
                                 ExplosionPart exp = new(fuckingBlock.position.x, fuckingBlock.position.y);
-                                exp.scale = new(1.5f,1.5f);
+                                exp.scale = new(1.5f, 1.5f);
                                 SFX.PlaySynchronized("explode", 1, 0.1f);
                                 Level.Add(exp);
                                 break;
