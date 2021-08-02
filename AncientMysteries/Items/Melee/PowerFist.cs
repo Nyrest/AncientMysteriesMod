@@ -41,7 +41,6 @@ namespace AncientMysteries.Items
         public PowerFist(float xpos, float ypos) : base(xpos, ypos)
         {
             this.ReadyToRun(tex_Melee_PowerFist);
-            chargeWaiter.Pause();
             trajectory1 = new(this, new(1, 6)) { Color = Color.Red };
             trajectory2 = new(this, new(1, 8)) { Color = Color.Red };
             trajectory3 = new(this, new(1, 10)) { Color = Color.Red };
@@ -50,11 +49,6 @@ namespace AncientMysteries.Items
         public override void Update()
         {
             base.Update();
-            if (chargeWaiter.Tick() && charged == false)
-            {
-                charged = true;
-                SFX.PlaySynchronized("targetDing", 1, 0.3f);
-            }
             if (Dashing)
             {
                 if (dashTime++ >= maxDashTime)
@@ -132,24 +126,40 @@ namespace AncientMysteries.Items
             trajectory1.Draw();
             trajectory2.Draw();
             trajectory3.Draw();
+            if (chargeWaiter.CurrentFrame != 0)
+            {
+                this.DrawProgressBarTop(
+                    charged ? 1 : chargeWaiter.ToProgress(),
+                    Color.White,
+                    charged ? Color.Orange : new Color(254, 67, 69),
+                    new Color(61, 57, 58));
+            }
         }
 
         public override void PressAction()
         {
             base.PressAction();
-            chargeWaiter.Resume();
         }
 
         public override void OnReleaseAction()
         {
             base.OnReleaseAction();
             chargeWaiter.Reset();
-            chargeWaiter.Pause();
             if (this.duck is Duck duck && charged)
             {
                 duck.immobilized = true;
                 charged = false;
                 Dash();
+            }
+        }
+
+        public override void OnHoldAction()
+        {
+            base.OnHoldAction();
+            if (chargeWaiter.Tick() && charged == false)
+            {
+                charged = true;
+                SFX.PlaySynchronized("targetDing", 1, 0.3f);
             }
         }
 
