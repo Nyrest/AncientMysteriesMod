@@ -22,9 +22,17 @@ namespace AncientMysteries.Items
 
         public override bool Hit(Bullet bullet, Vec2 hitPos)
         {
-            bullet.OnCollide(hitPos, this, willBeStopped: true);
-            ExitHit(bullet, hitPos);
-            bullet.Removed();
+            if (bullet != null)
+            {
+                if (bullet != null)
+                {
+                    bullet.hitArmor = true;
+                }
+                bullet.OnCollide(hitPos, this, willBeStopped: true);
+                ExitHit(bullet, hitPos);
+                Level.Remove(bullet);
+                //bullet.Removed();
+            }
             return false;
         }
     }
