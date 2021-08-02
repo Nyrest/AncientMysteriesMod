@@ -143,7 +143,10 @@
             base.DoDraw();
             if (drawProgressBar && duck?.profile.localPlayer == true)
             {
-                GTool.DrawTopProgressCenterTop(duck.position, _castTime, progressBgColor, progressFillColor, progressBorderColor, progressBorderWidth, -13, progressWidth, progressHeight, 1);
+                LevelPostDraw.Draw(() =>
+                {
+                    GTool.DrawTopProgressCenterTop(duck.position, _castTime, progressBgColor, progressFillColor, progressBorderColor, progressBorderWidth, -13, progressWidth, progressHeight, 1);
+                });
             }
         }
 
