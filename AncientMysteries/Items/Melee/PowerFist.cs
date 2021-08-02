@@ -128,11 +128,14 @@ namespace AncientMysteries.Items
             trajectory3.Draw();
             if (chargeWaiter.CurrentFrame != 0)
             {
-                this.DrawProgressBarTop(
-                    charged ? 1 : chargeWaiter.ToProgress(),
-                    Color.White,
-                    charged ? Color.Orange : new Color(254, 67, 69),
-                    new Color(61, 57, 58));
+                LevelPostDraw.Draw(() =>
+                {
+                    duck.DrawProgressBarBottom(
+        charged ? 1 : chargeWaiter.ToProgress(),
+        Color.White,
+        charged ? Color.Orange : new Color(254, 67, 69),
+        new Color(61, 57, 58));
+                });
             }
         }
 
