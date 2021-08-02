@@ -9,9 +9,10 @@ namespace AncientMysteries.Items
         {
             this.ReadyToRun(tex_Bullet_Flower);
             angleDegrees = Rando.Float(0, 360);
-            BulletTail = false;
             alpha = 0;
         }
+
+        public override ColorTrajectory GetTrajectory() => null;
 
         public override void Removed()
         {

@@ -16,16 +16,11 @@ namespace AncientMysteries.Items
         public Duck BulletSafeDuck;
         public float BulletRange { get; init; }
         public bool BulletCanCollideWhenNotMoving { get; init; }
-        public Color BulletTailColor { get; init; } = Color.White;
-        public bool BulletTail { get; init; } = true;
-        public float BulletTailSegmentMinLength { get; init; } = 1;
-        public float BulletTailMaxSegments { get; init; } = 10;
         public float BulletDistanceTraveled { get; private set; }
-        public float CurrentTailSegments => BulletDistanceTraveled / BulletTailSegmentMinLength;
         public float BulletPenetration { get; init; }
         public Vec2 lastPosition;
 
-        public Trajectory trajectory;
+        public ColorTrajectory Trajectory { get; private set; }
         public HashSet<MaterialThing> _lastImpacting;
         public List<MaterialThing> _currentImpacting;
 
@@ -50,11 +45,11 @@ namespace AncientMysteries.Items
             bulletVelocity = initSpeed;
             angle = CalcBulletAngleRadian();
             lastPosition = pos;
-            trajectory = new Trajectory(this)
-            {
-                Color = BulletTailColor,
-            };
+            Trajectory = GetTrajectory();
         }
+
+
+        public virtual ColorTrajectory GetTrajectory() => new(this);
 
         ~AMThingBulletBase()
         {
@@ -83,13 +78,7 @@ namespace AncientMysteries.Items
             {
                 BulletRemove();
             }
-            if (BulletTail)
-            {
-                trajectory.MaxSegments = BulletTailMaxSegments;
-                trajectory.SegmentMinLength = BulletTailSegmentMinLength;
-                trajectory.Color = BulletTailColor;
-                trajectory.Update();
-            }
+            Trajectory?.Update();
         }
 
         public void DoBulletCollideCheck()
@@ -195,8 +184,7 @@ namespace AncientMysteries.Items
         public override void Draw()
         {
             base.Draw();
-            if (BulletTail)
-                trajectory.Draw();
+            Trajectory?.Draw();
         }
 
         public void GoToByVelocity(Transform transform, float speed, float lerpAmount) => GoToByVelocity(transform.position, speed, lerpAmount);
