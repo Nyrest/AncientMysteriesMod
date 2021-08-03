@@ -30,6 +30,7 @@
             Level.Add(b1);
             Level.Add(b2);
             SFX.PlaySynchronized("laserRifle", 1, -0.5f);
+            ApplyKick();
             if (duck?.profile != null)
                 RumbleManager.AddRumbleEvent(duck.profile, new RumbleEvent(RumbleIntensity.Kick, RumbleDuration.Pulse, RumbleFalloff.None));
         }

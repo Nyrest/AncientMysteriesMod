@@ -53,6 +53,13 @@
                 ApplyKick();
                 SFX.PlaySynchronized("sniper", 1, 0.3f);
             }
+            else
+            {
+                PermafrostLance_ThingBulletCharged b = new(barrelPosition, barrelVector * 25, duck);
+                Level.Add(b);
+                ApplyKick();
+                SFX.PlaySynchronized("laserRifle");
+            }
             n = 0;
             base.OnReleaseAction();
         }
