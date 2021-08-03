@@ -12,7 +12,7 @@ namespace AncientMysteries.Items
     [MetaInfo(Lang.Default, "Refrigerator", "todo")]
     [MetaInfo(Lang.schinese, "", "")]
     [MetaType(MetaType.Gun)]
-    public partial class Refrigerator : AMThingBulletGun
+    public partial class Refrigerator : AMGun
     {
         public StateBinding backpackBinding = new StateBinding(nameof(backpack));
         public Refrigerator_Backpack backpack;
@@ -20,8 +20,10 @@ namespace AncientMysteries.Items
         public Refrigerator(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRunWithFrames(tex_Gun_Refrigerator);
+            this._barrelOffsetTL = new Vec2(21, 2);
+            _ammoType = new Refrigerator_AmmoType();
             ammo = 200;
-            _fireWait = 2;
+            _fireWait = 1;
             _fullAuto = true;
         }
 
@@ -40,7 +42,7 @@ namespace AncientMysteries.Items
             {
                 if (duck is Duck d)
                 {
-                    if(!d.HasEquipment(backpack))
+                    if (!d.HasEquipment(backpack))
                     {
                         d.Equip(backpack);
                     }
@@ -56,11 +58,6 @@ namespace AncientMysteries.Items
                     backpack.visible = false;
                 }
             }
-        }
-
-        public override IEnumerable<AMThingBulletBase> FireThingBullets(float shootAngleDeg)
-        {
-            yield return new TheSpiritOfDarkness_ThingBullet(GetBarrelPosition(new Vec2(27, 11)), duck, true, Maths.DegToRad(shootAngleDeg));
         }
     }
 }
