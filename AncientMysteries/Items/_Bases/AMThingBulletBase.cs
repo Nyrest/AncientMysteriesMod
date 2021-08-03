@@ -9,10 +9,11 @@ namespace AncientMysteries.Items
     // Do not change angle if you don't know what are you fucking doing
     public abstract class AMThingBulletBase : AMThing, ITeleport
     {
-        public StateBinding positionBinding = new CompressedVec2Binding(nameof(position));
-        public StateBinding speedBinding = new CompressedVec2Binding(nameof(bulletVelocity));
-        public Vec2 bulletVelocity;
+        public StateBinding positionBinding = new(GhostPriority.High, nameof(position));
+        public StateBinding bulletVelocityBinding = new(GhostPriority.High, nameof(bulletVelocity));
         public StateBinding safeDuckBinding = new(nameof(BulletSafeDuck));
+
+        public Vec2 bulletVelocity;
         public Duck BulletSafeDuck;
         public float BulletRange { get; init; }
         public bool BulletCanCollideWhenNotMoving { get; init; }
