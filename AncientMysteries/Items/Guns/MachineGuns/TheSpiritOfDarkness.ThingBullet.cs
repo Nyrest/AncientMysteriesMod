@@ -13,17 +13,17 @@ namespace AncientMysteries.Items
         public float cosInput = 0;
 
         public float amplitude = 3;
-        public float fireAngleRadius;
-        public StateBinding fireAngleBinding = new(nameof(fireAngleRadius));
+        public float fireAngleRadian;
+        public StateBinding fireAngleBinding = new(nameof(fireAngleRadian));
 
         public override bool IsMoving => true;
 
-        public TheSpiritOfDarkness_ThingBullet(Vec2 pos, Duck safeDuck, bool goingUp, float fireAngleRadius) : base(pos, 320, int.MaxValue, Vec2.Zero, safeDuck)
+        public TheSpiritOfDarkness_ThingBullet(Vec2 pos, Duck safeDuck, bool goingUp, float fireAngleRadian) : base(pos, 320, int.MaxValue, Vec2.Zero, safeDuck)
         {
             this.ReadyToRun(tex_Bullet_TSOD);
             _goingUp = goingUp;
             BulletCanCollideWhenNotMoving = true;
-            this.fireAngleRadius = fireAngleRadius;
+            this.fireAngleRadian = fireAngleRadian;
         }
 
         public override ColorTrajectory GetTrajectory() => base.GetTrajectory() with
@@ -37,7 +37,7 @@ namespace AncientMysteries.Items
             cosInput += 0.2f;
             float offset = (float)Math.Cos(cosInput) * amplitude;
             var offsetVec = new Vec2(3, _goingUp ? offset : -offset);
-            bulletVelocity = offsetVec.Rotate(fireAngleRadius, Vec2.Zero);
+            bulletVelocity = offsetVec.Rotate(fireAngleRadian, Vec2.Zero);
             bulletVelocity.y *= -1;
             //if (_goingUp) y += (float)Math.Cos(cosInput) * amplitude;
             //else y += -(float)Math.Cos(cosInput) * amplitude;
