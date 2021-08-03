@@ -11,6 +11,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>preview</LangVersion>
+    <UseWindowsForms>true</UseWindowsForms>
     <Platforms>x86</Platforms>
   </PropertyGroup>
 
