@@ -11,6 +11,9 @@ namespace AncientMysteries.Items
         public PermafrostLance_ThingBullet(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 1750, 2, initSpeed, safeDuck)
         {
             this.ReadyToRun(tex_Bullet_PermafrostBullet);
+            hasGravity = true;
+            maxGravity = 0.12f;
+            gravityIncrement = 0.12f;
         }
 
         public override ColorTrajectory GetTrajectory()

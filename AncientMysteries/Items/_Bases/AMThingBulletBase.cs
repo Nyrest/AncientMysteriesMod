@@ -21,6 +21,11 @@ namespace AncientMysteries.Items
         public float BulletPenetration { get; init; }
         public Vec2 lastPosition;
 
+        public bool hasGravity = false;
+        public float gravityIncrement = 0;
+        public float maxGravity = 0;
+        public float currentGravity = 0;
+
         public ColorTrajectory Trajectory { get; private set; }
         public HashSet<MaterialThing> _lastImpacting;
         public List<MaterialThing> _currentImpacting;
@@ -80,6 +85,12 @@ namespace AncientMysteries.Items
                 BulletRemove();
             }
             Trajectory?.Update();
+
+            if (hasGravity)
+            {
+                y += currentGravity;
+                MathHelper.Clamp(currentGravity += gravityIncrement, 0, maxGravity);
+            }
         }
 
         public void DoBulletCollideCheck()
