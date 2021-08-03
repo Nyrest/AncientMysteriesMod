@@ -8,6 +8,12 @@
     public sealed partial class PermafrostLance : AMGun
     {
         public int n = 0;
+
+        public Waiter fireWaiter = new(30);
+
+        public bool canFire = false;
+
+        public int ammoCount = 8;
         public PermafrostLance(float xval, float yval) : base(xval, yval)
         {
             ammo = sbyte.MaxValue;
@@ -29,7 +35,22 @@
 
         public override void Update()
         {
-            ammo = sbyte.MaxValue;
+            if (fireWaiter.Tick())
+            {
+                canFire = true;
+                fireWaiter.Reset();
+                fireWaiter.Pause();
+            }
+            if (owner == null && ammoCount <= 0 && grounded)
+            {
+                canPickUp = false;
+                weight = 0.01f;
+                alpha -= 0.2f;
+                if (alpha <= 0)
+                {
+                    Level.Remove(this);
+                }
+            }
             base.Update();
         }
 
@@ -46,19 +67,29 @@
 
         public override void OnReleaseAction()
         {
-            if (n <= 60)
+            if (n <= 60 && canFire && ammoCount > 0)
             {
                 PermafrostLance_ThingBullet b = new(barrelPosition, barrelVector * 20, duck);
                 Level.Add(b);
                 ApplyKick();
                 SFX.PlaySynchronized("sniper", 1, 0.3f);
+                canFire = false;
+                fireWaiter.Resume();
+                ammoCount--;
             }
-            else
+            else if (canFire && ammoCount > 0)
             {
-                PermafrostLance_ThingBulletCharged b = new(barrelPosition, barrelVector * 25, duck);
+                PermafrostLance_ThingBulletCharged b = new(barrelPosition, barrelVector * 20, duck);
                 Level.Add(b);
                 ApplyKick();
                 SFX.PlaySynchronized("laserRifle");
+                canFire = false;
+                fireWaiter.Resume();
+                ammoCount--;
+            }
+            else if (ammoCount <= 0)
+            {
+                DoAmmoClick();
             }
             n = 0;
             base.OnReleaseAction();
