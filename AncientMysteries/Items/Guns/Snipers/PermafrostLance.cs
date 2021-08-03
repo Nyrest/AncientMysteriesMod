@@ -9,7 +9,7 @@
     {
         public int n = 0;
 
-        public Waiter fireWaiter = new(30);
+        public Waiter fireWaiter = new(15);
 
         public bool canFire = false;
 
