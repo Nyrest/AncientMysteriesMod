@@ -10,6 +10,7 @@ namespace AncientMysteries.Items
     {
         public Refrigerator_AmmoType()
         {
+            accuracy = 0.5f;
             range = 500;
             rangeVariation = 30;
             bulletSpeed = 23;
