@@ -13,6 +13,8 @@
 
         public bool canFire = false;
 
+        public bool didTing = false;
+
         public int ammoCount = 8;
         public PermafrostLance(float xval, float yval) : base(xval, yval)
         {
@@ -55,6 +57,11 @@
                     Level.Remove(this);
                 }
             }
+            if (didTing == false && n > 60 && ammoCount > 0)
+            {
+                SFX.PlaySynchronized("scoreDing", 1, 1);
+                didTing = true;
+            }
             base.Update();
         }
 
@@ -90,6 +97,7 @@
                 canFire = false;
                 fireWaiter.Resume();
                 ammoCount--;
+                didTing = false;
             }
             else if (ammoCount <= 0)
             {
