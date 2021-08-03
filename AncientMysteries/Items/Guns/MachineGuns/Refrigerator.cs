@@ -20,11 +20,14 @@ namespace AncientMysteries.Items
         public Refrigerator(float xval, float yval) : base(xval, yval)
         {
             this.ReadyToRunWithFrames(tex_Gun_Refrigerator);
-            this._barrelOffsetTL = new Vec2(21, 2);
+            this._barrelOffsetTL = new Vec2(21, 3);
+            _holdOffset = new Vec2(-3,0);
             _ammoType = new Refrigerator_AmmoType();
             ammo = 200;
-            _fireWait = 1;
+            _fireWait = 0.8f;
             _fullAuto = true;
+            _kickForce = 0.9f;
+            weight = 10;
         }
 
         public override void Update()
