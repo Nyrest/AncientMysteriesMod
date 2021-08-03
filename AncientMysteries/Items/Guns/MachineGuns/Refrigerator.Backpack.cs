@@ -12,6 +12,7 @@
             enablePhysics = false;
             this.refrigerator = refrigerator;
             _equippedDepth = -12;
+            scale = new(0.7f);
             // todo
             // adujust wearOffset
         }
