@@ -35,6 +35,10 @@
 
         public override void Update()
         {
+            if (infiniteAmmoVal)
+            {
+                ammoCount = 99;
+            }
             if (fireWaiter.Tick())
             {
                 canFire = true;
