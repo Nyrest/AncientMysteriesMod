@@ -18,8 +18,8 @@
 
         public static Vec2 GetBulletVecDeg(float degress, float speed = 1f, float speedVariable = 0, float accuracy = 1f)
         {
-            var accuracyLossRad = Rando.Float(PI * (1 - accuracy));
-            return Maths.AngleToVec(Maths.DegToRad(degress) + accuracyLossRad) * (speed + Rando.Float(speedVariable).RandomNegative());
+            var accuracyLossDeg = Rando.Float(360 * accuracy);
+            return Maths.AngleToVec(Maths.DegToRad(degress + accuracyLossDeg)) * (speed + Rando.Float(speedVariable).RandomNegative());
         }
     }
 }
