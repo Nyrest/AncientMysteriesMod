@@ -11,6 +11,9 @@
             _isArmor = false;
             enablePhysics = false;
             this.refrigerator = refrigerator;
+            _equippedDepth = -12;
+            // todo
+            // adujust wearOffset
         }
 
         public override bool Destroy(DestroyType type = null) => false;
