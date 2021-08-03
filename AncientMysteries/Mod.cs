@@ -8,16 +8,16 @@ namespace AncientMysteries
         protected override unsafe void OnPreInitialize()
         {
             base.OnPreInitialize();
-            Hooks.Initialize();
-            if (Debugger.IsAttached)
-            {
-                MonoMain.modDebugging = true;
-            }
             var oldMethod = typeof(Program).GetMethod("ModResolve").MethodHandle;
             var newMethod = typeof(LightweightDependencyResolver).GetMethod("ModResolve").MethodHandle;
             RuntimeHelpers.PrepareMethod(oldMethod);
             RuntimeHelpers.PrepareMethod(newMethod);
             *((int*)oldMethod.Value.ToPointer() + 2) = *((int*)newMethod.Value.ToPointer() + 2);
+            Hooks.Initialize();
+            if (Debugger.IsAttached)
+            {
+                MonoMain.modDebugging = true;
+            }
         }
 
         protected override void OnPostInitialize()
