@@ -58,7 +58,7 @@ namespace AncientMysteries.Items
                 }
                 var vel = Maths.AngleToVec(angle) * 14;
                 vel.x *= offDir;
-                //vel.y *= offDir;
+                vel.y *= -offDir;
                 duck.velocity = vel;
                 foreach (MaterialThing item in Level.CheckCircleAll<MaterialThing>(duck.position, 30))
                 {
@@ -126,7 +126,7 @@ namespace AncientMysteries.Items
             trajectory1.Draw();
             trajectory2.Draw();
             trajectory3.Draw();
-            if (chargeWaiter.CurrentFrame != 0)
+            if (duck is not null && chargeWaiter.CurrentFrame != 0)
             {
                 LevelPostDraw.Draw(() =>
                 {
