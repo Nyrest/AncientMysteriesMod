@@ -126,7 +126,7 @@ namespace AncientMysteries.Items
             trajectory1.Draw();
             trajectory2.Draw();
             trajectory3.Draw();
-            if (duck && chargeWaiter.CurrentFrame != 0)
+            if (duck is not null && chargeWaiter.CurrentFrame != 0)
             {
                 LevelPostDraw.Draw(() =>
                 {
