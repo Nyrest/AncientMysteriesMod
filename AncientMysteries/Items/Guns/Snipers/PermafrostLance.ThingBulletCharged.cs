@@ -22,44 +22,49 @@ namespace AncientMysteries.Items
         public override void Update()
         {
             base.Update();
+            float bulletSpeed = 3f;
+            float speedVariation = 1f;
+            float accuracy = 0.9f;
             if (x < Level.current.camera.left)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    PermafrostLance_ThingBulletChargedSmall b = new(position, GetBulletVecDeg(0, 3, 1, 0.5f),BulletSafeDuck);
+                    PermafrostLance_ThingBulletChargedSmall b = new(position, GetBulletVecDeg(0, bulletSpeed, speedVariation, accuracy), BulletSafeDuck);
                     Level.Add(b);
+                    Level.Remove(this);
                 }
             }
             else if (x > Level.current.camera.right)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    PermafrostLance_ThingBulletChargedSmall b = new(position, GetBulletVecDeg(180, 3, 1, 0.5f), BulletSafeDuck);
+                    PermafrostLance_ThingBulletChargedSmall b = new(position, GetBulletVecDeg(180, bulletSpeed, speedVariation, accuracy), BulletSafeDuck);
                     Level.Add(b);
+                    Level.Remove(this);
                 }
             }
             else if (y > Level.current.camera.bottom)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    PermafrostLance_ThingBulletChargedSmall b = new(position, GetBulletVecDeg(90, 3, 1, 0.5f), BulletSafeDuck);
+                    PermafrostLance_ThingBulletChargedSmall b = new(position, GetBulletVecDeg(90, bulletSpeed, speedVariation, accuracy), BulletSafeDuck);
                     Level.Add(b);
+                    Level.Remove(this);
                 }
             }
             else if (y < Level.current.camera.top)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    PermafrostLance_ThingBulletChargedSmall b = new(position, GetBulletVecDeg(270, 3, 1, 0.5f), BulletSafeDuck);
+                    PermafrostLance_ThingBulletChargedSmall b = new(position, GetBulletVecDeg(270, bulletSpeed, speedVariation, accuracy), BulletSafeDuck);
                     Level.Add(b);
+                    Level.Remove(this);
                 }
             }
         }
         public override void Removed()
         {
-            PermafrostExplosion exp = new(x, y,false);
-            Level.Add(exp);
-            SFX.PlaySynchronized("glassBreak",1,1);
+            SFX.PlaySynchronized("laserBlast",1,1);
             base.Removed();
         }
     }
