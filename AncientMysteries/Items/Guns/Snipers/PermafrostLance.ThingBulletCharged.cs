@@ -22,6 +22,7 @@ namespace AncientMysteries.Items
         public override void Update()
         {
             base.Update();
+            if (!isServerForObject) return;
             float bulletSpeed = 3f;
             float speedVariation = 1f;
             float accuracy = 0.9f;
