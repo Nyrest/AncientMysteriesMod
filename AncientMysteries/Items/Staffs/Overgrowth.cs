@@ -7,8 +7,6 @@
     [MetaType(MetaType.Magic)]
     public partial class Overgrowth : AMStaff
     {
-        public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
-
         public StateBinding _timesBinding = new(nameof(times));
 
         public SpriteMap _spriteMap;
@@ -16,12 +14,6 @@
         public int times = 1;
 
         public const int timesMax = 11;
-
-        public byte AnimationFrame
-        {
-            get => (byte)_spriteMap._frame;
-            set => _spriteMap._frame = value;
-        }
 
         public Overgrowth(float xval, float yval) : base(xval, yval)
         {

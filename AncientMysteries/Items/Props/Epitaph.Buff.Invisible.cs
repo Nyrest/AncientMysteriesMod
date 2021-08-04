@@ -18,7 +18,6 @@ namespace AncientMysteries.Items
             visible = false;
         }
 
-
         public override void Update()
         {
             base.Update();
