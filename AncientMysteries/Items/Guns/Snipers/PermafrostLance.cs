@@ -51,11 +51,7 @@
             {
                 canPickUp = false;
                 weight = 0.01f;
-                alpha -= 0.2f;
-                if (alpha <= 0)
-                {
-                    Level.Remove(this);
-                }
+                Level.Remove(this);
             }
             if (didTing == false && n > 60 && ammoCount > 0)
             {

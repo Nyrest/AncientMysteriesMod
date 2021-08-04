@@ -186,7 +186,7 @@ namespace AncientMysteries.Items
 
         public float CalcBulletAngleDegrees(Vec2 speed) => Maths.RadToDeg(CalcBulletAngleRadian(speed));
 
-        public virtual float CalcBulletAngleRadian(Vec2 speed) => -Maths.PointDirectionRad(Vec2.Zero, speed);
+        public virtual float CalcBulletAngleRadian(Vec2 speed) => -Maths.PointDirectionRad(Vec2.Zero, new Vec2(speed.x, speed.y + currentGravity));
 
         public virtual void BulletRemove()
         {
