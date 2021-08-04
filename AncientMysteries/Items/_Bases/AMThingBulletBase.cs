@@ -25,6 +25,7 @@ namespace AncientMysteries.Items
         public float gravityIncrement = 0;
         public float maxGravity = 0;
         public float currentGravity = 0;
+        public bool reverseGravity = false;
 
         public ColorTrajectory Trajectory { get; private set; }
         public HashSet<MaterialThing> _lastImpacting;
@@ -88,8 +89,16 @@ namespace AncientMysteries.Items
 
             if (hasGravity)
             {
-                y += currentGravity;
-                MathHelper.Clamp(currentGravity += gravityIncrement, 0, maxGravity);
+                if (!reverseGravity)
+                {
+                    y += currentGravity;
+                    MathHelper.Clamp(currentGravity += gravityIncrement, 0, maxGravity);
+                }
+                else 
+                {
+                    y -= currentGravity;
+                    MathHelper.Clamp(currentGravity += gravityIncrement, 0, maxGravity);
+                }
             }
         }
 
@@ -186,7 +195,7 @@ namespace AncientMysteries.Items
 
         public float CalcBulletAngleDegrees(Vec2 speed) => Maths.RadToDeg(CalcBulletAngleRadian(speed));
 
-        public virtual float CalcBulletAngleRadian(Vec2 speed) => -Maths.PointDirectionRad(Vec2.Zero, speed);
+        public virtual float CalcBulletAngleRadian(Vec2 speed) => -Maths.PointDirectionRad(Vec2.Zero, new Vec2(speed.x, speed.y + currentGravity));
 
         public virtual void BulletRemove()
         {
