@@ -52,25 +52,27 @@ namespace AncientMysteries.Items
         {
             if (enable)
             {
-                if (duck.localDuck)
+                if (duck?.inputProfile?.virtualDevice is null)
                 {
                     duck.alpha = 0.5f;
                     duck.material = new MaterialSelection();
                 }
                 else
                 {
+                    duck.alpha = 0;
                     duck.visible = false;
                 }
             }
             else
             {
-                if (duck.localDuck)
+                if (duck?.inputProfile?.virtualDevice is null)
                 {
                     duck.material = null;
                     duck.alpha = 1f;
                 }
                 else
                 {
+                    duck.alpha = 1;
                     duck.visible = true;
                 }
             }
