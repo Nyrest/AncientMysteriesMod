@@ -21,11 +21,12 @@ namespace AncientMysteries.Items
         public override void OnPressAction()
         {
             base.OnPressAction();
-            if(this.duck is Duck d)
+            if(duck is Duck d)
             {
                 Epitaph_Buff_Invisible buff = new(0, 0);
                 Level.Add(buff);
                 d.Equip(buff, false);
+                Level.Remove(this);
             }
         }
     }
