@@ -23,14 +23,14 @@ namespace AncientMysteries.Items
             base.Update();
             if (_equippedDuck is Duck equippedDuck)
             {
-                if (waiter.Tick())
+                if (!waiter.Tick())
                 {
                     ApplyBuff(equippedDuck, true);
-                    Level.Remove(this);
                 }
                 else
                 {
                     ApplyBuff(equippedDuck, false);
+                    Level.Remove(this);
                 }
             }
             else
@@ -54,8 +54,8 @@ namespace AncientMysteries.Items
             {
                 if (duck.localDuck)
                 {
-                    duck.alpha = 0.7f;
-                    duck.material = new MaterialGhost();
+                    duck.alpha = 0.5f;
+                    duck.material = new MaterialSelection();
                 }
                 else
                 {
