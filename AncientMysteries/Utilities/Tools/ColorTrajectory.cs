@@ -58,9 +58,10 @@ namespace AncientMysteries.Utilities
             }
             DistanceTraveled += stepDistance;
             lastUpdatePosition = pos;
-            if (_segmentsQueue.Count > MaxSegments || _segmentsQueue.Count > CurrentSegmentsCount)
+            if ((_segmentsQueue.Count > MaxSegments || _segmentsQueue.Count > CurrentSegmentsCount))
             {
-                _segmentsQueue.Dequeue();
+                if (_segmentsQueue.Count > 0)
+                    _segmentsQueue.Dequeue();
             }
             else if (_segmentsQueue.Count < CurrentSegmentsCount)
             {
