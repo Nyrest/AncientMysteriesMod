@@ -5,14 +5,15 @@ namespace AncientMysteries.Items
     [EditorGroup(group_Guns_Melees)]
     [MetaImage(tex_Melee_PowerFist)]
     [MetaInfo(Lang.Default, "Power Fist", "Deja Vu ♫")]
-    [MetaInfo(Lang.schinese, "妈妈的拳头", "逮虾户!!")]
+    [MetaInfo(Lang.schinese, "超载铁拳", "逮虾户!!")]
     [MetaType(MetaType.Melee)]
     public partial class PowerFist : AMHoldable
     {
-        public const float maxDashTime = 30; // in ticks
+        public const float maxDashTime = 15; // in ticks
         public float dashTime = -1; // in ticks, -1 = not started
-        public Waiter chargeWaiter = new(150);
+        public Waiter chargeWaiter = new(90);
         public bool charged = false;
+        public const float dashSpeed = 20;
 
         public bool Dashing
         {
@@ -56,7 +57,7 @@ namespace AncientMysteries.Items
                     Dashing = false;
                     return;
                 }
-                var vel = Maths.AngleToVec(angle) * 14;
+                var vel = Maths.AngleToVec(angle) * dashSpeed;
                 vel.x *= offDir;
                 vel.y *= -offDir;
                 duck.velocity = vel;
