@@ -9,7 +9,7 @@
     {
         public NeonStriker(float xval, float yval) : base(xval, yval)
         {
-            this.ReadyToRunWithFrames(tex_Gun_NeonStriker);
+            this.ReadyToRun(tex_Gun_NeonStriker);
             ammo = 30;
             _fireWait = 1.1f;
             _fullAuto = true;

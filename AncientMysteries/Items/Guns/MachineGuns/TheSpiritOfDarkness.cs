@@ -9,7 +9,7 @@
     {
         public TheSpiritOfDarkness(float xval, float yval) : base(xval, yval)
         {
-            this.ReadyToRunWithFrames(tex_Gun_TheSpiritOfDarkness);
+            this.ReadyToRun(tex_Gun_TheSpiritOfDarkness);
             ammo = 1;
             _fireWait = 5;
             _fullAuto = true;
