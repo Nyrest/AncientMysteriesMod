@@ -7,20 +7,10 @@
     [MetaType(MetaType.Magic)]
     public partial class ArcaneNova : AMStaff
     {
-        public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
-
-        public SpriteMap _spriteMap;
-
-        public byte AnimationFrame
-        {
-            get => (byte)_spriteMap._frame;
-            set => _spriteMap._frame = value;
-        }
-
         public ArcaneNova(float xval, float yval) : base(xval, yval)
         {
             _type = "gun";
-            _spriteMap = this.ReadyToRunWithFrames(tex_Staff_ArcaneNova, 14, 37);
+            this.ReadyToRun(tex_Staff_ArcaneNova);
             SetBox(14, 37);
             _barrelOffsetTL = new Vec2(6f, 5f);
             _castSpeed = 0.005f;
