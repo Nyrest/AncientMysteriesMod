@@ -60,6 +60,8 @@
     <Compile Remove="Items\Artifact\TemperatureArt.AmmoType.WaterVapor.cs" />
     <Compile Remove="Items\Artifact\TemperatureArt.AmmoType._Base.cs" />
     <Compile Remove="Items\Artifact\TemperatureArt.cs" />
+    <Compile Remove="Items\Guns\NeonStriker.ThingBullet.Blue.cs" />
+    <Compile Remove="Items\Guns\NeonStriker.ThingBullet.Purple.cs" />
     <Compile Remove="Items\Isekai\AssassinsCreed\HiddenBlade.cs" />
     <Compile Remove="Items\Isekai\DanceFireAndIce\DanceIceAndFire.Bullet.cs" />
     <Compile Remove="Items\Isekai\DanceFireAndIce\DanceIceAndFire.cs" />
@@ -120,6 +122,8 @@
     <None Include="Items\Artifact\TemperatureArt.AmmoType.WaterVapor.cs" />
     <None Include="Items\Artifact\TemperatureArt.AmmoType._Base.cs" />
     <None Include="Items\Artifact\TemperatureArt.cs" />
+    <None Include="Items\Guns\MachineGuns\NeonStriker.ThingBullet.Purple.cs" />
+    <None Include="Items\Guns\MachineGuns\NeonStriker.ThingBullet.Blue.cs" />
     <None Include="Items\Isekai\AssassinsCreed\HiddenBlade.cs" />
     <None Include="Items\Isekai\DanceFireAndIce\DanceIceAndFire.Bullet.cs" />
     <None Include="Items\Isekai\DanceFireAndIce\DanceIceAndFire.cs" />

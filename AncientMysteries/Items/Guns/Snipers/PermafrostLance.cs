@@ -16,6 +16,10 @@
         public bool didTing = false;
 
         public int ammoCount = 8;
+
+        public float _charge = 0;
+
+        public int powerLevel = 0;
         public PermafrostLance(float xval, float yval) : base(xval, yval)
         {
             ammo = sbyte.MaxValue;
@@ -51,11 +55,7 @@
             {
                 canPickUp = false;
                 weight = 0.01f;
-                alpha -= 0.2f;
-                if (alpha <= 0)
-                {
-                    Level.Remove(this);
-                }
+                Level.Remove(this);
             }
             if (didTing == false && n > 60 && ammoCount > 0)
             {
@@ -80,7 +80,8 @@
         {
             if (n <= 60 && canFire && ammoCount > 0)
             {
-                PermafrostLance_ThingBullet b = new(barrelPosition, barrelVector * 20, duck);
+                PermafrostLance_ThingBullet b = new(barrelPosition, barrelVector * (14 + powerLevel * 4), duck, powerLevel);
+                b.xscale = b.yscale = 1 + powerLevel * 0.1f;
                 Level.Add(b);
                 ApplyKick();
                 SFX.PlaySynchronized("sniper", 1, 0.3f);
@@ -90,7 +91,7 @@
             }
             else if (canFire && ammoCount > 0)
             {
-                PermafrostLance_ThingBulletCharged b = new(barrelPosition, barrelVector * 20, duck);
+                PermafrostLance_ThingBulletCharged b = new(barrelPosition, barrelVector * 28, duck);
                 Level.Add(b);
                 ApplyKick();
                 SFX.PlaySynchronized("laserRifle");
@@ -104,13 +105,34 @@
                 DoAmmoClick();
             }
             n = 0;
+            _charge = 0;
+            powerLevel = 0;
             base.OnReleaseAction();
         }
 
         public override void OnHoldAction()
         {
-            n++;;
+            n++;
             base.OnHoldAction();
+            if (ammoCount > 0)
+            {
+                MathHelper.Clamp(_charge++,0,60);
+                if (_charge == 15)
+                {
+                    SFX.PlaySynchronized("phaserCharge03", 1f, 0.6f);
+                    powerLevel = 1;
+                }
+                else if (_charge == 30)
+                {
+                    SFX.PlaySynchronized("phaserCharge03", 1f, 0.8f);
+                    powerLevel = 2;
+                }
+                else if (_charge == 45)
+                {
+                    SFX.PlaySynchronized("phaserCharge03", 1f, 1f);
+                    powerLevel = 3;
+                }
+            }
         }
     }
 }
