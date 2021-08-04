@@ -9,7 +9,7 @@ namespace AncientMysteries.Items
 {
     public class Epitaph_Buff_Invisible : Equipment
     {
-        public Waiter waiter = new(360);
+        public Waiter waiter = new(480);
 
 
         public Epitaph_Buff_Invisible(float xpos, float ypos) : base(xpos, ypos)
