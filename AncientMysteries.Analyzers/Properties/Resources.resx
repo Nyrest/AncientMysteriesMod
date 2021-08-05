@@ -174,4 +174,16 @@
   <data name="CodeFix_UnifyItemNamespace_Title" xml:space="preserve">
     <value>Unify Item Namespace</value>
   </data>
+  <data name="Analyzer_FixMetadataPunctuation_Description" xml:space="preserve">
+    <value>Fix Metadata Text Punctuations.</value>
+  </data>
+  <data name="Analyzer_FixMetadataPunctuation_MessageFormat" xml:space="preserve">
+    <value>Fix Metadata Text Punctuations</value>
+  </data>
+  <data name="Analyzer_FixMetadataPunctuation_Title" xml:space="preserve">
+    <value>Fix Metadata Punctuations</value>
+  </data>
+  <data name="CodeFix_FixMetadataPunctuation_Title" xml:space="preserve">
+    <value>Fix Metadata Punctuations</value>
+  </data>
 </root>

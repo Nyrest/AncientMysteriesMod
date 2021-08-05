@@ -23,5 +23,12 @@
             return baseType is not null &&
                 (predicate(baseType) || HasBaseType(baseType, predicate));
         }
+
+        // TODO: Could be better
+        public static bool Contains(this ReadOnlySpan<char> span, char value)
+            => span.IndexOf(value) != -1;
+
+        public static bool Contains(this ReadOnlySpan<char> span, char value, out int i) 
+            => (i = span.IndexOf(value)) != -1;
     }
 }

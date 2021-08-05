@@ -61,6 +61,33 @@ namespace AncientMysteries.Analyzers.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fix Metadata Text Punctuations..
+        /// </summary>
+        internal static string Analyzer_FixMetadataPunctuation_Description {
+            get {
+                return ResourceManager.GetString("Analyzer_FixMetadataPunctuation_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fix Metadata Text Punctuations.
+        /// </summary>
+        internal static string Analyzer_FixMetadataPunctuation_MessageFormat {
+            get {
+                return ResourceManager.GetString("Analyzer_FixMetadataPunctuation_MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fix Metadata Punctuations.
+        /// </summary>
+        internal static string Analyzer_FixMetadataPunctuation_Title {
+            get {
+                return ResourceManager.GetString("Analyzer_FixMetadataPunctuation_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Just fucking do it..
         /// </summary>
         internal static string Analyzer_MakePartial_Description {
@@ -192,6 +219,15 @@ namespace AncientMysteries.Analyzers.Properties {
         internal static string Analyzer_UseContentRef_Title {
             get {
                 return ResourceManager.GetString("Analyzer_UseContentRef_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fix Metadata Punctuations.
+        /// </summary>
+        internal static string CodeFix_FixMetadataPunctuation_Title {
+            get {
+                return ResourceManager.GetString("CodeFix_FixMetadataPunctuation_Title", resourceCulture);
             }
         }
         
