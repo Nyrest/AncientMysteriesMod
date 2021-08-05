@@ -4,8 +4,8 @@ namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_Melees)]
     [MetaImage(tex_Melee_PowerFist)]
-    [MetaInfo(Lang.Default, "Power Fist", "Deja Vu ♫")]
-    [MetaInfo(Lang.schinese, "超载铁拳", "逮虾户!!")]
+    [MetaInfo(Lang.Default, "Power Fist", "Deja Vu ♫.")]
+    [MetaInfo(Lang.schinese, "超载铁拳", "逮虾户！！")]
     [MetaType(MetaType.Melee)]
     public partial class PowerFist : AMHoldable
     {

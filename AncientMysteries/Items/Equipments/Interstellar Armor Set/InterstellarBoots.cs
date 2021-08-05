@@ -8,8 +8,8 @@ namespace AncientMysteries.Items
 {
     [EditorGroup(group_Equipments)]
     [MetaImage(tex_Equipment_InterstellarBoots_Pickup)]
-    [MetaInfo(Lang.Default, "Interstellar Boots", "A piece of armor left by a dead spaceship captain")]
-    [MetaInfo(Lang.schinese, "星际之靴", "一名死去的太空船船长留下的装备")]
+    [MetaInfo(Lang.Default, "Interstellar Boots", "A piece of armor left by a dead spaceship captain.")]
+    [MetaInfo(Lang.schinese, "星际之靴", "一名死去的太空船船长留下的装备。")]
     [MetaType(MetaType.Equipment)]
     public partial class InterstellarBoots : AMBoots
     {

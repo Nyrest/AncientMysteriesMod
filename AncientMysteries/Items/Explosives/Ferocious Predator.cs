@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_Guns_Explosives)]
     [MetaImage(tex_Gun_FerociousPredator)]
-    [MetaInfo(Lang.Default, "Ferocious Predator", "Beware of the prey")]
-    [MetaInfo(Lang.schinese, "凶恶猎手", "小心猎物")]
+    [MetaInfo(Lang.Default, "Ferocious Predator", "Beware of the prey.")]
+    [MetaInfo(Lang.schinese, "凶恶猎手", "小心猎物。")]
     [MetaType(MetaType.Gun)]
     public sealed partial class FerociousPredator : AMGun
     {

@@ -9,7 +9,7 @@ namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_MachineGuns)]
     [MetaImage(tex_Gun_Refrigerator)]
-    [MetaInfo(Lang.Default, "Refrigerator", "todo")]
+    [MetaInfo(Lang.Default, "Refrigerator", "todo.")]
     [MetaInfo(Lang.schinese, "", "")]
     [MetaType(MetaType.Gun)]
     public partial class Refrigerator : AMGun

@@ -8,8 +8,8 @@ namespace AncientMysteries.Items
 {
     [EditorGroup(group_MapTools)]
     [MetaImage(tex_Block_Barrier)]
-    [MetaInfo(Lang.Default, "Barrier", "Blocks everything")]
-    [MetaInfo(Lang.schinese, "屏障", "简单来说就是空气墙")]
+    [MetaInfo(Lang.Default, "Barrier", "Blocks everything.")]
+    [MetaInfo(Lang.schinese, "屏障", "简单来说就是空气墙。")]
     [MetaType(MetaType.MapTools)]
     public sealed partial class Barrier : AMMapToolBlock
     {
