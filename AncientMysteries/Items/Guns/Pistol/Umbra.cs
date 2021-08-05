@@ -8,7 +8,7 @@ namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_Pistols)]
     [MetaImage(tex_Gun_Umbra)]
-    [MetaInfo(Lang.Default, "Umbra", "You know that shadow moves as fast as light,right?")]
+    [MetaInfo(Lang.Default, "Umbra", "You know that shadow moves as fast as light, right?")]
     [MetaInfo(Lang.schinese, "夜影", "你知道影子和光一样快，对吧？")]
     [MetaType(MetaType.Gun)]
     public partial class Umbra : AMGun
