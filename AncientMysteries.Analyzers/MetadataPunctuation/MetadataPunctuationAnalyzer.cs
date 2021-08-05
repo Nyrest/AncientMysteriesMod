@@ -144,9 +144,9 @@ namespace AncientMysteries.Analyzers.MetadataPunctuation
                     int offset = 0;
                     foreach (var item in span.Split('\n'))
                     {
+                        offset++; // \n
                         if (item.IsEmpty)
                         {
-                            offset++;
                             continue;
                         }
                         char last = item[^1];
@@ -154,8 +154,9 @@ namespace AncientMysteries.Analyzers.MetadataPunctuation
                         {
                             result = true;
                             offset += item.Length;
-                            processedText?.Insert(offset++, value);
+                            processedText?.Insert(offset, value);
                         }
+                        offset++; // .
                     }
                 }
                 else
