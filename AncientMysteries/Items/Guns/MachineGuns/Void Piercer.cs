@@ -3,7 +3,7 @@
     [EditorGroup(group_Guns_MachineGuns)]
     [MetaImage(tex_Gun_VoidPiercer)]
     [MetaInfo(Lang.Default, "Void Piercer", "Traveling through the void, nothing can escape from you")]
-    [MetaInfo(Lang.schinese, "虚空穿刺者", "穿行于虚无之中，无人能够逃脱你所带来的死亡")]
+    [MetaInfo(Lang.schinese, "虚空穿刺者", "穿行于虚无之中，无人能够逃脱你所带来的死亡。")]
     [MetaType(MetaType.Gun)]
     public sealed partial class VoidPiercer : AMGun
     {
