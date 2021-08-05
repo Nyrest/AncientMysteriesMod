@@ -6,11 +6,11 @@
 
         public const string group_DEBUG = grouptopGroupName + "|Debug";
 
-        #region relative
+        #region Relatives
 
-        private const string group_relative_Isekai = "|Isekai";
+        private const string relativeGroup_Isekai = "|Isekai";
 
-        #endregion relative
+        #endregion Relatives
 
         #region Guns
 
@@ -32,7 +32,7 @@
 
         public const string group_Guns_MachineGuns = group_Guns + "|Machine Guns";
 
-        public const string group_Guns_Isekai = group_Guns + group_relative_Isekai;
+        public const string group_Guns_Isekai = group_Guns + relativeGroup_Isekai;
 
         public const string group_Guns_Melees = group_Guns + "|Melee";
 
@@ -44,15 +44,13 @@
 
         #endregion Guns
 
-
-
         #region Equipments
 
         public const string group_Equipments = grouptopGroupName + "|Equipments";
 
         public const string group_Equipment_Developer = group_Equipments + "|Developers";
 
-        public const string group_Equipment_Isekai_ROR = group_Equipments + group_relative_Isekai + "|Risk of Rain";
+        public const string group_Equipment_Isekai_ROR = group_Equipments + relativeGroup_Isekai + "|Risk of Rain";
 
         #endregion Equipments
 
