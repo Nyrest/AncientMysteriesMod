@@ -66,6 +66,7 @@
     <Compile Remove="Items\Isekai\DanceFireAndIce\DanceIceAndFire.Bullet.cs" />
     <Compile Remove="Items\Isekai\DanceFireAndIce\DanceIceAndFire.cs" />
     <Compile Remove="Items\Isekai\Undertale\GasterBlasterTest.cs" />
+    <Compile Remove="Items\MapTools\Gameplay\SpeedHack.cs" />
     <Compile Remove="Items\Props\CrashErrorDialog.cs" />
     <Compile Remove="Items\Staffs\AbyssalGazer.cs" />
     <None Include="..\.editorconfig">
@@ -128,6 +129,7 @@
     <None Include="Items\Isekai\DanceFireAndIce\DanceIceAndFire.Bullet.cs" />
     <None Include="Items\Isekai\DanceFireAndIce\DanceIceAndFire.cs" />
     <None Include="Items\Isekai\Undertale\GasterBlasterTest.cs" />
+    <None Include="Items\MapTools\Gameplay\SpeedHack.cs" />
     <None Include="Items\Props\CrashErrorDialog.cs" />
     <None Include="Items\Staffs\AbyssalGazer.cs" />
   </ItemGroup>
