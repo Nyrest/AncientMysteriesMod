@@ -58,8 +58,8 @@ namespace AncientMysteries.Analyzers.MetadataPunctuation
             }
         }
 
-        public static char[] englishPeriodIgnores = new[] { '?', '!', '？', '！', '」', ' ' };
-        public static char[] chinesePeriodIgnores = new[] { '?', '!', '？', '！', '」', ' ' };
+        public static char[] englishPeriodIgnores = new[] { '?', '!', '？', '！', '」', ' ', '…' };
+        public static char[] chinesePeriodIgnores = new[] { '?', '!', '？', '！', '」', ' ', '…' };
         public static bool TryProcessText(string? text, Lang lang, StringBuilder? processedText)
         {
             if (string.IsNullOrWhiteSpace(text)) return false;
