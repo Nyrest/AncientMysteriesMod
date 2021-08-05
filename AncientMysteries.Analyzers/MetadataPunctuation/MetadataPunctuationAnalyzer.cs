@@ -58,8 +58,8 @@ namespace AncientMysteries.Analyzers.MetadataPunctuation
             }
         }
 
-        public static char[] englishPeriodIgnores = new[] { '?', '!', '？', '！', '」' };
-        public static char[] chinesePeriodIgnores = new[] { '?', '!', '？', '！', '」', };
+        public static char[] englishPeriodIgnores = new[] { '?', '!', '？', '！', '」', ' ' };
+        public static char[] chinesePeriodIgnores = new[] { '?', '!', '？', '！', '」', ' ' };
         public static bool TryProcessText(string? text, Lang lang, StringBuilder? processedText)
         {
             if (string.IsNullOrWhiteSpace(text)) return false;
@@ -144,7 +144,6 @@ namespace AncientMysteries.Analyzers.MetadataPunctuation
                     int offset = 0;
                     foreach (var item in span.Split('\n'))
                     {
-                        offset++; // \n
                         if (item.IsEmpty)
                         {
                             continue;
@@ -156,7 +155,7 @@ namespace AncientMysteries.Analyzers.MetadataPunctuation
                             offset += item.Length;
                             processedText?.Insert(offset, value);
                         }
-                        offset++; // .
+                        offset += 2; // \n and .
                     }
                 }
                 else

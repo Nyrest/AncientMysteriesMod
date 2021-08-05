@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_Equipment_Developer)]
     [MetaImage(tex_Hat_DevastatorPickup)]
-    [MetaInfo(Lang.Default, "Devastator", "Tastes great\nMain Artist / Programmer / Lead Translater")]
-    [MetaInfo(Lang.schinese, null, "好吃\n主画师 / 程序员 / 主翻译")]
+    [MetaInfo(Lang.Default, "Devastator", "Tastes great\nMain Artist / Programmer / Lead Translater ")]
+    [MetaInfo(Lang.schinese, null, "好吃\n主画师 / 程序员 / 主翻译 ")]
     [MetaOrder(int.MaxValue - 2)]
     [MetaType(MetaType.Developer)]
     public sealed partial class Thingy : AMHelmet
