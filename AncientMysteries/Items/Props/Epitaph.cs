@@ -8,7 +8,7 @@ namespace AncientMysteries.Items
 {
     [EditorGroup(group_Props)]
     [MetaImage(tex_Holdable_Epitaph)]
-    [MetaInfo(Lang.Default, "Epitaph", "todo")]
+    [MetaInfo(Lang.Default, "Epitaph", "todo.")]
     [MetaInfo(Lang.schinese, "", "")]
     [MetaType(MetaType.Props)]
     public partial class Epitaph : AMHoldable

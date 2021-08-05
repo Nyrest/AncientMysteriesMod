@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_Guns_Shotguns)]
     [MetaImage(tex_Gun_DarkAurora)]
-    [MetaInfo(Lang.Default, "Dark Aurora", "Pour down shadowy light to crush your foes")]
-    [MetaInfo(Lang.schinese, "暗影极光", "召唤阴影之光来击碎你的敌人")]
+    [MetaInfo(Lang.Default, "Dark Aurora", "Pour down shadowy light to crush your foes.")]
+    [MetaInfo(Lang.schinese, "暗影极光", "召唤阴影之光来击碎你的敌人。")]
     [MetaType(MetaType.Gun)]
     public sealed partial class DarkAurora : AMGun
     {

@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_Equipments)]
     [MetaImage(tex_Equipment_VampireWings, 30, 11, 1)]
-    [MetaInfo(Lang.Default, "Vampire Wings", "They say when the blood moon rises, the nightmare will come")]
-    [MetaInfo(Lang.schinese, "吸血鬼之翼", "他们说当血月升起时，梦魇就将来临")]
+    [MetaInfo(Lang.Default, "Vampire Wings", "They say when the blood moon rises, the nightmare will come.")]
+    [MetaInfo(Lang.schinese, "吸血鬼之翼", "他们说当血月升起时，梦魇就将来临。")]
     [MetaType(MetaType.Equipment)]
     public partial class VampireWings : AMEquipmentWings
     {

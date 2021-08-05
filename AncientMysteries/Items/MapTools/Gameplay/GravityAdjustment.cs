@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_MapTools_Gameplay)]
     [MetaImage(tex_MapTools_Swirl)]
-    [MetaInfo(Lang.Default, "Adjustment - Gravity", "Allow to adjust the level gravity multiplier")]
-    [MetaInfo(Lang.schinese, "重力调整", "使地图制作者可以调整关卡重力系数")]
+    [MetaInfo(Lang.Default, "Adjustment - Gravity", "Allow to adjust the level gravity multiplier.")]
+    [MetaInfo(Lang.schinese, "重力调整", "使地图制作者可以调整关卡重力系数。")]
     [MetaType(MetaType.MapTools)]
     public partial class GravityAdjustment : AMMapToolGameplay
     {

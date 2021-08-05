@@ -3,7 +3,7 @@
     [EditorGroup(group_Guns_Staffs)]
     [MetaImage(tex_Staff_HolyLight)]
     [MetaInfo(Lang.Default, "Holy Light", "The miracle.")]
-    [MetaInfo(Lang.schinese, "神圣之光", "奇迹")]
+    [MetaInfo(Lang.schinese, "神圣之光", "奇迹。")]
     [MetaType(MetaType.Magic)]
     public partial class HolyLight : AMStaff
     {

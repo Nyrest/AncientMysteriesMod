@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_Guns_Melees)]
     [MetaImage(tex_Melee_EternalFlame)]
-    [MetaInfo(Lang.Default, "Eternal Flame", "Make your enemies burn into charred bones in the blink of an eye")]
-    [MetaInfo(Lang.schinese, "永恒烈焰", "让你的敌人在顷刻间化为焦黑的尸骨")]
+    [MetaInfo(Lang.Default, "Eternal Flame", "Make your enemies burn into charred bones in the blink of an eye.")]
+    [MetaInfo(Lang.schinese, "永恒烈焰", "让你的敌人在顷刻间化为焦黑的尸骨。")]
     [MetaType(MetaType.Melee)]
     public sealed partial class EternalFlame : AMMelee
     {
