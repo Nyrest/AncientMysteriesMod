@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_MachineGuns)]
-    [MetaImage(tex_Gun_TheSpiritOfDarkness)]
+    [MetaImage(tex_Gun_NeonStriker)]
     [MetaInfo(Lang.Default, "Neon Striker", "Those bright things gonna shine through the world.")]
     [MetaInfo(Lang.schinese, "霓虹打击", "这些明亮的小东西将要照亮整个世界。")]
     [MetaType(MetaType.Gun)]

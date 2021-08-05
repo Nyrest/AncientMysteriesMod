@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_Snipers)]
-    [MetaImage(tex_Gun_ShadowDance)]
+    [MetaImage(tex_Gun_PermafrostLance)]
     [MetaInfo(Lang.Default, "Permafrost Lance", "Cold-hearted.")]
     [MetaInfo(Lang.schinese, "极冻长枪", "冰冷无情。")]
     [MetaType(MetaType.Gun)]
