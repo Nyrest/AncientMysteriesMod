@@ -134,12 +134,8 @@ namespace AncientMysteries.Items
         public virtual void LegacyImpact(MaterialThing thing)
         {
             // local only
-            // do not sync
-            if (isServerForObject)
-            {
-                var bullet = (ThingBulletSimulation_Bullet)Make.Bullet<ThingBulletSimulation_AmmoType>(thing.position, BulletSafeDuck, angleDegrees, this);
-                bullet.callback = this;
-            }
+            var bullet = (ThingBulletSimulation_Bullet)Make.Bullet<ThingBulletSimulation_AmmoType>(thing.position, BulletSafeDuck, angleDegrees, this);
+            bullet.callback = this;
         }
 
         /// <summary>
