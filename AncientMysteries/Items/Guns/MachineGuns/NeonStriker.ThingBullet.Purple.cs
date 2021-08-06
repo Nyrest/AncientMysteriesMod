@@ -8,16 +8,16 @@ namespace AncientMysteries.Items
 {
     public class NeonStriker_ThingBullet_Purple : AMThingBulletLinar
     {
-        public Waiter w = new(2);
+        public Waiter waiter = new(2);
 
         public bool _canMultiply;
         public NeonStriker_ThingBullet_Purple(Vec2 pos, Vec2 initSpeed, Duck safeDuck, bool canMultiply) : base(pos, 1000, 1, initSpeed, safeDuck)
         {
             this.ReadyToRun(tex_Bullet_NeonLightPurple);
             _canMultiply = canMultiply;
-            hasGravity = true;
-            gravityIncrement = 0.2f;
-            maxGravity = 1f;
+            GravityEnabled = true;
+            GravityIncrement = 0.2f;
+            GravityMax = 1f;
         }
 
         public override void Update()
@@ -30,7 +30,7 @@ namespace AncientMysteries.Items
                     Level.Remove(this);
                 }
             }
-            if (w.Tick() && _canMultiply)
+            if (waiter.Tick() && _canMultiply)
             {
                 NeonStriker_ThingBullet_Purple b = new(position, new Vec2(0.001f,0), BulletSafeDuck, false);
                 Level.Add(b);
