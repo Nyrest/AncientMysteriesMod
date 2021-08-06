@@ -8,7 +8,7 @@
 
         public override IEnumerable<MaterialThing> BulletCollideCheck()
         {
-            return Level.CheckLineAll<MaterialThing>(lastPosition, position);
+            return Level.CheckLineAll<MaterialThing>(LastPosition, position);
         }
     }
 }

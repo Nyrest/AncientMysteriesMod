@@ -19,13 +19,13 @@ namespace AncientMysteries.Items
         public bool BulletCanCollideWhenNotMoving { get; init; }
         public float BulletDistanceTraveled { get; private set; }
         public float BulletPenetration { get; init; }
-        public Vec2 lastPosition;
+        public Vec2 LastPosition { get; protected set; }
 
-        public bool hasGravity = false;
-        public float gravityIncrement = 0;
-        public float maxGravity = 0;
-        public float currentGravity = 0;
-        public bool reverseGravity = false;
+        public bool GravityEnabled { get; init; } = false;
+        public float GravityIncrement { get; init; } = 0.05f;
+        public float GravityMax { get; init; } = 1;
+        public float GravityCurrent { get; set; } = 0;
+        public bool GravityReversed { get; init; } = false;
 
         public ColorTrajectory Trajectory { get; private set; }
         public HashSet<MaterialThing> _lastImpacting;
@@ -33,10 +33,10 @@ namespace AncientMysteries.Items
 
 #if DEBUG
 
-        [Obsolete("Use BulletSafeDuck", true)]
+        [Obsolete($"Use {nameof(BulletSafeDuck)}", true)]
         public new object owner;
 
-        [Obsolete("Use BulletSafeDuck", true)]
+        [Obsolete($"Use {nameof(BulletSafeDuck)}", true)]
         public new object _owner;
 
 #endif
@@ -51,7 +51,7 @@ namespace AncientMysteries.Items
             BulletPenetration = bulletPenetration;
             bulletVelocity = initSpeed;
             angle = CalcBulletAngleRadian();
-            lastPosition = pos;
+            LastPosition = pos;
             Trajectory = GetTrajectory();
         }
 
@@ -67,7 +67,7 @@ namespace AncientMysteries.Items
         {
             base.Update();
 
-            lastPosition = position;
+            LastPosition = position;
             if (IsMoving)
             {
                 position += bulletVelocity;
@@ -87,17 +87,17 @@ namespace AncientMysteries.Items
             }
             Trajectory?.Update();
 
-            if (hasGravity)
+            if (GravityEnabled)
             {
-                if (!reverseGravity)
+                if (!GravityReversed)
                 {
-                    y += currentGravity;
-                    MathHelper.Clamp(currentGravity += gravityIncrement, 0, maxGravity);
+                    y += GravityCurrent;
+                    MathHelper.Clamp(GravityCurrent += GravityIncrement, 0, GravityMax);
                 }
-                else 
+                else
                 {
-                    y -= currentGravity;
-                    MathHelper.Clamp(currentGravity += gravityIncrement, 0, maxGravity);
+                    y -= GravityCurrent;
+                    MathHelper.Clamp(GravityCurrent += GravityIncrement, 0, GravityMax);
                 }
             }
         }
@@ -195,7 +195,7 @@ namespace AncientMysteries.Items
 
         public float CalcBulletAngleDegrees(Vec2 speed) => Maths.RadToDeg(CalcBulletAngleRadian(speed));
 
-        public virtual float CalcBulletAngleRadian(Vec2 speed) => -Maths.PointDirectionRad(Vec2.Zero, new Vec2(speed.x, speed.y + currentGravity));
+        public virtual float CalcBulletAngleRadian(Vec2 speed) => -Maths.PointDirectionRad(Vec2.Zero, new Vec2(speed.x, speed.y + GravityCurrent));
 
         public virtual void BulletRemove()
         {

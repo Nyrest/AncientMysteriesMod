@@ -123,8 +123,6 @@
     <None Include="Items\Artifact\TemperatureArt.AmmoType.WaterVapor.cs" />
     <None Include="Items\Artifact\TemperatureArt.AmmoType._Base.cs" />
     <None Include="Items\Artifact\TemperatureArt.cs" />
-    <None Include="Items\Guns\MachineGuns\NeonStriker.ThingBullet.Purple.cs" />
-    <None Include="Items\Guns\MachineGuns\NeonStriker.ThingBullet.Blue.cs" />
     <None Include="Items\Isekai\AssassinsCreed\HiddenBlade.cs" />
     <None Include="Items\Isekai\DanceFireAndIce\DanceIceAndFire.Bullet.cs" />
     <None Include="Items\Isekai\DanceFireAndIce\DanceIceAndFire.cs" />
