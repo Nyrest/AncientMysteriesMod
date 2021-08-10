@@ -15,20 +15,5 @@
             wearOffset = new(-0.5f, 1);
             _equippedDepth = -12;
         }
-
-        public override void Update()
-        {
-            base.Update();
-        }
-
-        public override void Equip(Duck d)
-        {
-            base.Equip(d);
-        }
-
-        public override void UnEquip()
-        {
-            base.UnEquip();
-        }
     }
 }
