@@ -8,8 +8,8 @@ namespace AncientMysteries.Items
 {
     [EditorGroup(group_Props)]
     [MetaImage(tex_Holdable_Epitaph)]
-    [MetaInfo(Lang.Default, "Epitaph", "todo.")]
-    [MetaInfo(Lang.schinese, "", "")]
+    [MetaInfo(Lang.Default, "Epitaph", "Someday. You will be there where we are.")]
+    [MetaInfo(Lang.schinese, "墓志铭", "也许某天，你会出现在和我们一样的地方。")]
     [MetaType(MetaType.Props)]
     public partial class Epitaph : AMHoldable
     {
