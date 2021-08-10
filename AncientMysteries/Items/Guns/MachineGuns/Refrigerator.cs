@@ -9,8 +9,8 @@ namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_MachineGuns)]
     [MetaImage(tex_Gun_Refrigerator)]
-    [MetaInfo(Lang.Default, "Refrigerator", "todo.")]
-    [MetaInfo(Lang.schinese, "", "")]
+    [MetaInfo(Lang.Default, "Refrigerator", "The ice freezed within is hard enough to be a bullet.")]
+    [MetaInfo(Lang.schinese, "冰箱", "其冷冻的冰块用来当子弹也不为过。")]
     [MetaType(MetaType.Gun)]
     public partial class Refrigerator : AMGun
     {
