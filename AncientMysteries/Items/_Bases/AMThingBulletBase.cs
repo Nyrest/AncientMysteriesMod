@@ -1,5 +1,4 @@
 ﻿using AncientMysteries.DestroyTypes;
-using AncientMysteries.Utilities;
 using static AncientMysteries.AmmoTypes.ThingBulletSimulation_AmmoType;
 
 namespace AncientMysteries.Items
@@ -54,7 +53,6 @@ namespace AncientMysteries.Items
             LastPosition = pos;
             Trajectory = GetTrajectory();
         }
-
 
         public virtual ColorTrajectory GetTrajectory() => new(this);
 
@@ -147,7 +145,6 @@ namespace AncientMysteries.Items
         /// </summary>
         public virtual void LegacyRebound(Vec2 pos, float dirDegress, float rangeLeft)
         {
-
         }
 
         public abstract IEnumerable<MaterialThing> BulletCollideCheck();
@@ -209,6 +206,7 @@ namespace AncientMysteries.Items
         }
 
         public void GoToByVelocity(Transform transform, float speed, float lerpAmount) => GoToByVelocity(transform.position, speed, lerpAmount);
+
         public void GoToByVelocity(Vec2 target, float speed, float lerpAmount)
         {
             float angleToTargetRad = Maths.PointDirectionRad(position, target);
@@ -218,11 +216,13 @@ namespace AncientMysteries.Items
         }
 
 #warning GoToByAngle: Need to fix
+
         [Obsolete("Need to fix")]
         /// <summary>
         /// Call this after base.Update();
         /// </summary>
         public void GoToByAngle(Transform transform, float speed, float lerpAmount) => GoToByAngle(transform.position, speed, lerpAmount);
+
         [Obsolete("Need to fix")]
         /// <summary>
         /// Call this after base.Update();

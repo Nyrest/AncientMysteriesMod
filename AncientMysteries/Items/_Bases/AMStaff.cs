@@ -99,7 +99,7 @@
             }
             else handAngle = 0;
 
-            if(IsSpelling)
+            if (IsSpelling)
             {
                 OnSpelling();
                 if (castingParticlesEnabled)

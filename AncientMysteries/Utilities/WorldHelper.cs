@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Utilities
+﻿namespace AncientMysteries.Utilities
 {
     public static class WorldHelper
     {
@@ -61,7 +55,7 @@ namespace AncientMysteries.Utilities
                         if (pExplode && idd % 10 == 0)
                         {
                             Level.Add(new ExplosionPart(bl.x, bl.y));
-                            if(explodeMakeFire)
+                            if (explodeMakeFire)
                             {
                                 Level.Add(SmallFire.New(bl.x, bl.y, Rando.Float(-2f, 2f), Rando.Float(-2f, 2f)));
                             }

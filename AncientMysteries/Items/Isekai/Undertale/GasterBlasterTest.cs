@@ -22,7 +22,7 @@ namespace AncientMysteries.Items
         public override void Fire()
         {
             base.Fire();
-            
+
             //var a = new GasterBlaster(x, y) {angle = };
         }
     }

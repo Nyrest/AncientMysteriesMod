@@ -1,6 +1,4 @@
-﻿using DuckGame;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_Staffs)]
     [MetaImage(tex_Staff_BloodyMarquis)]

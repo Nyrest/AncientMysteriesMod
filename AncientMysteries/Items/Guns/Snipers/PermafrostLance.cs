@@ -20,6 +20,7 @@
         public float _charge = 0;
 
         public int powerLevel = 0;
+
         public PermafrostLance(float xval, float yval) : base(xval, yval)
         {
             ammo = sbyte.MaxValue;
@@ -116,7 +117,7 @@
             base.OnHoldAction();
             if (ammoCount > 0)
             {
-                MathHelper.Clamp(_charge++,0,60);
+                MathHelper.Clamp(_charge++, 0, 60);
                 if (_charge == 15)
                 {
                     SFX.PlaySynchronized("phaserCharge03", 1f, 0.6f);

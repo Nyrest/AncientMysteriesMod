@@ -21,7 +21,6 @@
 
         public GravityAdjustment(float xpos, float ypos) : base(xpos, ypos)
         {
-
         }
 
         public override void Update()

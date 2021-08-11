@@ -1,11 +1,4 @@
-﻿using DuckGame;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_MachineGuns)]
     [MetaImage(tex_Gun_Refrigerator)]
@@ -21,7 +14,7 @@ namespace AncientMysteries.Items
         {
             this.ReadyToRunWithFrames(tex_Gun_Refrigerator);
             this._barrelOffsetTL = new Vec2(21, 3);
-            _holdOffset = new Vec2(-3,0);
+            _holdOffset = new Vec2(-3, 0);
             _ammoType = new Refrigerator_AmmoType();
             ammo = 200;
             _fireWait = 0.8f;

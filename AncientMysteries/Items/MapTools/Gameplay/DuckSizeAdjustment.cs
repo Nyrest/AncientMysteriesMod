@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_MapTools_Gameplay)]
     [MetaImage(tex_MapTools_Swirl)]
@@ -27,7 +21,6 @@ namespace AncientMysteries.Items
 
         public DuckSizeAdjustment(float xpos, float ypos) : base(xpos, ypos)
         {
-
         }
 
         public override void Update()
@@ -39,6 +32,5 @@ namespace AncientMysteries.Items
                     item.duckSize = Size;
             }
         }
-
     }
 }

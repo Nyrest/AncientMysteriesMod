@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     public class NeonStriker_ThingBullet_Blue : AMThingBulletLinar
     {
         public Waiter waiter = new(2);
 
         public bool _canMultiply;
+
         public NeonStriker_ThingBullet_Blue(Vec2 pos, Vec2 initSpeed, Duck safeDuck, bool canMultiply) : base(pos, 1000, 1, initSpeed, safeDuck)
         {
             this.ReadyToRun(tex_Bullet_NeonLightBlue);
@@ -37,6 +32,7 @@ namespace AncientMysteries.Items
             }
             base.Update();
         }
+
         public override ColorTrajectory GetTrajectory()
         {
             return null;

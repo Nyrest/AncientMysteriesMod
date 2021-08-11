@@ -103,7 +103,7 @@
                 case Mode.Water:
                     for (int i = 0; i < 12; i++)
                     {
-                        b = new TemperatureArt_AmmoType_Water(barrelPosition, barrelVector.Rotate(Rando.Float((float)(-1.56 / 6), (float)(1.56 / 6)),Vec2.Zero) * 10, duck);
+                        b = new TemperatureArt_AmmoType_Water(barrelPosition, barrelVector.Rotate(Rando.Float((float)(-1.56 / 6), (float)(1.56 / 6)), Vec2.Zero) * 10, duck);
                         Level.Add(b);
                     }
                     break;

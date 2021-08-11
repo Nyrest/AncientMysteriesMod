@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Props)]
     [MetaImage(tex_Holdable_Epitaph)]
@@ -21,7 +15,7 @@ namespace AncientMysteries.Items
         public override void OnPressAction()
         {
             base.OnPressAction();
-            if(duck is Duck d)
+            if (duck is Duck d)
             {
                 Epitaph_Buff_Invisible buff = new(0, 0);
                 Level.Add(buff);

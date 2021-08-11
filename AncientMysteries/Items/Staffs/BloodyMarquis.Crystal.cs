@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     public class BloodyMarquis_Crystal : AMThing
     {
@@ -31,10 +25,13 @@ namespace AncientMysteries.Items
             if (!fired)
             {
                 fired = true;
+
                 #region Do Fire
+
                 var bullet = new BloodyMarquis_ThingBullet(position, 800, 1, GetBulletVecDeg(-fireAngleDegree, bulletSpeed) * 0.01f, safeDuck);
                 Level.Add(bullet);
-                #endregion
+
+                #endregion Do Fire
             }
             if (alpha <= 0)
             {

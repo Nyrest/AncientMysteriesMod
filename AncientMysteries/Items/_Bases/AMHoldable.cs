@@ -8,7 +8,6 @@
             editorTooltip = GetLocalizedDescription(AMLocalization.Current);
         }
 
-
         /// <summary>
         /// Use this when collisionSize different with frame size
         /// </summary>

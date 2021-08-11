@@ -28,7 +28,7 @@
         public static bool Contains(this ReadOnlySpan<char> span, char value)
             => span.IndexOf(value) != -1;
 
-        public static bool Contains(this ReadOnlySpan<char> span, char value, out int i) 
+        public static bool Contains(this ReadOnlySpan<char> span, char value, out int i)
             => (i = span.IndexOf(value)) != -1;
     }
 }

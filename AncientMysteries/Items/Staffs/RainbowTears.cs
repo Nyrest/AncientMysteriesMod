@@ -12,6 +12,7 @@
         public SpriteMap _spriteMap;
 
         public Waiter waiter = new(2);
+
         public byte AnimationFrame
         {
             get => (byte)_spriteMap._frame;

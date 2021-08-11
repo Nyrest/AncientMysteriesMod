@@ -19,7 +19,9 @@
             _tooltip = "Height of the QuadLazerBullet Removing Zone"
         };
 
-        public QuadLaserKiller(float xpos, float ypos) : base(xpos, ypos) { }
+        public QuadLaserKiller(float xpos, float ypos) : base(xpos, ypos)
+        {
+        }
 
         public override void Update()
         {

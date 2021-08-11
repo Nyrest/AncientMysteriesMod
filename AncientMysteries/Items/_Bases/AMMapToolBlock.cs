@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     public abstract class AMMapToolBlock : Block, IAMLocalizable
     {
@@ -13,6 +7,7 @@ namespace AncientMysteries.Items
         }
 
         public abstract string GetLocalizedDescription(Lang lang);
+
         public abstract string GetLocalizedName(Lang lang);
     }
 }

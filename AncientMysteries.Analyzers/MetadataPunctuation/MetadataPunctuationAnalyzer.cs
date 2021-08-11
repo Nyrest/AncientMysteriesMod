@@ -1,9 +1,4 @@
-﻿using AncientMysteries.SourceGenerator;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Text;
+﻿using System.Text;
 
 namespace AncientMysteries.Analyzers.MetadataPunctuation
 {
@@ -60,6 +55,7 @@ namespace AncientMysteries.Analyzers.MetadataPunctuation
 
         public static char[] englishPeriodIgnores = new[] { '?', '!', '？', '！', '」', ' ', '…' };
         public static char[] chinesePeriodIgnores = new[] { '?', '!', '？', '！', '」', ' ', '…' };
+
         public static bool TryProcessText(string? text, Lang lang, StringBuilder? processedText)
         {
             if (string.IsNullOrWhiteSpace(text)) return false;
@@ -72,6 +68,7 @@ namespace AncientMysteries.Analyzers.MetadataPunctuation
             switch (lang)
             {
                 #region English
+
                 case Lang.english:
                     {
                         if (span.Contains('，'))
@@ -101,8 +98,11 @@ namespace AncientMysteries.Analyzers.MetadataPunctuation
 
                         break;
                     }
-                #endregion
+
+                #endregion English
+
                 #region Chinese
+
                 case Lang.tchinese:
                 case Lang.schinese:
                     {
@@ -133,7 +133,9 @@ namespace AncientMysteries.Analyzers.MetadataPunctuation
                         TryInsertPeriods(span, '。', chinesePeriodIgnores);
                         break;
                     }
-                #endregion
+
+                #endregion Chinese
+
                 default: goto case Lang.english;
             }
             return result;

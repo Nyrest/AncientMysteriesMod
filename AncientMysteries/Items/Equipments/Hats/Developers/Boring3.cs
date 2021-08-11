@@ -34,7 +34,7 @@
         public override void Update()
         {
             base.Update();
-            
+
             if (_equippedDuck != null && !destroyed)
             {
                 _equippedCollisionOffset = duck.topLeft - position + new Vec2(-1.5f, -1.5f);
@@ -50,7 +50,6 @@
 
             if (_equippedDuck != null)
             {
-
                 var rect = _equippedDuck.rectangle;
                 foreach (SmallFire item in Level.current.things[typeof(SmallFire)])
                 {
