@@ -40,7 +40,7 @@ jobs:
       - name: Commit
         run: |
           git add desc_*.png
-          git commit -am "Howdy2"
+          git commit -am "Update Description Image"
           
       - name: Push
         run: |
