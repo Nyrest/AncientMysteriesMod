@@ -1,4 +1,5 @@
 # AncientMysteriesMod ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Nyerst/AncientMysteriesMod/Nightly%20Build?style=flat-square)
+![Wide Logo](https://cdn.jsdelivr.net/gh/Nyerst/AncientMysteriesMod/Logo%20Wide.png)
 Mysteries from the Ancient Civilization?
 
 Download: [latest pre-release](https://github.com/Nyerst/AncientMysteriesMod/releases)
