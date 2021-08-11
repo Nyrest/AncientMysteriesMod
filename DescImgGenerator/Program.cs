@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace DescImgGenerator
@@ -13,10 +14,17 @@ namespace DescImgGenerator
 
         private static void Main(string[] args)
         {
+            string saveTo = Path.GetFullPath(args.Length == 0 ? ".\\" : args[0] + Path.DirectorySeparatorChar);
+
+            var location = Path.GetDirectoryName(Assembly.GetCallingAssembly().Location);
+            if (location is not null)
+            {
+                Directory.SetCurrentDirectory(location);
+            }
+
             Console.OutputEncoding = Encoding.UTF8;
-            string saveTo = args.Length == 0 ? ".\\" : args[0] + Path.DirectorySeparatorChar;
             FontMapper.Default = new CustomFontMapper();
-            LoadAssembly("AncientMysteries.dll");
+            LoadAssembly((location ?? ".") + "\\AncientMysteries.dll");
             ScanModItems();
             Parallel.ForEach(languages, lang =>
             {
