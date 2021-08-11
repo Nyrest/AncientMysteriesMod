@@ -26,22 +26,16 @@ jobs:
       - name: Run DescImgGenerator
         run: dotnet run -c Release --no-build --project DescImgGenerator\DescImgGenerator.csproj ./
 
-      - name: Setup Git
+      - name: Push to descimg Branch
         run: |
           git config --global user.name 'Nyerst'
           git config --global user.email 'Nyerst@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-
-      - name: Checkout descimg Branch
-        run: |
-          git checkout --orphan descimg
-          git rm -rf --cached .
           
-      - name: Commit
-        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git checkout --orphan descimg
+          
+          git rm -rf --cached .
           git add desc_*.png
           git commit -am "Update Description Image"
           
-      - name: Push
-        run: |
           git push -f --set-upstream origin descimg
