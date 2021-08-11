@@ -37,7 +37,7 @@ jobs:
 
             # Pack built files into single zip
             - name: Pack built files
-              run: Compress-Archive -Path ".\buildOutput\*" -CompressionLevel Optimal -DestinationPath ".\AncientMysteriesMod.zip"
+              run: Compress-Archive -Path ".\buildOutput\*" -CompressionLevel Optimal -DestinationPath ".\AncientMysteries.zip"
 
             # Upload as nightly-build
             - name: Upload as nightly-build
