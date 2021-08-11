@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_Equipments)]
     [MetaImage(tex_Equipment_DarkWings, 43, 31, 1)]
-    [MetaInfo(Lang.Default, "Dark Wings", "")]
-    [MetaInfo(Lang.schinese, "漆黑之翼", "")]
+    [MetaInfo(Lang.Default, "Dark Wings", "The wings, which pierces through the light, will eventually stretch, spreading fainted blessings.")]
+    [MetaInfo(Lang.schinese, "漆黑之翼", "刺破光芒的羽翼终将伸展，撒下晦暗的恩泽。")]
     [MetaType(MetaType.Equipment)]
     public partial class DarkWings : AMEquipmentWings
     {
