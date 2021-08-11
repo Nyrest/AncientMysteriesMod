@@ -1,4 +1,4 @@
-# AncientMysteriesMod ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Nyerst/AncientMysteriesMod/Nightly%20Build?style=flat-square)
+# Ancient Mysteries ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Nyerst/AncientMysteriesMod/Nightly%20Build?style=flat-square) ![License](https://img.shields.io/github/license/Nyerst/AncientMysteriesMod?style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/Nyerst/AncientMysteriesMod?style=flat-square)
 ![Wide Logo](https://cdn.jsdelivr.net/gh/Nyerst/AncientMysteriesMod/Logo%20Wide.png)
 Mysteries from the Ancient Civilization?
 
