@@ -32,5 +32,5 @@ Windows:
 - Add latest **DuckGame.exe** reference to **AncientMysteries.csproj.user**.
 - Build the project!
 
-**Note:** Duck Game is a XNA Game based on .NET Framework So it can only build/run on Windows.
+**Note:** Duck Game is a XNA Game based on .NET Framework So it can only build/run on Windows.  
 **Note:** If you built mod youself locally. Make sure mod folder have same name with compiled dll file.
