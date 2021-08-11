@@ -1,4 +1,5 @@
 ﻿#if NETFRAMEWORK || NETSTANDARD2_0
+
 using System.ComponentModel;
 
 namespace System.Runtime.CompilerServices
@@ -8,4 +9,5 @@ namespace System.Runtime.CompilerServices
     {
     }
 }
+
 #endif

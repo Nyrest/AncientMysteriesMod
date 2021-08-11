@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     public class PermafrostLance_ThingBullet : AMThingBulletLinar
     {
@@ -23,9 +17,9 @@ namespace AncientMysteries.Items
 
         public override void Removed()
         {
-            PermafrostExplosion exp = new(x, y,false);
+            PermafrostExplosion exp = new(x, y, false);
             Level.Add(exp);
-            SFX.PlaySynchronized("glassBreak",1,1);
+            SFX.PlaySynchronized("glassBreak", 1, 1);
             base.Removed();
         }
     }

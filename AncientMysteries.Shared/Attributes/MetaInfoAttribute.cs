@@ -1,4 +1,5 @@
 ﻿#nullable enable
+
 namespace AncientMysteries
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]

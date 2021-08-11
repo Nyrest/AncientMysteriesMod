@@ -14,7 +14,7 @@
             _fireWait = 1.1f;
             _fullAuto = true;
             _flare.color = Color.Blue;
-            _barrelOffsetTL = new Vec2(22,5.5f);
+            _barrelOffsetTL = new Vec2(22, 5.5f);
         }
 
         public override IEnumerable<AMThingBulletBase> FireThingBullets(float shootAngleDeg)

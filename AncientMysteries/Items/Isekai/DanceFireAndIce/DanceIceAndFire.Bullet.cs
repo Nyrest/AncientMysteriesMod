@@ -25,9 +25,8 @@ namespace AncientMysteries.Items
             if (linkedBall is null) return;
             if (linkedBall.rolling) rolling = false;
 
-            if(rolling)
+            if (rolling)
             {
-
             }
         }
 

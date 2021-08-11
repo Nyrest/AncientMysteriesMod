@@ -1,11 +1,4 @@
-﻿using AncientMysteries.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     public class BloodyMarquis_ThingBullet : AMThingBulletLinar
     {
@@ -14,6 +7,7 @@ namespace AncientMysteries.Items
         public int aliveTime = 0;
 
         public StateBinding aliveTimeBinding = new(nameof(aliveTime));
+
         public BloodyMarquis_ThingBullet(Vec2 pos, float bulletRange, float bulletPenetration, Vec2 initSpeed, Duck safeDuck) : base(pos, bulletRange, bulletPenetration, initSpeed, safeDuck)
         {
             this.ReadyToRun(tex_Bullet_BloodyDagger);
@@ -44,8 +38,6 @@ namespace AncientMysteries.Items
             {
                 if (duck.dead) continue;
                 if (BulletSafeDuck != null && duck.team == BulletSafeDuck.team) continue;
-
-
             }
             bulletVelocity *= 1.04f;
         }

@@ -16,7 +16,6 @@ namespace AncientMysteries.Items
         public bool half;
         public SpeedHack(float xpos, float ypos) : base(xpos, ypos)
         {
-
         }
 
         public override void Update()

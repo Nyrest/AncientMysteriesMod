@@ -6,10 +6,10 @@
 
         public AMThingBulletCircular(Vec2 pos, float bulletRange, float bulletPenetration, Vec2 initSpeed, Duck safeDuck) : base(pos, bulletRange, bulletPenetration, initSpeed, safeDuck)
         {
-
         }
 
-        #if DEBUG
+#if DEBUG
+
         public override void Initialize()
         {
             base.Initialize();
@@ -18,7 +18,8 @@
                 throw new Exception("Set a fucking value for BulletRadius");
             }
         }
-        #endif
+
+#endif
 
         public override IEnumerable<MaterialThing> BulletCollideCheck()
         {

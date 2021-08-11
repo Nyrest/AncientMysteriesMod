@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     public class PermafrostLance_ThingBulletCharged : AMThingBulletLinar
     {
@@ -17,7 +11,6 @@ namespace AncientMysteries.Items
         {
             return null;
         }
-
 
         public override void Update()
         {
@@ -63,9 +56,10 @@ namespace AncientMysteries.Items
                 }
             }
         }
+
         public override void Removed()
         {
-            SFX.PlaySynchronized("laserBlast",1,1);
+            SFX.PlaySynchronized("laserBlast", 1, 1);
             base.Removed();
         }
     }

@@ -1,16 +1,8 @@
-﻿using AncientMysteries.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     public class Epitaph_Buff_Invisible : Equipment
     {
         public Waiter waiter = new(480);
-
 
         public Epitaph_Buff_Invisible(float xpos, float ypos) : base(xpos, ypos)
         {

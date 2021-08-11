@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Equipments)]
     [MetaImage(tex_Equipment_InterstellarVisage_Pickup)]

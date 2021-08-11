@@ -1,4 +1,5 @@
-﻿global using Mono.Cecil;
+﻿global using AncientMysteries;
+global using Mono.Cecil;
 global using SkiaSharp;
 global using System;
 global using System.Collections.Generic;
@@ -7,7 +8,6 @@ global using System.Linq;
 global using System.Runtime.CompilerServices;
 global using System.Runtime.InteropServices;
 global using Topten.RichTextKit;
-global using AncientMysteries;
 global using static DescImgGenerator.Helper;
 global using static DescImgGenerator.ImgStyles;
 global using static DescImgGenerator.ModMetaReader;

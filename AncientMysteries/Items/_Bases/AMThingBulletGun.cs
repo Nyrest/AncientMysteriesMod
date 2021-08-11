@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientMysteries.Items
+﻿namespace AncientMysteries.Items
 {
     public abstract class AMThingBulletGun : AMGun
     {
@@ -58,7 +52,7 @@ namespace AncientMysteries.Items
             ApplyKick();
         }
 
-        public virtual void DoFireThingBullets() 
+        public virtual void DoFireThingBullets()
         {
             float shootAngleDeg = angleDegrees;
             if (offDir < 0)

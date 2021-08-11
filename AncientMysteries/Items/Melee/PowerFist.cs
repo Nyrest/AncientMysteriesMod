@@ -36,6 +36,7 @@ namespace AncientMysteries.Items
 
         // Clone the template
         public ColorTrajectory trajectory1;
+
         public ColorTrajectory trajectory2;
         public ColorTrajectory trajectory3;
 
@@ -80,7 +81,6 @@ namespace AncientMysteries.Items
                                 }
                             case MaterialThing mat:
                                 {
-
                                     mat.Destroy(new DTImpact(duck));
                                     break;
                                 }

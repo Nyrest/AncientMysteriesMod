@@ -9,7 +9,7 @@
         public int fireWait;
         private SpriteMap spriteMap;
 
-        const float Range = 1200;
+        private const float Range = 1200;
 
         public GasterBlaster(float xpos, float ypos) : base(xpos, ypos)
         {
