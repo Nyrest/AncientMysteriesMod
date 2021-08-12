@@ -29,11 +29,7 @@
             _spriteMap = this.ReadyToRunWithFrames(tex_Staff_PrimordialSpellbook, 21, 14);
             SetBox(21, 14);
             _barrelOffsetTL = new Vec2(6f, 5f);
-#if DEBUG
-            _castSpeed = 1f;
-#else
             _castSpeed = 0.006f;
-#endif
             BarrelSmokeFuckOff();
             _flare.color = Color.Transparent;
             _fireWait = 0.5f;
