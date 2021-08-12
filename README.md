@@ -2,7 +2,7 @@
 ![Wide Logo](https://cdn.jsdelivr.net/gh/Nyerst/AncientMysteriesMod/Logo%20Wide.png)
 Mysteries from the Ancient Civilization?
 
-Download: [latest pre-release](https://github.com/Nyerst/AncientMysteriesMod/releases)
+Steam Workshop: [https://steamcommunity.com/sharedfiles/filedetails/?id=2572800006](https://steamcommunity.com/sharedfiles/filedetails/?id=2572800006)
 
 Items
 -------
@@ -11,7 +11,8 @@ Items
 How to Install
 -------
 Steam:
-- NOT AVAILABLE YET
+- Subscribe on Steam Workshop
+  - https://steamcommunity.com/sharedfiles/filedetails/?id=2572800006
 
 Manual:
 - Download Pre-Compiled Version or build it youself:
