@@ -1,7 +1,24 @@
-# AncientMysteriesMod ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Nyerst/AncientMysteriesMod/Nightly%20Build?style=flat-square)
-A Duck Game Mod
+# Ancient Mysteries [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Nyerst/AncientMysteriesMod/Nightly%20Build?style=flat-square)](https://github.com/Nyerst/AncientMysteriesMod/actions/workflows/nightlyBuild.yml) [![License](https://img.shields.io/github/license/Nyerst/AncientMysteriesMod?style=flat-square)](https://github.com/Nyerst/AncientMysteriesMod/blob/main/LICENSE) [![GitHub last commit](https://img.shields.io/github/last-commit/Nyerst/AncientMysteriesMod?style=flat-square)](https://github.com/Nyerst/AncientMysteriesMod/commits/main)
+![Wide Logo](https://cdn.jsdelivr.net/gh/Nyerst/AncientMysteriesMod/Logo%20Wide.png)
+Mysteries from the Ancient Civilization?
 
 Download: [latest pre-release](https://github.com/Nyerst/AncientMysteriesMod/releases)
+
+Items
+-------
+![Items](https://cdn.jsdelivr.net/gh/Nyerst/AncientMysteriesMod@descimg/desc_english.png)
+
+How to Install
+-------
+Steam:
+- NOT AVAILABLE YET
+
+Manual:
+- Download Pre-Compiled Version or build it youself:
+  - https://github.com/Nyerst/AncientMysteriesMod/releases
+- Move the compiled mod folder to Documents\DuckGame\Mods\
+- Run game and enable Ancient Mysteries in Manage Mods tab
+- Restart Game
 
 Building
 -------
@@ -15,18 +32,5 @@ Windows:
 - Add latest **DuckGame.exe** reference to **AncientMysteries.csproj.user**.
 - Build the project!
 
-**Note:** Duck Game is a XNA Game based on .NET Framework So it can only build/run on Windows.
-
-How to Use
--------
-Steam:
-- NOT AVAILABLE YET
-
-Manual:
-- Download Pre-Compiled Version or build it youself:
-  - https://github.com/Nyerst/AncientMysteriesMod/releases
-- Move the compiled mod folder to Documents\DuckGame\Mods\
-- Run game and enable Ancient Mysteries in Manage Mods tab
-- Restart Game
-
-**Note:** If you built mod youself. Make sure mod folder have same name as compiled dll file.
+**Note:** Duck Game is a XNA Game based on .NET Framework So it can only build/run on Windows.  
+**Note:** If you built mod youself locally. Make sure mod folder have same name with compiled dll file.
