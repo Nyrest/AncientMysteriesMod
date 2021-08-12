@@ -13,13 +13,12 @@ namespace AncientMysteries
         {
             get
             {
-                if (frameTicker++ >= 5)
+                if (++frameTicker >= 5)
                 {
                     frameTicker = 0;
                     return Helper.Switch(previewTextures, ref currentPreviewFrame);
                 }
                 else return previewTextures[currentPreviewFrame];
-                return base.previewTexture;
             }
             protected set => base.previewTexture = value;
         }
