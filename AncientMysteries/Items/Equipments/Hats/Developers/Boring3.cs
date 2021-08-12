@@ -6,6 +6,7 @@
     [MetaInfo(Lang.schinese, null, "承受着世界的重量。\nMod 企划者 / 主程序员 / 翻译 ")]
     [MetaOrder(int.MaxValue - 3)]
     [MetaType(MetaType.Developer)]
+    [BaggedProperty("isSuperWeapon", true)]
     public sealed partial class Boring3 : AMHelmet, IPlatform
     {
         public static readonly FieldInfo feather_Field = typeof(Feather).GetField("_sprite", BindingFlags.NonPublic | BindingFlags.Instance);

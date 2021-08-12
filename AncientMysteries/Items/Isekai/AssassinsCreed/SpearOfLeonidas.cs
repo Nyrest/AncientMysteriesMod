@@ -5,6 +5,7 @@
     [MetaInfo(Lang.Default, "Spear Of Leonidas", "Sparta!")]
     [MetaInfo(Lang.schinese, "列奥尼达斯之矛", "斯巴达！")]
     [MetaType(MetaType.Melee)]
+    [BaggedProperty("isSuperWeapon", true)]
     public sealed partial class SpearOfLeonidas : AMMelee
     {
         public static readonly Tex2D targetCircle = TexHelper.ModTex2D(tex_Effect_TargetCircle);

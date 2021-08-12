@@ -6,6 +6,7 @@
     [MetaInfo(Lang.schinese, null, "在吃饭。没什么好说的。🍔🥪🥤🍜🍱 \n主画师 / 道具设计师 🥞🍗🍰 ")]
     [MetaOrder(int.MaxValue - 1)]
     [MetaType(MetaType.Developer)]
+    [BaggedProperty("isSuperWeapon", true)]
     public sealed partial class GUDZH : AMHelmet
     {
         public static Vec2 textureSize;

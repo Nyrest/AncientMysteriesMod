@@ -5,6 +5,7 @@
     [MetaInfo(Lang.Default, "Bloody Marquis", "Just looking at it makes you feel a chill down your spine.")]
     [MetaInfo(Lang.schinese, "血腥公爵", "只是看着它就让你脊背发凉。")]
     [MetaType(MetaType.Magic)]
+    [BaggedProperty("isSuperWeapon", true)]
     public partial class BloodyMarquis : AMStaff
     {
         public const int BulletCount = 10;
