@@ -3,8 +3,27 @@ using System.Diagnostics;
 
 namespace AncientMysteries
 {
-    public sealed class AncientMysteriesMod : Mod
+    public sealed unsafe class AncientMysteriesMod : Mod
     {
+        public bool Initialized { get; private set; }
+        private byte frameTicker;
+        private byte currentPreviewFrame = 0;
+        private Tex2D[] previewTextures;
+        public override Tex2D previewTexture
+        {
+            get
+            {
+                if (frameTicker++ >= 5)
+                {
+                    frameTicker = 0;
+                    return Helper.Switch(previewTextures, ref currentPreviewFrame);
+                }
+                else return previewTextures[currentPreviewFrame];
+                return base.previewTexture;
+            }
+            protected set => base.previewTexture = value;
+        }
+
         protected override unsafe void OnPreInitialize()
         {
             base.OnPreInitialize();
@@ -18,6 +37,22 @@ namespace AncientMysteries
             {
                 MonoMain.modDebugging = true;
             }
+            Initialized = true;
+            previewTextures = new Tex2D[]
+            {
+                TexHelper.ModTex2D(tex_Preview_Frames_1),
+                TexHelper.ModTex2D(tex_Preview_Frames_2),
+                TexHelper.ModTex2D(tex_Preview_Frames_3),
+                TexHelper.ModTex2D(tex_Preview_Frames_4),
+                TexHelper.ModTex2D(tex_Preview_Frames_5),
+            };
+        }
+
+        public void* GetPtr<T>(string name) where T : class
+        {
+            var field = typeof(ModConfiguration).GetField(name, BindingFlags.NonPublic | BindingFlags.Instance);
+            object obj = field.GetValue(configuration);
+            return Unsafe.AsPointer(ref obj);
         }
 
         protected override void OnPostInitialize()
@@ -56,6 +91,12 @@ namespace AncientMysteries
                     }
                 }
             }));
+            Hooks.OnUpdate += Hooks_OnUpdate;
+        }
+
+        private void Hooks_OnUpdate()
+        {
+
         }
 
         public class updateObject : IUpdateable
