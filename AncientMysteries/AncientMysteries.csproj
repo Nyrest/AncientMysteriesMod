@@ -69,6 +69,7 @@
     <Compile Remove="Items\MapTools\Gameplay\SpeedHack.cs" />
     <Compile Remove="Items\Props\CrashErrorDialog.cs" />
     <Compile Remove="Items\Staffs\AbyssalGazer.cs" />
+    <Compile Remove="Items\_DEBUG\RandomAMItem.cs" />
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
@@ -130,6 +131,7 @@
     <None Include="Items\MapTools\Gameplay\SpeedHack.cs" />
     <None Include="Items\Props\CrashErrorDialog.cs" />
     <None Include="Items\Staffs\AbyssalGazer.cs" />
+    <None Include="Items\_DEBUG\RandomAMItem.cs" />
   </ItemGroup>
 
   <!--Post Build Event-->
