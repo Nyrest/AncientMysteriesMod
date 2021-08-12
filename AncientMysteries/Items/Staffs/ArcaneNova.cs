@@ -5,6 +5,7 @@
     [MetaInfo(Lang.Default, "Arcane Nova", "A staff fulfilled with mysteries from the universe.")]
     [MetaInfo(Lang.schinese, "奥术新星", "一把充满了宇宙奥秘的法杖。")]
     [MetaType(MetaType.Magic)]
+    [BaggedProperty("isSuperWeapon", true)]
     public partial class ArcaneNova : AMStaff
     {
         public ArcaneNova(float xval, float yval) : base(xval, yval)

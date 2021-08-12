@@ -5,6 +5,7 @@
     [MetaInfo(Lang.Default, "Rainbow Tears", "Other ducks may cry louder.")]
     [MetaInfo(Lang.schinese, "棱彩之泪", "别的鸭子也许会哭得更惨。")]
     [MetaType(MetaType.Magic)]
+    [BaggedProperty("isSuperWeapon", true)]
     public partial class RainbowTears : AMStaff
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));

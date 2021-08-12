@@ -6,6 +6,7 @@
     [MetaInfo(Lang.schinese, null, "坚若磐石。\n神仙画师 / 封面画师 ")]
     [MetaOrder(int.MaxValue)]
     [MetaType(MetaType.Developer)]
+    [BaggedProperty("isSuperWeapon", true)]
     public partial class ASUS : AMHelmet
     {
         public ASUS(float xpos, float ypos) : base(xpos, ypos)

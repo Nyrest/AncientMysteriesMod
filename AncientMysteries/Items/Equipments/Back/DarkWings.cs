@@ -5,6 +5,7 @@
     [MetaInfo(Lang.Default, "Dark Wings", "The wings, which pierces through the light, will eventually stretch, spreading fainted blessings.")]
     [MetaInfo(Lang.schinese, "漆黑之翼", "刺破光芒的羽翼终将伸展，撒下晦暗的恩泽。")]
     [MetaType(MetaType.Equipment)]
+    [BaggedProperty("isSuperWeapon", true)]
     public partial class DarkWings : AMEquipmentWings
     {
         public DarkWings(float xpos, float ypos) : base(xpos, ypos)

@@ -5,6 +5,7 @@
     [MetaInfo(Lang.Default, "Vampire Wings", "They say when the blood moon rises, the nightmare will come.")]
     [MetaInfo(Lang.schinese, "吸血鬼之翼", "他们说当血月升起时，梦魇就将来临。")]
     [MetaType(MetaType.Equipment)]
+    [BaggedProperty("isSuperWeapon", true)]
     public partial class VampireWings : AMEquipmentWings
     {
         public VampireWings(float xpos, float ypos) : base(xpos, ypos)

@@ -6,6 +6,7 @@
     [MetaInfo(Lang.schinese, null, "好吃。\n主画师 / 程序员 / 主翻译 ")]
     [MetaOrder(int.MaxValue - 2)]
     [MetaType(MetaType.Developer)]
+    [BaggedProperty("isSuperWeapon", true)]
     public sealed partial class Thingy : AMHelmet
     {
         private static readonly FieldInfo fieldAmmoType = typeof(Gun).GetField("_ammoType", BindingFlags.Instance | BindingFlags.NonPublic);
