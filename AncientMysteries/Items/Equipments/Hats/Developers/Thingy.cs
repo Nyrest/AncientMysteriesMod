@@ -57,9 +57,8 @@
                     {
                         oldPistol._loadState = -1;
                     }
-                    if (gun is not CosmicDisruption && gun.ammoType is not ATMissile)
+                    if (gun is not CosmicDisruption && gun.ammoType is not ATMissile && gun.ammoType is AMAmmoType oriAt)
                     {
-                        var oriAt = gun.ammoType;
                         fieldAmmoType.SetValue(gun, new ATMissile
                         {
                             range = oriAt.range,
