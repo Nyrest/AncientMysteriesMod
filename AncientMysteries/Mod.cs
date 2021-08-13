@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using HarmonyLib;
+using Microsoft.Xna.Framework;
 using System.Diagnostics;
 
 namespace AncientMysteries
@@ -6,6 +7,7 @@ namespace AncientMysteries
     public sealed unsafe class AncientMysteriesMod : Mod
     {
         public bool Initialized { get; private set; }
+        #region previewTextures
         private byte frameTicker;
         private byte currentPreviewFrame = 0;
         private Tex2D[] previewTextures;
@@ -22,9 +24,17 @@ namespace AncientMysteries
             }
             protected set => base.previewTexture = value;
         }
+        #endregion
+
+        #region Configuration
+        public Action<string> SetDisplayName;
+        public float displayNameHue;
+        public bool displayNameHueReversed;
+        #endregion
 
         protected override unsafe void OnPreInitialize()
         {
+
             base.OnPreInitialize();
             var oldMethod = typeof(Program).GetMethod("ModResolve").MethodHandle;
             var newMethod = typeof(LightweightDependencyResolver).GetMethod("ModResolve").MethodHandle;
@@ -45,6 +55,8 @@ namespace AncientMysteries
                 TexHelper.ModTex2D(tex_Preview_Frames_4),
                 TexHelper.ModTex2D(tex_Preview_Frames_5),
             };
+            SetDisplayName = (Action<string>)AccessTools.PropertySetter(typeof(ModConfiguration), nameof(configuration.displayName))
+                .CreateDelegate(typeof(Action<string>), configuration);
         }
 
         public void* GetPtr<T>(string name) where T : class
@@ -95,7 +107,24 @@ namespace AncientMysteries
 
         private void Hooks_OnUpdate()
         {
-
+            const float step = 0.009f;
+            if (displayNameHueReversed)
+            {
+                if ((displayNameHue -= step) <= 0)
+                {
+                    displayNameHue = 0;
+                    displayNameHueReversed = false;
+                }
+            }
+            else
+            {
+                if ((displayNameHue += step) >= 1)
+                {
+                    displayNameHue = 1;
+                    displayNameHueReversed = true;
+                }
+            }
+            SetDisplayName(HSL.Hue(displayNameHue).ToDGColorString() + "Ancient Mysteries");
         }
 
         public class updateObject : IUpdateable
