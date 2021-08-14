@@ -111,13 +111,26 @@ namespace AncientMysteries.Items
                 if (_lastImpacting.Add(item))
                 {
                     LegacyImpact(item);
+                    bool willStop = false;
+                    BulletOnHit(item, ref willStop);
+                    if (willStop)
+                    {
+                        BulletRemove();
+                        break;
+                    }
                     _currentImpacting.Add(item);
                 }
                 if (item.thickness > BulletPenetration && item is not Teleporter)
                 {
                     if (BulletCanHit(item))
                     {
-                        BulletOnHit(item);
+                        bool willStop = true;
+                        BulletOnHit(item, ref willStop);
+                        if (willStop)
+                        {
+                            BulletRemove();
+                            break;
+                        }
                         return;
                     }
                 }
@@ -175,9 +188,9 @@ namespace AncientMysteries.Items
             return true;
         }
 
-        public virtual void BulletOnHit(MaterialThing thing)
+        public virtual void BulletOnHit(MaterialThing thing, ref bool willStop)
         {
-            BulletRemove();
+
         }
 
         public virtual void UpdateAngle()
