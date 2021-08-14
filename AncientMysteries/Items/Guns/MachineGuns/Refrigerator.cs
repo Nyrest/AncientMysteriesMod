@@ -16,7 +16,7 @@
             this._barrelOffsetTL = new Vec2(21, 3);
             _holdOffset = new Vec2(-3, 0);
             _ammoType = new Refrigerator_AmmoType();
-            ammo = 200;
+            ammo = 100;
             _fireWait = 0.8f;
             _fullAuto = true;
             _kickForce = 0.9f;

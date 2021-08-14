@@ -44,9 +44,6 @@
                 progressBgColor = Color.Lime;
             }
             _castSpeed = 0.0045f + (0.0009f * times);
-#if DEBUG
-            _castSpeed = 1f;
-#endif
         }
 
         public override void OnReleaseSpell()
@@ -99,13 +96,13 @@
         {
             if (times < timesMax)
             {
-                bulletSpeed += times * 0.5f;
-                range += times * 20;
+                bulletSpeed += times * 0.3f;
+                range += times * 12;
             }
             else
             {
-                bulletSpeed += times * 0.6f;
-                range += times * 25;
+                bulletSpeed += times * 0.4f;
+                range += times * 15;
             }
         }
     }

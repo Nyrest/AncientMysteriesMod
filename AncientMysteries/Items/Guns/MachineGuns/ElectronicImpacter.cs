@@ -9,7 +9,7 @@
     {
         public ElectronicImpacter(float xval, float yval) : base(xval, yval)
         {
-            ammo = 80;
+            ammo = 40;
             _ammoType = new ElectronicImpacter_AmmoType();
             _type = "gun";
             this.ReadyToRunWithFrames(tex_Gun_ElectronicImpacter);

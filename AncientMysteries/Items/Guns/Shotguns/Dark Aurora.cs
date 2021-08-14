@@ -15,7 +15,7 @@
 
         public DarkAurora(float xval, float yval) : base(xval, yval)
         {
-            ammo = sbyte.MaxValue;
+            ammo = 10;
             _ammoType = new AT_Shadow()
             {
                 range = 400f,
@@ -35,7 +35,6 @@
 
         public override void Update()
         {
-            ammo = sbyte.MaxValue;
             base.Update();
             if (_first)
             {

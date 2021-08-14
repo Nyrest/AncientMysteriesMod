@@ -225,22 +225,25 @@
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();
-            switch (Rando.Int(0, 3))
+            if (_castTime >= 1)
             {
-                case 0:
-                    cast_FireBall = true; break;
-                case 1:
-                    icicle_pos = position;
-                    cast_Icicle = true; break;
-                case 2:
-                    GreenFire(position); break;
-                case 3:
-                    lightning_pos = position;
-                    r = 0f;
-                    cast_Lightning = true; break;
-                default:
-                    // Debug so always fire ball
-                    goto case 3;
+                switch (Rando.Int(0, 3))
+                {
+                    case 0:
+                        cast_FireBall = true; break;
+                    case 1:
+                        icicle_pos = position;
+                        cast_Icicle = true; break;
+                    case 2:
+                        GreenFire(position); break;
+                    case 3:
+                        lightning_pos = position;
+                        r = 0f;
+                        cast_Lightning = true; break;
+                    default:
+                        // Debug so always fire ball
+                        goto case 3;
+                }
             }
         }
     }
