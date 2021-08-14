@@ -130,7 +130,7 @@ public sealed unsafe class AncientMysteriesMod : Mod
         //SetDisplayName(AMStr($"{HSL.Hue(displayNameHue)}Ancient Mysteries"));
         AMStringHandler stringHandler = new(stackalloc char[30]);
         stringHandler.AppendDGColorString(HSL.Hue(displayNameHue));
-        stringHandler.AppendLiteral("Ancient Mysteries");
+        stringHandler.AppendLiteralNoGrow("Ancient Mysteries".AsSpan());
         SetDisplayName(stringHandler.ToStringAndClear());
     }
 
