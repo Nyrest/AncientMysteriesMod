@@ -28,7 +28,7 @@ jobs:
 
       - name: Push to descimg Branch
         run: |
-          git config --global user.name 'Nyerst'
+          git config --global user.name 'Bot'
           git config --global user.email 'Nyerst@users.noreply.github.com'
 
           git checkout --orphan descimg
