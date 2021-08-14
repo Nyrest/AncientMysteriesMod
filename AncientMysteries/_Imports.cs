@@ -17,4 +17,5 @@ global using static AncientMysteries.ContentReferences;
 global using static AncientMysteries.groupNames;
 global using static AncientMysteries.Utilities.InputHelper;
 global using static AncientMysteries.Utilities.Math2;
+global using static AncientMysteries.Utilities.AMStringHandler;
 global using SFX = AncientMysteries.Utilities.SFX2;
