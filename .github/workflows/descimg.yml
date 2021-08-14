@@ -35,6 +35,6 @@ jobs:
           
           git rm -rf --cached .
           git add desc_*.png
-          git commit -am "Update Description Image"
+          git commit -am "[BOT] Update Description Image"
           
           git push -f --set-upstream origin descimg
