@@ -19,7 +19,7 @@
 
         public MoltenSpitter(float xval, float yval) : base(xval, yval)
         {
-            ammo = 127;
+            ammo = 55;
             _ammoType = new MoltenSpitter_AmmoType();
             _type = "gun";
             _spriteMap = this.ReadyToRunWithFrames(tex_Gun_MoltenSpitter, 39, 15);

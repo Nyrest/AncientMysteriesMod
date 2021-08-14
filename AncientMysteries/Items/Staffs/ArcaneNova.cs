@@ -14,7 +14,7 @@
             this.ReadyToRun(tex_Staff_ArcaneNova);
             SetBox(14, 37);
             _barrelOffsetTL = new Vec2(6f, 5f);
-            _castSpeed = 0.005f;
+            _castSpeed = 0.007f;
             _fireWait = 0.5f;
         }
 
@@ -24,7 +24,7 @@
             var firePos = barrelPosition;
             if (_castTime >= 1f)
             {
-                var bullet = new ArcaneNova_Magic_Stage1(firePos, GetBulletVecDeg(owner.offDir == 1 ? 0 : 180, 7.5f), duck);
+                var bullet = new ArcaneNova_Magic_Stage2(firePos, GetBulletVecDeg(owner.offDir == 1 ? 0 : 180, 7.5f), duck);
                 Level.Add(bullet);
                 SFX.PlaySynchronized("laserBlast", 5, -0.2f);
             }

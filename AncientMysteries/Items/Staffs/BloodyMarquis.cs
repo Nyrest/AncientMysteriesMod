@@ -12,7 +12,7 @@
 
         public int currentBulletIndex = 0;
 
-        public Waiter waiter = new(2);
+        public Waiter waiter = new(4);
 
         public BloodyMarquis(float xval, float yval) : base(xval, yval)
         {

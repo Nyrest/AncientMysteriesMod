@@ -9,7 +9,7 @@
     {
         public Iridescence(float xval, float yval) : base(xval, yval)
         {
-            ammo = 127;
+            ammo = 30;
             _ammoType = new Iridescence_AmmoType();
             _type = "gun";
             this.ReadyToRunWithFrames(tex_Gun_RainbowGun);

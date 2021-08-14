@@ -23,26 +23,22 @@
             _barrelOffsetTL = new Vec2(6, 3);
             _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2);
             _spriteMap.SetAnimation("loop");
-            _castSpeed = 0.02f;
+            _castSpeed = 0.009f;
         }
 
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();
             var firePos = barrelPosition;
-            int r = Rando.Int(2, 4);
             float speed = Rando.Float(2, 4);
             if (_castTime >= 0.95f)
             {
                 SFX.Play("sniper", 0.9f, -0.4f);
-                for (int i = 0; i < r; i++)
-                {
                     ThunderStorm_ThingBullet bullet = new(
                         firePos,
                         GetBulletVecDeg(owner.FaceAngleDegressLeftOrRight() + Rando.Float(-10, 10), speed, 0.5f, 1f),
                         duck);
                     Level.Add(bullet);
-                }
             }
         }
     }
