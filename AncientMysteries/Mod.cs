@@ -127,7 +127,11 @@ public sealed unsafe class AncientMysteriesMod : Mod
                 displayNameHueReversed = true;
             }
         }
-        SetDisplayName(HSL.Hue(displayNameHue).ToDGColorString() + "Ancient Mysteries");
+        //SetDisplayName(AMStr($"{HSL.Hue(displayNameHue)}Ancient Mysteries"));
+        AMStringHandler stringHandler = new(stackalloc char[30]);
+        stringHandler.AppendDGColorString(HSL.Hue(displayNameHue));
+        stringHandler.AppendLiteral("Ancient Mysteries");
+        SetDisplayName(stringHandler.ToStringAndClear());
     }
 
     public class updateObject : IUpdateable

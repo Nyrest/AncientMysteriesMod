@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\MetaTypeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\Lang.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\MetaType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)_FuckNetFX\System\Runtime\CompilerServices\Attributes\InterpolatedStringHandlerArgumentAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_FuckNetFX\System\Runtime\CompilerServices\Attributes\InterpolatedStringHandlerAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_FuckNetFX\System\Runtime\CompilerServices\Attributes\ModuleInitializerAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_FuckNetFX\System\Runtime\CompilerServices\IsExternalInit.cs" />
