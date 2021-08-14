@@ -33,7 +33,7 @@ jobs:
 
           git checkout --orphan descimg
           
-          git rm -rf --cached .
+          git rm -rfq --cached .
           git add desc_*.png
           git commit -am "[BOT] Update Description Image"
           
