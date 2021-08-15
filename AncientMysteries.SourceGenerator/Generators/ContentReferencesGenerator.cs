@@ -22,7 +22,7 @@ namespace AncientMysteries.SourceGenerator.Generators
             StringBuilder allSoundsBuilder = new($"{Tab(2)}public static readonly string[] _AllSounds = new string[]\n{Tab(2)}{{");
             int textureCount = 0;
             int soundCount = 0;
-            foreach (var fullname in Directory.GetFiles(context.GetProjectLocaltion() + "/content", "*.*").OrderBy(x => Path.GetFileName(x)))
+            foreach (var fullname in Directory.GetFiles(context.GetProjectLocaltion() + "/content", "*.*", SearchOption.TopDirectoryOnly).OrderBy(x => Path.GetFileName(x)))
             {
                 string filename = Path.GetFileName(fullname);
                 string fieldName;
