@@ -28,7 +28,7 @@ Windows:
   - Workload **".NET Desktop Development"**
   - Individual component **".NET Framework 4.6.1 targeting pack"**
 - Install Latest [dotnet-script](https://github.com/filipw/dotnet-script#installing)
-- Clone AncientMysteriesMod repository using git.
+- Clone AncientMysteriesMod repository.
 - Open Ancient Mysteries.sln in Visual Studio.
 - Build the project!
 
