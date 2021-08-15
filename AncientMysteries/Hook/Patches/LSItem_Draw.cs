@@ -29,7 +29,7 @@ namespace AncientMysteries.Hook.Patches
             {
                 float xDraw = __instance.x + 10 + 10;
 
-                ____font.Draw(GetName(____selected ? 0.5f : 0.7f), xDraw, __instance.y, ____selected ? Colors.DGBlue : (Colors.DGBlue * 0.75f), 0.8f);
+                ____font.Draw(GetName(____selected ? 0.5f : 0.7f), xDraw, __instance.y, Color.White, 0.8f);
                 __instance._name = modItemName;
             }
 
