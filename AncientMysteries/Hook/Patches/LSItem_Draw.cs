@@ -12,7 +12,6 @@ namespace AncientMysteries.Hook.Patches
     {
         const string modItemName = "AncientMysteries";
 
-        // __state is original name
         static void Prefix(LSItem __instance, ref bool __state)
         {
             __state = false;
