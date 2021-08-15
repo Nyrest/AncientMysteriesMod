@@ -28,8 +28,8 @@ public sealed unsafe class AncientMysteriesMod : Mod
 
     #region Configuration
     public Action<string> SetDisplayName;
-    public float displayNameHue;
-    public bool displayNameHueReversed;
+    public static float displayNameHue;
+    public static bool displayNameHueReversed;
     #endregion
 
     static AncientMysteriesMod()
@@ -40,6 +40,7 @@ public sealed unsafe class AncientMysteriesMod : Mod
     protected override unsafe void OnPreInitialize()
     {
         base.OnPreInitialize();
+        HookManager.Initialize();
         Hooks.Initialize();
         if (Debugger.IsAttached)
         {
@@ -104,6 +105,8 @@ public sealed unsafe class AncientMysteriesMod : Mod
         Hooks.OnUpdate += Hooks_OnUpdate;
     }
 
+    private FieldInfo field_levelSelect_items = typeof(LevelSelect).GetField("_items", BindingFlags.NonPublic | BindingFlags.Instance);
+    private FieldInfo field_levelSelectCompanionMenu_levelSelector = typeof(LevelSelectCompanionMenu).GetField("_levelSelector", BindingFlags.NonPublic | BindingFlags.Instance);
     private void Hooks_OnUpdate()
     {
         const float step = 0.009f;
@@ -123,11 +126,15 @@ public sealed unsafe class AncientMysteriesMod : Mod
                 displayNameHueReversed = true;
             }
         }
-        //SetDisplayName(AMStr($"{HSL.Hue(displayNameHue)}Ancient Mysteries"));
-        AMStringHandler stringHandler = new(stackalloc char[30]);
-        stringHandler.AppendDGColorString(HSL.Hue(displayNameHue));
-        stringHandler.AppendLiteralNoGrow("Ancient Mysteries".AsSpan());
-        SetDisplayName(stringHandler.ToStringAndClear());
+        UpdateModDisplayName();
+        void UpdateModDisplayName()
+        {
+            //SetDisplayName(AMStr($"{HSL.Hue(displayNameHue)}Ancient Mysteries"));
+            AMStringHandler stringHandler = new(stackalloc char[30]);
+            stringHandler.AppendDGColorString(HSL.Hue(displayNameHue));
+            stringHandler.AppendLiteralNoGrow("Ancient Mysteries".AsSpan());
+            SetDisplayName(stringHandler.ToStringAndClear());
+        }
     }
 
     public class updateObject : IUpdateable

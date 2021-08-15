@@ -37,8 +37,6 @@ namespace AncientMysteries
 
         public static bool _initialized;
 
-        public static readonly Harmony harmony = new("FuckingAncientMysteriesMod");
-
         public static void Initialize()
         {
             if (_initialized) return;
@@ -46,8 +44,6 @@ namespace AncientMysteries
             //
             (typeof(Game).GetField("updateableComponents", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(MonoMain.instance) as List<IUpdateable>).Add(new HookUpdate());
             (typeof(Game).GetField("drawableComponents", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(MonoMain.instance) as List<IDrawable>).Add(new HookDraw());
-
-            harmony.Patch(AccessTools.Method(typeof(Level), nameof(Level.DoDraw)), null, new HarmonyMethod(AccessTools.Method(typeof(Hooks), nameof(DoDraw))));
         }
 
         public static event Action OnUpdate;
@@ -56,6 +52,7 @@ namespace AncientMysteries
 
         public static event Action<Level> LevelPostDraw;
 
+        [HookAfter(typeof(Level), nameof(Level.DoDraw))]
         public static void DoDraw(Level __instance)
         {
             LevelPostDraw?.Invoke(__instance);
