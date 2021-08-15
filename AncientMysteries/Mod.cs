@@ -15,6 +15,10 @@ public sealed unsafe class AncientMysteriesMod : Mod
     {
         get
         {
+            if (previewTextures is null)
+            {
+                return base.previewTexture;
+            }
             if (++frameTicker >= 5)
             {
                 frameTicker = 0;
@@ -47,14 +51,6 @@ public sealed unsafe class AncientMysteriesMod : Mod
             MonoMain.modDebugging = true;
         }
         Initialized = true;
-        previewTextures = new Tex2D[]
-        {
-                TexHelper.ModTex2D(tex_Preview_Frames_1),
-                TexHelper.ModTex2D(tex_Preview_Frames_2),
-                TexHelper.ModTex2D(tex_Preview_Frames_3),
-                TexHelper.ModTex2D(tex_Preview_Frames_4),
-                TexHelper.ModTex2D(tex_Preview_Frames_5),
-        };
         SetDisplayName = (Action<string>)AccessTools.PropertySetter(typeof(ModConfiguration), nameof(configuration.displayName))
             .CreateDelegate(typeof(Action<string>), configuration);
     }
@@ -69,6 +65,14 @@ public sealed unsafe class AncientMysteriesMod : Mod
     protected override void OnPostInitialize()
     {
         base.OnPostInitialize();
+        previewTextures = new Tex2D[]
+        {
+            TexHelper.ModTex2D(tex_Preview_Frames_1),
+            TexHelper.ModTex2D(tex_Preview_Frames_2),
+            TexHelper.ModTex2D(tex_Preview_Frames_3),
+            TexHelper.ModTex2D(tex_Preview_Frames_4),
+            TexHelper.ModTex2D(tex_Preview_Frames_5),
+        };
         (typeof(Game).GetField("updateableComponents", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(MonoMain.instance) as List<IUpdateable>).Add(new updateObject(x =>
         {
             foreach (var modTopGroup in Editor.Placeables.SubGroups)
