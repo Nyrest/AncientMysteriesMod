@@ -1,4 +1,6 @@
-﻿[AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
+﻿#if NETFRAMEWORK || NETSTANDARD2_0
+
+[AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
 public sealed class InterpolatedStringHandlerArgumentAttribute : Attribute
 {
 	public string[] Arguments { get; }
@@ -13,3 +15,5 @@ public sealed class InterpolatedStringHandlerArgumentAttribute : Attribute
 		Arguments = arguments;
 	}
 }
+
+#endif
