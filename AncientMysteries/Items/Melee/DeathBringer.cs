@@ -12,7 +12,7 @@
         public DeathBringer(float xval, float yval)
             : base(xval, yval)
         {
-            this.ReadyToRunWithFrames(tex_Melee_DeathBringer, 26, 32);
+            this.ReadyToRun(tex_Melee_DeathBringer);
         }
 
         public override void Update()
