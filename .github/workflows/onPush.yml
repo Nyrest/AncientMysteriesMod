@@ -1,0 +1,78 @@
+name: OnPush
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  CI:
+    name: Continuous Integration
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Setup .NET SDK
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "6.0.x"
+          include-prerelease: true
+
+      # Install DotNet Script
+      - name: Install DotNet Script
+        run: dotnet tool install -g dotnet-script
+
+      # Build Ancient Mysteries Mod
+      - name: Build Ancient Mysteries Mod
+        run: dotnet build .\AncientMysteries\AncientMysteries.csproj -c Release -o ".\buildOutput" --nologo /p:NoPostBuild=true
+
+      # Pack built files into single zip
+      - name: Pack built files
+        run: Compress-Archive -Path ".\buildOutput\*" -CompressionLevel Optimal -DestinationPath ".\AncientMysteries.zip"
+
+      # Upload as nightly-build
+      - name: Upload as nightly-build
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest-nightly"
+          prerelease: true
+          title: "Nightly Build"
+          files: AncientMysteries.zip
+
+  DescImg:
+    name: Description Image Build
+    runs-on: windows-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v1.8.1
+        with:
+          dotnet-version: '6.0.x'
+          include-prerelease: true
+
+      - name: Install DotNet Script
+        run: dotnet tool install -g dotnet-script
+
+      - name: Build
+        run: dotnet build -c Release
+        
+      - name: Run DescImgGenerator
+        run: dotnet run -c Release --no-build --project DescImgGenerator\DescImgGenerator.csproj ./
+
+      - name: Push to descimg Branch
+        run: |
+          git config --global user.name 'Bot'
+          git config --global user.email 'Nyerst@users.noreply.github.com'
+
+          git checkout --orphan descimg
+          
+          git rm -rfq --cached .
+          git add desc_*.png
+          git commit -am "[BOT] Update Description Image"
+          
+          git push -f --set-upstream origin descimg
