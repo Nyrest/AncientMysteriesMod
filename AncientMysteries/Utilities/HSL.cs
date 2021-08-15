@@ -10,6 +10,8 @@
 
         public static Color Hue(float hue) => FromHslFloat(hue, 1, 0.5f);
 
+        public static Color Hue(float hue, float lightness) => FromHslFloat(hue, 1, lightness);
+
         public static Color FromHslFloat(float h, float s, float l, float alpha = 1f)
         {
             if (l == 0)
