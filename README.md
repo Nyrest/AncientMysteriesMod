@@ -1,4 +1,4 @@
-# Ancient Mysteries [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Nyerst/AncientMysteriesMod/Nightly%20Build?style=flat-square)](https://github.com/Nyerst/AncientMysteriesMod/actions/workflows/nightlyBuild.yml) [![License](https://img.shields.io/github/license/Nyerst/AncientMysteriesMod?style=flat-square)](https://github.com/Nyerst/AncientMysteriesMod/blob/main/LICENSE) [![GitHub last commit](https://img.shields.io/github/last-commit/Nyerst/AncientMysteriesMod?style=flat-square)](https://github.com/Nyerst/AncientMysteriesMod/commits/main) [![Steam Subscriptions](https://img.shields.io/steam/subscriptions/2572800006?style=flat-square)](https://steamcommunity.com/sharedfiles/filedetails/?id=2572800006)
+# Ancient Mysteries [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Nyerst/AncientMysteriesMod/OnPush?style=flat-square)](https://github.com/Nyerst/AncientMysteriesMod/actions/workflows/onPush.yml) [![License](https://img.shields.io/github/license/Nyerst/AncientMysteriesMod?style=flat-square)](https://github.com/Nyerst/AncientMysteriesMod/blob/main/LICENSE) [![GitHub last commit](https://img.shields.io/github/last-commit/Nyerst/AncientMysteriesMod?style=flat-square)](https://github.com/Nyerst/AncientMysteriesMod/commits/main) [![Steam Subscriptions](https://img.shields.io/steam/subscriptions/2572800006?style=flat-square)](https://steamcommunity.com/sharedfiles/filedetails/?id=2572800006)
 ![Wide Logo](https://cdn.jsdelivr.net/gh/Nyerst/AncientMysteriesMod/Logo%20Wide.png)
 Mysteries from the Ancient Civilization?
 
@@ -28,9 +28,8 @@ Windows:
   - Workload **".NET Desktop Development"**
   - Individual component **".NET Framework 4.6.1 targeting pack"**
 - Install Latest [dotnet-script](https://github.com/filipw/dotnet-script#installing)
-- Clone AncientMysteriesMod repository using git.
+- Clone AncientMysteriesMod repository.
 - Open Ancient Mysteries.sln in Visual Studio.
-- Add latest **DuckGame.exe** reference to **AncientMysteries.csproj.user**.
 - Build the project!
 
 **Note:** Duck Game is a XNA Game based on .NET Framework So it can only build/run on Windows.  
