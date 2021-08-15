@@ -228,8 +228,6 @@ namespace AncientMysteries.Items
             bulletVelocity = Vec2.Lerp(bulletVelocity, vecToTarget, lerpAmount);
         }
 
-#warning GoToByAngle: Need to fix
-
         [Obsolete("Need to fix")]
         /// <summary>
         /// Call this after base.Update();
