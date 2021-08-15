@@ -105,8 +105,8 @@ public sealed unsafe class AncientMysteriesMod : Mod
         Hooks.OnUpdate += Hooks_OnUpdate;
     }
 
-    private FieldInfo field_levelSelect_items = typeof(LevelSelect).GetField("_items", BindingFlags.NonPublic | BindingFlags.Instance);
-    private FieldInfo field_levelSelectCompanionMenu_levelSelector = typeof(LevelSelectCompanionMenu).GetField("_levelSelector", BindingFlags.NonPublic | BindingFlags.Instance);
+    private readonly FieldInfo field_levelSelect_items = typeof(LevelSelect).GetField("_items", BindingFlags.NonPublic | BindingFlags.Instance);
+    private readonly FieldInfo field_levelSelectCompanionMenu_levelSelector = typeof(LevelSelectCompanionMenu).GetField("_levelSelector", BindingFlags.NonPublic | BindingFlags.Instance);
     private void Hooks_OnUpdate()
     {
         const float step = 0.009f;
