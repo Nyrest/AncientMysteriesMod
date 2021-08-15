@@ -1,8 +1,23 @@
-﻿namespace AncientMysteries
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AncientMysteries
 {
-    public static class LightweightDependencyResolver
+    public static class Module
     {
-        public static Assembly ModResolve(object sender, ResolveEventArgs args)
+        [ModuleInitializer]
+        public static void Initialize()
+        {
+            var _AssemblyResolve = typeof(AppDomain).GetField("_AssemblyResolve", BindingFlags.Instance | BindingFlags.NonPublic);
+            var handlers = (ResolveEventHandler)_AssemblyResolve.GetValue(AppDomain.CurrentDomain);
+            _AssemblyResolve.SetValue(AppDomain.CurrentDomain, Delegate.Combine(new ResolveEventHandler(CurrentDomain_AssemblyResolve), handlers));
+        }
+
+        private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
             if (args.RequestingAssembly is null) goto DefaultBehavior;
             var referenceName = new AssemblyName(args.Name);
@@ -57,8 +72,6 @@
                 assembly = null;
                 return false;
             }
-        DefaultBehavior:
-            return ManagedContent.ResolveModAssembly(sender, args);
 
             static void FixModLocation(ref string sourceRoot, ResolveEventArgs args)
             {
@@ -72,6 +85,8 @@
                     }
                 }
             }
+        DefaultBehavior:
+            return null;
         }
     }
 }
