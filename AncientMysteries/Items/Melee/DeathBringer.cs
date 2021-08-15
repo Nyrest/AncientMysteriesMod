@@ -13,11 +13,16 @@
             : base(xval, yval)
         {
             this.ReadyToRun(tex_Melee_DeathBringer);
+
         }
 
         public override void Update()
         {
             base.Update();
+
+            if (owner is Duck duck)
+                additionalHoldOffset = new Vec2(-8, this.jabStance ? -5 : 0);
+
             if (cooldown < 0)
             {
                 cooldown += 0.1f;
