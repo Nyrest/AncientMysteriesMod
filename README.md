@@ -30,7 +30,6 @@ Windows:
 - Install Latest [dotnet-script](https://github.com/filipw/dotnet-script#installing)
 - Clone AncientMysteriesMod repository using git.
 - Open Ancient Mysteries.sln in Visual Studio.
-- Add latest **DuckGame.exe** reference to **AncientMysteries.csproj.user**.
 - Build the project!
 
 **Note:** Duck Game is a XNA Game based on .NET Framework So it can only build/run on Windows.  
