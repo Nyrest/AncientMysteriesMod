@@ -20,7 +20,7 @@
         {
             base.Update();
 
-            if (owner is Duck duck)
+            if (owner is Duck)
                 additionalHoldOffset = new Vec2(-8, this.jabStance ? -5 : 0);
 
             if (cooldown < 0)
