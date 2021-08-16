@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_Staffs)]
-    [MetaImage(tex_Staff_HolyLight)]
+    [MetaImage(tex_Staff_HolyLight,15,38,0)]
     [MetaInfo(Lang.Default, "Holy Light", "The miracle.")]
     [MetaInfo(Lang.schinese, "神圣之光", "奇迹。")]
     [MetaType(MetaType.Magic)]
