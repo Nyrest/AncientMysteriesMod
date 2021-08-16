@@ -54,6 +54,9 @@
     <Content Include="content\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Update="mod.conf" Visible="false">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Compile Remove="Items\Artifact\Antenna.Bullet.cs" />
     <Compile Remove="Items\Artifact\Antenna.cs" />
     <Compile Remove="Items\Artifact\TemperatureArt.AmmoType.Ice.cs" />
@@ -144,7 +147,7 @@
 
   <!--Import Shared Project-->
   <Import Project="..\AncientMysteries.Shared\AncientMysteries.Shared.projitems" Label="Shared" />
-  
+
   <!--Import AutoNest Generated Properties-->
   <Import Project="AutoNest.generated.props" Condition="Exists('AutoNest.generated.props')" />
 
