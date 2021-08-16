@@ -6,7 +6,7 @@ Steam Workshop: [https://steamcommunity.com/sharedfiles/filedetails/?id=25728000
 
 Items
 -------
-![Items](https://cdn.jsdelivr.net/gh/Nyerst/AncientMysteriesMod@descimg/desc_english.png)
+![Items](https://github.com/Nyerst/AncientMysteriesMod/blob/descimg/desc_english.png?raw=true)
 
 How to Install
 -------
