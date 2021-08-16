@@ -20,8 +20,16 @@
         public HolyLight(float xval, float yval) : base(xval, yval)
         {
             _type = "gun";
-            _spriteMap = this.ReadyToRunWithFrames(tex_Staff_HolyLight, 15, 37);
-            SetBox(15, 37);
+            _spriteMap = this.ReadyToRunWithFrames(tex_Staff_HolyLight, 15, 38);
+            _spriteMap.AddAnimation("anim", 0.15f, true,
+                0,
+                1,
+                2,
+                3,
+                4,
+                5);
+            _spriteMap.SetAnimation("anim");
+            SetBox(15, 38);
             _barrelOffsetTL = new Vec2(6f, 5f);
             _castSpeed = 0.01f;
             BarrelSmokeFuckOff();
