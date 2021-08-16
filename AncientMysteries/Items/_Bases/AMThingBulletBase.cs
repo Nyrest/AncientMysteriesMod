@@ -104,10 +104,7 @@ namespace AncientMysteries.Items
         {
             foreach (var item in BulletCollideCheck())
             {
-                if (BulletCanDestory(item))
-                {
-                    item.Destroy(new DT_ThingBullet(this));
-                }
+                if (!BulletCanHit(item)) continue;
                 if (_lastImpacting.Add(item))
                 {
                     LegacyImpact(item);
@@ -122,17 +119,14 @@ namespace AncientMysteries.Items
                 }
                 if (item.thickness > BulletPenetration && item is not Teleporter)
                 {
-                    if (BulletCanHit(item))
+                    bool willStop = true;
+                    BulletOnHit(item, ref willStop);
+                    if (willStop)
                     {
-                        bool willStop = true;
-                        BulletOnHit(item, ref willStop);
-                        if (willStop)
-                        {
-                            BulletRemove();
-                            break;
-                        }
-                        return;
+                        BulletRemove();
+                        break;
                     }
+                    return;
                 }
             }
             if (_currentImpacting.Count != 0)
@@ -162,30 +156,24 @@ namespace AncientMysteries.Items
 
         public abstract IEnumerable<MaterialThing> BulletCollideCheck();
 
-        public virtual bool BulletCanDestory(MaterialThing thing)
+        public virtual bool BulletCanHit(MaterialThing thing)
         {
             /*
-                if (BulletSafeDuck is not null &&
-                        (thing == BulletSafeDuck ||
-                        BulletSafeDuck.ExtendsTo(thing) ||
-                        thing == BulletSafeDuck.holdObject)
-                    )
-                {
-                    return false;
-                }
-                if (thing is IAmADuck) return true;
+            if (BulletSafeDuck is not null &&
+                    (thing == BulletSafeDuck ||
+                    BulletSafeDuck.ExtendsTo(thing) ||
+                    thing == BulletSafeDuck.holdObject)
+                )
+            {
                 return false;
-             */
+            }
+            if (thing is IAmADuck) return true;
+            return false;
+            */
             return (BulletSafeDuck is null ||
                     thing != BulletSafeDuck &&
                     !BulletSafeDuck.ExtendsTo(thing) &&
-                    thing != BulletSafeDuck.holdObject)
-                    && thing is IAmADuck;
-        }
-
-        public virtual bool BulletCanHit(MaterialThing thing)
-        {
-            return true;
+                    thing != BulletSafeDuck.holdObject);
         }
 
         public virtual void BulletOnHit(MaterialThing thing, ref bool willStop)
