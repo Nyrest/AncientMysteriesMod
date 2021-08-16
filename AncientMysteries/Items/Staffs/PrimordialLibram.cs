@@ -5,6 +5,7 @@
     [MetaInfo(Lang.Default, "Primordial Libram", "Everything is born and withers away, for they are all affected by this.")]
     [MetaInfo(Lang.schinese, "源生法典", "万物生而凋零，一切皆因于此。")]
     [MetaType(MetaType.Magic)]
+    [BaggedProperty("isSuperWeapon", true)]
     public partial class PrimordialLibram : AMStaff
     {
         public StateBinding _animationFrameBinding = new(nameof(AnimationFrame));
