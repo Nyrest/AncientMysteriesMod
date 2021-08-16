@@ -21,7 +21,7 @@
         {
             _type = "gun";
             _spriteMap = this.ReadyToRunWithFrames(tex_Staff_HolyLight, 15, 38);
-            _spriteMap.AddAnimation("anim", 0.1f, true,
+            _spriteMap.AddAnimation("anim", 0.15f, true,
                 0,
                 1,
                 2,
