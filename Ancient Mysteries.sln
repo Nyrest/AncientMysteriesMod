@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{E8FE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{B42B6BDD-7A17-462C-A0EF-47E8BFCF565D}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\nightlyBuild.yml = .github\workflows\nightlyBuild.yml
+		.github\workflows\onPush.yml = .github\workflows\onPush.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AncientMysteries.Analyzers", "AncientMysteries.Analyzers\AncientMysteries.Analyzers.csproj", "{C7DD519A-3F3A-483C-9C85-639D1C45CFFB}"
