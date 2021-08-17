@@ -8,40 +8,32 @@ public sealed unsafe class AncientMysteriesMod : Mod
 {
     public bool Initialized { get; private set; }
     #region previewTextures
-    private byte frameTicker;
-    private byte currentPreviewFrame = 0;
-    private Tex2D[] previewTextures;
+    private readonly Waiter _frameWaiter = new (5);
+    private byte _currentPreviewFrame = 0;
+    private Tex2D[] _previewTextures;
     public override Tex2D previewTexture
     {
         get
         {
-            if (previewTextures is null)
+            if (_previewTextures is null)
             {
                 return base.previewTexture;
             }
-            if (++frameTicker >= 5)
-            {
-                frameTicker = 0;
-                return Helper.Switch(previewTextures, ref currentPreviewFrame);
-            }
-            else return previewTextures[currentPreviewFrame];
+            return _frameWaiter.Tick() 
+                ? Helper.Switch(_previewTextures, ref _currentPreviewFrame) 
+                : _previewTextures[_currentPreviewFrame];
         }
         protected set => base.previewTexture = value;
     }
     #endregion
 
     #region Configuration
-    public Action<string> SetDisplayName;
+    public Action<string> setDisplayName;
     public static float displayNameHue;
     public static bool displayNameHueReversed;
     #endregion
 
-    static AncientMysteriesMod()
-    {
-
-    }
-
-    protected override unsafe void OnPreInitialize()
+    protected override void OnPreInitialize()
     {
         base.OnPreInitialize();
         HookManager.Initialize();
@@ -51,21 +43,14 @@ public sealed unsafe class AncientMysteriesMod : Mod
             MonoMain.modDebugging = true;
         }
         Initialized = true;
-        SetDisplayName = (Action<string>)AccessTools.PropertySetter(typeof(ModConfiguration), nameof(configuration.displayName))
+        setDisplayName = (Action<string>)AccessTools.PropertySetter(typeof(ModConfiguration), nameof(configuration.displayName))
             .CreateDelegate(typeof(Action<string>), configuration);
-    }
-
-    public void* GetPtr<T>(string name) where T : class
-    {
-        var field = typeof(ModConfiguration).GetField(name, BindingFlags.NonPublic | BindingFlags.Instance);
-        object obj = field.GetValue(configuration);
-        return Unsafe.AsPointer(ref obj);
     }
 
     protected override void OnPostInitialize()
     {
         base.OnPostInitialize();
-        previewTextures = new Tex2D[]
+        _previewTextures = new Tex2D[]
         {
             TexHelper.ModTex2D(tex_Preview_Frames_1),
             TexHelper.ModTex2D(tex_Preview_Frames_2),
@@ -73,7 +58,7 @@ public sealed unsafe class AncientMysteriesMod : Mod
             TexHelper.ModTex2D(tex_Preview_Frames_4),
             TexHelper.ModTex2D(tex_Preview_Frames_5),
         };
-        (typeof(Game).GetField("updateableComponents", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(MonoMain.instance) as List<IUpdateable>).Add(new updateObject(x =>
+        (typeof(Game).GetField("updateableComponents", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(MonoMain.instance) as List<IUpdateable>).Add(new UpdateObject(x =>
         {
             foreach (var modTopGroup in Editor.Placeables.SubGroups)
             {
@@ -109,8 +94,8 @@ public sealed unsafe class AncientMysteriesMod : Mod
         Hooks.OnUpdate += Hooks_OnUpdate;
     }
 
-    private readonly FieldInfo field_levelSelect_items = typeof(LevelSelect).GetField("_items", BindingFlags.NonPublic | BindingFlags.Instance);
-    private readonly FieldInfo field_levelSelectCompanionMenu_levelSelector = typeof(LevelSelectCompanionMenu).GetField("_levelSelector", BindingFlags.NonPublic | BindingFlags.Instance);
+    private readonly FieldInfo _fieldLevelSelectItems = typeof(LevelSelect).GetField("_items", BindingFlags.NonPublic | BindingFlags.Instance);
+    private readonly FieldInfo _fieldLevelSelectCompanionMenuLevelSelector = typeof(LevelSelectCompanionMenu).GetField("_levelSelector", BindingFlags.NonPublic | BindingFlags.Instance);
     private void Hooks_OnUpdate()
     {
         const float step = 0.009f;
@@ -137,17 +122,17 @@ public sealed unsafe class AncientMysteriesMod : Mod
             AMStringHandler stringHandler = new(stackalloc char[30]);
             stringHandler.AppendDGColorString(HSL.Hue(displayNameHue));
             stringHandler.AppendLiteralNoGrow("Ancient Mysteries".AsSpan());
-            SetDisplayName(stringHandler.ToStringAndClear());
+            setDisplayName(stringHandler.ToStringAndClear());
         }
     }
 
-    public class updateObject : IUpdateable
+    public class UpdateObject : IUpdateable
     {
         public bool Enabled => true;
 
         public int UpdateOrder => 1;
 
-        public Action<updateObject> action;
+        public Action<UpdateObject> action;
 
 #pragma warning disable CS0067 // Unreachable code detected
 
@@ -157,11 +142,11 @@ public sealed unsafe class AncientMysteriesMod : Mod
 
 #pragma warning restore CS0067 // Unreachable code detected
 
-        public updateObject()
+        public UpdateObject()
         {
         }
 
-        public updateObject(Action<updateObject> action)
+        public UpdateObject(Action<UpdateObject> action)
         {
             this.action = action;
         }
