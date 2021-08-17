@@ -40,7 +40,8 @@ namespace DescImgGenerator
                 encodedData.SaveTo(fileStream);
             });
             sw.Stop();
-            Console.WriteLine(string.Create(null, $"Completed {Math.Round(sw.Elapsed.TotalSeconds, 2)}s"));
+            Console.WriteLine();
+            Console.WriteLine(string.Create(null, $"Completed in {Math.Round(sw.Elapsed.TotalSeconds, 2)}s"));
         }
 
         public static SKSurface BuildImage(Lang lang, out SKRectI rect)
