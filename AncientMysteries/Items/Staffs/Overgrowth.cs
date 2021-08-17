@@ -17,9 +17,9 @@
 
         public Overgrowth(float xval, float yval) : base(xval, yval)
         {
-            _spriteMap = this.ReadyToRunWithFrames(tex_Staff_Overgrowth, 21, 34);
-            _spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2, 3);
-            _spriteMap.SetAnimation("loop");
+            this.ReadyToRun(tex_Staff_Overgrowth2);
+            //_spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2, 3);
+            //_spriteMap.SetAnimation("loop");
             SetBox(21, 34);
             _barrelOffsetTL = new Vec2(6f, 5f);
 #if DEBUG
@@ -33,6 +33,7 @@
             _fireSoundPitch = 0.9f;
             _kickForce = 0.25f;
             _fullAuto = true;
+            _holdOffset = new(-2,-4);
         }
 
         public override void Update()
