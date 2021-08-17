@@ -2,7 +2,8 @@
 ![Wide Logo](https://cdn.jsdelivr.net/gh/Nyerst/AncientMysteriesMod/Logo%20Wide.png)
 Mysteries from the Ancient Civilization?
 
-Steam Workshop: [https://steamcommunity.com/sharedfiles/filedetails/?id=2572800006](https://steamcommunity.com/sharedfiles/filedetails/?id=2572800006)
+Steam Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=2572800006  
+Nightly Build: https://github.com/Nyerst/AncientMysteriesMod/releases
 
 Items
 -------
