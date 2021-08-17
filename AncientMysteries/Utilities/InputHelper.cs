@@ -28,7 +28,7 @@
         public const string trigger_MenuLeft = "MENULEFT";
         public const string trigger_MenuRight = "MENURIGHT";
         public const string trigger_MenuUp = "MENUUP";
-        public const string trigger_MeneDown = "MENUDOWN";
+        public const string trigger_MenuDown = "MENUDOWN";
 
         #endregion Control
 
