@@ -28,6 +28,12 @@ jobs:
       - name: Build Ancient Mysteries Mod
         run: dotnet build .\AncientMysteries\AncientMysteries.csproj -c Release -o ".\buildOutput" --nologo /p:NoPostBuild=true
 
+      # Remove unnecessary files
+      - name: Remove unnecessary files
+        run: |
+          rm .\buildOutput\AncientMysteries.Analyzers.*
+          rm .\buildOutput\AncientMysteries.SourceGenerator.*
+          
       # Pack built files into single zip
       - name: Pack built files
         run: Compress-Archive -Path ".\buildOutput\*" -CompressionLevel Optimal -DestinationPath ".\AncientMysteries.zip"
