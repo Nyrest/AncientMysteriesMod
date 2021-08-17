@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,10 +27,11 @@ namespace DescImgGenerator
             FontMapper.Default = new CustomFontMapper();
             LoadAssembly((location ?? ".") + "\\AncientMysteries.dll");
             ScanModItems();
+            Stopwatch sw = new();
+            sw.Start();
             Parallel.ForEach(languages, lang =>
             {
                 var sur = BuildImage(lang, out SKRectI rect);
-                sur.Canvas.Flush();
                 sur.Flush();
                 using var snapshot = sur.Snapshot(rect);
                 using var encodedData = snapshot.Encode(SKEncodedImageFormat.Png, 100);
@@ -37,6 +39,9 @@ namespace DescImgGenerator
 
                 encodedData.SaveTo(fileStream);
             });
+            sw.Stop();
+            Console.WriteLine();
+            Console.WriteLine(string.Create(null, $"Completed in {Math.Round(sw.Elapsed.TotalSeconds, 2)}s"));
         }
 
         public static SKSurface BuildImage(Lang lang, out SKRectI rect)
