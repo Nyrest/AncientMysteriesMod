@@ -20,6 +20,14 @@ jobs:
           dotnet-version: "6.0.x"
           include-prerelease: true
 
+      # Nuget Cache
+      - uses: actions/cache@v2
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
       # Install DotNet Script
       - name: Install DotNet Script
         run: dotnet tool install -g dotnet-script
@@ -60,6 +68,14 @@ jobs:
         with:
           dotnet-version: '6.0.x'
           include-prerelease: true
+
+      # Nuget Cache
+      - uses: actions/cache@v2
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
 
       - name: Install DotNet Script
         run: dotnet tool install -g dotnet-script
