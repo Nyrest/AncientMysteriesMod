@@ -36,6 +36,7 @@
             _flare.color = Color.Transparent;
             castingParticlesEnabled = true;
             castingParticlesColor = Color.Yellow;
+            _holdOffset = new(-3,-6);
         }
 
         public override void OnSpelling()
