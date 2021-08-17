@@ -1,7 +1,7 @@
 ﻿namespace AncientMysteries.Items
 {
     [EditorGroup(group_Guns_Staffs)]
-    [MetaImage(tex_Staff_Overgrowth2, 21, 34)]
+    [MetaImage(tex_Staff_Overgrowth2, 17, 33)]
     [MetaInfo(Lang.Default, "Overgrowth", "Something bad might happen if it releases its full power.")]
     [MetaInfo(Lang.schinese, "过度生长", "如果让它过度释放自己的力量，也许不会有好事发生。")]
     [MetaType(MetaType.Magic)]
