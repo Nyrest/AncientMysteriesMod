@@ -2,9 +2,9 @@
 {
     public static class WorldHelper
     {
-        public static int DestroyBlocksRadius(Vec2 pPosition, float pRadius, Thing culprit, bool pExplode = false, bool destoryWindows = true, bool destoryPhyObjs = true, bool explodeMakeFire = false)
+        public static int DestroyBlocksRadius(Vec2 pPosition, float pRadius, Thing culprit, bool pExplode = false, bool destroyWindows = true, bool destroyPhyObjs = true, bool explodeMakeFire = false)
         {
-            if (destoryWindows)
+            if (destroyWindows)
             {
                 foreach (Window w in Level.CheckCircleAll<Window>(pPosition, pRadius - 20f))
                 {
@@ -15,7 +15,7 @@
                     }
                 }
             }
-            if (destoryPhyObjs)
+            if (destroyPhyObjs)
             {
                 foreach (PhysicsObject p in Level.CheckCircleAll<PhysicsObject>(pPosition, pRadius + 30f))
                 {
@@ -41,7 +41,6 @@
                     continue;
                 }
                 BlockGroup group = block2;
-                new List<Block>();
                 foreach (Block bl in group.blocks)
                 {
                     if (!Collision.Circle(pPosition, pRadius - 22f, bl.rectangle))
@@ -49,15 +48,15 @@
                         continue;
                     }
                     bl.shouldWreck = true;
-                    if (bl is AutoBlock && !(bl as AutoBlock).indestructable)
+                    if (bl is AutoBlock {indestructable: false} block)
                     {
-                        idx.Add((bl as AutoBlock).blockIndex);
+                        idx.Add(block.blockIndex);
                         if (pExplode && idd % 10 == 0)
                         {
-                            Level.Add(new ExplosionPart(bl.x, bl.y));
+                            Level.Add(new ExplosionPart(block.x, block.y));
                             if (explodeMakeFire)
                             {
-                                Level.Add(SmallFire.New(bl.x, bl.y, Rando.Float(-2f, 2f), Rando.Float(-2f, 2f)));
+                                Level.Add(SmallFire.New(block.x, block.y, Rando.Float(-2f, 2f), Rando.Float(-2f, 2f)));
                             }
                         }
                         idd++;
@@ -67,17 +66,17 @@
             }
             foreach (Block block in Level.CheckCircleAll<Block>(pPosition, pRadius - 22f))
             {
-                if (block is AutoBlock && !(block as AutoBlock).indestructable)
+                if (block is AutoBlock {indestructable: false} autoBlock)
                 {
-                    block.skipWreck = true;
-                    block.shouldWreck = true;
-                    idx.Add((block as AutoBlock).blockIndex);
+                    autoBlock.skipWreck = true;
+                    autoBlock.shouldWreck = true;
+                    idx.Add(autoBlock.blockIndex);
                     if (pExplode)
                     {
                         if (idd % 10 == 0 && explodeMakeFire)
                         {
-                            Level.Add(new ExplosionPart(block.x, block.y));
-                            Level.Add(SmallFire.New(block.x, block.y, Rando.Float(-2f, 2f), Rando.Float(-2f, 2f)));
+                            Level.Add(new ExplosionPart(autoBlock.x, autoBlock.y));
+                            Level.Add(SmallFire.New(autoBlock.x, autoBlock.y, Rando.Float(-2f, 2f), Rando.Float(-2f, 2f)));
                         }
                         idd++;
                     }

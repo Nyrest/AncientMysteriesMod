@@ -5,9 +5,6 @@
     /// </summary>
     public static class AMLocalization
     {
-        public static Lang Current
-        {
-            get => Lang.english;
-        }
+        public static Lang Current => Lang.english;
     }
 }
