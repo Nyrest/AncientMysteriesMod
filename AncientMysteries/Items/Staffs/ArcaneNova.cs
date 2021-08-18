@@ -12,10 +12,11 @@
         {
             _type = "gun";
             this.ReadyToRun(tex_Staff_ArcaneNova);
-            SetBox(14, 37);
+            SetBox(14, 38);
             _barrelOffsetTL = new Vec2(6f, 5f);
             _castSpeed = 0.007f;
             _fireWait = 0.5f;
+            _holdOffset = new(-5, -5);
         }
 
         public override void OnReleaseSpell()
