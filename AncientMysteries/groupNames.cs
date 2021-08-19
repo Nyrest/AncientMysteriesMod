@@ -2,9 +2,9 @@
 {
     public static class groupNames
     {
-        public const string grouptopGroupName = "Ancient";
+        public const string groupTopGroupName = "Ancient";
 
-        public const string group_DEBUG = grouptopGroupName + "|Debug";
+        public const string group_DEBUG = groupTopGroupName + "|Debug";
 
         #region Relatives
 
@@ -14,7 +14,7 @@
 
         #region Guns
 
-        public const string group_Guns = grouptopGroupName + "|Weapons";
+        public const string group_Guns = groupTopGroupName + "|Weapons";
 
         public const string group_Guns_Commons = group_Guns + "|Commons";
 
@@ -46,7 +46,7 @@
 
         #region Equipments
 
-        public const string group_Equipments = grouptopGroupName + "|Equipments";
+        public const string group_Equipments = groupTopGroupName + "|Equipments";
 
         public const string group_Equipment_Developer = group_Equipments + "|Developers";
 
@@ -56,7 +56,7 @@
 
         #region Stuffs
 
-        public const string group_Stuffs = grouptopGroupName + "|Stuffs";
+        public const string group_Stuffs = groupTopGroupName + "|Stuffs";
 
         public const string group_Stuffs_Props = group_Stuffs + "|Props";
 
@@ -64,7 +64,7 @@
 
         #region Props
 
-        public const string group_Props = grouptopGroupName + "|Props";
+        public const string group_Props = groupTopGroupName + "|Props";
 
         public const string group_Props_functional = group_Props + "|Functional";
 
@@ -72,13 +72,13 @@
 
         #region Map Decorations
 
-        public const string group_Decorations = grouptopGroupName + "|Decorations";
+        public const string group_Decorations = groupTopGroupName + "|Decorations";
 
         #endregion Map Decorations
 
         #region Map Tools
 
-        public const string group_MapTools = grouptopGroupName + "|MapTools";
+        public const string group_MapTools = groupTopGroupName + "|MapTools";
 
         public const string group_MapTools_Blocks = group_MapTools + "|Block";
 
@@ -90,11 +90,11 @@
 
         #region Blocks
 
-        public const string group_Blocks = grouptopGroupName + "|Blocks";
+        public const string group_Blocks = groupTopGroupName + "|Blocks";
 
         #endregion Blocks
 
         [Obsolete("Assign a valid group.", true)]
-        public const string group_Unknown = grouptopGroupName + "|Error";
+        public const string group_Unknown = groupTopGroupName + "|Error";
     }
 }
