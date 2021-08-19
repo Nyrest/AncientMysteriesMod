@@ -33,5 +33,5 @@ Windows:
 - Open Ancient Mysteries.sln in Visual Studio.
 - Build the project!
 
-**Note:** Duck Game is a XNA Game based on .NET Framework So it can only build/run on Windows.  
-**Note:** If you built mod youself locally. Make sure mod folder have same name with compiled dll file.
+**Note:** Duck Game is a XNA Game based on .NET Framework so it can only build/run on Windows.  
+**Note:** If you build mod yourself locally, make sure mod folder have the same name as compiled dll file.
