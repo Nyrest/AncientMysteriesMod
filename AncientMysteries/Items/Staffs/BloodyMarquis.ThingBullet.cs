@@ -2,7 +2,7 @@
 {
     public class BloodyMarquis_ThingBullet : AMThingBulletLinar
     {
-        public override float CalcBulletAngleRadian(Vec2 speed) => base.CalcBulletAngleRadian(speed) + 1.56f;
+        public override float CalcBulletAutoAngleRadian(Vec2 speed) => base.CalcBulletAutoAngleRadian(speed) + 1.56f;
 
         public int aliveTime = 0;
 

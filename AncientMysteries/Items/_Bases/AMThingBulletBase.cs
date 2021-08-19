@@ -18,7 +18,9 @@ namespace AncientMysteries.Items
         public bool BulletCanCollideWhenNotMoving { get; init; }
         public float BulletDistanceTraveled { get; private set; }
         public float BulletPenetration { get; init; }
+        public bool BulletAutoAngle { get; init; }
         public Vec2 LastPosition { get; protected set; }
+
 
         public bool GravityEnabled { get; init; } = false;
         public float GravityIncrement { get; init; } = 0.05f;
@@ -49,7 +51,10 @@ namespace AncientMysteries.Items
             BulletRange = bulletRange;
             BulletPenetration = bulletPenetration;
             bulletVelocity = initSpeed;
-            angle = CalcBulletAngleRadian();
+            if (BulletAutoAngle)
+            {
+                angle = CalcBulletAutoAngleRadian();
+            }
             LastPosition = pos;
             Trajectory = GetTrajectory();
         }
@@ -77,7 +82,8 @@ namespace AncientMysteries.Items
                 DoBulletCollideCheck();
             }
 
-            UpdateAngle();
+            if (BulletAutoAngle)
+                AutoUpdateAngle();
 
             if (BulletDistanceTraveled > BulletRange)
             {
@@ -181,19 +187,19 @@ namespace AncientMysteries.Items
 
         }
 
-        public virtual void UpdateAngle()
+        public virtual void AutoUpdateAngle()
         {
             if (IsMoving)
-                angle = CalcBulletAngleRadian();
+                angleDegrees = CalcBulletAutoAngleRadian();
         }
 
-        public float CalcBulletAngleDegrees() => CalcBulletAngleDegrees(bulletVelocity);
+        public float CalcBulletAutoAngleDegrees() => CalcBulletAutoAngleDegrees(bulletVelocity);
 
-        public float CalcBulletAngleRadian() => CalcBulletAngleRadian(bulletVelocity);
+        public float CalcBulletAutoAngleRadian() => CalcBulletAutoAngleRadian(bulletVelocity);
 
-        public float CalcBulletAngleDegrees(Vec2 speed) => Maths.RadToDeg(CalcBulletAngleRadian(speed));
+        public float CalcBulletAutoAngleDegrees(Vec2 speed) => Maths.RadToDeg(CalcBulletAutoAngleRadian(speed));
 
-        public virtual float CalcBulletAngleRadian(Vec2 speed) => -Maths.PointDirectionRad(Vec2.Zero, new Vec2(speed.x, speed.y + GravityCurrent));
+        public virtual float CalcBulletAutoAngleRadian(Vec2 speed) => -Maths.PointDirectionRad(Vec2.Zero, new Vec2(speed.x, speed.y + GravityCurrent));
 
         public virtual void BulletRemove()
         {
