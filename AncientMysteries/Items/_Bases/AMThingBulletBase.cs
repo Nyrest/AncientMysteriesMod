@@ -13,6 +13,7 @@ namespace AncientMysteries.Items
         public StateBinding safeDuckBinding = new(nameof(BulletSafeDuck));
 
         public Vec2 bulletVelocity;
+        public Vec2 initVelocity;
         public Duck BulletSafeDuck;
         public float BulletRange { get; init; }
         public bool BulletCanCollideWhenNotMoving { get; init; }
@@ -51,6 +52,7 @@ namespace AncientMysteries.Items
             BulletRange = bulletRange;
             BulletPenetration = bulletPenetration;
             bulletVelocity = initSpeed;
+            initVelocity = initSpeed;
             if (BulletAutoAngle)
             {
                 angle = CalcBulletAutoAngleRadian();
@@ -95,13 +97,13 @@ namespace AncientMysteries.Items
             {
                 if (!GravityReversed)
                 {
-                    y += GravityCurrent;
                     MathHelper.Clamp(GravityCurrent += GravityIncrement, 0, GravityMax);
+                    bulletVelocity = new(initVelocity.x, initVelocity.y + GravityCurrent);
                 }
                 else
                 {
-                    y -= GravityCurrent;
-                    MathHelper.Clamp(GravityCurrent += GravityIncrement, 0, GravityMax);
+                    MathHelper.Clamp(GravityCurrent -= GravityIncrement, -GravityMax, 0);
+                    bulletVelocity = new(initVelocity.x, initVelocity.y - GravityCurrent);
                 }
             }
         }

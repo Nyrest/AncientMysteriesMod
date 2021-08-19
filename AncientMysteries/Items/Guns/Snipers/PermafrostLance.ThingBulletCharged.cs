@@ -80,9 +80,9 @@
             float baseDeg = hitDir switch
             {
                 BlastHitDir.HitLeft => 0,
-                BlastHitDir.HitTop => 270,
+                BlastHitDir.HitTop => 90,
                 BlastHitDir.HitRight => 180,
-                BlastHitDir.HitBottom => 90,
+                BlastHitDir.HitBottom => 270,
                 BlastHitDir.Random360 => 0,
                 _ => throw new Exception(),
             };

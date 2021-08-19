@@ -47,7 +47,7 @@
         public override void OnReleaseSpell()
         {
             base.OnReleaseSpell();
-            var r = Rando.Int(2, 3);
+            var r = Rando.Int(3, 4);
             int count = _castTime >= 0.5 ? r : 1;
             float angleVariation;
             float bulletSpeed;
