@@ -190,7 +190,7 @@ namespace AncientMysteries.Items
         public virtual void AutoUpdateAngle()
         {
             if (IsMoving)
-                angleDegrees = CalcBulletAutoAngleRadian();
+                angleDegrees = CalcBulletAutoAngleDegrees();
         }
 
         public float CalcBulletAutoAngleDegrees() => CalcBulletAutoAngleDegrees(bulletVelocity);
