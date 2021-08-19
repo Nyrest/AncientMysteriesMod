@@ -20,7 +20,7 @@
             this.ReadyToRun(tex_Staff_Overgrowth2);
             //_spriteMap.AddAnimation("loop", 0.1f, true, 0, 1, 2, 3);
             //_spriteMap.SetAnimation("loop");
-            SetBox(21, 34);
+            SetBox(17, 33);
             _barrelOffsetTL = new Vec2(6f, 5f);
 #if DEBUG
             _castSpeed = 1f;
@@ -33,7 +33,7 @@
             _fireSoundPitch = 0.9f;
             _kickForce = 0.25f;
             _fullAuto = true;
-            _holdOffset = new(-2,-4);
+            _holdOffset = new(-4,-4);
         }
 
         public override void Update()
