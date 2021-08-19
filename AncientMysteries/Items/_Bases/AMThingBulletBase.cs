@@ -18,7 +18,7 @@ namespace AncientMysteries.Items
         public bool BulletCanCollideWhenNotMoving { get; init; }
         public float BulletDistanceTraveled { get; private set; }
         public float BulletPenetration { get; init; }
-        public bool BulletAutoAngle { get; init; }
+        public bool BulletAutoAngle { get; init; } = true;
         public Vec2 LastPosition { get; protected set; }
 
 
