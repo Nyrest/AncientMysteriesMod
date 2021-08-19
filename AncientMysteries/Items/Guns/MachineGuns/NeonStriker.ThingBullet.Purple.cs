@@ -13,6 +13,7 @@
             GravityEnabled = true;
             GravityIncrement = 0.2f;
             GravityMax = 1f;
+            BulletAutoAngle = false;
         }
 
         public override void Update()
@@ -27,7 +28,7 @@
             }
             if (waiter.Tick() && _canMultiply)
             {
-                NeonStriker_ThingBullet_Purple b = new(position, new Vec2(0.001f, 0), BulletSafeDuck, false);
+                NeonStriker_ThingBullet_Purple b = new(position, bulletVelocity * 0.001f, BulletSafeDuck, false);
                 Level.Add(b);
             }
             base.Update();
