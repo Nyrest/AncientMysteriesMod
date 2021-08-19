@@ -16,7 +16,7 @@ Steam:
   - https://steamcommunity.com/sharedfiles/filedetails/?id=2572800006
 
 Manual:
-- Download Pre-Compiled Version or build it youself:
+- Download Pre-Compiled Version or build it yourself:
   - https://github.com/Nyerst/AncientMysteriesMod/releases
 - Move the compiled mod folder to Documents\DuckGame\Mods\
 - Run game and enable Ancient Mysteries in Manage Mods tab
