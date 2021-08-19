@@ -40,6 +40,19 @@ namespace AncientMysteries.Items
         [Obsolete($"Use {nameof(BulletSafeDuck)}", true)]
         public new object _owner;
 
+        [Obsolete($"Use {nameof(bulletVelocity)}", true)]
+        public new object velocity;
+
+        [Obsolete($"Use {nameof(bulletVelocity)}.{nameof(Vec2.x)}", true)]
+        public new object hSpeed;
+        [Obsolete($"Use {nameof(bulletVelocity)}.{nameof(Vec2.x)}", true)]
+        public new object _hSpeed;
+
+        [Obsolete($"Use {nameof(bulletVelocity)}.{nameof(Vec2.y)}", true)]
+        public new object vSpeed;
+        [Obsolete($"Use {nameof(bulletVelocity)}.{nameof(Vec2.y)}", true)]
+        public new object _vSpeed;
+
 #endif
 
         public virtual bool IsMoving => bulletVelocity != Vec2.Zero;
