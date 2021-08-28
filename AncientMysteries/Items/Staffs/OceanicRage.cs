@@ -14,7 +14,7 @@
             this.ReadyToRun(tex_Staff_OceanicRage);
             SetBox(15, 34);
             _barrelOffsetTL = new Vec2(6f, 5f);
-            _castSpeed = 0.006f;
+            _castSpeed = 0.007f;
             _fireWait = 0.5f;
             _holdOffset = new(-5, -6);
         }
@@ -25,9 +25,9 @@
             var firePos = barrelPosition;
             if (_castTime >= 1f)
             {
-                var bullet = new ArcaneNova_Magic_Stage2(firePos, GetBulletVecDeg(owner.offDir == 1 ? 0 : 180, 7.5f), duck);
+                var bullet = new OceanicRage_ThingBullet(firePos, GetBulletVecDeg(owner.offDir == 1 ? Rando.Float(-5,5) : Rando.Float(175, 185), 1.5f), duck);
                 Level.Add(bullet);
-                SFX.PlaySynchronized("laserBlast", 5, -0.2f);
+                SFX.PlaySynchronized("swordClash", 5, Rando.Float(-0.2f,0.1f));
             }
         }
     }

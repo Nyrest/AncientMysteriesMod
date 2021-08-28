@@ -15,6 +15,8 @@ namespace AncientMysteries.Items
         public Vec2 bulletVelocity;
         public Vec2 initVelocity;
         public Duck BulletSafeDuck;
+
+        public float KineticEnergy = 0;
         public float BulletRange { get; init; }
         public bool BulletCanCollideWhenNotMoving { get; init; }
         public float BulletDistanceTraveled { get; private set; }
@@ -86,6 +88,7 @@ namespace AncientMysteries.Items
             base.Update();
 
             LastPosition = position;
+            KineticEnergy = (float)Math.Sqrt(Math.Pow(bulletVelocity.x, 2) + Math.Pow(bulletVelocity.y, 2));
             if (IsMoving)
             {
                 position += bulletVelocity;
