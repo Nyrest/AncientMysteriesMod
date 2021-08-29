@@ -30,8 +30,9 @@ namespace AncientMysteries.Items
                 b2.xscale = b2.yscale = r;
                 Level.Add(b1);
                 Level.Add(b2);
+                SFX.PlaySynchronized("flameThrowing", 5, Rando.Float(-0.2f, 0.1f));
             }
-            bulletVelocity *= 1.03f;
+            bulletVelocity *= 1.04f;
             foreach (Duck d in Level.CheckCircleAll<Duck>(position, 2f))
             {
                 if (d != BulletSafeDuck)
@@ -45,6 +46,20 @@ namespace AncientMysteries.Items
         public override ColorTrajectory GetTrajectory()
         {
             return null;
+        }
+
+        public override void Removed()
+        {
+            base.Removed();
+            foreach (PhysicsObject p in Level.CheckCircleAll<PhysicsObject>(position, 9f))
+            {
+                p.velocity = Maths.AngleToVec(Maths.PointDirection(position, p.position)) * 5;
+                if (p is Duck && p != BulletSafeDuck)
+                {
+                    p.Destroy(new DTImpact(this));
+                }
+            }
+            SFX.PlaySynchronized("largeSplash", 5, Rando.Float(0.3f, 0.5f));
         }
     }
 }
