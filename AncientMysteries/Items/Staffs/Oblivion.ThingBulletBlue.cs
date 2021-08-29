@@ -50,7 +50,7 @@ namespace AncientMysteries.Items
             base.Removed();
             for (int i = 0; i < 4; i++)
             {
-                var b = new Oblivion_ThingBulletBlueSmall(position, GetBulletVecDeg(Rando.Float(Maths.PointDirection(Vec2.Zero, bulletVelocity) - 15, Maths.PointDirection(Vec2.Zero, bulletVelocity) + 15), 3), BulletSafeDuck);
+                var b = new Oblivion_ThingBulletBlueSmall(position, GetBulletVecDeg(Rando.Float(angleDegrees - 15, angleDegrees + 15), 3), BulletSafeDuck);
                 Level.Add(b);
                 SFX.PlaySynchronized("laserBlast", 5, 1f);
             }

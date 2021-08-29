@@ -51,7 +51,7 @@ namespace AncientMysteries.Items
         public override void Removed()
         {
             base.Removed();
-            foreach (PhysicsObject p in Level.CheckCircleAll<PhysicsObject>(position, 13f))
+            foreach (PhysicsObject p in Level.CheckCircleAll<PhysicsObject>(position, 16f))
             {
                 p.velocity = Maths.AngleToVec(Maths.PointDirection(position, p.position)) * 5;
                 if (p is Duck && p != BulletSafeDuck)
