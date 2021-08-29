@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace AncientMysteries.Items
 {
-    partial class Oblivion_ThingBulletBlueSmall : AMThingBulletLinar
+    partial class Oblivion_ThingBulletRedSmall : AMThingBulletLinar
     {
         public int aliveTime = 0;
-        public Oblivion_ThingBulletBlueSmall(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 350, 1, initSpeed, safeDuck)
+        public Oblivion_ThingBulletRedSmall(Vec2 pos, Vec2 initSpeed, Duck safeDuck) : base(pos, 60, 1, initSpeed, safeDuck)
         {
-            this.ReadyToRun(tex_Bullet_OblivionBlueSmall);
+            this.ReadyToRun(tex_Bullet_OblivionRedSmall);
         }
         public override void Update()
         {

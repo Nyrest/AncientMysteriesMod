@@ -2,8 +2,8 @@
 {
     [EditorGroup(group_Guns_Staffs)]
     [MetaImage(tex_Staff_Oblivion)]
-    [MetaInfo(Lang.Default, "Oblivion", "Although its appearance looks rusty, but its power doesn't.")]
-    [MetaInfo(Lang.schinese, "遗忘", "尽管它的外貌锈迹斑斑，但它的魔力不是。")]
+    [MetaInfo(Lang.Default, "Oblivion", "A perfect combination of technology and magic.")]
+    [MetaInfo(Lang.schinese, "遗忘", "科技与魔法的完美结合。")]
     [MetaType(MetaType.Magic)]
     [BaggedProperty("isSuperWeapon", true)]
     public partial class Oblivion : AMStaff
@@ -17,7 +17,7 @@
             this.ReadyToRun(tex_Staff_Oblivion);
             SetBox(17, 35);
             _barrelOffsetTL = new Vec2(6f, 5f);
-            _castSpeed = 0.014f;
+            _castSpeed = 0.016f;
             _fireWait = 0.5f;
             _holdOffset = new(-5, -5);
         }
@@ -30,15 +30,15 @@
             {
                 if (isRed)
                 {
-                    var bullet = new Oblivion_ThingBulletRed(firePos, GetBulletVecDeg(owner.offDir == 1 ? Rando.Float(-5, 5) : Rando.Float(175, 185), 2f), duck);
+                    var bullet = new Oblivion_ThingBulletRed(firePos, GetBulletVecDeg(owner.offDir == 1 ? Rando.Float(-5, 5) : Rando.Float(175, 185), 2.8f), duck);
                     Level.Add(bullet);
                 }
                 else
                 {
-                    var bullet = new Oblivion_ThingBulletBlue(firePos, GetBulletVecDeg(owner.offDir == 1 ? Rando.Float(-5, 5) : Rando.Float(175, 185), 2f), duck);
+                    var bullet = new Oblivion_ThingBulletBlue(firePos, GetBulletVecDeg(owner.offDir == 1 ? Rando.Float(-5, 5) : Rando.Float(175, 185), 2.8f), duck);
                     Level.Add(bullet);
                 }
-                SFX.PlaySynchronized("largeSplash", 5, Rando.Float(-0.5f, -0.3f));
+                SFX.PlaySynchronized("laserRifle", 5, Rando.Float(0.8f, 1f));
             }
         }
 
