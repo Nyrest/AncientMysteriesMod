@@ -29,13 +29,14 @@ namespace AncientMysteries.Items
             if (aliveTime > 10)
             {
                 MathHelper.Clamp(alpha -= 0.2f, 0, 1);
-                MathHelper.Clamp(xscale -= 0.3f, 0, 99);
-                MathHelper.Clamp(yscale -= 0.3f, 0, 99);
+                MathHelper.Clamp(xscale -= 0.4f, 0, 99);
+                MathHelper.Clamp(yscale -= 0.4f, 0, 99);
                 if (alpha <= 0)
                 {
                     Level.Remove(this);
                 }
             }
+            bulletVelocity *= 0.97f;
         }
     }
 }
