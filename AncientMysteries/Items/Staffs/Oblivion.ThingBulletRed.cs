@@ -18,16 +18,24 @@ namespace AncientMysteries.Items
             base.Update();
             bulletVelocity *= 0.98f;
             aliveTime++;
-            if (aliveTime > 600)
+            if (aliveTime > 420)
             {
-                Removed();
+                Level.Remove(this);
             }
-            foreach (Duck d in Level.CheckCircleAll<Duck>(position, 7.5f))
+            foreach (Oblivion_ThingBulletRed b in Level.CheckCircleAll<Oblivion_ThingBulletRed>(position, 12f))
             {
-                if (d != BulletSafeDuck)
+                if (b != null && b != this)
                 {
-                    d.hSpeed += bulletVelocity.x * 1.5f;
-                    d.vSpeed += bulletVelocity.y * 1.5f;
+                    Level.Remove(b);
+                    Level.Remove(this);
+                }
+            }
+            foreach (Oblivion_ThingBulletBlue b in Level.CheckCircleAll<Oblivion_ThingBulletBlue>(position, 12f))
+            {
+                if (b != null)
+                {
+                    Level.Remove(b);
+                    Level.Remove(this);
                 }
             }
         }
@@ -40,6 +48,12 @@ namespace AncientMysteries.Items
         public override void Removed()
         {
             base.Removed();
+            for (int i = 0; i < 7; i++)
+            {
+                var b = new Oblivion_ThingBulletRedSmall(position, GetBulletVecDeg(Rando.Float(0, 360), 8), BulletSafeDuck);
+                Level.Add(b);
+                SFX.PlaySynchronized("laserBlast", 5, 1f);
+            }
         }
     }
 }
