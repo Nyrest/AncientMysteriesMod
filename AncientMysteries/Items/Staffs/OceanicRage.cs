@@ -25,7 +25,7 @@
             var firePos = barrelPosition;
             if (_castTime >= 1f)
             {
-                var bullet = new OceanicRage_ThingBullet(firePos, GetBulletVecDeg(owner.offDir == 1 ? Rando.Float(-5,5) : Rando.Float(175, 185), 0.7f), duck);
+                var bullet = new OceanicRage_ThingBullet(firePos, GetBulletVecDeg(owner.offDir == 1 ? Rando.Float(-5,5) : Rando.Float(175, 185), 0.3f), duck);
                 Level.Add(bullet);
                 SFX.PlaySynchronized("largeSplash", 5, Rando.Float(-0.5f, -0.3f));
             }
