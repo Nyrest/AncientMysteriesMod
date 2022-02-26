@@ -1,7 +1,7 @@
 ---
 name: "[zh-CN] 武器添加请求（Gun Request）"
 about: 请求添加一把新武器
-title: "[Gun Request] %武器名%"
+title: "[武器添加] %武器名%"
 labels: Gun, New-Items
 assignees: ''
 
