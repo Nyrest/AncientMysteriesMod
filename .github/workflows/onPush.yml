@@ -13,7 +13,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # Setup .NET SDK
       - name: Setup .NET SDK
@@ -63,7 +63,7 @@ jobs:
     runs-on: windows-latest
     
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v2
