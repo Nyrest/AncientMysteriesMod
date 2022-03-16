@@ -68,7 +68,7 @@ namespace AncientMysteries.SourceGenerator.Generators
         {
             string extension = Path.GetExtension(filename);
             string filenameNoExt = Path.GetFileNameWithoutExtension(filename);
-            string fieldName = char.ToUpperInvariant(filenameNoExt[0]) + filenameNoExt.Substring(1).Replace(" ", null);
+            string fieldName = char.ToUpperInvariant(filenameNoExt[0]) + filenameNoExt.Substring(1).Replace(" ", null).Replace('-', '_');
             string prefix = extension.ToLowerInvariant() switch
             {
                 ".png" => prefix_Texture,
@@ -81,7 +81,7 @@ namespace AncientMysteries.SourceGenerator.Generators
         public static string GetFieldName(string prefix, string filename)
         {
             string filenameNoExt = Path.GetFileNameWithoutExtension(filename);
-            string fieldName = char.ToUpperInvariant(filenameNoExt[0]) + filenameNoExt.Substring(1).Replace(" ", null);
+            string fieldName = char.ToUpperInvariant(filenameNoExt[0]) + filenameNoExt.Substring(1).Replace(" ", null).Replace('-', '_');
             return prefix + fieldName;
         }
     }
