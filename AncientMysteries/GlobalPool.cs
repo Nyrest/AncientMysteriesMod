@@ -1,6 +1,4 @@
-﻿using AncientMysteries.Helpers;
-
-namespace AncientMysteries
+﻿namespace AncientMysteries
 {
     public static class GlobalPool<T>
     {
@@ -17,7 +15,7 @@ namespace AncientMysteries
                 _array[index] = default!;
                 return result;
             }
-            return GenericNew<T>.CreateInstance();
+            return FastNew.CreateInstance<T>();
         }
 
         public static void Return(T item)

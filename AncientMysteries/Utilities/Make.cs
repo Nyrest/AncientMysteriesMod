@@ -51,7 +51,7 @@ namespace AncientMysteries.Utilities
         public static Bullet Bullet<TAmmoType>(Vec2 position, AmmoTypeModifier modifier, Thing owner = null, float angleDegress = 0, Thing firedFrom = null)
     where TAmmoType : AmmoType, new()
         {
-            var ammoType = GenericNew<TAmmoType>.CreateInstance();
+            var ammoType = FastNew.CreateInstance<TAmmoType>();
             modifier(ref ammoType.bulletSpeed, ref ammoType.range);
             return ammoType.FireBullet(position, owner, angleDegress, firedFrom);
         }
@@ -67,7 +67,7 @@ namespace AncientMysteries.Utilities
         private static TAmmoType GetAmmoTypeInstance<TAmmoType>()
             where TAmmoType : AmmoType, new()
         {
-            return GenericNew<TAmmoType>.CreateInstance();
+            return FastNew.CreateInstance<TAmmoType>();
             //return InstanceOf<TAmmoType>.instance;
         }
 
