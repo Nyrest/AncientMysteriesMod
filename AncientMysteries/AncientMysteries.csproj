@@ -1,158 +1,162 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <!--Project Info-->
-  <PropertyGroup>
-    <ProjectGuid>{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>AncientMysteries</RootNamespace>
-    <AssemblyName>AncientMysteries</AssemblyName>
-    <TargetFramework>net461</TargetFramework>
-    <LangVersion>preview</LangVersion>
-    <PlatformTarget>x86</PlatformTarget>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <LangVersion>preview</LangVersion>
-    <UseWindowsForms>true</UseWindowsForms>
-    <Platforms>x86</Platforms>
-  </PropertyGroup>
+	<!--Project Info-->
+	<PropertyGroup>
+		<ProjectGuid>{7714454B-7952-4FE5-BDF3-8E4DCF2D3559}</ProjectGuid>
+		<OutputType>Library</OutputType>
+		<RootNamespace>AncientMysteries</RootNamespace>
+		<AssemblyName>AncientMysteries</AssemblyName>
+		<TargetFramework>net461</TargetFramework>
+		<LangVersion>preview</LangVersion>
+		<PlatformTarget>x86</PlatformTarget>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<LangVersion>preview</LangVersion>
+		<UseWindowsForms>true</UseWindowsForms>
+		<Platforms>x86</Platforms>
+	</PropertyGroup>
 
-  <!--Info-->
-  <PropertyGroup>
-    <Title>Ancient Mysteries</Title>
-    <Version>1.0.4.0</Version>
-    <Description>|GREEN|Mysteries from the Ancient Civilization?</Description>
-    <Company>|PINK|Boring3 | Devastator | GUDZH | ASUS</Company>
-    <Authors>Boring3 | Devastator | GUDZH | ASUS</Authors>
-    <Product>Ancient Mysteries</Product>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <UserSecretsId>6c7b65f6-e597-4bb3-9015-2e98c3e26bed</UserSecretsId>
-  </PropertyGroup>
+	<!--Info-->
+	<PropertyGroup>
+		<Title>Ancient Mysteries</Title>
+		<Version>1.0.4.0</Version>
+		<Description>|GREEN|Mysteries from the Ancient Civilization?</Description>
+		<Company>|PINK|Boring3 | Devastator | GUDZH | ASUS</Company>
+		<Authors>Boring3 | Devastator | GUDZH | ASUS</Authors>
+		<Product>Ancient Mysteries</Product>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<UserSecretsId>6c7b65f6-e597-4bb3-9015-2e98c3e26bed</UserSecretsId>
+	</PropertyGroup>
 
-  <!--Source Generator And Analyzers-->
-  <ItemGroup>
-    <ProjectReference Include="..\AncientMysteries.Analyzers\AncientMysteries.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" Private="false" />
-    <ProjectReference Include="..\AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" Private="false" />
-  </ItemGroup>
+	<!--Source Generator And Analyzers-->
+	<ItemGroup>
+		<ProjectReference Include="..\AncientMysteries.Analyzers\AncientMysteries.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" Private="false" />
+		<ProjectReference Include="..\AncientMysteries.SourceGenerator\AncientMysteries.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" Private="false" />
+	</ItemGroup>
 
-  <!--Debug Configuration-->
-  <PropertyGroup Condition="'$(Configuration)' == 'Debug' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-  </PropertyGroup>
+	<!--Debug Configuration-->
+	<PropertyGroup Condition="'$(Configuration)' == 'Debug' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+	</PropertyGroup>
 
-  <!--Release Configuration-->
-  <PropertyGroup Condition="'$(Configuration)' == 'Release' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
+	<!--Release Configuration-->
+	<PropertyGroup Condition="'$(Configuration)' == 'Release' ">
+		<DebugType>pdbonly</DebugType>
+		<Optimize>true</Optimize>
+		<DefineConstants>TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+	</PropertyGroup>
 
-  <!--Items-->
-  <ItemGroup>
-    <Content Include="content\**">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <None Update="mod.conf" Visible="false">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <Compile Remove="Items\Artifact\Antenna.Bullet.cs" />
-    <Compile Remove="Items\Artifact\Antenna.cs" />
-    <Compile Remove="Items\Artifact\TemperatureArt.AmmoType.Ice.cs" />
-    <Compile Remove="Items\Artifact\TemperatureArt.AmmoType.Water.cs" />
-    <Compile Remove="Items\Artifact\TemperatureArt.AmmoType.WaterVapor.cs" />
-    <Compile Remove="Items\Artifact\TemperatureArt.AmmoType._Base.cs" />
-    <Compile Remove="Items\Artifact\TemperatureArt.cs" />
-    <Compile Remove="Items\Guns\NeonStriker.ThingBullet.Blue.cs" />
-    <Compile Remove="Items\Guns\NeonStriker.ThingBullet.Purple.cs" />
-    <Compile Remove="Items\Isekai\AssassinsCreed\HiddenBlade.cs" />
-    <Compile Remove="Items\Isekai\DanceFireAndIce\DanceIceAndFire.Bullet.cs" />
-    <Compile Remove="Items\Isekai\DanceFireAndIce\DanceIceAndFire.cs" />
-    <Compile Remove="Items\Isekai\Undertale\GasterBlasterTest.cs" />
-    <Compile Remove="Items\MapTools\Gameplay\SpeedHack.cs" />
-    <Compile Remove="Items\Props\CrashErrorDialog.cs" />
-    <Compile Remove="Items\Staffs\AbyssalGazer.cs" />
-    <Compile Remove="Items\_DEBUG\RandomAMItem.cs" />
-    <None Include="..\.editorconfig">
-      <Link>.editorconfig</Link>
-    </None>
-    <AdditionalFiles Include="_projLocator" Visible="false" />
-  </ItemGroup>
+	<!--Items-->
+	<ItemGroup>
+		<Content Include="content\**">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<None Update="mod.conf" Visible="false">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<Compile Remove="Items\Artifact\Antenna.Bullet.cs" />
+		<Compile Remove="Items\Artifact\Antenna.cs" />
+		<Compile Remove="Items\Artifact\TemperatureArt.AmmoType.Ice.cs" />
+		<Compile Remove="Items\Artifact\TemperatureArt.AmmoType.Water.cs" />
+		<Compile Remove="Items\Artifact\TemperatureArt.AmmoType.WaterVapor.cs" />
+		<Compile Remove="Items\Artifact\TemperatureArt.AmmoType._Base.cs" />
+		<Compile Remove="Items\Artifact\TemperatureArt.cs" />
+		<Compile Remove="Items\Guns\NeonStriker.ThingBullet.Blue.cs" />
+		<Compile Remove="Items\Guns\NeonStriker.ThingBullet.Purple.cs" />
+		<Compile Remove="Items\Isekai\AssassinsCreed\HiddenBlade.cs" />
+		<Compile Remove="Items\Isekai\DanceFireAndIce\DanceIceAndFire.Bullet.cs" />
+		<Compile Remove="Items\Isekai\DanceFireAndIce\DanceIceAndFire.cs" />
+		<Compile Remove="Items\Isekai\Undertale\GasterBlasterTest.cs" />
+		<Compile Remove="Items\MapTools\Gameplay\SpeedHack.cs" />
+		<Compile Remove="Items\Props\CrashErrorDialog.cs" />
+		<Compile Remove="Items\Staffs\AbyssalGazer.cs" />
+		<Compile Remove="Items\_DEBUG\RandomAMItem.cs" />
+		<None Include="..\.editorconfig">
+			<Link>.editorconfig</Link>
+		</None>
+		<AdditionalFiles Include="_projLocator" Visible="false" />
+	</ItemGroup>
 
-  <!--Nuget Dependencies-->
-  <ItemGroup>
-    <PackageReference Include="Lib.Harmony" Version="2.1.1" />
-    <PackageReference Include="Nullable" Version="1.3.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
-    <PackageReference Include="System.Memory" Version="4.5.4" />
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="5.0.0" />
-  </ItemGroup>
+	<!--Nuget Dependencies-->
+	<ItemGroup>
+		<PackageReference Include="FastGenericNew.SourceGenerator" Version="3.0.0-preview2.1">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Lib.Harmony" Version="2.1.1" />
+		<PackageReference Include="Nullable" Version="1.3.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+		<PackageReference Include="System.Memory" Version="4.5.4" />
+		<PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="5.0.0" />
+	</ItemGroup>
 
-  <!--Duck Game References-->
-  <ItemGroup>
-    <Reference Include="DGSteam">
-      <HintPath>..\References\DGSteam.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
+	<!--Duck Game References-->
+	<ItemGroup>
+		<Reference Include="DGSteam">
+			<HintPath>..\References\DGSteam.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
 
-    <Reference Include="DuckGame">
-      <HintPath>..\References\DuckGame.exe</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Microsoft.Xna.Framework">
-      <HintPath>..\References\Microsoft.Xna.Framework.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Game">
-      <HintPath>..\References\Microsoft.Xna.Framework.Game.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Graphics">
-      <HintPath>..\References\Microsoft.Xna.Framework.Graphics.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="System.Windows.Forms" />
-  </ItemGroup>
+		<Reference Include="DuckGame">
+			<HintPath>..\References\DuckGame.exe</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Microsoft.Xna.Framework">
+			<HintPath>..\References\Microsoft.Xna.Framework.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Microsoft.Xna.Framework.Game">
+			<HintPath>..\References\Microsoft.Xna.Framework.Game.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Microsoft.Xna.Framework.Graphics">
+			<HintPath>..\References\Microsoft.Xna.Framework.Graphics.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="System.Windows.Forms" />
+	</ItemGroup>
 
-  <!--Git Ignored MSBuild Properties-->
-  <!--Set OutputPath inside it-->
-  <ItemGroup>
-    <None Include="AncientMysteries.csproj.user" />
-    <None Include="Items\Artifact\Antenna.Bullet.cs" />
-    <None Include="Items\Artifact\Antenna.cs" />
-    <None Include="Items\Artifact\TemperatureArt.AmmoType.Ice.cs" />
-    <None Include="Items\Artifact\TemperatureArt.AmmoType.Water.cs" />
-    <None Include="Items\Artifact\TemperatureArt.AmmoType.WaterVapor.cs" />
-    <None Include="Items\Artifact\TemperatureArt.AmmoType._Base.cs" />
-    <None Include="Items\Artifact\TemperatureArt.cs" />
-    <None Include="Items\Isekai\AssassinsCreed\HiddenBlade.cs" />
-    <None Include="Items\Isekai\DanceFireAndIce\DanceIceAndFire.Bullet.cs" />
-    <None Include="Items\Isekai\DanceFireAndIce\DanceIceAndFire.cs" />
-    <None Include="Items\Isekai\Undertale\GasterBlasterTest.cs" />
-    <None Include="Items\MapTools\Gameplay\SpeedHack.cs" />
-    <None Include="Items\Props\CrashErrorDialog.cs" />
-    <None Include="Items\Staffs\AbyssalGazer.cs" />
-    <None Include="Items\_DEBUG\RandomAMItem.cs" />
-  </ItemGroup>
+	<!--Git Ignored MSBuild Properties-->
+	<!--Set OutputPath inside it-->
+	<ItemGroup>
+		<None Include="AncientMysteries.csproj.user" />
+		<None Include="Items\Artifact\Antenna.Bullet.cs" />
+		<None Include="Items\Artifact\Antenna.cs" />
+		<None Include="Items\Artifact\TemperatureArt.AmmoType.Ice.cs" />
+		<None Include="Items\Artifact\TemperatureArt.AmmoType.Water.cs" />
+		<None Include="Items\Artifact\TemperatureArt.AmmoType.WaterVapor.cs" />
+		<None Include="Items\Artifact\TemperatureArt.AmmoType._Base.cs" />
+		<None Include="Items\Artifact\TemperatureArt.cs" />
+		<None Include="Items\Isekai\AssassinsCreed\HiddenBlade.cs" />
+		<None Include="Items\Isekai\DanceFireAndIce\DanceIceAndFire.Bullet.cs" />
+		<None Include="Items\Isekai\DanceFireAndIce\DanceIceAndFire.cs" />
+		<None Include="Items\Isekai\Undertale\GasterBlasterTest.cs" />
+		<None Include="Items\MapTools\Gameplay\SpeedHack.cs" />
+		<None Include="Items\Props\CrashErrorDialog.cs" />
+		<None Include="Items\Staffs\AbyssalGazer.cs" />
+		<None Include="Items\_DEBUG\RandomAMItem.cs" />
+	</ItemGroup>
 
-  <!--Post Build Event-->
-  <Target Name="PostBuild" BeforeTargets="PostBuildEvent" Condition="$(NoPostBuild) != true">
-    <!--Run AutoNest-->
-    <Exec Command="cd &quot;$(SolutionDir)&quot;&#xD;&#xA;PostBuild.bat" />
-  </Target>
+	<!--Post Build Event-->
+	<Target Name="PostBuild" BeforeTargets="PostBuildEvent" Condition="$(NoPostBuild) != true">
+		<!--Run AutoNest-->
+		<Exec Command="cd &quot;$(SolutionDir)&quot;&#xD;&#xA;PostBuild.bat" />
+	</Target>
 
-  <!--Import Shared Project-->
-  <Import Project="..\AncientMysteries.Shared\AncientMysteries.Shared.projitems" Label="Shared" />
+	<!--Import Shared Project-->
+	<Import Project="..\AncientMysteries.Shared\AncientMysteries.Shared.projitems" Label="Shared" />
 
-  <!--Import AutoNest Generated Properties-->
-  <Import Project="AutoNest.generated.props" Condition="Exists('AutoNest.generated.props')" />
+	<!--Import AutoNest Generated Properties-->
+	<Import Project="AutoNest.generated.props" Condition="Exists('AutoNest.generated.props')" />
 
-  <ItemGroup>
-    <Folder Include="Items\Blocks\" />
-    <Folder Include="Items\Decorations\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Items\Blocks\" />
+		<Folder Include="Items\Decorations\" />
+	</ItemGroup>
 </Project>
