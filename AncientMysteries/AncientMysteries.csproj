@@ -81,7 +81,7 @@
 
 	<!--Nuget Dependencies-->
 	<ItemGroup>
-		<PackageReference Include="FastGenericNew.SourceGenerator" Version="3.0.0-preview2.1">
+		<PackageReference Include="FastGenericNew.SourceGenerator" Version="3.1.0-preview1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
